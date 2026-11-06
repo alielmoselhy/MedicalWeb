@@ -1,0 +1,15 @@
+id: cardiomyopathy
+name: Cardiomyopathy
+group: myocardial
+status: draft
+sources: ["K&C 10e p.1119"]
+chain:
+  - {from: cardiomyopathy-gene-variant, to: myocardial-scar, note: "ESC groups: hypertrophic, arrhythmogenic, dilated, restrictive, unclassified; each familial or not", source: "K&C 10e p.1119"}
+  - [myocardial-scar, ventricular-arrhythmia]
+findings:
+  - {id: dyspnoea, freq: common}
+outcomes:
+  - heart-failure
+  - ventricular-arrhythmia
+  - atrial-fibrillation
+  - sudden-cardiac-death

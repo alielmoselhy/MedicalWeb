@@ -1,0 +1,37 @@
+id: aortic-stenosis
+name: Aortic stenosis
+group: valvular
+status: draft
+sources: ["K&C 10e p.1097-1099"]
+chain:
+  - {from: older-age, to: calcific-degeneration, note: "Commonest cause: inflammatory, lipid-laden lesions calcify and stiffen the cusps", source: "K&C 10e p.1097"}
+  - {from: hyperlipidaemia, to: calcific-degeneration, note: "Shares atherosclerotic risk factors: male sex, raised LDL/Lp(a), hypertension, diabetes, smoking", source: "K&C 10e p.1097"}
+  - [hypertension, calcific-degeneration]
+  - {from: bicuspid-aortic-valve, to: calcific-degeneration, note: "Commonest congenital lesion (1–2% of births); presents younger", source: "K&C 10e p.1097"}
+  - {from: rheumatic-heart-disease, to: rheumatic-scarring, note: "Aortic valve involved in 30–40% of RHD, usually with mitral disease", source: "K&C 10e p.1097"}
+  - [calcific-degeneration, fixed-lvot-obstruction]
+  - [rheumatic-scarring, fixed-lvot-obstruction]
+  - [fixed-lvot-obstruction, lv-pressure-overload]
+  - [lv-pressure-overload, concentric-hypertrophy]
+  - {from: concentric-hypertrophy, to: demand-ischaemia, note: "Thickened LV outgrows its supply: angina even with normal coronaries", source: "K&C 10e p.1097"}
+  - [demand-ischaemia, exertional-chest-pain]
+  - {from: fixed-lvot-obstruction, to: exertional-syncope, note: "Output can't rise on exercise, so BP falls", source: "K&C 10e p.1097-1098"}
+  - [fixed-lvot-obstruction, ejection-systolic-murmur]
+  - [fixed-lvot-obstruction, slow-rising-pulse]
+  - [concentric-hypertrophy, diastolic-dysfunction]
+  - [concentric-hypertrophy, fourth-heart-sound]
+  - [concentric-hypertrophy, lvh-voltage]
+  - [demand-ischaemia, ventricular-arrhythmia]
+findings:
+  - {id: ejection-systolic-murmur, freq: classic, note: "Harsh crescendo–decrescendo, aortic area → carotids; quieter as output falls", source: "K&C 10e p.1098"}
+  - {id: slow-rising-pulse, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: exertional-chest-pain, freq: common}
+  - {id: exertional-syncope, freq: common}
+  - {id: fourth-heart-sound, freq: common}
+  - {id: soft-second-heart-sound, freq: occasional, note: "Once the valve is calcified and immobile", source: "K&C 10e p.1098"}
+  - {id: lvh-voltage, freq: common, note: "Strain pattern when severe", source: "K&C 10e p.1098"}
+outcomes:
+  - {id: heart-failure, note: "Once symptomatic, untreated survival averages 2–3 years", source: "K&C 10e p.1098"}
+  - ventricular-arrhythmia
+  - sudden-cardiac-death

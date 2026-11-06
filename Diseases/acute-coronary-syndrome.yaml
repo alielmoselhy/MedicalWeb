@@ -1,0 +1,28 @@
+id: acute-coronary-syndrome
+name: Acute coronary syndrome
+group: ischaemic
+status: draft
+sources: ["K&C 10e p.1079-1085"]
+chain:
+  - [smoking, endothelial-dysfunction]
+  - [diabetes-mellitus, endothelial-dysfunction]
+  - [hypertension, endothelial-dysfunction]
+  - [hyperlipidaemia, endothelial-dysfunction]
+  - [family-history-premature-chd, coronary-atherosclerosis]
+  - {from: endothelial-dysfunction, to: coronary-atherosclerosis, note: "Oxidised lipoprotein taken up by macrophages → foam cells → fatty streak → fibrous plaque", source: "K&C 10e p.1079"}
+  - {from: coronary-atherosclerosis, to: plaque-rupture, note: "Rupture or erosion of the fibrous cap is the mechanism common to every ACS", source: "K&C 10e p.1085"}
+  - [plaque-rupture, platelet-aggregation]
+  - {from: platelet-aggregation, to: coronary-thrombosis, note: "Thrombus, serotonin/thromboxane A2 vasoconstriction and distal embolisation cut coronary flow", source: "K&C 10e p.1085"}
+  - [coronary-thrombosis, myocardial-ischaemia]
+  - [myocardial-ischaemia, adenosine-release]
+  - [adenosine-release, rest-chest-pain]
+findings:
+  - {id: rest-chest-pain, freq: classic, note: "New, at rest, or worsening of known angina", source: "K&C 10e p.1085"}
+  - {id: dyspnoea, freq: occasional, note: "Atypical presentations: indigestion, pleuritic pain or breathlessness", source: "K&C 10e p.1085"}
+  - {id: hypotension, freq: occasional, note: "Adverse sign, along with basal crackles, S4 and new murmurs", source: "K&C 10e p.1085"}
+  - {id: pulmonary-crackles, freq: occasional}
+  - {id: fourth-heart-sound, freq: occasional}
+outcomes:
+  - heart-failure
+  - ventricular-arrhythmia
+  - sudden-cardiac-death

@@ -1,0 +1,30 @@
+id: tricuspid-regurgitation
+name: Tricuspid regurgitation
+group: valvular
+status: draft
+sources: ["K&C 10e p.1100-1101"]
+chain:
+  - {from: cor-pulmonale, to: annular-dilatation, note: "Functional TR whenever the RV dilates: cor pulmonale, MI, pulmonary hypertension", source: "K&C 10e p.1101"}
+  - [pulmonary-hypertension, annular-dilatation]
+  - [rheumatic-heart-disease, rheumatic-scarring]
+  - {from: infective-endocarditis, to: leaflet-destruction, note: "Right-sided IE is typical in injecting drug users", source: "K&C 10e p.1103"}
+  - [annular-dilatation, tricuspid-regurgitant-flow]
+  - [rheumatic-scarring, tricuspid-regurgitant-flow]
+  - [leaflet-destruction, tricuspid-regurgitant-flow]
+  - [tricuspid-regurgitant-flow, rv-volume-overload]
+  - [tricuspid-regurgitant-flow, systemic-venous-congestion]
+  - [tricuspid-regurgitant-flow, giant-v-waves]
+  - [tricuspid-regurgitant-flow, pulsatile-liver]
+  - [tricuspid-regurgitant-flow, pansystolic-murmur]
+  - [systemic-venous-congestion, peripheral-oedema]
+  - [systemic-venous-congestion, ascites]
+findings:
+  - {id: pansystolic-murmur, freq: classic, note: "Lower left sternal edge, louder on inspiration", source: "K&C 10e p.1101"}
+  - {id: giant-v-waves, freq: classic}
+  - {id: pulsatile-liver, freq: common}
+  - {id: peripheral-oedema, freq: common}
+  - {id: irregularly-irregular-pulse, freq: common, note: "AF is common", source: "K&C 10e p.1101"}
+  - {id: ascites, freq: occasional}
+outcomes:
+  - {id: heart-failure, note: "Right heart failure"}
+  - atrial-fibrillation

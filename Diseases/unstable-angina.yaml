@@ -1,0 +1,30 @@
+id: unstable-angina
+name: Unstable angina
+parent: acute-coronary-syndrome
+group: ischaemic
+status: draft
+sources: ["K&C 10e p.1079-1085"]
+chain:
+  - [smoking, endothelial-dysfunction]
+  - [diabetes-mellitus, endothelial-dysfunction]
+  - [hypertension, endothelial-dysfunction]
+  - [hyperlipidaemia, endothelial-dysfunction]
+  - [family-history-premature-chd, coronary-atherosclerosis]
+  - {from: endothelial-dysfunction, to: coronary-atherosclerosis, note: "Oxidised lipoprotein taken up by macrophages → foam cells → fatty streak → fibrous plaque", source: "K&C 10e p.1079"}
+  - [coronary-atherosclerosis, plaque-rupture]
+  - [plaque-rupture, platelet-aggregation]
+  - [platelet-aggregation, non-occlusive-coronary-thrombus]
+  - {from: non-occlusive-coronary-thrombus, to: subendocardial-ischaemia, note: "Ischaemia without necrosis, so troponin stays normal: this is what separates UA from NSTEMI", source: "K&C 10e p.1084"}
+  - [subendocardial-ischaemia, adenosine-release]
+  - [adenosine-release, rest-chest-pain]
+  - [subendocardial-ischaemia, st-depression]
+  - [subendocardial-ischaemia, t-wave-inversion]
+findings:
+  - {id: rest-chest-pain, freq: classic, note: "New onset, at rest, or crescendo pattern of known angina", source: "K&C 10e p.1085"}
+  - {id: st-depression, freq: common, note: "ECG may be normal; repeat it during pain", source: "K&C 10e p.1085"}
+  - {id: t-wave-inversion, freq: common}
+  - {id: dyspnoea, freq: occasional}
+outcomes:
+  - {id: nstemi, note: "If necrosis follows (troponin rises)"}
+  - stemi
+  - sudden-cardiac-death

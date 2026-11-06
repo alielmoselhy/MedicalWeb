@@ -1,0 +1,21 @@
+id: chronic-mesenteric-ischaemia
+name: Chronic mesenteric ischaemia
+group: atherosclerotic
+status: draft
+sources: ["K&C 10e p.1196"]
+chain:
+  - [smoking, endothelial-dysfunction]
+  - [diabetes-mellitus, endothelial-dysfunction]
+  - [hypertension, endothelial-dysfunction]
+  - [hyperlipidaemia, endothelial-dysfunction]
+  - [endothelial-dysfunction, mesenteric-atherosclerosis]
+  - [mesenteric-atherosclerosis, mesenteric-stenosis]
+  - {from: mesenteric-stenosis, to: mesenteric-ischaemia, note: "Mostly elderly; good collaterals can mask it", source: "K&C 10e p.1196"}
+  - [mesenteric-ischaemia, post-prandial-abdominal-pain]
+  - [mesenteric-ischaemia, weight-loss]
+findings:
+  - {id: post-prandial-abdominal-pain, freq: classic, note: "The characteristic symptom", source: "K&C 10e p.1196"}
+  - {id: weight-loss, freq: common}
+  - {id: abdominal-bruit, freq: occasional, note: "Of doubtful value: also heard in normal people", source: "K&C 10e p.1196"}
+outcomes:
+  - bowel-infarction

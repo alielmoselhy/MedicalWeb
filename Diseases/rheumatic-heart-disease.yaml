@@ -1,0 +1,25 @@
+id: rheumatic-heart-disease
+name: Rheumatic heart disease
+group: valvular
+status: draft
+sources: ["K&C 10e p.545", "K&C 10e p.1092", "K&C 10e p.1097"]
+chain:
+  - [rheumatic-fever, endocardial-inflammation]
+  - {from: endocardial-inflammation, to: rheumatic-scarring, note: "Recurrent attacks add damage; recurrence is common where RF is prevalent", source: "K&C 10e p.545"}
+  - [rheumatic-scarring, mitral-inflow-obstruction]
+  - [rheumatic-scarring, mitral-regurgitant-flow]
+  - [rheumatic-scarring, aortic-regurgitant-flow]
+  - [rheumatic-scarring, fixed-lvot-obstruction]
+  - [rheumatic-scarring, tricuspid-regurgitant-flow]
+findings:
+  - {id: mid-diastolic-murmur, freq: common}
+  - {id: pansystolic-murmur, freq: common}
+  - {id: early-diastolic-murmur, freq: occasional}
+outcomes:
+  - {id: mitral-stenosis, freq: classic, note: "Mitral valve mainly; aortic in 30–40%, usually alongside mitral", source: "K&C 10e p.1097"}
+  - mitral-regurgitation
+  - aortic-regurgitation
+  - aortic-stenosis
+  - tricuspid-regurgitation
+  - atrial-fibrillation
+  - infective-endocarditis

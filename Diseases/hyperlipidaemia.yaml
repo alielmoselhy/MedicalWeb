@@ -1,0 +1,19 @@
+id: hyperlipidaemia
+name: Hyperlipidaemia
+group: lipid
+status: draft
+sources: ["K&C 10e p.744-747"]
+chain:
+  - {from: raised-ldl, to: endothelial-dysfunction, note: "Non-HDL/LDL cholesterol tracks CVD risk most strongly, especially coronary", source: "K&C 10e p.745-746"}
+  - [endothelial-dysfunction, atherosclerosis]
+  - [raised-triglycerides, low-hdl]
+findings:
+  - {id: raised-ldl, freq: common}
+  - {id: raised-triglycerides, freq: common}
+  - {id: low-hdl, freq: occasional}
+outcomes:
+  - acute-coronary-syndrome
+  - stable-angina
+  - ischaemic-stroke
+  - peripheral-arterial-disease
+  - {id: acute-pancreatitis, note: "Triglycerides >10 mmol/L, especially with persistent chylomicrons", source: "K&C 10e p.746"}

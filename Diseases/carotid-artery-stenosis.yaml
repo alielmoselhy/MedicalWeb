@@ -1,0 +1,26 @@
+id: carotid-artery-stenosis
+name: Carotid artery stenosis
+group: atherosclerotic
+status: draft
+sources: ["K&C 10e p.828", "K&C 10e p.836-838"]
+chain:
+  - [smoking, endothelial-dysfunction]
+  - [diabetes-mellitus, endothelial-dysfunction]
+  - [hypertension, endothelial-dysfunction]
+  - [hyperlipidaemia, endothelial-dysfunction]
+  - [endothelial-dysfunction, carotid-atherosclerosis]
+  - {from: carotid-atherosclerosis, to: carotid-stenosis, note: "Branch points such as the proximal internal carotid are favoured sites", source: "K&C 10e p.837"}
+  - {from: carotid-atherosclerosis, to: plaque-rupture, note: "Thrombus on a ruptured plaque embolises downstream (artery-to-artery)", source: "K&C 10e p.837"}
+  - [plaque-rupture, atheroembolism]
+  - {from: carotid-stenosis, to: atheroembolism, note: "A stenosis usually causes stroke as an embolic source, not by occluding the vessel", source: "K&C 10e p.837"}
+  - {from: carotid-stenosis, to: cerebral-ischaemia, note: "Hypoperfusion: watershed infarcts if blood pressure falls", source: "K&C 10e p.837"}
+  - [atheroembolism, cerebral-ischaemia]
+  - [cerebral-ischaemia, transient-focal-neurological-deficit]
+  - {from: atheroembolism, to: amaurosis-fugax, note: "Emboli through the retinal arteries; sometimes seen as a Hollenhorst plaque", source: "K&C 10e p.838"}
+findings:
+  - {id: transient-focal-neurological-deficit, freq: classic, note: "Hemiparesis and aphasia commonest; full recovery, usually within minutes", source: "K&C 10e p.838"}
+  - {id: amaurosis-fugax, freq: common}
+  - {id: carotid-bruit, freq: occasional}
+outcomes:
+  - transient-ischaemic-attack
+  - ischaemic-stroke

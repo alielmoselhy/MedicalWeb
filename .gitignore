@@ -1,0 +1,5 @@
+node_modules/
+dist/
+Resources/
+app/src/graph.json
+.DS_Store

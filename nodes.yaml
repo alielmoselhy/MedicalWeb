@@ -1,0 +1,415 @@
+# Shared vocabulary. Every non-disease node used in Diseases/*.yaml must be defined here.
+# One node per line: {id, name, type, parent?, category?}
+# type: cause | mechanism | finding | outcome
+# parent: "is a kind of" (one parent, same type; an outcome may be a kind of disease). Siblings count as "related".
+# category: findings → symptom | sign | lab | ECG | imaging · causes → organism | genetic | risk-factor | drug | condition
+# (condition = a disease from another system, used as a cause until it gets its own file)
+# Agreed in docs/concepts-cardio.md (step 5a). A child is indented under its parent purely for reading.
+
+# ================= CAUSES =================
+# --- Organisms ---
+- {id: staphylococci, name: Staphylococci, type: cause, category: organism}
+-   {id: s-aureus, name: Staphylococcus aureus, type: cause, category: organism, parent: staphylococci}
+-   {id: coagulase-negative-staphylococci, name: Coagulase-negative staphylococci, type: cause, category: organism, parent: staphylococci}
+- {id: streptococci, name: Streptococci, type: cause, category: organism}
+-   {id: viridans-streptococci, name: Viridans streptococci, type: cause, category: organism, parent: streptococci}
+-   {id: group-a-streptococcus, name: Group A streptococcus (S. pyogenes), type: cause, category: organism, parent: streptococci}
+-   {id: streptococcus-gallolyticus, name: Streptococcus gallolyticus (bovis), type: cause, category: organism, parent: streptococci}
+- {id: enterococci, name: Enterococci, type: cause, category: organism}
+- {id: hacek-organisms, name: HACEK organisms, type: cause, category: organism}
+- {id: gram-negative-bacilli, name: Gram-negative bacilli, type: cause, category: organism}
+- {id: candida, name: Candida species, type: cause, category: organism}
+- {id: cardiotropic-virus, name: Cardiotropic virus, type: cause, category: organism}
+-   {id: coxsackie-b-virus, name: Coxsackie B virus, type: cause, category: organism, parent: cardiotropic-virus}
+-   {id: adenovirus, name: Adenovirus, type: cause, category: organism, parent: cardiotropic-virus}
+-   {id: parvovirus-b19, name: Parvovirus B19, type: cause, category: organism, parent: cardiotropic-virus}
+- {id: mycobacterium-tuberculosis, name: Mycobacterium tuberculosis, type: cause, category: organism}
+# --- Genetic ---
+- {id: lipid-gene-variant, name: Lipid-handling gene variant, type: cause, category: genetic}
+-   {id: ldlr-mutation, name: LDL-receptor gene mutation, type: cause, category: genetic, parent: lipid-gene-variant}
+-   {id: apob-mutation, name: ApoB gene mutation, type: cause, category: genetic, parent: lipid-gene-variant}
+-   {id: pcsk9-gain-of-function, name: PCSK9 gain-of-function, type: cause, category: genetic, parent: lipid-gene-variant}
+- {id: cardiomyopathy-gene-variant, name: Cardiomyopathy gene variant, type: cause, category: genetic}
+-   {id: sarcomere-gene-mutation, name: Sarcomere protein gene mutation, type: cause, category: genetic, parent: cardiomyopathy-gene-variant}
+-   {id: titin-truncation, name: Titin (TTN) truncating variant, type: cause, category: genetic, parent: cardiomyopathy-gene-variant}
+- {id: ion-channel-mutation, name: "Cardiac ion-channel mutation (long QT, Brugada)", type: cause, category: genetic}
+- {id: bmpr2-mutation, name: BMPR2 mutation, type: cause, category: genetic}
+- {id: heritable-thrombophilia, name: "Heritable thrombophilia (factor V Leiden, protein C/S, antithrombin)", type: cause, category: genetic}
+- {id: polygenic-bp-predisposition, name: Polygenic blood-pressure predisposition, type: cause, category: genetic}
+- {id: marfan-syndrome, name: "Marfan's syndrome (FBN1)", type: cause, category: genetic}
+# --- Risk factors ---
+# diabetes-mellitus is a cause here until the endocrine system gets its own disease file.
+- {id: modifiable-risk-factor, name: Modifiable cardiovascular risk factor, type: cause, category: risk-factor}
+-   {id: smoking, name: Smoking, type: cause, category: risk-factor, parent: modifiable-risk-factor}
+-   {id: diabetes-mellitus, name: Diabetes mellitus, type: cause, category: risk-factor, parent: modifiable-risk-factor}
+-   {id: obesity, name: Obesity, type: cause, category: risk-factor, parent: modifiable-risk-factor}
+-   {id: physical-inactivity, name: Physical inactivity, type: cause, category: risk-factor, parent: modifiable-risk-factor}
+-   {id: excess-alcohol, name: Excess alcohol intake, type: cause, category: risk-factor, parent: modifiable-risk-factor}
+-   {id: high-salt-intake, name: High salt intake, type: cause, category: risk-factor, parent: modifiable-risk-factor}
+- {id: non-modifiable-risk-factor, name: Non-modifiable cardiovascular risk factor, type: cause, category: risk-factor}
+-   {id: older-age, name: Older age, type: cause, category: risk-factor, parent: non-modifiable-risk-factor}
+-   {id: male-sex, name: Male sex, type: cause, category: risk-factor, parent: non-modifiable-risk-factor}
+-   {id: family-history-premature-chd, name: Family history of premature CHD, type: cause, category: risk-factor, parent: non-modifiable-risk-factor}
+- {id: vte-provoking-factor, name: Provoking factor for venous thrombosis, type: cause, category: risk-factor}
+-   {id: immobility-or-surgery, name: Immobility, surgery or trauma, type: cause, category: risk-factor, parent: vte-provoking-factor}
+-   {id: active-cancer, name: Active cancer, type: cause, category: risk-factor, parent: vte-provoking-factor}
+-   {id: pregnancy-or-oestrogen, name: Pregnancy / oestrogen therapy, type: cause, category: risk-factor, parent: vte-provoking-factor}
+- {id: intravascular-device, name: Intravascular device / prosthetic material, type: cause, category: risk-factor}
+-   {id: central-venous-catheter, name: Central venous catheter, type: cause, category: risk-factor, parent: intravascular-device}
+-   {id: prosthetic-heart-valve, name: Prosthetic heart valve, type: cause, category: risk-factor, parent: intravascular-device}
+-     {id: mechanical-heart-valve, name: Mechanical heart valve, type: cause, category: risk-factor, parent: prosthetic-heart-valve}
+-     {id: bioprosthetic-heart-valve, name: Bioprosthetic (tissue) heart valve, type: cause, category: risk-factor, parent: prosthetic-heart-valve}
+-   {id: vascular-graft, name: Vascular graft, type: cause, category: risk-factor, parent: intravascular-device}
+# --- Drugs ---
+- {id: lipid-raising-drugs, name: Lipid-raising drugs, type: cause, category: drug}
+- {id: bp-raising-drugs, name: Blood-pressure-raising drugs, type: cause, category: drug}
+- {id: anorexigen-drugs, name: Anorexigen drugs (fenfluramine-type), type: cause, category: drug}
+- {id: anticoagulant-therapy, name: Anticoagulant therapy, type: cause, category: drug}
+# --- Conditions from other systems ---
+- {id: congenital-heart-defect, name: Congenital heart defect, type: cause, category: condition}
+-   {id: bicuspid-aortic-valve, name: Bicuspid aortic valve, type: cause, category: condition, parent: congenital-heart-defect}
+-   {id: aortic-coarctation, name: Coarctation of the aorta, type: cause, category: condition, parent: congenital-heart-defect}
+- {id: fibromuscular-dysplasia, name: Fibromuscular dysplasia, type: cause, category: condition}
+- {id: amyloidosis, name: Amyloidosis, type: cause, category: condition}
+- {id: hypothyroidism, name: Hypothyroidism, type: cause, category: condition}
+- {id: nephrotic-syndrome, name: Nephrotic syndrome, type: cause, category: condition}
+- {id: chronic-lung-disease, name: Chronic lung disease (COPD, ILD), type: cause, category: condition}
+- {id: obstructive-sleep-apnoea, name: Obstructive sleep apnoea, type: cause, category: condition}
+- {id: endocrine-hypertension-cause, name: Endocrine cause of hypertension, type: cause, category: condition}
+-   {id: primary-hyperaldosteronism, name: Primary hyperaldosteronism, type: cause, category: condition, parent: endocrine-hypertension-cause}
+-   {id: phaeochromocytoma, name: Phaeochromocytoma, type: cause, category: condition, parent: endocrine-hypertension-cause}
+
+# ================= MECHANISMS =================
+# --- Vascular / ischaemic ---
+- {id: atherosclerosis, name: Atherosclerosis, type: mechanism}
+-   {id: coronary-atherosclerosis, name: Coronary atherosclerosis, type: mechanism, parent: atherosclerosis}
+-   {id: carotid-atherosclerosis, name: Carotid atherosclerosis, type: mechanism, parent: atherosclerosis}
+-   {id: renal-artery-atherosclerosis, name: Renal artery atherosclerosis, type: mechanism, parent: atherosclerosis}
+-   {id: mesenteric-atherosclerosis, name: Mesenteric artery atherosclerosis, type: mechanism, parent: atherosclerosis}
+-   {id: peripheral-atherosclerosis, name: Peripheral (limb) artery atherosclerosis, type: mechanism, parent: atherosclerosis}
+- {id: arterial-stenosis, name: Flow-limiting arterial stenosis, type: mechanism}
+-   {id: fixed-coronary-stenosis, name: Fixed coronary stenosis (flow-limiting), type: mechanism, parent: arterial-stenosis}
+-   {id: carotid-stenosis, name: Carotid stenosis, type: mechanism, parent: arterial-stenosis}
+-   {id: renal-artery-narrowing, name: Renal artery narrowing, type: mechanism, parent: arterial-stenosis}
+-   {id: mesenteric-stenosis, name: Mesenteric artery stenosis, type: mechanism, parent: arterial-stenosis}
+-   {id: limb-artery-stenosis, name: Limb artery stenosis/occlusion, type: mechanism, parent: arterial-stenosis}
+- {id: plaque-rupture, name: Plaque rupture / erosion, type: mechanism}
+- {id: platelet-aggregation, name: Platelet aggregation and thrombus formation, type: mechanism}
+- {id: tissue-ischaemia, name: Tissue ischaemia, type: mechanism}
+-   {id: myocardial-ischaemia, name: Myocardial ischaemia, type: mechanism, parent: tissue-ischaemia}
+-     {id: demand-ischaemia, name: Exertional supply–demand mismatch, type: mechanism, parent: myocardial-ischaemia}
+-     {id: subendocardial-ischaemia, name: Subendocardial ischaemia, type: mechanism, parent: myocardial-ischaemia}
+-     {id: transmural-ischaemia, name: Transmural ischaemia, type: mechanism, parent: myocardial-ischaemia}
+-   {id: cerebral-ischaemia, name: Cerebral ischaemia, type: mechanism, parent: tissue-ischaemia}
+-   {id: mesenteric-ischaemia, name: Mesenteric (gut) ischaemia, type: mechanism, parent: tissue-ischaemia}
+-   {id: limb-ischaemia, name: Limb ischaemia, type: mechanism, parent: tissue-ischaemia}
+-   {id: renal-hypoperfusion, name: Renal hypoperfusion, type: mechanism, parent: tissue-ischaemia}
+- {id: adenosine-release, name: Ischaemic metabolite (adenosine) release, type: mechanism}
+- {id: myocyte-necrosis, name: Myocyte necrosis, type: mechanism}
+- {id: thrombosis, name: Thrombosis, type: mechanism}
+-   {id: coronary-thrombosis, name: Coronary thrombosis, type: mechanism, parent: thrombosis}
+-     {id: non-occlusive-coronary-thrombus, name: Non-occlusive / intermittent coronary thrombus, type: mechanism, parent: coronary-thrombosis}
+-     {id: occlusive-coronary-thrombus, name: Persistent occlusive coronary thrombus, type: mechanism, parent: coronary-thrombosis}
+-   {id: venous-thrombosis, name: Venous thrombosis (DVT), type: mechanism, parent: thrombosis}
+-   {id: intracardiac-thrombus, name: Intracardiac thrombus (LV mural / left atrial), type: mechanism, parent: thrombosis}
+- {id: embolism, name: Embolism, type: mechanism}
+-   {id: thromboembolism, name: Thromboembolism, type: mechanism, parent: embolism}
+-   {id: septic-embolism, name: Septic embolism, type: mechanism, parent: embolism}
+-   {id: atheroembolism, name: Atheroembolism, type: mechanism, parent: embolism}
+- {id: endothelial-dysfunction, name: Endothelial dysfunction, type: mechanism}
+- {id: small-vessel-disease, name: Small-vessel disease (lipohyalinosis), type: mechanism}
+- {id: raised-arterial-pressure, name: Sustained raised systemic arterial pressure, type: mechanism}
+- {id: arterial-stiffening, name: Large-artery stiffening, type: mechanism}
+- {id: venous-stasis, name: Venous stasis, type: mechanism}
+- {id: hypercoagulability, name: Hypercoagulability, type: mechanism}
+- {id: ventilation-perfusion-mismatch, name: Ventilation–perfusion mismatch, type: mechanism}
+- {id: pulmonary-infarction, name: Pulmonary infarction, type: mechanism}
+
+# --- Load and remodelling ---
+- {id: pressure-overload, name: Pressure overload, type: mechanism}
+-   {id: lv-pressure-overload, name: LV pressure overload, type: mechanism, parent: pressure-overload}
+-   {id: rv-pressure-overload, name: RV pressure overload, type: mechanism, parent: pressure-overload}
+- {id: volume-overload, name: Volume overload, type: mechanism}
+-   {id: lv-volume-overload, name: LV volume overload, type: mechanism, parent: volume-overload}
+-   {id: rv-volume-overload, name: RV volume overload, type: mechanism, parent: volume-overload}
+- {id: ventricular-hypertrophy, name: Ventricular hypertrophy, type: mechanism}
+-   {id: concentric-hypertrophy, name: Concentric hypertrophy, type: mechanism, parent: ventricular-hypertrophy}
+-   {id: eccentric-hypertrophy, name: Eccentric hypertrophy / dilatation, type: mechanism, parent: ventricular-hypertrophy}
+- {id: outflow-obstruction, name: Ventricular outflow obstruction, type: mechanism}
+-   {id: fixed-lvot-obstruction, name: Fixed (valvular) LV outflow obstruction, type: mechanism, parent: outflow-obstruction}
+-   {id: dynamic-lvot-obstruction, name: Dynamic LV outflow obstruction, type: mechanism, parent: outflow-obstruction}
+-   {id: rv-outflow-obstruction, name: RV outflow obstruction, type: mechanism, parent: outflow-obstruction}
+- {id: impaired-ventricular-filling, name: Impaired ventricular filling, type: mechanism}
+-   {id: diastolic-dysfunction, name: Diastolic dysfunction (stiff myocardium), type: mechanism, parent: impaired-ventricular-filling}
+-   {id: pericardial-compression, name: Pericardial compression, type: mechanism, parent: impaired-ventricular-filling}
+-   {id: mitral-inflow-obstruction, name: Mitral inflow obstruction, type: mechanism, parent: impaired-ventricular-filling}
+- {id: systolic-dysfunction, name: Systolic dysfunction (impaired contractility), type: mechanism}
+- {id: reduced-cardiac-output, name: Reduced cardiac output, type: mechanism}
+- {id: myocardial-infiltration, name: Myocardial infiltration, type: mechanism}
+- {id: pericardial-effusion, name: Pericardial effusion, type: mechanism}
+
+# --- Responses ---
+- {id: neurohormonal-activation, name: Neurohormonal activation, type: mechanism}
+-   {id: raas-activation, name: Renin–angiotensin–aldosterone activation, type: mechanism, parent: neurohormonal-activation}
+-   {id: sympathetic-activation, name: Sympathetic activation, type: mechanism, parent: neurohormonal-activation}
+-   {id: mineralocorticoid-excess, name: Mineralocorticoid excess, type: mechanism, parent: neurohormonal-activation}
+-   {id: catecholamine-excess, name: Catecholamine excess, type: mechanism, parent: neurohormonal-activation}
+- {id: salt-water-retention, name: Salt and water retention, type: mechanism}
+- {id: venous-congestion, name: Venous congestion, type: mechanism}
+-   {id: pulmonary-venous-congestion, name: Pulmonary venous congestion, type: mechanism, parent: venous-congestion}
+-   {id: systemic-venous-congestion, name: Systemic venous congestion, type: mechanism, parent: venous-congestion}
+- {id: alveolar-flooding, name: Interstitial and alveolar fluid (oedema), type: mechanism}
+- {id: arrhythmogenic-substrate, name: Arrhythmogenic substrate, type: mechanism}
+-   {id: myocardial-scar, name: Myocardial scar / fibrosis, type: mechanism, parent: arrhythmogenic-substrate}
+-   {id: myocyte-disarray, name: Myocyte disarray, type: mechanism, parent: arrhythmogenic-substrate}
+-   {id: atrial-dilatation, name: Atrial dilatation, type: mechanism, parent: arrhythmogenic-substrate}
+- {id: cardiac-inflammation, name: Cardiac inflammation, type: mechanism}
+-   {id: myocardial-inflammation, name: Myocardial inflammation, type: mechanism, parent: cardiac-inflammation}
+-   {id: pericardial-inflammation, name: Pericardial inflammation, type: mechanism, parent: cardiac-inflammation}
+-   {id: endocardial-inflammation, name: Endocardial (valvular) inflammation, type: mechanism, parent: cardiac-inflammation}
+- {id: immune-mediated-injury, name: Immune-mediated injury, type: mechanism}
+-   {id: post-infarct-autoimmunity, name: Autoimmune reaction to damaged myocardium/pericardium, type: mechanism, parent: immune-mediated-injury}
+-   {id: molecular-mimicry, name: Molecular mimicry, type: mechanism, parent: immune-mediated-injury}
+-   {id: immune-complex-deposition, name: Immune-complex deposition, type: mechanism, parent: immune-mediated-injury}
+
+# --- Valves ---
+- {id: valve-damage, name: Valve damage, type: mechanism}
+-   {id: calcific-degeneration, name: Calcific degeneration, type: mechanism, parent: valve-damage}
+-   {id: rheumatic-scarring, name: Rheumatic scarring (commissural fusion), type: mechanism, parent: valve-damage}
+-   {id: leaflet-destruction, name: Leaflet destruction (infective), type: mechanism, parent: valve-damage}
+-   {id: myxomatous-degeneration, name: Myxomatous degeneration (prolapse), type: mechanism, parent: valve-damage}
+-   {id: annular-dilatation, name: Annular / root dilatation, type: mechanism, parent: valve-damage}
+- {id: valve-regurgitation, name: Valvular regurgitant flow, type: mechanism}
+-   {id: aortic-regurgitant-flow, name: Aortic regurgitant flow, type: mechanism, parent: valve-regurgitation}
+-   {id: mitral-regurgitant-flow, name: Mitral regurgitant flow, type: mechanism, parent: valve-regurgitation}
+-   {id: tricuspid-regurgitant-flow, name: Tricuspid regurgitant flow, type: mechanism, parent: valve-regurgitation}
+-   {id: pulmonary-regurgitant-flow, name: Pulmonary regurgitant flow, type: mechanism, parent: valve-regurgitation}
+- {id: prosthesis-thrombogenicity, name: Prosthetic valve thrombogenicity, type: mechanism}
+
+# --- Lipids ---
+- {id: impaired-ldl-clearance, name: Impaired LDL clearance, type: mechanism}
+-   {id: ldl-receptor-defect, name: Defective LDL-receptor uptake, type: mechanism, parent: impaired-ldl-clearance}
+-   {id: apob-binding-defect, name: Defective ApoB binding, type: mechanism, parent: impaired-ldl-clearance}
+-   {id: reduced-receptor-expression, name: Reduced LDL-receptor expression, type: mechanism, parent: impaired-ldl-clearance}
+- {id: lipoprotein-overproduction, name: Lipoprotein overproduction, type: mechanism}
+-   {id: hepatic-vldl-overproduction, name: Hepatic VLDL overproduction, type: mechanism, parent: lipoprotein-overproduction}
+- {id: excess-fatty-acid-flux, name: Excess fatty-acid release from adipose tissue, type: mechanism}
+- {id: impaired-triglyceride-clearance, name: Impaired triglyceride clearance (LPL pathway), type: mechanism}
+
+# --- Infection ---
+- {id: bloodstream-entry, name: Bacterial entry into the bloodstream, type: mechanism}
+-   {id: catheter-entry, name: Entry via intravascular catheter, type: mechanism, parent: bloodstream-entry}
+-   {id: mucosal-dental-entry, name: Entry via mucosa / dental procedures, type: mechanism, parent: bloodstream-entry}
+-   {id: skin-soft-tissue-entry, name: Entry via skin / soft-tissue infection, type: mechanism, parent: bloodstream-entry}
+-   {id: injection-drug-use, name: Entry via injection drug use, type: mechanism, parent: bloodstream-entry}
+-   {id: endovascular-focus, name: Seeding from an endovascular focus, type: mechanism, parent: bloodstream-entry}
+- {id: biofilm-formation, name: Biofilm formation on foreign material, type: mechanism}
+-   {id: catheter-biofilm, name: Catheter biofilm, type: mechanism, parent: biofilm-formation}
+-   {id: prosthetic-valve-biofilm, name: Prosthetic valve biofilm, type: mechanism, parent: biofilm-formation}
+-   {id: graft-biofilm, name: Vascular graft biofilm, type: mechanism, parent: biofilm-formation}
+- {id: haematogenous-seeding, name: Bacteria in the bloodstream seeding distant sites, type: mechanism}
+- {id: dysregulated-host-response, name: Dysregulated host response (sepsis), type: mechanism}
+- {id: endocardial-damage, name: Damaged endocardium, type: mechanism}
+- {id: vegetation-formation, name: Infected vegetation formation, type: mechanism}
+
+# --- Pulmonary circulation ---
+- {id: raised-pulmonary-pressure, name: Raised pulmonary vascular pressure, type: mechanism}
+-   {id: pulmonary-venous-hypertension, name: Pulmonary venous hypertension (left heart), type: mechanism, parent: raised-pulmonary-pressure}
+-   {id: hypoxic-vasoconstriction, name: Hypoxic pulmonary vasoconstriction, type: mechanism, parent: raised-pulmonary-pressure}
+-   {id: pulmonary-arterial-obstruction, name: Pulmonary arterial obstruction, type: mechanism, parent: raised-pulmonary-pressure}
+-   {id: pulmonary-vascular-remodelling, name: Pulmonary vascular remodelling, type: mechanism, parent: raised-pulmonary-pressure}
+
+# ================= FINDINGS =================
+# --- Symptoms ---
+- {id: chest-pain, name: Chest pain, type: finding, category: symptom}
+-   {id: exertional-chest-pain, name: Exertional chest pain relieved by rest/GTN, type: finding, category: symptom, parent: chest-pain}
+-   {id: rest-chest-pain, name: Chest pain at rest / new or worsening angina, type: finding, category: symptom, parent: chest-pain}
+-   {id: prolonged-chest-pain, name: "Severe chest pain >20 min, not relieved by GTN", type: finding, category: symptom, parent: chest-pain}
+-   {id: pleuritic-chest-pain, name: Pleuritic / positional chest pain, type: finding, category: symptom, parent: chest-pain}
+- {id: dyspnoea, name: Dyspnoea, type: finding, category: symptom}
+-   {id: exertional-dyspnoea, name: Exertional dyspnoea, type: finding, category: symptom, parent: dyspnoea}
+-   {id: orthopnoea, name: Orthopnoea, type: finding, category: symptom, parent: dyspnoea}
+-   {id: paroxysmal-nocturnal-dyspnoea, name: Paroxysmal nocturnal dyspnoea, type: finding, category: symptom, parent: dyspnoea}
+- {id: syncope, name: Syncope, type: finding, category: symptom}
+-   {id: exertional-syncope, name: Exertional syncope, type: finding, category: symptom, parent: syncope}
+-   {id: arrhythmic-syncope, name: Sudden syncope without warning (arrhythmic), type: finding, category: symptom, parent: syncope}
+- {id: ischaemic-limb-gut-pain, name: Ischaemic limb or gut pain, type: finding, category: symptom}
+-   {id: intermittent-claudication, name: Intermittent claudication, type: finding, category: symptom, parent: ischaemic-limb-gut-pain}
+-   {id: rest-pain, name: Ischaemic rest pain, type: finding, category: symptom, parent: ischaemic-limb-gut-pain}
+-   {id: post-prandial-abdominal-pain, name: Post-prandial abdominal pain (mesenteric angina), type: finding, category: symptom, parent: ischaemic-limb-gut-pain}
+- {id: fever, name: Fever, type: finding, category: symptom}
+- {id: rigors, name: Rigors, type: finding, category: symptom}
+- {id: fatigue, name: Fatigue, type: finding, category: symptom}
+- {id: palpitations, name: Palpitations, type: finding, category: symptom}
+- {id: haemoptysis, name: Haemoptysis, type: finding, category: symptom}
+- {id: pink-frothy-sputum, name: Pink frothy sputum, type: finding, category: symptom}
+- {id: weight-loss, name: Weight loss, type: finding, category: symptom}
+- {id: transient-focal-neurological-deficit, name: Transient focal neurological deficit, type: finding, category: symptom}
+- {id: amaurosis-fugax, name: Amaurosis fugax, type: finding, category: symptom}
+
+# --- Signs ---
+- {id: diaphoresis, name: "Sweating, pallor, clamminess", type: finding, category: sign}
+- {id: hypotension, name: Hypotension, type: finding, category: sign}
+- {id: raised-blood-pressure, name: Raised blood pressure, type: finding, category: sign}
+- {id: tachycardia, name: Tachycardia, type: finding, category: sign}
+- {id: tachypnoea, name: Tachypnoea, type: finding, category: sign}
+- {id: pulseless-collapse, name: Sudden pulseless collapse, type: finding, category: sign}
+- {id: hepatomegaly, name: Hepatomegaly, type: finding, category: sign}
+- {id: splenomegaly, name: Splenomegaly, type: finding, category: sign}
+- {id: malar-flush, name: Malar flush, type: finding, category: sign}
+- {id: trophic-skin-changes, name: Trophic skin changes (cold, dry, hairless), type: finding, category: sign}
+- {id: low-abpi, name: Low ankle–brachial pressure index, type: finding, category: sign}
+- {id: unilateral-leg-swelling, name: Unilateral leg pain and swelling, type: finding, category: sign}
+- {id: line-site-inflammation, name: Inflammation at the line site, type: finding, category: sign}
+- {id: migratory-polyarthritis, name: Migratory polyarthritis, type: finding, category: sign}
+- {id: sydenham-chorea, name: Sydenham's chorea, type: finding, category: sign}
+- {id: erythema-marginatum, name: Erythema marginatum, type: finding, category: sign}
+- {id: subcutaneous-nodules, name: Subcutaneous nodules, type: finding, category: sign}
+- {id: murmur, name: Murmur, type: finding, category: sign}
+-   {id: ejection-systolic-murmur, name: Ejection systolic murmur, type: finding, category: sign, parent: murmur}
+-   {id: pansystolic-murmur, name: Pansystolic murmur, type: finding, category: sign, parent: murmur}
+-   {id: early-diastolic-murmur, name: Early diastolic murmur, type: finding, category: sign, parent: murmur}
+-   {id: mid-diastolic-murmur, name: Mid-diastolic murmur, type: finding, category: sign, parent: murmur}
+-   {id: new-or-changed-murmur, name: New or changed murmur, type: finding, category: sign, parent: murmur}
+- {id: added-heart-sound, name: Added heart sound, type: finding, category: sign}
+-   {id: third-heart-sound, name: Third heart sound (S3), type: finding, category: sign, parent: added-heart-sound}
+-   {id: fourth-heart-sound, name: Fourth heart sound (S4), type: finding, category: sign, parent: added-heart-sound}
+-   {id: opening-snap, name: Opening snap, type: finding, category: sign, parent: added-heart-sound}
+-   {id: mid-systolic-click, name: Mid-systolic click, type: finding, category: sign, parent: added-heart-sound}
+-   {id: pericardial-rub, name: Pericardial friction rub, type: finding, category: sign, parent: added-heart-sound}
+- {id: altered-heart-sound, name: Altered heart sound, type: finding, category: sign}
+-   {id: loud-first-heart-sound, name: Loud first heart sound, type: finding, category: sign, parent: altered-heart-sound}
+-   {id: soft-second-heart-sound, name: Soft / absent aortic second sound, type: finding, category: sign, parent: altered-heart-sound}
+-   {id: loud-p2, name: Loud P2, type: finding, category: sign, parent: altered-heart-sound}
+-   {id: muffled-heart-sounds, name: Soft, distant heart sounds, type: finding, category: sign, parent: altered-heart-sound}
+- {id: abnormal-precordial-impulse, name: Abnormal precordial impulse, type: finding, category: sign}
+-   {id: displaced-apex-beat, name: Displaced, forceful apex beat, type: finding, category: sign, parent: abnormal-precordial-impulse}
+-   {id: parasternal-heave, name: Parasternal (RV) heave, type: finding, category: sign, parent: abnormal-precordial-impulse}
+- {id: abnormal-pulse, name: Abnormal pulse, type: finding, category: sign}
+-   {id: slow-rising-pulse, name: Slow-rising pulse, type: finding, category: sign, parent: abnormal-pulse}
+-   {id: collapsing-pulse, name: Collapsing pulse, type: finding, category: sign, parent: abnormal-pulse}
+-   {id: jerky-pulse, name: Jerky pulse, type: finding, category: sign, parent: abnormal-pulse}
+-   {id: pulsus-paradoxus, name: Pulsus paradoxus, type: finding, category: sign, parent: abnormal-pulse}
+-   {id: pulsus-alternans, name: Pulsus alternans, type: finding, category: sign, parent: abnormal-pulse}
+-   {id: irregularly-irregular-pulse, name: Irregularly irregular pulse, type: finding, category: sign, parent: abnormal-pulse}
+-   {id: reduced-peripheral-pulses, name: Reduced / absent peripheral pulses, type: finding, category: sign, parent: abnormal-pulse}
+-   {id: wide-pulse-pressure, name: Wide pulse pressure, type: finding, category: sign, parent: abnormal-pulse}
+- {id: raised-jvp, name: Raised JVP, type: finding, category: sign}
+-   {id: kussmaul-sign, name: Kussmaul's sign, type: finding, category: sign, parent: raised-jvp}
+-   {id: giant-v-waves, name: Giant v waves, type: finding, category: sign, parent: raised-jvp}
+-   {id: steep-y-descent, name: Steep y descent, type: finding, category: sign, parent: raised-jvp}
+- {id: pulsatile-liver, name: Pulsatile liver, type: finding, category: sign}
+- {id: bruit, name: Arterial bruit, type: finding, category: sign}
+-   {id: carotid-bruit, name: Carotid bruit, type: finding, category: sign, parent: bruit}
+-   {id: abdominal-bruit, name: Abdominal bruit (renal / mesenteric), type: finding, category: sign, parent: bruit}
+-   {id: femoral-bruit, name: Femoral bruit, type: finding, category: sign, parent: bruit}
+- {id: fluid-overload-sign, name: Sign of fluid overload, type: finding, category: sign}
+-   {id: peripheral-oedema, name: Peripheral pitting oedema, type: finding, category: sign, parent: fluid-overload-sign}
+-   {id: pulmonary-crackles, name: Bibasal crackles, type: finding, category: sign, parent: fluid-overload-sign}
+-   {id: ascites, name: Ascites, type: finding, category: sign, parent: fluid-overload-sign}
+-   {id: pleural-effusion, name: Pleural effusion, type: finding, category: sign, parent: fluid-overload-sign}
+- {id: endocarditis-stigmata, name: Peripheral stigmata of endocarditis, type: finding, category: sign}
+-   {id: splinter-haemorrhages, name: Splinter haemorrhages, type: finding, category: sign, parent: endocarditis-stigmata}
+-   {id: janeway-lesions, name: Janeway lesions, type: finding, category: sign, parent: endocarditis-stigmata}
+-   {id: osler-nodes, name: Osler nodes, type: finding, category: sign, parent: endocarditis-stigmata}
+-   {id: roth-spots, name: Roth spots, type: finding, category: sign, parent: endocarditis-stigmata}
+- {id: lipid-deposits, name: Lipid deposits, type: finding, category: sign}
+-   {id: tendon-xanthoma, name: Tendon xanthomas, type: finding, category: sign, parent: lipid-deposits}
+-   {id: xanthelasma, name: Xanthelasma, type: finding, category: sign, parent: lipid-deposits}
+-   {id: corneal-arcus, name: Corneal arcus, type: finding, category: sign, parent: lipid-deposits}
+-   {id: eruptive-xanthoma, name: Eruptive xanthomas, type: finding, category: sign, parent: lipid-deposits}
+-   {id: lipaemia-retinalis, name: Lipaemia retinalis, type: finding, category: sign, parent: lipid-deposits}
+
+# --- ECG ---
+# FUZZINESS NOTE (user, step 5a): splitting ST elevation is exactly where matching tolerance needs sorting out.
+# Today territorial vs saddle count only as "related", like any siblings. Revisit how similar-but-discriminating findings are scored.
+- {id: st-elevation, name: ST elevation, type: finding, category: ECG}
+-   {id: territorial-st-elevation, name: Territorial ST elevation (reciprocal depression), type: finding, category: ECG, parent: st-elevation}
+-   {id: diffuse-saddle-st-elevation, name: Diffuse saddle-shaped ST elevation, type: finding, category: ECG, parent: st-elevation}
+- {id: st-depression, name: ST depression, type: finding, category: ECG}
+- {id: t-wave-inversion, name: T-wave inversion, type: finding, category: ECG}
+- {id: pathological-q-waves, name: Pathological Q waves, type: finding, category: ECG}
+- {id: ecg-chamber-enlargement, name: ECG chamber enlargement, type: finding, category: ECG}
+-   {id: lvh-voltage, name: LVH voltage criteria, type: finding, category: ECG, parent: ecg-chamber-enlargement}
+-   {id: rv-strain, name: Right-axis deviation / RV strain, type: finding, category: ECG, parent: ecg-chamber-enlargement}
+-   {id: p-mitrale, name: P mitrale (left atrial enlargement), type: finding, category: ECG, parent: ecg-chamber-enlargement}
+-   {id: p-pulmonale, name: P pulmonale (right atrial enlargement), type: finding, category: ECG, parent: ecg-chamber-enlargement}
+- {id: low-voltage-qrs, name: Low-voltage QRS complexes, type: finding, category: ECG}
+- {id: electrical-alternans, name: Electrical alternans, type: finding, category: ECG}
+- {id: prolonged-pr-interval, name: Prolonged PR interval, type: finding, category: ECG}
+- {id: pr-depression, name: PR-segment depression, type: finding, category: ECG}
+
+# --- Labs ---
+- {id: cardiac-biomarker, name: Raised cardiac biomarker, type: finding, category: lab}
+-   {id: troponin-rise, name: Raised troponin, type: finding, category: lab, parent: cardiac-biomarker}
+-   {id: ck-mb-rise, name: Raised CK-MB, type: finding, category: lab, parent: cardiac-biomarker}
+-   {id: bnp-rise, name: Raised BNP / NT-proBNP, type: finding, category: lab, parent: cardiac-biomarker}
+- {id: dyslipidaemia-lab, name: Abnormal lipid profile, type: finding, category: lab}
+-   {id: raised-ldl, name: Raised LDL cholesterol, type: finding, category: lab, parent: dyslipidaemia-lab}
+-   {id: raised-triglycerides, name: Raised triglycerides, type: finding, category: lab, parent: dyslipidaemia-lab}
+-   {id: low-hdl, name: Low HDL cholesterol, type: finding, category: lab, parent: dyslipidaemia-lab}
+- {id: positive-blood-cultures, name: Positive blood cultures, type: finding, category: lab}
+- {id: raised-aso-titre, name: Raised ASO / anti-DNase B titre, type: finding, category: lab}
+- {id: raised-inflammatory-markers, name: Raised CRP / ESR, type: finding, category: lab}
+- {id: hypoxaemia, name: Hypoxaemia, type: finding, category: lab}
+- {id: hypokalaemia, name: Hypokalaemia, type: finding, category: lab}
+- {id: proteinuria, name: Proteinuria, type: finding, category: lab}
+- {id: haematuria, name: Haematuria, type: finding, category: lab}
+- {id: creatinine-rise-on-ace-inhibitor, name: Creatinine rise on ACE inhibitor / ARB, type: finding, category: lab}
+
+# --- Imaging ---
+- {id: cardiomegaly, name: Cardiomegaly on CXR, type: finding, category: imaging}
+- {id: pericardial-effusion-imaging, name: Pericardial effusion on echo, type: finding, category: imaging}
+- {id: vegetation-on-echo, name: Valve vegetation on echo, type: finding, category: imaging}
+- {id: dilated-ventricle-echo, name: Dilated, poorly contracting ventricle on echo, type: finding, category: imaging}
+- {id: renal-asymmetry, name: Asymmetric kidney size, type: finding, category: imaging}
+- {id: pulmonary-congestion-cxr, name: Pulmonary congestion on CXR, type: finding, category: imaging}
+- {id: enlarged-pulmonary-arteries-cxr, name: Enlarged pulmonary arteries on CXR, type: finding, category: imaging}
+
+# ================= OUTCOMES =================
+- {id: shock, name: Shock, type: outcome}
+-   {id: cardiogenic-shock, name: Cardiogenic shock, type: outcome, parent: shock}
+-   {id: septic-shock, name: Septic shock, type: outcome, parent: shock}
+-   {id: obstructive-shock, name: Obstructive shock, type: outcome, parent: shock}
+- {id: arrhythmia, name: Arrhythmia, type: outcome}
+-   {id: ventricular-arrhythmia, name: Ventricular tachycardia / fibrillation, type: outcome, parent: arrhythmia}
+-   {id: atrial-fibrillation, name: Atrial fibrillation, type: outcome, parent: arrhythmia}
+-   {id: av-block, name: Atrioventricular block, type: outcome, parent: arrhythmia}
+-   {id: bradyarrhythmia, name: Bradyarrhythmia, type: outcome, parent: arrhythmia}
+- {id: stroke, name: Stroke / TIA, type: outcome}
+-   {id: ischaemic-stroke, name: Ischaemic stroke, type: outcome, parent: stroke}
+-   {id: haemorrhagic-stroke, name: Haemorrhagic stroke, type: outcome, parent: stroke}
+-   {id: transient-ischaemic-attack, name: Transient ischaemic attack, type: outcome, parent: stroke}
+- {id: mechanical-complication-of-mi, name: Mechanical complication of MI, type: outcome}
+-   {id: free-wall-rupture, name: LV free-wall rupture, type: outcome, parent: mechanical-complication-of-mi}
+-   {id: ventricular-septal-rupture, name: Post-infarct ventricular septal defect, type: outcome, parent: mechanical-complication-of-mi}
+-   {id: papillary-muscle-rupture, name: Papillary muscle dysfunction / rupture, type: outcome, parent: mechanical-complication-of-mi}
+-   {id: lv-aneurysm, name: Left ventricular aneurysm, type: outcome, parent: mechanical-complication-of-mi}
+- {id: acute-mitral-regurgitation, name: Acute mitral regurgitation, type: outcome, parent: mitral-regurgitation}
+- {id: early-post-mi-pericarditis, name: Early post-MI (fibrinous) pericarditis, type: outcome, parent: acute-pericarditis}
+- {id: dressler-syndrome, name: Dressler's syndrome, type: outcome, parent: acute-pericarditis}
+- {id: relapsing-pericarditis, name: Incessant / chronic relapsing pericarditis, type: outcome, parent: acute-pericarditis}
+- {id: constrictive-pericarditis, name: Constrictive pericarditis, type: outcome}
+- {id: metastatic-infection, name: Metastatic infection, type: outcome}
+-   {id: septic-emboli-abscess, name: "Abscess from septic emboli (spleen, brain, kidney)", type: outcome, parent: metastatic-infection}
+-   {id: vertebral-osteomyelitis, name: Vertebral osteomyelitis / discitis, type: outcome, parent: metastatic-infection}
+-   {id: mycotic-aneurysm, name: Mycotic aneurysm, type: outcome, parent: metastatic-infection}
+- {id: kidney-injury, name: Kidney injury, type: outcome}
+-   {id: acute-kidney-injury, name: Acute kidney injury, type: outcome, parent: kidney-injury}
+-   {id: chronic-kidney-disease, name: Chronic kidney disease, type: outcome, parent: kidney-injury}
+-   {id: glomerulonephritis, name: Immune-complex glomerulonephritis, type: outcome, parent: kidney-injury}
+- {id: acute-pancreatitis, name: Acute pancreatitis, type: outcome}
+- {id: respiratory-failure, name: Respiratory failure, type: outcome}
+- {id: hypertensive-end-organ-damage, name: Hypertensive end-organ damage, type: outcome}
+-   {id: hypertensive-retinopathy, name: Hypertensive retinopathy, type: outcome, parent: hypertensive-end-organ-damage}
+-   {id: hypertensive-nephropathy, name: Hypertensive nephropathy, type: outcome, parent: hypertensive-end-organ-damage}
+- {id: prosthetic-valve-failure, name: Prosthetic valve complication, type: outcome}
+-   {id: valve-thrombosis, name: Prosthetic valve thrombosis, type: outcome, parent: prosthetic-valve-failure}
+-   {id: paravalvular-leak, name: Paravalvular leak, type: outcome, parent: prosthetic-valve-failure}
+-   {id: structural-valve-degeneration, name: Structural valve degeneration, type: outcome, parent: prosthetic-valve-failure}
+-   {id: valve-haemolysis, name: Haemolysis, type: outcome, parent: prosthetic-valve-failure}
+-   {id: anticoagulant-bleeding, name: Anticoagulant-related bleeding, type: outcome, parent: prosthetic-valve-failure}
+- {id: critical-ischaemia, name: Critical ischaemic event, type: outcome}
+-   {id: acute-limb-ischaemia, name: Acute limb ischaemia, type: outcome, parent: critical-ischaemia}
+-   {id: gangrene-amputation, name: Gangrene / amputation, type: outcome, parent: critical-ischaemia}
+-   {id: bowel-infarction, name: Bowel infarction, type: outcome, parent: critical-ischaemia}

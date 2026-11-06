@@ -1,0 +1,24 @@
+id: bacteraemia
+name: Bacteraemia
+group: infection
+status: draft
+sources: ["K&C 10e p.500 (Box 20.11)", "K&C 10e p.1103-1104", "K&C 10e p.154"]
+chain:
+  - {from: mucosal-dental-entry, to: haematogenous-seeding, note: "Transient: brief entry (e.g. dental work) usually cleared by the host"}
+  - [skin-soft-tissue-entry, haematogenous-seeding]
+  - [catheter-entry, haematogenous-seeding]
+  - [injection-drug-use, haematogenous-seeding]
+  - {from: endovascular-focus, to: haematogenous-seeding, note: "Persistent: continuous shedding from an intravascular focus. Repeatedly positive cultures >12 h apart are a Duke major criterion", source: "K&C 10e p.1104"}
+  - [haematogenous-seeding, positive-blood-cultures]
+  - {from: haematogenous-seeding, to: dysregulated-host-response, note: "Sepsis: life-threatening organ dysfunction from a dysregulated host response", source: "K&C 10e p.154"}
+  - [dysregulated-host-response, fever]
+  - [dysregulated-host-response, septic-shock]
+findings:
+  - {id: fever, freq: classic}
+  - {id: positive-blood-cultures, freq: classic}
+  - {id: rigors, freq: common, note: "Fever, shivers, rigors suggest bloodstream infection", source: "K&C 10e p.494"}
+  - {id: tachycardia, freq: common}
+outcomes:
+  - septic-shock
+  - infective-endocarditis
+  - metastatic-infection

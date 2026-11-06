@@ -1,0 +1,32 @@
+id: cardiac-tamponade
+name: Cardiac tamponade
+group: pericardial
+status: draft
+sources: ["K&C 10e p.1126-1127"]
+chain:
+  - [acute-pericarditis, pericardial-effusion]
+  - {from: active-cancer, to: pericardial-effusion, note: "Bronchus, breast, lymphoma: often large and haemorrhagic", source: "K&C 10e p.1126"}
+  - [free-wall-rupture, pericardial-effusion]
+  - {from: pericardial-effusion, to: pericardial-compression, note: "Enough fluid stops the ventricles filling", source: "K&C 10e p.1126"}
+  - [pericardial-compression, reduced-cardiac-output]
+  - [reduced-cardiac-output, hypotension]
+  - [pericardial-compression, raised-jvp]
+  - [pericardial-compression, kussmaul-sign]
+  - [pericardial-compression, pulsus-paradoxus]
+  - [pericardial-effusion, muffled-heart-sounds]
+  - [pericardial-effusion, low-voltage-qrs]
+  - [pericardial-effusion, electrical-alternans]
+  - [pericardial-effusion, pericardial-effusion-imaging]
+findings:
+  - {id: raised-jvp, freq: classic, note: "Sharp x descent", source: "K&C 10e p.1127"}
+  - {id: pulsus-paradoxus, freq: classic, note: "Systolic BP falls ≥10 mmHg on inspiration", source: "K&C 10e p.1127"}
+  - {id: hypotension, freq: common}
+  - {id: kussmaul-sign, freq: common}
+  - {id: muffled-heart-sounds, freq: common}
+  - {id: tachycardia, freq: common}
+  - {id: low-voltage-qrs, freq: common}
+  - {id: electrical-alternans, freq: occasional}
+  - {id: pericardial-effusion-imaging, freq: classic, note: "Echo: RA late-diastolic and RV early-diastolic collapse, plethoric IVC", source: "K&C 10e p.1127"}
+  - {id: cardiomegaly, freq: occasional, note: "Globular heart with clear lung fields", source: "K&C 10e p.1127"}
+outcomes:
+  - obstructive-shock

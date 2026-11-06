@@ -1,0 +1,41 @@
+id: mitral-stenosis
+name: Mitral stenosis
+group: valvular
+status: draft
+sources: ["K&C 10e p.1092-1093"]
+chain:
+  - {from: rheumatic-heart-disease, to: rheumatic-scarring, note: "Usual cause; decades after rheumatic fever in Europe, 10–20 years in low-income countries", source: "K&C 10e p.1092"}
+  - {from: rheumatic-scarring, to: mitral-inflow-obstruction, note: "Commissural fusion → doming, then thickening and calcification", source: "K&C 10e p.1092"}
+  - {from: calcific-degeneration, to: mitral-inflow-obstruction, note: "Mitral annular calcification: elderly, end-stage renal disease (rare)", source: "K&C 10e p.1092"}
+  - {from: mitral-inflow-obstruction, to: atrial-dilatation, note: "LA pressure rises to maintain output; LA hypertrophies and dilates", source: "K&C 10e p.1092"}
+  - [mitral-inflow-obstruction, pulmonary-venous-congestion]
+  - [pulmonary-venous-congestion, exertional-dyspnoea]
+  - [pulmonary-venous-congestion, haemoptysis]
+  - {from: pulmonary-venous-congestion, to: pulmonary-oedema, note: "Often tipped over by AF with a fast rate", source: "K&C 10e p.1092"}
+  - [pulmonary-venous-congestion, pulmonary-venous-hypertension]
+  - [pulmonary-venous-hypertension, rv-pressure-overload]
+  - [rv-pressure-overload, systemic-venous-congestion]
+  - [rv-pressure-overload, rv-strain]
+  - [atrial-dilatation, atrial-fibrillation]
+  - [atrial-dilatation, p-mitrale]
+  - [atrial-fibrillation, intracardiac-thrombus]
+  - [intracardiac-thrombus, thromboembolism]
+  - [mitral-inflow-obstruction, mid-diastolic-murmur]
+  - [mitral-inflow-obstruction, opening-snap]
+findings:
+  - {id: mid-diastolic-murmur, freq: classic, note: "Low rumble at the apex, bell, left lateral, expiration; presystolic accentuation in sinus rhythm", source: "K&C 10e p.1092"}
+  - {id: exertional-dyspnoea, freq: classic}
+  - {id: opening-snap, freq: common}
+  - {id: loud-first-heart-sound, freq: common, note: "Lost once the valve calcifies", source: "K&C 10e p.1092"}
+  - {id: irregularly-irregular-pulse, freq: common}
+  - {id: p-mitrale, freq: common}
+  - {id: malar-flush, freq: occasional}
+  - {id: haemoptysis, freq: occasional}
+  - {id: rv-strain, freq: occasional}
+  - {id: peripheral-oedema, freq: occasional}
+outcomes:
+  - atrial-fibrillation
+  - {id: ischaemic-stroke, note: "Systemic emboli, most often cerebral", source: "K&C 10e p.1092"}
+  - pulmonary-oedema
+  - pulmonary-hypertension
+  - heart-failure

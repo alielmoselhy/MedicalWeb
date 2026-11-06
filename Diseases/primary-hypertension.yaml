@@ -1,0 +1,29 @@
+id: primary-hypertension
+name: Primary (essential) hypertension
+parent: hypertension
+group: hypertension & heart failure
+status: draft
+sources: ["K&C 10e p.1133-1138"]
+chain:
+  - {from: polygenic-bp-predisposition, to: raised-arterial-pressure, note: "Hundreds of small-effect genes account for ~60% of BP level", source: "K&C 10e p.1137"}
+  - {from: older-age, to: arterial-stiffening, note: "Large arteries stiffen with age, so BP climbs through mid and later life", source: "K&C 10e p.1133"}
+  - [arterial-stiffening, raised-arterial-pressure]
+  - {from: high-salt-intake, to: salt-water-retention, note: "Also low fruit/veg, high saturated fat and simple sugars, excess liquorice", source: "K&C 10e p.1137"}
+  - [salt-water-retention, raised-arterial-pressure]
+  - [obesity, sympathetic-activation]
+  - [sympathetic-activation, raised-arterial-pressure]
+  - [excess-alcohol, raised-arterial-pressure]
+  - [physical-inactivity, raised-arterial-pressure]
+  - [raised-arterial-pressure, lv-pressure-overload]
+  - {from: lv-pressure-overload, to: concentric-hypertrophy, note: "Remodelling first lowers wall stress, then becomes pathological", source: "K&C 10e p.1140"}
+  - [concentric-hypertrophy, diastolic-dysfunction]
+  - [concentric-hypertrophy, lvh-voltage]
+  - [raised-arterial-pressure, endothelial-dysfunction]
+  - {from: raised-arterial-pressure, to: small-vessel-disease, note: "Lipohyalinosis of penetrating arteries → lacunar infarcts", source: "K&C 10e p.837"}
+findings:
+  - {id: raised-blood-pressure, freq: classic, note: "Up to 90% of hypertension has no single identifiable cause", source: "K&C 10e p.1137"}
+outcomes:
+  - ischaemic-stroke
+  - acute-coronary-syndrome
+  - heart-failure
+  - chronic-kidney-disease

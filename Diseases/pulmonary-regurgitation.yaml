@@ -1,0 +1,13 @@
+id: pulmonary-regurgitation
+name: Pulmonary regurgitation
+group: valvular
+status: draft
+sources: ["K&C 10e p.1102"]
+chain:
+  - {from: pulmonary-hypertension, to: annular-dilatation, note: "Commonest acquired cause: a dilated valve ring (Graham Steell murmur)", source: "K&C 10e p.1102"}
+  - {from: congenital-heart-defect, to: pulmonary-regurgitant-flow, note: "After tetralogy of Fallot repair", source: "K&C 10e p.1102"}
+  - [annular-dilatation, pulmonary-regurgitant-flow]
+  - [pulmonary-regurgitant-flow, rv-volume-overload]
+  - [pulmonary-regurgitant-flow, early-diastolic-murmur]
+findings:
+  - {id: early-diastolic-murmur, freq: classic, note: "Decrescendo from P2; hard to tell from AR. Usually asymptomatic", source: "K&C 10e p.1102"}

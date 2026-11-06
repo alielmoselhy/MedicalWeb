@@ -1,0 +1,32 @@
+id: aortic-regurgitation
+name: Aortic regurgitation
+group: valvular
+status: draft
+sources: ["K&C 10e p.1099-1100"]
+chain:
+  - {from: infective-endocarditis, to: leaflet-destruction, note: "Acute AR: endocarditis, dissection, rheumatic fever, prosthetic failure", source: "K&C 10e p.1099 (Box 30.44)"}
+  - [rheumatic-heart-disease, rheumatic-scarring]
+  - {from: marfan-syndrome, to: annular-dilatation, note: "Root disease: Marfan's, syphilis, spondyloarthritis, severe hypertension", source: "K&C 10e p.1099 (Box 30.44)"}
+  - [bicuspid-aortic-valve, annular-dilatation]
+  - [leaflet-destruction, aortic-regurgitant-flow]
+  - [rheumatic-scarring, aortic-regurgitant-flow]
+  - [annular-dilatation, aortic-regurgitant-flow]
+  - {from: aortic-regurgitant-flow, to: lv-volume-overload, note: "The LV must eject forward plus regurgitant volume", source: "K&C 10e p.1099"}
+  - [lv-volume-overload, eccentric-hypertrophy]
+  - [eccentric-hypertrophy, displaced-apex-beat]
+  - [eccentric-hypertrophy, systolic-dysfunction]
+  - {from: aortic-regurgitant-flow, to: demand-ischaemia, note: "Low diastolic pressure cuts coronary perfusion as the bigger LV needs more O2", source: "K&C 10e p.1099"}
+  - [aortic-regurgitant-flow, early-diastolic-murmur]
+  - [aortic-regurgitant-flow, collapsing-pulse]
+  - [aortic-regurgitant-flow, wide-pulse-pressure]
+findings:
+  - {id: early-diastolic-murmur, freq: classic, note: "High-pitched, left sternal edge, sitting forward in expiration", source: "K&C 10e p.1100"}
+  - {id: collapsing-pulse, freq: common}
+  - {id: wide-pulse-pressure, freq: common}
+  - {id: displaced-apex-beat, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: mid-diastolic-murmur, freq: occasional, note: "Austin Flint: jet hits the anterior mitral leaflet", source: "K&C 10e p.1100"}
+  - {id: ejection-systolic-murmur, freq: occasional, note: "Flow murmur from the volume load", source: "K&C 10e p.1100"}
+  - {id: exertional-chest-pain, freq: occasional}
+outcomes:
+  - {id: heart-failure, note: "Symptoms come late, with LV failure", source: "K&C 10e p.1099"}

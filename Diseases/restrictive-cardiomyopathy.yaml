@@ -1,0 +1,34 @@
+id: restrictive-cardiomyopathy
+name: Restrictive cardiomyopathy
+parent: cardiomyopathy
+group: myocardial
+status: draft
+sources: ["K&C 10e p.1123-1124", "K&C 10e p.1127"]
+chain:
+  - {from: amyloidosis, to: myocardial-infiltration, note: "Commonest association; also sarcoidosis, endomyocardial fibrosis", source: "K&C 10e p.1123"}
+  - [myocardial-infiltration, diastolic-dysfunction]
+  - {from: diastolic-dysfunction, to: atrial-dilatation, note: "Bi-atrial enlargement; ventricles normal size, near-normal systolic function", source: "K&C 10e p.1123"}
+  - [diastolic-dysfunction, systemic-venous-congestion]
+  - [diastolic-dysfunction, pulmonary-venous-congestion]
+  - [systemic-venous-congestion, raised-jvp]
+  - [systemic-venous-congestion, kussmaul-sign]
+  - [systemic-venous-congestion, hepatomegaly]
+  - [systemic-venous-congestion, ascites]
+  - [systemic-venous-congestion, peripheral-oedema]
+  - [pulmonary-venous-congestion, exertional-dyspnoea]
+  - [atrial-dilatation, intracardiac-thrombus]
+  - [intracardiac-thrombus, thromboembolism]
+findings:
+  - {id: raised-jvp, freq: classic}
+  - {id: kussmaul-sign, freq: common, note: "Shared with constrictive pericarditis, the key differential", source: "K&C 10e p.1127"}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: hepatomegaly, freq: common}
+  - {id: ascites, freq: common}
+  - {id: peripheral-oedema, freq: common}
+  - {id: low-voltage-qrs, freq: common}
+  - {id: third-heart-sound, freq: occasional}
+outcomes:
+  - heart-failure
+  - atrial-fibrillation
+  - {id: ischaemic-stroke, note: "Embolic symptoms", source: "K&C 10e p.1123"}

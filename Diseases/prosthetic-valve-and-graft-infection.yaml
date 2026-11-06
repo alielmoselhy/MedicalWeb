@@ -1,0 +1,32 @@
+id: prosthetic-valve-and-graft-infection
+name: Prosthetic valve and vascular graft infection
+group: infection
+status: draft
+sources: ["K&C 10e p.1102-1104", "K&C 10e p.500", "K&C 10e p.511"]
+chain:
+  - [prosthetic-heart-valve, prosthetic-valve-biofilm]
+  - [vascular-graft, graft-biofilm]
+  - {from: coagulase-negative-staphylococci, to: prosthetic-valve-biofilm, note: "Device-loving skin flora; biofilms are hard to eradicate", source: "K&C 10e p.511"}
+  - [coagulase-negative-staphylococci, graft-biofilm]
+  - {from: s-aureus, to: graft-biofilm, note: "S. aureus foci include vascular grafts", source: "K&C 10e p.500"}
+  - [s-aureus, prosthetic-valve-biofilm]
+  - [prosthetic-valve-biofilm, vegetation-formation]
+  - {from: prosthetic-valve-biofilm, to: paravalvular-leak, note: "New partial dehiscence is a Duke major criterion", source: "K&C 10e p.1104"}
+  - [vegetation-formation, septic-embolism]
+  - [graft-biofilm, haematogenous-seeding]
+  - [prosthetic-valve-biofilm, haematogenous-seeding]
+  - [haematogenous-seeding, positive-blood-cultures]
+  - {from: haematogenous-seeding, to: dysregulated-host-response, note: "Sepsis: life-threatening organ dysfunction from a dysregulated host response", source: "K&C 10e p.154"}
+  - [dysregulated-host-response, fever]
+  - [dysregulated-host-response, septic-shock]
+findings:
+  - {id: fever, freq: classic}
+  - {id: positive-blood-cultures, freq: classic}
+  - {id: new-or-changed-murmur, freq: common}
+  - {id: vegetation-on-echo, freq: common, note: "Mechanical valves scatter TTE echoes; TOE is the test of choice", source: "K&C 10e p.1103"}
+outcomes:
+  - paravalvular-leak
+  - heart-failure
+  - ischaemic-stroke
+  - septic-shock
+  - metastatic-infection

@@ -1,0 +1,25 @@
+{
+  "name": "medicalweb",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:data": "node scripts/build.js",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test scripts/*.test.js"
+  },
+  "dependencies": {
+    "cytoscape": "^3.34.4",
+    "cytoscape-bubblesets": "^4.1.0",
+    "cytoscape-dagre": "^4.0.1",
+    "cytoscape-layers": "^3.1.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.2.1",
+    "vite": "^8.3.6"
+  }
+}

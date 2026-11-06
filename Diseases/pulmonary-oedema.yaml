@@ -1,0 +1,31 @@
+id: pulmonary-oedema
+name: Acute pulmonary oedema
+group: hypertension & heart failure
+status: draft
+sources: ["K&C 10e p.1072", "K&C 10e p.1076-1077"]
+chain:
+  - [heart-failure, pulmonary-venous-congestion]
+  - [mitral-stenosis, pulmonary-venous-congestion]
+  - [acute-mitral-regurgitation, pulmonary-venous-congestion]
+  - {from: hypertension, to: pulmonary-venous-congestion, note: "'Flash' oedema despite preserved LV systolic function", source: "K&C 10e p.1076"}
+  - {from: kidney-injury, to: salt-water-retention, note: "AKI/CKD: fluid overload and poor excretion", source: "K&C 10e p.1076"}
+  - [salt-water-retention, pulmonary-venous-congestion]
+  - [atrial-fibrillation, pulmonary-venous-congestion]
+  - {from: pulmonary-venous-congestion, to: alveolar-flooding, note: "High filling pressures push fluid into the interstitium, then the alveoli", source: "K&C 10e p.1076"}
+  - [alveolar-flooding, hypoxaemia]
+  - [alveolar-flooding, pulmonary-crackles]
+  - [alveolar-flooding, pink-frothy-sputum]
+  - [alveolar-flooding, pulmonary-congestion-cxr]
+  - [alveolar-flooding, orthopnoea]
+  - [alveolar-flooding, tachypnoea]
+findings:
+  - {id: dyspnoea, freq: classic, note: "Severe", source: "K&C 10e p.1076"}
+  - {id: pulmonary-crackles, freq: classic}
+  - {id: tachypnoea, freq: common}
+  - {id: orthopnoea, freq: common}
+  - {id: hypoxaemia, freq: common, note: "SpO2 <90% on air", source: "K&C 10e p.1077 (Box 30.28)"}
+  - {id: pulmonary-congestion-cxr, freq: classic, note: "Upper lobe diversion, Kerley B lines, fluid in fissures, effusions", source: "K&C 10e p.1072"}
+  - {id: pink-frothy-sputum, freq: occasional}
+outcomes:
+  - respiratory-failure
+  - cardiogenic-shock

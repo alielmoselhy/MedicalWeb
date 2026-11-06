@@ -1,0 +1,26 @@
+id: prosthetic-valve-complications
+name: Prosthetic heart valve complications
+group: valvular
+status: draft
+sources: ["K&C 10e p.1102-1103"]
+chain:
+  - {from: mechanical-heart-valve, to: prosthesis-thrombogenicity, note: "Durable but thrombogenic: lifelong warfarin, INR target set by valve type and risk factors", source: "K&C 10e p.1102"}
+  - [prosthesis-thrombogenicity, valve-thrombosis]
+  - [valve-thrombosis, thromboembolism]
+  - [prosthesis-thrombogenicity, anticoagulant-therapy]
+  - [anticoagulant-therapy, anticoagulant-bleeding]
+  - {from: bioprosthetic-heart-valve, to: structural-valve-degeneration, note: "Tissue valves tend to degenerate after ~10 years, faster in young women", source: "K&C 10e p.1102-1103"}
+  - {from: prosthetic-heart-valve, to: paravalvular-leak, note: "The prosthesis pulls away from the valve ring", source: "K&C 10e p.1103"}
+  - [paravalvular-leak, valve-haemolysis]
+  - [prosthetic-heart-valve, prosthetic-valve-biofilm]
+findings:
+  - {id: new-or-changed-murmur, freq: common, note: "Structural failure may be heard; echo first, TOE if infection suspected", source: "K&C 10e p.1103"}
+outcomes:
+  - valve-thrombosis
+  - anticoagulant-bleeding
+  - structural-valve-degeneration
+  - paravalvular-leak
+  - valve-haemolysis
+  - prosthetic-valve-and-graft-infection
+  - ischaemic-stroke
+  - heart-failure

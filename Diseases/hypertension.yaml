@@ -1,0 +1,29 @@
+id: hypertension
+name: Hypertension
+group: hypertension & heart failure
+status: draft
+sources: ["K&C 10e p.1133-1140"]
+chain:
+  - [raised-arterial-pressure, lv-pressure-overload]
+  - {from: lv-pressure-overload, to: concentric-hypertrophy, note: "Remodelling first lowers wall stress, then becomes pathological", source: "K&C 10e p.1140"}
+  - [concentric-hypertrophy, diastolic-dysfunction]
+  - [concentric-hypertrophy, lvh-voltage]
+  - [raised-arterial-pressure, endothelial-dysfunction]
+  - {from: raised-arterial-pressure, to: small-vessel-disease, note: "Lipohyalinosis of penetrating arteries → lacunar infarcts", source: "K&C 10e p.837"}
+  - [endothelial-dysfunction, atherosclerosis]
+  - [small-vessel-disease, ischaemic-stroke]
+  - [raised-arterial-pressure, hypertensive-retinopathy]
+  - [raised-arterial-pressure, hypertensive-nephropathy]
+findings:
+  - {id: raised-blood-pressure, freq: classic, note: "Persistently >140/90 mmHg in clinic; out-of-office thresholds are lower", source: "K&C 10e p.1138"}
+  - {id: lvh-voltage, freq: occasional, note: "ECG criteria are insensitive (20–50%) but specific", source: "K&C 10e p.1140"}
+  - {id: proteinuria, freq: occasional, note: "Microalbuminuria is the early sign of kidney damage", source: "K&C 10e p.1140"}
+outcomes:
+  - {id: ischaemic-stroke, note: "A leading risk factor for AF, stroke, MI and end-stage kidney disease", source: "K&C 10e p.1133"}
+  - haemorrhagic-stroke
+  - acute-coronary-syndrome
+  - heart-failure
+  - atrial-fibrillation
+  - chronic-kidney-disease
+  - hypertensive-retinopathy
+  - hypertensive-nephropathy

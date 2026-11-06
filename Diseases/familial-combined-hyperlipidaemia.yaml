@@ -1,0 +1,20 @@
+id: familial-combined-hyperlipidaemia
+name: Familial combined hyperlipidaemia
+parent: hyperlipidaemia
+group: lipid
+status: draft
+sources: ["K&C 10e p.747"]
+chain:
+  - {from: excess-fatty-acid-flux, to: hepatic-vldl-overproduction, note: "Primary defect unclear; current evidence points to excess fatty-acid release from adipose tissue", source: "K&C 10e p.747"}
+  - [hepatic-vldl-overproduction, raised-triglycerides]
+  - [hepatic-vldl-overproduction, raised-ldl]
+  - {from: raised-triglycerides, to: low-hdl, note: "Hypertriglyceridaemia suppresses HDL", source: "K&C 10e p.747"}
+  - {from: raised-ldl, to: endothelial-dysfunction, note: "LDL lodges in the arterial wall, drawing in macrophages → atheroma", source: "K&C 10e p.745"}
+  - [endothelial-dysfunction, coronary-atherosclerosis]
+findings:
+  - {id: raised-triglycerides, freq: common, note: "~1 in 200; TG, cholesterol or both raised; no typical physical signs", source: "K&C 10e p.747"}
+  - {id: raised-ldl, freq: common}
+  - {id: low-hdl, freq: common}
+outcomes:
+  - {id: acute-coronary-syndrome, note: "Premature CVD", source: "K&C 10e p.747"}
+  - stable-angina

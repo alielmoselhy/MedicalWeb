@@ -1,0 +1,42 @@
+id: pulmonary-embolism
+name: Pulmonary embolism
+group: pulmonary vascular
+status: draft
+sources: ["K&C 10e p.1001-1003", "K&C 10e p.1010"]
+chain:
+  - {from: immobility-or-surgery, to: venous-stasis, note: "Strong factors (10–50×): major surgery, trauma, bed rest", source: "K&C 10e p.1002"}
+  - [pregnancy-or-oestrogen, hypercoagulability]
+  - [active-cancer, hypercoagulability]
+  - [heritable-thrombophilia, hypercoagulability]
+  - {from: venous-stasis, to: venous-thrombosis, note: "Virchow's triad: stasis and hypercoagulability dominate in veins", source: "K&C 10e p.1001-1002"}
+  - [hypercoagulability, venous-thrombosis]
+  - [venous-thrombosis, unilateral-leg-swelling]
+  - {from: venous-thrombosis, to: thromboembolism, note: "Proximal (popliteal and above) DVT is larger and likelier to embolise", source: "K&C 10e p.1002"}
+  - [thromboembolism, pulmonary-arterial-obstruction]
+  - [pulmonary-arterial-obstruction, ventilation-perfusion-mismatch]
+  - [ventilation-perfusion-mismatch, hypoxaemia]
+  - [pulmonary-arterial-obstruction, pulmonary-infarction]
+  - [pulmonary-infarction, pleuritic-chest-pain]
+  - [pulmonary-infarction, haemoptysis]
+  - {from: pulmonary-arterial-obstruction, to: rv-pressure-overload, note: "RV stretch and strain can raise BNP and troponin", source: "K&C 10e p.1003"}
+  - [rv-pressure-overload, bnp-rise]
+  - [rv-pressure-overload, troponin-rise]
+  - [rv-pressure-overload, rv-strain]
+  - [rv-pressure-overload, raised-jvp]
+  - [rv-pressure-overload, reduced-cardiac-output]
+  - [reduced-cardiac-output, hypotension]
+findings:
+  - {id: dyspnoea, freq: classic}
+  - {id: pleuritic-chest-pain, freq: common, note: "~65% present with pleuritic pain and breathlessness ± haemoptysis", source: "K&C 10e p.1002"}
+  - {id: tachypnoea, freq: common}
+  - {id: tachycardia, freq: common, note: "Sinus tachycardia is the commonest ECG finding", source: "K&C 10e p.1003"}
+  - {id: hypoxaemia, freq: common, note: "With hypocapnia; non-specific", source: "K&C 10e p.1003"}
+  - {id: haemoptysis, freq: occasional}
+  - {id: unilateral-leg-swelling, freq: occasional}
+  - {id: rv-strain, freq: occasional, note: "S1Q3T3 is classic but seen in a minority", source: "K&C 10e p.1003"}
+  - {id: hypotension, freq: rare, note: "~10% present severely: syncope, shock, raised JVP", source: "K&C 10e p.1002"}
+outcomes:
+  - {id: obstructive-shock, note: "Massive PE"}
+  - {id: sudden-cardiac-death, note: "Arrest is typically pulseless electrical activity", source: "K&C 10e p.1002"}
+  - {id: pulmonary-hypertension, note: "Up to 5% stay breathless from CTEPH", source: "K&C 10e p.1010"}
+  - cor-pulmonale

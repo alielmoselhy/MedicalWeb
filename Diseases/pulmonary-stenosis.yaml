@@ -1,0 +1,22 @@
+id: pulmonary-stenosis
+name: Pulmonary stenosis
+group: valvular
+status: draft
+sources: ["K&C 10e p.1101-1102"]
+chain:
+  - {from: congenital-heart-defect, to: rv-outflow-obstruction, note: "Usually congenital (Fallot's, Noonan's, rubella); rarely rheumatic or carcinoid", source: "K&C 10e p.1101"}
+  - [rv-outflow-obstruction, rv-pressure-overload]
+  - [rv-pressure-overload, systemic-venous-congestion]
+  - [rv-outflow-obstruction, ejection-systolic-murmur]
+  - [rv-pressure-overload, parasternal-heave]
+  - [rv-pressure-overload, rv-strain]
+  - [rv-pressure-overload, raised-jvp]
+findings:
+  - {id: ejection-systolic-murmur, freq: classic, note: "Harsh, left 2nd intercostal space, louder on inspiration, often with a thrill", source: "K&C 10e p.1101"}
+  - {id: parasternal-heave, freq: common}
+  - {id: rv-strain, freq: common}
+  - {id: raised-jvp, freq: occasional, note: "Prominent a wave when moderately severe", source: "K&C 10e p.1101"}
+  - {id: fatigue, freq: occasional}
+  - {id: exertional-syncope, freq: occasional}
+outcomes:
+  - {id: heart-failure, note: "Right heart failure"}

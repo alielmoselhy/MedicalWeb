@@ -1,0 +1,34 @@
+id: myocarditis
+name: Myocarditis
+group: myocardial
+status: draft
+sources: ["K&C 10e p.1118-1119"]
+chain:
+  - {from: coxsackie-b-virus, to: myocardial-inflammation, note: "Europe/N America: enteroviruses, adenovirus, parvovirus B19 and others; Chagas is a leading cause worldwide", source: "K&C 10e p.1118"}
+  - [adenovirus, myocardial-inflammation]
+  - [parvovirus-b19, myocardial-inflammation]
+  - [myocardial-inflammation, myocyte-necrosis]
+  - [myocyte-necrosis, troponin-rise]
+  - [myocardial-inflammation, systolic-dysfunction]
+  - [myocardial-inflammation, pericardial-inflammation]
+  - {from: pericardial-inflammation, to: diffuse-saddle-st-elevation, note: "Diffuse concave ST elevation", source: "K&C 10e p.1118"}
+  - [pericardial-inflammation, pericardial-rub]
+  - [myocardial-inflammation, ventricular-arrhythmia]
+  - {from: myocardial-inflammation, to: av-block, note: "Lyme disease, sarcoid, giant-cell myocarditis, Chagas", source: "K&C 10e p.1118"}
+findings:
+  - {id: chest-pain, freq: common, note: "Young adults; from mild fatigue/palpitations to fulminant failure", source: "K&C 10e p.1118"}
+  - {id: dyspnoea, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: palpitations, freq: common}
+  - {id: tachycardia, freq: common}
+  - {id: third-heart-sound, freq: common}
+  - {id: troponin-rise, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: diffuse-saddle-st-elevation, freq: occasional}
+  - {id: pericardial-rub, freq: occasional}
+outcomes:
+  - heart-failure
+  - {id: dilated-cardiomyopathy, note: "Chronic myocarditic hearts are enlarged", source: "K&C 10e p.1118"}
+  - ventricular-arrhythmia
+  - av-block
+  - sudden-cardiac-death

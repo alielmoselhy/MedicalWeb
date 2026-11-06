@@ -1,0 +1,38 @@
+id: hypertrophic-cardiomyopathy
+name: Hypertrophic cardiomyopathy
+parent: cardiomyopathy
+group: myocardial
+status: draft
+sources: ["K&C 10e p.1119-1120"]
+chain:
+  - {from: sarcomere-gene-mutation, to: myocyte-disarray, note: "Mostly autosomal dominant; MYH7 and MYBPC3 commonest; affects 1 in 500", source: "K&C 10e p.1119"}
+  - {from: sarcomere-gene-mutation, to: concentric-hypertrophy, note: "Often asymmetric, septum > posterior wall, with no other cause (AS, hypertension)", source: "K&C 10e p.1119-1120"}
+  - [concentric-hypertrophy, diastolic-dysfunction]
+  - {from: concentric-hypertrophy, to: dynamic-lvot-obstruction, note: "~25%: septal bulge + systolic anterior motion of the anterior mitral leaflet", source: "K&C 10e p.1119"}
+  - {from: dynamic-lvot-obstruction, to: ejection-systolic-murmur, note: "Louder on standing/Valsalva, softer on squatting", source: "K&C 10e p.1120"}
+  - [dynamic-lvot-obstruction, mitral-regurgitant-flow]
+  - [mitral-regurgitant-flow, pansystolic-murmur]
+  - [dynamic-lvot-obstruction, jerky-pulse]
+  - [dynamic-lvot-obstruction, exertional-syncope]
+  - [diastolic-dysfunction, exertional-dyspnoea]
+  - [concentric-hypertrophy, demand-ischaemia]
+  - [demand-ischaemia, exertional-chest-pain]
+  - [concentric-hypertrophy, fourth-heart-sound]
+  - [concentric-hypertrophy, lvh-voltage]
+  - [myocyte-disarray, ventricular-arrhythmia]
+  - [diastolic-dysfunction, atrial-dilatation]
+findings:
+  - {id: exertional-dyspnoea, freq: common, note: "Impaired relaxation ± outflow obstruction; many are asymptomatic", source: "K&C 10e p.1120"}
+  - {id: exertional-syncope, freq: common}
+  - {id: exertional-chest-pain, freq: common}
+  - {id: jerky-pulse, freq: common}
+  - {id: ejection-systolic-murmur, freq: common}
+  - {id: fourth-heart-sound, freq: common, note: "Double apical impulse"}
+  - {id: lvh-voltage, freq: common, note: "With deep T-wave inversion and inferolateral Q waves", source: "K&C 10e p.1120"}
+  - {id: pathological-q-waves, freq: occasional}
+  - {id: pansystolic-murmur, freq: occasional}
+outcomes:
+  - {id: sudden-cardiac-death, note: "Commonest cause in the young; risk peaks in adolescence/young adulthood (up to 6%/yr)", source: "K&C 10e p.1119-1120"}
+  - {id: atrial-fibrillation, note: "Loss of atrial kick → rapid deterioration", source: "K&C 10e p.1120"}
+  - pulmonary-oedema
+  - heart-failure

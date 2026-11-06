@@ -1,0 +1,29 @@
+id: catheter-associated-bacteraemia
+name: Catheter-associated bacteraemia
+parent: bacteraemia
+group: infection
+status: draft
+sources: ["K&C 10e p.495", "K&C 10e p.500 (Box 20.11)", "K&C 10e p.507", "K&C 10e p.511"]
+chain:
+  - {from: central-venous-catheter, to: catheter-entry, note: "Insert only when needed, check daily, remove early; chlorhexidine–alcohol skin prep", source: "K&C 10e p.507"}
+  - {from: catheter-entry, to: catheter-biofilm, note: "Skin flora such as S. epidermidis lay down slime and form a biofilm that resists clearance", source: "K&C 10e p.511"}
+  - [coagulase-negative-staphylococci, catheter-biofilm]
+  - [s-aureus, catheter-biofilm]
+  - {from: candida, to: catheter-biofilm, note: "Common in healthcare-associated line infection, with enterococci and Pseudomonas", source: "K&C 10e p.500"}
+  - [enterococci, catheter-biofilm]
+  - [gram-negative-bacilli, catheter-biofilm]
+  - [catheter-entry, line-site-inflammation]
+  - [catheter-biofilm, haematogenous-seeding]
+  - [haematogenous-seeding, positive-blood-cultures]
+  - {from: haematogenous-seeding, to: dysregulated-host-response, note: "Sepsis: life-threatening organ dysfunction from a dysregulated host response", source: "K&C 10e p.154"}
+  - [dysregulated-host-response, fever]
+  - [dysregulated-host-response, septic-shock]
+findings:
+  - {id: fever, freq: classic}
+  - {id: positive-blood-cultures, freq: classic, note: "Same CoNS with the same sensitivities in repeated cultures points to device infection, not contamination", source: "K&C 10e p.500"}
+  - {id: line-site-inflammation, freq: common, note: "Erythema or pus at the device site", source: "K&C 10e p.495"}
+  - {id: rigors, freq: common}
+outcomes:
+  - septic-shock
+  - infective-endocarditis
+  - metastatic-infection

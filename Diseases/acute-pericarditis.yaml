@@ -1,0 +1,28 @@
+id: acute-pericarditis
+name: Acute pericarditis
+group: pericardial
+status: draft
+sources: ["K&C 10e p.1125-1126"]
+chain:
+  - {from: coxsackie-b-virus, to: pericardial-inflammation, note: "Viral (Coxsackie, echovirus…); most cases have no identified cause (idiopathic)", source: "K&C 10e p.1125"}
+  - {from: mycobacterium-tuberculosis, to: pericardial-inflammation, note: "<5% in developed countries, >50% in developing countries", source: "K&C 10e p.1126"}
+  - {from: chronic-kidney-disease, to: pericardial-inflammation, note: "Uraemic pericarditis", source: "K&C 10e p.1125 (Box 30.53)"}
+  - {from: pericardial-inflammation, to: pleuritic-chest-pain, note: "Worse on movement, eased by sitting forward", source: "K&C 10e p.1125"}
+  - [pericardial-inflammation, pericardial-rub]
+  - [pericardial-inflammation, diffuse-saddle-st-elevation]
+  - [pericardial-inflammation, pr-depression]
+  - [pericardial-inflammation, pericardial-effusion]
+  - [pericardial-effusion, pericardial-effusion-imaging]
+findings:
+  - {id: pleuritic-chest-pain, freq: classic, note: "Diagnosis needs 2 of 4: pain, rub, ECG changes, effusion", source: "K&C 10e p.1125"}
+  - {id: pericardial-rub, freq: common}
+  - {id: diffuse-saddle-st-elevation, freq: common, note: "Widespread concave-up ST elevation; reciprocal depression only in aVR and V1", source: "K&C 10e p.1125"}
+  - {id: pr-depression, freq: common}
+  - {id: pericardial-effusion-imaging, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: troponin-rise, freq: occasional, note: "If the myocardium is involved (myopericarditis)"}
+  - {id: fever, freq: occasional}
+outcomes:
+  - cardiac-tamponade
+  - {id: relapsing-pericarditis, note: "~20% go on to incessant or chronic relapsing disease", source: "K&C 10e p.1125"}
+  - {id: constrictive-pericarditis, note: "A frequent outcome of tuberculous pericarditis", source: "K&C 10e p.1126"}

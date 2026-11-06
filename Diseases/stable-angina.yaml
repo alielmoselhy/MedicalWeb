@@ -1,0 +1,39 @@
+id: stable-angina
+name: Stable angina
+group: ischaemic
+status: draft
+sources: ["K&C 10e p.1079-1080", "K&C 10e p.1079-1082", "Mehlman HY Cardio (angina table)"]
+chain:
+  - [smoking, endothelial-dysfunction]
+  - [diabetes-mellitus, endothelial-dysfunction]
+  - [hypertension, endothelial-dysfunction]
+  - [hyperlipidaemia, endothelial-dysfunction]
+  - [family-history-premature-chd, coronary-atherosclerosis]
+  - {from: endothelial-dysfunction, to: coronary-atherosclerosis, note: "Oxidised lipoprotein taken up by macrophages → foam cells → fatty streak → fibrous plaque", source: "K&C 10e p.1079"}
+  - from: coronary-atherosclerosis
+    to: fixed-coronary-stenosis
+    note: "Flow-limiting at ~50% diameter (~70% area) loss; distal bed already maximally dilated"
+    source: "K&C 10e p.1080"
+  - from: fixed-coronary-stenosis
+    to: demand-ischaemia
+    note: "Any rise in O2 demand (exercise, emotion) outstrips fixed supply"
+  - [demand-ischaemia, adenosine-release]
+  - from: adenosine-release
+    to: exertional-chest-pain
+    note: "Adenosine stimulates cardiac nerve endings"
+    source: "K&C 10e p.1081; Mehlman"
+  - [demand-ischaemia, st-depression]
+findings:
+  - id: exertional-chest-pain
+    freq: classic
+    note: "Heavy/tight central pain ± jaw/arm radiation, on exertion or emotion, eases with rest or GTN within minutes"
+  - id: st-depression
+    freq: common
+    note: "During exertion/stress testing; resting ECG often normal"
+  - id: dyspnoea
+    freq: occasional
+outcomes:
+  - id: nstemi
+    note: "Plaque may rupture → ACS"
+  - stemi
+  - sudden-cardiac-death

@@ -1,0 +1,31 @@
+id: rheumatic-fever
+name: Acute rheumatic fever
+group: valvular
+status: draft
+sources: ["K&C 10e p.544-545"]
+chain:
+  - {from: group-a-streptococcus, to: molecular-mimicry, note: "2–3 weeks after GAS pharyngitis; M protein cross-reacts with cardiac myosin and laminin (not direct infection or toxin)", source: "K&C 10e p.544"}
+  - [molecular-mimicry, endocardial-inflammation]
+  - [molecular-mimicry, myocardial-inflammation]
+  - [molecular-mimicry, pericardial-inflammation]
+  - [endocardial-inflammation, new-or-changed-murmur]
+  - [myocardial-inflammation, prolonged-pr-interval]
+  - [pericardial-inflammation, pericardial-effusion-imaging]
+  - [molecular-mimicry, migratory-polyarthritis]
+  - [molecular-mimicry, sydenham-chorea]
+  - [molecular-mimicry, erythema-marginatum]
+  - [molecular-mimicry, subcutaneous-nodules]
+  - {from: endocardial-inflammation, to: rheumatic-scarring, note: ">50% with carditis develop chronic valve disease 10–20 years later", source: "K&C 10e p.545"}
+findings:
+  - {id: migratory-polyarthritis, freq: classic, note: "Fleeting, large joints; leaves the joints normal", source: "K&C 10e p.545"}
+  - {id: fever, freq: classic}
+  - {id: raised-aso-titre, freq: classic, note: "Jones criteria need evidence of recent strep infection", source: "K&C 10e p.545 (Box 20.48)"}
+  - {id: new-or-changed-murmur, freq: common, note: "Carditis: murmur, cardiomegaly, failure, effusion or ECG change", source: "K&C 10e p.545"}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: prolonged-pr-interval, freq: common}
+  - {id: erythema-marginatum, freq: occasional, note: "~20%", source: "K&C 10e p.545"}
+  - {id: sydenham-chorea, freq: occasional}
+  - {id: subcutaneous-nodules, freq: rare}
+outcomes:
+  - rheumatic-heart-disease
+  - heart-failure

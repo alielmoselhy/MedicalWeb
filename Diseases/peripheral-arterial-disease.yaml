@@ -1,0 +1,29 @@
+id: peripheral-arterial-disease
+name: Peripheral arterial disease
+group: atherosclerotic
+status: draft
+sources: ["K&C 10e p.1128-1129", "K&C 10e p.1080"]
+chain:
+  - [smoking, endothelial-dysfunction]
+  - [diabetes-mellitus, endothelial-dysfunction]
+  - [hypertension, endothelial-dysfunction]
+  - [hyperlipidaemia, endothelial-dysfunction]
+  - [endothelial-dysfunction, peripheral-atherosclerosis]
+  - [peripheral-atherosclerosis, limb-artery-stenosis]
+  - [limb-artery-stenosis, limb-ischaemia]
+  - {from: limb-ischaemia, to: intermittent-claudication, note: "Fontaine II: exertional calf pain eased by rest", source: "K&C 10e p.1128"}
+  - {from: limb-ischaemia, to: rest-pain, note: "Fontaine III: night pain eased by hanging the foot down", source: "K&C 10e p.1128"}
+  - [limb-ischaemia, trophic-skin-changes]
+  - {from: limb-artery-stenosis, to: acute-limb-ischaemia, note: "Acute thrombosis on a chronic stenosis is the commoner cause of acute limb ischaemia", source: "K&C 10e p.1129"}
+findings:
+  - {id: intermittent-claudication, freq: classic}
+  - {id: reduced-peripheral-pulses, freq: classic}
+  - {id: low-abpi, freq: classic, note: "0.5–0.9 in claudication, <0.5 in critical ischaemia; falsely high if vessels calcified", source: "K&C 10e p.1128"}
+  - {id: trophic-skin-changes, freq: common, note: "Cold, dry, hairless skin"}
+  - {id: rest-pain, freq: occasional}
+  - {id: femoral-bruit, freq: occasional}
+outcomes:
+  - acute-limb-ischaemia
+  - {id: gangrene-amputation, note: "Fontaine IV: necrosis/gangrene"}
+  - {id: acute-coronary-syndrome, note: "Claudicants have 2–4× the risk of CAD, stroke and heart failure", source: "K&C 10e p.1080"}
+  - ischaemic-stroke

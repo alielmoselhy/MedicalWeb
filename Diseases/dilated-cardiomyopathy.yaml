@@ -1,0 +1,32 @@
+id: dilated-cardiomyopathy
+name: Dilated cardiomyopathy
+parent: cardiomyopathy
+group: myocardial
+status: draft
+sources: ["K&C 10e p.1122-1123"]
+chain:
+  - {from: titin-truncation, to: systolic-dysfunction, note: "Familial DCM is mostly autosomal dominant: cytoskeletal and sarcomere genes", source: "K&C 10e p.1122"}
+  - {from: excess-alcohol, to: systolic-dysfunction, note: "Toxins: alcohol, chemotherapy, heavy metals", source: "K&C 10e p.1122"}
+  - {from: myocarditis, to: systolic-dysfunction, note: "Post-viral (Coxsackie, adenovirus), Chagas", source: "K&C 10e p.1122"}
+  - [systolic-dysfunction, eccentric-hypertrophy]
+  - [systolic-dysfunction, reduced-cardiac-output]
+  - {from: eccentric-hypertrophy, to: myocardial-scar, note: "Mid-wall fibrosis on CMR", source: "K&C 10e p.1123"}
+  - [myocardial-scar, ventricular-arrhythmia]
+  - [eccentric-hypertrophy, annular-dilatation]
+  - [annular-dilatation, mitral-regurgitant-flow]
+  - [eccentric-hypertrophy, atrial-dilatation]
+  - [systolic-dysfunction, intracardiac-thrombus]
+  - [intracardiac-thrombus, thromboembolism]
+findings:
+  - {id: dilated-ventricle-echo, freq: classic, note: "Dilated, globally poorly contracting ventricles with normal wall thickness", source: "K&C 10e p.1122-1123"}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: cardiomegaly, freq: common}
+  - {id: third-heart-sound, freq: common}
+  - {id: bnp-rise, freq: common}
+  - {id: pansystolic-murmur, freq: occasional, note: "Functional mitral regurgitation"}
+outcomes:
+  - {id: heart-failure, freq: classic}
+  - ventricular-arrhythmia
+  - atrial-fibrillation
+  - {id: ischaemic-stroke, note: "Thromboembolism", source: "K&C 10e p.1122"}
+  - sudden-cardiac-death

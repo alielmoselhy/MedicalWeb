@@ -1,0 +1,24 @@
+id: secondary-hyperlipidaemia
+name: Secondary hyperlipidaemia
+parent: hyperlipidaemia
+group: lipid
+status: draft
+sources: ["K&C 10e p.746 (Box 24.1)"]
+chain:
+  - {from: hypothyroidism, to: reduced-receptor-expression, note: "Causes listed in K&C Box 24.1; mechanisms here are standard teaching", source: "K&C 10e p.746"}
+  - [reduced-receptor-expression, raised-ldl]
+  - {from: diabetes-mellitus, to: hepatic-vldl-overproduction, note: "When poorly controlled"}
+  - [obesity, hepatic-vldl-overproduction]
+  - [excess-alcohol, hepatic-vldl-overproduction]
+  - [nephrotic-syndrome, hepatic-vldl-overproduction]
+  - [chronic-kidney-disease, raised-triglycerides]
+  - {from: lipid-raising-drugs, to: raised-triglycerides, note: "Thiazides, corticosteroids, beta-blockers, retinoids, antiretrovirals, some oral contraceptives", source: "K&C 10e p.746"}
+  - [hepatic-vldl-overproduction, raised-triglycerides]
+  - [hepatic-vldl-overproduction, raised-ldl]
+  - {from: raised-ldl, to: endothelial-dysfunction, note: "LDL lodges in the arterial wall, drawing in macrophages → atheroma", source: "K&C 10e p.745"}
+  - [endothelial-dysfunction, coronary-atherosclerosis]
+findings:
+  - {id: raised-ldl, freq: common}
+  - {id: raised-triglycerides, freq: common}
+outcomes:
+  - acute-coronary-syndrome

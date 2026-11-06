@@ -1,0 +1,30 @@
+id: renal-artery-stenosis
+name: Renal artery stenosis
+group: atherosclerotic
+status: draft
+sources: ["K&C 10e p.1371-1372", "K&C 10e p.1139 (Box 31.2)"]
+chain:
+  - [smoking, endothelial-dysfunction]
+  - [diabetes-mellitus, endothelial-dysfunction]
+  - [hypertension, endothelial-dysfunction]
+  - [hyperlipidaemia, endothelial-dysfunction]
+  - [endothelial-dysfunction, renal-artery-atherosclerosis]
+  - {from: renal-artery-atherosclerosis, to: renal-artery-narrowing, note: "Usually ostial, with atheroma elsewhere (PAD, CAD, aortic aneurysm)", source: "K&C 10e p.1371"}
+  - {from: fibromuscular-dysplasia, to: renal-artery-narrowing, note: "Younger women; mid-artery 'string of beads'; renal function often normal", source: "K&C 10e p.1372"}
+  - [renal-artery-narrowing, renal-hypoperfusion]
+  - {from: renal-hypoperfusion, to: raas-activation, note: "Low afferent arteriolar pressure → renin → angiotensin II → aldosterone", source: "K&C 10e p.1371"}
+  - [raas-activation, raised-arterial-pressure]
+  - [raas-activation, salt-water-retention]
+  - {from: salt-water-retention, to: pulmonary-oedema, note: "Recurrent 'flash' pulmonary oedema without cardiac disease", source: "K&C 10e p.1371"}
+  - {from: renal-hypoperfusion, to: chronic-kidney-disease, note: "Ischaemic nephropathy: fibrosis and a shrinking kidney", source: "K&C 10e p.1371"}
+findings:
+  - {id: raised-blood-pressure, freq: common, note: "Present in about half of atherosclerotic RAS", source: "K&C 10e p.1371"}
+  - {id: abdominal-bruit, freq: common}
+  - {id: renal-asymmetry, freq: occasional, note: ">1.5 cm difference in kidney length on ultrasound", source: "K&C 10e p.1371"}
+  - {id: creatinine-rise-on-ace-inhibitor, freq: occasional, note: "AKI on ACE inhibitor/ARB when stenosis is bilateral and significant", source: "K&C 10e p.1371"}
+  - {id: proteinuria, freq: occasional, note: "Usually subnephrotic"}
+outcomes:
+  - secondary-hypertension
+  - chronic-kidney-disease
+  - pulmonary-oedema
+  - acute-kidney-injury

@@ -1,0 +1,24 @@
+id: familial-hypercholesterolaemia
+name: Familial hypercholesterolaemia
+parent: hyperlipidaemia
+group: lipid
+status: draft
+sources: ["K&C 10e p.745-747"]
+chain:
+  - {from: ldlr-mutation, to: ldl-receptor-defect, note: "~90% of heterozygous FH; autosomal dominant, ~1 in 350", source: "K&C 10e p.746"}
+  - {from: apob-mutation, to: apob-binding-defect, note: "~5%; milder, some receptor function kept", source: "K&C 10e p.747"}
+  - {from: pcsk9-gain-of-function, to: reduced-receptor-expression, note: "Activating PCSK9 mutations downregulate the LDL receptor", source: "K&C 10e p.747"}
+  - [ldl-receptor-defect, raised-ldl]
+  - [apob-binding-defect, raised-ldl]
+  - [reduced-receptor-expression, raised-ldl]
+  - {from: raised-ldl, to: tendon-xanthoma, note: "Achilles and finger extensors; only ~10% have signs", source: "K&C 10e p.746"}
+  - {from: raised-ldl, to: xanthelasma, note: "Not diagnostic of FH; more typical of high-TG/low-HDL states", source: "K&C 10e p.746"}
+  - {from: raised-ldl, to: endothelial-dysfunction, note: "LDL lodges in the arterial wall, drawing in macrophages → atheroma", source: "K&C 10e p.745"}
+  - [endothelial-dysfunction, coronary-atherosclerosis]
+findings:
+  - {id: raised-ldl, freq: classic, note: "Very high, diet-resistant, with family history of CVD before 60", source: "K&C 10e p.746"}
+  - {id: tendon-xanthoma, freq: occasional}
+  - {id: xanthelasma, freq: occasional}
+outcomes:
+  - {id: acute-coronary-syndrome, note: "Severe heterozygotes: ~50% CVD mortality by 65; homozygotes die of IHD by ~35 untreated", source: "K&C 10e p.746-747"}
+  - stable-angina

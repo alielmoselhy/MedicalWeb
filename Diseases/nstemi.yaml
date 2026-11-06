@@ -1,0 +1,56 @@
+id: nstemi
+name: Non-ST-elevation myocardial infarction
+parent: acute-coronary-syndrome
+group: ischaemic
+status: draft
+sources: ["K&C 10e p.1079-1080", "K&C 10e p.1084-1085", "Mehlman HY Cardio"]
+chain:
+  - [smoking, endothelial-dysfunction]
+  - [diabetes-mellitus, endothelial-dysfunction]
+  - [hypertension, endothelial-dysfunction]
+  - [hyperlipidaemia, endothelial-dysfunction]
+  - [family-history-premature-chd, coronary-atherosclerosis]
+  - {from: endothelial-dysfunction, to: coronary-atherosclerosis, note: "Oxidised lipoprotein taken up by macrophages → foam cells → fatty streak → fibrous plaque", source: "K&C 10e p.1079"}
+  - from: coronary-atherosclerosis
+    to: plaque-rupture
+    note: "Lipid-rich core + thin fibrous cap = vulnerable plaque"
+    source: "K&C 10e p.1085"
+  - [plaque-rupture, platelet-aggregation]
+  - from: platelet-aggregation
+    to: non-occlusive-coronary-thrombus
+    note: "Plus vasoconstriction (serotonin, TXA2) and distal microembolisation"
+  - [non-occlusive-coronary-thrombus, subendocardial-ischaemia]
+  - [subendocardial-ischaemia, adenosine-release]
+  - [adenosine-release, rest-chest-pain]
+  - [subendocardial-ischaemia, st-depression]
+  - [subendocardial-ischaemia, t-wave-inversion]
+  - [subendocardial-ischaemia, myocyte-necrosis]
+  - from: myocyte-necrosis
+    to: troponin-rise
+    note: "Necrosis + troponin rise is what separates NSTEMI from unstable angina"
+    source: "K&C 10e p.1084"
+findings:
+  - id: rest-chest-pain
+    freq: classic
+    note: "New onset, at rest, or deterioration of known angina"
+  - id: st-depression
+    freq: common
+    note: "ECG may also be normal; repeat when in pain"
+  - id: t-wave-inversion
+    freq: common
+  - id: troponin-rise
+    freq: classic
+  - id: ck-mb-rise
+    freq: common
+    note: "Troponin or CK-MB rise marks necrosis"
+    source: "K&C 10e p.1084"
+  - id: dyspnoea
+    freq: occasional
+    note: "Atypical presentations: dyspnoea, indigestion, pleuritic pain"
+  - id: diaphoresis
+    freq: common
+outcomes:
+  - heart-failure
+  - ventricular-arrhythmia
+  - stemi
+  - sudden-cardiac-death

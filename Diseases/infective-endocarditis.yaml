@@ -1,0 +1,53 @@
+id: infective-endocarditis
+name: Infective endocarditis
+group: infection
+status: draft
+sources: ["K&C 10e p.1103-1106"]
+chain:
+  - {from: viridans-streptococci, to: mucosal-dental-entry, note: "Bacteraemia from poor dental hygiene or dental work", source: "K&C 10e p.1103"}
+  - {from: s-aureus, to: injection-drug-use, note: "Drug users get mostly right-sided lesions", source: "K&C 10e p.1103"}
+  - [s-aureus, skin-soft-tissue-entry]
+  - [mucosal-dental-entry, haematogenous-seeding]
+  - [injection-drug-use, haematogenous-seeding]
+  - [skin-soft-tissue-entry, haematogenous-seeding]
+  - [enterococci, haematogenous-seeding]
+  - [streptococcus-gallolyticus, haematogenous-seeding]
+  - {from: hacek-organisms, to: haematogenous-seeding, note: "Rare, insidious course; with prior antibiotics, a cause of culture-negative IE", source: "K&C 10e p.1103-1104"}
+  - {from: rheumatic-heart-disease, to: endocardial-damage, note: "Abnormal endothelium (valve lesions, jets from VSD/PDA) lets organisms stick", source: "K&C 10e p.1103"}
+  - [congenital-heart-defect, endocardial-damage]
+  - [prosthetic-heart-valve, endocardial-damage]
+  - {from: endocardial-damage, to: vegetation-formation, note: "Platelet–fibrin deposits trap circulating organisms → infected vegetation", source: "K&C 10e p.1103"}
+  - [haematogenous-seeding, vegetation-formation]
+  - [vegetation-formation, leaflet-destruction]
+  - [leaflet-destruction, mitral-regurgitant-flow]
+  - [leaflet-destruction, aortic-regurgitant-flow]
+  - [leaflet-destruction, new-or-changed-murmur]
+  - [vegetation-formation, septic-embolism]
+  - [septic-embolism, splinter-haemorrhages]
+  - {from: septic-embolism, to: janeway-lesions, note: "Vascular phenomena (Duke minor): emboli, septic infarcts, mycotic aneurysm, Janeway lesions", source: "K&C 10e p.1104"}
+  - {from: vegetation-formation, to: immune-complex-deposition, note: "Immunological phenomena (Duke minor): GN, Osler nodes, Roth spots, rheumatoid factor", source: "K&C 10e p.1104"}
+  - [immune-complex-deposition, osler-nodes]
+  - [immune-complex-deposition, roth-spots]
+  - [immune-complex-deposition, glomerulonephritis]
+  - [glomerulonephritis, haematuria]
+  - [vegetation-formation, vegetation-on-echo]
+  - [vegetation-formation, positive-blood-cultures]
+  - [vegetation-formation, fever]
+findings:
+  - {id: fever, freq: classic, note: "~90%", source: "K&C 10e p.1105 (Box 30.46)"}
+  - {id: new-or-changed-murmur, freq: classic, note: "~90%", source: "K&C 10e p.1105"}
+  - {id: positive-blood-cultures, freq: classic, note: "Duke major: typical organism in 2 sets, or persistently positive", source: "K&C 10e p.1104"}
+  - {id: haematuria, freq: common, note: "~70%", source: "K&C 10e p.1105"}
+  - {id: splenomegaly, freq: common, note: "~40%", source: "K&C 10e p.1105"}
+  - {id: vegetation-on-echo, freq: common, note: "A negative echo does not exclude IE; TOE ± CT-PET", source: "K&C 10e p.1105"}
+  - {id: osler-nodes, freq: occasional, note: "~15%", source: "K&C 10e p.1105"}
+  - {id: splinter-haemorrhages, freq: occasional, note: "~10%", source: "K&C 10e p.1105"}
+  - {id: janeway-lesions, freq: rare, note: "~5%", source: "K&C 10e p.1105"}
+  - {id: roth-spots, freq: rare, note: "~5%", source: "K&C 10e p.1105"}
+outcomes:
+  - {id: heart-failure, freq: common, note: "~50%", source: "K&C 10e p.1105"}
+  - {id: ischaemic-stroke, freq: occasional, note: "Cerebral emboli ~20%", source: "K&C 10e p.1105"}
+  - {id: mycotic-aneurysm, freq: occasional, note: "~10%", source: "K&C 10e p.1105"}
+  - septic-emboli-abscess
+  - glomerulonephritis
+  - {id: av-block, note: "New conduction disturbance raises suspicion (perivalvular extension)", source: "K&C 10e p.1105-1106"}

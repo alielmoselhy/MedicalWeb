@@ -1,0 +1,54 @@
+id: heart-failure
+name: Heart failure
+group: hypertension & heart failure
+status: draft
+sources: ["K&C 10e p.1069-1072", "K&C 10e p.1075-1077"]
+chain:
+  - {from: myocyte-necrosis, to: systolic-dysfunction, note: "Main causes: ischaemic heart disease 35–40%, dilated cardiomyopathy 30–34%, hypertension 15–20%", source: "K&C 10e p.1069 (Box 30.20)"}
+  - [dilated-cardiomyopathy, systolic-dysfunction]
+  - {from: hypertension, to: diastolic-dysfunction, note: "HFpEF: stiff ventricle; commonest in elderly hypertensives", source: "K&C 10e p.1071-1072"}
+  - [systolic-dysfunction, reduced-cardiac-output]
+  - [diastolic-dysfunction, reduced-cardiac-output]
+  - {from: reduced-cardiac-output, to: raas-activation, note: "Low renal perfusion → renin; compensatory at first, then a vicious circle", source: "K&C 10e p.1070"}
+  - [reduced-cardiac-output, sympathetic-activation]
+  - [sympathetic-activation, tachycardia]
+  - [raas-activation, salt-water-retention]
+  - [salt-water-retention, pulmonary-venous-congestion]
+  - [salt-water-retention, systemic-venous-congestion]
+  - {from: systolic-dysfunction, to: eccentric-hypertrophy, note: "Remodelling: dilatation, hypertrophy, myocyte loss, fibrosis", source: "K&C 10e p.1070"}
+  - {from: eccentric-hypertrophy, to: bnp-rise, note: "Ventricles release BNP in response to wall stress", source: "K&C 10e p.1071"}
+  - [eccentric-hypertrophy, myocardial-scar]
+  - [myocardial-scar, ventricular-arrhythmia]
+  - [pulmonary-venous-congestion, exertional-dyspnoea]
+  - [pulmonary-venous-congestion, orthopnoea]
+  - [pulmonary-venous-congestion, paroxysmal-nocturnal-dyspnoea]
+  - [pulmonary-venous-congestion, pulmonary-crackles]
+  - [pulmonary-venous-congestion, pulmonary-oedema]
+  - [systemic-venous-congestion, raised-jvp]
+  - [systemic-venous-congestion, peripheral-oedema]
+  - [systemic-venous-congestion, hepatomegaly]
+  - [systemic-venous-congestion, ascites]
+  - [reduced-cardiac-output, fatigue]
+findings:
+  - {id: exertional-dyspnoea, freq: classic, source: "K&C 10e p.1072 (Box 30.22)"}
+  - {id: bnp-rise, freq: classic, note: "BNP >100 pg/mL or NT-proBNP >300 pg/mL suggests HF", source: "K&C 10e p.1077"}
+  - {id: orthopnoea, freq: common}
+  - {id: paroxysmal-nocturnal-dyspnoea, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: tachycardia, freq: common}
+  - {id: raised-jvp, freq: common}
+  - {id: cardiomegaly, freq: common}
+  - {id: third-heart-sound, freq: common}
+  - {id: pulmonary-crackles, freq: common}
+  - {id: peripheral-oedema, freq: common}
+  - {id: fourth-heart-sound, freq: occasional}
+  - {id: pleural-effusion, freq: occasional}
+  - {id: hepatomegaly, freq: occasional}
+  - {id: ascites, freq: occasional}
+outcomes:
+  - pulmonary-oedema
+  - cardiogenic-shock
+  - ventricular-arrhythmia
+  - sudden-cardiac-death
+  - atrial-fibrillation
+  - {id: pulmonary-embolism, note: "Fourfold rise in VTE risk; inpatients need prophylaxis", source: "K&C 10e p.1075"}

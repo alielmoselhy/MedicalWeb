@@ -1,0 +1,35 @@
+id: cor-pulmonale
+name: Cor pulmonale
+group: pulmonary vascular
+status: draft
+sources: ["K&C 10e p.1115", "K&C 10e p.956", "K&C 10e p.1101"]
+chain:
+  - {from: chronic-lung-disease, to: hypoxic-vasoconstriction, note: "Late COPD: respiratory failure, pulmonary hypertension and cor pulmonale", source: "K&C 10e p.956"}
+  - [hypoxic-vasoconstriction, rv-pressure-overload]
+  - [pulmonary-hypertension, rv-pressure-overload]
+  - {from: pulmonary-embolism, to: rv-pressure-overload, note: "Acute cor pulmonale"}
+  - {from: rv-pressure-overload, to: systemic-venous-congestion, note: "RV hypertrophy → dilatation → failure", source: "K&C 10e p.1115"}
+  - {from: rv-pressure-overload, to: annular-dilatation, note: "Functional TR as the RV dilates", source: "K&C 10e p.1101"}
+  - [annular-dilatation, tricuspid-regurgitant-flow]
+  - [rv-pressure-overload, parasternal-heave]
+  - [rv-pressure-overload, loud-p2]
+  - [rv-pressure-overload, rv-strain]
+  - [rv-pressure-overload, p-pulmonale]
+  - [systemic-venous-congestion, raised-jvp]
+  - [systemic-venous-congestion, peripheral-oedema]
+  - [systemic-venous-congestion, hepatomegaly]
+  - [systemic-venous-congestion, ascites]
+findings:
+  - {id: peripheral-oedema, freq: classic}
+  - {id: raised-jvp, freq: classic}
+  - {id: hepatomegaly, freq: common}
+  - {id: parasternal-heave, freq: common}
+  - {id: loud-p2, freq: common}
+  - {id: rv-strain, freq: common}
+  - {id: p-pulmonale, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: ascites, freq: occasional}
+  - {id: pansystolic-murmur, freq: occasional, note: "Functional TR"}
+outcomes:
+  - tricuspid-regurgitation
+  - {id: heart-failure, note: "Right heart failure"}

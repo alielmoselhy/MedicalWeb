@@ -1,0 +1,44 @@
+id: pulmonary-hypertension
+name: Pulmonary hypertension
+group: pulmonary vascular
+status: draft
+sources: ["K&C 10e p.1115-1117"]
+chain:
+  - {from: bmpr2-mutation, to: pulmonary-vascular-remodelling, note: "Found in >70% of heritable PAH; idiopathic PAH is the largest PAH group", source: "K&C 10e p.1115"}
+  - {from: anorexigen-drugs, to: pulmonary-vascular-remodelling, note: "Fenfluramine-type appetite suppressants", source: "K&C 10e p.1115"}
+  - {from: heart-failure, to: pulmonary-venous-hypertension, note: "WHO group 2: left heart disease", source: "K&C 10e p.1117 (Box 30.50)"}
+  - [mitral-stenosis, pulmonary-venous-hypertension]
+  - {from: chronic-lung-disease, to: hypoxic-vasoconstriction, note: "Group 3: COPD, interstitial disease, sleep-disordered breathing, altitude", source: "K&C 10e p.1117"}
+  - {from: pulmonary-embolism, to: pulmonary-arterial-obstruction, note: "Group 4 CTEPH: organised thrombi in elastic pulmonary arteries", source: "K&C 10e p.1115"}
+  - [pulmonary-vascular-remodelling, rv-pressure-overload]
+  - [pulmonary-venous-hypertension, rv-pressure-overload]
+  - [hypoxic-vasoconstriction, rv-pressure-overload]
+  - [pulmonary-arterial-obstruction, rv-pressure-overload]
+  - {from: rv-pressure-overload, to: systemic-venous-congestion, note: "RV hypertrophies, dilates, then fails", source: "K&C 10e p.1115"}
+  - [rv-pressure-overload, parasternal-heave]
+  - [rv-pressure-overload, loud-p2]
+  - [rv-pressure-overload, rv-strain]
+  - [rv-pressure-overload, p-pulmonale]
+  - [systemic-venous-congestion, raised-jvp]
+  - [systemic-venous-congestion, peripheral-oedema]
+  - [systemic-venous-congestion, ascites]
+  - [systemic-venous-congestion, hepatomegaly]
+findings:
+  - {id: exertional-dyspnoea, freq: classic, note: "mPAP >25 mmHg at rest on right heart catheter", source: "K&C 10e p.1115"}
+  - {id: fatigue, freq: common}
+  - {id: parasternal-heave, freq: common}
+  - {id: loud-p2, freq: common}
+  - {id: rv-strain, freq: common}
+  - {id: p-pulmonale, freq: common}
+  - {id: enlarged-pulmonary-arteries-cxr, freq: common, note: "With pruned peripheral vessels", source: "K&C 10e p.1116"}
+  - {id: raised-jvp, freq: common}
+  - {id: peripheral-oedema, freq: common}
+  - {id: exertional-syncope, freq: occasional}
+  - {id: exertional-chest-pain, freq: occasional}
+  - {id: pansystolic-murmur, freq: occasional, note: "Tricuspid regurgitation"}
+  - {id: early-diastolic-murmur, freq: occasional, note: "Pulmonary regurgitation"}
+outcomes:
+  - cor-pulmonale
+  - tricuspid-regurgitation
+  - pulmonary-regurgitation
+  - {id: heart-failure, note: "Right heart failure and death if progressive", source: "K&C 10e p.1115"}

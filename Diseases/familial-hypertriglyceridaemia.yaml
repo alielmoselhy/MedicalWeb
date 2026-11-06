@@ -1,0 +1,21 @@
+id: familial-hypertriglyceridaemia
+name: Familial hypertriglyceridaemia
+parent: hyperlipidaemia
+group: lipid
+status: draft
+sources: ["K&C 10e p.746"]
+chain:
+  - {from: hepatic-vldl-overproduction, to: raised-triglycerides, note: "Mostly polygenic: a modest excess of VLDL", source: "K&C 10e p.746"}
+  - {from: impaired-triglyceride-clearance, to: raised-triglycerides, note: "Rare LPL-pathway deficiencies: chylomicrons persist, TG >20 mmol/L", source: "K&C 10e p.746"}
+  - [raised-triglycerides, low-hdl]
+  - [raised-triglycerides, eruptive-xanthoma]
+  - [raised-triglycerides, lipaemia-retinalis]
+findings:
+  - {id: raised-triglycerides, freq: classic}
+  - {id: eruptive-xanthoma, freq: occasional, note: "With lipaemia retinalis and hepatosplenomegaly in LPL deficiency", source: "K&C 10e p.746"}
+  - {id: lipaemia-retinalis, freq: rare}
+  - {id: hepatomegaly, freq: rare}
+  - {id: low-hdl, freq: common}
+outcomes:
+  - {id: acute-pancreatitis, note: "The main danger of severe hypertriglyceridaemia", source: "K&C 10e p.746"}
+  - {id: acute-coronary-syndrome, note: "Only a weak additional CVD risk from TG-rich VLDL/IDL", source: "K&C 10e p.746"}

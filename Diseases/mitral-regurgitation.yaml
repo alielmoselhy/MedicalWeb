@@ -1,0 +1,39 @@
+id: mitral-regurgitation
+name: Mitral regurgitation
+group: valvular
+status: draft
+sources: ["K&C 10e p.1095-1097"]
+chain:
+  - {from: myxomatous-degeneration, to: mitral-regurgitant-flow, note: "Commonest cause; prolapsing (floppy) valve", source: "K&C 10e p.1095"}
+  - [rheumatic-heart-disease, rheumatic-scarring]
+  - [rheumatic-scarring, mitral-regurgitant-flow]
+  - [infective-endocarditis, leaflet-destruction]
+  - [leaflet-destruction, mitral-regurgitant-flow]
+  - [papillary-muscle-rupture, mitral-regurgitant-flow]
+  - {from: annular-dilatation, to: mitral-regurgitant-flow, note: "Functional MR in dilated or hypertrophic cardiomyopathy", source: "K&C 10e p.1095"}
+  - {from: mitral-regurgitant-flow, to: atrial-dilatation, note: "Chronic: a big compliant LA absorbs the jet. Acute: LA pressure (v wave) soars → pulmonary oedema", source: "K&C 10e p.1095"}
+  - [mitral-regurgitant-flow, lv-volume-overload]
+  - [lv-volume-overload, eccentric-hypertrophy]
+  - [eccentric-hypertrophy, systolic-dysfunction]
+  - [eccentric-hypertrophy, displaced-apex-beat]
+  - [lv-volume-overload, third-heart-sound]
+  - [mitral-regurgitant-flow, pulmonary-venous-hypertension]
+  - [pulmonary-venous-hypertension, orthopnoea]
+  - [atrial-dilatation, atrial-fibrillation]
+  - [mitral-regurgitant-flow, pansystolic-murmur]
+  - [myxomatous-degeneration, mid-systolic-click]
+findings:
+  - {id: pansystolic-murmur, freq: classic, note: "Loudest at the apex, radiating to the axilla", source: "K&C 10e p.1095"}
+  - {id: displaced-apex-beat, freq: common}
+  - {id: third-heart-sound, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: orthopnoea, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: mid-systolic-click, freq: occasional, note: "Floppy valve; may be followed by a late systolic murmur", source: "K&C 10e p.1095"}
+  - {id: lvh-voltage, freq: occasional, note: "About 50%", source: "K&C 10e p.1095"}
+  - {id: p-mitrale, freq: occasional}
+outcomes:
+  - heart-failure
+  - atrial-fibrillation
+  - {id: infective-endocarditis, note: "Subacute IE is much commoner than in mitral stenosis", source: "K&C 10e p.1095"}
+  - pulmonary-hypertension

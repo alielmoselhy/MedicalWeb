@@ -1,0 +1,30 @@
+id: secondary-hypertension
+name: Secondary hypertension
+parent: hypertension
+group: hypertension & heart failure
+status: draft
+sources: ["K&C 10e p.1137-1139 (Box 31.2)", "K&C 10e p.1371"]
+chain:
+  - [renal-artery-stenosis, raas-activation]
+  - [raas-activation, raised-arterial-pressure]
+  - {from: primary-hyperaldosteronism, to: mineralocorticoid-excess, note: "Among the commonest secondary causes: low K+, high aldosterone:renin ratio", source: "K&C 10e p.1138-1139"}
+  - [mineralocorticoid-excess, salt-water-retention]
+  - [chronic-kidney-disease, salt-water-retention]
+  - [salt-water-retention, raised-arterial-pressure]
+  - {from: obstructive-sleep-apnoea, to: sympathetic-activation, note: "OSA and obesity drive sympathetic overdrive", source: "K&C 10e p.1138"}
+  - [obesity, sympathetic-activation]
+  - [sympathetic-activation, raised-arterial-pressure]
+  - [phaeochromocytoma, catecholamine-excess]
+  - [catecholamine-excess, raised-arterial-pressure]
+  - {from: aortic-coarctation, to: raised-arterial-pressure, note: "Unequal arm–arm or arm–leg pulses/BP", source: "K&C 10e p.1139"}
+  - {from: bp-raising-drugs, to: raised-arterial-pressure, note: "NSAIDs, steroids, combined pill, calcineurin and VEGF inhibitors, stimulants", source: "K&C 10e p.1138"}
+  - [raised-arterial-pressure, lv-pressure-overload]
+  - [raised-arterial-pressure, endothelial-dysfunction]
+findings:
+  - {id: raised-blood-pressure, freq: classic, note: "Suspect if <30 years, sudden or severe onset, or resistant to three drugs", source: "K&C 10e p.1137"}
+  - {id: hypokalaemia, freq: occasional, note: "Primary hyperaldosteronism", source: "K&C 10e p.1139"}
+  - {id: abdominal-bruit, freq: occasional}
+outcomes:
+  - heart-failure
+  - ischaemic-stroke
+  - chronic-kidney-disease

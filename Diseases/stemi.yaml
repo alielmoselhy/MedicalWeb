@@ -1,0 +1,85 @@
+id: stemi
+name: ST-elevation myocardial infarction
+parent: acute-coronary-syndrome
+group: ischaemic
+status: draft
+sources: ["K&C 10e p.1079-1080", "K&C 10e p.1084-1091", "Mehlman HY Cardio"]
+chain:
+  - [smoking, endothelial-dysfunction]
+  - [diabetes-mellitus, endothelial-dysfunction]
+  - [hypertension, endothelial-dysfunction]
+  - [hyperlipidaemia, endothelial-dysfunction]
+  - [family-history-premature-chd, coronary-atherosclerosis]
+  - {from: endothelial-dysfunction, to: coronary-atherosclerosis, note: "Oxidised lipoprotein taken up by macrophages → foam cells → fatty streak → fibrous plaque", source: "K&C 10e p.1079"}
+  - [coronary-atherosclerosis, plaque-rupture]
+  - [plaque-rupture, platelet-aggregation]
+  - [platelet-aggregation, occlusive-coronary-thrombus]
+  - from: occlusive-coronary-thrombus
+    to: transmural-ischaemia
+    note: "Necrosis begins subendocardially within 15–30 min and extends to the epicardium"
+    source: "K&C 10e p.1088"
+  - [transmural-ischaemia, adenosine-release]
+  - [adenosine-release, prolonged-chest-pain]
+  - [transmural-ischaemia, territorial-st-elevation]
+  - [transmural-ischaemia, myocyte-necrosis]
+  - [myocyte-necrosis, troponin-rise]
+  - [myocyte-necrosis, pathological-q-waves]
+  - from: myocyte-necrosis
+    to: heart-failure
+    note: "Graded by Killip class (I–IV)"
+    source: "K&C 10e p.1090"
+  - [heart-failure, pulmonary-oedema]
+  - [heart-failure, cardiogenic-shock]
+  - from: myocyte-necrosis
+    to: free-wall-rupture
+    note: "Usually early, catastrophic"
+  - [free-wall-rupture, cardiac-tamponade]
+  - [myocyte-necrosis, ventricular-septal-rupture]
+  - [myocyte-necrosis, papillary-muscle-rupture]
+  - from: papillary-muscle-rupture
+    to: acute-mitral-regurgitation
+    note: "Sudden severe pulmonary oedema ± shock"
+    source: "K&C 10e p.1091"
+  - [acute-mitral-regurgitation, pulmonary-oedema]
+  - from: myocyte-necrosis
+    to: lv-aneurysm
+    note: "Late complication"
+  - [myocyte-necrosis, early-post-mi-pericarditis]
+  - [myocyte-necrosis, post-infarct-autoimmunity]
+  - from: post-infarct-autoimmunity
+    to: dressler-syndrome
+    note: "Weeks after MI; recurrences common"
+    source: "K&C 10e p.1126; Mehlman"
+findings:
+  - id: prolonged-chest-pain
+    freq: classic
+    note: "May radiate to left arm, neck or jaw; needs opiates. Atypical in elderly/diabetics"
+  - id: territorial-st-elevation
+    freq: classic
+    note: "In contiguous leads facing the infarct; new LBBB is treated as equivalent"
+  - id: troponin-rise
+    freq: classic
+  - id: ck-mb-rise
+    freq: common
+    note: "Troponin or CK-MB rise marks necrosis"
+    source: "K&C 10e p.1084"
+  - id: diaphoresis
+    freq: common
+  - id: hypotension
+    freq: occasional
+  - id: pathological-q-waves
+    freq: common
+    note: "Develop over hours; persist after ST returns to baseline"
+  - id: dyspnoea
+    freq: occasional
+outcomes:
+  - id: ventricular-arrhythmia
+    freq: common
+    note: "Especially around reperfusion"
+  - atrial-fibrillation
+  - id: av-block
+    note: "Especially inferior MI: RCA usually supplies the SA and AV nodes"
+    source: "K&C 10e p.1091"
+  - sudden-cardiac-death
+  - cardiogenic-shock
+  - dressler-syndrome
