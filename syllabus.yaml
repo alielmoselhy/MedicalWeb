@@ -1,0 +1,148 @@
+# LMC Syllabus 2026: the sections (systems) and subsections (groups) that diseases are filed under, in syllabus order.
+# A disease's `systems` lists section ids, its home system first; its `group` is a subsection id from that home system.
+# Names follow the syllabus headings, shortened where they carry cross-references. Sections 1–2 and teaching-only
+# subsections (e.g. "Approach to antimicrobial therapy") hold no diseases and are left out.
+
+- id: biochemistry
+  section: 3
+  name: Clinical biochemistry
+  groups:
+    - {id: sodium-water, name: Sodium and water balance}
+    - {id: potassium, name: Potassium handling}
+    - {id: acid-base, name: Acid–base balance and blood gases}
+
+- id: infection
+  section: 4
+  name: Microbiology and infection
+  groups:
+    - {id: sepsis, name: Sepsis}
+    - {id: herpes-virus, name: Herpes virus infection}
+    - {id: hiv, name: HIV infection}
+    - {id: healthcare-associated-infection, name: Healthcare-associated infection}
+    - {id: returning-traveller, name: Febrile returning traveller}
+
+- id: haematology
+  section: 5
+  name: Haematology
+  groups:
+    - {id: anaemia, name: Anaemia and haematinics}
+    - {id: haemolysis, name: Haemolysis}
+    - {id: globin-disorders, name: Globin disorders}
+    - {id: transfusion, name: Blood transfusion}
+    - {id: aml-mds, name: Acute myeloid leukaemia and myelodysplasia}
+    - {id: myeloproliferative, name: Chronic myeloproliferative neoplasms}
+    - {id: high-grade-lymphoma, name: High-grade lymphomas and Hodgkin lymphoma}
+    - {id: low-grade-lymphoproliferative, name: Low-grade lymphoproliferative disease}
+    - {id: plasma-cell, name: Plasma cell myeloma and paraproteinaemias}
+    - {id: thrombosis, name: Thrombosis and anticoagulation}
+    - {id: bleeding-disorders, name: Bleeding disorders}
+    - {id: platelets-tma, name: Platelets and thrombotic microangiopathies}
+
+- id: immunology
+  section: 6
+  name: Immunology and immunocompromise
+  groups:
+    - {id: hypersensitivity, name: "Hypersensitivity, allergy and anaphylaxis"}
+    - {id: organ-specific-autoimmune, name: Organ-specific autoimmune disease}
+    - {id: vasculitis, name: Vasculitis}
+    - {id: systemic-autoimmune, name: Systemic autoimmune disease}
+    - {id: immunodeficiency, name: Immunodeficiency}
+    - {id: immunocompromised-infection, name: Infection in immunocompromised patients}
+
+- id: cardiovascular
+  section: 7
+  name: Cardiovascular
+  groups:
+    - {id: ischaemic-myocardial-pericardial, name: "Ischaemic, myocardial and pericardial disease"}
+    - {id: lipid-disorders, name: Lipoprotein metabolism and lipid disorders}
+    - {id: valvular, name: Valvular heart disease}
+    - {id: endovascular-infection, name: Endocarditis and endovascular infections}
+    - {id: hypertension-heart-failure, name: Hypertension and heart failure}
+
+- id: respiratory
+  section: 8
+  name: Respiratory
+  groups:
+    - {id: respiratory-infection, name: Respiratory infection}
+    - {id: airways, name: Airways disease}
+    - {id: interstitial, name: Interstitial lung disease}
+    - {id: mycobacterial, name: Mycobacterial infection}
+    - {id: lung-pleural-tumours, name: Lung and pleural tumours}
+
+- id: head-neck
+  section: 9
+  name: Head and neck
+  groups:
+    - {id: head-neck-disease, name: Head and neck disease}
+
+- id: gastrointestinal
+  section: 10
+  name: Gastrointestinal and liver
+  groups:
+    - {id: oesophagus-stomach, name: Oesophageal and gastric disease}
+    - {id: small-intestine, name: Small intestinal disease}
+    - {id: ibd, name: Inflammatory bowel disease}
+    - {id: gi-nutrition, name: Gastrointestinal biochemistry and nutrition}
+    - {id: large-bowel-peritoneum, name: Large bowel and peritoneal disease}
+    - {id: intra-abdominal-infection, name: Intra-abdominal infection}
+    - {id: gastroenteritis, name: Gastroenteritis and food poisoning}
+    - {id: liver-biochemistry, name: Liver biochemistry}
+    - {id: viral-liver, name: Viral liver disease}
+    - {id: non-viral-liver, name: Non-viral liver disease}
+    - {id: cirrhosis-liver-tumours, name: Cirrhosis and liver tumours}
+    - {id: biliary-pancreas, name: "Gallbladder, biliary tract and pancreas"}
+
+- id: endocrine
+  section: 11
+  name: Endocrine
+  groups:
+    - {id: endocrine-biochemistry, name: Endocrine biochemistry}
+    - {id: adrenal-pituitary, name: Adrenal and pituitary neoplasia}
+    - {id: thyroid, name: Thyroid disease and thyroid neoplasia}
+    - {id: glucose, name: Glucose homeostasis}
+
+- id: kidney-urogenital
+  section: 12
+  name: Kidney and male urogenital
+  groups:
+    - {id: kidney, name: Kidney biochemistry and pathology}
+    - {id: cystic-neoplastic-renal, name: Cystic and neoplastic renal disease}
+    - {id: bladder-prostate-testis, name: "Bladder, prostate, testis and penis"}
+    - {id: uti, name: Urinary tract infection}
+
+- id: nervous
+  section: 13
+  name: Nervous system
+  groups:
+    - {id: cns-trauma-stroke, name: "CNS trauma, haemorrhage and stroke"}
+    - {id: nervous-tumours-icp, name: CNS and PNS tumours and raised ICP}
+    - {id: neurodegenerative, name: Neurodegenerative diseases}
+    - {id: demyelination, name: Demyelination}
+    - {id: cns-infection, name: Central nervous system infection}
+
+- id: bone-joint
+  section: 14
+  name: Bone and joints
+  groups:
+    - {id: arthritis, name: Arthritis}
+    - {id: bone-tumours, name: Bone and musculoskeletal tumours}
+    - {id: bone-joint-infection, name: Bone and joint infection}
+    - {id: calcium, name: Calcium homeostasis}
+    - {id: metabolic-bone, name: Metabolic bone disease}
+
+- id: skin-breast
+  section: 15
+  name: Skin and breast
+  groups:
+    - {id: inflammatory-skin, name: Inflammatory diseases of skin}
+    - {id: skin-soft-tissue-infection, name: Skin and soft tissue infection}
+    - {id: skin-tumours, name: Skin tumours}
+    - {id: breast, name: Breast diseases}
+
+- id: female-genital
+  section: 16
+  name: Female genital
+  groups:
+    - {id: uterus-pregnancy, name: Diseases of uterus and pregnancy}
+    - {id: vulva-vagina-cervix, name: "Diseases of vulva, vagina and cervix"}
+    - {id: ovaries-tubes, name: Diseases of ovaries and fallopian tubes}

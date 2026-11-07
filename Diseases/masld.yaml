@@ -1,0 +1,25 @@
+id: masld
+name: Metabolic dysfunction-associated steatotic liver disease (MASLD)
+group: non-viral-liver
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1287-1288", "Mehlman HY Gastro", "LMC 2026 Non-viral liver s.3, 22-25"]
+chain:
+  - {from: obesity, to: hepatic-steatosis, note: "The liver part of the metabolic syndrome (formerly NAFLD). Up to a third of men and a fifth of women; MetALD when alcohol is also raised", source: "K&C 10e p.1288; LMC 2026 Non-viral liver s.3, 22"}
+  - {from: diabetes-mellitus, to: hepatic-steatosis, source: "K&C 10e p.1288"}
+  - {from: hypertension, to: hepatic-steatosis, source: "K&C 10e p.1288"}
+  - {from: hyperlipidaemia, to: hepatic-steatosis, source: "K&C 10e p.1288"}
+  - {from: hepatic-steatosis, to: steatohepatitis, note: "Oxidative stress and lipid peroxidation: MASH, formerly NASH. The same steps as alcohol", source: "K&C 10e p.1288; Mehlman HY Gastro"}
+  - {from: steatohepatitis, to: liver-fibrosis, note: "Driven by insulin resistance", source: "K&C 10e p.1288"}
+  - [hepatic-steatosis, fatty-liver-imaging]
+  - [steatohepatitis, hepatitic-pattern]
+  - [hepatic-steatosis, hepatomegaly]
+  - [liver-fibrosis, cirrhosis]
+  - [liver-fibrosis, hepatocellular-carcinoma]
+findings:
+  - {id: fatty-liver-imaging, freq: classic, note: "Steatosis on ultrasound with no other cause (such as alcohol) usually makes the diagnosis", source: "K&C 10e p.1288"}
+  - {id: hepatitic-pattern, freq: common, note: "Mild ALT and/or GGT rise with ALT > AST; often all labs are normal", source: "K&C 10e p.1288; Mehlman HY Gastro"}
+  - {id: hepatomegaly, freq: occasional, source: "K&C 10e p.1288"}
+outcomes:
+  - {id: cirrhosis, note: "Now the commonest chronic liver disease in many developed countries; 10–30% of MASH reach cirrhosis or HCC. The commonest cause of cryptogenic cirrhosis", source: "K&C 10e p.1287; LMC 2026 Non-viral liver s.25"}
+  - {id: hepatocellular-carcinoma, note: "2.6% a year in MASH cirrhosis; can occur without cirrhosis", source: "K&C 10e p.1288"}

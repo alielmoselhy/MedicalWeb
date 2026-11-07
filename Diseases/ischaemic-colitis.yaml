@@ -1,0 +1,16 @@
+id: ischaemic-colitis
+name: Ischaemic colitis
+group: small-intestine
+status: draft
+systems: [gastrointestinal, cardiovascular]
+sources: ["K&C 10e p.1211", "Mehlman HY Gastro"]
+chain:
+  - {from: mesenteric-atherosclerosis, to: colonic-ischaemia, note: "Occluded SMA or IMA branches, usually in older people with vascular disease; also after aortic surgery", source: "K&C 10e p.1211; Mehlman HY Gastro"}
+  - {from: pregnancy-or-oestrogen, to: colonic-ischaemia, note: "Also nicorandil, thrombophilia, vasculitis", source: "K&C 10e p.1211"}
+  - {from: colonic-ischaemia, to: abdominal-pain, note: "Sudden; the splenic flexure watershed is the commonest site", source: "K&C 10e p.1211"}
+  - [colonic-ischaemia, rectal-bleeding]
+  - [colonic-ischaemia, hypotension]
+findings:
+  - {id: abdominal-pain, freq: classic}
+  - {id: rectal-bleeding, freq: classic, note: "Bright red, with or without diarrhoea", source: "K&C 10e p.1211"}
+  - {id: hypotension, freq: occasional, note: "Signs of shock", source: "K&C 10e p.1211"}

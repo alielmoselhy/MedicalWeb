@@ -1,7 +1,8 @@
 id: prosthetic-valve-and-graft-infection
 name: Prosthetic valve and vascular graft infection
-group: infection
+group: endovascular-infection
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1102-1104", "K&C 10e p.500", "K&C 10e p.511"]
 chain:
   - [prosthetic-heart-valve, prosthetic-valve-biofilm]
@@ -19,6 +20,12 @@ chain:
   - {from: haematogenous-seeding, to: dysregulated-host-response, note: "Sepsis: life-threatening organ dysfunction from a dysregulated host response", source: "K&C 10e p.154"}
   - [dysregulated-host-response, fever]
   - [dysregulated-host-response, septic-shock]
+  - [vegetation-formation, new-or-changed-murmur]
+  - [vegetation-formation, vegetation-on-echo]
+  - [vegetation-formation, leaflet-destruction]
+  - [leaflet-destruction, heart-failure]
+  - [septic-embolism, ischaemic-stroke]
+  - [haematogenous-seeding, metastatic-infection]
 findings:
   - {id: fever, freq: classic}
   - {id: positive-blood-cultures, freq: classic}

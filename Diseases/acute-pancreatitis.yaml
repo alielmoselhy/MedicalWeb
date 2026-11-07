@@ -1,0 +1,58 @@
+id: acute-pancreatitis
+name: Acute pancreatitis
+group: biliary-pancreas
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1296, 1325-1329", "Mehlman HY Gastro", "LMC 2025 HPB pathology s.47-53"]
+chain:
+  - {from: gallstone-disease, to: ampullary-obstruction, note: "A stone or oedema at the ampulla blocks pancreatic drainage", source: "K&C 10e p.1326"}
+  - [ampullary-obstruction, premature-trypsin-activation]
+  - {from: excess-alcohol, to: premature-trypsin-activation, note: "Disturbs acinar calcium; occurs only with chronic heavy drinking", source: "K&C 10e p.1325-1326"}
+  - {from: ercp-or-surgery, to: premature-trypsin-activation, source: "K&C 10e p.1326"}
+  - {from: hyperlipidaemia, to: premature-trypsin-activation, note: "Hypertriglyceridaemia; hypercalcaemia too", source: "K&C 10e p.1326"}
+  - {from: pancreatitis-drug, to: premature-trypsin-activation, note: "'GET SMASHED': gallstones, ethanol, trauma, steroids, mumps, autoimmune, scorpion venom, hyperlipidaemia or hypothermia, ERCP, drugs", source: "K&C 10e p.1326; LMC 2025 HPB pathology s.47"}
+  - {from: premature-trypsin-activation, to: pancreatic-autodigestion, note: "Trypsin activated inside the gland starts a cascade of autodigestion and microvascular injury", source: "K&C 10e p.1326"}
+  - {from: pancreatic-autodigestion, to: dysregulated-host-response, note: "SIRS and organ failure cause most deaths in the first week", source: "K&C 10e p.1327"}
+  - [pancreatic-autodigestion, raised-amylase-lipase]
+  - {from: pancreatic-autodigestion, to: pain-radiating-to-back, note: "Epigastric pain with nausea and vomiting; retroperitoneal spread gives back pain", source: "K&C 10e p.1326"}
+  - {from: pancreatic-autodigestion, to: hypocalcaemia, note: "Fat necrosis; a low calcium is a bad sign", source: "Mehlman HY Gastro"}
+  - [pancreatic-autodigestion, periumbilical-flank-bruising]
+  - [dysregulated-host-response, tachycardia]
+  - [dysregulated-host-response, hypotension]
+  - [pancreatic-autodigestion, epigastric-pain]
+  - [pancreatic-autodigestion, vomiting]
+  - [pancreatic-autodigestion, guarding-rigidity]
+  - [dysregulated-host-response, pleural-effusion]
+  - [pancreatic-autodigestion, low-saag-ascites]
+  - [gallstone-disease, gallstones-on-imaging]
+  - [dysregulated-host-response, fever]
+  - [dysregulated-host-response, ards]
+  - [dysregulated-host-response, multi-organ-dysfunction]
+  - [dysregulated-host-response, acute-kidney-injury]
+  - [pancreatic-autodigestion, pancreatic-pseudocyst]
+  - [pancreatic-autodigestion, infected-pancreatic-necrosis]
+  - [pancreatic-autodigestion, chronic-pancreatitis]
+  - [pancreatic-autodigestion, islet-destruction]
+  - [islet-destruction, pancreatogenic-diabetes]
+findings:
+  - {id: epigastric-pain, freq: classic, source: "K&C 10e p.1326"}
+  - {id: vomiting, freq: classic, source: "K&C 10e p.1326"}
+  - {id: pain-radiating-to-back, freq: common, note: "The pain need not reach the back", source: "Mehlman HY Gastro"}
+  - {id: raised-amylase-lipase, freq: classic, note: "Amylase > 3 times normal within 24 h; lipase stays up longer. How high it goes does not show severity. Perforation and bowel infarction also raise amylase", source: "K&C 10e p.1326; LMC 2025 HPB pathology s.49"}
+  - {id: guarding-rigidity, freq: occasional, note: "Severe disease: widespread tenderness, guarding, absent bowel sounds", source: "K&C 10e p.1326"}
+  - {id: tachycardia, freq: common}
+  - {id: hypotension, freq: occasional}
+  - {id: periumbilical-flank-bruising, freq: rare, note: "Signs of severe necrotising pancreatitis", source: "K&C 10e p.1326"}
+  - {id: hypocalcaemia, freq: common, source: "K&C 10e p.1329"}
+  - {id: pleural-effusion, freq: occasional, source: "K&C 10e p.1329"}
+  - {id: low-saag-ascites, freq: occasional, note: "Pancreatic ascites; check ascitic amylase", source: "K&C 10e p.1296"}
+  - {id: gallstones-on-imaging, freq: common, note: "Ultrasound looks for a gallstone cause", source: "K&C 10e p.1326"}
+  - {id: fever, freq: common, source: "LMC 2025 HPB pathology s.48"}
+outcomes:
+  - {id: ards, source: "K&C 10e p.1329; Mehlman HY Gastro"}
+  - {id: multi-organ-dysfunction, note: "Overall mortality up to 12%; severe attacks up to 80%. DIC too", source: "K&C 10e p.1327; LMC 2025 HPB pathology s.47, 53"}
+  - {id: acute-kidney-injury, source: "K&C 10e p.1329"}
+  - {id: pancreatic-pseudocyst, note: "After 4–6 weeks", source: "K&C 10e p.1329"}
+  - {id: infected-pancreatic-necrosis, note: "Greatly raises mortality", source: "K&C 10e p.1329"}
+  - {id: chronic-pancreatitis, note: "Recurrent attacks can leave permanent damage", source: "K&C 10e p.1325"}
+  - {id: pancreatogenic-diabetes, freq: occasional, note: "After severe attacks, with exocrine failure", source: "K&C 10e p.1329"}

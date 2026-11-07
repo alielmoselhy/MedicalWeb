@@ -2,6 +2,7 @@ id: rheumatic-fever
 name: Acute rheumatic fever
 group: valvular
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.544-545"]
 chain:
   - {from: group-a-streptococcus, to: molecular-mimicry, note: "2–3 weeks after GAS pharyngitis; M protein cross-reacts with cardiac myosin and laminin (not direct infection or toxin)", source: "K&C 10e p.544"}
@@ -16,6 +17,11 @@ chain:
   - [molecular-mimicry, erythema-marginatum]
   - [molecular-mimicry, subcutaneous-nodules]
   - {from: endocardial-inflammation, to: rheumatic-scarring, note: ">50% with carditis develop chronic valve disease 10–20 years later", source: "K&C 10e p.545"}
+  - [myocardial-inflammation, fever]
+  - [group-a-streptococcus, raised-aso-titre]
+  - [myocardial-inflammation, raised-inflammatory-markers]
+  - [rheumatic-scarring, rheumatic-heart-disease]
+  - [myocardial-inflammation, heart-failure]
 findings:
   - {id: migratory-polyarthritis, freq: classic, note: "Fleeting, large joints; leaves the joints normal", source: "K&C 10e p.545"}
   - {id: fever, freq: classic}

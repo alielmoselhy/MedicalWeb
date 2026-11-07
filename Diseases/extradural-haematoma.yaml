@@ -1,0 +1,24 @@
+id: extradural-haematoma
+name: Extradural haematoma
+parent: traumatic-brain-injury
+group: cns-trauma-stroke
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.847-848, 877", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: head-injury, to: skull-fracture, note: "Typically a linear fracture of the skull vault", source: "K&C 10e p.847"}
+  - {from: skull-fracture, to: middle-meningeal-artery-tear, note: "Arterial bleeding collects over minutes to hours", source: "K&C 10e p.847; Mehlman HY Neuroanatomy"}
+  - [middle-meningeal-artery-tear, intracranial-haematoma]
+  - [intracranial-haematoma, lentiform-haematoma-ct]
+  - [intracranial-haematoma, raised-intracranial-pressure]
+  - [intracranial-haematoma, lucid-interval]
+  - {from: raised-intracranial-pressure, to: third-nerve-palsy, note: "Ipsilateral dilated pupil as the uncus herniates", source: "K&C 10e p.847"}
+  - {from: raised-intracranial-pressure, to: hemiparesis, note: "Contralateral", source: "K&C 10e p.847"}
+  - [raised-intracranial-pressure, uncal-herniation]
+findings:
+  - {id: lucid-interval, freq: classic, note: "Brief unconsciousness, then improvement, then stupor", source: "K&C 10e p.847"}
+  - {id: third-nerve-palsy, freq: common}
+  - {id: hemiparesis, freq: common}
+  - {id: lentiform-haematoma-ct, freq: classic, note: "Biconvex, fast-accumulating", source: "Mehlman HY Neuroanatomy"}
+outcomes:
+  - {id: uncal-herniation, freq: common, note: "Rapid transtentorial coning; then bilateral fixed dilated pupils. Urgent neurosurgery gives an excellent outlook if early", source: "K&C 10e p.847-848"}

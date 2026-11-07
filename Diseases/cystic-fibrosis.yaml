@@ -1,0 +1,58 @@
+id: cystic-fibrosis
+name: Cystic fibrosis
+group: airways
+status: draft
+systems: [respiratory, gastrointestinal]
+sources: ["K&C 10e p.983-985", "Mehlman HY Pulmonary"]
+chain:
+  - {from: cftr-mutation, to: cftr-dysfunction, note: "Autosomal recessive; F508del (≈70%) misfolds CFTR so it never reaches the cell surface", source: "K&C 10e p.984"}
+  - {from: cftr-dysfunction, to: chronic-airway-infection, note: "Dehydrated airway surface → mucus stasis, starting in the small airways", source: "K&C 10e p.984"}
+  - {from: pseudomonas-aeruginosa, to: chronic-airway-infection, note: "Common; speeds lung function decline, so eradication is attempted", source: "K&C 10e p.985"}
+  - {from: s-aureus, to: chronic-airway-infection, note: "MRSA (and Burkholderia) worsen outcomes", source: "K&C 10e p.985"}
+  - [chronic-airway-infection, neutrophilic-airway-inflammation]
+  - [neutrophilic-airway-inflammation, airway-dilatation-and-plugging]
+  - [airway-dilatation-and-plugging, productive-cough]
+  - [airway-dilatation-and-plugging, bronchial-dilatation-imaging]
+  - {from: cftr-dysfunction, to: raised-sweat-chloride, note: "Normal < 30 mmol/L; 30–60 borderline", source: "K&C 10e p.984"}
+  - {from: cftr-dysfunction, to: exocrine-pancreatic-insufficiency, note: "In most patients", source: "K&C 10e p.984"}
+  - [exocrine-pancreatic-insufficiency, steatorrhoea]
+  - {from: exocrine-pancreatic-insufficiency, to: weight-loss, note: "Failure to thrive in infants, low BMI in adults; fat-soluble vitamin malabsorption", source: "K&C 10e p.984"}
+  - [airway-dilatation-and-plugging, dyspnoea]
+  - [airway-dilatation-and-plugging, finger-clubbing]
+  - [airway-dilatation-and-plugging, haemoptysis]
+  - [cftr-dysfunction, nasal-polyps]
+  - [airway-dilatation-and-plugging, bronchiectasis]
+  - [airway-dilatation-and-plugging, respiratory-failure]
+  - [respiratory-failure, hypoxic-vasoconstriction]
+  - [hypoxic-vasoconstriction, pulmonary-hypertension]
+  - [pulmonary-hypertension, cor-pulmonale]
+  - [airway-dilatation-and-plugging, pneumothorax]
+  - [airway-dilatation-and-plugging, massive-haemoptysis]
+  - [cftr-dysfunction, meconium-ileus]
+  - [exocrine-pancreatic-insufficiency, cf-related-diabetes]
+  - [cftr-dysfunction, cirrhosis]
+  - [airway-dilatation-and-plugging, ntm-infection]
+  - [cftr-dysfunction, male-infertility]
+  - [exocrine-pancreatic-insufficiency, osteoporosis]
+findings:
+  - {id: productive-cough, freq: classic, note: "Chronic daily cough and sputum", source: "K&C 10e p.984"}
+  - {id: raised-sweat-chloride, freq: classic, note: "Most are now found by newborn screening (immunoreactive trypsinogen)", source: "K&C 10e p.984"}
+  - {id: steatorrhoea, freq: common}
+  - {id: weight-loss, freq: common}
+  - {id: dyspnoea, freq: common}
+  - {id: finger-clubbing, freq: common, source: "K&C 10e p.983"}
+  - {id: bronchial-dilatation-imaging, freq: common}
+  - {id: haemoptysis, freq: occasional}
+  - {id: nasal-polyps, freq: occasional}
+outcomes:
+  - {id: bronchiectasis, note: "CF bronchiectasis is usually managed as its own entity", source: "K&C 10e p.982"}
+  - {id: respiratory-failure, note: "Respiratory disease causes ≈90% of CF deaths", source: "K&C 10e p.984"}
+  - cor-pulmonale
+  - pneumothorax
+  - massive-haemoptysis
+  - {id: meconium-ileus, note: "In infancy; distal intestinal obstruction later", source: "K&C 10e p.984"}
+  - {id: cf-related-diabetes, freq: common, note: "Up to 50% of older adults", source: "K&C 10e p.984"}
+  - {id: cirrhosis, freq: rare, note: "Liver disease ≈20%, cirrhosis ≈2%", source: "K&C 10e p.984"}
+  - {id: ntm-infection, note: "M. abscessus can cause rapid decline and may block transplant", source: "K&C 10e p.985"}
+  - male-infertility
+  - osteoporosis

@@ -1,0 +1,29 @@
+id: protozoal-gastroenteritis
+name: Protozoal gastroenteritis
+parent: infective-gastroenteritis
+group: gastroenteritis
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.571-572, 1306", "Mehlman HY Gastro"]
+chain:
+  - {from: faecal-oral-exposure, to: entamoeba-histolytica, note: "Cysts in food or water, or person to person; tropics", source: "K&C 10e p.571-572"}
+  - {from: faecal-oral-exposure, to: giardia-intestinalis, note: "Water-borne outbreaks, nurseries; the commonest parasite in UK returning travellers", source: "K&C 10e p.572"}
+  - {from: entamoeba-histolytica, to: mucosal-invasion, note: "Trophozoites invade and ulcerate the colon (flask-shaped ulcers)", source: "K&C 10e p.572; Mehlman HY Gastro"}
+  - {from: giardia-intestinalis, to: mucosal-malabsorption, note: "Small bowel: mild partial villous atrophy, probably immune-mediated, sometimes bacterial overgrowth", source: "K&C 10e p.572"}
+  - {from: mucosal-invasion, to: bloody-diarrhoea, note: "Usually chronic mild intermittent diarrhoea and discomfort, progressing to bloody mucous diarrhoea; sometimes acute dysentery like UC", source: "K&C 10e p.572"}
+  - [mucosal-malabsorption, watery-diarrhoea]
+  - [mucosal-malabsorption, steatorrhoea]
+  - [mucosal-malabsorption, weight-loss]
+  - {from: mucosal-invasion, to: portal-venous-seeding, note: "Amoebae reach the liver in the portal vein, often with no recent colitis", source: "K&C 10e p.1306"}
+  - [mucosal-invasion, stool-pathogen-identified]
+  - [portal-venous-seeding, amoebic-liver-abscess]
+  - [mucosal-invasion, toxic-megacolon]
+findings:
+  - {id: bloody-diarrhoea, freq: common, only: entamoeba-histolytica}
+  - {id: watery-diarrhoea, freq: common, note: "Watery at first, with nausea, bloating and discomfort, 1–3 weeks after exposure", source: "K&C 10e p.572", only: giardia-intestinalis}
+  - {id: steatorrhoea, freq: common, note: "If it persists: pale, foul, floating stools", source: "K&C 10e p.572; Mehlman HY Gastro", only: giardia-intestinalis}
+  - {id: weight-loss, freq: occasional, note: "Can be marked; growth failure in children", source: "K&C 10e p.572", only: giardia-intestinalis}
+  - {id: stool-pathogen-identified, freq: common, note: "Amoebae: trophozoites containing red cells, or molecular tests. Giardia: cysts or trophozoites, shed intermittently, so a negative stool doesn't exclude it", source: "K&C 10e p.572"}
+outcomes:
+  - {id: amoebic-liver-abscess, note: "Tender hepatomegaly, high swinging fever; serology positive in over 90%", source: "K&C 10e p.572, 1306", only: entamoeba-histolytica}
+  - {id: toxic-megacolon, freq: rare, source: "K&C 10e p.572", only: entamoeba-histolytica}

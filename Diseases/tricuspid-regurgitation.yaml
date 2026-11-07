@@ -2,7 +2,8 @@ id: tricuspid-regurgitation
 name: Tricuspid regurgitation
 group: valvular
 status: draft
-sources: ["K&C 10e p.1100-1101"]
+systems: [cardiovascular]
+sources: ["K&C 10e p.1100-1101, 1296"]
 chain:
   - {from: cor-pulmonale, to: annular-dilatation, note: "Functional TR whenever the RV dilates: cor pulmonale, MI, pulmonary hypertension", source: "K&C 10e p.1101"}
   - [pulmonary-hypertension, annular-dilatation]
@@ -17,14 +18,18 @@ chain:
   - [tricuspid-regurgitant-flow, pulsatile-liver]
   - [tricuspid-regurgitant-flow, pansystolic-murmur]
   - [systemic-venous-congestion, peripheral-oedema]
-  - [systemic-venous-congestion, ascites]
+  - [systemic-venous-congestion, high-saag-ascites]
+  - [tricuspid-regurgitant-flow, atrial-dilatation]
+  - [atrial-dilatation, irregularly-irregular-pulse]
+  - [systemic-venous-congestion, heart-failure]
+  - [atrial-dilatation, atrial-fibrillation]
 findings:
   - {id: pansystolic-murmur, freq: classic, note: "Lower left sternal edge, louder on inspiration", source: "K&C 10e p.1101"}
   - {id: giant-v-waves, freq: classic}
   - {id: pulsatile-liver, freq: common}
   - {id: peripheral-oedema, freq: common}
   - {id: irregularly-irregular-pulse, freq: common, note: "AF is common", source: "K&C 10e p.1101"}
-  - {id: ascites, freq: occasional}
+  - {id: high-saag-ascites, freq: occasional, note: "High-gradient ascites, as in other right-sided venous congestion", source: "K&C 10e p.1296"}
 outcomes:
   - {id: heart-failure, note: "Right heart failure"}
   - atrial-fibrillation

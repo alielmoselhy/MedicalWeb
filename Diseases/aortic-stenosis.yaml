@@ -2,6 +2,7 @@ id: aortic-stenosis
 name: Aortic stenosis
 group: valvular
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1097-1099"]
 chain:
   - {from: older-age, to: calcific-degeneration, note: "Commonest cause: inflammatory, lipid-laden lesions calcify and stiffen the cusps", source: "K&C 10e p.1097"}
@@ -22,6 +23,12 @@ chain:
   - [concentric-hypertrophy, fourth-heart-sound]
   - [concentric-hypertrophy, lvh-voltage]
   - [demand-ischaemia, ventricular-arrhythmia]
+  - [diastolic-dysfunction, pulmonary-venous-congestion]
+  - [pulmonary-venous-congestion, exertional-dyspnoea]
+  - [fixed-lvot-obstruction, soft-second-heart-sound]
+  - [diastolic-dysfunction, heart-failure]
+  - [demand-ischaemia, ventricular-arrhythmia]
+  - [ventricular-arrhythmia, sudden-cardiac-death]
 findings:
   - {id: ejection-systolic-murmur, freq: classic, note: "Harsh crescendo–decrescendo, aortic area → carotids; quieter as output falls", source: "K&C 10e p.1098"}
   - {id: slow-rising-pulse, freq: common}

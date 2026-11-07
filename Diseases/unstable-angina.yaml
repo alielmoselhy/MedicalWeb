@@ -1,8 +1,9 @@
 id: unstable-angina
 name: Unstable angina
 parent: acute-coronary-syndrome
-group: ischaemic
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1079-1085"]
 chain:
   - [smoking, endothelial-dysfunction]
@@ -19,6 +20,14 @@ chain:
   - [adenosine-release, rest-chest-pain]
   - [subendocardial-ischaemia, st-depression]
   - [subendocardial-ischaemia, t-wave-inversion]
+  - [subendocardial-ischaemia, dyspnoea]
+  - [non-occlusive-coronary-thrombus, myocyte-necrosis]
+  - [myocyte-necrosis, nstemi]
+  - [platelet-aggregation, occlusive-coronary-thrombus]
+  - [occlusive-coronary-thrombus, transmural-ischaemia]
+  - [transmural-ischaemia, stemi]
+  - [subendocardial-ischaemia, ventricular-arrhythmia]
+  - [ventricular-arrhythmia, sudden-cardiac-death]
 findings:
   - {id: rest-chest-pain, freq: classic, note: "New onset, at rest, or crescendo pattern of known angina", source: "K&C 10e p.1085"}
   - {id: st-depression, freq: common, note: "ECG may be normal; repeat it during pain", source: "K&C 10e p.1085"}

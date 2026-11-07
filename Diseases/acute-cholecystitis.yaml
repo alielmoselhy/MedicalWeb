@@ -1,0 +1,43 @@
+id: acute-cholecystitis
+name: Acute cholecystitis
+group: intra-abdominal-infection
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1316-1317", "Mehlman HY Gastro", "LMC 2025 HPB pathology s.22-26"]
+chain:
+  - {from: gallstone-disease, to: cystic-duct-obstruction, note: "A stone is the cause in 95%", source: "K&C 10e p.1316"}
+  - {from: cystic-duct-obstruction, to: gallbladder-inflammation, note: "Distension compromises the blood supply and retained bile inflames the wall; infection comes second", source: "K&C 10e p.1316"}
+  - {from: enterobacteriaceae, to: gallbladder-inflammation, note: "E. coli, Klebsiella", source: "K&C 10e p.1317"}
+  - {from: enterococci, to: gallbladder-inflammation, source: "K&C 10e p.1317"}
+  - {from: anaerobic-bacteria, to: gallbladder-inflammation, note: "Bacteroides fragilis", source: "K&C 10e p.1317"}
+  - {from: pseudomonas-aeruginosa, to: gallbladder-inflammation, source: "K&C 10e p.1317"}
+  - {from: gallbladder-inflammation, to: ruq-pain, note: "Starts like biliary colic, then over hours becomes severe localised RUQ pain as the parietal peritoneum is involved", source: "K&C 10e p.1316"}
+  - [gallbladder-inflammation, murphys-sign]
+  - [gallbladder-inflammation, guarding-rigidity]
+  - [gallbladder-inflammation, fever]
+  - [gallbladder-inflammation, raised-inflammatory-markers]
+  - [gallbladder-inflammation, gallbladder-wall-thickening]
+  - {from: dysregulated-host-response, to: gallbladder-inflammation, note: "Acalculous (about 10%): cystic artery ischaemia in sepsis, major trauma, burns, diabetes or immunosuppression", source: "LMC 2025 HPB pathology s.23"}
+  - [gallstone-disease, gallstones-on-imaging]
+  - [gallbladder-inflammation, cholestatic-pattern]
+  - [dysregulated-host-response, tachycardia]
+  - [gallbladder-inflammation, vomiting]
+  - [gallbladder-inflammation, diaphoresis]
+  - [gallstone-disease, bile-duct-obstruction]
+  - [bile-duct-obstruction, jaundice]
+  - [gallbladder-inflammation, gallbladder-empyema]
+findings:
+  - {id: ruq-pain, freq: classic}
+  - {id: murphys-sign, freq: classic, note: "Pain on a deep breath with the examiner's fingers over the gall bladder", source: "K&C 10e p.1316"}
+  - {id: fever, freq: classic, note: "Biliary colic plus fever", source: "Mehlman HY Gastro"}
+  - {id: guarding-rigidity, freq: common, source: "K&C 10e p.1316"}
+  - {id: raised-inflammatory-markers, freq: common, note: "Moderate leucocytosis and raised CRP", source: "K&C 10e p.1316"}
+  - {id: gallstones-on-imaging, freq: classic, note: "Ultrasound PPV 92%, NPV 95% with a typical history and Murphy's sign", source: "K&C 10e p.1317"}
+  - {id: gallbladder-wall-thickening, freq: common, note: "Also seen with low albumin, portal hypertension and viral hepatitis", source: "K&C 10e p.1317"}
+  - {id: cholestatic-pattern, freq: occasional, note: "Slight rises even without duct obstruction; a big rise suggests a duct stone", source: "K&C 10e p.1317"}
+  - {id: tachycardia, freq: common, source: "LMC 2025 HPB pathology s.24"}
+  - {id: vomiting, freq: common, source: "LMC 2025 HPB pathology s.24"}
+  - {id: diaphoresis, freq: occasional, source: "LMC 2025 HPB pathology s.24"}
+  - {id: jaundice, freq: occasional, note: "Suggests a bile duct stone", source: "LMC 2025 HPB pathology s.24"}
+outcomes:
+  - {id: gallbladder-empyema, note: "Gangrene, perforation or a pus-filled gall bladder", source: "K&C 10e p.1317; LMC 2025 HPB pathology s.26"}

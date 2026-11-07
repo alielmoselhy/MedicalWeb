@@ -1,0 +1,30 @@
+id: subdural-haematoma
+name: Subdural haematoma
+parent: traumatic-brain-injury
+group: cns-trauma-stroke
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.847-848", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: head-injury, to: bridging-vein-tear, note: "Sometimes trivial; symptoms may follow days, weeks or months later", source: "K&C 10e p.847"}
+  - {from: brain-atrophy-in-elderly, to: bridging-vein-tear, note: "Chronic, apparently spontaneous SDH is common in the elderly; dementia and alcohol raise the risk", source: "K&C 10e p.847; Mehlman HY Neuroanatomy"}
+  - {from: excess-alcohol, to: bridging-vein-tear, source: "Mehlman HY Neuroanatomy"}
+  - {from: anticoagulant-therapy, to: bridging-vein-tear, source: "K&C 10e p.847"}
+  - [bridging-vein-tear, intracranial-haematoma]
+  - {from: intracranial-haematoma, to: crescentic-haematoma-ct, note: "Mixed old and fresh blood looks heterogeneous", source: "Mehlman HY Neuroanatomy"}
+  - [intracranial-haematoma, raised-intracranial-pressure]
+  - [intracranial-haematoma, fluctuating-consciousness]
+  - [intracranial-haematoma, hemiparesis]
+  - [raised-intracranial-pressure, headache]
+  - [intracranial-haematoma, confusion]
+  - [intracranial-haematoma, seizures]
+  - [raised-intracranial-pressure, brain-herniation]
+findings:
+  - {id: fluctuating-consciousness, freq: classic, note: "Headache, drowsiness and confusion, indolent and fluctuating; no lucid interval", source: "K&C 10e p.847; Mehlman HY Neuroanatomy"}
+  - {id: headache, freq: common}
+  - {id: confusion, freq: common}
+  - {id: hemiparesis, freq: common, note: "Focal deficits develop later", source: "K&C 10e p.847"}
+  - {id: seizures, freq: occasional, source: "K&C 10e p.847"}
+  - {id: crescentic-haematoma-ct, freq: classic}
+outcomes:
+  - {id: brain-herniation, note: "Stupor, coma and coning; even large collections can resolve without drainage, so serial imaging", source: "K&C 10e p.847-848"}

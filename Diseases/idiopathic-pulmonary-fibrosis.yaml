@@ -1,0 +1,42 @@
+id: idiopathic-pulmonary-fibrosis
+name: Idiopathic pulmonary fibrosis
+parent: interstitial-lung-disease
+group: interstitial
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.988-989", "Mehlman HY Pulmonary"]
+chain:
+  - {from: older-age, to: alveolar-epithelial-injury, note: "Usually presents in the 60s; rare under 50", source: "K&C 10e p.988"}
+  - {from: male-sex, to: alveolar-epithelial-injury, note: "Men are affected twice as often", source: "K&C 10e p.988"}
+  - {from: alveolar-epithelial-injury, to: aberrant-fibroblast-repair, note: "Repeated injury from unknown triggers; repair runs unchecked with little inflammation (UIP pattern)", source: "K&C 10e p.988"}
+  - [aberrant-fibroblast-repair, interstitial-fibrosis]
+  - [interstitial-fibrosis, restrictive-spirometry]
+  - [interstitial-fibrosis, diffusion-impairment]
+  - [diffusion-impairment, reduced-tlco]
+  - [diffusion-impairment, hypoxaemia]
+  - [interstitial-fibrosis, fine-end-inspiratory-crackles]
+  - [interstitial-fibrosis, reticular-honeycombing]
+  - [hypoxaemia, hypoxic-vasoconstriction]
+  - [diffusion-impairment, exertional-dyspnoea]
+  - [interstitial-fibrosis, dry-cough]
+  - [interstitial-fibrosis, finger-clubbing]
+  - [hypoxic-vasoconstriction, loud-p2]
+  - [diffusion-impairment, type-1-respiratory-failure]
+  - [hypoxic-vasoconstriction, pulmonary-hypertension]
+  - [interstitial-fibrosis, ipf-acute-exacerbation]
+  - [interstitial-fibrosis, pneumothorax]
+findings:
+  - {id: exertional-dyspnoea, freq: classic, note: "Insidious and progressive", source: "K&C 10e p.988"}
+  - {id: fine-end-inspiratory-crackles, freq: classic, note: "Often first mistaken for heart failure or recurrent infection", source: "K&C 10e p.988"}
+  - {id: reticular-honeycombing, freq: classic, note: "HRCT: basal, subpleural reticulation, traction bronchiectasis, honeycombing; CXR can be normal early", source: "K&C 10e p.989"}
+  - {id: restrictive-spirometry, freq: classic, note: "Can be normal early, or masked by coexisting emphysema", source: "K&C 10e p.988"}
+  - {id: reduced-tlco, freq: classic, note: "A 10% fall in FVC or 15% in TLCO over 6–12 months predicts a worse outcome", source: "K&C 10e p.989"}
+  - {id: dry-cough, freq: common, note: "Classic exam picture: over 50 with months of unexplained dry cough", source: "Mehlman HY Pulmonary"}
+  - {id: finger-clubbing, freq: common, note: "25–50%", source: "K&C 10e p.988"}
+  - {id: loud-p2, freq: occasional, note: "Signals pulmonary hypertension", source: "Mehlman HY Pulmonary"}
+outcomes:
+  - {id: type-1-respiratory-failure, note: "Progressive; median survival 2–5 years", source: "K&C 10e p.989"}
+  - {id: pulmonary-hypertension, source: "K&C 10e p.988"}
+  - {id: ipf-acute-exacerbation, note: "No cause found; raises mortality", source: "K&C 10e p.988"}
+  - {id: pneumothorax, freq: occasional, note: "One cause of stepwise decline, with PE and infection", source: "K&C 10e p.988"}
+  - {id: pulmonary-embolism, freq: occasional, source: "K&C 10e p.988"}

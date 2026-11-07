@@ -1,8 +1,9 @@
 id: familial-hypercholesterolaemia
 name: Familial hypercholesterolaemia
 parent: hyperlipidaemia
-group: lipid
+group: lipid-disorders
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.745-747"]
 chain:
   - {from: ldlr-mutation, to: ldl-receptor-defect, note: "~90% of heterozygous FH; autosomal dominant, ~1 in 350", source: "K&C 10e p.746"}
@@ -15,6 +16,8 @@ chain:
   - {from: raised-ldl, to: xanthelasma, note: "Not diagnostic of FH; more typical of high-TG/low-HDL states", source: "K&C 10e p.746"}
   - {from: raised-ldl, to: endothelial-dysfunction, note: "LDL lodges in the arterial wall, drawing in macrophages → atheroma", source: "K&C 10e p.745"}
   - [endothelial-dysfunction, coronary-atherosclerosis]
+  - [coronary-atherosclerosis, acute-coronary-syndrome]
+  - [coronary-atherosclerosis, stable-angina]
 findings:
   - {id: raised-ldl, freq: classic, note: "Very high, diet-resistant, with family history of CVD before 60", source: "K&C 10e p.746"}
   - {id: tendon-xanthoma, freq: occasional}

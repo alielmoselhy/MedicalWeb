@@ -1,7 +1,8 @@
 id: renal-artery-stenosis
 name: Renal artery stenosis
-group: atherosclerotic
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1371-1372", "K&C 10e p.1139 (Box 31.2)"]
 chain:
   - [smoking, endothelial-dysfunction]
@@ -17,6 +18,13 @@ chain:
   - [raas-activation, salt-water-retention]
   - {from: salt-water-retention, to: pulmonary-oedema, note: "Recurrent 'flash' pulmonary oedema without cardiac disease", source: "K&C 10e p.1371"}
   - {from: renal-hypoperfusion, to: chronic-kidney-disease, note: "Ischaemic nephropathy: fibrosis and a shrinking kidney", source: "K&C 10e p.1371"}
+  - [raised-arterial-pressure, raised-blood-pressure]
+  - [renal-artery-narrowing, abdominal-bruit]
+  - [renal-hypoperfusion, renal-asymmetry]
+  - [renal-hypoperfusion, creatinine-rise-on-ace-inhibitor]
+  - [raised-arterial-pressure, proteinuria]
+  - [raised-arterial-pressure, secondary-hypertension]
+  - [renal-hypoperfusion, acute-kidney-injury]
 findings:
   - {id: raised-blood-pressure, freq: common, note: "Present in about half of atherosclerotic RAS", source: "K&C 10e p.1371"}
   - {id: abdominal-bruit, freq: common}

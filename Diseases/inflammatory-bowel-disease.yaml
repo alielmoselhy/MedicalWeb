@@ -1,0 +1,31 @@
+id: inflammatory-bowel-disease
+name: Inflammatory bowel disease
+group: ibd
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1198-1202, 1208", "Mehlman HY Gastro"]
+chain:
+  - {from: ibd-family-history, to: gut-mucosal-immune-dysregulation, note: "Polygenic; family history is the biggest single risk factor (1 in 5 with Crohn's). Highest in northern Europe and North America", source: "K&C 10e p.1198"}
+  - {from: nsaid-use, to: gut-mucosal-immune-dysregulation, note: "Linked to onset and flares", source: "K&C 10e p.1199"}
+  - {from: gut-mucosal-immune-dysregulation, to: intestinal-inflammation, note: "Genes, environment and gut bacteria (dysbiosis, a leaky barrier) together", source: "K&C 10e p.1199-1200"}
+  - [intestinal-inflammation, raised-faecal-calprotectin]
+  - [intestinal-inflammation, raised-inflammatory-markers]
+  - [intestinal-inflammation, diarrhoea]
+  - [gut-mucosal-immune-dysregulation, erythema-nodosum]
+  - [gut-mucosal-immune-dysregulation, pyoderma-gangrenosum]
+  - [gut-mucosal-immune-dysregulation, anterior-uveitis]
+  - [gut-mucosal-immune-dysregulation, arthralgia]
+  - [gut-mucosal-immune-dysregulation, primary-sclerosing-cholangitis]
+  - [intestinal-inflammation, colorectal-cancer]
+findings:
+  - {id: diarrhoea, freq: classic}
+  - {id: raised-faecal-calprotectin, freq: classic, note: "Raised in active intestinal inflammation; used to monitor", source: "K&C 10e p.1202"}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: erythema-nodosum, freq: occasional, source: "K&C 10e p.1202"}
+  - {id: pyoderma-gangrenosum, freq: occasional, source: "K&C 10e p.1202"}
+  - {id: anterior-uveitis, freq: occasional, note: "Also episcleritis", source: "K&C 10e p.1202"}
+  - {id: arthralgia, freq: common, note: "Joints are the commonest extraintestinal site; HLA-B27 with sacroiliitis", source: "K&C 10e p.1202; Mehlman HY Gastro"}
+outcomes:
+  - {id: primary-sclerosing-cholangitis, source: "K&C 10e p.1202"}
+  - {id: colorectal-cancer, note: "UC and extensive Crohn's colitis; risk rises with extent, duration, inflammation and PSC", source: "K&C 10e p.1208"}
+  - {id: renal-calculi-nephrocalcinosis, freq: occasional, source: "K&C 10e p.1202"}

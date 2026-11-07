@@ -1,0 +1,10 @@
+id: bile-duct-adenoma
+name: Bile duct adenoma
+group: cirrhosis-liver-tumours
+status: draft
+systems: [gastrointestinal]
+sources: ["LMC 2026 Cirrhosis s.19, 28"]
+chain:
+  - {from: benign-liver-tumour, to: liver-lesion, note: "A small white nodule under the capsule, made of small ducts in fibrous stroma", source: "LMC 2026 Cirrhosis s.28"}
+findings:
+  - {id: liver-lesion, freq: classic, note: "Causes no symptoms. It matters because at surgery it can be mistaken for a metastasis, so it is often sent for frozen section", source: "LMC 2026 Cirrhosis s.28"}

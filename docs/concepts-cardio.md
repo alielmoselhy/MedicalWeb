@@ -109,3 +109,11 @@ Left out (rare in the syllabus): tricuspid and pulmonary-valve stenosis as separ
 - **Q4 yes.** `st-elevation` has been split into territorial vs diffuse/saddle, and STEMI now uses the territorial node.
   **Future — fuzziness:** this is exactly where matching tolerance needs sorting out. Right now any two siblings count equally as "related", whether they're near-identical (transmural vs subendocardial ischaemia) or a key discriminator (territorial vs saddle ST elevation). A later design pass should be able to weight or label these differently.
 - Change from the draft: `impaired-contractility` was dropped (its children already had other parents). `systolic-dysfunction` stands alone.
+
+## Chain-linking progress (2026-11-07)
+
+- Audited all 223 findings/outcomes that were listed but absent from their disease chain.
+- Added defensible direct links and existing intermediate mechanisms for 207 items.
+- Removed three misleading outcome entries: weak cardiovascular risk in familial hypertriglyceridaemia, STEMI as an outcome of NSTEMI, and cardiogenic shock as an outcome of pulmonary oedema.
+- Left 13 items deliberately loose: seven need a conditional or missing intermediate, while six are umbrella/prognostic associations that should not be forced into a deterministic path.
+- No vocabulary nodes were added. Full reasoning and the four-case classification are in `docs/chain-linking-audit-cardio.md`.

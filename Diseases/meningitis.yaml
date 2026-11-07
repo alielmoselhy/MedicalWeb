@@ -1,0 +1,19 @@
+id: meningitis
+name: Meningitis
+group: cns-infection
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.869-871", "Mehlman HY Neuro"]
+chain:
+  - [cns-pathogen-entry, leptomeningeal-inflammation]
+  - [leptomeningeal-inflammation, headache]
+  - [leptomeningeal-inflammation, neck-stiffness]
+  - [leptomeningeal-inflammation, photophobia]
+  - [leptomeningeal-inflammation, fever]
+  - [leptomeningeal-inflammation, vomiting]
+findings:
+  - {id: headache, freq: classic}
+  - {id: neck-stiffness, freq: classic}
+  - {id: fever, freq: classic}
+  - {id: photophobia, freq: common}
+  - {id: vomiting, freq: common}

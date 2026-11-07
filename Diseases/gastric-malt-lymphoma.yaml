@@ -1,0 +1,14 @@
+id: gastric-malt-lymphoma
+name: Gastric MALT lymphoma
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal, haematology]
+sources: ["K&C 10e p.1176, 1180", "Mehlman HY Gastro"]
+chain:
+  - {from: helicobacter-pylori, to: chronic-gastric-inflammation, note: "About 90% are due to H. pylori", source: "K&C 10e p.1180"}
+  - {from: chronic-gastric-inflammation, to: clonal-b-cell-proliferation, note: "The gastritis contains the B-cell clone that becomes the lymphoma", source: "K&C 10e p.1176"}
+  - [clonal-b-cell-proliferation, epigastric-pain]
+  - [helicobacter-pylori, h-pylori-test-positive]
+findings:
+  - {id: epigastric-pain, freq: common, note: "Local symptoms or ulcers; rarely fever or fatigue. Usually in the 60s, stage I–II", source: "K&C 10e p.1180"}
+  - {id: h-pylori-test-positive, freq: classic}

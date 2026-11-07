@@ -1,0 +1,27 @@
+id: nsip
+name: Non-specific interstitial pneumonia
+parent: interstitial-lung-disease
+group: interstitial
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.990"]
+chain:
+  - {from: autoimmune-rheumatic-disease, to: alveolar-epithelial-injury, note: "May be linked to connective tissue disease", source: "K&C 10e p.990"}
+  - {from: alveolar-epithelial-injury, to: interstitial-fibrosis, note: "Uniform inflammatory infiltrate with or without fibrosis; the cellular form does better", source: "K&C 10e p.990"}
+  - [interstitial-fibrosis, restrictive-spirometry]
+  - [interstitial-fibrosis, ground-glass-opacity]
+  - [interstitial-fibrosis, diffusion-impairment]
+  - [diffusion-impairment, reduced-tlco]
+  - [diffusion-impairment, exertional-dyspnoea]
+  - [interstitial-fibrosis, dry-cough]
+  - [interstitial-fibrosis, fine-end-inspiratory-crackles]
+  - [diffusion-impairment, type-1-respiratory-failure]
+findings:
+  - {id: exertional-dyspnoea, freq: classic, note: "Like IPF but slower", source: "K&C 10e p.990"}
+  - {id: ground-glass-opacity, freq: classic, note: "HRCT like IPF but more ground glass and little honeycombing", source: "K&C 10e p.990"}
+  - {id: dry-cough, freq: common}
+  - {id: restrictive-spirometry, freq: common}
+  - {id: reduced-tlco, freq: common}
+  - {id: fine-end-inspiratory-crackles, freq: common}
+outcomes:
+  - {id: type-1-respiratory-failure, freq: occasional, note: "Treated with steroids ± immunosuppressants; outlook better than IPF", source: "K&C 10e p.990"}

@@ -1,0 +1,43 @@
+id: pyogenic-liver-abscess
+name: Pyogenic liver abscess
+group: intra-abdominal-infection
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1305-1306"]
+chain:
+  - {from: portal-venous-seeding, to: abscess-formation, note: "Portal pyaemia from intra-abdominal sepsis (appendicitis, perforation); now often no cause is found", source: "K&C 10e p.1305"}
+  - {from: acute-cholangitis, to: abscess-formation, note: "Biliary sepsis, common in the elderly", source: "K&C 10e p.1305-1306"}
+  - {from: bacteraemia, to: haematogenous-seeding, source: "K&C 10e p.1306"}
+  - [haematogenous-seeding, abscess-formation]
+  - {from: enterobacteriaceae, to: abscess-formation, note: "E. coli is the commonest; infection is often mixed", source: "K&C 10e p.1306"}
+  - {from: streptococcus-anginosus, to: abscess-formation, source: "K&C 10e p.1306"}
+  - {from: anaerobic-bacteria, to: abscess-formation, note: "Bacteroides", source: "K&C 10e p.1306"}
+  - {from: enterococci, to: abscess-formation, source: "K&C 10e p.1306"}
+  - {from: s-aureus, to: abscess-formation, source: "K&C 10e p.1306"}
+  - [abscess-formation, fever]
+  - [abscess-formation, liver-lesion]
+  - [abscess-formation, hepatomegaly]
+  - [abscess-formation, raised-inflammatory-markers]
+  - [abscess-formation, abdominal-pain]
+  - [abscess-formation, rigors]
+  - [abscess-formation, weight-loss]
+  - [abscess-formation, anorexia]
+  - [haematogenous-seeding, positive-blood-cultures]
+  - [abscess-formation, jaundice]
+  - [abscess-formation, pleural-effusion]
+  - [haematogenous-seeding, dysregulated-host-response]
+  - [dysregulated-host-response, septic-shock]
+findings:
+  - {id: fever, freq: classic, note: "Often investigated as a pyrexia of unknown origin; some have only malaise for weeks", source: "K&C 10e p.1306"}
+  - {id: rigors, freq: common, source: "K&C 10e p.1306"}
+  - {id: weight-loss, freq: common, source: "K&C 10e p.1306"}
+  - {id: anorexia, freq: common, source: "K&C 10e p.1306"}
+  - {id: abdominal-pain, freq: common, source: "K&C 10e p.1306"}
+  - {id: hepatomegaly, freq: common, note: "Tender and enlarged", source: "K&C 10e p.1306"}
+  - {id: liver-lesion, freq: classic, note: "Ultrasound finds it; CT for complex or multiple abscesses", source: "K&C 10e p.1306"}
+  - {id: raised-inflammatory-markers, freq: common, note: "Leucocytosis; ALP, ESR and CRP raised", source: "K&C 10e p.1306"}
+  - {id: positive-blood-cultures, freq: occasional, note: "Only 30%", source: "K&C 10e p.1306"}
+  - {id: jaundice, freq: occasional, note: "Bilirubin raised in 25%", source: "K&C 10e p.1306"}
+  - {id: pleural-effusion, freq: occasional, note: "Right-sided, with a raised right hemidiaphragm", source: "K&C 10e p.1306"}
+outcomes:
+  - {id: septic-shock, note: "Gram-negative septicaemia; mortality about 16% with aspiration and antibiotics, far higher with many abscesses", source: "K&C 10e p.1306"}

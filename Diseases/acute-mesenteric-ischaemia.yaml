@@ -1,0 +1,28 @@
+id: acute-mesenteric-ischaemia
+name: Acute mesenteric ischaemia
+group: small-intestine
+status: draft
+systems: [gastrointestinal, cardiovascular]
+sources: ["K&C 10e p.1195-1196", "Mehlman HY Gastro"]
+chain:
+  - {from: atrial-fibrillation, to: intracardiac-thrombus, note: "The commonest cause: a left atrial embolus to the SMA; also after cardioversion", source: "K&C 10e p.1196; Mehlman HY Gastro"}
+  - [intracardiac-thrombus, thromboembolism]
+  - [thromboembolism, mesenteric-ischaemia]
+  - {from: chronic-mesenteric-ischaemia, to: mesenteric-ischaemia, note: "Acute on chronic: thrombosis on an atheromatous SMA", source: "Mehlman HY Gastro"}
+  - {from: shock, to: mesenteric-ischaemia, note: "Infarction without occlusion (low output, hypotension); venous occlusion in 5–15%", source: "K&C 10e p.1195"}
+  - {from: mesenteric-ischaemia, to: abdominal-pain, note: "Sudden severe pain, often out of proportion to the signs", source: "K&C 10e p.1196"}
+  - [mesenteric-ischaemia, vomiting]
+  - [mesenteric-ischaemia, abdominal-distension]
+  - [mesenteric-ischaemia, hypotension]
+  - [mesenteric-ischaemia, bowel-infarction]
+  - [bowel-infarction, multi-organ-dysfunction]
+  - [bowel-infarction, short-bowel-syndrome]
+findings:
+  - {id: abdominal-pain, freq: classic}
+  - {id: vomiting, freq: common, source: "K&C 10e p.1196"}
+  - {id: abdominal-distension, freq: common, note: "Distended and tender, with absent bowel sounds", source: "K&C 10e p.1196"}
+  - {id: hypotension, freq: common, note: "Usually elderly and very ill", source: "K&C 10e p.1196"}
+outcomes:
+  - {id: bowel-infarction, freq: classic, note: "Needs resection of gangrenous bowel; mortality up to 90%", source: "K&C 10e p.1196"}
+  - {id: multi-organ-dysfunction, source: "K&C 10e p.1196"}
+  - {id: short-bowel-syndrome, note: "In survivors", source: "K&C 10e p.1196"}

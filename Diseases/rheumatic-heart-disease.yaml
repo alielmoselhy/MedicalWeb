@@ -2,6 +2,7 @@ id: rheumatic-heart-disease
 name: Rheumatic heart disease
 group: valvular
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.545", "K&C 10e p.1092", "K&C 10e p.1097"]
 chain:
   - [rheumatic-fever, endocardial-inflammation]
@@ -11,6 +12,18 @@ chain:
   - [rheumatic-scarring, aortic-regurgitant-flow]
   - [rheumatic-scarring, fixed-lvot-obstruction]
   - [rheumatic-scarring, tricuspid-regurgitant-flow]
+  - [mitral-inflow-obstruction, mid-diastolic-murmur]
+  - [mitral-regurgitant-flow, pansystolic-murmur]
+  - [aortic-regurgitant-flow, early-diastolic-murmur]
+  - [mitral-inflow-obstruction, mitral-stenosis]
+  - [mitral-regurgitant-flow, mitral-regurgitation]
+  - [aortic-regurgitant-flow, aortic-regurgitation]
+  - [fixed-lvot-obstruction, aortic-stenosis]
+  - [tricuspid-regurgitant-flow, tricuspid-regurgitation]
+  - [mitral-inflow-obstruction, atrial-dilatation]
+  - [atrial-dilatation, atrial-fibrillation]
+  - [rheumatic-scarring, endocardial-damage]
+  - [endocardial-damage, infective-endocarditis]
 findings:
   - {id: mid-diastolic-murmur, freq: common}
   - {id: pansystolic-murmur, freq: common}

@@ -1,0 +1,22 @@
+id: nsclc
+name: Non-small-cell lung cancer
+parent: lung-cancer
+group: lung-pleural-tumours
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.975-980"]
+chain:
+  - {from: carcinogen-induced-transformation, to: primary-lung-tumour, note: "About 80% of lung cancers: squamous, adenocarcinoma and large-cell, grouped because they behave and are treated alike. Surgery is the curative option in early stages; tissue is typed for drivers to guide targeted drugs and immunotherapy", source: "K&C 10e p.976-980"}
+  - [driver-mutation-transformation, primary-lung-tumour]
+  - [primary-lung-tumour, lung-mass]
+  - [primary-lung-tumour, local-tumour-invasion]
+  - {from: primary-lung-tumour, to: metastatic-spread, note: "Staged by TNM: only 25–30% alive at 1 year and 6–8% at 5 years overall", source: "K&C 10e p.978"}
+  - [primary-lung-tumour, cough]
+  - [local-tumour-invasion, malignant-pleural-effusion]
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: lung-mass, freq: classic}
+  - {id: cough, freq: common}
+outcomes:
+  - malignant-pleural-effusion
+  - distant-metastases

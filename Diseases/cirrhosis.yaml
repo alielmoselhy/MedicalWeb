@@ -1,0 +1,74 @@
+id: cirrhosis
+name: Cirrhosis
+group: cirrhosis-liver-tumours
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1262, 1273, 1289-1298, 1315", "Mehlman HY Gastro", "LMC 2026 Cirrhosis s.3-9"]
+chain:
+  - {from: alcohol-related-liver-disease, to: liver-fibrosis, note: "Commonest cause in the West, soon to be overtaken by NAFLD; viral hepatitis worldwide. Stellate cells in the space of Disse lay down the fibrous tissue", source: "K&C 10e p.1289; LMC 2026 Cirrhosis s.4"}
+  - [masld, liver-fibrosis]
+  - [hepatitis-b, liver-fibrosis]
+  - [hepatitis-c, liver-fibrosis]
+  - [primary-biliary-cholangitis, liver-fibrosis]
+  - [primary-sclerosing-cholangitis, liver-fibrosis]
+  - [autoimmune-hepatitis, liver-fibrosis]
+  - [haemochromatosis, liver-fibrosis]
+  - [wilsons-disease, liver-fibrosis]
+  - [alpha-1-antitrypsin-deficiency, liver-fibrosis]
+  - [cystic-fibrosis, liver-fibrosis]
+  - {from: heart-failure, to: liver-fibrosis, note: "Hepatic venous congestion", source: "K&C 10e p.1289"}
+  - [budd-chiari-syndrome, liver-fibrosis]
+  - {from: liver-fibrosis, to: regenerative-nodules, note: "Micronodular (alcohol, biliary) or macronodular (viral). The liver enlarges then shrinks; the cause may no longer be visible", source: "K&C 10e p.1289; LMC 2026 Cirrhosis s.6"}
+  - [liver-fibrosis, nodular-liver-imaging]
+  - {from: liver-fibrosis, to: intrahepatic-portal-resistance, note: "Distorted architecture and contracting myofibroblasts resist portal flow", source: "K&C 10e p.1292"}
+  - [liver-fibrosis, impaired-hepatic-synthesis]
+  - [impaired-hepatic-synthesis, low-albumin]
+  - [impaired-hepatic-synthesis, prolonged-inr]
+  - {from: liver-fibrosis, to: reduced-oestrogen-clearance, note: "Causes spider naevi, palmar erythema and gynaecomastia", source: "Mehlman HY Gastro"}
+  - [reduced-oestrogen-clearance, spider-naevi]
+  - [reduced-oestrogen-clearance, palmar-erythema]
+  - [reduced-oestrogen-clearance, gynaecomastia]
+  - {from: intrahepatic-portal-resistance, to: splanchnic-vasodilation, note: "The hyperdynamic circulation (nitric oxide)", source: "K&C 10e p.1292"}
+  - {from: splanchnic-vasodilation, to: raas-activation, note: "Low effective blood volume activates the sympathetic and renin–angiotensin systems", source: "K&C 10e p.1295"}
+  - [raas-activation, salt-water-retention]
+  - [salt-water-retention, high-saag-ascites]
+  - {from: intrahepatic-portal-resistance, to: high-saag-ascites, note: "Local hydrostatic pressure; low albumin adds to it", source: "K&C 10e p.1295"}
+  - [salt-water-retention, peripheral-oedema]
+  - {from: liver-fibrosis, to: bacterial-translocation, note: "The gut barrier fails in advanced liver disease", source: "K&C 10e p.1291"}
+  - [liver-fibrosis, chronic-liver-disease-stigmata]
+  - [impaired-hepatic-synthesis, fatigue]
+  - [intrahepatic-portal-resistance, splenomegaly]
+  - [impaired-hepatic-synthesis, jaundice]
+  - [salt-water-retention, hyponatraemia]
+  - [impaired-hepatic-synthesis, weight-loss]
+  - [intrahepatic-portal-resistance, portal-hypertension]
+  - [impaired-hepatic-synthesis, hyperammonaemia]
+  - [hyperammonaemia, hepatic-encephalopathy]
+  - [bacterial-translocation, spontaneous-bacterial-peritonitis]
+  - [splanchnic-vasodilation, hepatorenal-syndrome]
+  - [liver-fibrosis, hepatocellular-carcinoma]
+findings:
+  - {id: chronic-liver-disease-stigmata, freq: common}
+  - {id: spider-naevi, freq: common}
+  - {id: palmar-erythema, freq: common}
+  - {id: gynaecomastia, freq: occasional, source: "K&C 10e p.1262"}
+  - {id: fatigue, freq: common, note: "Weakness, anorexia and fatigue", source: "K&C 10e p.1262"}
+  - {id: high-saag-ascites, freq: common, note: "Shifting dullness; a gradient > 11 g/L points to portal hypertension", source: "K&C 10e p.1296"}
+  - {id: peripheral-oedema, freq: common, source: "K&C 10e p.1296"}
+  - {id: splenomegaly, freq: common, note: "From portal hypertension; may not be palpable in alcoholic cirrhosis", source: "K&C 10e p.1273"}
+  - {id: jaundice, freq: common, note: "Usually means decompensation", source: "K&C 10e p.1273"}
+  - {id: low-albumin, freq: classic, note: "Albumin and PT best reflect liver function; albumin < 28 g/L is a poor sign", source: "K&C 10e p.1289"}
+  - {id: prolonged-inr, freq: classic}
+  - {id: hyponatraemia, freq: occasional, note: "Means severe disease (poor free water clearance) or too much diuretic", source: "K&C 10e p.1289"}
+  - {id: nodular-liver-imaging, freq: common, source: "K&C 10e p.1289-1290"}
+  - {id: regenerative-nodules, freq: classic}
+  - {id: finger-clubbing, freq: occasional, source: "Mehlman HY Gastro"}
+  - {id: weight-loss, freq: common, note: "Often silent until a complication; otherwise anorexia, weight loss, weakness", source: "LMC 2026 Cirrhosis s.5"}
+outcomes:
+  - {id: portal-hypertension, freq: classic}
+  - {id: hepatic-encephalopathy, freq: common, source: "K&C 10e p.1297"}
+  - {id: spontaneous-bacterial-peritonitis, freq: common, note: "Up to 18% of those with decompensated ascites", source: "K&C 10e p.1297"}
+  - {id: hepatorenal-syndrome, source: "K&C 10e p.1298"}
+  - {id: hepatopulmonary-syndrome, note: "Hypoxaemia from intrapulmonary vascular dilatation: clubbing, cyanosis, breathless on standing", source: "K&C 10e p.1298"}
+  - {id: hepatocellular-carcinoma, source: "K&C 10e p.1289"}
+  - {id: gallstone-disease, freq: occasional, source: "K&C 10e p.1315"}

@@ -1,7 +1,8 @@
 id: acute-pericarditis
 name: Acute pericarditis
-group: pericardial
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1125-1126"]
 chain:
   - {from: coxsackie-b-virus, to: pericardial-inflammation, note: "Viral (Coxsackie, echovirus…); most cases have no identified cause (idiopathic)", source: "K&C 10e p.1125"}
@@ -13,6 +14,11 @@ chain:
   - [pericardial-inflammation, pr-depression]
   - [pericardial-inflammation, pericardial-effusion]
   - [pericardial-effusion, pericardial-effusion-imaging]
+  - [pericardial-inflammation, raised-inflammatory-markers]
+  - [pericardial-inflammation, fever]
+  - [pericardial-effusion, cardiac-tamponade]
+  - [pericardial-inflammation, relapsing-pericarditis]
+  - [mycobacterium-tuberculosis, constrictive-pericarditis]
 findings:
   - {id: pleuritic-chest-pain, freq: classic, note: "Diagnosis needs 2 of 4: pain, rub, ECG changes, effusion", source: "K&C 10e p.1125"}
   - {id: pericardial-rub, freq: common}

@@ -1,0 +1,28 @@
+id: interstitial-lung-disease
+name: Interstitial lung disease
+group: interstitial
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.985", "Mehlman HY Pulmonary"]
+chain:
+  - {from: alveolar-epithelial-injury, to: interstitial-fibrosis, note: "A mixed group (≈15% of respiratory practice) with varying inflammation and fibrosis of the interstitium", source: "K&C 10e p.985"}
+  - [interstitial-fibrosis, restrictive-spirometry]
+  - [interstitial-fibrosis, diffusion-impairment]
+  - [diffusion-impairment, reduced-tlco]
+  - [diffusion-impairment, hypoxaemia]
+  - [interstitial-fibrosis, fine-end-inspiratory-crackles]
+  - [interstitial-fibrosis, reticular-honeycombing]
+  - [diffusion-impairment, exertional-dyspnoea]
+  - [interstitial-fibrosis, dry-cough]
+  - [diffusion-impairment, type-1-respiratory-failure]
+  - [interstitial-fibrosis, hypoxic-vasoconstriction]
+  - [hypoxic-vasoconstriction, pulmonary-hypertension]
+findings:
+  - {id: exertional-dyspnoea, freq: classic, note: "Typically exertional breathlessness with or without cough", source: "K&C 10e p.985"}
+  - {id: restrictive-spirometry, freq: classic, note: "FEV1/FVC normal or high, because fibrosis holds the airways open (radial traction)", source: "Mehlman HY Pulmonary"}
+  - {id: dry-cough, freq: common}
+  - {id: reduced-tlco, freq: common}
+  - {id: fine-end-inspiratory-crackles, freq: common}
+outcomes:
+  - type-1-respiratory-failure
+  - pulmonary-hypertension

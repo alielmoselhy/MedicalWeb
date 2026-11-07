@@ -1,0 +1,35 @@
+id: parkinsons-disease
+name: Parkinson's disease
+group: neurodegenerative
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.859-862", "K&C 10e p.883", "Mehlman HY Neuro", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: older-age, to: alpha-synuclein-lewy-bodies, note: "Risk rises sharply with age; idiopathic disease probably reflects interacting genetic and environmental susceptibility", source: "K&C 10e p.859"}
+  - [snca-lrrk2-mutation, alpha-synuclein-lewy-bodies]
+  - {from: alpha-synuclein-lewy-bodies, to: nigrostriatal-dopamine-loss, note: "Lewy bodies accompany progressive loss of substantia nigra dopaminergic neurones", source: "K&C 10e p.859"}
+  - [nigrostriatal-dopamine-loss, bradykinesia]
+  - [nigrostriatal-dopamine-loss, resting-tremor]
+  - [nigrostriatal-dopamine-loss, cogwheel-rigidity]
+  - [nigrostriatal-dopamine-loss, postural-instability]
+  - [nigrostriatal-dopamine-loss, reduced-dat-scan]
+  - [alpha-synuclein-lewy-bodies, anosmia]
+  - [alpha-synuclein-lewy-bodies, rem-sleep-behaviour-disorder]
+  - [alpha-synuclein-lewy-bodies, autonomic-dysfunction]
+  - [alpha-synuclein-lewy-bodies, cholinergic-neurone-loss]
+  - [cholinergic-neurone-loss, dementia]
+  - [nigrostriatal-dopamine-loss, dysphagia]
+  - [dysphagia, aspiration-of-oropharyngeal-flora]
+  - [aspiration-of-oropharyngeal-flora, community-acquired-pneumonia]
+findings:
+  - {id: bradykinesia, freq: classic, note: "The cardinal feature: repeated movements progressively slow and diminish in amplitude", source: "K&C 10e p.860"}
+  - {id: resting-tremor, freq: classic, note: "Presents in about 70%, usually beginning unilaterally and improving with movement", source: "K&C 10e p.860"}
+  - {id: cogwheel-rigidity, freq: classic}
+  - {id: postural-instability, freq: common, note: "Stooped, short-stepped shuffling gait; early falls suggest another parkinsonian disorder", source: "K&C 10e p.860"}
+  - {id: anosmia, freq: common, note: "Often predates motor symptoms", source: "K&C 10e p.859"}
+  - {id: rem-sleep-behaviour-disorder, freq: occasional}
+  - {id: reduced-dat-scan, freq: occasional, note: "Supports nigrostriatal loss when tremor is atypical but does not distinguish Parkinson's from other akinetic-rigid syndromes", source: "K&C 10e p.860"}
+outcomes:
+  - {id: autonomic-dysfunction, freq: common, note: "Constipation, urinary urgency and hypotension can precede the motor syndrome", source: "K&C 10e p.859"}
+  - {id: dementia, freq: common, note: "Late cognitive impairment may progress to dementia; unlike DLB, it begins well after the motor syndrome", source: "K&C 10e p.860; K&C 10e p.883"}
+  - {id: community-acquired-pneumonia, note: "Late dysphagia can lead to aspiration pneumonia", source: "K&C 10e p.860"}

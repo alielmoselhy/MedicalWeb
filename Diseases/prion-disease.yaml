@@ -1,0 +1,20 @@
+id: prion-disease
+name: Prion disease
+group: neurodegenerative
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.884", "Mehlman HY Neuro"]
+chain:
+  - {from: sporadic-prion-change, to: prion-propagation, note: "Sporadic CJD is the commonest human prion disease", source: "K&C 10e p.884"}
+  - [prnp-mutation, prion-propagation]
+  - {from: prion-exposure, to: prion-propagation, note: "Iatrogenic transmission follows contaminated instruments, grafts or cadaveric hormone; variant CJD followed BSE exposure", source: "K&C 10e p.884"}
+  - {from: prion-propagation, to: spongiform-change, note: "Misfolded PrP induces further protein misfolding and toxic amyloid accumulation", source: "K&C 10e p.884"}
+  - [spongiform-change, rapidly-progressive-dementia]
+  - [spongiform-change, myoclonus]
+  - [spongiform-change, cerebellar-ataxia]
+  - [prion-propagation, csf-rt-quic-positive]
+findings:
+  - {id: rapidly-progressive-dementia, freq: classic, note: "Sporadic CJD usually progresses to death within six months", source: "K&C 10e p.884"}
+  - {id: myoclonus, freq: classic, note: "Occurs in about 90% of sporadic CJD", source: "K&C 10e p.884"}
+  - {id: cerebellar-ataxia, freq: common, note: "Especially prominent in variant CJD after early neuropsychiatric symptoms", source: "K&C 10e p.884"}
+  - {id: csf-rt-quic-positive, freq: classic, note: "CSF RT-QuIC is highly sensitive and specific for abnormal prion protein", source: "K&C 10e p.881"}

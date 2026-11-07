@@ -1,0 +1,33 @@
+id: asbestosis
+name: Asbestosis
+parent: pneumoconiosis
+group: interstitial
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.996", "Mehlman HY Pulmonary"]
+chain:
+  - {from: asbestos, to: macrophage-dust-fibrogenesis, note: "Heavy exposure (shipyards, power stations, insulation); disease 5–10 years later. Crocidolite (blue) is the most fibrogenic", source: "K&C 10e p.996"}
+  - [macrophage-dust-fibrogenesis, interstitial-fibrosis]
+  - {from: interstitial-fibrosis, to: restrictive-spirometry, note: "Severe restrictive defect with low gas transfer", source: "K&C 10e p.996"}
+  - [interstitial-fibrosis, diffusion-impairment]
+  - [diffusion-impairment, reduced-tlco]
+  - [interstitial-fibrosis, fine-end-inspiratory-crackles]
+  - [interstitial-fibrosis, reticular-honeycombing]
+  - {from: asbestos, to: pleural-plaques, note: "Light exposure is enough; plaques mark exposure and cause little", source: "K&C 10e p.996"}
+  - [diffusion-impairment, exertional-dyspnoea]
+  - [interstitial-fibrosis, finger-clubbing]
+  - [diffusion-impairment, respiratory-failure]
+  - [asbestos, lung-cancer]
+  - [asbestos, mesothelioma]
+findings:
+  - {id: exertional-dyspnoea, freq: classic, note: "Progressive", source: "K&C 10e p.996"}
+  - {id: fine-end-inspiratory-crackles, freq: classic, note: "Bilateral, basal", source: "K&C 10e p.996"}
+  - {id: finger-clubbing, freq: common, source: "K&C 10e p.996"}
+  - {id: reticular-honeycombing, freq: common, note: "HRCT shows fibrosis the CXR misses", source: "K&C 10e p.996"}
+  - {id: restrictive-spirometry, freq: common}
+  - {id: reduced-tlco, freq: common}
+  - {id: pleural-plaques, freq: common}
+outcomes:
+  - {id: respiratory-failure, note: "No treatment alters its course", source: "K&C 10e p.996"}
+  - {id: lung-cancer, note: "Asbestos is a listed environmental cause of bronchial carcinoma", source: "K&C 10e p.975"}
+  - {id: mesothelioma, note: "Asbestosis first, mesothelioma years later", source: "Mehlman HY Pulmonary"}

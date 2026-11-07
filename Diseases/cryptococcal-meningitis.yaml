@@ -1,0 +1,30 @@
+id: cryptococcal-meningitis
+name: Cryptococcal meningitis
+parent: meningitis
+group: cns-infection
+status: draft
+systems: [nervous, immunology]
+sources: ["K&C 10e p.871-872", "Mehlman HY Neuro"]
+chain:
+  - [hiv, immunosuppression]
+  - [immunosuppression, cryptococcus-neoformans]
+  - [cryptococcus-neoformans, haematogenous-seeding]
+  - [haematogenous-seeding, leptomeningeal-inflammation]
+  - [leptomeningeal-inflammation, headache]
+  - [leptomeningeal-inflammation, neck-stiffness]
+  - [leptomeningeal-inflammation, vomiting]
+  - [leptomeningeal-inflammation, csf-tb-fungal-pattern]
+  - [cryptococcus-neoformans, csf-cryptococcal-antigen]
+  - {from: leptomeningeal-inflammation, to: raised-intracranial-pressure, note: "Raised CSF pressure is common in cryptococcal meningitis", source: "K&C 10e p.872"}
+  - [raised-intracranial-pressure, papilloedema]
+  - [leptomeningeal-inflammation, impaired-csf-absorption]
+  - [impaired-csf-absorption, hydrocephalus]
+findings:
+  - {id: headache, freq: classic, note: "Typically evolves subacutely with vague headache, lassitude, anorexia and vomiting", source: "K&C 10e p.871"}
+  - {id: vomiting, freq: common}
+  - {id: neck-stiffness, freq: occasional}
+  - {id: papilloedema, freq: occasional}
+  - {id: csf-tb-fungal-pattern, freq: classic}
+  - {id: csf-cryptococcal-antigen, freq: classic, source: "Mehlman HY Neuro"}
+outcomes:
+  - hydrocephalus

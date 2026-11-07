@@ -1,10 +1,12 @@
 id: cor-pulmonale
 name: Cor pulmonale
-group: pulmonary vascular
+group: hypertension-heart-failure
 status: draft
+systems: [cardiovascular, respiratory]
 sources: ["K&C 10e p.1115", "K&C 10e p.956", "K&C 10e p.1101"]
 chain:
-  - {from: chronic-lung-disease, to: hypoxic-vasoconstriction, note: "Late COPD: respiratory failure, pulmonary hypertension and cor pulmonale", source: "K&C 10e p.956"}
+  - {from: copd, to: hypoxic-vasoconstriction, note: "Late COPD: respiratory failure, pulmonary hypertension and cor pulmonale", source: "K&C 10e p.956"}
+  - [interstitial-lung-disease, hypoxic-vasoconstriction]
   - [hypoxic-vasoconstriction, rv-pressure-overload]
   - [pulmonary-hypertension, rv-pressure-overload]
   - {from: pulmonary-embolism, to: rv-pressure-overload, note: "Acute cor pulmonale"}
@@ -18,7 +20,11 @@ chain:
   - [systemic-venous-congestion, raised-jvp]
   - [systemic-venous-congestion, peripheral-oedema]
   - [systemic-venous-congestion, hepatomegaly]
-  - [systemic-venous-congestion, ascites]
+  - [systemic-venous-congestion, high-saag-ascites]
+  - [rv-pressure-overload, exertional-dyspnoea]
+  - [tricuspid-regurgitant-flow, pansystolic-murmur]
+  - [tricuspid-regurgitant-flow, tricuspid-regurgitation]
+  - [systemic-venous-congestion, heart-failure]
 findings:
   - {id: peripheral-oedema, freq: classic}
   - {id: raised-jvp, freq: classic}
@@ -28,7 +34,7 @@ findings:
   - {id: rv-strain, freq: common}
   - {id: p-pulmonale, freq: common}
   - {id: exertional-dyspnoea, freq: common}
-  - {id: ascites, freq: occasional}
+  - {id: high-saag-ascites, freq: occasional}
   - {id: pansystolic-murmur, freq: occasional, note: "Functional TR"}
 outcomes:
   - tricuspid-regurgitation

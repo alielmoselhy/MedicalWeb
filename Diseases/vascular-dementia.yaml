@@ -1,0 +1,23 @@
+id: vascular-dementia
+name: Vascular (multi-infarct) dementia
+parent: dementia
+group: cns-trauma-stroke
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.841", "Mehlman HY Neuro"]
+chain:
+  - {from: hypertension, to: small-vessel-disease, note: "Repeated small strokes in hypertensive patients", source: "Mehlman HY Neuro"}
+  - [small-vessel-disease, cerebral-ischaemia]
+  - [atheroembolism, cerebral-ischaemia]
+  - {from: cerebral-ischaemia, to: cerebral-infarction, note: "Multiple lacunes or larger infarcts in advanced cerebrovascular disease", source: "K&C 10e p.841"}
+  - [cerebral-infarction, stepwise-cognitive-decline]
+  - [cerebral-infarction, lacunes-white-matter-change]
+  - [cerebral-infarction, hemiparesis]
+  - [cerebral-infarction, pseudobulbar-palsy]
+  - [cerebral-infarction, gait-apraxia]
+findings:
+  - {id: stepwise-cognitive-decline, freq: classic, note: "On exam questions the clue is dementia plus a focal motor or sensory sign", source: "Mehlman HY Neuro"}
+  - {id: hemiparesis, freq: common}
+  - {id: gait-apraxia, freq: common, note: "Shuffling small steps (marche à petits pas), sometimes called atherosclerotic parkinsonism", source: "K&C 10e p.841"}
+  - {id: pseudobulbar-palsy, freq: occasional, source: "K&C 10e p.841"}
+  - {id: lacunes-white-matter-change, freq: classic, note: "Widespread white-matter low attenuation with dementia and strokes is called Binswanger's disease", source: "K&C 10e p.841"}

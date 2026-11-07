@@ -1,0 +1,19 @@
+id: oesophageal-squamous-cell-carcinoma
+name: Oesophageal squamous cell carcinoma
+parent: oesophageal-cancer
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1170-1171", "Mehlman HY Gastro"]
+chain:
+  - {from: smoking, to: carcinogen-induced-transformation, note: "Smoking, alcohol, obesity and a diet low in fruit and vegetables explain about 9 in 10 cases", source: "K&C 10e p.1170-1171"}
+  - {from: excess-alcohol, to: carcinogen-induced-transformation, source: "K&C 10e p.1170"}
+  - {from: achalasia, to: carcinogen-induced-transformation, note: "Also Plummer–Vinson, corrosive strictures, coeliac disease, tylosis", source: "K&C 10e p.1170"}
+  - {from: coeliac-disease, to: carcinogen-induced-transformation, source: "K&C 10e p.1170"}
+  - [carcinogen-induced-transformation, oesophageal-tumour]
+  - [oesophageal-tumour, oesophageal-narrowing]
+  - [oesophageal-narrowing, progressive-solid-dysphagia]
+  - [oesophageal-tumour, weight-loss]
+findings:
+  - {id: progressive-solid-dysphagia, freq: classic, note: "Upper two-thirds; a heavy smoker and drinker over 50. Hotspots in China, Iran, East Africa; men 2:1", source: "K&C 10e p.1170; Mehlman HY Gastro"}
+  - {id: weight-loss, freq: common}

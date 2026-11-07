@@ -2,6 +2,7 @@ id: mitral-regurgitation
 name: Mitral regurgitation
 group: valvular
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1095-1097"]
 chain:
   - {from: myxomatous-degeneration, to: mitral-regurgitant-flow, note: "Commonest cause; prolapsing (floppy) valve", source: "K&C 10e p.1095"}
@@ -22,6 +23,12 @@ chain:
   - [atrial-dilatation, atrial-fibrillation]
   - [mitral-regurgitant-flow, pansystolic-murmur]
   - [myxomatous-degeneration, mid-systolic-click]
+  - [pulmonary-venous-hypertension, exertional-dyspnoea]
+  - [systolic-dysfunction, fatigue]
+  - [eccentric-hypertrophy, lvh-voltage]
+  - [atrial-dilatation, p-mitrale]
+  - [systolic-dysfunction, heart-failure]
+  - [pulmonary-venous-hypertension, pulmonary-hypertension]
 findings:
   - {id: pansystolic-murmur, freq: classic, note: "Loudest at the apex, radiating to the axilla", source: "K&C 10e p.1095"}
   - {id: displaced-apex-beat, freq: common}

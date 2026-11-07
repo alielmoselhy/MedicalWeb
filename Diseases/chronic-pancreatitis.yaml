@@ -1,0 +1,39 @@
+id: chronic-pancreatitis
+name: Chronic pancreatitis
+group: biliary-pancreas
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1329-1331", "Mehlman HY Gastro", "LMC 2025 HPB pathology s.55-57"]
+chain:
+  - {from: excess-alcohol, to: premature-trypsin-activation, note: "The only cause in 60–80% in developed countries, but most heavy drinkers never get it. IgG4 (autoimmune) disease is a distinct form", source: "K&C 10e p.1329-1330; LMC 2025 HPB pathology s.55"}
+  - {from: prss1-mutation, to: premature-trypsin-activation, note: "Hereditary pancreatitis (autosomal dominant); SPINK1 and CTRC variants act similarly", source: "K&C 10e p.1330"}
+  - {from: cftr-mutation, to: premature-trypsin-activation, note: "Less bicarbonate-rich flow to flush trypsin out", source: "K&C 10e p.1330"}
+  - {from: acute-pancreatitis, to: pancreatic-fibrosis, note: "Recurrent or severe acute attacks", source: "K&C 10e p.1329"}
+  - {from: smoking, to: pancreatic-fibrosis, note: "An independent risk factor", source: "K&C 10e p.1331"}
+  - {from: premature-trypsin-activation, to: pancreatic-fibrosis, note: "Protein plugs calcify, block ducts and raise duct pressure", source: "K&C 10e p.1329-1330"}
+  - {from: pancreatic-fibrosis, to: pain-radiating-to-back, note: "Epigastric, often into the back; episodic or unremitting; worse after alcohol or fatty meals", source: "K&C 10e p.1330"}
+  - [pancreatic-fibrosis, exocrine-pancreatic-insufficiency]
+  - [exocrine-pancreatic-insufficiency, steatorrhoea]
+  - [exocrine-pancreatic-insufficiency, weight-loss]
+  - [exocrine-pancreatic-insufficiency, low-faecal-elastase]
+  - [pancreatic-fibrosis, islet-destruction]
+  - [pancreatic-fibrosis, pancreatic-calcification]
+  - {from: pancreatic-fibrosis, to: bile-duct-obstruction, note: "The bile duct is squeezed in the fibrosed head", source: "K&C 10e p.1330-1331"}
+  - [bile-duct-obstruction, jaundice]
+  - [premature-trypsin-activation, raised-amylase-lipase]
+  - [islet-destruction, pancreatogenic-diabetes]
+  - [pancreatic-fibrosis, inflammation-driven-transformation]
+  - [inflammation-driven-transformation, pancreatic-adenocarcinoma]
+  - [pancreatic-fibrosis, pancreatic-pseudocyst]
+findings:
+  - {id: pain-radiating-to-back, freq: classic}
+  - {id: steatorrhoea, freq: common, note: "Sometimes the presenting feature, without pain; fat and protein in the stool", source: "K&C 10e p.1330; Mehlman HY Gastro"}
+  - {id: weight-loss, freq: common, source: "K&C 10e p.1330"}
+  - {id: low-faecal-elastase, freq: common, source: "K&C 10e p.1331"}
+  - {id: pancreatic-calcification, freq: classic, note: "Calcification with a dilated duct on CT makes the diagnosis", source: "K&C 10e p.1331; Mehlman HY Gastro"}
+  - {id: raised-amylase-lipase, freq: occasional, note: "Often normal once little acinar tissue is left", source: "K&C 10e p.1331"}
+  - {id: jaundice, freq: occasional}
+outcomes:
+  - {id: pancreatogenic-diabetes, freq: common, note: "About 30%, usually late and after exocrine failure. Half die within 20–25 years", source: "K&C 10e p.1330; LMC 2025 HPB pathology s.57"}
+  - {id: pancreatic-adenocarcinoma, freq: rare, note: "Chronic pancreatitis is pre-malignant", source: "K&C 10e p.1331"}
+  - {id: pancreatic-pseudocyst, source: "LMC 2025 HPB pathology s.57"}

@@ -1,0 +1,25 @@
+id: motor-neurone-disease
+name: Motor neurone disease
+group: neurodegenerative
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.885-886", "Mehlman HY Neuroanatomy"]
+chain:
+  - [sod1-c9orf72-mutation, tdp43-sod1-aggregates]
+  - {from: tdp43-sod1-aggregates, to: upper-and-lower-motor-neurone-loss, note: "Most disease is sporadic; protein aggregation, oxidative injury and excitotoxicity are implicated", source: "K&C 10e p.885"}
+  - [upper-and-lower-motor-neurone-loss, umn-signs]
+  - [upper-and-lower-motor-neurone-loss, lmn-signs]
+  - [upper-and-lower-motor-neurone-loss, bulbar-palsy]
+  - [upper-and-lower-motor-neurone-loss, denervation-on-emg]
+  - [upper-and-lower-motor-neurone-loss, respiratory-muscle-weakness]
+  - [respiratory-muscle-weakness, type-2-respiratory-failure]
+  - [bulbar-palsy, aspiration-of-oropharyngeal-flora]
+  - [aspiration-of-oropharyngeal-flora, community-acquired-pneumonia]
+findings:
+  - {id: umn-signs, freq: classic, note: "Brisk reflexes, extensor plantar responses and spasticity may coexist with wasting", source: "K&C 10e p.885"}
+  - {id: lmn-signs, freq: classic, note: "Progressive focal weakness, wasting and fasciculation without sensory loss", source: "K&C 10e p.885; Mehlman HY Neuroanatomy"}
+  - {id: bulbar-palsy, freq: common, note: "About 20% present with dysarthria, dysphagia, choking or nasal regurgitation", source: "K&C 10e p.885"}
+  - {id: denervation-on-emg, freq: classic, note: "EMG confirms lower motor neurone denervation, including clinically silent muscle groups", source: "K&C 10e p.885"}
+outcomes:
+  - {id: type-2-respiratory-failure, freq: common, note: "Progressive respiratory weakness is a major cause of death", source: "K&C 10e p.885"}
+  - {id: community-acquired-pneumonia, freq: common, note: "Bulbar dysfunction causes aspiration", source: "K&C 10e p.885"}

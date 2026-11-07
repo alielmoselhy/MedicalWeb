@@ -1,0 +1,29 @@
+id: influenza
+name: Influenza
+group: respiratory-infection
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.520-521", "K&C 10e p.947-948", "Mehlman HY Pulmonary"]
+chain:
+  - {from: influenza-virus, to: droplet-inhalation, note: "Antigenic drift drives winter epidemics; antigenic shift (influenza A only) drives pandemics", source: "K&C 10e p.520"}
+  - {from: droplet-inhalation, to: viral-airway-epithelial-infection, note: "Haemagglutinin binds sialic acid to enter cells; neuraminidase releases new virions and is the target of oseltamivir", source: "K&C 10e p.520"}
+  - [viral-airway-epithelial-infection, dry-cough]
+  - [viral-airway-epithelial-infection, sore-throat-coryza]
+  - [viral-airway-epithelial-infection, fever]
+  - [viral-airway-epithelial-infection, myalgia]
+  - [viral-airway-epithelial-infection, headache]
+  - [viral-airway-epithelial-infection, fatigue]
+  - [viral-airway-epithelial-infection, diarrhoea]
+  - [viral-airway-epithelial-infection, community-acquired-pneumonia]
+  - [viral-airway-epithelial-infection, ards]
+findings:
+  - {id: fever, freq: classic, note: "Abrupt onset with shivering after a 1–3 day incubation", source: "K&C 10e p.947"}
+  - {id: myalgia, freq: classic, note: "Generalised aching is the feature that points to flu", source: "Mehlman HY Pulmonary"}
+  - {id: headache, freq: common, note: "Often severe", source: "K&C 10e p.947"}
+  - {id: sore-throat-coryza, freq: common}
+  - {id: dry-cough, freq: common, note: "Can last several weeks", source: "K&C 10e p.947"}
+  - {id: fatigue, freq: occasional, note: "Weeks to months of debility and low mood afterwards", source: "K&C 10e p.947"}
+  - {id: diarrhoea, freq: occasional, note: "In 70% of avian H5N1", source: "K&C 10e p.947"}
+outcomes:
+  - {id: community-acquired-pneumonia, note: "Secondary bacterial pneumonia: S. pneumoniae and H. influenzae common; S. aureus rarer but up to 20% mortality", source: "K&C 10e p.947-948"}
+  - {id: ards, freq: rare, note: "Avian H5N1 triggers a cytokine storm in the lungs (≈50% mortality)", source: "K&C 10e p.521"}

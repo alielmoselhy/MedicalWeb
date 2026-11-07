@@ -2,6 +2,7 @@ id: aortic-regurgitation
 name: Aortic regurgitation
 group: valvular
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1099-1100"]
 chain:
   - {from: infective-endocarditis, to: leaflet-destruction, note: "Acute AR: endocarditis, dissection, rheumatic fever, prosthetic failure", source: "K&C 10e p.1099 (Box 30.44)"}
@@ -19,6 +20,12 @@ chain:
   - [aortic-regurgitant-flow, early-diastolic-murmur]
   - [aortic-regurgitant-flow, collapsing-pulse]
   - [aortic-regurgitant-flow, wide-pulse-pressure]
+  - [systolic-dysfunction, pulmonary-venous-congestion]
+  - [pulmonary-venous-congestion, exertional-dyspnoea]
+  - [aortic-regurgitant-flow, mid-diastolic-murmur]
+  - [aortic-regurgitant-flow, ejection-systolic-murmur]
+  - [demand-ischaemia, exertional-chest-pain]
+  - [systolic-dysfunction, heart-failure]
 findings:
   - {id: early-diastolic-murmur, freq: classic, note: "High-pitched, left sternal edge, sitting forward in expiration", source: "K&C 10e p.1100"}
   - {id: collapsing-pulse, freq: common}

@@ -1,0 +1,23 @@
+id: colorectal-adenoma
+name: Colorectal adenoma (colonic polyps)
+group: large-bowel-peritoneum
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1214-1216", "Mehlman HY Gastro"]
+chain:
+  - {from: older-age, to: adenomatous-polyp, note: "Rare before 30; by 60–70 up to half have a small adenoma", source: "K&C 10e p.1214"}
+  - {from: familial-adenomatous-polyposis, to: adenomatous-polyp, note: "Autosomal dominant APC mutation, near-100% penetrance: hundreds to thousands of adenomas from about 16, cancer by about 39. Also duodenal adenomas", source: "K&C 10e p.1215; Mehlman HY Gastro"}
+  - {from: lynch-syndrome, to: adenomatous-polyp, note: "Mismatch repair genes (MSH2, MLH1…): fewer polyps but they progress fast, mostly right-sided; microsatellite instability", source: "K&C 10e p.1215-1216; Mehlman HY Gastro"}
+  - [adenomatous-polyp, colonic-polyp-endoscopy]
+  - {from: adenomatous-polyp, to: rectal-bleeding, note: "Rectal and sigmoid polyps; proximal ones are usually silent", source: "K&C 10e p.1214"}
+  - {from: adenomatous-polyp, to: adenoma-carcinoma-sequence, note: "Dysplasia builds as mutations accumulate. Villous and sessile are worse than tubular and pedunculated; size matters. Serrated polyps take a separate (BRAF, CIMP) route and cause about 30%", source: "K&C 10e p.1214-1215; Mehlman HY Gastro"}
+  - [adenomatous-polyp, positive-fit]
+  - [adenoma-carcinoma-sequence, colorectal-cancer]
+findings:
+  - {id: colonic-polyp-endoscopy, freq: classic, note: "Almost always removable at colonoscopy; removal and surveillance cut cancer risk by about 80%", source: "K&C 10e p.1214"}
+  - {id: rectal-bleeding, freq: occasional}
+  - {id: watery-diarrhoea, freq: rare, note: "Large villous adenomas: profuse mucous diarrhoea", source: "K&C 10e p.1215"}
+  - {id: hypokalaemia, freq: rare, note: "With villous adenomas", source: "K&C 10e p.1215"}
+  - {id: positive-fit, freq: occasional, note: "40% of screen-positive patients have adenomas", source: "K&C 10e p.1219"}
+outcomes:
+  - {id: colorectal-cancer, note: "Adenomas are the precursor of most colon cancers", source: "K&C 10e p.1214"}

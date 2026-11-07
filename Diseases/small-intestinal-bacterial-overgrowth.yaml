@@ -1,0 +1,20 @@
+id: small-intestinal-bacterial-overgrowth
+name: Small intestinal bacterial overgrowth
+group: small-intestine
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1192-1193"]
+chain:
+  - {from: small-bowel-stasis, to: bacterial-overgrowth, note: "Usually a structural problem (stricture, diverticulum); sometimes the elderly without one", source: "K&C 10e p.1192"}
+  - {from: crohns-disease, to: small-bowel-stasis, note: "Strictures", source: "K&C 10e p.1192"}
+  - {from: enterobacteriaceae, to: bacterial-overgrowth, note: "E. coli", source: "K&C 10e p.1192"}
+  - {from: anaerobic-bacteria, to: bacterial-overgrowth, note: "Bacteroides", source: "K&C 10e p.1192"}
+  - {from: bacterial-overgrowth, to: steatorrhoea, note: "Bacteria deconjugate bile salts", source: "K&C 10e p.1192"}
+  - [bacterial-overgrowth, diarrhoea]
+  - {from: bacterial-overgrowth, to: b12-folate-deficiency, note: "Bacteria use B12 (mild deficiency); folate is often high", source: "K&C 10e p.1192"}
+  - [bacterial-overgrowth, positive-hydrogen-breath-test]
+findings:
+  - {id: diarrhoea, freq: classic}
+  - {id: steatorrhoea, freq: classic}
+  - {id: b12-folate-deficiency, freq: occasional}
+  - {id: positive-hydrogen-breath-test, freq: common, note: "Simple but not very sensitive or specific", source: "K&C 10e p.1192-1193"}

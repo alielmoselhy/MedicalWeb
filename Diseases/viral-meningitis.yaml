@@ -1,0 +1,25 @@
+id: viral-meningitis
+name: Viral meningitis
+parent: meningitis
+group: cns-infection
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.869-871", "Mehlman HY Neuro"]
+chain:
+  - [enterovirus, cns-pathogen-entry]
+  - [mumps-virus, cns-pathogen-entry]
+  - [herpes-simplex-virus, cns-pathogen-entry]
+  - [cns-pathogen-entry, leptomeningeal-inflammation]
+  - [leptomeningeal-inflammation, headache]
+  - [leptomeningeal-inflammation, neck-stiffness]
+  - [leptomeningeal-inflammation, photophobia]
+  - [leptomeningeal-inflammation, fever]
+  - [leptomeningeal-inflammation, vomiting]
+  - [leptomeningeal-inflammation, csf-viral-pattern]
+findings:
+  - {id: headache, freq: classic}
+  - {id: neck-stiffness, freq: classic}
+  - {id: fever, freq: classic}
+  - {id: photophobia, freq: common}
+  - {id: vomiting, freq: common}
+  - {id: csf-viral-pattern, freq: classic, note: "Usually clear CSF with lymphocytes, mildly raised protein and preserved glucose", source: "K&C 10e p.871 (Box 26.58)"}

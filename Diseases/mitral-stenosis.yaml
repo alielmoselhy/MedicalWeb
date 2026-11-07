@@ -2,6 +2,7 @@ id: mitral-stenosis
 name: Mitral stenosis
 group: valvular
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1092-1093"]
 chain:
   - {from: rheumatic-heart-disease, to: rheumatic-scarring, note: "Usual cause; decades after rheumatic fever in Europe, 10–20 years in low-income countries", source: "K&C 10e p.1092"}
@@ -22,6 +23,13 @@ chain:
   - [intracardiac-thrombus, thromboembolism]
   - [mitral-inflow-obstruction, mid-diastolic-murmur]
   - [mitral-inflow-obstruction, opening-snap]
+  - [mitral-inflow-obstruction, loud-first-heart-sound]
+  - [atrial-dilatation, irregularly-irregular-pulse]
+  - [pulmonary-venous-congestion, malar-flush]
+  - [systemic-venous-congestion, peripheral-oedema]
+  - [thromboembolism, ischaemic-stroke]
+  - [pulmonary-venous-hypertension, pulmonary-hypertension]
+  - [systemic-venous-congestion, heart-failure]
 findings:
   - {id: mid-diastolic-murmur, freq: classic, note: "Low rumble at the apex, bell, left lateral, expiration; presystolic accentuation in sinus rhythm", source: "K&C 10e p.1092"}
   - {id: exertional-dyspnoea, freq: classic}

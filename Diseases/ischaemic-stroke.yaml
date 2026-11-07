@@ -1,0 +1,53 @@
+id: ischaemic-stroke
+name: Ischaemic stroke
+parent: stroke
+group: cns-trauma-stroke
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.836-838, 840-843, 845", "Mehlman HY Neuro"]
+chain:
+  - {from: carotid-atherosclerosis, to: atheroembolism, note: "A large-artery stenosis usually causes stroke as an embolic source, not by occlusion; plaque thrombosis gives artery-to-artery emboli", source: "K&C 10e p.837"}
+  - {from: atrial-fibrillation, to: intracardiac-thrombus, note: "The commonest cardio-embolic cause; also valve disease, vegetations and mural thrombus after MI", source: "K&C 10e p.837"}
+  - [intracardiac-thrombus, thromboembolism]
+  - {from: patent-foramen-ovale, to: thromboembolism, note: "Paradoxical embolism from a leg DVT when Valsalva shunts blood right to left", source: "K&C 10e p.837"}
+  - {from: cervical-artery-dissection, to: thromboembolism, note: "About 1 in 5 strokes under 40; thrombus in the true lumen embolises, sometimes days later; neck pain and Horner's are clues", source: "K&C 10e p.837"}
+  - {from: hypertension, to: small-vessel-disease, note: "Lipohyalinosis of deep penetrating arteries gives lacunar infarcts (pure motor, pure sensory, ataxic hemiparesis)", source: "K&C 10e p.837, 840-841; Mehlman HY Neuro"}
+  - [atheroembolism, cerebral-ischaemia]
+  - [thromboembolism, cerebral-ischaemia]
+  - [small-vessel-disease, cerebral-ischaemia]
+  - {from: global-cerebral-hypoperfusion, to: cerebral-ischaemia, note: "Watershed (border-zone) infarcts, worst with a tight carotid stenosis", source: "K&C 10e p.837"}
+  - {from: cerebral-ischaemia, to: cerebral-infarction, note: "Glutamate release and calcium influx kill the core; the penumbra around it can recover if reperfused", source: "K&C 10e p.840"}
+  - {from: cerebral-infarction, to: hemiparesis, note: "MCA: contralateral face and arm more than leg; ACA: leg more than arm", source: "K&C 10e p.840; Mehlman HY Neuro"}
+  - {from: cerebral-infarction, to: dysphasia, note: "Dominant hemisphere", source: "K&C 10e p.840"}
+  - {from: cerebral-infarction, to: visuospatial-neglect, note: "Non-dominant parietal lobe", source: "K&C 10e p.840"}
+  - {from: cerebral-infarction, to: homonymous-hemianopia, note: "MCA or posterior cerebral artery", source: "K&C 10e p.840"}
+  - {from: cerebral-infarction, to: brainstem-signs, note: "Posterior circulation, e.g. lateral medullary syndrome (PICA)", source: "K&C 10e p.840"}
+  - [cerebral-infarction, hemisensory-loss]
+  - [cerebral-infarction, infarct-on-imaging]
+  - [cerebral-infarction, haemorrhagic-transformation]
+  - [cerebral-infarction, cytotoxic-oedema]
+  - [cytotoxic-oedema, tonsillar-herniation]
+  - [cytotoxic-oedema, obstructed-csf-pathway]
+  - [obstructed-csf-pathway, hydrocephalus]
+  - [cerebral-infarction, impaired-swallow]
+  - [impaired-swallow, aspiration-of-oropharyngeal-flora]
+  - [aspiration-of-oropharyngeal-flora, hospital-acquired-pneumonia]
+  - [cerebral-infarction, symptomatic-epilepsy]
+  - [cerebral-infarction, vascular-dementia]
+findings:
+  - {id: hemiparesis, freq: classic, note: "Sudden 'negative' focal deficit over minutes", source: "K&C 10e p.840"}
+  - {id: dysphasia, freq: common}
+  - {id: hemisensory-loss, freq: common}
+  - {id: homonymous-hemianopia, freq: common}
+  - {id: visuospatial-neglect, freq: occasional}
+  - {id: brainstem-signs, freq: occasional}
+  - {id: infarct-on-imaging, freq: classic, note: "CT is often normal early but excludes bleeding before thrombolysis (up to 4.5 h); DWI MRI shows the infarct", source: "K&C 10e p.841-842"}
+outcomes:
+  - {id: haemorrhagic-transformation, note: "Why anticoagulation for AF waits about 2 weeks", source: "K&C 10e p.843"}
+  - {id: cytotoxic-oedema, note: "Swelling of a large infarct", source: "K&C 10e p.840"}
+  - {id: tonsillar-herniation, note: "Malignant MCA infarction: decompressive craniectomy within 48 h", source: "K&C 10e p.840, 843"}
+  - {id: hydrocephalus, freq: rare, note: "Swollen cerebellar infarct compressing the fourth ventricle", source: "K&C 10e p.840"}
+  - {id: hospital-acquired-pneumonia, note: "Aspiration", source: "K&C 10e p.845"}
+  - symptomatic-epilepsy
+  - vascular-dementia
+  - {id: acute-coronary-syndrome, note: "A common later cause of death", source: "K&C 10e p.845"}

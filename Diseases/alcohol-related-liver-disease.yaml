@@ -1,0 +1,31 @@
+id: alcohol-related-liver-disease
+name: Alcohol-related liver disease
+group: non-viral-liver
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1303-1304", "Mehlman HY Gastro", "LMC 2026 Non-viral liver s.4-21"]
+chain:
+  - {from: excess-alcohol, to: hepatic-steatosis, note: "Raised NADH/NAD ratio: more fatty acid synthesis, less oxidation. Everyone who drinks heavily for long gets it; reverses on stopping", source: "K&C 10e p.1303; LMC 2026 Non-viral liver s.4, 9"}
+  - {from: excess-alcohol, to: toxic-hepatocyte-injury, note: "Acetaldehyde and TNF-α-driven oxidative injury; zone 3 necrosis", source: "K&C 10e p.1303"}
+  - [hepatic-steatosis, steatohepatitis]
+  - {from: toxic-hepatocyte-injury, to: steatohepatitis, note: "Neutrophil infiltration and hepatocyte necrosis", source: "K&C 10e p.1303"}
+  - {from: steatohepatitis, to: liver-fibrosis, note: "Only about 10–20% of heavy drinkers progress; women, HCV, malnutrition and enzyme gene variants raise the risk; perivenular fibrosis can skip the hepatitis stage", source: "K&C 10e p.1303; LMC 2026 Non-viral liver s.4-5"}
+  - [hepatic-steatosis, fatty-liver-imaging]
+  - [hepatic-steatosis, hepatomegaly]
+  - [toxic-hepatocyte-injury, hepatitic-pattern]
+  - {from: hepatitis-c, to: liver-fibrosis, note: "Coexisting HCV speeds alcoholic damage", source: "LMC 2026 Non-viral liver s.5"}
+  - [steatohepatitis, mallory-bodies]
+  - [liver-fibrosis, chronic-liver-disease-stigmata]
+  - [steatohepatitis, alcoholic-hepatitis]
+  - [liver-fibrosis, cirrhosis]
+  - [cirrhosis, hepatocellular-carcinoma]
+findings:
+  - {id: hepatitic-pattern, freq: common, note: "AST > ALT, classically about 2:1 and in the low hundreds; GGT shows ongoing drinking; raised MCV", source: "K&C 10e p.1303; Mehlman HY Gastro"}
+  - {id: fatty-liver-imaging, freq: common, source: "K&C 10e p.1304"}
+  - {id: hepatomegaly, freq: common, note: "Sometimes huge", source: "K&C 10e p.1303"}
+  - {id: mallory-bodies, freq: common, note: "Suggestive but not specific (also Wilson's, PBC)", source: "K&C 10e p.1303"}
+  - {id: chronic-liver-disease-stigmata, freq: common}
+outcomes:
+  - {id: alcoholic-hepatitis, note: "Deep jaundice, fever, tender hepatomegaly and ascites; severe cases carry ≥ 50% mortality. Each bout about 10% mortality; repeated bouts give about a 1 in 3 risk of cirrhosis", source: "K&C 10e p.1303-1304; LMC 2026 Non-viral liver s.16"}
+  - {id: cirrhosis, note: "Micronodular; 5-year survival 90% with abstinence, 60% with continued drinking", source: "K&C 10e p.1303-1304"}
+  - {id: hepatocellular-carcinoma, note: "Particularly in men", source: "K&C 10e p.1304"}

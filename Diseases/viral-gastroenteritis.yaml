@@ -1,0 +1,27 @@
+id: viral-gastroenteritis
+name: Viral gastroenteritis
+parent: infective-gastroenteritis
+group: gastroenteritis
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.529-530", "Mehlman HY Gastro"]
+chain:
+  - {from: rotavirus, to: viral-enterocyte-damage, note: "Infants and children under 5 (unvaccinated); winter; bottle-fed babies more symptomatic. Adults mild unless immunosuppressed", source: "K&C 10e p.529; Mehlman HY Gastro"}
+  - {from: norovirus, to: viral-enterocyte-damage, note: "Outbreaks in hospitals, care homes, schools, cruise ships; all ages. The leading cause where rotavirus vaccine is routine; spread in vomit and aerosol", source: "K&C 10e p.530; Mehlman HY Gastro"}
+  - [faecal-oral-exposure, rotavirus]
+  - [faecal-oral-exposure, norovirus]
+  - {from: viral-enterocyte-damage, to: vomiting, note: "Vomiting, fever and diarrhoea", source: "K&C 10e p.529"}
+  - [viral-enterocyte-damage, watery-diarrhoea]
+  - [viral-enterocyte-damage, fever]
+  - [watery-diarrhoea, fluid-electrolyte-loss]
+  - [fluid-electrolyte-loss, dehydration-signs]
+  - [viral-enterocyte-damage, stool-pathogen-identified]
+  - [fluid-electrolyte-loss, hypovolaemic-shock]
+findings:
+  - {id: vomiting, freq: classic}
+  - {id: watery-diarrhoea, freq: classic}
+  - {id: fever, freq: common}
+  - {id: dehydration-signs, freq: common, note: "The danger in infants; antibiotics have no role", source: "K&C 10e p.529"}
+  - {id: stool-pathogen-identified, freq: common, note: "Rotavirus antigen or PCR in stool", source: "K&C 10e p.529", only: rotavirus}
+outcomes:
+  - {id: hypovolaemic-shock, freq: rare, note: "200 000 children under 5 die each year in low-income countries", source: "K&C 10e p.529", only: rotavirus}

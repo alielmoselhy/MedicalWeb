@@ -1,0 +1,30 @@
+id: gord
+name: Gastro-oesophageal reflux disease
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1162-1166", "Mehlman HY Gastro"]
+chain:
+  - {from: obesity, to: les-incompetence, note: "Also pregnancy, smoking, large or fatty meals, alcohol, coffee, some drugs (calcium-channel blockers, nitrates)", source: "K&C 10e p.1163"}
+  - {from: pregnancy-or-oestrogen, to: les-incompetence, note: "Raised abdominal pressure", source: "K&C 10e p.1162"}
+  - [smoking, les-incompetence]
+  - {from: les-incompetence, to: acid-reflux-oesophagitis, note: "Transient sphincter relaxations after meals cause most reflux; a hiatus hernia weakens the barrier", source: "K&C 10e p.1162-1163"}
+  - {from: acid-reflux-oesophagitis, to: heartburn, note: "Burning chest pain, worse on bending, stooping, lying down, with spicy food or hot drinks; eased by antacids", source: "K&C 10e p.1163"}
+  - {from: acid-reflux-oesophagitis, to: regurgitation, note: "Especially on bending or lying flat; water-brash", source: "K&C 10e p.1163"}
+  - {from: acid-reflux-oesophagitis, to: cough, note: "Nocturnal cough or asthma, slow to respond to a PPI", source: "K&C 10e p.1163; Mehlman HY Gastro"}
+  - [acid-reflux-oesophagitis, reflux-oesophagitis-endoscopy]
+  - {from: acid-reflux-oesophagitis, to: metaplasia-dysplasia-sequence, source: "K&C 10e p.1165"}
+  - [acid-reflux-oesophagitis, iron-deficiency-anaemia]
+  - [metaplasia-dysplasia-sequence, barretts-oesophagus]
+  - [acid-reflux-oesophagitis, oesophageal-stricture]
+  - [metaplasia-dysplasia-sequence, oesophageal-adenocarcinoma]
+findings:
+  - {id: heartburn, freq: classic, note: "The cardinal feature; correlates poorly with how much oesophagitis there is", source: "K&C 10e p.1163"}
+  - {id: regurgitation, freq: common}
+  - {id: cough, freq: occasional}
+  - {id: reflux-oesophagitis-endoscopy, freq: common, note: "Under 45 without alarm features, treat without investigation; a 2-week PPI trial is the usual first test", source: "K&C 10e p.1163; Mehlman HY Gastro"}
+  - {id: iron-deficiency-anaemia, freq: occasional, note: "Severe oesophagitis can be painless and bleed slowly", source: "K&C 10e p.1163"}
+outcomes:
+  - {id: barretts-oesophagus, source: "K&C 10e p.1165"}
+  - {id: oesophageal-stricture, freq: occasional, note: "Usually over 60: slowly worsening intermittent dysphagia for solids", source: "K&C 10e p.1165"}
+  - {id: oesophageal-adenocarcinoma, note: "Long-standing reflux raises the risk up to eightfold", source: "K&C 10e p.1171"}

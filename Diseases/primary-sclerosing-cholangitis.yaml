@@ -1,0 +1,33 @@
+id: primary-sclerosing-cholangitis
+name: Primary sclerosing cholangitis
+group: non-viral-liver
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1299", "Mehlman HY Gastro", "LMC 2026 Non-viral liver s.43-50"]
+chain:
+  - {from: inflammatory-bowel-disease, to: fibrosing-cholangitis, note: "75% have IBD, usually ulcerative colitis; PSC can come first. Linked to HLA-A1-B8-DR3; about 2:1 men, aged 20–40. With IBD, colorectal cancer risk rises too", source: "K&C 10e p.1299; LMC 2026 Non-viral liver s.43, 50"}
+  - [fibrosing-cholangitis, bile-duct-stricturing]
+  - [fibrosing-cholangitis, intrahepatic-cholestasis]
+  - [intrahepatic-cholestasis, cholestatic-pattern]
+  - [intrahepatic-cholestasis, pruritus]
+  - [intrahepatic-cholestasis, jaundice]
+  - [fibrosing-cholangitis, liver-fibrosis]
+  - {from: fibrosing-cholangitis, to: inflammation-driven-transformation, source: "K&C 10e p.1299"}
+  - [fibrosing-cholangitis, p-anca]
+  - [fibrosing-cholangitis, onion-skin-fibrosis]
+  - [intrahepatic-cholestasis, fatigue]
+  - [inflammation-driven-transformation, cholangiocarcinoma]
+  - [fibrosing-cholangitis, acute-cholangitis]
+  - [liver-fibrosis, cirrhosis]
+findings:
+  - {id: bile-duct-stricturing, freq: classic, note: "MRCP shows irregular, beaded intra- and extrahepatic ducts", source: "K&C 10e p.1299; Mehlman HY Gastro"}
+  - {id: cholestatic-pattern, freq: classic, note: "Often found on screening people with IBD", source: "K&C 10e p.1299"}
+  - {id: p-anca, freq: common, note: "About 60%", source: "K&C 10e p.1299"}
+  - {id: pruritus, freq: common, note: "Fluctuating pruritus, jaundice and cholangitis", source: "K&C 10e p.1299"}
+  - {id: jaundice, freq: common}
+  - {id: onion-skin-fibrosis, freq: common, source: "K&C 10e p.1299"}
+  - {id: fatigue, freq: common, note: "With pruritus, jaundice and fat malabsorption", source: "LMC 2026 Non-viral liver s.44"}
+outcomes:
+  - {id: cholangiocarcinoma, note: "Up to 15%", source: "K&C 10e p.1299"}
+  - {id: acute-cholangitis, note: "Recurrent, before cirrhosis", source: "K&C 10e p.1299"}
+  - {id: cirrhosis, note: "Survival about 10–25 years from diagnosis", source: "K&C 10e p.1299; LMC 2026 Non-viral liver s.50"}

@@ -1,0 +1,29 @@
+id: refeeding-syndrome
+name: Refeeding syndrome
+group: gi-nutrition
+status: draft
+systems: [gastrointestinal, biochemistry]
+sources: ["K&C 10e p.1235, 1240, 1253-1256", "Mehlman HY Arrows", "Mehlman HY Biochemistry"]
+chain:
+  - {from: prolonged-starvation, to: insulin-driven-electrolyte-shift, note: "Risk if little or nothing eaten for over 5 days; BMI can be low, normal or high", source: "K&C 10e p.1253; Mehlman HY Arrows"}
+  - {from: parenteral-nutrition, to: insulin-driven-electrolyte-shift, note: "Also enteral feeding: start at no more than half of energy needs", source: "K&C 10e p.1253"}
+  - {from: insulin-driven-electrolyte-shift, to: hypophosphataemia, note: "Phosphate is used up by the surge of glycolytic intermediates", source: "K&C 10e p.1253; Mehlman HY Biochemistry"}
+  - [insulin-driven-electrolyte-shift, hypokalaemia]
+  - [insulin-driven-electrolyte-shift, hypomagnesaemia]
+  - {from: insulin-driven-electrolyte-shift, to: salt-water-retention, note: "The kidney excretes less sodium and water", source: "K&C 10e p.1253"}
+  - [salt-water-retention, peripheral-oedema]
+  - {from: prolonged-starvation, to: thiamine-depletion, note: "Glucose raises thiamine needs; give thiamine and vitamins before feeding", source: "K&C 10e p.1240, 1253"}
+  - [insulin-driven-electrolyte-shift, arrhythmia]
+  - [insulin-driven-electrolyte-shift, respiratory-failure]
+  - [salt-water-retention, heart-failure]
+  - [thiamine-depletion, wernicke-encephalopathy]
+findings:
+  - {id: hypophosphataemia, freq: classic, note: "The electrolyte to watch when feeding restarts", source: "Mehlman HY Arrows"}
+  - {id: hypokalaemia, freq: common, source: "K&C 10e p.1253"}
+  - {id: hypomagnesaemia, freq: common, source: "K&C 10e p.1253"}
+  - {id: peripheral-oedema, freq: common, note: "Fluid overload", source: "K&C 10e p.1253"}
+outcomes:
+  - {id: arrhythmia, note: "Raised mortality; replace and monitor electrolytes", source: "K&C 10e p.1253; Mehlman HY Arrows"}
+  - {id: respiratory-failure, note: "Respiratory insufficiency", source: "K&C 10e p.1253"}
+  - {id: heart-failure, note: "Large energy increases in severe malnutrition can cause heart failure, circulatory collapse and death", source: "K&C 10e p.1235"}
+  - {id: wernicke-encephalopathy, source: "K&C 10e p.1240"}

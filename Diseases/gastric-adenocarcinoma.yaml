@@ -1,0 +1,46 @@
+id: gastric-adenocarcinoma
+name: Gastric adenocarcinoma
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1178-1179", "Mehlman HY Gastro"]
+chain:
+  - {from: helicobacter-pylori, to: chronic-gastric-inflammation, note: "A definite carcinogen for distal cancer", source: "K&C 10e p.1178"}
+  - {from: chronic-gastric-inflammation, to: gastric-atrophy, source: "K&C 10e p.1178"}
+  - {from: gastric-atrophy, to: metaplasia-dysplasia-sequence, note: "Intestinal metaplasia; pernicious anaemia carries a small risk", source: "K&C 10e p.1178"}
+  - {from: high-salt-intake, to: carcinogen-induced-transformation, source: "K&C 10e p.1178"}
+  - {from: nitrosamines, to: carcinogen-induced-transformation, note: "High rates in Japan; achlorhydria also lets nitrosamines form", source: "K&C 10e p.1178; Mehlman HY Gastro"}
+  - {from: smoking, to: carcinogen-induced-transformation, source: "K&C 10e p.1178"}
+  - [metaplasia-dysplasia-sequence, gastric-tumour]
+  - [carcinogen-induced-transformation, gastric-tumour]
+  - {from: gastric-tumour, to: epigastric-pain, note: "Like ulcer pain; most present with advanced disease", source: "K&C 10e p.1179"}
+  - [gastric-tumour, weight-loss]
+  - [gastric-tumour, iron-deficiency-anaemia]
+  - [gastric-tumour, upper-gi-tumour-endoscopy]
+  - {from: gastric-tumour, to: gastric-outlet-obstruction, note: "Tumour at the pylorus", source: "K&C 10e p.1179"}
+  - [gastric-outlet-obstruction, projectile-vomiting]
+  - [gastric-tumour, metastatic-spread]
+  - [gastric-tumour, anorexia]
+  - [gastric-tumour, epigastric-mass]
+  - [metastatic-spread, virchows-node]
+  - [metastatic-spread, low-saag-ascites]
+  - [gastric-outlet-obstruction, dysphagia]
+  - [metastatic-spread, liver-metastases]
+  - [metastatic-spread, ovarian-metastases]
+  - [gastric-tumour, paraneoplastic-autoimmunity]
+  - [paraneoplastic-autoimmunity, paraneoplastic-dermatomyositis]
+findings:
+  - {id: weight-loss, freq: classic, note: "Often the dominant feature", source: "K&C 10e p.1179"}
+  - {id: epigastric-pain, freq: common}
+  - {id: anorexia, freq: common, source: "K&C 10e p.1179"}
+  - {id: epigastric-mass, freq: common, note: "Nearly 50%", source: "K&C 10e p.1179"}
+  - {id: iron-deficiency-anaemia, freq: common, note: "Occult bleeding; frank haematemesis is unusual", source: "K&C 10e p.1179"}
+  - {id: virchows-node, freq: occasional, source: "K&C 10e p.1179"}
+  - {id: upper-gi-tumour-endoscopy, freq: classic, note: "Ulcer with rolled edges; take 8–10 biopsies. Diffuse type infiltrates the wall (linitis plastica) and can be missed", source: "K&C 10e p.1179; Mehlman HY Gastro"}
+  - {id: low-saag-ascites, freq: occasional, note: "Malignant ascites, a late feature", source: "K&C 10e p.1179"}
+  - {id: dysphagia, freq: occasional, note: "Tumours of the fundus", source: "K&C 10e p.1179"}
+outcomes:
+  - {id: liver-metastases, note: "Jaundice; metastases in up to a third at presentation, also bone, brain, lung", source: "K&C 10e p.1179"}
+  - {id: ovarian-metastases, freq: rare, note: "Krukenberg tumours (signet-ring cells)", source: "Mehlman HY Gastro"}
+  - {id: acanthosis-nigricans, freq: rare, source: "K&C 10e p.1179"}
+  - {id: paraneoplastic-dermatomyositis, freq: rare, note: "The cancer most associated with dermatomyositis", source: "K&C 10e p.1179"}

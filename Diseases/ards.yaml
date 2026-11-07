@@ -1,0 +1,39 @@
+id: ards
+name: Acute respiratory distress syndrome
+group: respiratory-infection
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.232-233", "Mehlman HY Pulmonary"]
+chain:
+  - {from: alveolar-exudate, to: alveolar-capillary-leak, note: "Direct lung injury: pneumonia, aspiration, contusion, near-drowning, smoke", source: "K&C 10e p.232"}
+  - [gastric-acid-aspiration, alveolar-capillary-leak]
+  - {from: dysregulated-host-response, to: alveolar-capillary-leak, note: "Sepsis is by far the commonest cause; 20–40% with severe sepsis develop ARDS", source: "K&C 10e p.232"}
+  - {from: severe-trauma-transfusion, to: dysregulated-host-response, note: "Indirect injury", source: "K&C 10e p.232"}
+  - {from: acute-pancreatitis, to: dysregulated-host-response, note: "Indirect injury", source: "K&C 10e p.232"}
+  - {from: alveolar-capillary-leak, to: diffuse-alveolar-damage, note: "Activated neutrophils raise vascular permeability: non-cardiogenic pulmonary oedema", source: "K&C 10e p.232"}
+  - {from: diffuse-alveolar-damage, to: surfactant-loss, note: "Epithelial damage cuts surfactant, so alveoli collapse", source: "K&C 10e p.232"}
+  - [surfactant-loss, intrapulmonary-shunt]
+  - [diffuse-alveolar-damage, intrapulmonary-shunt]
+  - [intrapulmonary-shunt, hypoxaemia]
+  - [diffuse-alveolar-damage, bilateral-diffuse-infiltrates]
+  - {from: diffuse-alveolar-damage, to: pulmonary-crackles, note: "Fine crackles throughout both lungs", source: "K&C 10e p.232"}
+  - [hypoxaemia, hypoxic-vasoconstriction]
+  - [intrapulmonary-shunt, tachypnoea]
+  - [intrapulmonary-shunt, dyspnoea]
+  - [alveolar-capillary-leak, pleural-effusion]
+  - [intrapulmonary-shunt, type-1-respiratory-failure]
+  - [dysregulated-host-response, multi-organ-dysfunction]
+  - [hypoxic-vasoconstriction, pulmonary-hypertension]
+  - [diffuse-alveolar-damage, lung-fibrosis]
+findings:
+  - {id: tachypnoea, freq: classic, note: "Unexplained tachypnoea is often the first sign", source: "K&C 10e p.232"}
+  - {id: hypoxaemia, freq: classic, note: "Berlin: PaO2/FiO2 on PEEP ≥ 5 — mild 200–300, moderate 100–200, severe < 100 mmHg", source: "K&C 10e p.232"}
+  - {id: bilateral-diffuse-infiltrates, freq: classic, note: "Must be bilateral and not cardiogenic (normal echo); a unilateral picture is not ARDS", source: "K&C 10e p.232"}
+  - {id: dyspnoea, freq: common}
+  - {id: pulmonary-crackles, freq: common}
+  - {id: pleural-effusion, freq: common, source: "K&C 10e p.232"}
+outcomes:
+  - {id: type-1-respiratory-failure, note: "Mortality ≈27% mild, 32% moderate, 45% severe", source: "K&C 10e p.232"}
+  - {id: multi-organ-dysfunction, note: "ARDS is often the first organ failure of a generalised inflammatory response", source: "K&C 10e p.232"}
+  - {id: pulmonary-hypertension, freq: common, note: "Interstitial compression, microthrombi and hypoxic vasoconstriction; sometimes RV failure", source: "K&C 10e p.232"}
+  - {id: lung-fibrosis, freq: occasional, note: "Some progress to interstitial fibrosis", source: "K&C 10e p.232"}

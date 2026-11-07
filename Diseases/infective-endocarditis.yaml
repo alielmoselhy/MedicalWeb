@@ -1,8 +1,9 @@
 id: infective-endocarditis
 name: Infective endocarditis
-group: infection
+group: endovascular-infection
 status: draft
-sources: ["K&C 10e p.1103-1106"]
+systems: [cardiovascular]
+sources: ["K&C 10e p.1103-1106", "Mehlman HY Neuro"]
 chain:
   - {from: viridans-streptococci, to: mucosal-dental-entry, note: "Bacteraemia from poor dental hygiene or dental work", source: "K&C 10e p.1103"}
   - {from: s-aureus, to: injection-drug-use, note: "Drug users get mostly right-sided lesions", source: "K&C 10e p.1103"}
@@ -33,6 +34,12 @@ chain:
   - [vegetation-formation, vegetation-on-echo]
   - [vegetation-formation, positive-blood-cultures]
   - [vegetation-formation, fever]
+  - [leaflet-destruction, heart-failure]
+  - [septic-embolism, ischaemic-stroke]
+  - [septic-embolism, mycotic-aneurysm]
+  - {from: mycotic-aneurysm, to: intracerebral-haemorrhage, note: "Rupture of an infected cerebral aneurysm causes intracranial haemorrhage", source: "K&C 10e p.1104"}
+  - {from: septic-embolism, to: brain-abscess, note: "Septic embolic seeding can produce a brain abscess", source: "Mehlman HY Neuro"}
+  - [septic-embolism, septic-emboli-abscess]
 findings:
   - {id: fever, freq: classic, note: "~90%", source: "K&C 10e p.1105 (Box 30.46)"}
   - {id: new-or-changed-murmur, freq: classic, note: "~90%", source: "K&C 10e p.1105"}
@@ -48,6 +55,8 @@ outcomes:
   - {id: heart-failure, freq: common, note: "~50%", source: "K&C 10e p.1105"}
   - {id: ischaemic-stroke, freq: occasional, note: "Cerebral emboli ~20%", source: "K&C 10e p.1105"}
   - {id: mycotic-aneurysm, freq: occasional, note: "~10%", source: "K&C 10e p.1105"}
+  - intracerebral-haemorrhage
+  - brain-abscess
   - septic-emboli-abscess
   - glomerulonephritis
   - {id: av-block, note: "New conduction disturbance raises suspicion (perivalvular extension)", source: "K&C 10e p.1105-1106"}

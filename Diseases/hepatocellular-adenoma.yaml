@@ -1,0 +1,22 @@
+id: hepatocellular-adenoma
+name: Hepatocellular adenoma
+group: cirrhosis-liver-tumours
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1310", "LMC 2026 Cirrhosis s.22-23"]
+chain:
+  - {from: pregnancy-or-oestrogen, to: benign-liver-tumour, note: "Linked to the oral contraceptive pill; may shrink when it is stopped. Typically young women", source: "K&C 10e p.1310; LMC 2026 Cirrhosis s.22"}
+  - [benign-liver-tumour, liver-lesion]
+  - [benign-liver-tumour, abdominal-pain]
+  - {from: anabolic-steroids, to: benign-liver-tumour, note: "Occasionally in men", source: "LMC 2026 Cirrhosis s.22"}
+  - [benign-liver-tumour, abdominal-mass]
+  - [benign-liver-tumour, tumour-haemorrhage]
+  - [benign-liver-tumour, malignant-transformation]
+  - [malignant-transformation, hepatocellular-carcinoma]
+findings:
+  - {id: liver-lesion, freq: classic, note: "Well-circumscribed pale nodule in a normal liver; looks like normal liver but has no portal tracts. Usually asymptomatic", source: "LMC 2026 Cirrhosis s.22-23"}
+  - {id: abdominal-pain, freq: occasional, source: "K&C 10e p.1310"}
+  - {id: abdominal-mass, freq: occasional, source: "LMC 2026 Cirrhosis s.22"}
+outcomes:
+  - {id: tumour-haemorrhage, note: "Intraperitoneal bleeding; resect if symptomatic or > 5 cm", source: "K&C 10e p.1310"}
+  - {id: hepatocellular-carcinoma, freq: rare, note: "Malignant potential is far commoner in men", source: "K&C 10e p.1310"}

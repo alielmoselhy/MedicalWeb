@@ -1,14 +1,16 @@
 id: pulmonary-hypertension
 name: Pulmonary hypertension
-group: pulmonary vascular
+group: hypertension-heart-failure
 status: draft
+systems: [cardiovascular, respiratory]
 sources: ["K&C 10e p.1115-1117"]
 chain:
   - {from: bmpr2-mutation, to: pulmonary-vascular-remodelling, note: "Found in >70% of heritable PAH; idiopathic PAH is the largest PAH group", source: "K&C 10e p.1115"}
   - {from: anorexigen-drugs, to: pulmonary-vascular-remodelling, note: "Fenfluramine-type appetite suppressants", source: "K&C 10e p.1115"}
   - {from: heart-failure, to: pulmonary-venous-hypertension, note: "WHO group 2: left heart disease", source: "K&C 10e p.1117 (Box 30.50)"}
   - [mitral-stenosis, pulmonary-venous-hypertension]
-  - {from: chronic-lung-disease, to: hypoxic-vasoconstriction, note: "Group 3: COPD, interstitial disease, sleep-disordered breathing, altitude", source: "K&C 10e p.1117"}
+  - {from: copd, to: hypoxic-vasoconstriction, note: "Group 3: COPD, interstitial disease, sleep-disordered breathing, altitude", source: "K&C 10e p.1117"}
+  - [interstitial-lung-disease, hypoxic-vasoconstriction]
   - {from: pulmonary-embolism, to: pulmonary-arterial-obstruction, note: "Group 4 CTEPH: organised thrombi in elastic pulmonary arteries", source: "K&C 10e p.1115"}
   - [pulmonary-vascular-remodelling, rv-pressure-overload]
   - [pulmonary-venous-hypertension, rv-pressure-overload]
@@ -21,8 +23,22 @@ chain:
   - [rv-pressure-overload, p-pulmonale]
   - [systemic-venous-congestion, raised-jvp]
   - [systemic-venous-congestion, peripheral-oedema]
-  - [systemic-venous-congestion, ascites]
+  - [systemic-venous-congestion, high-saag-ascites]
   - [systemic-venous-congestion, hepatomegaly]
+  - [rv-pressure-overload, reduced-cardiac-output]
+  - [reduced-cardiac-output, exertional-dyspnoea]
+  - [reduced-cardiac-output, fatigue]
+  - [pulmonary-vascular-remodelling, enlarged-pulmonary-arteries-cxr]
+  - [reduced-cardiac-output, exertional-syncope]
+  - [rv-pressure-overload, exertional-chest-pain]
+  - [rv-pressure-overload, annular-dilatation]
+  - [annular-dilatation, tricuspid-regurgitant-flow]
+  - [tricuspid-regurgitant-flow, pansystolic-murmur]
+  - [rv-pressure-overload, cor-pulmonale]
+  - [tricuspid-regurgitant-flow, tricuspid-regurgitation]
+  - [pulmonary-vascular-remodelling, pulmonary-regurgitant-flow]
+  - [pulmonary-regurgitant-flow, early-diastolic-murmur]
+  - [pulmonary-regurgitant-flow, pulmonary-regurgitation]
 findings:
   - {id: exertional-dyspnoea, freq: classic, note: "mPAP >25 mmHg at rest on right heart catheter", source: "K&C 10e p.1115"}
   - {id: fatigue, freq: common}

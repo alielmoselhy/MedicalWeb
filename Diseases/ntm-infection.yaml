@@ -1,0 +1,21 @@
+id: ntm-infection
+name: Non-tuberculous mycobacterial infection
+group: mycobacterial
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.969", "K&C 10e p.972", "K&C 10e p.985"]
+chain:
+  - {from: non-tuberculous-mycobacteria, to: chronic-airway-infection, note: "Soil and water organisms of low virulence; disease needs a breach in host defences", source: "K&C 10e p.972"}
+  - {from: bronchiectasis, to: chronic-airway-infection, note: "Structural lung disease (COPD, bronchiectasis, CF) and HIV raise the risk", source: "K&C 10e p.972"}
+  - [copd, chronic-airway-infection]
+  - [immunosuppression, chronic-airway-infection]
+  - [chronic-airway-infection, productive-cough]
+  - [non-tuberculous-mycobacteria, afb-smear-positive]
+  - [chronic-airway-infection, weight-loss]
+  - [chronic-airway-infection, respiratory-failure]
+findings:
+  - {id: productive-cough, freq: common}
+  - {id: afb-smear-positive, freq: common, note: "Acid-fast like TB; NAAT distinguishes them. Treat if the picture fits and the same NTM grows from > 1 sputum or an invasive sample", source: "K&C 10e p.969, 972"}
+  - {id: weight-loss, freq: occasional}
+outcomes:
+  - {id: respiratory-failure, freq: rare, note: "M. abscessus can cause rapid decline in CF", source: "K&C 10e p.985"}

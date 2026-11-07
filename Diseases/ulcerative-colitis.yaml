@@ -1,0 +1,36 @@
+id: ulcerative-colitis
+name: Ulcerative colitis
+parent: inflammatory-bowel-disease
+group: ibd
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1199-1202, 1206-1208, 1299", "Mehlman HY Gastro"]
+chain:
+  - {from: ibd-family-history, to: gut-mucosal-immune-dysregulation, note: "Commoner in non- and ex-smokers; appendicectomy young seems protective", source: "K&C 10e p.1199"}
+  - {from: gut-mucosal-immune-dysregulation, to: continuous-mucosal-colitis, note: "Proctitis, left-sided or extensive; mucosa only, so no fistulae", source: "K&C 10e p.1201; Mehlman HY Gastro"}
+  - [continuous-mucosal-colitis, continuous-colitis-endoscopy]
+  - [continuous-mucosal-colitis, bloody-diarrhoea]
+  - [continuous-mucosal-colitis, urgency-tenesmus]
+  - [continuous-mucosal-colitis, p-anca]
+  - [continuous-mucosal-colitis, iron-deficiency-anaemia]
+  - [continuous-mucosal-colitis, tachycardia]
+  - [continuous-mucosal-colitis, fever]
+  - [continuous-mucosal-colitis, dilated-colon-imaging]
+  - [gut-mucosal-immune-dysregulation, pyoderma-gangrenosum]
+  - [dilated-colon-imaging, toxic-megacolon]
+  - [gut-mucosal-immune-dysregulation, primary-sclerosing-cholangitis]
+  - [continuous-mucosal-colitis, colorectal-cancer]
+findings:
+  - {id: bloody-diarrhoea, freq: classic, note: "Up to 10–20 liquid stools a day in a severe attack, including at night", source: "K&C 10e p.1206"}
+  - {id: urgency-tenesmus, freq: common, note: "Proctitis: frequent blood and mucus, stool may be solid", source: "K&C 10e p.1206"}
+  - {id: continuous-colitis-endoscopy, freq: classic, note: "Biopsy at endoscopy is the gold standard; avoid full colonoscopy in a severe attack", source: "K&C 10e p.1206"}
+  - {id: p-anca, freq: common, note: "Usually negative in Crohn's", source: "K&C 10e p.1206"}
+  - {id: iron-deficiency-anaemia, freq: common, source: "K&C 10e p.1206"}
+  - {id: tachycardia, freq: occasional, note: "With fever, a sign of severe colitis needing admission", source: "K&C 10e p.1206"}
+  - {id: fever, freq: occasional}
+  - {id: dilated-colon-imaging, freq: rare, note: "Plain X-ray in every acute severe attack to exclude toxic dilatation", source: "K&C 10e p.1206"}
+  - {id: pyoderma-gangrenosum, freq: occasional, source: "Mehlman HY Gastro"}
+outcomes:
+  - {id: toxic-megacolon, note: "Colon > 6 cm on X-ray; impending perforation, mortality 15–25%", source: "K&C 10e p.1206"}
+  - {id: primary-sclerosing-cholangitis, source: "K&C 10e p.1299; Mehlman HY Gastro"}
+  - {id: colorectal-cancer, note: "Higher than Crohn's because the colon is always involved", source: "K&C 10e p.1208; Mehlman HY Gastro"}

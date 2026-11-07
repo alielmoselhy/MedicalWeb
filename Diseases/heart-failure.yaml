@@ -1,8 +1,9 @@
 id: heart-failure
 name: Heart failure
-group: hypertension & heart failure
+group: hypertension-heart-failure
 status: draft
-sources: ["K&C 10e p.1069-1072", "K&C 10e p.1075-1077"]
+systems: [cardiovascular]
+sources: ["K&C 10e p.1069-1072", "K&C 10e p.1075-1077", "K&C 10e p.1296"]
 chain:
   - {from: myocyte-necrosis, to: systolic-dysfunction, note: "Main causes: ischaemic heart disease 35–40%, dilated cardiomyopathy 30–34%, hypertension 15–20%", source: "K&C 10e p.1069 (Box 30.20)"}
   - [dilated-cardiomyopathy, systolic-dysfunction]
@@ -27,8 +28,18 @@ chain:
   - [systemic-venous-congestion, raised-jvp]
   - [systemic-venous-congestion, peripheral-oedema]
   - [systemic-venous-congestion, hepatomegaly]
-  - [systemic-venous-congestion, ascites]
+  - [systemic-venous-congestion, high-saag-ascites]
   - [reduced-cardiac-output, fatigue]
+  - [eccentric-hypertrophy, cardiomegaly]
+  - [systolic-dysfunction, third-heart-sound]
+  - [diastolic-dysfunction, fourth-heart-sound]
+  - [pulmonary-venous-congestion, pleural-effusion]
+  - [reduced-cardiac-output, cardiogenic-shock]
+  - [myocardial-scar, sudden-cardiac-death]
+  - [eccentric-hypertrophy, atrial-dilatation]
+  - [atrial-dilatation, atrial-fibrillation]
+  - [systemic-venous-congestion, venous-stasis]
+  - [venous-stasis, pulmonary-embolism]
 findings:
   - {id: exertional-dyspnoea, freq: classic, source: "K&C 10e p.1072 (Box 30.22)"}
   - {id: bnp-rise, freq: classic, note: "BNP >100 pg/mL or NT-proBNP >300 pg/mL suggests HF", source: "K&C 10e p.1077"}
@@ -44,7 +55,7 @@ findings:
   - {id: fourth-heart-sound, freq: occasional}
   - {id: pleural-effusion, freq: occasional}
   - {id: hepatomegaly, freq: occasional}
-  - {id: ascites, freq: occasional}
+  - {id: high-saag-ascites, freq: occasional, note: "Right-sided failure gives high-gradient ascites", source: "K&C 10e p.1296"}
 outcomes:
   - pulmonary-oedema
   - cardiogenic-shock

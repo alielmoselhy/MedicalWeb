@@ -1,8 +1,9 @@
 id: secondary-hypertension
 name: Secondary hypertension
 parent: hypertension
-group: hypertension & heart failure
+group: hypertension-heart-failure
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1137-1139 (Box 31.2)", "K&C 10e p.1371"]
 chain:
   - [renal-artery-stenosis, raas-activation]
@@ -20,6 +21,11 @@ chain:
   - {from: bp-raising-drugs, to: raised-arterial-pressure, note: "NSAIDs, steroids, combined pill, calcineurin and VEGF inhibitors, stimulants", source: "K&C 10e p.1138"}
   - [raised-arterial-pressure, lv-pressure-overload]
   - [raised-arterial-pressure, endothelial-dysfunction]
+  - [raised-arterial-pressure, raised-blood-pressure]
+  - [mineralocorticoid-excess, hypokalaemia]
+  - [renal-artery-stenosis, abdominal-bruit]
+  - [lv-pressure-overload, heart-failure]
+  - [endothelial-dysfunction, ischaemic-stroke]
 findings:
   - {id: raised-blood-pressure, freq: classic, note: "Suspect if <30 years, sudden or severe onset, or resistant to three drugs", source: "K&C 10e p.1137"}
   - {id: hypokalaemia, freq: occasional, note: "Primary hyperaldosteronism", source: "K&C 10e p.1139"}

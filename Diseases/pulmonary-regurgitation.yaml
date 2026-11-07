@@ -2,6 +2,7 @@ id: pulmonary-regurgitation
 name: Pulmonary regurgitation
 group: valvular
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1102"]
 chain:
   - {from: pulmonary-hypertension, to: annular-dilatation, note: "Commonest acquired cause: a dilated valve ring (Graham Steell murmur)", source: "K&C 10e p.1102"}

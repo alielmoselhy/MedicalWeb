@@ -1,8 +1,9 @@
 id: secondary-hyperlipidaemia
 name: Secondary hyperlipidaemia
 parent: hyperlipidaemia
-group: lipid
+group: lipid-disorders
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.746 (Box 24.1)"]
 chain:
   - {from: hypothyroidism, to: reduced-receptor-expression, note: "Causes listed in K&C Box 24.1; mechanisms here are standard teaching", source: "K&C 10e p.746"}
@@ -17,6 +18,7 @@ chain:
   - [hepatic-vldl-overproduction, raised-ldl]
   - {from: raised-ldl, to: endothelial-dysfunction, note: "LDL lodges in the arterial wall, drawing in macrophages → atheroma", source: "K&C 10e p.745"}
   - [endothelial-dysfunction, coronary-atherosclerosis]
+  - [coronary-atherosclerosis, acute-coronary-syndrome]
 findings:
   - {id: raised-ldl, freq: common}
   - {id: raised-triglycerides, freq: common}

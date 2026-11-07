@@ -1,0 +1,25 @@
+id: meningioma
+name: Meningioma
+parent: brain-tumour
+group: nervous-tumours-icp
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.874-875, 886", "Mehlman HY Neuro", "Mehlman HY Pathology"]
+chain:
+  - {from: nf2-mutation, to: tumour-suppressor-loss, note: "Most are sporadic; NF2 gives meningiomas alongside bilateral acoustic neuromas", source: "K&C 10e p.886; Mehlman HY Pathology"}
+  - {from: tumour-suppressor-loss, to: intracranial-tumour-growth, note: "Benign, arising from the arachnoid; grows over years", source: "K&C 10e p.875"}
+  - {from: intracranial-tumour-growth, to: dural-based-mass, note: "Parasagittal, falx, sphenoid ridge, subfrontal, skull base; rare below the tentorium. Erodes bone or causes hyperostosis", source: "K&C 10e p.875; Mehlman HY Neuro"}
+  - {from: intracranial-tumour-growth, to: focal-neurological-deficit, note: "e.g. a frontal meningioma: years of personality change and apathy, then aphasia and hemiparesis", source: "K&C 10e p.875"}
+  - [intracranial-tumour-growth, seizures]
+  - [intracranial-tumour-growth, raised-intracranial-pressure]
+  - [raised-intracranial-pressure, raised-icp-headache]
+  - [raised-intracranial-pressure, papilloedema]
+  - [intracranial-tumour-growth, vasogenic-oedema]
+findings:
+  - {id: dural-based-mass, freq: classic, note: "Symptomless meningiomas are common on imaging and at autopsy", source: "K&C 10e p.874"}
+  - {id: focal-neurological-deficit, freq: common}
+  - {id: seizures, freq: common}
+  - {id: raised-icp-headache, freq: occasional}
+  - {id: papilloedema, freq: occasional}
+outcomes:
+  - {id: vasogenic-oedema}

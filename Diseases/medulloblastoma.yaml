@@ -1,0 +1,27 @@
+id: medulloblastoma
+name: Medulloblastoma
+parent: brain-tumour
+group: nervous-tumours-icp
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.874-875", "Mehlman HY Neuro"]
+chain:
+  - {from: malignant-transformation, to: intracranial-tumour-growth, note: "An aggressive primary neuroepithelial tumour of the cerebellum in children", source: "K&C 10e p.874-875; Mehlman HY Neuro"}
+  - [intracranial-tumour-growth, posterior-fossa-mass]
+  - {from: intracranial-tumour-growth, to: truncal-ataxia, note: "Vermis tumours give truncal ataxia; lateral ones ipsilateral limb ataxia", source: "Mehlman HY Neuro"}
+  - {from: intracranial-tumour-growth, to: obstructed-csf-pathway, note: "Posterior fossa masses block the aqueduct and fourth ventricle early", source: "K&C 10e p.875"}
+  - [obstructed-csf-pathway, raised-intracranial-pressure]
+  - [raised-intracranial-pressure, vomiting]
+  - [raised-intracranial-pressure, raised-icp-headache]
+  - [raised-intracranial-pressure, papilloedema]
+  - [obstructed-csf-pathway, hydrocephalus]
+  - [raised-intracranial-pressure, tonsillar-herniation]
+findings:
+  - {id: truncal-ataxia, freq: classic}
+  - {id: vomiting, freq: classic, note: "A child with morning vomiting and truncal ataxia", source: "Mehlman HY Neuro"}
+  - {id: raised-icp-headache, freq: common}
+  - {id: papilloedema, freq: common}
+  - {id: posterior-fossa-mass, freq: classic}
+outcomes:
+  - {id: hydrocephalus, freq: common, source: "K&C 10e p.875"}
+  - {id: tonsillar-herniation, source: "K&C 10e p.875"}

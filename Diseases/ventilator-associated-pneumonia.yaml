@@ -1,0 +1,34 @@
+id: ventilator-associated-pneumonia
+name: Ventilator-associated pneumonia
+parent: hospital-acquired-pneumonia
+group: respiratory-infection
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.967", "Mehlman HY Pulmonary"]
+chain:
+  - {from: mechanical-ventilation, to: ventilator-circuit-entry, source: "K&C 10e p.967"}
+  - {from: acinetobacter, to: ventilator-circuit-entry, note: "Often multidrug-resistant Gram-negatives; choose antibiotics with microbiology", source: "K&C 10e p.967"}
+  - {from: pseudomonas-aeruginosa, to: ventilator-circuit-entry, note: "Empirical cover for MRSA and Pseudomonas", source: "Mehlman HY Pulmonary"}
+  - [s-aureus, ventilator-circuit-entry]
+  - [enterobacteriaceae, ventilator-circuit-entry]
+  - [ventilator-circuit-entry, alveolar-exudate]
+  - [alveolar-exudate, consolidation-imaging]
+  - [alveolar-exudate, intrapulmonary-shunt]
+  - [intrapulmonary-shunt, hypoxaemia]
+  - [alveolar-exudate, dysregulated-host-response]
+  - [alveolar-exudate, purulent-sputum]
+  - [dysregulated-host-response, fever]
+  - [dysregulated-host-response, raised-inflammatory-markers]
+  - [dysregulated-host-response, septic-shock]
+  - [dysregulated-host-response, multi-organ-dysfunction]
+  - [dysregulated-host-response, ards]
+findings:
+  - {id: consolidation-imaging, freq: classic}
+  - {id: purulent-sputum, freq: common}
+  - {id: fever, freq: common}
+  - {id: hypoxaemia, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+outcomes:
+  - septic-shock
+  - multi-organ-dysfunction
+  - ards

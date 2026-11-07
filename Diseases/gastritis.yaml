@@ -1,0 +1,29 @@
+id: gastritis
+name: Gastritis
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1173", "Mehlman HY Gastro"]
+chain:
+  - {from: helicobacter-pylori, to: chronic-gastric-inflammation, note: "The commonest cause: antral gastritis. Urease makes ammonia that protects it from acid", source: "K&C 10e p.1173"}
+  - {from: autoimmune-predisposition, to: chronic-gastric-inflammation, note: "Autoimmune gastritis (about 5%): body and fundus", source: "K&C 10e p.1173"}
+  - {from: chronic-gastric-inflammation, to: hypergastrinaemia, note: "Antral gastritis raises gastrin and acid, which can cause duodenal ulcers", source: "K&C 10e p.1173"}
+  - {from: chronic-gastric-inflammation, to: gastric-atrophy, note: "Autoimmune pangastritis destroys parietal cells", source: "K&C 10e p.1173"}
+  - [gastric-atrophy, anti-intrinsic-factor]
+  - {from: gastric-atrophy, to: b12-folate-deficiency, note: "No intrinsic factor: pernicious anaemia", source: "K&C 10e p.1173; Mehlman HY Gastro"}
+  - {from: chronic-gastric-inflammation, to: metaplasia-dysplasia-sequence, note: "Intestinal metaplasia is a precursor of gastric cancer", source: "K&C 10e p.1173"}
+  - {from: nsaid-use, to: gastroduodenal-mucosal-breakdown, note: "NSAIDs, alcohol and bile cause gastropathy (cell damage without inflammation); also stress, burns, portal hypertension", source: "K&C 10e p.1173"}
+  - [chronic-gastric-inflammation, epigastric-pain]
+  - [helicobacter-pylori, h-pylori-test-positive]
+  - [gastroduodenal-mucosal-breakdown, peptic-ulcer-disease]
+  - [metaplasia-dysplasia-sequence, gastric-adenocarcinoma]
+  - [clonal-b-cell-proliferation, gastric-malt-lymphoma]
+findings:
+  - {id: epigastric-pain, freq: occasional, note: "H. pylori gastritis is usually silent", source: "K&C 10e p.1173"}
+  - {id: h-pylori-test-positive, freq: common}
+  - {id: anti-intrinsic-factor, freq: common, note: "Parietal cell antibodies are common and non-specific; intrinsic factor antibodies are rarer but more significant", source: "K&C 10e p.1173"}
+  - {id: b12-folate-deficiency, freq: common}
+outcomes:
+  - {id: peptic-ulcer-disease, source: "K&C 10e p.1173"}
+  - {id: gastric-adenocarcinoma, note: "Atrophic gastritis carries a small cancer risk", source: "K&C 10e p.1173, 1178"}
+  - {id: gastric-malt-lymphoma, source: "K&C 10e p.1176"}

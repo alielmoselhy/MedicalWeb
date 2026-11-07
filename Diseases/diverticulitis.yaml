@@ -1,0 +1,41 @@
+id: diverticulitis
+name: Acute diverticulitis
+group: intra-abdominal-infection
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1212-1213", "Mehlman HY Gastro"]
+chain:
+  - {from: diverticular-disease, to: diverticulum-neck-obstruction, note: "Faeces block the neck; stagnant contents let bacteria multiply", source: "K&C 10e p.1212"}
+  - [diverticulum-neck-obstruction, bowel-wall-infection]
+  - [enterobacteriaceae, bowel-wall-infection]
+  - [anaerobic-bacteria, bowel-wall-infection]
+  - {from: bowel-wall-infection, to: lif-pain, note: "Like appendicitis but on the left, usually sigmoid", source: "K&C 10e p.1212"}
+  - [bowel-wall-infection, fever]
+  - [bowel-wall-infection, constipation]
+  - [bowel-wall-infection, guarding-rigidity]
+  - [bowel-wall-infection, raised-inflammatory-markers]
+  - [bowel-wall-infection, diverticulitis-ct]
+  - {from: bowel-wall-infection, to: bowel-perforation, source: "K&C 10e p.1212-1213"}
+  - [bowel-wall-infection, tachycardia]
+  - [bowel-wall-infection, lif-mass]
+  - [bowel-perforation, perforated-diverticulum]
+  - [bowel-perforation, intra-abdominal-abscess]
+  - [bowel-perforation, secondary-peritonitis]
+  - [bowel-perforation, intestinal-fistula]
+  - [bowel-wall-infection, portal-venous-seeding]
+  - [portal-venous-seeding, pyogenic-liver-abscess]
+findings:
+  - {id: lif-pain, freq: classic, note: "LIF pain and fever in someone over 55", source: "K&C 10e p.1212; Mehlman HY Gastro"}
+  - {id: fever, freq: classic}
+  - {id: tachycardia, freq: common, source: "K&C 10e p.1212"}
+  - {id: constipation, freq: common, source: "K&C 10e p.1212"}
+  - {id: guarding-rigidity, freq: common, note: "Left-sided tenderness, guarding and rigidity", source: "K&C 10e p.1212"}
+  - {id: lif-mass, freq: occasional, source: "K&C 10e p.1212"}
+  - {id: raised-inflammatory-markers, freq: common, note: "Neutrophil leucocytosis, raised ESR and CRP", source: "K&C 10e p.1213"}
+  - {id: diverticulitis-ct, freq: classic, note: "95% sensitive and specific; don't scope during an attack", source: "K&C 10e p.1213; Mehlman HY Gastro"}
+outcomes:
+  - {id: perforated-diverticulum, source: "K&C 10e p.1213"}
+  - {id: intra-abdominal-abscess, note: "Paracolic or pelvic", source: "K&C 10e p.1213"}
+  - {id: secondary-peritonitis, source: "K&C 10e p.1213"}
+  - {id: intestinal-fistula, freq: rare, source: "K&C 10e p.1213"}
+  - {id: pyogenic-liver-abscess, freq: rare, note: "Portal pyaemia", source: "K&C 10e p.1305"}

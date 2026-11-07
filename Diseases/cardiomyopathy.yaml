@@ -1,7 +1,8 @@
 id: cardiomyopathy
 name: Cardiomyopathy
-group: myocardial
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1119"]
 chain:
   - {from: cardiomyopathy-gene-variant, to: myocardial-scar, note: "ESC groups: hypertrophic, arrhythmogenic, dilated, restrictive, unclassified; each familial or not", source: "K&C 10e p.1119"}

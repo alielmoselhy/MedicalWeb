@@ -1,0 +1,45 @@
+id: lung-adenocarcinoma
+name: Lung adenocarcinoma
+parent: nsclc
+group: lung-pleural-tumours
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.975-980", "Mehlman HY Pulmonary", "Mehlman HY Pathology", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: smoking, to: carcinogen-induced-transformation, note: "Rising since low-tar cigarettes, possibly because smoke is inhaled more deeply", source: "K&C 10e p.976"}
+  - {from: radon, to: carcinogen-induced-transformation, note: "Lung cancer in a non-smoker living in a basement", source: "Mehlman HY Pathology"}
+  - {from: egfr-mutation, to: driver-mutation-transformation, note: "Commoner in non-smokers, women and people of Asian origin; targeted by EGFR tyrosine kinase inhibitors such as erlotinib", source: "K&C 10e p.975, 980; Mehlman HY Heme-Onc"}
+  - {from: alk-rearrangement, to: driver-mutation-transformation, note: "Commoner in non- or ex-smokers and younger patients; targeted by ALK inhibitors", source: "K&C 10e p.975, 980"}
+  - [carcinogen-induced-transformation, primary-lung-tumour]
+  - {from: driver-mutation-transformation, to: primary-lung-tumour, note: "From mucus-secreting glandular cells", source: "K&C 10e p.976"}
+  - {from: primary-lung-tumour, to: peripheral-lung-mass, note: "Peripheral or apical, rarely central", source: "K&C 10e p.976"}
+  - {from: primary-lung-tumour, to: metastatic-spread, note: "Metastases common: pleura, nodes, brain, bone, adrenals", source: "K&C 10e p.976"}
+  - {from: primary-lung-tumour, to: hypercoagulability, note: "Adenocarcinomas especially; tissue factor release is the proposed mechanism", source: "Mehlman HY Pulmonary"}
+  - [primary-lung-tumour, paraneoplastic-autoimmunity]
+  - [primary-lung-tumour, cough]
+  - [primary-lung-tumour, local-tumour-invasion]
+  - [local-tumour-invasion, pleural-effusion]
+  - [local-tumour-invasion, pancoast-syndrome]
+  - [local-tumour-invasion, superior-vena-cava-obstruction]
+  - [hypercoagulability, migratory-thrombophlebitis]
+  - [paraneoplastic-autoimmunity, paraneoplastic-dermatomyositis]
+  - [local-tumour-invasion, malignant-pleural-effusion]
+  - [metastatic-spread, brain-metastases]
+  - [metastatic-spread, adrenal-metastases]
+  - [metastatic-spread, bone-metastases]
+  - [hypercoagulability, pulmonary-embolism]
+findings:
+  - {id: peripheral-lung-mass, freq: classic, note: "The commonest type in non-smokers, classically women", source: "K&C 10e p.976"}
+  - {id: hypertrophic-pulmonary-osteoarthropathy, freq: common, note: "Classically adenocarcinoma", source: "Mehlman HY Pathology"}
+  - {id: pleural-effusion, freq: common}
+  - {id: cough, freq: common}
+outcomes:
+  - {id: pancoast-syndrome, note: "Apical tumours", source: "Mehlman HY Pulmonary"}
+  - {id: superior-vena-cava-obstruction, source: "Mehlman HY Pulmonary"}
+  - {id: migratory-thrombophlebitis, source: "Mehlman HY Pulmonary"}
+  - {id: paraneoplastic-dermatomyositis, note: "Proximal weakness, raised CK, shawl rash in a non-smoker with a peripheral mass", source: "Mehlman HY Pulmonary"}
+  - {id: malignant-pleural-effusion, freq: common}
+  - {id: brain-metastases, freq: common}
+  - {id: adrenal-metastases}
+  - {id: bone-metastases}
+  - pulmonary-embolism

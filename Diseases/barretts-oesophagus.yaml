@@ -1,0 +1,18 @@
+id: barretts-oesophagus
+name: Barrett's oesophagus
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1165-1166", "Mehlman HY Gastro"]
+chain:
+  - {from: gord, to: acid-reflux-oesophagitis, note: "Almost always with a hiatus hernia; commonest in middle-aged obese men", source: "K&C 10e p.1165-1166"}
+  - {from: obesity, to: acid-reflux-oesophagitis, note: "Central obesity raises the risk 4.3 times", source: "K&C 10e p.1166"}
+  - {from: acid-reflux-oesophagitis, to: metaplasia-dysplasia-sequence, note: "Squamous epithelium replaced by columnar (intestinal-type, with goblet cells)", source: "K&C 10e p.1165; Mehlman HY Gastro"}
+  - [metaplasia-dysplasia-sequence, columnar-lined-oesophagus]
+  - [acid-reflux-oesophagitis, heartburn]
+  - [metaplasia-dysplasia-sequence, oesophageal-adenocarcinoma]
+findings:
+  - {id: columnar-lined-oesophagus, freq: classic, note: "Columnar lining > 1 cm above the gastric folds at endoscopy, confirmed on biopsy. Often found by chance", source: "K&C 10e p.1165-1166"}
+  - {id: heartburn, freq: common, note: "Symptoms correlate poorly, so screening isn't recommended", source: "K&C 10e p.1166"}
+outcomes:
+  - {id: oesophageal-adenocarcinoma, freq: rare, note: "0.12–0.5% a year (about 1% lifetime), through low- then high-grade dysplasia", source: "K&C 10e p.1166"}

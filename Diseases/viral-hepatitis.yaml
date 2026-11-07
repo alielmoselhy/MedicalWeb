@@ -1,0 +1,28 @@
+id: viral-hepatitis
+name: Viral hepatitis
+group: viral-liver
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1273, 1275", "Mehlman HY Gastro"]
+chain:
+  - [hepatitis-virus, viral-hepatocyte-injury]
+  - {from: viral-hepatocyte-injury, to: hepatitic-pattern, note: "Damage comes from T cells killing infected hepatocytes, not from the virus itself", source: "Mehlman HY Gastro"}
+  - [viral-hepatocyte-injury, jaundice]
+  - [viral-hepatocyte-injury, pale-stools-dark-urine]
+  - {from: hepatitis-virus, to: persistent-viral-replication, note: "A always and E usually cause acute infection only; B, C and D can become chronic", source: "K&C 10e p.1275"}
+  - [persistent-viral-replication, liver-fibrosis]
+  - [viral-hepatocyte-injury, anorexia]
+  - [hepatitis-virus, hepatitis-serology]
+  - [viral-hepatocyte-injury, acute-liver-failure]
+  - [liver-fibrosis, cirrhosis]
+  - [liver-fibrosis, hepatocellular-carcinoma]
+findings:
+  - {id: hepatitic-pattern, freq: classic, note: "AST/ALT high early with only a small ALP rise (the reverse of obstruction)", source: "K&C 10e p.1273"}
+  - {id: anorexia, freq: common}
+  - {id: jaundice, freq: common}
+  - {id: pale-stools-dark-urine, freq: common}
+  - {id: hepatitis-serology, freq: classic}
+outcomes:
+  - acute-liver-failure
+  - {id: cirrhosis, note: "Chronic viral hepatitis is the main cause of chronic liver disease, cirrhosis and HCC worldwide", source: "K&C 10e p.1275"}
+  - hepatocellular-carcinoma

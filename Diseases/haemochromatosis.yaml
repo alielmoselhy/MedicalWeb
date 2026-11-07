@@ -1,0 +1,35 @@
+id: haemochromatosis
+name: Hereditary haemochromatosis
+group: non-viral-liver
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1300-1301", "Mehlman HY Gastro", "LMC 2026 Non-viral liver s.26-32"]
+chain:
+  - {from: hfe-mutation, to: iron-overload, note: "Autosomal recessive; 85–90% are C282Y homozygotes. Low hepcidin lets the gut absorb iron unchecked. Penetrance only about 20%. Usually after 40, later in women (menstrual loss)", source: "K&C 10e p.1300-1301; Mehlman HY Gastro; LMC 2026 Non-viral liver s.27, 29"}
+  - {from: iron-overload, to: liver-fibrosis, note: "Iron itself seems to cause the fibrosis; alcohol speeds it", source: "K&C 10e p.1300-1301"}
+  - [iron-overload, raised-iron-indices]
+  - [iron-overload, hepatomegaly]
+  - {from: iron-overload, to: skin-pigmentation, note: "Bronze skin, hepatomegaly and diabetes together only with gross overload", source: "K&C 10e p.1301"}
+  - {from: iron-overload, to: islet-destruction, note: "Pancreatic iron is 50–100 times normal", source: "K&C 10e p.1300"}
+  - {from: iron-overload, to: exocrine-pancreatic-insufficiency, note: "Diabetes and malabsorption from pancreatic iron", source: "LMC 2026 Non-viral liver s.28, 32"}
+  - [liver-fibrosis, cirrhosis]
+  - [cirrhosis, hepatocellular-carcinoma]
+  - [islet-destruction, pancreatogenic-diabetes]
+  - [iron-overload, heart-failure]
+  - [iron-overload, arrhythmia]
+  - [iron-overload, hypogonadism]
+  - [iron-overload, chondrocalcinosis]
+  - [iron-overload, cardiomyopathy]
+findings:
+  - {id: raised-iron-indices, freq: classic, note: "Transferrin saturation > 45% and ferritin usually > 500 µg/L; liver tests are often normal even with cirrhosis", source: "K&C 10e p.1301"}
+  - {id: skin-pigmentation, freq: common}
+  - {id: hepatomegaly, freq: common}
+outcomes:
+  - {id: cirrhosis, note: "A late feature", source: "K&C 10e p.1301"}
+  - {id: hepatocellular-carcinoma, note: "About 30% of those with cirrhosis", source: "K&C 10e p.1301"}
+  - {id: pancreatogenic-diabetes, note: "'Bronze diabetes'", source: "Mehlman HY Gastro"}
+  - {id: heart-failure, note: "Heart failure and arrhythmias, especially in younger patients", source: "K&C 10e p.1301"}
+  - {id: arrhythmia, source: "K&C 10e p.1301"}
+  - {id: hypogonadism, note: "The commonest endocrine feature, from pituitary dysfunction", source: "K&C 10e p.1301"}
+  - {id: chondrocalcinosis, note: "Calcium pyrophosphate in large and small joints (pseudogout)", source: "K&C 10e p.1301; Mehlman HY Gastro"}
+  - {id: cardiomyopathy, note: "Iron in the myocardium", source: "LMC 2026 Non-viral liver s.28, 32"}

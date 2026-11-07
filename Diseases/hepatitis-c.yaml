@@ -1,0 +1,34 @@
+id: hepatitis-c
+name: Hepatitis C
+parent: viral-hepatitis
+group: viral-liver
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1282-1283"]
+chain:
+  - {from: parenteral-exposure, to: hepatitis-c-virus, note: "Blood and blood products; 40–60% of people who inject drugs. Sexual spread is uncommon", source: "K&C 10e p.1282"}
+  - {from: hepatitis-c-virus, to: viral-hepatocyte-injury, note: "Acute infection is mostly silent; about 10% have a mild flu-like illness with jaundice", source: "K&C 10e p.1282"}
+  - {from: hepatitis-c-virus, to: persistent-viral-replication, note: "85–90% of asymptomatic infections become chronic", source: "K&C 10e p.1282"}
+  - [persistent-viral-replication, viral-hepatocyte-injury]
+  - {from: persistent-viral-replication, to: liver-fibrosis, note: "Slow: 16% cirrhotic after 20 years; faster with alcohol, HIV, obesity and diabetes", source: "K&C 10e p.1283"}
+  - {from: hepatitis-c-virus, to: immune-complex-deposition, note: "Cryoglobulins, with or without glomerulonephritis", source: "K&C 10e p.1283"}
+  - [viral-hepatocyte-injury, hepatitic-pattern]
+  - [hepatitis-c-virus, anti-hcv-hcv-rna]
+  - [viral-hepatocyte-injury, fatigue]
+  - [immune-complex-deposition, arthralgia]
+  - [liver-fibrosis, cirrhosis]
+  - [liver-fibrosis, hepatocellular-carcinoma]
+  - [immune-complex-deposition, cryoglobulinaemia]
+  - [immune-complex-deposition, glomerulonephritis]
+  - [persistent-viral-replication, porphyria-cutanea-tarda]
+findings:
+  - {id: anti-hcv-hcv-rna, freq: classic, note: "Antibody screens; HCV RNA (PCR) shows ongoing viraemia", source: "K&C 10e p.1283"}
+  - {id: hepatitic-pattern, freq: common, note: "Mild, fluctuating ALT, often found on a routine test; 25% have a normal ALT", source: "K&C 10e p.1283"}
+  - {id: fatigue, freq: common, note: "Malaise and fatigue often reverse after viral clearance", source: "K&C 10e p.1283"}
+  - {id: arthralgia, freq: occasional, source: "K&C 10e p.1283"}
+outcomes:
+  - {id: cirrhosis, note: "Once cirrhotic, 3–4% a year decompensate", source: "K&C 10e p.1283"}
+  - {id: hepatocellular-carcinoma, note: "About 1% a year once cirrhotic; unlike HBV, rare without cirrhosis", source: "K&C 10e p.1283"}
+  - {id: cryoglobulinaemia, freq: occasional, source: "K&C 10e p.1283"}
+  - {id: glomerulonephritis, freq: occasional, source: "K&C 10e p.1283"}
+  - {id: porphyria-cutanea-tarda, freq: rare, source: "K&C 10e p.1283"}

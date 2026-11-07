@@ -1,0 +1,18 @@
+id: nerve-sheath-tumour
+name: Peripheral nerve sheath tumour
+group: nervous-tumours-icp
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.875, 886", "Mehlman HY Neuro"]
+chain:
+  - {from: nf1-mutation, to: tumour-suppressor-loss, source: "K&C 10e p.886"}
+  - {from: nf2-mutation, to: tumour-suppressor-loss, source: "K&C 10e p.886"}
+  - [nf1-mutation, cutaneous-neurofibromas]
+  - [nf2-mutation, cerebellopontine-angle-mass]
+  - [tumour-suppressor-loss, malignant-transformation]
+  - [malignant-transformation, malignant-nerve-sheath-tumour]
+findings:
+  - {id: cutaneous-neurofibromas, freq: common}
+  - {id: cerebellopontine-angle-mass, freq: common}
+outcomes:
+  - {id: malignant-nerve-sheath-tumour, freq: rare, source: "K&C 10e p.886"}

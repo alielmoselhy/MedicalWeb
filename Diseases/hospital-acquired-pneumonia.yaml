@@ -1,0 +1,46 @@
+id: hospital-acquired-pneumonia
+name: Hospital-acquired pneumonia
+parent: pneumonia
+group: respiratory-infection
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.966-967", "Mehlman HY Pulmonary"]
+chain:
+  - {from: recent-healthcare-contact, to: aspiration-of-oropharyngeal-flora, note: "Onset > 2 days into an admission, or healthcare contact (incl. care homes) within 3 months; second commonest hospital infection after UTI", source: "K&C 10e p.966-967"}
+  - [aspiration-risk, aspiration-of-oropharyngeal-flora]
+  - {from: impaired-swallow, to: aspiration-of-oropharyngeal-flora, note: "e.g. after stroke"}
+  - {from: pseudomonas-aeruginosa, to: aspiration-of-oropharyngeal-flora, note: "Organisms differ from CAP: Gram-negatives and S. aureus incl. MRSA, so cover MRSA and Pseudomonas", source: "K&C 10e p.967"}
+  - [enterobacteriaceae, aspiration-of-oropharyngeal-flora]
+  - [s-aureus, aspiration-of-oropharyngeal-flora]
+  - [acinetobacter, aspiration-of-oropharyngeal-flora]
+  - [anaerobic-bacteria, aspiration-of-oropharyngeal-flora]
+  - {from: reduced-consciousness, to: gastric-acid-aspiration, note: "Acid aspiration is severe and can kill; e.g. under anaesthesia in pregnancy (Mendelson's)", source: "K&C 10e p.967"}
+  - [gastric-acid-aspiration, alveolar-exudate]
+  - [aspiration-of-oropharyngeal-flora, alveolar-exudate]
+  - [alveolar-exudate, consolidation-imaging]
+  - [alveolar-exudate, intrapulmonary-shunt]
+  - [intrapulmonary-shunt, hypoxaemia]
+  - [alveolar-exudate, dysregulated-host-response]
+  - [alveolar-exudate, purulent-sputum]
+  - [dysregulated-host-response, fever]
+  - [intrapulmonary-shunt, dyspnoea]
+  - [dysregulated-host-response, raised-inflammatory-markers]
+  - [dysregulated-host-response, septic-shock]
+  - [intrapulmonary-shunt, type-1-respiratory-failure]
+  - [alveolar-exudate, abscess-formation]
+  - [abscess-formation, lung-abscess]
+  - [dysregulated-host-response, ards]
+  - [dysregulated-host-response, multi-organ-dysfunction]
+findings:
+  - {id: purulent-sputum, freq: classic, note: "Defined by new cough with purulent sputum plus consolidation on CXR", source: "K&C 10e p.966"}
+  - {id: consolidation-imaging, freq: classic}
+  - {id: fever, freq: common}
+  - {id: dyspnoea, freq: common}
+  - {id: hypoxaemia, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+outcomes:
+  - {id: septic-shock, note: "Mortality is highest in the elderly and with stroke, lung disease or diabetes", source: "K&C 10e p.967"}
+  - type-1-respiratory-failure
+  - {id: lung-abscess, note: "After aspiration, often anaerobic", source: "K&C 10e p.967"}
+  - ards
+  - multi-organ-dysfunction

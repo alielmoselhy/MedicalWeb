@@ -1,0 +1,19 @@
+id: huntingtons-disease
+name: Huntington's disease
+group: neurodegenerative
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.862", "Mehlman HY Neuro", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: htt-cag-repeat, to: huntingtin-aggregates, note: "Autosomal dominant CAG expansion with anticipation, especially through paternal transmission", source: "K&C 10e p.862"}
+  - [huntingtin-aggregates, caudate-striatal-loss]
+  - [caudate-striatal-loss, chorea]
+  - [caudate-striatal-loss, cognitive-decline]
+  - [caudate-striatal-loss, caudate-atrophy]
+  - [caudate-striatal-loss, dementia]
+findings:
+  - {id: chorea, freq: classic, note: "Often begins in middle age as subtle fidgeting before more obvious dance-like movements", source: "K&C 10e p.862"}
+  - {id: cognitive-decline, freq: common, note: "Progressive psychiatric and cognitive change accompanies the movement disorder", source: "K&C 10e p.862"}
+  - {id: caudate-atrophy, freq: common, source: "Mehlman HY Neuroanatomy"}
+outcomes:
+  - {id: dementia, freq: common, note: "Progressive neurodegeneration leads to dementia and death over roughly 10–20 years", source: "K&C 10e p.862"}

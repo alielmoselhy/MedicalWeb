@@ -1,0 +1,18 @@
+id: meckels-diverticulum
+name: Meckel's diverticulum
+group: small-intestine
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1195", "Mehlman HY Gastro"]
+chain:
+  - {from: ectopic-gastric-mucosa, to: gastroduodenal-mucosal-breakdown, note: "The commonest congenital gut anomaly (2–3%), in the ileum about 60 cm from the ileocaecal valve; half contain acid-secreting gastric mucosa", source: "K&C 10e p.1195"}
+  - {from: gastroduodenal-mucosal-breakdown, to: rectal-bleeding, note: "Bleeding in a child; a technetium (Meckel) scan finds it", source: "Mehlman HY Gastro"}
+  - [gastroduodenal-mucosal-breakdown, rif-pain]
+  - [gastroduodenal-mucosal-breakdown, gi-perforation]
+findings:
+  - {id: rectal-bleeding, freq: common}
+  - {id: rif-pain, freq: occasional, note: "Inflammation mimics appendicitis exactly", source: "K&C 10e p.1195"}
+outcomes:
+  - {id: gi-perforation, freq: rare, source: "K&C 10e p.1195"}
+  - {id: intestinal-obstruction, freq: rare, note: "From an associated band", source: "K&C 10e p.1195"}
+  - {id: intussusception, freq: rare, note: "A common lead point", source: "Mehlman HY Gastro"}

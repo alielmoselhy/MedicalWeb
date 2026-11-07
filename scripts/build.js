@@ -6,13 +6,27 @@ import { parse } from 'yaml';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NODE_TYPES = ['cause', 'finding', 'mechanism', 'outcome'];
-const CATEGORIES = { finding: ['symptom', 'sign', 'lab', 'ECG', 'imaging'], cause: ['organism', 'genetic', 'risk-factor', 'drug', 'condition'] };
+const CATEGORIES = { finding: ['symptom', 'sign', 'lab', 'ECG', 'imaging', 'endoscopy'], cause: ['organism', 'genetic', 'risk-factor', 'drug', 'condition'] };
 const FREQS = ['classic', 'common', 'occasional', 'rare'];
 const STATUSES = ['draft', 'reviewed'];
+// Disease-file keys, in the order every file writes them (see README, "Standards").
+const KEYS = ['id', 'name', 'parent', 'group', 'status', 'systems', 'sources', 'chain', 'findings', 'outcomes'];
+const ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+// One citation, several joined by "; ": printed K&C pages (optional box), a Mehlman HY book (optional detail),
+// or an LMC teaching handout by year, title and slide numbers.
+const CITE = /^(K&C 10e p\.\d+([–-]\d+)?(, \d+([–-]\d+)?)*( \(Box \d+\.\d+\))?|Mehlman HY [A-Za-z-]+( \(.+\))?|LMC 20\d\d [A-Z][A-Za-z -]*? s\.\d+([–-]\d+)?(, \d+([–-]\d+)?)*)$/;
+const book = c => c.replace(/ p\..*| \(.*| s\..*/, '');
 
-// vocab: parsed nodes.yaml; diseaseFiles: [{ file, doc }]. Returns { graph, warnings } or throws with every error listed.
-export function buildGraph(vocab, diseaseFiles) {
+// vocab: parsed nodes.yaml; diseaseFiles: [{ file, doc }]; syllabus: parsed syllabus.yaml.
+// Returns { graph, warnings } or throws with every error listed.
+export function buildGraph(vocab, diseaseFiles, syllabus) {
   const errors = [];
+  const systems = new Map(syllabus.map(s => [s.id, s]));
+  const syllabusIds = syllabus.flatMap(s => [s.id, ...s.groups.map(g => g.id)]);
+  for (const x of syllabus.flatMap(s => [s, ...s.groups]))
+    if (!ID.test(x.id) || typeof x.name !== 'string' || Object.keys(x).some(k => !['id', 'section', 'name', 'groups'].includes(k)))
+      errors.push(`syllabus.yaml (${x.id}): needs a lowercase-with-hyphens id and a name; quote names that contain commas`);
+  if (new Set(syllabusIds).size !== syllabusIds.length) errors.push('syllabus.yaml: system and group ids must be unique');
   const warnings = [];
   const nodes = new Map();
 
@@ -20,6 +34,9 @@ export function buildGraph(vocab, diseaseFiles) {
   for (const n of vocab) {
     const where = `nodes.yaml (${n?.id ?? 'missing id'})`;
     if (!n?.id || !n.name) { errors.push(`${where}: needs id and name`); continue; }
+    if (!ID.test(n.id)) errors.push(`${where}: id must be lowercase-with-hyphens`);
+    const stray = Object.keys(n).filter(k => !['id', 'name', 'type', 'parent', 'category'].includes(k));
+    if (stray.length) errors.push(`${where}: unknown key(s) ${stray.join(', ')}; quote names that contain commas`);
     if (!NODE_TYPES.includes(n.type)) errors.push(`${where}: type must be one of ${NODE_TYPES.join(', ')}`);
     if (n.category && !CATEGORIES[n.type]?.includes(n.category)) errors.push(`${where}: category must be one of ${CATEGORIES[n.type]?.join(', ') ?? '(none for this type)'}`);
     if (nodes.has(n.id)) errors.push(`${where}: duplicate id`);
@@ -29,9 +46,19 @@ export function buildGraph(vocab, diseaseFiles) {
   for (const { file, doc } of diseaseFiles) {
     if (!doc?.id || !doc.name) { errors.push(`${file}: needs id and name`); continue; }
     if (doc.id !== basename(file, '.yaml')) errors.push(`${file}: id "${doc.id}" must match filename`);
+    if (!ID.test(doc.id)) errors.push(`${file}: id must be lowercase-with-hyphens`);
+    const keys = Object.keys(doc);
+    const unknown = keys.filter(k => !KEYS.includes(k));
+    if (unknown.length) errors.push(`${file}: unknown key(s) ${unknown.join(', ')}; allowed: ${KEYS.join(', ')}`);
+    else if (keys.some((k, i) => i && KEYS.indexOf(k) < KEYS.indexOf(keys[i - 1]))) errors.push(`${file}: keys must be in the order ${KEYS.join(', ')}`);
     if (!STATUSES.includes(doc.status)) errors.push(`${file}: status must be one of ${STATUSES.join(', ')}`);
+    if (!Array.isArray(doc.systems) || !doc.systems.length || doc.systems.some(s => !systems.has(s)) || new Set(doc.systems).size !== doc.systems.length)
+      errors.push(`${file}: systems must be a list of distinct ids from syllabus.yaml (${[...systems.keys()].join(', ')})`);
+    else if (!systems.get(doc.systems[0]).groups.some(g => g.id === doc.group))
+      errors.push(`${file}: group "${doc.group}" must be one of ${doc.systems[0]}'s groups in syllabus.yaml (${systems.get(doc.systems[0]).groups.map(g => g.id).join(', ')})`);
+    for (const c of doc.sources ?? []) if (!CITE.test(c)) errors.push(`${file}: source "${c}" must look like "K&C 10e p.123", "Mehlman HY Cardio" or "LMC 2026 Cirrhosis s.12"`);
     if (nodes.has(doc.id)) errors.push(`${file}: id "${doc.id}" is already used in ${nodes.get(doc.id).type === 'disease' ? 'another disease file' : 'nodes.yaml'}`);
-    nodes.set(doc.id, { id: doc.id, name: doc.name, type: 'disease', parent: doc.parent, group: doc.group, status: doc.status, sources: doc.sources ?? [], file });
+    nodes.set(doc.id, { id: doc.id, name: doc.name, type: 'disease', parent: doc.parent, group: doc.group, systems: doc.systems, status: doc.status, sources: doc.sources ?? [], file });
   }
 
   for (const n of nodes.values()) {
@@ -51,9 +78,13 @@ export function buildGraph(vocab, diseaseFiles) {
   const edges = [];
   const touches = {};
   const used = new Set();
-  const detail = (e, where) => {
+  const detail = (e, where, sources) => {
     if (e.freq && !FREQS.includes(e.freq)) errors.push(`${where}: freq must be one of ${FREQS.join(', ')}`);
-    return { freq: e.freq, note: e.note, source: e.source };
+    for (const c of e.source?.split('; ') ?? []) {
+      if (!CITE.test(c)) errors.push(`${where}: source "${c}" must look like "K&C 10e p.123", "Mehlman HY Cardio" or "LMC 2026 Cirrhosis s.12", joined by "; "`);
+      else if (!sources.some(s => book(s) === book(c))) errors.push(`${where}: cites ${book(c)}, which is missing from the file's sources`);
+    }
+    return { freq: e.freq, note: e.note, source: e.source, only: e.only };
   };
   const check = (id, where, allowed) => {
     const n = nodes.get(id);
@@ -63,6 +94,7 @@ export function buildGraph(vocab, diseaseFiles) {
     return true;
   };
 
+  const looseBy = [];
   for (const { file, doc } of diseaseFiles) {
     if (!doc?.id) continue;
     const t = new Set();
@@ -73,10 +105,12 @@ export function buildGraph(vocab, diseaseFiles) {
       // A disease is the set of its nodes, not a step in its own chain.
       if (from === doc.id || to === doc.id) { errors.push(`${where}: a disease can't appear in its own chain; start at the root cause`); continue; }
       if (check(from, where) & check(to, where)) { // single & so both ids get reported
-        edges.push({ from, to, kind: 'causal', disease: doc.id, ...(Array.isArray(c) ? {} : detail(c, where)) });
+        edges.push({ from, to, kind: 'causal', disease: doc.id, ...(Array.isArray(c) ? {} : detail(c, where, doc.sources ?? [])) });
         t.add(from).add(to);
       }
     }
+    // `only` names the cause in this chain that a link applies to (one organism of several).
+    const roots = new Set(t);
     // Membership links from the disease to its chain's root causes, so it attaches to its chain in the network.
     const chainEdges = edges.filter(e => e.disease === doc.id);
     for (const n of t) if (!chainEdges.some(e => e.to === n)) edges.push({ from: doc.id, to: n, kind: 'member', disease: doc.id });
@@ -87,11 +121,16 @@ export function buildGraph(vocab, diseaseFiles) {
         const allowed = kind === 'findings' ? ['finding'] : ['outcome', 'disease'];
         if (!id) { errors.push(`${where}: needs an id`); continue; }
         if (check(id, where, allowed)) {
-          edges.push({ from: doc.id, to: id, kind: kind.slice(0, -1), disease: doc.id, ...(typeof f === 'string' ? {} : detail(f, where)) });
+          edges.push({ from: doc.id, to: id, kind: kind.slice(0, -1), disease: doc.id, ...(typeof f === 'string' ? {} : detail(f, where, doc.sources ?? [])) });
           t.add(id);
         }
       }
     }
+    for (const e of edges.filter(e => e.disease === doc.id && e.only))
+      if (!roots.has(e.only) || nodes.get(e.only).type !== 'cause') errors.push(`${file}: only "${e.only}" on ${e.from} → ${e.to} must be a cause in this file's chain`);
+    // Findings and outcomes no chain link reaches float loose on the Explore page; list them until each is linked.
+    const loose = [...(doc.findings ?? []), ...(doc.outcomes ?? [])].map(f => typeof f === 'string' ? f : f?.id).filter(id => id && !roots.has(id));
+    if (loose.length) looseBy.push(`${doc.id} (${loose.length})`);
     t.delete(doc.id);
     touches[doc.id] = [...t];
   }
@@ -103,10 +142,11 @@ export function buildGraph(vocab, diseaseFiles) {
     if (n.type !== 'disease' && !used.has(n.id) && ![...nodes.values()].some(c => c.parent === n.id)) unused.push(n.id);
     delete n.file;
   }
+  if (looseBy.length) warnings.push(`${looseBy.length} disease(s) have findings or outcomes no chain link reaches: ${looseBy.join(', ')}`);
   if (unused.length) warnings.push(`${unused.length} vocabulary node(s) not used by any disease yet: ${unused.join(', ')}`);
 
   if (errors.length) throw new Error(`${errors.length} error(s):\n  ${errors.join('\n  ')}`);
-  return { graph: { nodes: [...nodes.values()], edges, touches }, warnings };
+  return { graph: { nodes: [...nodes.values()], edges, touches, syllabus }, warnings };
 }
 
 export function loadAndBuild(root = ROOT) {
@@ -114,7 +154,7 @@ export function loadAndBuild(root = ROOT) {
   const dir = join(root, 'Diseases');
   const diseaseFiles = readdirSync(dir).filter(f => f.endsWith('.yaml')).sort()
     .map(f => ({ file: `Diseases/${f}`, doc: parse(readFileSync(join(dir, f), 'utf8')) }));
-  const result = buildGraph(vocab, diseaseFiles);
+  const result = buildGraph(vocab, diseaseFiles, parse(readFileSync(join(root, 'syllabus.yaml'), 'utf8')));
   writeFileSync(join(root, 'app/src/graph.json'), JSON.stringify(result.graph));
   return result;
 }

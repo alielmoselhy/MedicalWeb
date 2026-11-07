@@ -1,0 +1,51 @@
+id: bacterial-meningitis
+name: Bacterial meningitis
+parent: meningitis
+group: cns-infection
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.869-871", "Mehlman HY Neuro"]
+chain:
+  - {from: neisseria-meningitidis, to: nasopharynx-to-bloodstream, note: "Meningococcal disease may combine meningitis with rapidly progressive septicaemia", source: "K&C 10e p.869-870"}
+  - [streptococcus-pneumoniae, nasopharynx-to-bloodstream]
+  - [haemophilus-influenzae, nasopharynx-to-bloodstream]
+  - [streptococcus-agalactiae, haematogenous-seeding]
+  - {from: listeria-monocytogenes, to: haematogenous-seeding, note: "Cover Listeria in adults over 50 or immunocompromised patients", source: "K&C 10e p.871 (Box 26.59)"}
+  - [nasopharynx-to-bloodstream, leptomeningeal-inflammation]
+  - [haematogenous-seeding, leptomeningeal-inflammation]
+  - [leptomeningeal-inflammation, headache]
+  - [leptomeningeal-inflammation, neck-stiffness]
+  - [leptomeningeal-inflammation, photophobia]
+  - [leptomeningeal-inflammation, kernig-sign]
+  - [leptomeningeal-inflammation, fever]
+  - [leptomeningeal-inflammation, vomiting]
+  - [leptomeningeal-inflammation, csf-bacterial-pattern]
+  - {from: leptomeningeal-inflammation, to: cerebral-oedema, note: "Bacterial meningitis can cause cerebral oedema", source: "K&C 10e p.869"}
+  - [cerebral-oedema, raised-intracranial-pressure]
+  - [raised-intracranial-pressure, papilloedema]
+  - [leptomeningeal-inflammation, impaired-csf-absorption]
+  - [impaired-csf-absorption, hydrocephalus]
+  - [leptomeningeal-inflammation, sensorineural-hearing-loss]
+  - [leptomeningeal-inflammation, siadh]
+  - {from: neisseria-meningitidis, to: dysregulated-host-response, note: "A petechial rash with shock indicates meningococcal septicaemia and requires immediate treatment", source: "K&C 10e p.870 (Box 26.57)"}
+  - {from: dysregulated-host-response, to: non-blanching-rash, only: neisseria-meningitidis}
+  - [dysregulated-host-response, septic-shock]
+  - {from: dysregulated-host-response, to: purpura-fulminans-dic, only: neisseria-meningitidis}
+  - {from: dysregulated-host-response, to: waterhouse-friderichsen-syndrome, only: neisseria-meningitidis}
+findings:
+  - {id: fever, freq: classic}
+  - {id: headache, freq: classic}
+  - {id: neck-stiffness, freq: classic}
+  - {id: photophobia, freq: common}
+  - {id: vomiting, freq: common}
+  - {id: kernig-sign, freq: common}
+  - {id: csf-bacterial-pattern, freq: classic, note: "Purulent/turbid CSF with neutrophils, raised protein and low glucose", source: "K&C 10e p.871 (Box 26.58)"}
+  - {id: non-blanching-rash, freq: occasional, only: neisseria-meningitidis}
+  - {id: papilloedema, freq: occasional}
+outcomes:
+  - septic-shock
+  - hydrocephalus
+  - siadh
+  - {id: sensorineural-hearing-loss, note: "Immediate dexamethasone reduces neurological complications such as deafness", source: "K&C 10e p.870"}
+  - {id: purpura-fulminans-dic, only: neisseria-meningitidis}
+  - {id: waterhouse-friderichsen-syndrome, only: neisseria-meningitidis}

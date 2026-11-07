@@ -1,0 +1,26 @@
+id: hepatitis-a
+name: Hepatitis A
+parent: viral-hepatitis
+group: viral-liver
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1276-1277"]
+chain:
+  - {from: faecal-oral-exposure, to: hepatitis-a-virus, note: "Contaminated food or water (e.g. shellfish); epidemics, overcrowding, men who have sex with men. No carrier state", source: "K&C 10e p.1276"}
+  - {from: hepatitis-a-virus, to: viral-hepatocyte-injury, note: "Picornavirus with a short incubation (2–3 weeks); shed in faeces before jaundice, when most infectious", source: "K&C 10e p.1276"}
+  - [viral-hepatocyte-injury, hepatitic-pattern]
+  - {from: viral-hepatocyte-injury, to: jaundice, note: "After 1–2 weeks of prodrome; many, especially children, stay anicteric", source: "K&C 10e p.1276"}
+  - [viral-hepatocyte-injury, pale-stools-dark-urine]
+  - [viral-hepatocyte-injury, hepatomegaly]
+  - [viral-hepatocyte-injury, anorexia]
+  - [hepatitis-a-virus, anti-hav-igm]
+  - [viral-hepatocyte-injury, acute-liver-failure]
+findings:
+  - {id: anorexia, freq: classic, note: "Prodrome of malaise, nausea and anorexia", source: "K&C 10e p.1276"}
+  - {id: jaundice, freq: common}
+  - {id: pale-stools-dark-urine, freq: common, source: "K&C 10e p.1276"}
+  - {id: hepatitic-pattern, freq: classic, note: "Transaminases rise before the jaundice, sometimes into the thousands; ALP usually < 300 IU/L", source: "K&C 10e p.1277"}
+  - {id: hepatomegaly, freq: common, note: "Moderately enlarged; spleen sometimes palpable", source: "K&C 10e p.1276"}
+  - {id: anti-hav-igm, freq: classic, note: "IgM means acute infection; IgG is common in the over-50s", source: "K&C 10e p.1277"}
+outcomes:
+  - {id: acute-liver-failure, freq: rare, note: "Mortality < 0.5%, higher in the elderly. Never becomes chronic", source: "K&C 10e p.1277"}

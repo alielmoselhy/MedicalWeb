@@ -1,0 +1,10 @@
+id: dementia
+name: Dementia
+group: neurodegenerative
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.880-882"]
+chain:
+  - {from: older-age, to: cognitive-decline, note: "Age is the main risk factor, then family history; 6% over 65, 20% over 85", source: "K&C 10e p.880"}
+findings:
+  - {id: cognitive-decline, freq: classic, note: "Acquired loss in two or more cognitive domains, severe enough to impair daily life, chronic rather than fluctuating (unlike delirium)", source: "K&C 10e p.880"}

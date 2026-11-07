@@ -1,0 +1,28 @@
+id: rsv-infection
+name: Respiratory syncytial virus infection
+group: respiratory-infection
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.521", "Mehlman HY Pulmonary"]
+chain:
+  - {from: rsv, to: droplet-inhalation, note: "Winter epidemics; antigenic drift allows re-infection throughout life; spreads easily on children's wards", source: "K&C 10e p.521"}
+  - [droplet-inhalation, viral-airway-epithelial-infection]
+  - {from: viral-airway-epithelial-infection, to: sore-throat-coryza, note: "Starts as an upper respiratory infection", source: "K&C 10e p.521"}
+  - {from: viral-airway-epithelial-infection, to: bronchiolitis, note: "A common cause of bronchiolitis in infants", source: "K&C 10e p.521"}
+  - {from: bronchiolitis, to: wheeze, note: "Infant < 18 months with low-grade fever and bilateral wheeze", source: "Mehlman HY Pulmonary"}
+  - {from: bronchiolitis, to: hyperinflated-chest, note: "Hyperexpanded chest with subcostal and intercostal recession", source: "K&C 10e p.521"}
+  - [bronchiolitis, dyspnoea]
+  - [viral-airway-epithelial-infection, dry-cough]
+  - [viral-airway-epithelial-infection, fever]
+  - [viral-airway-epithelial-infection, community-acquired-pneumonia]
+  - [bronchiolitis, type-1-respiratory-failure]
+findings:
+  - {id: sore-throat-coryza, freq: classic}
+  - {id: dry-cough, freq: common}
+  - {id: fever, freq: common, note: "Low grade", source: "K&C 10e p.521"}
+  - {id: wheeze, freq: common}
+  - {id: dyspnoea, freq: common}
+  - {id: hyperinflated-chest, freq: common}
+outcomes:
+  - {id: community-acquired-pneumonia, freq: occasional, note: "≈10% of infant bronchiolitis; also outbreaks in care homes and the immunocompromised", source: "K&C 10e p.521"}
+  - {id: type-1-respiratory-failure, freq: rare, note: "Can be fatal in babies with heart or lung disease, prematurity or immunodeficiency", source: "K&C 10e p.521"}

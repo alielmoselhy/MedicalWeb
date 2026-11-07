@@ -1,0 +1,33 @@
+id: pneumoconiosis
+name: Pneumoconiosis (coal worker's and silicosis)
+parent: interstitial-lung-disease
+group: interstitial
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.995-996", "Mehlman HY Pulmonary"]
+chain:
+  - {from: coal-dust, to: macrophage-dust-fibrogenesis, note: "2–5 µm particles lodge in small airways and alveoli; risk follows total dust exposure", source: "K&C 10e p.995"}
+  - {from: silica, to: macrophage-dust-fibrogenesis, note: "Much more fibrogenic: 3 g of silica can kill where 30 g of coal is tolerated. Stonemasons, sand-blasters, foundries", source: "K&C 10e p.996"}
+  - {from: macrophage-dust-fibrogenesis, to: diffuse-small-nodules, note: "Simple pneumoconiosis: fine micronodules graded 1–3; few symptoms of its own", source: "K&C 10e p.995"}
+  - {from: macrophage-dust-fibrogenesis, to: progressive-massive-fibrosis, note: "In ≈7% of category 2 and 30% of category 3; can progress after exposure stops", source: "K&C 10e p.995"}
+  - [progressive-massive-fibrosis, upper-lobe-fibrotic-masses]
+  - {from: progressive-massive-fibrosis, to: restrictive-spirometry, note: "Mixed restrictive and obstructive defect with low gas transfer", source: "K&C 10e p.995"}
+  - [progressive-massive-fibrosis, obstructive-spirometry]
+  - [progressive-massive-fibrosis, diffusion-impairment]
+  - [diffusion-impairment, reduced-tlco]
+  - {from: silica, to: eggshell-calcification, source: "K&C 10e p.996"}
+  - [diffusion-impairment, exertional-dyspnoea]
+  - [progressive-massive-fibrosis, productive-cough]
+  - [diffusion-impairment, respiratory-failure]
+  - [silica, tuberculosis]
+findings:
+  - {id: diffuse-small-nodules, freq: classic}
+  - {id: exertional-dyspnoea, freq: common, note: "Marked in progressive massive fibrosis", source: "K&C 10e p.995"}
+  - {id: productive-cough, freq: common, note: "Sputum may be black", source: "K&C 10e p.995"}
+  - {id: upper-lobe-fibrotic-masses, freq: common}
+  - {id: restrictive-spirometry, freq: common}
+  - {id: reduced-tlco, freq: common}
+  - {id: eggshell-calcification, freq: occasional, note: "Silicosis", source: "K&C 10e p.996"}
+outcomes:
+  - {id: respiratory-failure, source: "K&C 10e p.995"}
+  - {id: tuberculosis, note: "Silicosis raises TB risk", source: "Mehlman HY Pulmonary"}

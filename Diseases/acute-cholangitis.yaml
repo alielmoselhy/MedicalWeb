@@ -1,0 +1,39 @@
+id: acute-cholangitis
+name: Acute cholangitis
+group: intra-abdominal-infection
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1273, 1305-1306, 1318-1320", "Mehlman HY Gastro", "LMC 2025 HPB pathology s.32-33"]
+chain:
+  - {from: gallstone-disease, to: bile-duct-obstruction, note: "Common bile duct stones", source: "K&C 10e p.1318"}
+  - {from: primary-sclerosing-cholangitis, to: bile-duct-obstruction, note: "Also strictures after surgery or trauma; unusual with malignant obstruction unless it has been stented", source: "K&C 10e p.1319"}
+  - {from: bile-duct-obstruction, to: ascending-biliary-infection, note: "Bowel flora ascend the bile duct", source: "Mehlman HY Gastro"}
+  - {from: enterobacteriaceae, to: ascending-biliary-infection, note: "E. coli, Klebsiella", source: "Mehlman HY Gastro; LMC 2025 HPB pathology s.33"}
+  - {from: anaerobic-bacteria, to: ascending-biliary-infection, note: "Bacteroides", source: "Mehlman HY Gastro"}
+  - [ascending-biliary-infection, fever]
+  - [ascending-biliary-infection, rigors]
+  - [ascending-biliary-infection, raised-inflammatory-markers]
+  - [ascending-biliary-infection, dysregulated-host-response]
+  - [bile-duct-obstruction, jaundice]
+  - [bile-duct-obstruction, ruq-pain]
+  - [bile-duct-obstruction, cholestatic-pattern]
+  - [bile-duct-obstruction, dilated-bile-ducts]
+  - {from: ercp-or-surgery, to: ascending-biliary-infection, note: "After about 1% of ERCPs", source: "LMC 2025 HPB pathology s.33"}
+  - {from: enterococci, to: ascending-biliary-infection, note: "Enteric bacteria enter through the sphincter of Oddi", source: "LMC 2025 HPB pathology s.33"}
+  - [dysregulated-host-response, tachycardia]
+  - [dysregulated-host-response, septic-shock]
+  - [ascending-biliary-infection, bacteraemia]
+  - [ascending-biliary-infection, pyogenic-liver-abscess]
+findings:
+  - {id: fever, freq: classic, note: "Charcot's triad (RUQ pain, jaundice, fever or rigors) is present in only a minority", source: "K&C 10e p.1318"}
+  - {id: jaundice, freq: classic}
+  - {id: ruq-pain, freq: classic}
+  - {id: rigors, freq: common, note: "Fever with rigors suggests cholangitis or a liver abscess", source: "K&C 10e p.1273"}
+  - {id: tachycardia, freq: common, source: "K&C 10e p.1318"}
+  - {id: raised-inflammatory-markers, freq: common, note: "Neutrophilia with raised ESR and CRP", source: "K&C 10e p.1318"}
+  - {id: cholestatic-pattern, freq: common}
+  - {id: dilated-bile-ducts, freq: common, note: "Ultrasound first; MRC or EUS for distal stones", source: "K&C 10e p.1318-1319"}
+outcomes:
+  - {id: septic-shock, note: "High mortality, especially in the elderly; needs antibiotics and urgent drainage by ERCP", source: "K&C 10e p.1320"}
+  - {id: bacteraemia, note: "Biliary sepsis, sometimes with septicaemia", source: "K&C 10e p.1318"}
+  - {id: pyogenic-liver-abscess, note: "Biliary sepsis is a common cause in the elderly", source: "K&C 10e p.1305-1306"}

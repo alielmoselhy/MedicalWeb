@@ -1,0 +1,43 @@
+id: gallstone-disease
+name: Gallstone disease (cholelithiasis)
+group: biliary-pancreas
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1314-1322, 1326", "Mehlman HY Gastro", "LMC 2025 HPB pathology s.8-11"]
+chain:
+  - {from: obesity, to: cholesterol-stone-formation, note: "With the metabolic syndrome; insulin resistance raises biliary cholesterol. 85% of Western stones are cholesterol", source: "K&C 10e p.1314-1315"}
+  - {from: pregnancy-or-oestrogen, to: cholesterol-stone-formation, note: "Oestrogen raises cholesterol secretion and progesterone slows the gall bladder ('fat, female, fertile, forty')", source: "Mehlman HY Gastro"}
+  - {from: older-age, to: cholesterol-stone-formation, note: "Prevalence rises with age; 2–3 times commoner in women", source: "K&C 10e p.1314"}
+  - {from: diabetes-mellitus, to: cholesterol-stone-formation, source: "K&C 10e p.1315"}
+  - {from: chronic-haemolysis, to: pigment-stone-formation, note: "Black calcium bilirubinate stones; also cirrhosis and Gilbert's", source: "K&C 10e p.1315"}
+  - [gallstone-formation, gallstones-on-imaging]
+  - {from: gallstone-formation, to: cystic-duct-obstruction, note: "Biliary colic: a stone briefly blocks the cystic duct", source: "K&C 10e p.1316"}
+  - {from: cystic-duct-obstruction, to: ruq-pain, note: "Sudden, severe and constant (not colicky), epigastric or RUQ, often in the evening after a fatty meal, may reach the right shoulder or back; 15 minutes to 24 hours, with no systemic inflammation", source: "K&C 10e p.1316; LMC 2025 HPB pathology s.11"}
+  - [cystic-duct-obstruction, vomiting]
+  - {from: gallstone-formation, to: bile-duct-obstruction, note: "A stone passes into the common bile duct", source: "K&C 10e p.1318"}
+  - [bile-duct-obstruction, jaundice]
+  - [bile-duct-obstruction, dilated-bile-ducts]
+  - [bile-duct-obstruction, cholestatic-pattern]
+  - {from: bile-duct-obstruction, to: conjugated-hyperbilirubinaemia, note: "Raised ALP with raised conjugated bilirubin, dark urine and pale stools point to duct obstruction", source: "Mehlman HY Gastro"}
+  - {from: gallstone-formation, to: ampullary-obstruction, source: "K&C 10e p.1326"}
+  - {from: cystic-fibrosis, to: pigment-stone-formation, note: "Crohn's and CF raise the risk of pigment stones; rapid weight loss raises cholesterol stones", source: "LMC 2025 HPB pathology s.9"}
+  - [cystic-duct-obstruction, epigastric-pain]
+  - [cystic-duct-obstruction, acute-cholecystitis]
+  - [bile-duct-obstruction, acute-cholangitis]
+  - [ampullary-obstruction, acute-pancreatitis]
+  - [cystic-duct-obstruction, gallbladder-empyema]
+findings:
+  - {id: gallstones-on-imaging, freq: classic, note: "Ultrasound is the most useful test (up to 95% sensitive). Up to 20% of adults have stones; over 80% are silent", source: "K&C 10e p.1316; LMC 2025 HPB pathology s.8, 11"}
+  - {id: ruq-pain, freq: classic}
+  - {id: epigastric-pain, freq: common, source: "K&C 10e p.1316"}
+  - {id: vomiting, freq: common, source: "K&C 10e p.1316"}
+  - {id: jaundice, freq: occasional, note: "With bile duct stones, usually after pain", source: "K&C 10e p.1318"}
+  - {id: cholestatic-pattern, freq: occasional, note: "ALP and GGT rise with the bilirubin; ALT can briefly reach 10–15 times normal", source: "K&C 10e p.1318"}
+  - {id: dilated-bile-ducts, freq: occasional, note: "Ultrasound misses up to half of distal bile duct stones", source: "K&C 10e p.1318"}
+outcomes:
+  - {id: acute-cholecystitis, freq: common, source: "K&C 10e p.1316"}
+  - {id: acute-cholangitis, source: "K&C 10e p.1318"}
+  - {id: acute-pancreatitis, note: "Gallstones and alcohol cause most attacks", source: "K&C 10e p.1326"}
+  - {id: gallstone-ileus, freq: rare, note: "A stone erodes into the bowel and obstructs it; air in the biliary tree", source: "K&C 10e p.1320; Mehlman HY Gastro"}
+  - {id: gallbladder-carcinoma, freq: rare, note: "Often found together, but a causal link is unproven", source: "K&C 10e p.1322"}
+  - {id: gallbladder-empyema, freq: rare, note: "Also perforation and fistulas", source: "LMC 2025 HPB pathology s.10"}

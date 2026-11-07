@@ -1,0 +1,25 @@
+id: diverticular-disease
+name: Diverticular disease
+group: large-bowel-peritoneum
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1212-1213", "Mehlman HY Gastro"]
+chain:
+  - {from: low-fibre-diet, to: diverticulum-formation, note: "Rare in rural Africa; thickened muscle and high pressure push mucosa through weak points by vessels", source: "K&C 10e p.1212"}
+  - {from: older-age, to: diverticulum-formation, note: "In 50% over 50; mostly sigmoid", source: "K&C 10e p.1212"}
+  - {from: diverticulum-formation, to: lif-pain, note: "95% have no symptoms; some get intermittent LIF pain and erratic bowel habit, like IBS", source: "K&C 10e p.1212"}
+  - [diverticulum-formation, altered-bowel-habit]
+  - {from: diverticulum-formation, to: rectal-bleeding, note: "The commonest cause of painless rectal bleeding in the elderly", source: "Mehlman HY Gastro"}
+  - [diverticulum-formation, diverticulitis]
+  - [diverticulum-formation, diverticular-bleed]
+  - [diverticulitis, intestinal-obstruction]
+  - [diverticulitis, intestinal-fistula]
+findings:
+  - {id: lif-pain, freq: occasional}
+  - {id: altered-bowel-habit, freq: occasional}
+  - {id: rectal-bleeding, freq: occasional}
+outcomes:
+  - {id: diverticulitis, source: "K&C 10e p.1212"}
+  - {id: diverticular-bleed, freq: occasional, note: "Sometimes massive; usually stops", source: "K&C 10e p.1213"}
+  - {id: intestinal-obstruction, freq: rare, note: "After repeated diverticulitis", source: "K&C 10e p.1213"}
+  - {id: intestinal-fistula, freq: rare, note: "Bladder (pneumaturia) or vagina", source: "K&C 10e p.1213"}

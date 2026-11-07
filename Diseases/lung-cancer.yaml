@@ -1,0 +1,68 @@
+id: lung-cancer
+name: Lung cancer (bronchial carcinoma)
+group: lung-pleural-tumours
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.975-980", "Mehlman HY Pulmonary", "Mehlman HY Pathology"]
+chain:
+  - {from: smoking, to: carcinogen-induced-transformation, note: "Smoking, including passive smoke, accounts for 80% (men) to 90% (women) of cases", source: "K&C 10e p.975"}
+  - {from: asbestos, to: carcinogen-induced-transformation, source: "K&C 10e p.975"}
+  - {from: radon, to: carcinogen-induced-transformation, note: "Second most important cause after smoking", source: "Mehlman HY Pathology"}
+  - {from: occupational-carcinogen, to: carcinogen-induced-transformation, source: "K&C 10e p.975"}
+  - {from: interstitial-lung-disease, to: malignant-transformation, note: "Pre-existing lung disease such as pulmonary fibrosis", source: "K&C 10e p.975"}
+  - {from: immunosuppression, to: malignant-transformation, note: "HIV infection", source: "K&C 10e p.975"}
+  - [carcinogen-induced-transformation, primary-lung-tumour]
+  - [primary-lung-tumour, lung-mass]
+  - {from: primary-lung-tumour, to: cough, note: "The commonest symptom; a cough lasting 3 weeks merits a chest X-ray", source: "K&C 10e p.975"}
+  - {from: primary-lung-tumour, to: haemoptysis, note: "Tumour bleeding into an airway", source: "K&C 10e p.976"}
+  - {from: primary-lung-tumour, to: endobronchial-obstruction, note: "Central tumours occlude large airways", source: "K&C 10e p.976"}
+  - [endobronchial-obstruction, lung-collapse]
+  - [endobronchial-obstruction, dyspnoea]
+  - {from: endobronchial-obstruction, to: wheeze, note: "Monophonic, from partial obstruction of one airway", source: "K&C 10e p.976"}
+  - [primary-lung-tumour, local-tumour-invasion]
+  - {from: local-tumour-invasion, to: pleuritic-chest-pain, note: "Peripheral tumours invade pleura or chest wall; bulky mediastinal nodes give a dull central ache", source: "K&C 10e p.976"}
+  - [local-tumour-invasion, mediastinal-widening]
+  - {from: local-tumour-invasion, to: pericardial-effusion, source: "K&C 10e p.976"}
+  - [primary-lung-tumour, metastatic-spread]
+  - {from: metastatic-spread, to: weight-loss, note: "Weight loss, lassitude and anorexia are near-universal at some stage", source: "K&C 10e p.978"}
+  - {from: primary-lung-tumour, to: hypercoagulability, note: "Cancer is a hypercoagulable state, adenocarcinoma especially", source: "Mehlman HY Pulmonary"}
+  - [local-tumour-invasion, pleural-effusion]
+  - [endobronchial-obstruction, consolidation-imaging]
+  - [endobronchial-obstruction, post-obstructive-pneumonia]
+  - [local-tumour-invasion, malignant-pleural-effusion]
+  - [local-tumour-invasion, superior-vena-cava-obstruction]
+  - [local-tumour-invasion, recurrent-laryngeal-nerve-palsy]
+  - [local-tumour-invasion, pancoast-syndrome]
+  - [local-tumour-invasion, phrenic-nerve-palsy]
+  - [pericardial-effusion, cardiac-tamponade]
+  - [metastatic-spread, brain-metastases]
+  - [metastatic-spread, bone-metastases]
+  - [metastatic-spread, liver-metastases]
+  - [metastatic-spread, adrenal-metastases]
+  - [hypercoagulability, pulmonary-embolism]
+  - [local-tumour-invasion, massive-haemoptysis]
+findings:
+  - {id: cough, freq: classic, source: "K&C 10e p.975"}
+  - {id: haemoptysis, freq: common}
+  - {id: dyspnoea, freq: common}
+  - {id: weight-loss, freq: common}
+  - {id: lung-mass, freq: classic, note: "Visible on CXR once > 1 cm. A normal film does not rule out a central tumour, so smokers over 40 with haemoptysis are investigated further", source: "K&C 10e p.977"}
+  - {id: finger-clubbing, freq: common, note: "About 30%", source: "K&C 10e p.978"}
+  - {id: hypertrophic-pulmonary-osteoarthropathy, freq: rare, note: "About 3%; next step for clubbing with painful wrists is a chest X-ray", source: "K&C 10e p.978"}
+  - {id: pleural-effusion, freq: common}
+  - {id: consolidation-imaging, freq: common, note: "Slow-resolving consolidation behind a partly blocked bronchus", source: "K&C 10e p.977"}
+  - {id: lung-collapse, freq: common}
+outcomes:
+  - {id: post-obstructive-pneumonia, freq: common, source: "K&C 10e p.976"}
+  - {id: malignant-pleural-effusion, freq: common, note: "Breathlessness, often with pleuritic pain", source: "K&C 10e p.976"}
+  - {id: superior-vena-cava-obstruction, note: "Facial flushing and neck-vein congestion, worse with arms raised (Pemberton's sign)", source: "Mehlman HY Pulmonary"}
+  - {id: recurrent-laryngeal-nerve-palsy, note: "Mediastinal nodes or tumour compress the left recurrent laryngeal nerve", source: "K&C 10e p.976"}
+  - {id: pancoast-syndrome, note: "Apical tumour invades the brachial plexus (hand wasting, arm pain) and sympathetic chain (miosis, ptosis, anhidrosis)", source: "K&C 10e p.976"}
+  - {id: phrenic-nerve-palsy, source: "K&C 10e p.976"}
+  - {id: cardiac-tamponade, note: "Via malignant pericardial effusion", source: "K&C 10e p.976"}
+  - {id: brain-metastases, note: "Mass effect and raised intracranial pressure", source: "K&C 10e p.976"}
+  - {id: bone-metastases, note: "Pain, pathological fracture; spinal cord compression is an emergency", source: "K&C 10e p.976"}
+  - {id: liver-metastases, source: "K&C 10e p.976"}
+  - {id: adrenal-metastases, note: "Usually silent; rarely cause adrenal insufficiency", source: "K&C 10e p.976"}
+  - {id: pulmonary-embolism, note: "Through cancer-related hypercoagulability"}
+  - massive-haemoptysis

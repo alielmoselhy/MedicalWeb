@@ -1,0 +1,51 @@
+id: bacterial-gastroenteritis
+name: Bacterial gastroenteritis and food poisoning
+parent: infective-gastroenteritis
+group: gastroenteritis
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.539-543, 546, 553, 889", "Mehlman HY Gastro"]
+chain:
+  - {from: contaminated-food, to: preformed-toxin-ingestion, note: "Toxin already made in the food, so symptoms start within hours", source: "K&C 10e p.539"}
+  - {from: s-aureus, to: preformed-toxin-ingestion, note: "Heat-stable enterotoxin B (meat left out, creams, custards): violent vomiting 2–4 h after eating, then watery diarrhoea; over in 24 h", source: "K&C 10e p.542; Mehlman HY Gastro"}
+  - {from: bacillus-cereus, to: preformed-toxin-ingestion, note: "Reheated rice: vomiting at 2–4 h, or diarrhoea by 12 h from a second toxin", source: "K&C 10e p.542; Mehlman HY Gastro"}
+  - {from: clostridium-botulinum, to: neuromuscular-blockade, note: "Neurotoxin from canned or bottled food (also wounds, heroin): nausea and diarrhoea at 18–24 h, then paralysis", source: "K&C 10e p.546"}
+  - {from: vibrio-cholerae, to: enterotoxin-secretion, note: "Faecal–oral, mainly water; toxin causes massive isotonic secretion. Low stomach acid helps it through", source: "K&C 10e p.553"}
+  - {from: etec, to: enterotoxin-secretion, note: "Heat-labile and heat-stable toxins; the main cause of travellers' diarrhoea", source: "K&C 10e p.542-543; Mehlman HY Gastro"}
+  - {from: salmonella, to: enterotoxin-secretion, note: "Poultry and eggs; starts 12–48 h; nausea, cramps, diarrhoea, sometimes fever; settles in 3–6 days. Toxin and invasion", source: "K&C 10e p.540"}
+  - [salmonella, mucosal-invasion]
+  - {from: campylobacter-jejuni, to: mucosal-invasion, note: "Undercooked chicken, burgers, milk; 2–4 day incubation, severe cramps; usually watery, sometimes bloody. A common UK cause", source: "K&C 10e p.540-541; Mehlman HY Gastro"}
+  - {from: shigella, to: mucosal-invasion, note: "Fewer than 200 organisms infect; frequent small bloody, mucous stools after 24–48 h (bacillary dysentery)", source: "K&C 10e p.541; Mehlman HY Gastro"}
+  - {from: ehec, to: cytotoxin-mucosal-damage, note: "O157 from cattle and beef; Shiga-like toxin damages gut and kidney vessels; bloody diarrhoea after 12–48 h", source: "K&C 10e p.541; Mehlman HY Gastro"}
+  - [preformed-toxin-ingestion, vomiting]
+  - [enterotoxin-secretion, watery-diarrhoea]
+  - [mucosal-invasion, bloody-diarrhoea]
+  - [cytotoxin-mucosal-damage, bloody-diarrhoea]
+  - [mucosal-invasion, abdominal-pain]
+  - [mucosal-invasion, fever]
+  - [neuromuscular-blockade, descending-paralysis]
+  - [watery-diarrhoea, fluid-electrolyte-loss]
+  - [fluid-electrolyte-loss, dehydration-signs]
+  - {from: vibrio-cholerae, to: rice-water-stool, only: vibrio-cholerae}
+  - [mucosal-invasion, stool-pathogen-identified]
+  - {from: ehec, to: haemolytic-uraemic-syndrome, only: ehec}
+  - {from: campylobacter-jejuni, to: guillain-barre-syndrome, only: campylobacter-jejuni}
+  - [fluid-electrolyte-loss, hypovolaemic-shock]
+  - {from: neuromuscular-blockade, to: type-2-respiratory-failure, only: clostridium-botulinum}
+  - {from: salmonella, to: bacteraemia, only: salmonella}
+findings:
+  - {id: watery-diarrhoea, freq: classic}
+  - {id: bloody-diarrhoea, freq: common, note: "Dysentery: Shigella, Campylobacter, Salmonella, EHEC, EIEC", source: "K&C 10e p.540"}
+  - {id: vomiting, freq: common, note: "Dominant and early (within hours) with pre-formed toxins (S. aureus, B. cereus)", source: "K&C 10e p.542"}
+  - {id: abdominal-pain, freq: common}
+  - {id: fever, freq: occasional}
+  - {id: rice-water-stool, freq: classic, note: "Profuse painless diarrhoea, then vomiting; litres a day", source: "K&C 10e p.553; Mehlman HY Gastro", only: vibrio-cholerae}
+  - {id: descending-paralysis, freq: classic, note: "Cranial nerve palsies, then symmetrical paralysis", source: "K&C 10e p.546", only: clostridium-botulinum}
+  - {id: dehydration-signs, freq: common}
+  - {id: stool-pathogen-identified, freq: common, note: "Stool culture; most adult cases settle without antibiotics, but dysentery in children needs them", source: "K&C 10e p.540"}
+outcomes:
+  - {id: haemolytic-uraemic-syndrome, note: "Days after the diarrhoea, especially in children; antibiotics may precipitate it", source: "K&C 10e p.541-542", only: ehec}
+  - {id: guillain-barre-syndrome, freq: rare, note: "A recognised cause of severe GBS", source: "K&C 10e p.889", only: campylobacter-jejuni}
+  - {id: hypovolaemic-shock, note: "With rehydration, mortality is under 1%", source: "K&C 10e p.553", only: vibrio-cholerae}
+  - {id: type-2-respiratory-failure, note: "Respiratory muscle paralysis; mortality is high, but survivors can fully recover", source: "K&C 10e p.546", only: clostridium-botulinum}
+  - {id: bacteraemia, freq: rare, note: "1–4%, more in the elderly and immunosuppressed", source: "K&C 10e p.540", only: salmonella}

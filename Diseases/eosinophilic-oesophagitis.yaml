@@ -1,0 +1,17 @@
+id: eosinophilic-oesophagitis
+name: Eosinophilic oesophagitis
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal, immunology]
+sources: ["K&C 10e p.1170", "Mehlman HY Gastro"]
+chain:
+  - {from: atopy, to: eosinophilic-oesophageal-inflammation, note: "Personal or family history of food allergy, eczema or asthma; usually white men, average age 35, rising in children", source: "K&C 10e p.1170"}
+  - [eosinophilic-oesophageal-inflammation, eosinophilic-oesophagus-endoscopy]
+  - [eosinophilic-oesophageal-inflammation, food-bolus-impaction]
+  - [eosinophilic-oesophageal-inflammation, heartburn]
+  - [eosinophilic-oesophageal-inflammation, dysphagia]
+findings:
+  - {id: food-bolus-impaction, freq: classic, note: "Long history of dysphagia and food sticking", source: "K&C 10e p.1170"}
+  - {id: dysphagia, freq: classic}
+  - {id: heartburn, freq: common, source: "K&C 10e p.1170"}
+  - {id: eosinophilic-oesophagus-endoscopy, freq: classic, note: "Can look normal; take biopsies along the whole oesophagus. Reflux gives fewer eosinophils", source: "K&C 10e p.1170; Mehlman HY Gastro"}

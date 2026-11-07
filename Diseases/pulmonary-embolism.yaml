@@ -1,7 +1,8 @@
 id: pulmonary-embolism
 name: Pulmonary embolism
-group: pulmonary vascular
+group: hypertension-heart-failure
 status: draft
+systems: [cardiovascular, respiratory]
 sources: ["K&C 10e p.1001-1003", "K&C 10e p.1010"]
 chain:
   - {from: immobility-or-surgery, to: venous-stasis, note: "Strong factors (10–50×): major surgery, trauma, bed rest", source: "K&C 10e p.1002"}
@@ -25,6 +26,13 @@ chain:
   - [rv-pressure-overload, raised-jvp]
   - [rv-pressure-overload, reduced-cardiac-output]
   - [reduced-cardiac-output, hypotension]
+  - [ventilation-perfusion-mismatch, dyspnoea]
+  - [ventilation-perfusion-mismatch, tachypnoea]
+  - [reduced-cardiac-output, tachycardia]
+  - [reduced-cardiac-output, obstructive-shock]
+  - [reduced-cardiac-output, sudden-cardiac-death]
+  - [rv-pressure-overload, pulmonary-hypertension]
+  - [rv-pressure-overload, cor-pulmonale]
 findings:
   - {id: dyspnoea, freq: classic}
   - {id: pleuritic-chest-pain, freq: common, note: "~65% present with pleuritic pain and breathlessness ± haemoptysis", source: "K&C 10e p.1002"}

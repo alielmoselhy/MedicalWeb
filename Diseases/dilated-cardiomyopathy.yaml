@@ -1,8 +1,9 @@
 id: dilated-cardiomyopathy
 name: Dilated cardiomyopathy
 parent: cardiomyopathy
-group: myocardial
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1122-1123"]
 chain:
   - {from: titin-truncation, to: systolic-dysfunction, note: "Familial DCM is mostly autosomal dominant: cytoskeletal and sarcomere genes", source: "K&C 10e p.1122"}
@@ -17,6 +18,17 @@ chain:
   - [eccentric-hypertrophy, atrial-dilatation]
   - [systolic-dysfunction, intracardiac-thrombus]
   - [intracardiac-thrombus, thromboembolism]
+  - [eccentric-hypertrophy, dilated-ventricle-echo]
+  - [eccentric-hypertrophy, cardiomegaly]
+  - [systolic-dysfunction, pulmonary-venous-congestion]
+  - [pulmonary-venous-congestion, exertional-dyspnoea]
+  - [eccentric-hypertrophy, third-heart-sound]
+  - [systolic-dysfunction, bnp-rise]
+  - [mitral-regurgitant-flow, pansystolic-murmur]
+  - [systolic-dysfunction, heart-failure]
+  - [atrial-dilatation, atrial-fibrillation]
+  - [thromboembolism, ischaemic-stroke]
+  - [myocardial-scar, sudden-cardiac-death]
 findings:
   - {id: dilated-ventricle-echo, freq: classic, note: "Dilated, globally poorly contracting ventricles with normal wall thickness", source: "K&C 10e p.1122-1123"}
   - {id: exertional-dyspnoea, freq: common}

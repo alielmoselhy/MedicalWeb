@@ -1,0 +1,17 @@
+id: large-cell-lung-carcinoma
+name: Large-cell lung carcinoma
+parent: nsclc
+group: lung-pleural-tumours
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.976", "Mehlman HY Pulmonary"]
+chain:
+  - [smoking, carcinogen-induced-transformation]
+  - {from: carcinogen-induced-transformation, to: primary-lung-tumour, note: "Often poorly differentiated, neither squamous nor glandular; 10–15% of UK cases. Rarely examined", source: "K&C 10e p.976; Mehlman HY Pulmonary"}
+  - {from: primary-lung-tumour, to: peripheral-lung-mass, source: "Mehlman HY Pulmonary"}
+  - {from: primary-lung-tumour, to: metastatic-spread, note: "Metastasizes relatively early", source: "K&C 10e p.976"}
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: peripheral-lung-mass, freq: common}
+outcomes:
+  - distant-metastases

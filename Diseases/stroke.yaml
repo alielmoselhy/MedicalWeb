@@ -1,0 +1,41 @@
+id: stroke
+name: Stroke and transient ischaemic attack
+group: cns-trauma-stroke
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.836-838, 845", "Mehlman HY Neuro"]
+chain:
+  - {from: hypertension, to: atherosclerosis, note: "Hypertension is the most modifiable stroke risk factor in the population; AF is the biggest single risk in an individual", source: "K&C 10e p.838; Mehlman HY Neuro"}
+  - {from: smoking, to: atherosclerosis, source: "K&C 10e p.838"}
+  - {from: diabetes-mellitus, to: atherosclerosis, source: "K&C 10e p.838"}
+  - [atherosclerosis, atheroembolism]
+  - {from: atrial-fibrillation, to: intracardiac-thrombus, note: "Thrombus in a dilated left atrium: the commonest cardiac source", source: "K&C 10e p.837"}
+  - [intracardiac-thrombus, thromboembolism]
+  - [atheroembolism, cerebral-ischaemia]
+  - [thromboembolism, cerebral-ischaemia]
+  - {from: cerebral-ischaemia, to: cerebral-infarction, note: "About 85% of strokes are ischaemic", source: "K&C 10e p.836"}
+  - {from: cerebral-ischaemia, to: transient-focal-neurological-deficit, note: "TIA: ischaemia without infarction, full recovery", source: "K&C 10e p.836"}
+  - {from: raised-arterial-pressure, to: intracerebral-vessel-rupture, note: "About 10% are haemorrhagic (intracerebral, subarachnoid); the other 5% include dissection and venous sinus thrombosis", source: "K&C 10e p.837"}
+  - [intracerebral-vessel-rupture, intracranial-haematoma]
+  - [cerebral-infarction, hemiparesis]
+  - [cerebral-infarction, dysphasia]
+  - [cerebral-infarction, homonymous-hemianopia]
+  - [cerebral-infarction, hemisensory-loss]
+  - [intracranial-haematoma, intracranial-blood-ct]
+  - [cerebral-infarction, impaired-swallow]
+  - [impaired-swallow, aspiration-of-oropharyngeal-flora]
+  - [aspiration-of-oropharyngeal-flora, hospital-acquired-pneumonia]
+  - [cerebral-infarction, symptomatic-epilepsy]
+  - [cerebral-infarction, vascular-dementia]
+findings:
+  - {id: hemiparesis, freq: classic, note: "Sudden focal deficit: FAST (face, arm, speech, time)", source: "K&C 10e p.836"}
+  - {id: dysphasia, freq: common}
+  - {id: hemisensory-loss, freq: common}
+  - {id: homonymous-hemianopia, freq: common}
+  - {id: transient-focal-neurological-deficit, freq: common}
+  - {id: intracranial-blood-ct, freq: occasional, note: "CT first: haemorrhage shows at once, infarction often does not", source: "K&C 10e p.836"}
+outcomes:
+  - {id: hospital-acquired-pneumonia, note: "Aspiration is a common, preventable complication", source: "K&C 10e p.845"}
+  - {id: symptomatic-epilepsy}
+  - {id: vascular-dementia}
+  - {id: acute-coronary-syndrome, note: "Many survivors later die of myocardial infarction", source: "K&C 10e p.845"}

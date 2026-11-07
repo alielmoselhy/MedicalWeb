@@ -1,0 +1,16 @@
+id: gilberts-syndrome
+name: Gilbert's syndrome
+group: liver-biochemistry
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1272, 1315", "Mehlman HY Gastro"]
+chain:
+  - {from: ugt1a1-variant, to: reduced-bilirubin-conjugation, note: "Extra repeat in the UGT1A1 promoter lowers the conjugating enzyme; needed but not enough on its own", source: "K&C 10e p.1272"}
+  - [reduced-bilirubin-conjugation, unconjugated-hyperbilirubinaemia]
+  - {from: unconjugated-hyperbilirubinaemia, to: jaundice, note: "Rises with fasting, mild illness or stress such as surgery", source: "K&C 10e p.1272; Mehlman HY Gastro"}
+  - [reduced-bilirubin-conjugation, gallstone-disease]
+findings:
+  - {id: unconjugated-hyperbilirubinaemia, freq: classic, note: "Isolated: other liver tests and the reticulocyte count are normal, which excludes haemolysis. Affects 2–7%", source: "K&C 10e p.1272"}
+  - {id: jaundice, freq: occasional, note: "Yellow eyes in an otherwise healthy young adult; no treatment needed", source: "Mehlman HY Gastro"}
+outcomes:
+  - {id: gallstone-disease, freq: rare, note: "More black pigment stones", source: "K&C 10e p.1315"}

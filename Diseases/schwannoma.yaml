@@ -1,0 +1,22 @@
+id: schwannoma
+name: Schwannoma (acoustic neuroma)
+parent: nerve-sheath-tumour
+group: nervous-tumours-icp
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.875, 886", "Mehlman HY Neuro", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: nf2-mutation, to: tumour-suppressor-loss, note: "Sporadic and one-sided in the elderly; bilateral in NF2 (90% of NF2, gene product merlin, chromosome 22)", source: "K&C 10e p.886; Mehlman HY Neuroanatomy"}
+  - {from: tumour-suppressor-loss, to: intracranial-tumour-growth, note: "Benign Schwann-cell tumour of the eighth nerve sheath at the cerebellopontine angle", source: "K&C 10e p.875"}
+  - [intracranial-tumour-growth, cerebellopontine-angle-mass]
+  - {from: intracranial-tumour-growth, to: unilateral-sensorineural-deafness, note: "Over years: deafness (VIII), then facial numbness (V) and weakness (VII)", source: "K&C 10e p.875; Mehlman HY Neuro"}
+  - {from: intracranial-tumour-growth, to: cerebellar-ataxia, note: "Same side, late", source: "K&C 10e p.875"}
+  - [intracranial-tumour-growth, obstructed-csf-pathway]
+  - [obstructed-csf-pathway, hydrocephalus]
+findings:
+  - {id: unilateral-sensorineural-deafness, freq: classic, note: "Tinnitus and sensorineural hearing loss; vertigo is less common", source: "Mehlman HY Neuro"}
+  - {id: cerebellopontine-angle-mass, freq: classic}
+  - {id: cerebellar-ataxia, freq: occasional}
+outcomes:
+  - {id: meningioma, freq: occasional, note: "In NF2", source: "K&C 10e p.886; Mehlman HY Neuro"}
+  - {id: hydrocephalus, freq: rare}

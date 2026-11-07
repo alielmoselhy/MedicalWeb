@@ -1,0 +1,13 @@
+id: hepatic-haemangioma
+name: Hepatic haemangioma
+group: cirrhosis-liver-tumours
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1310", "LMC 2026 Cirrhosis s.20"]
+chain:
+  - {from: benign-liver-tumour, to: liver-lesion, note: "The commonest benign liver tumour; usually small and single", source: "K&C 10e p.1310"}
+  - [benign-liver-tumour, tumour-haemorrhage]
+findings:
+  - {id: liver-lesion, freq: classic, note: "Found by chance on ultrasound, CT or MRI, with a characteristic look; needs no treatment. A red-blue nodule under the capsule, usually < 2 cm; rarely biopsied because it bleeds", source: "K&C 10e p.1310; LMC 2026 Cirrhosis s.20"}
+outcomes:
+  - {id: tumour-haemorrhage, freq: rare, note: "Mostly after an attempted biopsy; spontaneous rupture is rare", source: "LMC 2026 Cirrhosis s.20"}

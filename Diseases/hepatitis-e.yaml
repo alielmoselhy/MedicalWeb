@@ -1,0 +1,21 @@
+id: hepatitis-e
+name: Hepatitis E
+parent: viral-hepatitis
+group: viral-liver
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1273, 1284", "Mehlman HY Gastro"]
+chain:
+  - {from: faecal-oral-exposure, to: hepatitis-e-virus, note: "Contaminated water, undercooked pork (pigs carry it), travel to the Indian subcontinent", source: "K&C 10e p.1273, 1284"}
+  - {from: hepatitis-e-virus, to: viral-hepatocyte-injury, note: "Clinically very like hepatitis A", source: "K&C 10e p.1284"}
+  - [viral-hepatocyte-injury, hepatitic-pattern]
+  - [viral-hepatocyte-injury, jaundice]
+  - {from: hepatitis-e-virus, to: persistent-viral-replication, note: "Only in immunosuppressed patients; otherwise never chronic", source: "K&C 10e p.1284"}
+  - [hepatitis-e-virus, anti-hev-hev-rna]
+  - [viral-hepatocyte-injury, acute-liver-failure]
+findings:
+  - {id: anti-hev-hev-rna, freq: classic, source: "K&C 10e p.1284"}
+  - {id: jaundice, freq: common}
+  - {id: hepatitic-pattern, freq: common}
+outcomes:
+  - {id: acute-liver-failure, freq: rare, note: "Mortality 1–2%, rising to about 20% in pregnancy", source: "K&C 10e p.1284; Mehlman HY Gastro"}

@@ -1,7 +1,8 @@
 id: pulmonary-oedema
 name: Acute pulmonary oedema
-group: hypertension & heart failure
+group: hypertension-heart-failure
 status: draft
+systems: [cardiovascular, respiratory]
 sources: ["K&C 10e p.1072", "K&C 10e p.1076-1077"]
 chain:
   - [heart-failure, pulmonary-venous-congestion]
@@ -18,6 +19,8 @@ chain:
   - [alveolar-flooding, pulmonary-congestion-cxr]
   - [alveolar-flooding, orthopnoea]
   - [alveolar-flooding, tachypnoea]
+  - [alveolar-flooding, dyspnoea]
+  - [alveolar-flooding, respiratory-failure]
 findings:
   - {id: dyspnoea, freq: classic, note: "Severe", source: "K&C 10e p.1076"}
   - {id: pulmonary-crackles, freq: classic}
@@ -28,4 +31,3 @@ findings:
   - {id: pink-frothy-sputum, freq: occasional}
 outcomes:
   - respiratory-failure
-  - cardiogenic-shock

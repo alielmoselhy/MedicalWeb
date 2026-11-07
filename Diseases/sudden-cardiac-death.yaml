@@ -1,8 +1,9 @@
 id: sudden-cardiac-death
 name: Sudden cardiac death
-group: ischaemic
+group: ischaemic-myocardial-pericardial
 status: draft
-sources: ["K&C 10e p.1045", "K&C 10e p.1118 (Box 30.52)"]
+systems: [cardiovascular]
+sources: ["K&C 10e p.1045", "K&C 10e p.1118 (Box 30.52)", "K&C 10e p.832, 836"]
 chain:
   - {from: myocardial-ischaemia, to: ventricular-arrhythmia, note: "Coronary disease causes ~80% in Western populations; transient ischaemia is the suspected trigger", source: "K&C 10e p.1045"}
   - {from: myocardial-scar, to: ventricular-arrhythmia, note: "Old infarct, dilated or arrhythmogenic cardiomyopathy", source: "K&C 10e p.1118"}
@@ -11,6 +12,10 @@ chain:
   - {from: fixed-lvot-obstruction, to: ventricular-arrhythmia, note: "Valve disease (aortic stenosis, mitral prolapse) is on the cause list", source: "K&C 10e p.1118"}
   - {from: ventricular-arrhythmia, to: pulseless-collapse, note: "Most deaths are VF or fast VT; about half are almost instantaneous", source: "K&C 10e p.1045"}
   - {from: bradyarrhythmia, to: pulseless-collapse, note: "A small proportion", source: "K&C 10e p.1045"}
+  - [ventricular-arrhythmia, arrhythmic-syncope]
+  - [ventricular-arrhythmia, hypoxic-ischaemic-encephalopathy]
 findings:
   - {id: pulseless-collapse, freq: classic}
   - {id: arrhythmic-syncope, freq: occasional, note: "Unheralded blackout can be the warning event"}
+outcomes:
+  - {id: hypoxic-ischaemic-encephalopathy, note: "Survivors of arrest: only about 11% recover well; others stay in a vegetative or minimally conscious state", source: "K&C 10e p.832, 836"}

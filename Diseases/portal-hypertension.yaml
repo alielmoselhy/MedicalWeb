@@ -1,0 +1,46 @@
+id: portal-hypertension
+name: Portal hypertension
+group: cirrhosis-liver-tumours
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1292-1298", "Mehlman HY Gastro", "LMC 2026 Cirrhosis s.10-15"]
+chain:
+  - {from: portal-vein-thrombosis, to: prehepatic-portal-obstruction, note: "Prothrombotic states, myeloproliferative disease, umbilical sepsis; young patients with normal liver function", source: "K&C 10e p.1292"}
+  - {from: cirrhosis, to: intrahepatic-portal-resistance, note: "By far the commonest cause", source: "K&C 10e p.1292"}
+  - {from: schistosoma, to: intrahepatic-portal-resistance, note: "Pre-sinusoidal pipe-stem fibrosis (Egypt, Brazil)", source: "K&C 10e p.1293"}
+  - {from: budd-chiari-syndrome, to: posthepatic-venous-obstruction, note: "Triad of abdominal pain, ascites and hepatomegaly", source: "Mehlman HY Gastro"}
+  - {from: heart-failure, to: posthepatic-venous-obstruction, note: "Prolonged severe failure with tricuspid regurgitation", source: "K&C 10e p.1293"}
+  - {from: constrictive-pericarditis, to: posthepatic-venous-obstruction, source: "K&C 10e p.1293"}
+  - {from: raised-portal-pressure, to: portosystemic-collaterals, note: "Above 10–12 mmHg (normal 5–8): collaterals wherever portal and systemic beds meet: gastro-oesophageal junction, rectum, retroperitoneum, falciform ligament", source: "K&C 10e p.1292; LMC 2026 Cirrhosis s.12"}
+  - [portosystemic-collaterals, caput-medusae]
+  - {from: portosystemic-collaterals, to: hyperammonaemia, note: "Portal blood bypasses the liver, so ammonia from gut bacteria reaches the brain", source: "K&C 10e p.1297"}
+  - [hyperammonaemia, confusion]
+  - [hyperammonaemia, asterixis]
+  - {from: raised-portal-pressure, to: splenomegaly, note: "Often the only sign", source: "K&C 10e p.1293"}
+  - {from: raised-portal-pressure, to: high-saag-ascites, note: "Hydrostatic pressure raises splanchnic lymph production", source: "K&C 10e p.1295"}
+  - {from: raised-portal-pressure, to: splanchnic-vasodilation, source: "K&C 10e p.1292"}
+  - [splanchnic-vasodilation, raas-activation]
+  - [raas-activation, salt-water-retention]
+  - [salt-water-retention, high-saag-ascites]
+  - {from: sarcoidosis, to: intrahepatic-portal-resistance, source: "LMC 2026 Cirrhosis s.11"}
+  - {from: tuberculosis, to: intrahepatic-portal-resistance, note: "Miliary TB; massive fatty change also", source: "LMC 2026 Cirrhosis s.11"}
+  - [portosystemic-collaterals, oesophageal-varices]
+  - [oesophageal-varices, haematemesis]
+  - [oesophageal-varices, melaena]
+  - [oesophageal-varices, variceal-haemorrhage]
+  - [hyperammonaemia, hepatic-encephalopathy]
+  - [splanchnic-vasodilation, hepatorenal-syndrome]
+findings:
+  - {id: splenomegaly, freq: classic}
+  - {id: high-saag-ascites, freq: common, note: "Also high-gradient: Budd–Chiari, right heart failure, tricuspid regurgitation, constrictive pericarditis", source: "K&C 10e p.1296"}
+  - {id: caput-medusae, freq: occasional, source: "Mehlman HY Gastro"}
+  - {id: haematemesis, freq: common}
+  - {id: melaena, freq: common}
+  - {id: asterixis, freq: occasional, source: "K&C 10e p.1297"}
+  - {id: confusion, freq: occasional}
+outcomes:
+  - {id: oesophageal-varices, freq: classic, note: "90% of cirrhotics within 10 years; a third bleed", source: "K&C 10e p.1293"}
+  - {id: variceal-haemorrhage, freq: common, note: "6-week mortality 15–25%, 50% in Child's grade C", source: "K&C 10e p.1293"}
+  - {id: hepatic-encephalopathy, note: "Precipitated by GI bleeding, infection, constipation, sedatives, diuretics and shunts", source: "K&C 10e p.1297"}
+  - {id: hepatorenal-syndrome, note: "Functional kidney failure from extreme vasodilation and renal vasoconstriction; triggered by diuretics, NSAIDs, paracentesis, SBP", source: "K&C 10e p.1298"}
+  - {id: pulmonary-hypertension, freq: rare, note: "Portopulmonary hypertension in 1–2%", source: "K&C 10e p.1298"}

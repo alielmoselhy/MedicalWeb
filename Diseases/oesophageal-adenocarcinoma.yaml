@@ -1,0 +1,22 @@
+id: oesophageal-adenocarcinoma
+name: Oesophageal adenocarcinoma
+parent: oesophageal-cancer
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1166, 1170-1171", "Mehlman HY Gastro"]
+chain:
+  - {from: barretts-oesophagus, to: metaplasia-dysplasia-sequence, note: "Reflux → Barrett's → adenocarcinoma, in the lower third and cardia. Now over 70% of new oesophageal cancers in the West", source: "K&C 10e p.1171; Mehlman HY Gastro"}
+  - {from: gord, to: metaplasia-dysplasia-sequence, note: "Long-standing heartburn raises the risk up to eightfold, in proportion to severity", source: "K&C 10e p.1171"}
+  - {from: obesity, to: metaplasia-dysplasia-sequence, source: "K&C 10e p.1170"}
+  - {from: smoking, to: carcinogen-induced-transformation, source: "K&C 10e p.1170"}
+  - [metaplasia-dysplasia-sequence, oesophageal-tumour]
+  - [carcinogen-induced-transformation, oesophageal-tumour]
+  - [oesophageal-tumour, oesophageal-narrowing]
+  - [oesophageal-narrowing, progressive-solid-dysphagia]
+  - [metaplasia-dysplasia-sequence, heartburn]
+  - [oesophageal-tumour, weight-loss]
+findings:
+  - {id: progressive-solid-dysphagia, freq: classic, note: "Months of new dysphagia after years of reflux", source: "Mehlman HY Gastro"}
+  - {id: heartburn, freq: common}
+  - {id: weight-loss, freq: common}

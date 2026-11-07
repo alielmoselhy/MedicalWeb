@@ -1,7 +1,8 @@
 id: peripheral-arterial-disease
 name: Peripheral arterial disease
-group: atherosclerotic
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1128-1129", "K&C 10e p.1080"]
 chain:
   - [smoking, endothelial-dysfunction]
@@ -15,6 +16,10 @@ chain:
   - {from: limb-ischaemia, to: rest-pain, note: "Fontaine III: night pain eased by hanging the foot down", source: "K&C 10e p.1128"}
   - [limb-ischaemia, trophic-skin-changes]
   - {from: limb-artery-stenosis, to: acute-limb-ischaemia, note: "Acute thrombosis on a chronic stenosis is the commoner cause of acute limb ischaemia", source: "K&C 10e p.1129"}
+  - [limb-artery-stenosis, reduced-peripheral-pulses]
+  - [limb-artery-stenosis, low-abpi]
+  - [limb-artery-stenosis, femoral-bruit]
+  - [limb-ischaemia, gangrene-amputation]
 findings:
   - {id: intermittent-claudication, freq: classic}
   - {id: reduced-peripheral-pulses, freq: classic}

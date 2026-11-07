@@ -1,0 +1,35 @@
+id: peptic-ulcer-disease
+name: Peptic ulcer disease
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1173-1176, 1181", "Mehlman HY Gastro"]
+chain:
+  - {from: helicobacter-pylori, to: chronic-gastric-inflammation, note: "Only about 15% of infected people get duodenal ulcers; smoking, virulence and genes matter", source: "K&C 10e p.1173"}
+  - [chronic-gastric-inflammation, hypergastrinaemia]
+  - {from: hypergastrinaemia, to: gastroduodenal-mucosal-breakdown, note: "Duodenal ulcers: H. pylori in 50–75% today (>95% in Mehlman)", source: "K&C 10e p.1173; Mehlman HY Gastro"}
+  - {from: chronic-gastric-inflammation, to: gastroduodenal-mucosal-breakdown, note: "Gastric ulcers: pangastritis lowers mucosal resistance", source: "K&C 10e p.1174"}
+  - {from: nsaid-use, to: gastroduodenal-mucosal-breakdown, note: "COX inhibition depletes protective prostaglandins; 30% of regular users have ulcers at endoscopy. With H. pylori the effect is synergistic", source: "K&C 10e p.1176"}
+  - {from: gastroduodenal-mucosal-breakdown, to: epigastric-pain, note: "Recurrent burning epigastric pain, pointed to with one finger; DU pain at night and when hungry, eased by antacids", source: "K&C 10e p.1174"}
+  - [gastroduodenal-mucosal-breakdown, peptic-ulcer-endoscopy]
+  - {from: gastroduodenal-mucosal-breakdown, to: gastric-outlet-obstruction, note: "Oedema or scarring at the pylorus or duodenum", source: "K&C 10e p.1176"}
+  - {from: gastric-outlet-obstruction, to: projectile-vomiting, note: "Large-volume, painless, with old food; succussion splash", source: "K&C 10e p.1176"}
+  - [projectile-vomiting, hypokalaemic-alkalosis]
+  - [gastric-outlet-obstruction, vomiting]
+  - [gastric-outlet-obstruction, weight-loss]
+  - [helicobacter-pylori, h-pylori-test-positive]
+  - [gastroduodenal-mucosal-breakdown, haematemesis]
+  - [gastroduodenal-mucosal-breakdown, melaena]
+  - [gastroduodenal-mucosal-breakdown, peptic-ulcer-bleed]
+  - [gastroduodenal-mucosal-breakdown, perforated-peptic-ulcer]
+findings:
+  - {id: epigastric-pain, freq: classic}
+  - {id: vomiting, freq: occasional, note: "Nausea is common; vomiting is infrequent and can relieve the pain", source: "K&C 10e p.1174"}
+  - {id: weight-loss, freq: occasional, note: "More with gastric ulcers", source: "K&C 10e p.1174"}
+  - {id: h-pylori-test-positive, freq: common, note: "Stool antigen or breath test; under 55 without alarm features, test and treat", source: "K&C 10e p.1174-1175"}
+  - {id: peptic-ulcer-endoscopy, freq: classic, note: "Over 55 or with alarm features: endoscopy, and biopsy every gastric ulcer", source: "K&C 10e p.1175"}
+  - {id: haematemesis, freq: occasional}
+  - {id: melaena, freq: occasional}
+outcomes:
+  - {id: peptic-ulcer-bleed, note: "The commonest cause of serious upper GI bleeding; often no warning symptoms", source: "K&C 10e p.1174, 1181"}
+  - {id: perforated-peptic-ulcer, note: "Duodenal ulcers perforate more often; sudden rigid abdomen", source: "K&C 10e p.1175; Mehlman HY Gastro"}

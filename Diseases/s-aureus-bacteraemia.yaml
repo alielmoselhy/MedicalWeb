@@ -1,8 +1,9 @@
 id: s-aureus-bacteraemia
 name: Staphylococcus aureus bacteraemia
 parent: bacteraemia
-group: infection
+group: endovascular-infection
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.500 (Box 20.11)", "K&C 10e p.536"]
 chain:
   - {from: s-aureus, to: skin-soft-tissue-entry, note: "Usually through a skin breach: drug injection, cannulas, surgery, trauma", source: "K&C 10e p.536"}
@@ -14,11 +15,14 @@ chain:
   - {from: haematogenous-seeding, to: vertebral-osteomyelitis, note: "Seeds bone/joint/spine, valves and grafts; psoas and epidural abscesses", source: "K&C 10e p.500"}
   - [haematogenous-seeding, septic-emboli-abscess]
   - [haematogenous-seeding, infective-endocarditis]
+  - {from: haematogenous-seeding, to: brain-abscess, note: "Metastatic S. aureus infection may seed deep abscesses", source: "K&C 10e p.500 (Box 20.11)"}
   - {from: injection-drug-use, to: septic-embolism, note: "Septic pulmonary emboli from infected DVT or right-sided IE", source: "K&C 10e p.500"}
   - [haematogenous-seeding, positive-blood-cultures]
   - {from: haematogenous-seeding, to: dysregulated-host-response, note: "Sepsis: life-threatening organ dysfunction from a dysregulated host response", source: "K&C 10e p.154"}
   - [dysregulated-host-response, fever]
   - [dysregulated-host-response, septic-shock]
+  - [dysregulated-host-response, rigors]
+  - [haematogenous-seeding, prosthetic-valve-and-graft-infection]
 findings:
   - {id: fever, freq: classic}
   - {id: positive-blood-cultures, freq: classic}
@@ -27,5 +31,6 @@ outcomes:
   - {id: infective-endocarditis, freq: common}
   - vertebral-osteomyelitis
   - septic-emboli-abscess
+  - brain-abscess
   - septic-shock
   - prosthetic-valve-and-graft-infection

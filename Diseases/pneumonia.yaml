@@ -1,0 +1,43 @@
+id: pneumonia
+name: Pneumonia
+group: respiratory-infection
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.963-966"]
+chain:
+  - [droplet-inhalation, alveolar-exudate]
+  - [aspiration-of-oropharyngeal-flora, alveolar-exudate]
+  - {from: alveolar-exudate, to: consolidation-imaging, note: "Lobar (one or more whole lobes) or bronchopneumonia (patchy, centred on the airways)", source: "K&C 10e p.964"}
+  - [alveolar-exudate, consolidation-signs]
+  - [alveolar-exudate, intrapulmonary-shunt]
+  - [intrapulmonary-shunt, hypoxaemia]
+  - [alveolar-exudate, dysregulated-host-response]
+  - [alveolar-exudate, productive-cough]
+  - [dysregulated-host-response, fever]
+  - [alveolar-exudate, purulent-sputum]
+  - [intrapulmonary-shunt, dyspnoea]
+  - [alveolar-exudate, pleural-inflammation]
+  - [pleural-inflammation, pleuritic-chest-pain]
+  - [pleural-inflammation, parapneumonic-effusion]
+  - [pleural-inflammation, empyema]
+  - [alveolar-exudate, abscess-formation]
+  - [abscess-formation, lung-abscess]
+  - [intrapulmonary-shunt, type-1-respiratory-failure]
+  - [dysregulated-host-response, septic-shock]
+  - [dysregulated-host-response, ards]
+findings:
+  - {id: productive-cough, freq: classic, note: "Classically cough, purulent sputum, breathlessness and fever; subtler in the elderly", source: "K&C 10e p.963"}
+  - {id: fever, freq: classic}
+  - {id: consolidation-imaging, freq: classic}
+  - {id: purulent-sputum, freq: common}
+  - {id: dyspnoea, freq: common}
+  - {id: pleuritic-chest-pain, freq: common}
+  - {id: consolidation-signs, freq: common}
+  - {id: hypoxaemia, freq: common}
+outcomes:
+  - {id: parapneumonic-effusion, freq: common, source: "K&C 10e p.965"}
+  - empyema
+  - lung-abscess
+  - type-1-respiratory-failure
+  - {id: septic-shock, note: "Manage moderate to severe pneumonia as sepsis", source: "K&C 10e p.965"}
+  - ards

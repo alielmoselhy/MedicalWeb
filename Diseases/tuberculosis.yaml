@@ -1,0 +1,67 @@
+id: tuberculosis
+name: Tuberculosis
+group: mycobacterial
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.968-972", "K&C 10e p.982", "K&C 10e p.1223", "Mehlman HY Pulmonary", "Mehlman HY Arrows"]
+chain:
+  - {from: mycobacterium-tuberculosis, to: droplet-inhalation, note: "Acid-fast intracellular bacillus spread by coughed droplets; few organisms are needed", source: "K&C 10e p.968"}
+  - {from: tb-exposure-risk, to: droplet-inhalation, note: "Birth in or travel to high-incidence countries, overcrowding, homelessness, prison", source: "K&C 10e p.968"}
+  - {from: droplet-inhalation, to: caseating-granuloma, note: "Alveolar macrophages take up bacilli → caseous necrosis ringed by epithelioid and Langhans giant cells", source: "K&C 10e p.968"}
+  - {from: caseating-granuloma, to: latent-tb-containment, note: "Healed, calcified Ghon focus holds dormant bacilli; < 5% develop active disease at first contact, ≈10% within a year", source: "K&C 10e p.968"}
+  - {from: latent-tb-containment, to: immune-memory-test-positive, note: "TST is falsely negative in HIV, immunosuppression, extremes of age and active TB; IGRA is more specific. Neither tells latent from active", source: "K&C 10e p.972"}
+  - {from: latent-tb-containment, to: tb-reactivation, note: "Most active TB is reactivation, often decades later", source: "K&C 10e p.968"}
+  - {from: immunosuppression, to: tb-reactivation, note: "HIV, steroids, anti-TNF and other immunosuppressants, chemotherapy", source: "K&C 10e p.968"}
+  - {from: diabetes-mellitus, to: tb-reactivation, note: "Also end-stage CKD, malnutrition, ageing", source: "K&C 10e p.968"}
+  - [tb-reactivation, cavitation]
+  - [tb-reactivation, productive-cough]
+  - [tb-reactivation, haemoptysis]
+  - {from: tb-reactivation, to: afb-smear-positive, note: "At least three sputum samples; smear-positive patients are infectious and are isolated", source: "K&C 10e p.969"}
+  - {from: tb-reactivation, to: mtb-culture-or-naat-positive, note: "Liquid culture 1–3 weeks; NAAT (GeneXpert) finds rifampicin resistance, a marker of MDR-TB, in < 2 h", source: "K&C 10e p.969"}
+  - [tb-reactivation, haematogenous-tb-spread]
+  - {from: haematogenous-tb-spread, to: diffuse-small-nodules, note: "Miliary: millet-seed nodules throughout both lungs", source: "K&C 10e p.969"}
+  - {from: haematogenous-tb-spread, to: raised-liver-enzymes, note: "Liver and spleen micro-abscesses", source: "K&C 10e p.969"}
+  - [caseating-granuloma, fever]
+  - [caseating-granuloma, night-sweats]
+  - [caseating-granuloma, weight-loss]
+  - [caseating-granuloma, consolidation-imaging]
+  - [caseating-granuloma, pleural-inflammation]
+  - [pleural-inflammation, exudative-effusion]
+  - [pleural-inflammation, pleuritic-chest-pain]
+  - [caseating-granuloma, cervical-lymphadenopathy]
+  - [caseating-granuloma, lymph-node-tb]
+  - [haematogenous-tb-spread, miliary-tb]
+  - [haematogenous-tb-spread, tb-meningitis]
+  - [tb-meningitis, csf-tb-pattern]
+  - {from: tb-meningitis, to: siadh, note: "Meningitis can cause inappropriate ADH secretion", source: "Mehlman HY Arrows"}
+  - [haematogenous-tb-spread, spinal-tb]
+  - [haematogenous-tb-spread, tb-peritonitis]
+  - [haematogenous-tb-spread, constrictive-pericarditis]
+  - [haematogenous-tb-spread, adrenal-insufficiency]
+  - [caseating-granuloma, bronchiectasis]
+findings:
+  - {id: productive-cough, freq: classic, note: "Cardinal: cough, haemoptysis, fever, night sweats, weight loss. Extrapulmonary TB often lacks the chest symptoms", source: "K&C 10e p.968"}
+  - {id: fever, freq: classic}
+  - {id: night-sweats, freq: classic}
+  - {id: weight-loss, freq: classic}
+  - {id: mtb-culture-or-naat-positive, freq: classic, note: "Treat 6 months (2 RIPE + 4 RI; ≥ 12 months for CNS). Isoniazid → B6-deficiency neuropathy, ethambutol → optic neuritis", source: "K&C 10e p.969-971"}
+  - {id: haemoptysis, freq: common}
+  - {id: cavitation, freq: common, note: "CXR: upper-zone consolidation ± cavitation, effusion, hilar or paratracheal nodes", source: "K&C 10e p.968"}
+  - {id: consolidation-imaging, freq: common}
+  - {id: afb-smear-positive, freq: common}
+  - {id: immune-memory-test-positive, freq: common}
+  - {id: exudative-effusion, freq: occasional, note: "Pleural TB presents with pleuritic pain", source: "K&C 10e p.968"}
+  - {id: pleuritic-chest-pain, freq: occasional}
+  - {id: cervical-lymphadenopathy, freq: occasional, note: "Firm, non-tender node that may liquefy without redness (cold abscess)", source: "K&C 10e p.969"}
+  - {id: diffuse-small-nodules, freq: occasional}
+  - {id: csf-tb-pattern, freq: rare, note: "TB meningitis: protein usually > 2–3 g/L, glucose < half of blood", source: "K&C 10e p.970"}
+outcomes:
+  - {id: lymph-node-tb, freq: common, note: "The second commonest site", source: "K&C 10e p.969"}
+  - {id: miliary-tb, freq: occasional, note: "CNS involved in ≈20%, so image the brain", source: "K&C 10e p.969"}
+  - {id: tb-meningitis, freq: rare, note: "Treat ≥ 12 months with adjunct steroids", source: "K&C 10e p.969"}
+  - {id: siadh, freq: rare, note: "Through TB meningitis", source: "Mehlman HY Arrows"}
+  - {id: spinal-tb, freq: rare, source: "Mehlman HY Pulmonary"}
+  - {id: tb-peritonitis, freq: rare, note: "Wet (protein-rich ascites), dry (adhesions, subacute obstruction) or fibrous (tender masses)", source: "K&C 10e p.1223"}
+  - {id: constrictive-pericarditis, freq: rare, note: "Can calcify", source: "Mehlman HY Pulmonary"}
+  - {id: adrenal-insufficiency, freq: rare, source: "Mehlman HY Pulmonary"}
+  - {id: bronchiectasis, note: "TB is the leading cause of bronchiectasis worldwide", source: "K&C 10e p.982"}

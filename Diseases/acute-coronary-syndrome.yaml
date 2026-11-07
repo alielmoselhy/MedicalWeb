@@ -1,7 +1,8 @@
 id: acute-coronary-syndrome
 name: Acute coronary syndrome
-group: ischaemic
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1079-1085"]
 chain:
   - [smoking, endothelial-dysfunction]
@@ -16,6 +17,9 @@ chain:
   - [coronary-thrombosis, myocardial-ischaemia]
   - [myocardial-ischaemia, adenosine-release]
   - [adenosine-release, rest-chest-pain]
+  - [myocardial-ischaemia, dyspnoea]
+  - [myocardial-ischaemia, ventricular-arrhythmia]
+  - [ventricular-arrhythmia, sudden-cardiac-death]
 findings:
   - {id: rest-chest-pain, freq: classic, note: "New, at rest, or worsening of known angina", source: "K&C 10e p.1085"}
   - {id: dyspnoea, freq: occasional, note: "Atypical presentations: indigestion, pleuritic pain or breathlessness", source: "K&C 10e p.1085"}

@@ -1,0 +1,90 @@
+id: community-acquired-pneumonia
+name: Community-acquired pneumonia
+parent: pneumonia
+group: respiratory-infection
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.963-967", "K&C 10e p.948", "Mehlman HY Pulmonary"]
+chain:
+  - {from: streptococcus-pneumoniae, to: droplet-inhalation, note: "Commonest cause; no organism is found in 30–50% and ≈20% are mixed. Classic lobar pneumonia", source: "K&C 10e p.964"}
+  - [haemophilus-influenzae, droplet-inhalation]
+  - {from: mycoplasma-pneumoniae, to: droplet-inhalation, note: "Atypical: often a bilateral interstitial picture with a normal white cell count", source: "K&C 10e p.965"}
+  - {from: legionella-pneumophila, to: droplet-inhalation, note: "Inhaled from contaminated water systems such as air conditioning", source: "Mehlman HY Pulmonary"}
+  - {from: s-aureus, to: droplet-inhalation, note: "Mostly after influenza; uncommon but severe", source: "K&C 10e p.948"}
+  - {from: enterobacteriaceae, to: aspiration-of-oropharyngeal-flora, note: "Klebsiella: alcohol use and aspiration; thick 'currant jelly' sputum", source: "Mehlman HY Pulmonary"}
+  - [aspiration-risk, aspiration-of-oropharyngeal-flora]
+  - {from: anaerobic-bacteria, to: aspiration-of-oropharyngeal-flora, note: "Aspiration settles in the right middle and lower lobes; persisting cases are often anaerobic", source: "K&C 10e p.967"}
+  - [droplet-inhalation, alveolar-exudate]
+  - [aspiration-of-oropharyngeal-flora, alveolar-exudate]
+  - {from: older-age, to: alveolar-exudate, note: "Risk factors: age < 16 or > 65, smoking, alcohol, diabetes, CKD, HIV, immunosuppressants, chronic lung disease", source: "K&C 10e p.964"}
+  - {from: smoking, to: alveolar-exudate, note: "An independent risk factor", source: "K&C 10e p.966"}
+  - [excess-alcohol, alveolar-exudate]
+  - [diabetes-mellitus, alveolar-exudate]
+  - {from: immunosuppression, to: alveolar-exudate, note: "Pneumonia is a common first presentation of HIV, so offer every patient a test", source: "K&C 10e p.965"}
+  - [alveolar-exudate, consolidation-imaging]
+  - [alveolar-exudate, consolidation-signs]
+  - [alveolar-exudate, intrapulmonary-shunt]
+  - [intrapulmonary-shunt, hypoxaemia]
+  - [alveolar-exudate, dysregulated-host-response]
+  - {from: streptococcus-pneumoniae, to: raised-inflammatory-markers, note: "WCC usually > 15 with neutrophilia; CRP > 100", source: "K&C 10e p.965"}
+  - {from: legionella-pneumophila, to: hyponatraemia, note: "Legionella: lymphopenia, hyponatraemia, low albumin, raised transaminases", source: "K&C 10e p.965"}
+  - [legionella-pneumophila, raised-liver-enzymes]
+  - {from: legionella-pneumophila, to: headache, source: "K&C 10e p.964"}
+  - {from: legionella-pneumophila, to: diarrhoea, note: "With abdominal pain and vomiting", source: "K&C 10e p.964"}
+  - [legionella-pneumophila, vomiting]
+  - {from: mycoplasma-pneumoniae, to: haemolytic-anaemia, note: "Cold agglutinins: check Coombs' test if anaemic", source: "K&C 10e p.965"}
+  - {from: mycoplasma-pneumoniae, to: myalgia, note: "Myalgia, arthralgia and malaise are common with Legionella and Mycoplasma", source: "K&C 10e p.964"}
+  - [legionella-pneumophila, myalgia]
+  - [alveolar-exudate, productive-cough]
+  - [alveolar-exudate, purulent-sputum]
+  - [alveolar-exudate, haemoptysis]
+  - [hypoxaemia, dyspnoea]
+  - [hypoxaemia, tachypnoea]
+  - [intrapulmonary-shunt, type-1-respiratory-failure]
+  - [dysregulated-host-response, fever]
+  - {from: dysregulated-host-response, to: hypotension, note: "Manage moderate to severe pneumonia as sepsis: fluids if hypotensive", source: "K&C 10e p.965"}
+  - [dysregulated-host-response, confusion]
+  - [dysregulated-host-response, septic-shock]
+  - [dysregulated-host-response, multi-organ-dysfunction]
+  - [dysregulated-host-response, ards]
+  - {from: alveolar-exudate, to: pleural-inflammation, note: "Pleuritic pain from pleural inflammation; a rub may be heard early", source: "K&C 10e p.964"}
+  - [pleural-inflammation, pleuritic-chest-pain]
+  - [pleural-inflammation, pleural-rub]
+  - {from: pleural-inflammation, to: exudative-effusion, note: "Effusions complicate 1/3 to 1/2 of CAP, mostly simple exudates", source: "K&C 10e p.965"}
+  - [pleural-inflammation, parapneumonic-effusion]
+  - {from: pleural-inflammation, to: empyema, note: "Purulent fluid in the pleural space", source: "K&C 10e p.965"}
+  - {from: alveolar-exudate, to: abscess-formation, note: "S. aureus, Klebsiella, anaerobes after aspiration", source: "K&C 10e p.966-967"}
+  - [abscess-formation, lung-abscess]
+  - {from: mycoplasma-pneumoniae, to: myocardial-inflammation, note: "Extrapulmonary features, most often with Mycoplasma", source: "K&C 10e p.964"}
+  - [myocardial-inflammation, myocarditis]
+  - [mycoplasma-pneumoniae, pericardial-inflammation]
+  - [pericardial-inflammation, acute-pericarditis]
+  - {from: aspiration-of-oropharyngeal-flora, to: bronchiectasis, note: "After protracted aspiration pneumonia", source: "K&C 10e p.967"}
+findings:
+  - {id: productive-cough, freq: classic, note: "Dry or productive, sometimes with haemoptysis", source: "K&C 10e p.964"}
+  - {id: fever, freq: classic, note: "A swinging fever suggests empyema", source: "K&C 10e p.964"}
+  - {id: consolidation-imaging, freq: classic, note: "CXR can lag behind the signs; repeat at 6 weeks to exclude an obstructing cancer", source: "K&C 10e p.964-965"}
+  - {id: purulent-sputum, freq: common}
+  - {id: dyspnoea, freq: common}
+  - {id: pleuritic-chest-pain, freq: common}
+  - {id: consolidation-signs, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: tachypnoea, freq: common}
+  - {id: hypoxaemia, freq: common}
+  - {id: confusion, freq: occasional, note: "CURB-65: Confusion, Urea > 7, RR ≥ 30, low BP, age ≥ 65. 0–1 home, 2 admit, ≥ 3 consider ICU. Elderly may present only with confusion or falls", source: "K&C 10e p.964"}
+  - {id: exudative-effusion, freq: common, note: "Parapneumonic effusions are exudates by Light's criteria", source: "K&C 10e p.965"}
+  - {id: hypotension, freq: occasional}
+  - {id: pleural-rub, freq: occasional}
+  - {id: haemoptysis, freq: occasional}
+  - {id: myalgia, freq: occasional}
+outcomes:
+  - {id: parapneumonic-effusion, freq: common, note: "1/3 to 1/2 of CAP; mostly simple exudates", source: "K&C 10e p.965"}
+  - {id: empyema, note: "Ongoing fever and inflammatory markers despite antibiotics; pleural pH < 7.2", source: "K&C 10e p.965"}
+  - {id: lung-abscess, note: "S. aureus, Klebsiella, anaerobes after aspiration; foul sputum, swinging fever", source: "K&C 10e p.966-967"}
+  - type-1-respiratory-failure
+  - septic-shock
+  - multi-organ-dysfunction
+  - ards
+  - {id: myocarditis, freq: rare, note: "Myocarditis and pericarditis, most often with Mycoplasma", source: "K&C 10e p.964"}
+  - {id: acute-pericarditis, freq: rare, source: "K&C 10e p.964"}
+  - {id: bronchiectasis, freq: rare, note: "After protracted aspiration pneumonia", source: "K&C 10e p.967"}

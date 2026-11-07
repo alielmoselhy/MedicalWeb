@@ -1,8 +1,9 @@
 id: nstemi
 name: Non-ST-elevation myocardial infarction
 parent: acute-coronary-syndrome
-group: ischaemic
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1079-1080", "K&C 10e p.1084-1085", "Mehlman HY Cardio"]
 chain:
   - [smoking, endothelial-dysfunction]
@@ -29,6 +30,13 @@ chain:
     to: troponin-rise
     note: "Necrosis + troponin rise is what separates NSTEMI from unstable angina"
     source: "K&C 10e p.1084"
+  - [myocyte-necrosis, ck-mb-rise]
+  - [subendocardial-ischaemia, dyspnoea]
+  - [subendocardial-ischaemia, diaphoresis]
+  - [myocyte-necrosis, systolic-dysfunction]
+  - [systolic-dysfunction, heart-failure]
+  - [subendocardial-ischaemia, ventricular-arrhythmia]
+  - [ventricular-arrhythmia, sudden-cardiac-death]
 findings:
   - id: rest-chest-pain
     freq: classic
@@ -52,5 +60,4 @@ findings:
 outcomes:
   - heart-failure
   - ventricular-arrhythmia
-  - stemi
   - sudden-cardiac-death

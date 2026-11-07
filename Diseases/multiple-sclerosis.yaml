@@ -1,0 +1,33 @@
+id: multiple-sclerosis
+name: Multiple sclerosis
+group: demyelination
+status: draft
+systems: [nervous, immunology]
+sources: ["K&C 10e p.864-867", "Mehlman HY Neuro", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: ebv-infection, to: immune-mediated-injury, note: "EBV exposure is associated with MS; low vitamin D and limited sunlight are also risk factors", source: "K&C 10e p.864"}
+  - [low-vitamin-d-latitude, immune-mediated-injury]
+  - [smoking, immune-mediated-injury]
+  - {from: immune-mediated-injury, to: cns-demyelinating-plaques, note: "T-cell-mediated CNS inflammation damages myelin; severe lesions later cause permanent axonal loss", source: "K&C 10e p.864-865"}
+  - [cns-demyelinating-plaques, optic-neuritis]
+  - [cns-demyelinating-plaques, internuclear-ophthalmoplegia]
+  - [cns-demyelinating-plaques, umn-signs]
+  - [cns-demyelinating-plaques, cerebellar-ataxia]
+  - [cns-demyelinating-plaques, urinary-incontinence]
+  - [cns-demyelinating-plaques, lhermitte-uhthoff]
+  - [cns-demyelinating-plaques, fatigue]
+  - [cns-demyelinating-plaques, periventricular-white-matter-lesions]
+  - [cns-demyelinating-plaques, oligoclonal-bands]
+  - [cns-demyelinating-plaques, symptomatic-epilepsy]
+findings:
+  - {id: optic-neuritis, freq: classic}
+  - {id: internuclear-ophthalmoplegia, freq: classic, note: "Bilateral internuclear ophthalmoplegia is pathognomonic", source: "K&C 10e p.865"}
+  - {id: periventricular-white-matter-lesions, freq: classic, note: "MRI demonstrates lesions disseminated in space and time; typical plaques lie perpendicular to the ventricles", source: "K&C 10e p.866"}
+  - {id: oligoclonal-bands, freq: common, note: "Present in over 90% but not specific for MS", source: "K&C 10e p.866"}
+  - {id: umn-signs, freq: common}
+  - {id: cerebellar-ataxia, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: urinary-incontinence, freq: occasional}
+  - {id: lhermitte-uhthoff, freq: occasional}
+outcomes:
+  - {id: symptomatic-epilepsy, freq: occasional, note: "Epilepsy is more frequent than in the general population", source: "K&C 10e p.866"}

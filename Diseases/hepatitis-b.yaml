@@ -1,0 +1,40 @@
+id: hepatitis-b
+name: Hepatitis B
+parent: viral-hepatitis
+group: viral-liver
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1277-1282, 1308", "Mehlman HY Gastro"]
+chain:
+  - {from: vertical-transmission, to: hepatitis-b-virus, note: "The usual route worldwide; perinatal infection rarely causes acute hepatitis and usually becomes chronic", source: "K&C 10e p.1277, 1280"}
+  - {from: parenteral-exposure, to: hepatitis-b-virus, note: "Blood, shared needles, tattoos and sex (especially men who have sex with men); also close contact between children", source: "K&C 10e p.1277"}
+  - {from: hepatitis-b-virus, to: viral-hepatocyte-injury, note: "Not usually cytopathic: CD8 T cells kill infected hepatocytes", source: "K&C 10e p.1278"}
+  - {from: hepatitis-b-virus, to: persistent-viral-replication, note: "Most adults clear it; 1–10% develop chronic infection", source: "K&C 10e p.1280-1281"}
+  - [persistent-viral-replication, viral-hepatocyte-injury]
+  - {from: persistent-viral-replication, to: liver-fibrosis, note: "Chronic infection passes through HBeAg-positive and -negative phases; the active phases drive fibrosis", source: "K&C 10e p.1279"}
+  - {from: hepatitis-b-virus, to: viral-oncogenesis, note: "HBV DNA integrates into the host genome, so liver cancer can arise without cirrhosis", source: "K&C 10e p.1279, 1308"}
+  - {from: hepatitis-b-virus, to: immune-complex-deposition, note: "Serum-sickness-like prodrome: urticaria or rash, small-joint polyarthritis", source: "K&C 10e p.1280"}
+  - [immune-complex-deposition, arthralgia]
+  - [viral-hepatocyte-injury, hepatitic-pattern]
+  - [viral-hepatocyte-injury, jaundice]
+  - [hepatitis-b-virus, hbsag-anti-hbc]
+  - [viral-hepatocyte-injury, fever]
+  - [persistent-viral-replication, ground-glass-hepatocytes]
+  - [viral-hepatocyte-injury, acute-liver-failure]
+  - [liver-fibrosis, cirrhosis]
+  - [viral-oncogenesis, hepatocellular-carcinoma]
+  - [immune-complex-deposition, glomerulonephritis]
+  - [immune-complex-deposition, polyarteritis-nodosa]
+findings:
+  - {id: hbsag-anti-hbc, freq: classic, note: "Test both: HBsAg can clear quickly, and anti-HBc IgM may be the only marker of recent infection", source: "K&C 10e p.1280"}
+  - {id: jaundice, freq: common, note: "Like hepatitis A but can be more severe; many infections are subclinical", source: "K&C 10e p.1280"}
+  - {id: hepatitic-pattern, freq: common}
+  - {id: fever, freq: common, source: "K&C 10e p.1280"}
+  - {id: arthralgia, freq: occasional, note: "Up to 25% in the prodrome", source: "K&C 10e p.1280"}
+  - {id: ground-glass-hepatocytes, freq: common, note: "HBsAg in the cytoplasm in chronic infection", source: "K&C 10e p.1281"}
+outcomes:
+  - {id: acute-liver-failure, freq: rare, note: "Up to 1% of acute infections", source: "K&C 10e p.1280"}
+  - {id: cirrhosis, source: "K&C 10e p.1282"}
+  - {id: hepatocellular-carcinoma, note: "Common where HBV is endemic; HBsAg-positive patients need lifelong surveillance", source: "K&C 10e p.1281-1282"}
+  - {id: glomerulonephritis, freq: occasional, source: "K&C 10e p.1280"}
+  - {id: polyarteritis-nodosa, freq: occasional, note: "About 30% of patients with PAN are HBV-positive", source: "Mehlman HY Gastro"}

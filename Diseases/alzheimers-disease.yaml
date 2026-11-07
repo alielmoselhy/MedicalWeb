@@ -1,0 +1,27 @@
+id: alzheimers-disease
+name: Alzheimer's disease
+parent: dementia
+group: neurodegenerative
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.881-884", "Mehlman HY Neuro", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: older-age, to: amyloid-plaques-tau-tangles, note: "Age is the main risk factor; head trauma and vascular risk also increase risk", source: "K&C 10e p.883"}
+  - [app-psen-mutation, amyloid-plaques-tau-tangles]
+  - [apoe-e4, amyloid-plaques-tau-tangles]
+  - [trisomy-21, amyloid-plaques-tau-tangles]
+  - {from: amyloid-plaques-tau-tangles, to: cholinergic-neurone-loss, note: "Amyloid and abnormal tau damage synapses and neurones; a basal forebrain cholinergic deficit develops", source: "K&C 10e p.883"}
+  - [cholinergic-neurone-loss, episodic-memory-loss]
+  - [cholinergic-neurone-loss, cognitive-decline]
+  - [cholinergic-neurone-loss, hippocampal-atrophy]
+  - [cholinergic-neurone-loss, dysphagia]
+  - [dysphagia, aspiration-of-oropharyngeal-flora]
+  - [aspiration-of-oropharyngeal-flora, community-acquired-pneumonia]
+  - [cholinergic-neurone-loss, symptomatic-epilepsy]
+findings:
+  - {id: episodic-memory-loss, freq: classic, note: "Recent learning and recall deteriorate before distant memories; onset is insidious and progression gradual", source: "K&C 10e p.882"}
+  - {id: cognitive-decline, freq: classic}
+  - {id: hippocampal-atrophy, freq: common, note: "MRI commonly shows mesial temporal atrophy, although early imaging may be normal", source: "K&C 10e p.882"}
+outcomes:
+  - {id: community-acquired-pneumonia, note: "Late swallowing impairment can cause terminal aspiration pneumonia", source: "K&C 10e p.882"}
+  - {id: symptomatic-epilepsy, freq: rare, note: "Myoclonus and seizures may appear late", source: "K&C 10e p.882"}

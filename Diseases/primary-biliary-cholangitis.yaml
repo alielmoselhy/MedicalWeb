@@ -1,0 +1,41 @@
+id: primary-biliary-cholangitis
+name: Primary biliary cholangitis
+group: non-viral-liver
+status: draft
+systems: [gastrointestinal, immunology]
+sources: ["K&C 10e p.1273, 1298-1299", "Mehlman HY Gastro", "LMC 2026 Non-viral liver s.37-42"]
+chain:
+  - {from: autoimmune-predisposition, to: autoimmune-bile-duct-destruction, note: "An environmental trigger in a predisposed host, perhaps by molecular mimicry. 90% are women aged 40–50; Sjögren's, thyroid disease and scleroderma are associated", source: "K&C 10e p.1298-1299"}
+  - [autoimmune-bile-duct-destruction, anti-mitochondrial-antibody]
+  - {from: autoimmune-bile-duct-destruction, to: intrahepatic-cholestasis, note: "Progressive loss of small interlobular bile ducts", source: "K&C 10e p.1298"}
+  - [intrahepatic-cholestasis, cholestatic-pattern]
+  - {from: intrahepatic-cholestasis, to: pruritus, note: "Often the first symptom", source: "K&C 10e p.1298"}
+  - [intrahepatic-cholestasis, jaundice]
+  - {from: intrahepatic-cholestasis, to: conjugated-hyperbilirubinaemia, note: "Cholestasis of either type raises conjugated bilirubin", source: "K&C 10e p.1273"}
+  - [intrahepatic-cholestasis, dyslipidaemia-lab]
+  - [intrahepatic-cholestasis, xanthelasma]
+  - [autoimmune-bile-duct-destruction, liver-fibrosis]
+  - [intrahepatic-cholestasis, fatigue]
+  - [autoimmune-bile-duct-destruction, raised-immunoglobulins]
+  - [intrahepatic-cholestasis, hepatomegaly]
+  - [autoimmune-bile-duct-destruction, portal-infiltrate-duct-loss]
+  - [liver-fibrosis, cirrhosis]
+  - [intrahepatic-cholestasis, fat-soluble-vitamin-deficiency]
+  - [fat-soluble-vitamin-deficiency, osteoporosis]
+  - [cirrhosis, hepatocellular-carcinoma]
+findings:
+  - {id: anti-mitochondrial-antibody, freq: classic, note: "In 90–95%; the M2 antibody is 98% specific", source: "K&C 10e p.1299; LMC 2026 Non-viral liver s.38"}
+  - {id: cholestatic-pattern, freq: classic, note: "A raised ALP is often the only abnormality", source: "K&C 10e p.1299"}
+  - {id: pruritus, freq: classic, note: "Insidious itch first, jaundice much later", source: "LMC 2026 Non-viral liver s.37"}
+  - {id: fatigue, freq: common, note: "Often disabling", source: "K&C 10e p.1298"}
+  - {id: raised-immunoglobulins, freq: common, note: "IgM may be very high", source: "K&C 10e p.1299"}
+  - {id: dyslipidaemia-lab, freq: common, note: "Cholesterol raised, without extra cardiovascular risk", source: "K&C 10e p.1299"}
+  - {id: xanthelasma, freq: occasional, source: "K&C 10e p.1299"}
+  - {id: hepatomegaly, freq: common, source: "K&C 10e p.1298"}
+  - {id: portal-infiltrate-duct-loss, freq: common, note: "Granulomas in about 40%", source: "K&C 10e p.1299"}
+  - {id: finger-clubbing, freq: occasional, source: "Mehlman HY Gastro"}
+outcomes:
+  - {id: cirrhosis, note: "Once jaundiced, death from liver failure or bleeding varices within about 5 years without transplant", source: "K&C 10e p.1299"}
+  - {id: osteoporosis, source: "K&C 10e p.1299"}
+  - {id: fat-soluble-vitamin-deficiency, source: "K&C 10e p.1299"}
+  - {id: hepatocellular-carcinoma, freq: rare, source: "LMC 2026 Non-viral liver s.42"}

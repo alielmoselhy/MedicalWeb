@@ -1,0 +1,40 @@
+id: coeliac-disease
+name: Coeliac disease
+group: small-intestine
+status: draft
+systems: [gastrointestinal, immunology]
+sources: ["K&C 10e p.1189-1191", "Mehlman HY Gastro"]
+chain:
+  - {from: gluten-exposure, to: gluten-driven-t-cell-injury, note: "Gliadin peptides resist digestion; tissue transglutaminase deamidates them, making them more immunogenic", source: "K&C 10e p.1190"}
+  - {from: hla-dq2-dq8, to: gluten-driven-t-cell-injury, note: "DQ2 in 90–95%, DQ8 in most of the rest; 10–15% of first-degree relatives affected", source: "K&C 10e p.1190-1191"}
+  - {from: gluten-driven-t-cell-injury, to: villous-atrophy, note: "Worst in the proximal small bowel", source: "K&C 10e p.1190"}
+  - [gluten-driven-t-cell-injury, anti-ttg-ema]
+  - [villous-atrophy, villous-atrophy-biopsy]
+  - [villous-atrophy, mucosal-malabsorption]
+  - {from: mucosal-malabsorption, to: iron-deficiency-anaemia, note: "Iron is absorbed in the duodenum", source: "K&C 10e p.1191; Mehlman HY Gastro"}
+  - [mucosal-malabsorption, b12-folate-deficiency]
+  - [mucosal-malabsorption, steatorrhoea]
+  - [mucosal-malabsorption, weight-loss]
+  - [mucosal-malabsorption, fatigue]
+  - [mucosal-malabsorption, diarrhoea]
+  - [gluten-driven-t-cell-injury, mouth-ulcers]
+  - [gluten-driven-t-cell-injury, dermatitis-herpetiformis]
+  - [mucosal-malabsorption, osteoporosis]
+  - [gluten-driven-t-cell-injury, enteropathy-t-cell-lymphoma]
+  - [gluten-driven-t-cell-injury, oesophageal-squamous-cell-carcinoma]
+findings:
+  - {id: anti-ttg-ema, freq: classic, note: "95% sensitive; IgA-based, so check IgA level if negative (IgA deficiency is commoner in coeliac). Must be eating gluten", source: "K&C 10e p.1190-1191; Mehlman HY Gastro"}
+  - {id: villous-atrophy-biopsy, freq: classic, note: "4–6 biopsies from D2 and the bulb; Marsh 2–3 supports the diagnosis", source: "K&C 10e p.1190"}
+  - {id: iron-deficiency-anaemia, freq: common, note: "Anaemia in 50%; folate deficiency often raises the MCV", source: "K&C 10e p.1191"}
+  - {id: b12-folate-deficiency, freq: common}
+  - {id: fatigue, freq: common, note: "Often silent or vague: tiredness, IBS-like symptoms; peak diagnosis in the 40s, more women", source: "K&C 10e p.1190"}
+  - {id: diarrhoea, freq: common}
+  - {id: steatorrhoea, freq: occasional, note: "Diarrhoea, steatorrhoea, pain and weight loss mean more severe disease", source: "K&C 10e p.1190"}
+  - {id: mouth-ulcers, freq: common, note: "With angular stomatitis", source: "K&C 10e p.1190"}
+  - {id: dermatitis-herpetiformis, freq: occasional, note: "Itchy blistering rash on extensor surfaces, from the same gluten sensitivity", source: "K&C 10e p.1191; Mehlman HY Gastro"}
+  - {id: finger-clubbing, freq: occasional, source: "Mehlman HY Gastro"}
+outcomes:
+  - {id: osteoporosis, note: "Even on a gluten-free diet", source: "K&C 10e p.1190"}
+  - {id: enteropathy-t-cell-lymphoma, freq: rare, note: "In refractory disease", source: "K&C 10e p.1191"}
+  - {id: oesophageal-squamous-cell-carcinoma, freq: rare, note: "Small bowel adenocarcinoma too; a gluten-free diet lowers the risk", source: "K&C 10e p.1191"}
+  - {id: primary-biliary-cholangitis, freq: rare, note: "Also type 1 diabetes, thyroid disease, IBD", source: "K&C 10e p.1190"}

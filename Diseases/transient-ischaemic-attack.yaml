@@ -1,0 +1,26 @@
+id: transient-ischaemic-attack
+name: Transient ischaemic attack
+parent: stroke
+group: cns-trauma-stroke
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.836-839"]
+chain:
+  - {from: carotid-atherosclerosis, to: atheroembolism, note: "Microemboli from plaque in the aortic arch, carotid or vertebral arteries", source: "K&C 10e p.837"}
+  - {from: atrial-fibrillation, to: intracardiac-thrombus, source: "K&C 10e p.839"}
+  - [intracardiac-thrombus, thromboembolism]
+  - [atheroembolism, cerebral-ischaemia]
+  - [thromboembolism, cerebral-ischaemia]
+  - {from: global-cerebral-hypoperfusion, to: cerebral-ischaemia, note: "Less often a fall in perfusion (arrhythmia, postural hypotension); limb-shaking TIA means a tight carotid stenosis", source: "K&C 10e p.837, 839"}
+  - {from: cerebral-ischaemia, to: transient-focal-neurological-deficit, note: "Temporary ischaemia without infarction; the old 24-hour cut-off is no longer used", source: "K&C 10e p.836"}
+  - {from: cerebral-ischaemia, to: amaurosis-fugax, note: "Retinal emboli; often the first sign of ICA stenosis", source: "K&C 10e p.838-839"}
+  - [cerebral-ischaemia, hemiparesis]
+  - [cerebral-ischaemia, dysphasia]
+findings:
+  - {id: transient-focal-neurological-deficit, freq: classic, note: "Seconds to minutes, full recovery, consciousness preserved; hemiparesis and aphasia commonest", source: "K&C 10e p.838-839"}
+  - {id: amaurosis-fugax, freq: common}
+  - {id: hemiparesis, freq: common}
+  - {id: dysphasia, freq: common}
+outcomes:
+  - {id: ischaemic-stroke, freq: common, note: "30% have a stroke within 5 years, a third of them in the first year; anterior circulation TIAs carry the worse prognosis. Seen in a TIA clinic within 24 h", source: "K&C 10e p.839"}
+  - {id: acute-coronary-syndrome, freq: common, note: "15% have an MI within 5 years", source: "K&C 10e p.839"}

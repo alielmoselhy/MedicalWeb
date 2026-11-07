@@ -1,0 +1,38 @@
+id: brain-abscess
+name: Brain abscess
+group: cns-infection
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.873-874", "Mehlman HY Neuro"]
+chain:
+  - [parameningeal-infection, contiguous-spread]
+  - [infective-endocarditis, haematogenous-seeding]
+  - [s-aureus-bacteraemia, haematogenous-seeding]
+  - [head-injury, direct-inoculation]
+  - [contiguous-spread, abscess-formation]
+  - [haematogenous-seeding, abscess-formation]
+  - [direct-inoculation, abscess-formation]
+  - [abscess-formation, intracranial-mass-lesion]
+  - [abscess-formation, ring-enhancing-lesion]
+  - [abscess-formation, vasogenic-oedema]
+  - [intracranial-mass-lesion, raised-intracranial-pressure]
+  - [raised-intracranial-pressure, raised-icp-headache]
+  - [raised-intracranial-pressure, papilloedema]
+  - [intracranial-mass-lesion, hemiparesis]
+  - [intracranial-mass-lesion, seizures]
+  - [abscess-formation, fever]
+  - [abscess-formation, raised-inflammatory-markers]
+  - [raised-intracranial-pressure, brain-herniation]
+  - [intracranial-mass-lesion, symptomatic-epilepsy]
+findings:
+  - {id: raised-icp-headache, freq: classic}
+  - {id: ring-enhancing-lesion, freq: classic, note: "MRI shows a ring-enhancing mass with marked surrounding oedema and restricted diffusion", source: "K&C 10e p.873-874"}
+  - {id: hemiparesis, freq: common}
+  - {id: seizures, freq: common}
+  - {id: fever, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: papilloedema, freq: occasional}
+outcomes:
+  - vasogenic-oedema
+  - brain-herniation
+  - {id: symptomatic-epilepsy, note: "Epilepsy is common in survivors", source: "K&C 10e p.874"}

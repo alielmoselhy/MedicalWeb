@@ -1,0 +1,36 @@
+id: intestinal-obstruction
+name: Intestinal obstruction
+group: large-bowel-peritoneum
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1220, 1222-1223", "Mehlman HY Gastro"]
+chain:
+  - {from: abdominal-adhesions, to: mechanical-bowel-obstruction, note: "80% of small bowel obstruction in adults", source: "K&C 10e p.1222; Mehlman HY Gastro"}
+  - {from: abdominal-hernia, to: mechanical-bowel-obstruction, note: "Always examine the hernial orifices", source: "K&C 10e p.1222"}
+  - {from: crohns-disease, to: mechanical-bowel-obstruction, source: "K&C 10e p.1222"}
+  - {from: colorectal-cancer, to: mechanical-bowel-obstruction, note: "The commonest large bowel cause", source: "K&C 10e p.1222"}
+  - {from: sigmoid-volvulus, to: mechanical-bowel-obstruction, note: "Over 70 with days of constipation; coffee-bean sign on X-ray", source: "K&C 10e p.1222; Mehlman HY Gastro"}
+  - {from: diverticular-disease, to: mechanical-bowel-obstruction, source: "K&C 10e p.1222"}
+  - {from: tuberculosis, to: mechanical-bowel-obstruction, note: "Dry tuberculous peritonitis: adhesions", source: "K&C 10e p.1223"}
+  - [mechanical-bowel-obstruction, colicky-abdominal-pain]
+  - {from: mechanical-bowel-obstruction, to: vomiting, note: "Profuse in high obstruction, may be absent in low", source: "K&C 10e p.1222"}
+  - [mechanical-bowel-obstruction, absolute-constipation]
+  - [mechanical-bowel-obstruction, abdominal-distension]
+  - [mechanical-bowel-obstruction, tinkling-bowel-sounds]
+  - [mechanical-bowel-obstruction, dilated-bowel-loops]
+  - {from: mechanical-bowel-obstruction, to: fluid-electrolyte-loss, note: "Fluid pours into the distended bowel", source: "K&C 10e p.1222"}
+  - {from: mechanical-bowel-obstruction, to: mesenteric-ischaemia, note: "Strangulation cuts the blood supply", source: "K&C 10e p.1222"}
+  - [mesenteric-ischaemia, guarding-rigidity]
+  - [mesenteric-ischaemia, bowel-infarction]
+  - [bowel-infarction, secondary-peritonitis]
+findings:
+  - {id: colicky-abdominal-pain, freq: classic}
+  - {id: vomiting, freq: classic}
+  - {id: absolute-constipation, freq: classic}
+  - {id: abdominal-distension, freq: classic}
+  - {id: tinkling-bowel-sounds, freq: common, source: "K&C 10e p.1220"}
+  - {id: dilated-bowel-loops, freq: classic, note: "Fluid levels in small bowel obstruction; CT finds the site", source: "K&C 10e p.1222"}
+  - {id: guarding-rigidity, freq: occasional, note: "Marked tenderness means strangulation: urgent surgery", source: "K&C 10e p.1222"}
+outcomes:
+  - {id: bowel-infarction, note: "Gangrene", source: "K&C 10e p.1222"}
+  - {id: secondary-peritonitis, source: "K&C 10e p.1222"}

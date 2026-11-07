@@ -1,0 +1,25 @@
+id: covid-19
+name: COVID-19
+group: respiratory-infection
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.521", "Mehlman HY Pulmonary"]
+chain:
+  - {from: sars-cov-2, to: droplet-inhalation, note: "Far more transmissible than the 2002 SARS-CoV; mortality estimated at 1–5% in 2020", source: "K&C 10e p.521"}
+  - {from: droplet-inhalation, to: viral-airway-epithelial-infection, note: "Spike protein binds ACE2 on respiratory epithelium", source: "Mehlman HY Pulmonary"}
+  - [viral-airway-epithelial-infection, sore-throat-coryza]
+  - [viral-airway-epithelial-infection, dry-cough]
+  - [viral-airway-epithelial-infection, dysregulated-host-response]
+  - [dysregulated-host-response, fever]
+  - [dysregulated-host-response, ards]
+  - [dysregulated-host-response, multi-organ-dysfunction]
+  - [dysregulated-host-response, myocardial-inflammation]
+  - [myocardial-inflammation, myocarditis]
+findings:
+  - {id: sore-throat-coryza, freq: common, note: "Ranges from a cold-like illness to severe respiratory disease with organ failure", source: "Mehlman HY Pulmonary"}
+  - {id: fever, freq: common}
+  - {id: dry-cough, freq: common}
+outcomes:
+  - ards
+  - {id: multi-organ-dysfunction, source: "Mehlman HY Pulmonary"}
+  - {id: myocarditis, freq: rare, note: "Rare after infection (and vaccination)", source: "Mehlman HY Pulmonary"}

@@ -1,0 +1,62 @@
+id: sarcoidosis
+name: Sarcoidosis
+group: interstitial
+status: draft
+systems: [respiratory, immunology]
+sources: ["K&C 10e p.985-988", "Mehlman HY Pulmonary"]
+chain:
+  - {from: non-caseating-granuloma, to: bilateral-hilar-lymphadenopathy, note: "Cause unknown; young adults, women, Afro-Caribbean. Stages: 1 BHL (55–90% remit), 2 BHL + infiltrates (40–70%), 3 infiltrates (10–20%), 4 fibrosis", source: "K&C 10e p.985-986"}
+  - {from: non-caseating-granuloma, to: diffuse-small-nodules, note: "HRCT: nodules along airways and vessels", source: "K&C 10e p.987"}
+  - {from: non-caseating-granuloma, to: interstitial-fibrosis, note: "Irreversible fibrosis in up to 20%", source: "K&C 10e p.986"}
+  - [interstitial-fibrosis, restrictive-spirometry]
+  - [interstitial-fibrosis, diffusion-impairment]
+  - [diffusion-impairment, reduced-tlco]
+  - {from: non-caseating-granuloma, to: macrophage-vitamin-d-activation, note: "Activated macrophages make active vitamin D without PTH; PTH is suppressed", source: "K&C 10e p.987"}
+  - {from: macrophage-vitamin-d-activation, to: hypercalcaemia, note: "Hypercalcaemia 10–20%, hypercalciuria 30–50%", source: "K&C 10e p.987"}
+  - {from: non-caseating-granuloma, to: raised-serum-ace, note: "> 75% untreated; also raised in lymphoma, TB, asbestosis, silicosis", source: "K&C 10e p.987"}
+  - {from: non-caseating-granuloma, to: erythema-nodosum, note: "Skin in 10–30%; sarcoid is the commonest cause of erythema nodosum", source: "K&C 10e p.986"}
+  - [non-caseating-granuloma, lupus-pernio]
+  - {from: non-caseating-granuloma, to: anterior-uveitis, note: "Symptomatic in 5%, silent in up to 25%, so screen the eyes", source: "K&C 10e p.987"}
+  - [interstitial-fibrosis, dry-cough]
+  - [diffusion-impairment, exertional-dyspnoea]
+  - [non-caseating-granuloma, fatigue]
+  - [non-caseating-granuloma, raised-liver-enzymes]
+  - [non-caseating-granuloma, arthralgia]
+  - [non-caseating-granuloma, fever]
+  - [non-caseating-granuloma, weight-loss]
+  - [non-caseating-granuloma, hepatomegaly]
+  - [non-caseating-granuloma, splenomegaly]
+  - [macrophage-vitamin-d-activation, renal-calculi-nephrocalcinosis]
+  - [macrophage-vitamin-d-activation, chronic-kidney-disease]
+  - [non-caseating-granuloma, myocardial-inflammation]
+  - [myocardial-inflammation, av-block]
+  - [myocardial-inflammation, ventricular-arrhythmia]
+  - [myocardial-inflammation, heart-failure]
+  - [ventricular-arrhythmia, sudden-cardiac-death]
+  - [diffusion-impairment, type-1-respiratory-failure]
+findings:
+  - {id: bilateral-hilar-lymphadenopathy, freq: classic, note: "Often an incidental CXR finding; symmetrical, unlike TB, lymphoma or cancer", source: "K&C 10e p.986"}
+  - {id: dry-cough, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: fatigue, freq: common, note: "Frequent and often refractory", source: "K&C 10e p.985"}
+  - {id: erythema-nodosum, freq: common}
+  - {id: raised-serum-ace, freq: common}
+  - {id: raised-liver-enzymes, freq: common, note: "Mild, rarely matters", source: "K&C 10e p.987"}
+  - {id: diffuse-small-nodules, freq: common}
+  - {id: arthralgia, freq: occasional, note: "Löfgren's: BHL + erythema nodosum + arthralgia + fever, resolves by itself", source: "K&C 10e p.985"}
+  - {id: fever, freq: occasional}
+  - {id: hypercalcaemia, freq: occasional}
+  - {id: anterior-uveitis, freq: occasional}
+  - {id: lupus-pernio, freq: occasional}
+  - {id: restrictive-spirometry, freq: occasional, note: "Normal if only hilar nodes are involved", source: "K&C 10e p.988"}
+  - {id: weight-loss, freq: occasional}
+  - {id: hepatomegaly, freq: occasional}
+  - {id: splenomegaly, freq: occasional}
+outcomes:
+  - {id: renal-calculi-nephrocalcinosis, source: "K&C 10e p.987"}
+  - {id: chronic-kidney-disease, freq: rare, source: "K&C 10e p.987"}
+  - {id: av-block, freq: rare, note: "Cardiac involvement ≈3%; ECG everyone at diagnosis", source: "K&C 10e p.987"}
+  - {id: ventricular-arrhythmia, freq: rare, source: "K&C 10e p.987"}
+  - {id: heart-failure, freq: rare, note: "Cardiomyopathy", source: "K&C 10e p.987"}
+  - {id: sudden-cardiac-death, freq: rare, source: "K&C 10e p.987"}
+  - {id: type-1-respiratory-failure, freq: rare, note: "Relentless progression and death in 1–5%", source: "K&C 10e p.988"}

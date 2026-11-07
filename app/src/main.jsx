@@ -1,19 +1,28 @@
 import { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { byId } from './graph.js';
-import Explore from './Explore.jsx';
-import Disease, { DiseaseList } from './Disease.jsx';
+import Visualize from './Explore.jsx';
+import Home from './Home.jsx';
+import Disease, { DiseaseIndex } from './Disease.jsx';
 import Differential from './Differential.jsx';
 import Compare from './Compare.jsx';
 import './style.css';
 
-// Routes: #/explore[/id]  #/disease[/id]  #/differential[/a,b]  #/compare[/a,b,c]
+// Routes: #/home (default)  #/disease[/id]  #/differential[/a,b]  #/visualize[/ids on the web]  #/explore
 const parseHash = () => {
-  const [view = 'explore', arg = ''] = location.hash.replace(/^#\/?/, '').split('/');
+  const [view = 'home', arg = ''] = location.hash.replace(/^#\/?/, '').split('/');
   return { view, ids: arg ? decodeURIComponent(arg).split(',').filter(id => byId[id]) : [] };
 };
 
-const VIEWS = { explore: 'Explore', disease: 'Diseases', differential: 'Differential', compare: 'Compare' };
+const VIEWS = { home: 'Home', disease: 'Diseases', differential: 'Differential', compare: 'Compare', visualize: 'Visualize', explore: 'Explore' };
+
+const ExplorePlaceholder = () => (
+  <section className="card placeholder">
+    <div className="eyebrow">Coming next</div>
+    <h1>Explore</h1>
+    <p className="muted">This space is ready for the next way of exploring MedicalWeb.</p>
+  </section>
+);
 
 function App() {
   const [{ view, ids }, setRoute] = useState(parseHash);
@@ -24,18 +33,20 @@ function App() {
   }, []);
 
   const page = {
-    disease: () => (ids[0] ? <Disease id={ids[0]} key={ids[0]} /> : <DiseaseList />),
+    disease: () => (ids[0] ? <Disease id={ids[0]} key={ids[0]} /> : <><h1>Diseases</h1><DiseaseIndex /></>),
     differential: () => <Differential selected={ids} />,
     compare: () => <Compare ids={ids} />,
-  }[view] ?? (() => <Explore focus={ids[0]} />);
+    visualize: () => <Visualize seeds={ids} />,
+    explore: () => <ExplorePlaceholder />,
+  }[view] ?? (() => <Home />);
 
   return (
     <>
       <header>
-        <strong>MedicalWeb</strong>
+        <a className="brand" href="#/home">MedicalWeb</a>
         <nav>
-          {Object.entries(VIEWS).map(([v, label]) => (
-            <a key={v} href={`#/${v}`} aria-current={v === view || (v === 'explore' && !VIEWS[view]) ? 'page' : undefined}>{label}</a>
+          {Object.entries(VIEWS).filter(([v]) => v !== 'compare').map(([v, label]) => (
+            <a key={v} href={`#/${v}`} aria-current={v === view || (v === 'home' && !VIEWS[view]) ? 'page' : undefined}>{label}</a>
           ))}
         </nav>
       </header>

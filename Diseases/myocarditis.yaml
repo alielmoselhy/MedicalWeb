@@ -1,7 +1,8 @@
 id: myocarditis
 name: Myocarditis
-group: myocardial
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1118-1119"]
 chain:
   - {from: coxsackie-b-virus, to: myocardial-inflammation, note: "Europe/N America: enteroviruses, adenovirus, parvovirus B19 and others; Chagas is a leading cause worldwide", source: "K&C 10e p.1118"}
@@ -15,6 +16,17 @@ chain:
   - [pericardial-inflammation, pericardial-rub]
   - [myocardial-inflammation, ventricular-arrhythmia]
   - {from: myocardial-inflammation, to: av-block, note: "Lyme disease, sarcoid, giant-cell myocarditis, Chagas", source: "K&C 10e p.1118"}
+  - [myocardial-inflammation, chest-pain]
+  - [systolic-dysfunction, dyspnoea]
+  - [systolic-dysfunction, fatigue]
+  - [myocardial-inflammation, ventricular-arrhythmia]
+  - [ventricular-arrhythmia, palpitations]
+  - [myocardial-inflammation, tachycardia]
+  - [systolic-dysfunction, third-heart-sound]
+  - [myocardial-inflammation, raised-inflammatory-markers]
+  - [systolic-dysfunction, heart-failure]
+  - [systolic-dysfunction, dilated-cardiomyopathy]
+  - [ventricular-arrhythmia, sudden-cardiac-death]
 findings:
   - {id: chest-pain, freq: common, note: "Young adults; from mild fatigue/palpitations to fulminant failure", source: "K&C 10e p.1118"}
   - {id: dyspnoea, freq: common}

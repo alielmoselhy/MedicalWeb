@@ -1,10 +1,12 @@
 id: catheter-associated-bacteraemia
 name: Catheter-associated bacteraemia
 parent: bacteraemia
-group: infection
+group: endovascular-infection
 status: draft
-sources: ["K&C 10e p.495", "K&C 10e p.500 (Box 20.11)", "K&C 10e p.507", "K&C 10e p.511"]
+systems: [cardiovascular]
+sources: ["K&C 10e p.495", "K&C 10e p.500 (Box 20.11)", "K&C 10e p.507", "K&C 10e p.511", "K&C 10e p.1255-1256"]
 chain:
+  - {from: parenteral-nutrition, to: central-venous-catheter, note: "Parenteral nutrition: staphylococci track along the line, one of its commonest problems. Its other complications are central vein thrombosis, pneumothorax, hyperglycaemia and electrolyte upset, abnormal liver tests and metabolic bone disease", source: "K&C 10e p.1255-1256"}
   - {from: central-venous-catheter, to: catheter-entry, note: "Insert only when needed, check daily, remove early; chlorhexidine–alcohol skin prep", source: "K&C 10e p.507"}
   - {from: catheter-entry, to: catheter-biofilm, note: "Skin flora such as S. epidermidis lay down slime and form a biofilm that resists clearance", source: "K&C 10e p.511"}
   - [coagulase-negative-staphylococci, catheter-biofilm]
@@ -18,6 +20,9 @@ chain:
   - {from: haematogenous-seeding, to: dysregulated-host-response, note: "Sepsis: life-threatening organ dysfunction from a dysregulated host response", source: "K&C 10e p.154"}
   - [dysregulated-host-response, fever]
   - [dysregulated-host-response, septic-shock]
+  - [dysregulated-host-response, rigors]
+  - [haematogenous-seeding, infective-endocarditis]
+  - [haematogenous-seeding, metastatic-infection]
 findings:
   - {id: fever, freq: classic}
   - {id: positive-blood-cultures, freq: classic, note: "Same CoNS with the same sensitivities in repeated cultures points to device infection, not contamination", source: "K&C 10e p.500"}

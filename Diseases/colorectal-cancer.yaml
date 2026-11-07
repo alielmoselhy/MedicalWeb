@@ -1,0 +1,43 @@
+id: colorectal-cancer
+name: Colorectal cancer
+group: large-bowel-peritoneum
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1214-1219", "Mehlman HY Gastro"]
+chain:
+  - {from: colorectal-adenoma, to: adenoma-carcinoma-sequence, note: "Chromosomal instability, usually starting with APC, is the commonest path; serrated (BRAF/KRAS, CIMP) and MSI paths favour the right colon", source: "K&C 10e p.1217"}
+  - {from: familial-adenomatous-polyposis, to: adenoma-carcinoma-sequence, note: "Under 1% of CRC; prophylactic colectomy", source: "K&C 10e p.1215, 1218"}
+  - {from: lynch-syndrome, to: adenoma-carcinoma-sequence, note: "3–10% of CRC; 70–80% lifetime risk, onset 40–50; also endometrial, ovarian, gastric cancers", source: "K&C 10e p.1216"}
+  - {from: inflammatory-bowel-disease, to: inflammation-driven-transformation, note: "UC and extensive Crohn's colitis", source: "K&C 10e p.1208, 1217"}
+  - {from: red-processed-meat, to: carcinogen-induced-transformation, note: "Also obesity, smoking, alcohol, sugar; aspirin, exercise and vegetables lower the risk", source: "K&C 10e p.1217"}
+  - [obesity, carcinogen-induced-transformation]
+  - [smoking, carcinogen-induced-transformation]
+  - [excess-alcohol, carcinogen-induced-transformation]
+  - [adenoma-carcinoma-sequence, colorectal-tumour]
+  - [inflammation-driven-transformation, colorectal-tumour]
+  - [carcinogen-induced-transformation, colorectal-tumour]
+  - [colorectal-tumour, colonic-tumour-endoscopy]
+  - {from: colorectal-tumour, to: altered-bowel-habit, note: "Looser, more frequent stools", source: "K&C 10e p.1218"}
+  - [colorectal-tumour, rectal-bleeding]
+  - {from: colorectal-tumour, to: iron-deficiency-anaemia, note: "Caecal and right-sided cancers are often silent until anaemia", source: "K&C 10e p.1218"}
+  - [colorectal-tumour, urgency-tenesmus]
+  - {from: colorectal-tumour, to: metastatic-spread, note: "Through the wall, then lymphatics and veins to liver and lung; 20% have metastases at diagnosis", source: "K&C 10e p.1217-1218"}
+  - [colorectal-tumour, abdominal-mass]
+  - [colorectal-tumour, weight-loss]
+  - [colorectal-tumour, positive-fit]
+  - [colorectal-tumour, intestinal-obstruction]
+  - [metastatic-spread, liver-metastases]
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: altered-bowel-habit, freq: common}
+  - {id: rectal-bleeding, freq: common, source: "K&C 10e p.1218"}
+  - {id: iron-deficiency-anaemia, freq: common}
+  - {id: urgency-tenesmus, freq: occasional, source: "K&C 10e p.1218"}
+  - {id: abdominal-mass, freq: occasional, note: "Rectal or abdominal mass", source: "K&C 10e p.1218"}
+  - {id: weight-loss, freq: common}
+  - {id: colonic-tumour-endoscopy, freq: classic, note: "Colonoscopy with biopsy is the gold standard; CT colonography as an alternative. Tumour tested for MMR deficiency and KRAS/NRAS/BRAF", source: "K&C 10e p.1218-1219"}
+  - {id: positive-fit, freq: common, note: "Bowel screening: about 10% of FIT-positive patients have cancer", source: "K&C 10e p.1219"}
+outcomes:
+  - {id: intestinal-obstruction, note: "Can be the first presentation", source: "K&C 10e p.1218"}
+  - {id: liver-metastases, note: "The commonest site; resectable ones are worth treating", source: "K&C 10e p.1218-1219"}
+  - {id: distant-metastases, note: "Lung", source: "K&C 10e p.1218"}

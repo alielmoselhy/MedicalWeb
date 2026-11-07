@@ -1,0 +1,35 @@
+id: encephalitis
+name: Encephalitis
+group: cns-infection
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.871-872", "Mehlman HY Neuro"]
+chain:
+  - [herpes-simplex-virus, retrograde-neural-spread]
+  - [varicella-zoster-virus, cns-pathogen-entry]
+  - [enterovirus, cns-pathogen-entry]
+  - [retrograde-neural-spread, brain-parenchymal-inflammation]
+  - [cns-pathogen-entry, brain-parenchymal-inflammation]
+  - [brain-parenchymal-inflammation, fever]
+  - [brain-parenchymal-inflammation, confusion]
+  - [brain-parenchymal-inflammation, coma]
+  - [brain-parenchymal-inflammation, seizures]
+  - [brain-parenchymal-inflammation, dysphasia]
+  - {from: herpes-simplex-virus, to: temporal-lobe-change, note: "HSV encephalitis characteristically affects the temporal lobes, often asymmetrically", source: "K&C 10e p.871"}
+  - [herpes-simplex-virus, csf-hsv-pcr-positive]
+  - [brain-parenchymal-inflammation, cerebral-oedema]
+  - [cerebral-oedema, raised-intracranial-pressure]
+  - [raised-intracranial-pressure, brain-herniation]
+  - [brain-parenchymal-inflammation, symptomatic-epilepsy]
+findings:
+  - {id: confusion, freq: classic, note: "Behavioural or personality change progresses to reduced consciousness; this distinguishes encephalitis from uncomplicated meningitis", source: "K&C 10e p.871"}
+  - {id: fever, freq: classic, note: "About 90%", source: "K&C 10e p.871"}
+  - {id: seizures, freq: common}
+  - {id: dysphasia, freq: occasional}
+  - {id: coma, freq: occasional}
+  - {id: temporal-lobe-change, freq: classic, only: herpes-simplex-virus}
+  - {id: csf-hsv-pcr-positive, freq: classic, only: herpes-simplex-virus, note: "PCR may be falsely negative in the first 48 hours", source: "K&C 10e p.871"}
+outcomes:
+  - cerebral-oedema
+  - brain-herniation
+  - symptomatic-epilepsy

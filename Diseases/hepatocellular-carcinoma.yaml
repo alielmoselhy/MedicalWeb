@@ -1,0 +1,42 @@
+id: hepatocellular-carcinoma
+name: Hepatocellular carcinoma
+group: cirrhosis-liver-tumours
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1288, 1308", "Mehlman HY Gastro", "LMC 2026 Cirrhosis s.29-36"]
+chain:
+  - {from: hepatitis-b, to: viral-oncogenesis, note: "90% of HCC where HBV is common; integration of HBV DNA, related to viral load", source: "K&C 10e p.1308"}
+  - {from: hepatitis-c, to: inflammation-driven-transformation, note: "Higher risk than HBV, always with cirrhosis", source: "K&C 10e p.1308"}
+  - {from: cirrhosis, to: inflammation-driven-transformation, note: "About 80% have cirrhosis (alcohol, NAFLD, haemochromatosis). Men more than women; aflatoxin and androgens also", source: "K&C 10e p.1308"}
+  - {from: haemochromatosis, to: inflammation-driven-transformation, source: "Mehlman HY Gastro"}
+  - {from: masld, to: inflammation-driven-transformation, note: "Can arise without cirrhosis", source: "K&C 10e p.1288"}
+  - [viral-oncogenesis, primary-liver-tumour]
+  - {from: inflammation-driven-transformation, to: primary-liver-tumour, note: "Repeated cycles of hepatocyte death and regeneration build up mutations", source: "LMC 2026 Cirrhosis s.30"}
+  - [primary-liver-tumour, liver-lesion]
+  - [primary-liver-tumour, raised-afp]
+  - [primary-liver-tumour, ruq-pain]
+  - [primary-liver-tumour, weight-loss]
+  - {from: primary-liver-tumour, to: metastatic-spread, note: "Via hepatic or portal veins to lymph nodes, bone and lung", source: "K&C 10e p.1308"}
+  - {from: aflatoxin, to: carcinogen-induced-transformation, note: "Binds DNA and causes mutations", source: "LMC 2026 Cirrhosis s.29-30"}
+  - {from: anabolic-steroids, to: carcinogen-induced-transformation, source: "LMC 2026 Cirrhosis s.29"}
+  - [carcinogen-induced-transformation, primary-liver-tumour]
+  - [primary-liver-tumour, hepatomegaly]
+  - [primary-liver-tumour, ascites]
+  - [primary-liver-tumour, fever]
+  - [primary-liver-tumour, abdominal-mass]
+  - [primary-liver-tumour, fatigue]
+  - [metastatic-spread, bone-metastases]
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: liver-lesion, freq: classic, note: "Arterial enhancement with later washout on CT/MRI is characteristic, so biopsy is used less; usually one large lesion with satellites (metastases are many)", source: "K&C 10e p.1308; Mehlman HY Gastro"}
+  - {id: raised-afp, freq: common, note: "Raised in about half; normal in at least a third", source: "K&C 10e p.1308; LMC 2026 Cirrhosis s.31"}
+  - {id: weight-loss, freq: common, source: "K&C 10e p.1308"}
+  - {id: ruq-pain, freq: common, note: "An ache in the right hypochondrium", source: "K&C 10e p.1308"}
+  - {id: hepatomegaly, freq: common, note: "Enlarged, irregular and tender; rapid decline in a cirrhotic suggests HCC", source: "K&C 10e p.1308"}
+  - {id: ascites, freq: common, source: "K&C 10e p.1308"}
+  - {id: fever, freq: occasional, source: "K&C 10e p.1308"}
+  - {id: abdominal-mass, freq: common, source: "LMC 2026 Cirrhosis s.31"}
+  - {id: fatigue, freq: common, source: "LMC 2026 Cirrhosis s.31"}
+outcomes:
+  - {id: bone-metastases, source: "K&C 10e p.1308"}
+  - {id: distant-metastases, note: "Only 10–20% can have surgery; 6–12 months survival untreated, better in a non-cirrhotic liver", source: "LMC 2026 Cirrhosis s.35"}

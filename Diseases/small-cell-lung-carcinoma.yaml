@@ -1,0 +1,48 @@
+id: small-cell-lung-carcinoma
+name: Small-cell lung carcinoma
+parent: lung-cancer
+group: lung-pleural-tumours
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.976-980", "Mehlman HY Pulmonary", "Mehlman HY Pathology"]
+chain:
+  - {from: smoking, to: carcinogen-induced-transformation, note: "Smoking is the biggest risk factor", source: "Mehlman HY Pulmonary"}
+  - {from: carcinogen-induced-transformation, to: primary-lung-tumour, note: "From neuroendocrine (APUD, Kulchitsky) cells; about 20% of UK cases. Small basophilic cells about twice the size of lymphocytes", source: "K&C 10e p.976; Mehlman HY Pulmonary"}
+  - {from: primary-lung-tumour, to: central-lung-mass, note: "Usually central", source: "K&C 10e p.976"}
+  - [primary-lung-tumour, endobronchial-obstruction]
+  - [primary-lung-tumour, local-tumour-invasion]
+  - {from: primary-lung-tumour, to: metastatic-spread, note: "Metastasizes early, so staged as limited or extensive and treated with chemotherapy, not surgery", source: "K&C 10e p.976, 978; Mehlman HY Pulmonary"}
+  - [metastatic-spread, mediastinal-widening]
+  - {from: primary-lung-tumour, to: ectopic-hormone-secretion, note: "About 10% secrete hormones", source: "K&C 10e p.977"}
+  - [ectopic-hormone-secretion, adh-secretion]
+  - [ectopic-hormone-secretion, acth-secretion]
+  - {from: adh-secretion, to: hyponatraemia, note: "Low serum sodium with inappropriately concentrated urine", source: "Mehlman HY Pulmonary"}
+  - {from: acth-secretion, to: mineralocorticoid-excess, note: "Chronically high cortisol wastes potassium at the distal nephron", source: "Mehlman HY Pulmonary"}
+  - [mineralocorticoid-excess, hypokalaemia]
+  - {from: primary-lung-tumour, to: paraneoplastic-autoimmunity, note: "Antibodies against presynaptic calcium channels and neurones", source: "Mehlman HY Pathology"}
+  - [primary-lung-tumour, cough]
+  - [primary-lung-tumour, weight-loss]
+  - [adh-secretion, siadh]
+  - [acth-secretion, ectopic-cushing]
+  - [paraneoplastic-autoimmunity, lambert-eaton-syndrome]
+  - [paraneoplastic-autoimmunity, paraneoplastic-cerebellar-degeneration]
+  - [local-tumour-invasion, superior-vena-cava-obstruction]
+  - [metastatic-spread, brain-metastases]
+  - [metastatic-spread, liver-metastases]
+  - [metastatic-spread, bone-metastases]
+findings:
+  - {id: central-lung-mass, freq: classic}
+  - {id: mediastinal-widening, freq: common}
+  - {id: hyponatraemia, freq: common}
+  - {id: hypokalaemia, note: "With Cushingoid features", source: "Mehlman HY Pulmonary"}
+  - {id: cough, freq: common}
+  - {id: weight-loss, freq: common}
+outcomes:
+  - {id: siadh, freq: common, source: "K&C 10e p.978"}
+  - {id: ectopic-cushing, source: "K&C 10e p.978"}
+  - {id: lambert-eaton-syndrome, note: "Proximal weakness that improves with repeated effort", source: "K&C 10e p.978"}
+  - {id: paraneoplastic-cerebellar-degeneration, note: "Ataxia with normal brain imaging (anti-Hu, anti-Yo)", source: "Mehlman HY Pathology"}
+  - {id: superior-vena-cava-obstruction, freq: common}
+  - {id: brain-metastases, freq: common}
+  - {id: liver-metastases}
+  - {id: bone-metastases}

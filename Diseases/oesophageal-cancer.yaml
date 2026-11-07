@@ -1,0 +1,24 @@
+id: oesophageal-cancer
+name: Oesophageal cancer
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1170-1172", "Mehlman HY Gastro"]
+chain:
+  - [malignant-transformation, oesophageal-tumour]
+  - {from: oesophageal-tumour, to: oesophageal-narrowing, note: "Ulcerative, proliferative or scirrhous growth makes a stricture", source: "K&C 10e p.1171"}
+  - {from: oesophageal-narrowing, to: progressive-solid-dysphagia, note: "Progressive and unrelenting; ages 60–70", source: "K&C 10e p.1171"}
+  - [oesophageal-narrowing, weight-loss]
+  - {from: oesophageal-narrowing, to: aspiration-of-oropharyngeal-flora, note: "Late: can't swallow saliva, coughs and aspirates", source: "K&C 10e p.1171"}
+  - [oesophageal-tumour, local-tumour-invasion]
+  - [oesophageal-tumour, upper-gi-tumour-endoscopy]
+  - [aspiration-of-oropharyngeal-flora, community-acquired-pneumonia]
+  - [local-tumour-invasion, metastatic-spread]
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: progressive-solid-dysphagia, freq: classic, note: "New dysphagia for solids, then liquids, in someone over 50", source: "Mehlman HY Gastro"}
+  - {id: weight-loss, freq: classic, note: "From the dysphagia and anorexia; with lymphadenopathy the commonest signs", source: "K&C 10e p.1171"}
+  - {id: upper-gi-tumour-endoscopy, freq: classic, note: "Endoscopy gives the histology; CT, EUS and PET stage it", source: "K&C 10e p.1171-1172"}
+outcomes:
+  - {id: community-acquired-pneumonia, freq: occasional, note: "Aspiration", source: "K&C 10e p.1171"}
+  - {id: distant-metastases, note: "Local invasion and nodal spread are commoner than distant spread. 70% present at stage 3+; about 15% alive at 5 years", source: "K&C 10e p.1171-1172"}

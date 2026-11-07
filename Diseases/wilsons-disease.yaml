@@ -1,0 +1,26 @@
+id: wilsons-disease
+name: Wilson's disease
+group: non-viral-liver
+status: draft
+systems: [gastrointestinal, nervous]
+sources: ["K&C 10e p.1301-1302", "Mehlman HY Gastro", "LMC 2026 Non-viral liver s.33-34"]
+chain:
+  - {from: atp7b-mutation, to: copper-overload, note: "Autosomal recessive (chromosome 13): copper is not built into caeruloplasmin or excreted in bile", source: "K&C 10e p.1302; Mehlman HY Gastro"}
+  - [copper-overload, copper-studies]
+  - {from: copper-overload, to: toxic-hepatocyte-injury, note: "Children (often around age 5) present with liver disease, from steatosis to massive necrosis or cirrhosis", source: "K&C 10e p.1302; LMC 2026 Non-viral liver s.33"}
+  - [toxic-hepatocyte-injury, hepatitic-pattern]
+  - [toxic-hepatocyte-injury, liver-fibrosis]
+  - {from: copper-overload, to: extrapyramidal-signs, note: "Young adults usually present neurologically (basal ganglia); parkinsonism in a young patient suggests Wilson's", source: "K&C 10e p.1302; Mehlman HY Gastro"}
+  - {from: copper-overload, to: kayser-fleischer-rings, note: "Copper in Descemet's membrane; often needs a slit lamp; may be absent in young children", source: "K&C 10e p.1302"}
+  - [copper-overload, haemolytic-anaemia]
+  - [toxic-hepatocyte-injury, acute-liver-failure]
+  - [liver-fibrosis, cirrhosis]
+findings:
+  - {id: copper-studies, freq: classic, note: "Caeruloplasmin and serum copper usually low (can be normal); urinary copper 100–1000 µg/24 h", source: "K&C 10e p.1302"}
+  - {id: kayser-fleischer-rings, freq: common}
+  - {id: extrapyramidal-signs, freq: common, note: "Tremor, dysarthria and involuntary movements, eventually dementia", source: "K&C 10e p.1302"}
+  - {id: hepatitic-pattern, freq: common}
+  - {id: haemolytic-anaemia, freq: occasional, source: "K&C 10e p.1302"}
+outcomes:
+  - {id: acute-liver-failure, source: "K&C 10e p.1302"}
+  - {id: cirrhosis, note: "Macronodular", source: "K&C 10e p.1302"}

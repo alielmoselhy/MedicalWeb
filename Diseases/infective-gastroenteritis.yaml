@@ -1,0 +1,24 @@
+id: infective-gastroenteritis
+name: Infective gastroenteritis
+group: gastroenteritis
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.539-543", "Mehlman HY Gastro"]
+chain:
+  - {from: faecal-oral-exposure, to: infective-diarrhoea, note: "Contaminated food or water, or person to person", source: "K&C 10e p.540-541"}
+  - {from: foreign-travel, to: infective-diarrhoea, note: "Travellers' diarrhoea: up to 50% on a 2-week trip in some countries; ETEC is the commonest cause", source: "K&C 10e p.543"}
+  - {from: infective-diarrhoea, to: diarrhoea, note: "Two broad syndromes: watery diarrhoea (toxins, adherence) or dysentery (invasion)", source: "K&C 10e p.539"}
+  - [infective-diarrhoea, vomiting]
+  - [infective-diarrhoea, abdominal-pain]
+  - [infective-diarrhoea, fluid-electrolyte-loss]
+  - [fluid-electrolyte-loss, dehydration-signs]
+  - [infective-diarrhoea, stool-pathogen-identified]
+  - [fluid-electrolyte-loss, hypovolaemic-shock]
+findings:
+  - {id: diarrhoea, freq: classic}
+  - {id: vomiting, freq: common}
+  - {id: abdominal-pain, freq: common}
+  - {id: dehydration-signs, freq: common, note: "Rehydration (oral rehydration solution) is the mainstay; most settle within 10 days", source: "K&C 10e p.543"}
+  - {id: stool-pathogen-identified, freq: common, note: "Usually no organism is found; symptoms beyond 10 days suggest another cause such as colitis", source: "K&C 10e p.543"}
+outcomes:
+  - {id: hypovolaemic-shock, note: "Dehydration kills over half a million children a year", source: "K&C 10e p.539"}

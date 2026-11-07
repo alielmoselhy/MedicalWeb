@@ -1,8 +1,9 @@
 id: primary-hypertension
 name: Primary (essential) hypertension
 parent: hypertension
-group: hypertension & heart failure
+group: hypertension-heart-failure
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1133-1138"]
 chain:
   - {from: polygenic-bp-predisposition, to: raised-arterial-pressure, note: "Hundreds of small-effect genes account for ~60% of BP level", source: "K&C 10e p.1137"}
@@ -20,6 +21,11 @@ chain:
   - [concentric-hypertrophy, lvh-voltage]
   - [raised-arterial-pressure, endothelial-dysfunction]
   - {from: raised-arterial-pressure, to: small-vessel-disease, note: "Lipohyalinosis of penetrating arteries → lacunar infarcts", source: "K&C 10e p.837"}
+  - [raised-arterial-pressure, raised-blood-pressure]
+  - [small-vessel-disease, ischaemic-stroke]
+  - [endothelial-dysfunction, acute-coronary-syndrome]
+  - [diastolic-dysfunction, heart-failure]
+  - [endothelial-dysfunction, chronic-kidney-disease]
 findings:
   - {id: raised-blood-pressure, freq: classic, note: "Up to 90% of hypertension has no single identifiable cause", source: "K&C 10e p.1137"}
 outcomes:

@@ -1,0 +1,46 @@
+id: asthma
+name: Asthma
+group: airways
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.949-951", "K&C 10e p.954", "Mehlman HY Pulmonary"]
+chain:
+  - {from: atopy, to: type-2-eosinophilic-inflammation, note: "Most persistent asthmatics (≈90% of children, 70% of adults) are skin-prick positive to inhaled allergens", source: "K&C 10e p.949"}
+  - [inhaled-allergen, type-2-eosinophilic-inflammation]
+  - {from: occupational-sensitiser, to: type-2-eosinophilic-inflammation, note: "Occupational agents account for up to 15% of cases", source: "K&C 10e p.950"}
+  - [type-2-eosinophilic-inflammation, airway-hyperresponsiveness]
+  - [type-2-eosinophilic-inflammation, raised-eosinophils-ige]
+  - [airway-hyperresponsiveness, reversible-bronchoconstriction]
+  - {from: nsaid-or-beta-blocker, to: reversible-bronchoconstriction, note: "NSAIDs affect ≈5%, especially with nasal polyps; non-selective beta-blockers remove adrenaline's β2 protection", source: "K&C 10e p.951"}
+  - {from: cold-air-or-exercise, to: reversible-bronchoconstriction, note: "Wheeze typically comes after exercise, not during it", source: "K&C 10e p.950"}
+  - [reversible-bronchoconstriction, wheeze]
+  - [reversible-bronchoconstriction, episodic-dyspnoea]
+  - [reversible-bronchoconstriction, variable-peak-flow]
+  - [reversible-bronchoconstriction, bronchodilator-reversibility]
+  - [reversible-bronchoconstriction, ventilation-perfusion-mismatch]
+  - [ventilation-perfusion-mismatch, hypoxaemia]
+  - {from: type-2-eosinophilic-inflammation, to: airway-remodelling, note: "In chronic asthma, remodelling can make part of the obstruction irreversible", source: "K&C 10e p.949"}
+  - [airway-remodelling, obstructive-spirometry]
+  - {from: respiratory-virus, to: acute-severe-asthma, note: "Attacks mostly follow poor adherence, colds, or allergen or drug exposure", source: "K&C 10e p.954"}
+  - [reversible-bronchoconstriction, dry-cough]
+  - [reversible-bronchoconstriction, air-trapping]
+  - [air-trapping, hyperinflation-imaging]
+  - [ventilation-perfusion-mismatch, type-1-respiratory-failure]
+  - [reversible-bronchoconstriction, alveolar-hypoventilation]
+  - [alveolar-hypoventilation, type-2-respiratory-failure]
+  - [air-trapping, pneumothorax]
+findings:
+  - {id: wheeze, freq: classic}
+  - {id: episodic-dyspnoea, freq: classic, note: "Typically worse at night", source: "K&C 10e p.951"}
+  - {id: bronchodilator-reversibility, freq: classic, note: "> 15% rise in FEV1 or PEFR supports the diagnosis; TLCO is normal (unlike emphysema)", source: "K&C 10e p.951"}
+  - {id: variable-peak-flow, freq: common}
+  - {id: dry-cough, freq: common, note: "Can be the main symptom, especially nocturnal cough in children (cough-variant asthma)", source: "K&C 10e p.951"}
+  - {id: obstructive-spirometry, freq: common}
+  - {id: raised-eosinophils-ige, freq: occasional, note: "Sputum eosinophilia is more specific than blood", source: "K&C 10e p.951"}
+  - {id: nasal-polyps, freq: occasional}
+  - {id: hyperinflation-imaging, freq: occasional, note: "CXR is not diagnostic; over-inflation only in attacks or severe chronic disease", source: "K&C 10e p.951"}
+outcomes:
+  - {id: acute-severe-asthma, note: "Severe: can't finish sentences, RR ≥ 25, HR ≥ 110, PEFR 33–50%. Life-threatening: silent chest, cyanosis, exhaustion, PEFR < 33%, SpO2 < 92%", source: "K&C 10e p.954"}
+  - {id: type-1-respiratory-failure, note: "Early in an attack CO2 is low from fast breathing; a normal or rising CO2 means the patient is tiring", source: "Mehlman HY Pulmonary"}
+  - {id: type-2-respiratory-failure, freq: rare, note: "PaCO2 > 6 kPa or falling pH marks a very severe attack", source: "K&C 10e p.954"}
+  - {id: pneumothorax, freq: rare}

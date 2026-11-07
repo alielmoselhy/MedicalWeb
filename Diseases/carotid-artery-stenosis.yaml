@@ -1,7 +1,8 @@
 id: carotid-artery-stenosis
 name: Carotid artery stenosis
-group: atherosclerotic
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.828", "K&C 10e p.836-838"]
 chain:
   - [smoking, endothelial-dysfunction]
@@ -17,6 +18,9 @@ chain:
   - [atheroembolism, cerebral-ischaemia]
   - [cerebral-ischaemia, transient-focal-neurological-deficit]
   - {from: atheroembolism, to: amaurosis-fugax, note: "Emboli through the retinal arteries; sometimes seen as a Hollenhorst plaque", source: "K&C 10e p.838"}
+  - [carotid-stenosis, carotid-bruit]
+  - [cerebral-ischaemia, transient-ischaemic-attack]
+  - [cerebral-ischaemia, ischaemic-stroke]
 findings:
   - {id: transient-focal-neurological-deficit, freq: classic, note: "Hemiparesis and aphasia commonest; full recovery, usually within minutes", source: "K&C 10e p.838"}
   - {id: amaurosis-fugax, freq: common}

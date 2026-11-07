@@ -1,0 +1,16 @@
+id: congenital-pyloric-stenosis
+name: Congenital hypertrophic pyloric stenosis
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["Mehlman HY Gastro"]
+chain:
+  - {from: male-sex, to: pyloric-muscle-hypertrophy, note: "First-born boys; also erythromycin in the newborn. Usually a one-off defect, not part of a syndrome", source: "Mehlman HY Gastro"}
+  - [pyloric-muscle-hypertrophy, gastric-outlet-obstruction]
+  - {from: gastric-outlet-obstruction, to: projectile-vomiting, note: "In a neonate days to weeks old; non-bilious because the block is above the duodenum", source: "Mehlman HY Gastro"}
+  - [pyloric-muscle-hypertrophy, pyloric-olive]
+  - [pyloric-muscle-hypertrophy, thick-pylorus-ultrasound]
+findings:
+  - {id: projectile-vomiting, freq: classic}
+  - {id: pyloric-olive, freq: occasional, source: "Mehlman HY Gastro"}
+  - {id: thick-pylorus-ultrasound, freq: classic, note: "Ultrasound makes the diagnosis; myotomy treats it", source: "Mehlman HY Gastro"}

@@ -1,8 +1,9 @@
 id: restrictive-cardiomyopathy
 name: Restrictive cardiomyopathy
 parent: cardiomyopathy
-group: myocardial
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1123-1124", "K&C 10e p.1127"]
 chain:
   - {from: amyloidosis, to: myocardial-infiltration, note: "Commonest association; also sarcoidosis, endomyocardial fibrosis", source: "K&C 10e p.1123"}
@@ -13,18 +14,25 @@ chain:
   - [systemic-venous-congestion, raised-jvp]
   - [systemic-venous-congestion, kussmaul-sign]
   - [systemic-venous-congestion, hepatomegaly]
-  - [systemic-venous-congestion, ascites]
+  - [systemic-venous-congestion, high-saag-ascites]
   - [systemic-venous-congestion, peripheral-oedema]
   - [pulmonary-venous-congestion, exertional-dyspnoea]
   - [atrial-dilatation, intracardiac-thrombus]
   - [intracardiac-thrombus, thromboembolism]
+  - [diastolic-dysfunction, reduced-cardiac-output]
+  - [reduced-cardiac-output, fatigue]
+  - [myocardial-infiltration, low-voltage-qrs]
+  - [diastolic-dysfunction, third-heart-sound]
+  - [diastolic-dysfunction, heart-failure]
+  - [atrial-dilatation, atrial-fibrillation]
+  - [thromboembolism, ischaemic-stroke]
 findings:
   - {id: raised-jvp, freq: classic}
   - {id: kussmaul-sign, freq: common, note: "Shared with constrictive pericarditis, the key differential", source: "K&C 10e p.1127"}
   - {id: exertional-dyspnoea, freq: common}
   - {id: fatigue, freq: common}
   - {id: hepatomegaly, freq: common}
-  - {id: ascites, freq: common}
+  - {id: high-saag-ascites, freq: common}
   - {id: peripheral-oedema, freq: common}
   - {id: low-voltage-qrs, freq: common}
   - {id: third-heart-sound, freq: occasional}

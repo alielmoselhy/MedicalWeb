@@ -1,0 +1,31 @@
+id: glioblastoma
+name: Glioblastoma
+parent: brain-tumour
+group: nervous-tumours-icp
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.874-876", "Mehlman HY Neuro", "Mehlman HY Neuroanatomy", "Mehlman HY Pathology"]
+chain:
+  - {from: egfr-mutation, to: driver-mutation-transformation, note: "EGFR is linked to both glioblastoma and lung adenocarcinoma; the cause of most gliomas is unknown", source: "Mehlman HY Pathology; K&C 10e p.874"}
+  - {from: nf1-mutation, to: malignant-transformation, note: "Gliomas occasionally occur with neurofibromatosis", source: "K&C 10e p.874"}
+  - [driver-mutation-transformation, intracranial-tumour-growth]
+  - [malignant-transformation, intracranial-tumour-growth]
+  - {from: intracranial-tumour-growth, to: necrotic-enhancing-mass, note: "Grade IV astrocytoma; necrosis and haemorrhage make it heterogeneous ('butterfly glioma' across the corpus callosum)", source: "Mehlman HY Neuro; Mehlman HY Neuroanatomy"}
+  - [intracranial-tumour-growth, focal-neurological-deficit]
+  - [intracranial-tumour-growth, seizures]
+  - [intracranial-tumour-growth, raised-intracranial-pressure]
+  - [intracranial-tumour-growth, cognitive-decline]
+  - [raised-intracranial-pressure, raised-icp-headache]
+  - [intracranial-tumour-growth, vasogenic-oedema]
+  - [raised-intracranial-pressure, uncal-herniation]
+  - [intracranial-tumour-growth, intracerebral-haemorrhage]
+findings:
+  - {id: seizures, freq: common, note: "Focal seizures that may become generalised", source: "K&C 10e p.876"}
+  - {id: focal-neurological-deficit, freq: classic, note: "Progresses over weeks rather than years", source: "K&C 10e p.875"}
+  - {id: cognitive-decline, freq: common, note: "Months of cognitive change then a seizure is the classic exam story", source: "Mehlman HY Neuroanatomy"}
+  - {id: raised-icp-headache, freq: common}
+  - {id: necrotic-enhancing-mass, freq: classic}
+outcomes:
+  - {id: vasogenic-oedema}
+  - {id: uncal-herniation, note: "The commonest adult primary brain tumour; death within months. Spreads by local extension, almost never outside the CNS", source: "K&C 10e p.874; Mehlman HY Neuro"}
+  - {id: intracerebral-haemorrhage, freq: occasional, note: "Bleeding into the tumour", source: "Mehlman HY Neuroanatomy"}

@@ -1,0 +1,36 @@
+id: intracerebral-haemorrhage
+name: Intracerebral haemorrhage
+parent: stroke
+group: cns-trauma-stroke
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.837, 845-846", "Mehlman HY Neuro", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: hypertension, to: intracerebral-vessel-rupture, note: "Charcot–Bouchard microaneurysms of deep penetrating arteries: basal ganglia, pons, cerebellum", source: "K&C 10e p.845; Mehlman HY Neuro"}
+  - {from: cerebral-amyloid-angiopathy, to: intracerebral-vessel-rupture, note: "Normotensive over-60s: recurrent lobar bleeds, more common in Alzheimer's", source: "K&C 10e p.845; Mehlman HY Neuroanatomy"}
+  - {from: anticoagulant-therapy, to: intracerebral-vessel-rupture, note: "Assume a bleed in anyone anticoagulated; reverse it fast", source: "K&C 10e p.845"}
+  - {from: arteriovenous-malformation, to: intracerebral-vessel-rupture, note: "AVMs, cavernomas, aneurysms and venous thrombosis cause about 20%", source: "K&C 10e p.845-846"}
+  - {from: excess-alcohol, to: intracerebral-vessel-rupture, note: "Impaired clotting and platelets; cocaine too", source: "K&C 10e p.845"}
+  - [intracerebral-vessel-rupture, intracranial-haematoma]
+  - [intracranial-haematoma, intraparenchymal-haematoma-ct]
+  - {from: intracranial-haematoma, to: raised-intracranial-pressure, note: "A large haematoma acts as a space-occupying lesion", source: "K&C 10e p.845"}
+  - [intracranial-haematoma, hemiparesis]
+  - [raised-intracranial-pressure, headache]
+  - [raised-intracranial-pressure, coma]
+  - [raised-intracranial-pressure, vomiting]
+  - [raised-intracranial-pressure, uncal-herniation]
+  - [intracranial-haematoma, obstructed-csf-pathway]
+  - [obstructed-csf-pathway, hydrocephalus]
+  - [intracranial-haematoma, vasogenic-oedema]
+  - [intracranial-haematoma, symptomatic-epilepsy]
+findings:
+  - {id: hemiparesis, freq: classic}
+  - {id: headache, freq: common, note: "Severe headache or coma point to bleeding, but the bedside can't reliably tell it from infarction", source: "K&C 10e p.845"}
+  - {id: coma, freq: common}
+  - {id: intraparenchymal-haematoma-ct, freq: classic, note: "Visible on CT at once; MRI and angiography look for an AVM or aneurysm", source: "K&C 10e p.845"}
+  - {id: vomiting, freq: common}
+outcomes:
+  - {id: uncal-herniation, note: "Brain displacement and herniation; mortality up to 50%", source: "K&C 10e p.845"}
+  - {id: hydrocephalus, note: "Cerebellar haematoma or extension into the ventricles; cerebellar clots over 3 cm need evacuation", source: "K&C 10e p.845-846"}
+  - {id: vasogenic-oedema}
+  - symptomatic-epilepsy

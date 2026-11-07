@@ -1,7 +1,8 @@
 id: stable-angina
 name: Stable angina
-group: ischaemic
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1079-1080", "K&C 10e p.1079-1082", "Mehlman HY Cardio (angina table)"]
 chain:
   - [smoking, endothelial-dysfunction]
@@ -21,8 +22,19 @@ chain:
   - from: adenosine-release
     to: exertional-chest-pain
     note: "Adenosine stimulates cardiac nerve endings"
-    source: "K&C 10e p.1081; Mehlman"
+    source: "K&C 10e p.1081; Mehlman HY Cardio"
   - [demand-ischaemia, st-depression]
+  - [demand-ischaemia, dyspnoea]
+  - [coronary-atherosclerosis, plaque-rupture]
+  - [plaque-rupture, platelet-aggregation]
+  - [platelet-aggregation, non-occlusive-coronary-thrombus]
+  - [non-occlusive-coronary-thrombus, subendocardial-ischaemia]
+  - [subendocardial-ischaemia, nstemi]
+  - [platelet-aggregation, occlusive-coronary-thrombus]
+  - [occlusive-coronary-thrombus, transmural-ischaemia]
+  - [transmural-ischaemia, stemi]
+  - [transmural-ischaemia, ventricular-arrhythmia]
+  - [ventricular-arrhythmia, sudden-cardiac-death]
 findings:
   - id: exertional-chest-pain
     freq: classic

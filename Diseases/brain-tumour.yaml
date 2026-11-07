@@ -1,0 +1,32 @@
+id: brain-tumour
+name: Brain tumour
+group: nervous-tumours-icp
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.874-876", "Mehlman HY Neuro"]
+chain:
+  - {from: malignant-transformation, to: intracranial-tumour-growth, note: "Metastases are commoner than primary tumours: about 50% metastases, 35% primary neuroepithelial, 15% benign", source: "K&C 10e p.874"}
+  - {from: intracranial-tumour-growth, to: focal-neurological-deficit, note: "Direct effect: local, progressive loss of function", source: "K&C 10e p.875"}
+  - {from: intracranial-tumour-growth, to: raised-intracranial-pressure, note: "Mass effect plus surrounding oedema", source: "K&C 10e p.875"}
+  - {from: intracranial-tumour-growth, to: seizures, note: "Often the presenting feature of hemisphere tumours", source: "K&C 10e p.876"}
+  - [intracranial-tumour-growth, brain-mass-lesion]
+  - [raised-intracranial-pressure, raised-icp-headache]
+  - [raised-intracranial-pressure, vomiting]
+  - [raised-intracranial-pressure, papilloedema]
+  - [intracranial-tumour-growth, vasogenic-oedema]
+  - [intracranial-tumour-growth, obstructed-csf-pathway]
+  - [obstructed-csf-pathway, hydrocephalus]
+  - [raised-intracranial-pressure, uncal-herniation]
+  - [raised-intracranial-pressure, tonsillar-herniation]
+findings:
+  - {id: focal-neurological-deficit, freq: classic}
+  - {id: seizures, freq: common}
+  - {id: raised-icp-headache, freq: common, note: "Headache, vomiting and papilloedema are an unusual presentation and often mean hydrocephalus", source: "K&C 10e p.875"}
+  - {id: vomiting, freq: common, note: "Morning vomiting suggests a brain tumour", source: "Mehlman HY Neuro"}
+  - {id: papilloedema, freq: occasional}
+  - {id: brain-mass-lesion, freq: classic, note: "CT or MRI (MRI better for the posterior fossa); LP is contraindicated with a mass, as it can provoke coning", source: "K&C 10e p.876"}
+outcomes:
+  - {id: vasogenic-oedema, source: "K&C 10e p.875"}
+  - {id: hydrocephalus, note: "Early with posterior fossa masses, late above the tentorium", source: "K&C 10e p.875"}
+  - {id: uncal-herniation, note: "False localising signs: third nerve palsy, sixth nerve palsy, hemiparesis on the same side as the mass", source: "K&C 10e p.875-876"}
+  - {id: tonsillar-herniation, source: "K&C 10e p.875"}

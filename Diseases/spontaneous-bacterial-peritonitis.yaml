@@ -1,0 +1,28 @@
+id: spontaneous-bacterial-peritonitis
+name: Spontaneous bacterial peritonitis
+parent: peritonitis
+group: intra-abdominal-infection
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1291, 1296-1298", "Mehlman HY Gastro"]
+chain:
+  - {from: cirrhosis, to: bacterial-translocation, note: "The gut barrier fails in advanced liver disease", source: "K&C 10e p.1291"}
+  - {from: bacterial-translocation, to: haematogenous-seeding, note: "Organisms reach the ascites through the blood", source: "K&C 10e p.1297"}
+  - {from: nephrotic-syndrome, to: haematogenous-seeding, note: "Ascites from nephrotic syndrome (children with minimal change disease); also peritoneal dialysis", source: "Mehlman HY Gastro"}
+  - {from: enterobacteriaceae, to: haematogenous-seeding, note: "E. coli, Klebsiella", source: "K&C 10e p.1297"}
+  - {from: enterococci, to: haematogenous-seeding, source: "K&C 10e p.1297"}
+  - [haematogenous-seeding, ascitic-neutrophilia]
+  - [haematogenous-seeding, fever]
+  - [haematogenous-seeding, abdominal-pain]
+  - [cirrhosis, high-saag-ascites]
+  - [bacterial-translocation, dysregulated-host-response]
+  - [dysregulated-host-response, hepatorenal-syndrome]
+  - [dysregulated-host-response, hepatic-encephalopathy]
+findings:
+  - {id: ascitic-neutrophilia, freq: classic, note: "Enough on its own to treat; always tap the ascites", source: "K&C 10e p.1296-1297"}
+  - {id: high-saag-ascites, freq: classic}
+  - {id: fever, freq: common, note: "Pain and fever are often absent: suspect it in anyone with ascites who deteriorates", source: "K&C 10e p.1297"}
+  - {id: abdominal-pain, freq: common}
+outcomes:
+  - {id: hepatorenal-syndrome, note: "SBP is a common trigger", source: "K&C 10e p.1298"}
+  - {id: hepatic-encephalopathy, source: "K&C 10e p.1297"}

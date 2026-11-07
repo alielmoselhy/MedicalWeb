@@ -1,7 +1,8 @@
 id: cardiac-tamponade
 name: Cardiac tamponade
-group: pericardial
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1126-1127"]
 chain:
   - [acute-pericarditis, pericardial-effusion]
@@ -17,6 +18,9 @@ chain:
   - [pericardial-effusion, low-voltage-qrs]
   - [pericardial-effusion, electrical-alternans]
   - [pericardial-effusion, pericardial-effusion-imaging]
+  - [reduced-cardiac-output, tachycardia]
+  - [pericardial-effusion, cardiomegaly]
+  - [pericardial-compression, obstructive-shock]
 findings:
   - {id: raised-jvp, freq: classic, note: "Sharp x descent", source: "K&C 10e p.1127"}
   - {id: pulsus-paradoxus, freq: classic, note: "Systolic BP falls ≥10 mmHg on inspiration", source: "K&C 10e p.1127"}

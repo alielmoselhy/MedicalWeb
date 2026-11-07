@@ -1,0 +1,49 @@
+id: traumatic-brain-injury
+name: Traumatic brain injury
+group: cns-trauma-stroke
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.836, 877", "Mehlman HY Neuro", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: head-injury, to: traumatic-brain-damage, note: "Road traffic collisions and excess alcohol are the main causes", source: "K&C 10e p.877"}
+  - {from: excess-alcohol, to: head-injury, source: "K&C 10e p.877"}
+  - {from: traumatic-brain-damage, to: brain-contusion-laceration, note: "Direct neuronal and axonal damage, sometimes opposite the impact (contre-coup)", source: "K&C 10e p.877"}
+  - {from: traumatic-brain-damage, to: diffuse-axonal-injury, note: "Shearing and rotational forces on the decelerating brain", source: "K&C 10e p.877; Mehlman HY Neuro"}
+  - {from: head-injury, to: skull-fracture, note: "Linear fractures heal alone; depressed fractures need elevation", source: "K&C 10e p.877"}
+  - [skull-fracture, middle-meningeal-artery-tear]
+  - [head-injury, bridging-vein-tear]
+  - [brain-contusion-laceration, raised-intracranial-pressure]
+  - {from: diffuse-axonal-injury, to: punctate-shear-lesions, source: "Mehlman HY Neuro; Mehlman HY Neuroanatomy"}
+  - {from: traumatic-brain-damage, to: global-cerebral-hypoperfusion, note: "Brain oedema, hypoxia and ischaemia add secondary damage", source: "K&C 10e p.877"}
+  - [diffuse-axonal-injury, coma]
+  - [diffuse-axonal-injury, post-traumatic-amnesia]
+  - [traumatic-brain-damage, hemiparesis]
+  - [traumatic-brain-damage, headache]
+  - [middle-meningeal-artery-tear, extradural-haematoma]
+  - [bridging-vein-tear, subdural-haematoma]
+  - [skull-fracture, csf-leak]
+  - [brain-contusion-laceration, symptomatic-epilepsy]
+  - [traumatic-brain-damage, post-concussional-syndrome]
+  - [traumatic-brain-damage, impaired-csf-absorption]
+  - [impaired-csf-absorption, hydrocephalus]
+  - [traumatic-brain-damage, chronic-traumatic-encephalopathy]
+  - [global-cerebral-hypoperfusion, prolonged-disorder-of-consciousness]
+  - [traumatic-brain-damage, cerebral-oedema]
+  - [raised-intracranial-pressure, brain-herniation]
+findings:
+  - {id: coma, freq: common, note: "GCS records depth; GCS below 5 at 24 h means half die or stay vegetative or minimally conscious", source: "K&C 10e p.877"}
+  - {id: post-traumatic-amnesia, freq: classic, note: "PTA over 24 h defines severe TBI; over a week makes lasting cognitive deficit almost certain", source: "K&C 10e p.877"}
+  - {id: hemiparesis, freq: common, note: "Focal deficits such as hemiparesis or aphasia in the first weeks", source: "K&C 10e p.877"}
+  - {id: headache, freq: common}
+  - {id: punctate-shear-lesions, freq: occasional}
+outcomes:
+  - {id: extradural-haematoma, source: "K&C 10e p.877"}
+  - {id: subdural-haematoma, note: "Acute, or chronic as a late sequel", source: "K&C 10e p.877"}
+  - {id: csf-leak, note: "Skull base fracture; can lead to meningitis", source: "K&C 10e p.877"}
+  - {id: symptomatic-epilepsy, note: "Post-traumatic epilepsy, frequent after depressed fractures; prophylactic antiepileptics don't prevent it", source: "K&C 10e p.877"}
+  - {id: post-concussional-syndrome, note: "Even after minor injuries; depression prominent", source: "K&C 10e p.877"}
+  - {id: hydrocephalus, source: "K&C 10e p.877"}
+  - {id: chronic-traumatic-encephalopathy, note: "Repeated minor injuries, e.g. boxers: cognitive, extrapyramidal and pyramidal signs", source: "K&C 10e p.877"}
+  - {id: prolonged-disorder-of-consciousness, source: "K&C 10e p.836, 877"}
+  - {id: cerebral-oedema}
+  - {id: brain-herniation}

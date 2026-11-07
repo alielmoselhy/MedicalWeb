@@ -1,0 +1,45 @@
+id: pancreatic-adenocarcinoma
+name: Pancreatic adenocarcinoma
+group: biliary-pancreas
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1332-1333", "Mehlman HY Gastro", "LMC 2025 HPB pathology s.58-65"]
+chain:
+  - {from: smoking, to: carcinogen-induced-transformation, note: "Doubles the risk", source: "K&C 10e p.1332"}
+  - {from: chronic-pancreatitis, to: inflammation-driven-transformation, note: "Highest with hereditary (PRSS1) pancreatitis, about 50 times", source: "K&C 10e p.1332-1333"}
+  - {from: diabetes-mellitus, to: malignant-transformation, source: "K&C 10e p.1332"}
+  - [carcinogen-induced-transformation, pancreatic-tumour]
+  - [inflammation-driven-transformation, pancreatic-tumour]
+  - {from: driver-mutation-transformation, to: pancreatic-tumour, note: "Stepwise mutations through PanIN precursor lesions: KRAS early (90%), then CDKN2A (95%), p53, SMAD4", source: "K&C 10e p.1333; LMC 2025 HPB pathology s.59"}
+  - {from: pancreatic-tumour, to: bile-duct-obstruction, note: "60% are in the head and squeeze the distal bile duct", source: "K&C 10e p.1333; LMC 2025 HPB pathology s.59"}
+  - [bile-duct-obstruction, jaundice]
+  - [bile-duct-obstruction, pale-stools-dark-urine]
+  - [bile-duct-obstruction, pruritus]
+  - [bile-duct-obstruction, palpable-gallbladder]
+  - [bile-duct-obstruction, cholestatic-pattern]
+  - [bile-duct-obstruction, conjugated-hyperbilirubinaemia]
+  - {from: pancreatic-tumour, to: pain-radiating-to-back, note: "Often eased by leaning forward", source: "K&C 10e p.1333"}
+  - [pancreatic-tumour, weight-loss]
+  - [pancreatic-tumour, anorexia]
+  - [pancreatic-tumour, pancreatic-mass]
+  - [pancreatic-tumour, metastatic-spread]
+  - {from: excess-alcohol, to: carcinogen-induced-transformation, note: "Also obesity, high-fat diet, red and processed meat, BRCA2. 80% are over 60", source: "LMC 2025 HPB pathology s.58"}
+  - {from: obesity, to: carcinogen-induced-transformation, source: "LMC 2025 HPB pathology s.58"}
+  - [pancreatic-tumour, abdominal-mass]
+  - [pancreatic-tumour, raised-ca19-9]
+  - [metastatic-spread, liver-metastases]
+  - [metastatic-spread, bone-metastases]
+findings:
+  - {id: weight-loss, freq: classic, source: "K&C 10e p.1333"}
+  - {id: pain-radiating-to-back, freq: common, note: "A late feature; jaundice is classically painless", source: "K&C 10e p.1333; LMC 2025 HPB pathology s.60"}
+  - {id: anorexia, freq: common, source: "K&C 10e p.1333"}
+  - {id: jaundice, freq: common, note: "Painless obstructive jaundice in a smoker with weight loss; pancreatic enzymes are normal", source: "Mehlman HY Gastro"}
+  - {id: palpable-gallbladder, freq: occasional, note: "A painless palpable gall bladder in a jaundiced patient", source: "K&C 10e p.1333; Mehlman HY Gastro"}
+  - {id: conjugated-hyperbilirubinaemia, freq: common}
+  - {id: pancreatic-mass, freq: classic, note: "CT abdomen makes the diagnosis", source: "Mehlman HY Gastro"}
+  - {id: pruritus, freq: occasional, source: "K&C 10e p.1333"}
+  - {id: abdominal-mass, freq: occasional, note: "Epigastric mass in advanced local disease", source: "K&C 10e p.1333"}
+  - {id: raised-ca19-9, freq: common, source: "LMC 2025 HPB pathology s.60"}
+outcomes:
+  - {id: liver-metastases, note: "Hepatomegaly", source: "K&C 10e p.1333"}
+  - {id: bone-metastases, note: "Also lung; local spread along nerves into the retroperitoneum. 10% 5-year survival", source: "LMC 2025 HPB pathology s.65"}

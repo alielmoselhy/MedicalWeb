@@ -1,0 +1,40 @@
+id: appendicitis
+name: Acute appendicitis
+group: intra-abdominal-infection
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1221-1222, 1305", "Mehlman HY Gastro"]
+chain:
+  - {from: appendix-lumen-obstruction, to: bowel-wall-infection, note: "Usually a faecolith; sometimes just generalised inflammation. Any age", source: "K&C 10e p.1221"}
+  - [enterobacteriaceae, bowel-wall-infection]
+  - [anaerobic-bacteria, bowel-wall-infection]
+  - {from: bowel-wall-infection, to: rif-pain, note: "Starts vaguely central (visceral), then settles in the RIF over hours as the parietal peritoneum is involved", source: "K&C 10e p.1221; Mehlman HY Gastro"}
+  - [bowel-wall-infection, vomiting]
+  - [bowel-wall-infection, anorexia]
+  - [bowel-wall-infection, fever]
+  - [bowel-wall-infection, guarding-rigidity]
+  - [bowel-wall-infection, rovsing-sign]
+  - [bowel-wall-infection, raised-inflammatory-markers]
+  - [bowel-wall-infection, inflamed-appendix-imaging]
+  - {from: bowel-wall-infection, to: bowel-perforation, note: "Gangrene then perforation if not removed", source: "K&C 10e p.1221"}
+  - [bowel-wall-infection, rif-mass]
+  - [bowel-perforation, perforated-appendix]
+  - [bowel-perforation, intra-abdominal-abscess]
+  - [bowel-perforation, secondary-peritonitis]
+  - [bowel-wall-infection, portal-venous-seeding]
+  - [portal-venous-seeding, pyogenic-liver-abscess]
+findings:
+  - {id: rif-pain, freq: classic}
+  - {id: vomiting, freq: common, note: "Nausea, vomiting, anorexia, sometimes diarrhoea", source: "K&C 10e p.1221"}
+  - {id: anorexia, freq: common}
+  - {id: fever, freq: common, note: "RIF pain, fever and vomiting together", source: "Mehlman HY Gastro"}
+  - {id: guarding-rigidity, freq: classic, note: "RIF tenderness and guarding from local peritonitis", source: "K&C 10e p.1221"}
+  - {id: rovsing-sign, freq: occasional, source: "Mehlman HY Gastro"}
+  - {id: rif-mass, freq: occasional, note: "Appendix mass: usually treated with antibiotics, then interval appendicectomy", source: "K&C 10e p.1221-1222"}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: inflamed-appendix-imaging, freq: common, note: "CT is about 98% accurate; normal appendix rate now 15–20%", source: "K&C 10e p.1221"}
+outcomes:
+  - {id: perforated-appendix, source: "K&C 10e p.1221"}
+  - {id: intra-abdominal-abscess, source: "K&C 10e p.1221"}
+  - {id: secondary-peritonitis, source: "K&C 10e p.1221"}
+  - {id: pyogenic-liver-abscess, freq: rare, note: "Portal pyaemia", source: "K&C 10e p.1305"}

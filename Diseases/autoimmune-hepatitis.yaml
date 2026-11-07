@@ -1,0 +1,28 @@
+id: autoimmune-hepatitis
+name: Autoimmune hepatitis
+group: non-viral-liver
+status: draft
+systems: [gastrointestinal, immunology]
+sources: ["K&C 10e p.1286-1287", "Mehlman HY Gastro", "LMC 2026 Non-viral liver s.51-52"]
+chain:
+  - {from: autoimmune-predisposition, to: autoimmune-hepatocyte-injury, note: "75% women; 40% have a family history of autoimmune disease; 20–60% have another (thyroiditis, RA). CD4 T cells attack liver antigens", source: "K&C 10e p.1286; LMC 2026 Non-viral liver s.51"}
+  - [autoimmune-hepatocyte-injury, hepatitic-pattern]
+  - [autoimmune-hepatocyte-injury, aih-autoantibodies]
+  - [autoimmune-hepatocyte-injury, raised-immunoglobulins]
+  - [autoimmune-hepatocyte-injury, liver-fibrosis]
+  - [autoimmune-hepatocyte-injury, interface-hepatitis]
+  - [autoimmune-hepatocyte-injury, jaundice]
+  - [autoimmune-hepatocyte-injury, fatigue]
+  - [autoimmune-hepatocyte-injury, migratory-polyarthritis]
+  - [liver-fibrosis, cirrhosis]
+findings:
+  - {id: hepatitic-pattern, freq: classic, note: "High transaminases, smaller rises in ALP and bilirubin", source: "K&C 10e p.1287"}
+  - {id: aih-autoantibodies, freq: classic, note: "About 13% have none of them", source: "K&C 10e p.1287; Mehlman HY Gastro"}
+  - {id: raised-immunoglobulins, freq: classic, note: "IgG often twice normal", source: "K&C 10e p.1287"}
+  - {id: interface-hepatitis, freq: classic, note: "Plasma cells fill the portal tracts and spill into the lobules; biopsy confirms", source: "K&C 10e p.1287; LMC 2026 Non-viral liver s.52"}
+  - {id: jaundice, freq: common, note: "Teens and twenties: an acute hepatitis that doesn't settle", source: "K&C 10e p.1286"}
+  - {id: fatigue, freq: common, note: "Peri- and postmenopausal: fatigue or abnormal blood tests", source: "K&C 10e p.1286"}
+  - {id: migratory-polyarthritis, freq: occasional, note: "With fever, pleurisy and glomerulonephritis in the young", source: "K&C 10e p.1286"}
+outcomes:
+  - {id: cirrhosis, note: "Acute in 40%, chronic in 60%. Untreated severe disease: 40% die within 6 months, and 40% of survivors become cirrhotic", source: "K&C 10e p.1286; LMC 2026 Non-viral liver s.52"}
+  - {id: glomerulonephritis, freq: occasional, source: "K&C 10e p.1286"}

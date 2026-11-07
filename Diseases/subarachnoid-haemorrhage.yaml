@@ -1,0 +1,46 @@
+id: subarachnoid-haemorrhage
+name: Subarachnoid haemorrhage
+parent: stroke
+group: cns-trauma-stroke
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.846-847", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: berry-aneurysm, to: aneurysm-rupture, note: "70% of SAH. At circle of Willis junctions: anterior communicating, posterior communicating, MCA", source: "K&C 10e p.846; Mehlman HY Neuroanatomy"}
+  - {from: hypertension, to: berry-aneurysm, note: "The commonest risk factor in the population", source: "Mehlman HY Neuroanatomy"}
+  - {from: adpkd, to: berry-aneurysm, source: "K&C 10e p.846; Mehlman HY Neuroanatomy"}
+  - {from: ehlers-danlos-syndrome, to: berry-aneurysm, source: "K&C 10e p.846; Mehlman HY Neuroanatomy"}
+  - {from: marfan-syndrome, to: berry-aneurysm, source: "K&C 10e p.846"}
+  - {from: arteriovenous-malformation, to: aneurysm-rupture, note: "AVMs cause 10%; no lesion is found in 15%", source: "K&C 10e p.846"}
+  - {from: infective-endocarditis, to: aneurysm-rupture, note: "Rarely, a mycotic aneurysm", source: "K&C 10e p.846"}
+  - {from: berry-aneurysm, to: third-nerve-palsy, note: "An enlarging posterior communicating aneurysm: painful third nerve palsy with a dilated pupil", source: "K&C 10e p.846; Mehlman HY Neuroanatomy"}
+  - [aneurysm-rupture, thunderclap-headache]
+  - {from: aneurysm-rupture, to: meningism, note: "Blood irritating the meninges", source: "K&C 10e p.847"}
+  - [aneurysm-rupture, subarachnoid-blood-ct]
+  - [aneurysm-rupture, xanthochromia]
+  - [aneurysm-rupture, raised-intracranial-pressure]
+  - {from: aneurysm-rupture, to: impaired-csf-absorption, note: "Blood blocks CSF flow and reabsorption", source: "K&C 10e p.847"}
+  - [raised-intracranial-pressure, coma]
+  - [raised-intracranial-pressure, papilloedema]
+  - [raised-intracranial-pressure, vomiting]
+  - [aneurysm-rupture, neck-stiffness]
+  - [aneurysm-rupture, kernig-sign]
+  - [aneurysm-rupture, subhyaloid-haemorrhage]
+  - [berry-aneurysm, aneurysm-rebleed]
+  - [aneurysm-rupture, delayed-cerebral-ischaemia]
+  - [impaired-csf-absorption, hydrocephalus]
+findings:
+  - {id: thunderclap-headache, freq: classic, note: "Sudden, very severe, often occipital, peaking in about 3 minutes; then vomiting, often coma. 17% have a small sentinel bleed weeks before", source: "K&C 10e p.847"}
+  - {id: vomiting, freq: common}
+  - {id: neck-stiffness, freq: common, note: "After a major bleed, with a positive Kernig's sign", source: "K&C 10e p.847"}
+  - {id: kernig-sign, freq: common}
+  - {id: coma, freq: common}
+  - {id: papilloedema, freq: occasional}
+  - {id: subhyaloid-haemorrhage, freq: occasional, source: "K&C 10e p.847"}
+  - {id: subarachnoid-blood-ct, freq: classic, note: "CT is 95% sensitive within 24 h, much less later", source: "K&C 10e p.847"}
+  - {id: xanthochromia, freq: classic, note: "LP if CT is normal but doubt remains: yellow CSF from 12 hours to 2 weeks", source: "K&C 10e p.847"}
+  - {id: third-nerve-palsy, freq: occasional}
+outcomes:
+  - {id: aneurysm-rebleed, freq: common, note: "10–20% of those reaching hospital rebleed and die within weeks; nearly half die before hospital. Coiling is first-line", source: "K&C 10e p.847"}
+  - {id: delayed-cerebral-ischaemia, note: "Arterial spasm causing coma or hemiparesis; nimodipine for 3 weeks reduces mortality", source: "K&C 10e p.847"}
+  - {id: hydrocephalus, note: "May cause deteriorating consciousness; shunting may be needed", source: "K&C 10e p.847"}

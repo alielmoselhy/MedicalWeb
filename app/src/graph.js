@@ -1,10 +1,12 @@
 // Graph data plus the matching logic shared by all views.
 import data from './graph.json';
 
-export const { nodes, edges, touches } = data;
+export const { nodes, edges, touches, syllabus } = data;
 export const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
 export const diseases = nodes.filter(n => n.type === 'disease').sort((a, b) => a.name.localeCompare(b.name));
-export const groups = [...new Set(diseases.map(d => d.group).filter(Boolean))].sort();
+// Syllabus subsections in syllabus order; every disease's group is one of these (the validator checks).
+export const groups = syllabus.flatMap(s => s.groups);
+export const groupName = id => groups.find(g => g.id === id).name;
 export const TYPES = ['disease', 'cause', 'mechanism', 'finding', 'outcome'];
 
 // Nodes some disease uses, plus their parents; unused vocabulary stays out of the views.

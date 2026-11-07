@@ -1,0 +1,13 @@
+id: gastrointestinal-stromal-tumour
+name: Gastrointestinal stromal tumour (GIST)
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1172, 1180"]
+chain:
+  - {from: kit-mutation, to: stromal-tumour, note: "KIT (CD117) activated in 80%; arises from the interstitial cells of Cajal. Ages 55–65", source: "K&C 10e p.1180"}
+  - [stromal-tumour, gi-bleeding]
+  - [stromal-tumour, dysphagia]
+findings:
+  - {id: gi-bleeding, freq: occasional, note: "Usually found by chance; can ulcerate and bleed", source: "K&C 10e p.1180"}
+  - {id: dysphagia, freq: occasional, note: "Oesophageal ones; remove if symptomatic or over 3 cm", source: "K&C 10e p.1172"}

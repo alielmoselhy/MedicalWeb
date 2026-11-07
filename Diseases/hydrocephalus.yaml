@@ -1,0 +1,33 @@
+id: hydrocephalus
+name: Hydrocephalus
+group: nervous-tumours-icp
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.875-877", "Mehlman HY Neuro", "Mehlman HY Neuroanatomy"]
+chain:
+  - {from: intracranial-tumour-growth, to: obstructed-csf-pathway, note: "Posterior fossa and brainstem tumours; a third-ventricle colloid cyst gives intermittent attacks", source: "K&C 10e p.876-877; Mehlman HY Neuro"}
+  - {from: aneurysm-rupture, to: impaired-csf-absorption, note: "After SAH, head injury or meningitis (especially TB), blood or exudate blocks CSF flow and reabsorption", source: "K&C 10e p.877; Mehlman HY Neuroanatomy"}
+  - [head-injury, impaired-csf-absorption]
+  - {from: obstructed-csf-pathway, to: dilated-ventricles, note: "Aqueduct stenosis is the commonest congenital cause; also Arnold–Chiari and Dandy–Walker malformations", source: "K&C 10e p.876; Mehlman HY Neuro"}
+  - [impaired-csf-absorption, dilated-ventricles]
+  - [obstructed-csf-pathway, raised-intracranial-pressure]
+  - [impaired-csf-absorption, raised-intracranial-pressure]
+  - [raised-intracranial-pressure, raised-icp-headache]
+  - [raised-intracranial-pressure, vomiting]
+  - [raised-intracranial-pressure, papilloedema]
+  - {from: raised-intracranial-pressure, to: enlarging-head-infant, note: "Infantile hydrocephalus, 1 in 2000 births", source: "K&C 10e p.876"}
+  - {from: impaired-csf-absorption, to: gait-apraxia, note: "Normal pressure hydrocephalus in the elderly: gait apraxia, dementia, urinary incontinence", source: "K&C 10e p.877; Mehlman HY Neuro"}
+  - [impaired-csf-absorption, urinary-incontinence]
+  - [impaired-csf-absorption, cognitive-decline]
+  - [raised-intracranial-pressure, tonsillar-herniation]
+findings:
+  - {id: dilated-ventricles, freq: classic}
+  - {id: raised-icp-headache, freq: common, note: "Headache, cognitive impairment, raised ICP and ataxia, depending on pressure and speed of onset", source: "K&C 10e p.876"}
+  - {id: vomiting, freq: common}
+  - {id: papilloedema, freq: common}
+  - {id: cognitive-decline, freq: common}
+  - {id: gait-apraxia, freq: occasional, note: "Elderly patients may show only gradual gait apraxia and slowing", source: "K&C 10e p.876"}
+  - {id: urinary-incontinence, freq: occasional}
+  - {id: enlarging-head-infant, freq: occasional}
+outcomes:
+  - {id: tonsillar-herniation, note: "Decompensation can be sudden; VP shunt or endoscopic third ventriculostomy", source: "K&C 10e p.876-877"}

@@ -1,0 +1,41 @@
+id: secondary-peritonitis
+name: Secondary (perforation) peritonitis
+parent: peritonitis
+group: intra-abdominal-infection
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1220-1223", "Mehlman HY Gastro"]
+chain:
+  - {from: appendicitis, to: bowel-perforation, source: "K&C 10e p.1222"}
+  - {from: diverticulitis, to: bowel-perforation, source: "K&C 10e p.1213"}
+  - {from: peptic-ulcer-disease, to: bowel-perforation, note: "Leak of gut contents causes chemical peritonitis first, then infection", source: "K&C 10e p.1222"}
+  - {from: intestinal-obstruction, to: bowel-perforation, note: "Strangulated bowel", source: "K&C 10e p.1222"}
+  - [bowel-perforation, peritoneal-inflammation]
+  - {from: enterobacteriaceae, to: peritoneal-inflammation, note: "E. coli is the commonest", source: "K&C 10e p.1222"}
+  - {from: anaerobic-bacteria, to: peritoneal-inflammation, note: "Bacteroides", source: "K&C 10e p.1222"}
+  - [enterococci, peritoneal-inflammation]
+  - {from: bowel-perforation, to: pneumoperitoneum, note: "Erect chest X-ray first; then ultrasound and/or CT", source: "K&C 10e p.1222"}
+  - [peritoneal-inflammation, guarding-rigidity]
+  - [peritoneal-inflammation, absent-bowel-sounds]
+  - [peritoneal-inflammation, dysregulated-host-response]
+  - [dysregulated-host-response, hypotension]
+  - [dysregulated-host-response, tachycardia]
+  - [peritoneal-inflammation, abdominal-pain]
+  - [dysregulated-host-response, fever]
+  - [dysregulated-host-response, septic-shock]
+  - [dysregulated-host-response, multi-organ-dysfunction]
+  - [bowel-perforation, intra-abdominal-abscess]
+  - [peritoneal-inflammation, paralytic-ileus]
+findings:
+  - {id: abdominal-pain, freq: classic, note: "Perforation: sudden severe pain then collapse, a brief lull, then toxaemia. After inflammatory disease the onset is slower", source: "K&C 10e p.1222"}
+  - {id: guarding-rigidity, freq: classic, note: "A rigid abdomen", source: "Mehlman HY Gastro"}
+  - {id: pneumoperitoneum, freq: common}
+  - {id: absent-bowel-sounds, freq: common}
+  - {id: hypotension, freq: common}
+  - {id: tachycardia, freq: common}
+  - {id: fever, freq: common}
+outcomes:
+  - {id: septic-shock, source: "K&C 10e p.1222"}
+  - {id: multi-organ-dysfunction, note: "With any delay in treatment", source: "K&C 10e p.1222"}
+  - {id: intra-abdominal-abscess, note: "Pelvic or subphrenic: swinging fever and pain after surgery", source: "K&C 10e p.1222"}
+  - {id: paralytic-ileus, source: "K&C 10e p.1222"}

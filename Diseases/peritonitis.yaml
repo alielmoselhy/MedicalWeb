@@ -1,0 +1,19 @@
+id: peritonitis
+name: Peritonitis
+group: intra-abdominal-infection
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1220-1223"]
+chain:
+  - {from: peritoneal-inflammation, to: abdominal-pain, note: "Continuous, worse on movement", source: "K&C 10e p.1220"}
+  - {from: peritoneal-inflammation, to: guarding-rigidity, note: "Guarding is involuntary spasm and means peritonitis, local or general", source: "K&C 10e p.1220"}
+  - [peritoneal-inflammation, absent-bowel-sounds]
+  - [peritoneal-inflammation, fever]
+  - [peritoneal-inflammation, paralytic-ileus]
+findings:
+  - {id: abdominal-pain, freq: classic}
+  - {id: guarding-rigidity, freq: classic}
+  - {id: absent-bowel-sounds, freq: common, source: "K&C 10e p.1220"}
+  - {id: fever, freq: common}
+outcomes:
+  - {id: paralytic-ileus, source: "K&C 10e p.1222"}

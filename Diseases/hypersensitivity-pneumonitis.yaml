@@ -1,0 +1,43 @@
+id: hypersensitivity-pneumonitis
+name: Hypersensitivity pneumonitis
+parent: interstitial-lung-disease
+group: interstitial
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.989-991", "Mehlman HY Pulmonary"]
+chain:
+  - {from: organic-antigen, to: immune-complex-deposition, note: "Farmer's lung (mouldy hay; up to 9% of farmers in humid climates), bird fancier's lung; rarely drugs. Smokers are at lower risk", source: "K&C 10e p.989"}
+  - {from: organic-antigen, to: serum-precipitins, note: "Show exposure, not disease: a quarter of pigeon fanciers have them", source: "K&C 10e p.991"}
+  - {from: immune-complex-deposition, to: poorly-formed-granuloma, note: "Cell-mediated immunity plus immune complexes activating complement", source: "K&C 10e p.989"}
+  - {from: immune-complex-deposition, to: bronchiolitis, note: "Inspiratory squeaks", source: "K&C 10e p.989"}
+  - [bronchiolitis, air-trapping]
+  - [poorly-formed-granuloma, diffuse-small-nodules]
+  - {from: poorly-formed-granuloma, to: ground-glass-opacity, note: "HRCT: nodules, ground glass and air trapping, worst in mid and upper zones", source: "K&C 10e p.990-991"}
+  - {from: poorly-formed-granuloma, to: interstitial-fibrosis, note: "Chronic disease; established fibrosis does not resolve", source: "K&C 10e p.989"}
+  - [interstitial-fibrosis, restrictive-spirometry]
+  - [interstitial-fibrosis, reticular-honeycombing]
+  - [interstitial-fibrosis, diffusion-impairment]
+  - [diffusion-impairment, reduced-tlco]
+  - [diffusion-impairment, dyspnoea]
+  - [immune-complex-deposition, fever]
+  - [bronchiolitis, dry-cough]
+  - [interstitial-fibrosis, fine-end-inspiratory-crackles]
+  - [immune-complex-deposition, fatigue]
+  - [immune-complex-deposition, weight-loss]
+  - [interstitial-fibrosis, finger-clubbing]
+  - [diffusion-impairment, type-1-respiratory-failure]
+findings:
+  - {id: dyspnoea, freq: classic}
+  - {id: fever, freq: common, note: "Acute form: 4–6 h after exposure, mistaken for infection, settles in 24–48 h", source: "K&C 10e p.989"}
+  - {id: dry-cough, freq: common}
+  - {id: fine-end-inspiratory-crackles, freq: common, note: "Bilateral fine crackles; wheeze is uncommon", source: "K&C 10e p.989"}
+  - {id: serum-precipitins, freq: common}
+  - {id: ground-glass-opacity, freq: common}
+  - {id: diffuse-small-nodules, freq: common}
+  - {id: fatigue, freq: occasional}
+  - {id: weight-loss, freq: occasional}
+  - {id: finger-clubbing, freq: occasional, note: "Chronic form", source: "K&C 10e p.989"}
+  - {id: restrictive-spirometry, freq: occasional, note: "Chronic disease, with low gas transfer", source: "K&C 10e p.991"}
+  - {id: reduced-tlco, freq: occasional}
+outcomes:
+  - {id: type-1-respiratory-failure, freq: occasional, note: "Avoiding the antigen is the key treatment; chronic disease can still progress", source: "K&C 10e p.991"}

@@ -1,8 +1,9 @@
 id: stemi
 name: ST-elevation myocardial infarction
 parent: acute-coronary-syndrome
-group: ischaemic
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1079-1080", "K&C 10e p.1084-1091", "Mehlman HY Cardio"]
 chain:
   - [smoking, endothelial-dysfunction]
@@ -49,7 +50,15 @@ chain:
   - from: post-infarct-autoimmunity
     to: dressler-syndrome
     note: "Weeks after MI; recurrences common"
-    source: "K&C 10e p.1126; Mehlman"
+    source: "K&C 10e p.1126; Mehlman HY Cardio"
+  - [myocyte-necrosis, ck-mb-rise]
+  - [transmural-ischaemia, diaphoresis]
+  - [transmural-ischaemia, hypotension]
+  - [transmural-ischaemia, dyspnoea]
+  - [transmural-ischaemia, ventricular-arrhythmia]
+  - [transmural-ischaemia, atrial-fibrillation]
+  - [transmural-ischaemia, av-block]
+  - [ventricular-arrhythmia, sudden-cardiac-death]
 findings:
   - id: prolonged-chest-pain
     freq: classic

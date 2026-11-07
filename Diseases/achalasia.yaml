@@ -1,0 +1,23 @@
+id: achalasia
+name: Achalasia
+group: oesophagus-stomach
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1167-1168", "Mehlman HY Gastro"]
+chain:
+  - {from: failed-les-relaxation, to: solid-and-liquid-dysphagia, note: "Cause unknown (autoimmune, viral, neurodegenerative); Chagas' disease gives the same picture. Long history, solids and liquids from the start", source: "K&C 10e p.1167; Mehlman HY Gastro"}
+  - {from: failed-les-relaxation, to: regurgitation, note: "From the dilated oesophagus, especially at night", source: "K&C 10e p.1167"}
+  - {from: failed-les-relaxation, to: chest-pain, note: "Spontaneous 'spasm' pain, can be mistaken for cardiac pain", source: "K&C 10e p.1167"}
+  - [failed-les-relaxation, birds-beak-oesophagus]
+  - {from: regurgitation, to: aspiration-of-oropharyngeal-flora, source: "K&C 10e p.1167"}
+  - [failed-les-relaxation, weight-loss]
+  - [aspiration-of-oropharyngeal-flora, community-acquired-pneumonia]
+findings:
+  - {id: solid-and-liquid-dysphagia, freq: classic, note: "Unlike cancer, where solids come first", source: "Mehlman HY Gastro"}
+  - {id: regurgitation, freq: common}
+  - {id: chest-pain, freq: occasional}
+  - {id: birds-beak-oesophagus, freq: classic, note: "Barium swallow first; manometry confirms (aperistalsis, LOS fails to relax). Endoscopy or CT to exclude a cancer at the cardia", source: "K&C 10e p.1167-1168; Mehlman HY Gastro"}
+  - {id: weight-loss, freq: occasional, note: "Usually minimal", source: "K&C 10e p.1167"}
+outcomes:
+  - {id: community-acquired-pneumonia, freq: occasional, note: "Aspiration pneumonia", source: "K&C 10e p.1167"}
+  - {id: oesophageal-squamous-cell-carcinoma, freq: rare, note: "About 7% after 25 years, treated or not", source: "K&C 10e p.1168"}

@@ -1,0 +1,32 @@
+id: brain-metastases
+name: Brain metastases
+parent: brain-tumour
+group: nervous-tumours-icp
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.874-876", "Mehlman HY Neuro"]
+chain:
+  - {from: lung-cancer, to: brain-metastatic-seeding, note: "About half of all brain tumours. Bronchus first, then breast, stomach, prostate, thyroid, kidney", source: "K&C 10e p.874; Mehlman HY Neuro"}
+  - [gastric-adenocarcinoma, brain-metastatic-seeding]
+  - [extracranial-primary-cancer, brain-metastatic-seeding]
+  - [brain-metastatic-seeding, intracranial-tumour-growth]
+  - [intracranial-tumour-growth, multiple-grey-white-lesions]
+  - [intracranial-tumour-growth, focal-neurological-deficit]
+  - [intracranial-tumour-growth, seizures]
+  - [intracranial-tumour-growth, raised-intracranial-pressure]
+  - [raised-intracranial-pressure, raised-icp-headache]
+  - [raised-intracranial-pressure, vomiting]
+  - [intracranial-tumour-growth, vasogenic-oedema]
+  - [raised-intracranial-pressure, uncal-herniation]
+  - [intracranial-tumour-growth, obstructed-csf-pathway]
+  - [obstructed-csf-pathway, hydrocephalus]
+findings:
+  - {id: multiple-grey-white-lesions, freq: classic, note: "Often multiple; can be ring-enhancing like an abscess. A chest X-ray is routine, and PET can find an occult primary", source: "Mehlman HY Neuro; K&C 10e p.876"}
+  - {id: focal-neurological-deficit, freq: common}
+  - {id: seizures, freq: common}
+  - {id: raised-icp-headache, freq: common}
+  - {id: vomiting, freq: common}
+outcomes:
+  - {id: vasogenic-oedema}
+  - uncal-herniation
+  - {id: hydrocephalus, freq: occasional, note: "Cerebellar metastases", source: "K&C 10e p.874-875"}

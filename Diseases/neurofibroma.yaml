@@ -1,0 +1,20 @@
+id: neurofibroma
+name: Neurofibroma
+parent: nerve-sheath-tumour
+group: nervous-tumours-icp
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.874, 886", "Mehlman HY Neuro", "Mehlman HY Pathology"]
+chain:
+  - {from: nf1-mutation, to: tumour-suppressor-loss, note: "Autosomal dominant, 1 in 3000, half new mutations; the protein is neurofibromin (chromosome 17)", source: "K&C 10e p.886; Mehlman HY Pathology"}
+  - {from: tumour-suppressor-loss, to: cutaneous-neurofibromas, note: "From the nerve sheath; soft, sometimes pedunculated, increasing through life", source: "K&C 10e p.886"}
+  - {from: nf1-mutation, to: nf1-skin-signs, source: "K&C 10e p.886; Mehlman HY Neuro"}
+  - {from: tumour-suppressor-loss, to: focal-neurological-deficit, note: "Plexiform neurofibromas on major nerves and roots, sometimes compressing the cord; removed if they cause pressure symptoms", source: "K&C 10e p.886"}
+  - [tumour-suppressor-loss, malignant-transformation]
+  - [malignant-transformation, malignant-nerve-sheath-tumour]
+findings:
+  - {id: cutaneous-neurofibromas, freq: classic}
+  - {id: nf1-skin-signs, freq: classic, note: "Café-au-lait patches, axillary freckling, Lisch nodules (iris hamartomas)", source: "K&C 10e p.886"}
+  - {id: focal-neurological-deficit, freq: occasional}
+outcomes:
+  - {id: malignant-nerve-sheath-tumour, freq: rare, source: "K&C 10e p.886"}

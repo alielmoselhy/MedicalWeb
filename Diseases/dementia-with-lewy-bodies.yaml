@@ -1,0 +1,20 @@
+id: dementia-with-lewy-bodies
+name: Dementia with Lewy bodies
+parent: dementia
+group: neurodegenerative
+status: draft
+systems: [nervous]
+sources: ["K&C 10e p.883", "Mehlman HY Neuro"]
+chain:
+  - [alpha-synuclein-lewy-bodies, cholinergic-neurone-loss]
+  - [alpha-synuclein-lewy-bodies, nigrostriatal-dopamine-loss]
+  - {from: cholinergic-neurone-loss, to: fluctuating-cognition-visual-hallucinations, note: "Cognitive fluctuation and formed visual hallucinations dominate early; memory may initially be preserved", source: "K&C 10e p.883"}
+  - [nigrostriatal-dopamine-loss, parkinsonism]
+  - [alpha-synuclein-lewy-bodies, rem-sleep-behaviour-disorder]
+  - [alpha-synuclein-lewy-bodies, autonomic-dysfunction]
+findings:
+  - {id: fluctuating-cognition-visual-hallucinations, freq: classic}
+  - {id: parkinsonism, freq: classic, note: "Usually mild and later than the cognitive syndrome", source: "K&C 10e p.883"}
+  - {id: rem-sleep-behaviour-disorder, freq: common}
+outcomes:
+  - {id: autonomic-dysfunction, freq: common, note: "Dysautonomia is part of the characteristic syndrome", source: "K&C 10e p.883"}

@@ -1,0 +1,39 @@
+id: acute-liver-failure
+name: Acute liver failure
+group: cirrhosis-liver-tumours
+status: draft
+systems: [gastrointestinal]
+sources: ["K&C 10e p.1285-1286", "Mehlman HY Gastro", "LMC 2026 Cirrhosis s.16-18"]
+chain:
+  - {from: paracetamol-overdose, to: toxic-hepatocyte-injury, note: "Its metabolite NAPQI uses up glutathione; well for about a day, then transaminases in the tens of thousands", source: "Mehlman HY Gastro"}
+  - {from: hepatotoxic-drug, to: toxic-hepatocyte-injury, note: "Antibiotics, antiepileptics, statins, NSAIDs, halothane, isoniazid, rifampicin, ecstasy, herbal remedies; also toxins such as Amanita mushrooms and carbon tetrachloride", source: "K&C 10e p.1285; LMC 2026 Cirrhosis s.16"}
+  - {from: hepatitis-virus, to: viral-hepatocyte-injury, note: "HAV, HBV (± HDV), HEV; rarely HCV", source: "K&C 10e p.1285"}
+  - {from: budd-chiari-syndrome, to: massive-hepatocyte-necrosis, note: "Vascular causes also include ischaemic hepatitis", source: "K&C 10e p.1285"}
+  - [toxic-hepatocyte-injury, massive-hepatocyte-necrosis]
+  - [viral-hepatocyte-injury, massive-hepatocyte-necrosis]
+  - {from: massive-hepatocyte-necrosis, to: impaired-hepatic-synthesis, note: "Defined as encephalopathy and INR > 1.5 in a previously normal liver", source: "K&C 10e p.1285"}
+  - [impaired-hepatic-synthesis, prolonged-inr]
+  - [massive-hepatocyte-necrosis, hyperammonaemia]
+  - [hyperammonaemia, confusion]
+  - [massive-hepatocyte-necrosis, jaundice]
+  - [massive-hepatocyte-necrosis, hepatitic-pattern]
+  - [massive-hepatocyte-necrosis, vomiting]
+  - [massive-hepatocyte-necrosis, hypotension]
+  - [massive-hepatocyte-necrosis, fever]
+  - [impaired-hepatic-synthesis, peripheral-oedema]
+  - [hyperammonaemia, hepatic-encephalopathy]
+  - [hyperammonaemia, cerebral-oedema]
+  - [hypotension, hepatorenal-syndrome]
+findings:
+  - {id: jaundice, freq: classic, note: "Jaundiced with a small liver; ascites and splenomegaly are rare", source: "K&C 10e p.1285-1286"}
+  - {id: confusion, freq: classic, note: "Encephalopathy from drowsiness (grades I–II) to coma (grade IV)", source: "K&C 10e p.1285-1286"}
+  - {id: prolonged-inr, freq: classic}
+  - {id: hepatitic-pattern, freq: common}
+  - {id: vomiting, freq: common, source: "K&C 10e p.1286"}
+  - {id: hypotension, freq: common, source: "K&C 10e p.1286"}
+  - {id: fever, freq: common, source: "K&C 10e p.1286"}
+  - {id: peripheral-oedema, freq: common, note: "From low albumin", source: "LMC 2026 Cirrhosis s.17"}
+outcomes:
+  - {id: hepatic-encephalopathy, freq: classic, note: "80–90% of liver function lost; 70–95% die without transplant", source: "LMC 2026 Cirrhosis s.16"}
+  - {id: cerebral-oedema, freq: common, note: "In 80%; raised ICP and herniation cause about a quarter of deaths", source: "K&C 10e p.1286"}
+  - {id: hepatorenal-syndrome, source: "LMC 2026 Cirrhosis s.17"}

@@ -1,8 +1,9 @@
 id: hypertrophic-cardiomyopathy
 name: Hypertrophic cardiomyopathy
 parent: cardiomyopathy
-group: myocardial
+group: ischaemic-myocardial-pericardial
 status: draft
+systems: [cardiovascular]
 sources: ["K&C 10e p.1119-1120"]
 chain:
   - {from: sarcomere-gene-mutation, to: myocyte-disarray, note: "Mostly autosomal dominant; MYH7 and MYBPC3 commonest; affects 1 in 500", source: "K&C 10e p.1119"}
@@ -21,6 +22,11 @@ chain:
   - [concentric-hypertrophy, lvh-voltage]
   - [myocyte-disarray, ventricular-arrhythmia]
   - [diastolic-dysfunction, atrial-dilatation]
+  - [concentric-hypertrophy, pathological-q-waves]
+  - [ventricular-arrhythmia, sudden-cardiac-death]
+  - [atrial-dilatation, atrial-fibrillation]
+  - [diastolic-dysfunction, pulmonary-oedema]
+  - [diastolic-dysfunction, heart-failure]
 findings:
   - {id: exertional-dyspnoea, freq: common, note: "Impaired relaxation ± outflow obstruction; many are asymptomatic", source: "K&C 10e p.1120"}
   - {id: exertional-syncope, freq: common}

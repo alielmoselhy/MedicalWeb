@@ -1,0 +1,44 @@
+id: bronchiectasis
+name: Bronchiectasis
+group: airways
+status: draft
+systems: [respiratory]
+sources: ["K&C 10e p.982-983", "Mehlman HY Pulmonary"]
+chain:
+  - {from: tuberculosis, to: ciliary-damage, note: "TB is the leading cause worldwide; a cause is found in only ≈50%", source: "K&C 10e p.982"}
+  - [pneumonia, ciliary-damage]
+  - [previous-severe-lung-infection, ciliary-damage]
+  - {from: primary-ciliary-dyskinesia, to: ciliary-damage, note: "Kartagener's: with situs inversus or dextrocardia", source: "K&C 10e p.983"}
+  - {from: immunosuppression, to: chronic-airway-infection, note: "e.g. hypogammaglobulinaemia, HIV", source: "K&C 10e p.983"}
+  - [allergic-bronchopulmonary-aspergillosis, airway-dilatation-and-plugging]
+  - [ciliary-damage, chronic-airway-infection]
+  - {from: haemophilus-influenzae, to: chronic-airway-infection, note: "Common", source: "K&C 10e p.983"}
+  - {from: pseudomonas-aeruginosa, to: chronic-airway-infection, note: "Marks a poorer prognosis", source: "K&C 10e p.983"}
+  - {from: chronic-airway-infection, to: neutrophilic-airway-inflammation, note: "Vicious circle: infection → neutrophilic inflammation → airway damage → worse clearance → more infection", source: "K&C 10e p.982"}
+  - [neutrophilic-airway-inflammation, airway-dilatation-and-plugging]
+  - [airway-dilatation-and-plugging, purulent-sputum]
+  - [airway-dilatation-and-plugging, coarse-crackles]
+  - [airway-dilatation-and-plugging, bronchial-dilatation-imaging]
+  - [chronic-airway-infection, haemoptysis]
+  - [airway-dilatation-and-plugging, dyspnoea]
+  - [airway-dilatation-and-plugging, finger-clubbing]
+  - [neutrophilic-airway-inflammation, pleuritic-chest-pain]
+  - [chronic-airway-infection, fever]
+  - [chronic-airway-infection, infective-bronchiectasis-exacerbation]
+  - [airway-dilatation-and-plugging, massive-haemoptysis]
+  - [airway-dilatation-and-plugging, respiratory-failure]
+  - [chronic-airway-infection, ntm-infection]
+findings:
+  - {id: purulent-sputum, freq: classic, note: "Persistent cough with large volumes", source: "K&C 10e p.983"}
+  - {id: bronchial-dilatation-imaging, freq: classic, note: "HRCT is the investigation of choice: non-tapering bronchi wider than their artery (signet ring)", source: "K&C 10e p.982"}
+  - {id: haemoptysis, freq: common, note: "Streaking is common; usually means infection", source: "K&C 10e p.983"}
+  - {id: coarse-crackles, freq: common}
+  - {id: dyspnoea, freq: common, note: "As disease progresses", source: "K&C 10e p.983"}
+  - {id: finger-clubbing, freq: occasional, note: "Especially in CF", source: "K&C 10e p.983"}
+  - {id: pleuritic-chest-pain, freq: occasional}
+  - {id: fever, freq: occasional}
+outcomes:
+  - {id: infective-bronchiectasis-exacerbation, note: "More sputum, more purulent; treat for 2 weeks guided by previous cultures", source: "K&C 10e p.982-983"}
+  - {id: massive-haemoptysis, freq: rare, note: "Emergency: protect airway, bronchial artery embolisation", source: "K&C 10e p.983"}
+  - respiratory-failure
+  - {id: ntm-infection, note: "Sputum culture should exclude NTM", source: "K&C 10e p.982"}
