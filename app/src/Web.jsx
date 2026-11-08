@@ -2,13 +2,14 @@ import { useEffect, useRef } from 'react';
 import cytoscape from 'cytoscape';
 import { forceSimulation, forceManyBody, forceLink, forceCollide, forceX, forceY } from 'd3-force';
 import { stylesheet } from './Graph.jsx'; // also registers the bubblesets plugin
+import { crossingReducedX } from './layout.js';
 
 const v = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 const CLOUD_GAP = 560; // horizontal distance between disease homes
-const BAND = 85;       // vertical distance between causal bands
+const BAND = 110;      // vertical distance between causal bands, including room for wrapped labels
 const SPRING = {
-  causal: { distance: 88, strength: 0.34 },
-  'is-a': { distance: 105, strength: 0.28 },
+  causal: { distance: 112, strength: 0.34 },
+  'is-a': { distance: 125, strength: 0.28 },
 };
 // A broad node halo keeps the contour off each glyph; still broader virtual-edge influence turns the narrow
 // connecting tendrils into useful interior space without making separate disease clouds physically attract.
@@ -121,15 +122,20 @@ export default function Web({ elements, clouds, band, highlight, selected, onTap
     // Each disease has a home column; a bubble shared by several sits between their homes.
     const home = {};
     const nodes = elements.filter(el => !el.data.source).map(el => el.data.id);
+    const labels = Object.fromEntries(elements.filter(el => !el.data.source).map(el => [el.data.id, el.data.label ?? '']));
     for (const id of nodes) {
       const mine = clouds.map((c, i) => c.ids.includes(id) ? i : -1).filter(i => i >= 0);
       home[id] = mine.length ? CLOUD_GAP * mine.reduce((s, i) => s + i, 0) / mine.length : -CLOUD_GAP / 2;
     }
+    // Cytoscape draws labels outside the 14px glyph. Give long/wrapped labels a larger physical footprint so
+    // the simulation does not consider two visually overlapping nodes to be clear of one another.
+    const radius = Object.fromEntries(nodes.map(id => [id, 46 + Math.min(20, labels[id].length * 0.55)]));
+    const targetX = crossingReducedX(nodes, links, band, home, radius);
     const gone = [...bodies.keys()].filter(id => !want.has(id));
     gone.forEach(id => bodies.delete(id));
     const fresh = nodes.filter(id => !bodies.has(id));
     for (const id of fresh) bodies.set(id,
-      { id, x: home[id] + (Math.random() - 0.5) * 200, y: band(id) * BAND + (Math.random() - 0.5) * 60 });
+      { id, x: targetX[id], y: band(id) * BAND });
 
     sim.nodes([...bodies.values()])
       // Nearby bubbles repel one another. Hubs repel a little more strongly, which fans their children around them
@@ -137,14 +143,16 @@ export default function Web({ elements, clouds, band, highlight, selected, onTap
       .force('charge', forceManyBody()
         .strength(b => -105 - Math.min(degree[b.id] ?? 0, 10) * 13)
         .distanceMin(28).distanceMax(360))
-      .force('collide', forceCollide(48).strength(0.8).iterations(2)) // roughly a bubble plus its label
+      .force('collide', forceCollide(b => radius[b.id]).strength(0.9).iterations(3))
       // Springs pull each parent towards its children only to a comfortable radius; repulsion still wins at close range.
       .force('link', forceLink(links).id(b => b.id)
         .distance(l => (SPRING[l.kind] ?? SPRING.causal).distance)
         .strength(l => (SPRING[l.kind] ?? SPRING.causal).strength))
-      .force('x', forceX(b => home[b.id]).strength(0.05))
+      // Crossing-reduced row positions blend neighbour proximity with disease homes. They are soft anchors, so
+      // shared hubs and dragged nodes can still find a locally comfortable arrangement.
+      .force('x', forceX(b => targetX[b.id]).strength(0.1))
       // A nudge, not a grid: causal order stays rough and loose findings/outcomes share the trailing space.
-      .force('y', forceY(b => band(b.id) * BAND).strength(0.12));
+      .force('y', forceY(b => band(b.id) * BAND).strength(0.18));
     if (fresh.length) { st.current.fit = true; sim.alpha(bodies.size === fresh.length ? 1 : 0.7).restart(); }
     else if (gone.length) sim.alpha(0.4).restart(); // close the gap left behind
 
