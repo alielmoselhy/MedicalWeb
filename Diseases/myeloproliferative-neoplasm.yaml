@@ -1,0 +1,17 @@
+id: myeloproliferative-neoplasm
+name: Myeloproliferative neoplasms
+group: myeloproliferative
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.392, 394"]
+chain:
+  - {from: jak2-calr-mpl-mutation, to: myeloproliferative-signalling, note: "PV, ET and myelofibrosis; they can turn into one another", source: "K&C 10e p.394"}
+  - {from: bcr-abl-fusion, to: myeloproliferative-signalling, note: "CML", source: "K&C 10e p.392"}
+  - {from: myeloproliferative-signalling, to: raised-cell-count, note: "Uncontrolled growth of red cell, white cell and/or megakaryocyte lines", source: "K&C 10e p.394"}
+  - [myeloproliferative-signalling, splenomegaly]
+  - {from: myeloproliferative-signalling, to: acute-myeloid-leukaemia, source: "K&C 10e p.394"}
+findings:
+  - {id: raised-cell-count, freq: classic}
+  - {id: splenomegaly, freq: common}
+outcomes:
+  - {id: acute-myeloid-leukaemia, source: "K&C 10e p.394"}

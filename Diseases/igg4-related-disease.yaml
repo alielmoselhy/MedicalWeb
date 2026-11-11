@@ -1,0 +1,26 @@
+id: igg4-related-disease
+name: IgG4-related disease
+group: head-neck-disease
+status: draft
+systems: [head-neck, immunology]
+sources: ["K&C 10e p.65", "K&C 10e p.621", "K&C 10e p.1321", "K&C 10e p.1330-1331", "K&C 10e p.1379", "K&C 10e p.1386"]
+chain:
+  - {from: igg4-autoimmunity, to: igg4-plasma-cell-infiltration, note: "Driven by Th2 and FoxP3 T cells activating macrophages and myofibroblasts; swellings at many sites; mostly middle-aged or older men", source: "K&C 10e p.65, 1321"}
+  - {from: igg4-plasma-cell-infiltration, to: raised-serum-igg4, source: "K&C 10e p.65, 1331"}
+  - {from: igg4-plasma-cell-infiltration, to: igg4-rich-infiltrate, note: "Also eosinophils and sometimes obliterative phlebitis; diagnosis rests on IgG4, histology and a response to steroids", source: "K&C 10e p.1321, 1330"}
+  - {from: igg4-plasma-cell-infiltration, to: salivary-gland-swelling, source: "K&C 10e p.65, 1330"}
+  - {from: igg4-plasma-cell-infiltration, to: goitre, note: "Riedel's fibrotic goitre: hard, woody, irregular; easily mistaken for carcinoma", source: "K&C 10e p.621"}
+  - {from: igg4-plasma-cell-infiltration, to: chronic-pancreatitis, note: "Type 1 autoimmune pancreatitis was the first form recognised", source: "K&C 10e p.65, 1330"}
+  - {from: igg4-plasma-cell-infiltration, to: igg4-sclerosing-cholangitis, note: "In about 70% with autoimmune pancreatitis; strictures mimic cholangiocarcinoma or PSC; steroid-responsive but can cause liver failure", source: "K&C 10e p.1321"}
+  - {from: igg4-plasma-cell-infiltration, to: tubulointerstitial-nephritis, note: "Very low complement with a raised IgG4", source: "K&C 10e p.1386"}
+  - {from: igg4-plasma-cell-infiltration, to: urinary-tract-obstruction, note: "Through retroperitoneal fibrosis encasing the ureters; rituximab works in proven IgG4 disease", source: "K&C 10e p.1379"}
+findings:
+  - {id: raised-serum-igg4, freq: classic, source: "K&C 10e p.65"}
+  - {id: igg4-rich-infiltrate, freq: classic, source: "K&C 10e p.1321"}
+  - {id: salivary-gland-swelling, freq: common, source: "K&C 10e p.65"}
+  - {id: goitre, freq: rare, source: "K&C 10e p.621"}
+outcomes:
+  - {id: chronic-pancreatitis, source: "K&C 10e p.1330"}
+  - {id: igg4-sclerosing-cholangitis, source: "K&C 10e p.1321"}
+  - {id: tubulointerstitial-nephritis, source: "K&C 10e p.1386"}
+  - {id: urinary-tract-obstruction, source: "K&C 10e p.1379"}

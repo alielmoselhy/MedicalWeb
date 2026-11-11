@@ -57,20 +57,28 @@ npm run build        # build the app (checks the app still compiles with the new
 
 | Chapter | Offset | | Chapter | Offset |
 |---|---|---|---|---|
+| 3 Immunity | −15 | | 18 Rheumatology | −24 |
+| 16 Haematology | −24 | | 17 Haematological oncology | −24 |
 | 8 Sepsis | −19 | | 30 Cardiology | −16 |
 | 10 Critical care | −19 | | 31 Hypertension | −16 |
 | 20 Infectious disease | −22 | | 32 Gastroenterology | −15 |
+| 22 Dermatology | −22 | | 6 Malignant disease | −21 |
+| 12 Prescribing and toxicology | −18 | | 27 ENT and eye | −19 |
 | 24 Lipids | −21 | | 33 Nutrition | −15 |
 | 26 Neurology | −20 | | 34 Liver | −14 |
 | 28 Respiratory | −18 | | 35 Biliary and pancreas | −14 |
 | 29 VTE | −17 | | 36 Kidney | −13 |
+| 9 Water and electrolytes | −19 | | 37 STIs and HIV | −13 |
+| 21 Endocrinology | −22 | | 40 Men's health | −12 |
+| 23 Diabetes mellitus | −22 | | 19 Bone disease | −23 |
+| 38 Obstetric medicine | −13 | | 39 Women's health | −13 |
 
 **For any other chapter, work out the offset first and record it:**
 1. Near the top of the chapter file is a contents line, e.g. `Brain tumours 874 Hydrocephalus 876`.
 2. Find that heading in the file (e.g. `## Brain Tumours`). Note the nearest `<!-- pN -->` marker **above** it.
 3. offset = N − printed number. Check two or three headings, which should all agree. Ch.26: the `## Brain Tumours` heading sits after `<!-- p894 -->` and the contents say 874, so the offset is −20.
 4. Add the new offset to this table and to the README "Sources" section.
-5. Ch.6 (Malignant disease) has no known offset. Don't cite it until one is worked out.
+5. Ch.6 (Malignant disease): −21, checked on six contents headings (2026-11-10).
 
 **To find the printed page of any line**, print each matching line with the last marker above it:
 
@@ -187,7 +195,7 @@ One node per line, in flow style. Indentation shows the parent for human readers
 - `name`: sentence case, British spelling. **If the name contains a comma, quote the whole name**, or YAML breaks the line apart: `name: "Headache, worse lying down"`. Quoting names with colons or parentheses is also safe.
 - `type`: `cause | mechanism | finding | outcome`.
 - `category`:
-  - **required for findings:** `symptom | sign | lab | ECG | imaging | endoscopy`
+  - **required for findings:** `symptom | sign | lab | ECG | imaging | endoscopy | histology` (histology: biopsy and bone marrow, e.g. ring sideroblasts, liver biopsy)
   - **required for causes:** `organism | genetic | risk-factor | drug | condition`
   - `condition` means a disease from another system, used as a cause until that system has its own file.
   - Mechanisms and outcomes take no category.
@@ -195,7 +203,7 @@ One node per line, in flow style. Indentation shows the parent for human readers
 ### 5.2 `parent` rules
 
 - `parent` means "is a kind of". **One parent only.**
-- The parent must be the **same type**. The one exception: an outcome may have a disease file as its parent.
+- The parent must be the **same type**. The exceptions: an outcome may have a disease file as its parent, and a disease file may have an outcome as its parent (`bone-metastases` → `distant-metastases`).
 - Children of the same parent count as **related** in the app, one level only. So pick parents that make clinically meaningful siblings, e.g. the four intracranial bleeds under `intracranial-bleeding`.
 - Don't create a parent that would make everything related to everything. The concepts docs record cases deliberately kept apart, such as having no shared parent for all primary tumours.
 
@@ -266,7 +274,7 @@ outcomes:
 
 - `id` = the file name without `.yaml`.
 - `name`: full name, sentence case. Put the abbreviation in brackets only where it helps, e.g. "Schwannoma (acoustic neuroma)".
-- `parent` (optional): a **disease** file id, used only for umbrella children.
+- `parent` (optional): a **disease** file id, used only for umbrella children; or an **outcome** node a disease is a kind of (`bone-metastases` → `distant-metastases`).
 - `group`: a group id from **the first system's** groups in `syllabus.yaml`.
 - `status: draft`.
 - `systems`: the home system first. Add a second system **only** if the concepts doc agreed it.
@@ -310,7 +318,7 @@ Rules:
   - `occasional`: a minority of cases
   - `rare`: rare
 - **Every finding the chain reaches should also appear in `findings:`** with a freq.
-- **Reach findings from the chain wherever a mechanism explains them**, e.g. `[dysregulated-host-response, fever]` or `[alveolar-exudate, productive-cough]`. On the Explore page, a finding with no chain link shows as a loose item on a shelf under the disease, not as part of its story. Only leave a finding off the chain when no mechanism in the file explains it, or none is sourced.
+- **Reach findings from the chain wherever a mechanism explains them**, e.g. `[dysregulated-host-response, fever]` or `[alveolar-exudate, productive-cough]`. A finding with no chain link is left off the Explore page entirely and shows only on the disease page. Only leave a finding off the chain when no mechanism in the file explains it, or none is sourced.
 - Do not invent a direct arrow merely to remove a loose-item warning. Apply the four-case test in §12: some credible findings are conditional, umbrella-level or association-only and should remain loose until the model can represent them honestly.
 - Use the most specific finding node that is true (`thunderclap-headache` rather than `headache`). The parent gives "related" matches automatically.
 
@@ -325,6 +333,25 @@ Rules:
 ### 6.5 `only:`
 
 `only: <cause id>` marks a finding, outcome or chain link that belongs to one cause in a multi-cause file, e.g. one organism. The id must be a **cause** that appears in the same file's chain. The app shows it as "*Campylobacter only*".
+
+### 6.5a Cause groups (`members:`)
+
+Several causes that reach the same step **because of one shared nature** can be written as one link from a class node, with the causes listed as `members`. On Explore the class shows as one bubble ("Inhaled respiratory pathogens (+5)") that opens on click; the disease page shows every member joined to it by a dotted line.
+
+```yaml
+  - from: inhaled-respiratory-pathogen
+    to: droplet-inhalation
+    note: "Each reaches the alveoli the same way: breathed in"
+    members:
+      - {id: streptococcus-pneumoniae, note: "Commonest cause; …", source: "K&C 10e p.964"}
+      - haemophilus-influenzae
+```
+
+- **Only group when the shared class is the reason.** Ask: does each member cause the step *because it is a* member of this class? Organisms that all reach the alveoli by being inhaled: yes. Age, smoking, diabetes and immunosuppression feeding alveolar exudate: no. Each acts by its own route, so they stay as separate links, even though all are "risk factors".
+- The class is a real node of the same type as its members, named for the shared nature. It is a per-file grouping, not a `parent`: members keep their own parents (one parent only, §5.2), so the validator can't check membership. The author's judgement and the link's note carry it.
+- A member is an id, or `{id, note, source}` to keep what is specific to it. Its other links (`legionella-pneumophila → low-serum-sodium`) stay as ordinary chain links.
+- Don't also link a member straight to the group's target; the validator rejects that.
+- A class that is a whole disease works too: an umbrella file such as `chronic-haemolysis` can start a chain on its own, with no `members:` needed.
 
 ### 6.6 Notes
 
@@ -429,29 +456,35 @@ Then wait.
   - Cardiovascular §7: 45 files
   - Respiratory §8: 29 files
   - GI and liver §10: 64 files
-  - Nervous §13 batches 1–2: stroke and trauma, tumours and ICP
-- **Next:** Nervous batches 3–5, as agreed in `docs/concepts-nervous.md`:
-  - CNS infection (meningitis umbrella with bacterial, viral and cryptococcal; encephalitis; brain abscess)
-  - demyelination (MS, GBS)
-  - neurodegenerative (PD, DLB, AD, MND, HD, prion disease, all joining the existing `dementia` umbrella where they are dementias)
-
-  TB meningitis stays an outcome inside `tuberculosis.yaml`. CSF findings are category `lab`, under `csf-abnormality`.
-- **Systems not started:** §3 biochemistry, §4 infection, §5 haematology, §6 immunology, §9 head and neck, §11 endocrine, §12 kidney, §14 bone and joint, §15 skin and breast, §16 female genital. Each needs §3 (a concepts doc approved by the owner) first.
+  - Nervous §13: 33 files, all five batches (stroke and trauma, tumours and ICP, CNS infection, demyelination, neurodegenerative)
+  - Chain-linking pass (§12): done for all four systems
+  - Haematology §5: 45 files, all seven batches
+  - Immunology §6: 28 files plus Pneumocystis pneumonia, all five batches
+- **Next system:** §12 kidney drafted (all 8 batches, 2026-11-10). §11 endocrine drafted (all 6 batches, 28 files, 2026-11-10); awaiting owner review. §14 bone and joints drafted (all 6 batches, 23 files, 2026-11-10; `docs/concepts-bone-joint.md`); awaiting owner review. §3 clinical biochemistry drafted (all 4 batches, 11 files, 2026-11-10; `docs/concepts-biochem.md`); awaiting owner review. §4 infection drafted (all 6 batches, 17 infection-home files plus syphilis, 2026-11-10; `docs/concepts-infection.md`); awaiting owner review. §9 head and neck drafted (all 4 batches, 13 files, 2026-11-11; `docs/concepts-head-neck.md`); awaiting owner review. §15 skin and breast drafted (all 9 batches, 31 files, 2026-11-11; `docs/concepts-skin-breast.md`); awaiting owner review. §16 female genital drafted (all 9 batches, 29 files, 2026-11-11; `docs/concepts-female-genital.md`); awaiting owner review.
+- **Systems not started:** §3 biochemistry, §4 infection, §9 head and neck, §11 endocrine, §12 kidney, §14 bone and joint, §15 skin and breast, §16 female genital. Each needs §3 (a concepts doc approved by the owner) first.
 - **Later, already agreed:**
   - a pass to work in the teaching handouts once they are converted
-  - **chain-linking pass** (agreed 2026-11-07): **do this next**, before any new batches. See §12. Only `community-acquired-pneumonia.yaml` is done; 801 loose items remain across 150 files.
+  - **cause-group (condensation) pass** (agreed 2026-11-08): go through every existing file and declare `members:` groups where several causes reach a step through one shared nature (§6.5a). Only CAP is done. New files declare their groups as they are drafted.
   - sharing the database with friends (see `docs/open-decisions.md`)
 
 ---
 
 ## 12. Chain-linking pass (fixing loose findings and outcomes)
 
-**Why.** On the Explore page, a disease's bubbles are joined only by chain links. A finding or outcome that no chain link reaches floats loose; for now it sits on a "Findings" or "Outcomes" shelf. Many of these are omitted causal explanations, but not all: some entries are conditional features, umbrella-level associations or prognostic correlations. This pass adds defensible links and identifies the exceptions without pretending that every association is deterministic.
+**Why.** On the Explore page, a disease's bubbles are joined only by chain links. A finding or outcome that no chain link reaches is not drawn on Explore at all (it still shows on the disease page). Many of these are omitted causal explanations, but not all: some entries are conditional features, umbrella-level associations or prognostic correlations. This pass adds defensible links and identifies the exceptions without pretending that every association is deterministic.
 
-**Status (2026-11-07):**
-- Done: `community-acquired-pneumonia.yaml`. Use it as the worked example.
-- Cardiovascular audited: 207 of 223 loose items linked, three misleading outcomes corrected, 13 intentional exceptions retained. See `docs/chain-linking-audit-cardio.md`.
-- Remaining after cardiovascular: 591 loose items across the whole database, including the 13 documented cardiovascular exceptions.
+**Status (2026-11-08): done for all four systems.** `community-acquired-pneumonia.yaml` is the worked example.
+
+| System | Audit | Intentional loose items left |
+|---|---|---|
+| Cardiovascular | `docs/chain-linking-audit-cardio.md` (207 of 223 linked, 3 outcomes corrected) | 13 |
+| Respiratory | `docs/chain-linking-audit-resp.md` (205 of 213 linked) | 8 |
+| GI and liver | `docs/chain-linking-audit-gi.md` (282 of 300 linked) | 18 |
+| Nervous | `docs/chain-linking-audit-nervous.md` (60 of 65 linked) | 5 |
+| Haematology | recorded in `docs/concepts-haem.md` Progress | 2 |
+| Immunology | recorded in `docs/concepts-immuno.md` Progress | 1 |
+
+The 49 items `node scripts/loose.js` still lists are all documented case 2/3 exceptions. New files must add none, unless they are documented in the same way.
 
 ### Tools
 
@@ -510,7 +543,7 @@ The objective is a medically honest graph, not an empty warning. Every remaining
    - An outcome comes from the step that leads to it, e.g. `transmural-ischaemia → ventricular-arrhythmia` or `intracardiac-thrombus → thromboembolism → ischaemic-stroke`.
    - An outcome that is another disease can be the `to` of a chain link: `[mitral-regurgitant-flow, mitral-regurgitation]` is valid.
    - A disease can't link to itself. Where the item is the disease's own end-point, link from the last mechanism instead.
-3. **Link from a cause only when the cause itself produces the item**, e.g. one organism's own finding (`[legionella-pneumophila, hyponatraemia]`). If that item has `only: <organism>`, link it from that organism.
+3. **Link from a cause only when the cause itself produces the item**, e.g. one organism's own finding (`[legionella-pneumophila, low-serum-sodium]`). If that item has `only: <organism>`, link it from that organism.
 4. **If no node in the chain explains the item:**
    - Add the missing mechanism when it's a real, sourced step. Reuse an existing node first, by searching `nodes.yaml`. CAP's `pleural-inflammation` was new, for example.
    - If you can't source it, leave the item loose and list it in your report as case 2. **Don't invent a step.**
@@ -546,5 +579,5 @@ The owner may spot-check on the Explore page: put a disease on the web and confi
 
 ### When only documented exceptions remain
 
-When every actionable item is linked and the warning contains only documented case 2/3 exceptions, the "Findings"/"Outcomes" shelf code in `app/src/Web.jsx` (`target`, `shelves`, `SHELF`) remains useful because those exceptions are real. Ask the owner whether the UI should label intentional associations differently from unfinished items. Don't remove the fallback unasked.
+Decided by the owner (2026-11-08): loose items are **not shown on Explore**. `app/src/Explore.jsx` builds each disease from its causal-chain edges only; the documented exceptions appear on the disease page alone.
 

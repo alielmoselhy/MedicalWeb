@@ -1,0 +1,17 @@
+id: lichen-sclerosus
+name: Lichen sclerosus
+group: vulva-vagina-cervix
+status: draft
+systems: [female-genital, skin-breast]
+sources: ["K&C 10e p.667", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: genital-skin-sclerosis, to: white-vulval-plaques, note: "Cause unknown, maybe autoimmune; girls before puberty or women after the menopause; men at any age. Often figure-of-eight round vulva and anus", source: "K&C 10e p.667; Mehlman HY Repro-OBGYN"}
+  - {from: genital-skin-sclerosis, to: pruritus, note: "Intensely itchy or sore; potent topical steroids", source: "K&C 10e p.667"}
+  - {from: genital-skin-sclerosis, to: vulval-scarring, note: "Also phimosis and urethral stricture in men; sexual dysfunction", source: "K&C 10e p.667"}
+  - {from: genital-skin-sclerosis, to: vulval-carcinoma, note: "Long-standing disease; biopsy to exclude SCC", source: "K&C 10e p.667; Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: white-vulval-plaques, freq: classic, source: "K&C 10e p.667"}
+  - {id: pruritus, freq: classic, source: "K&C 10e p.667"}
+outcomes:
+  - {id: vulval-scarring, freq: common, source: "K&C 10e p.667"}
+  - {id: vulval-carcinoma, freq: rare, source: "K&C 10e p.667"}

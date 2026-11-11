@@ -1,0 +1,62 @@
+id: pre-eclampsia
+name: Pre-eclampsia
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.377, 1454-1455", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: primiparity, to: uteroplacental-insufficiency, note: "Risk factors (Box 38.3); also family history, previous pre-eclampsia, long birth interval. Aspirin from 12 weeks if moderate or high risk", source: "K&C 10e p.1454; Mehlman HY Repro-OBGYN"}
+  - {from: advanced-maternal-age, to: uteroplacental-insufficiency, note: "Over 40", source: "K&C 10e p.1454"}
+  - {from: obesity, to: uteroplacental-insufficiency, note: "BMI over 30", source: "K&C 10e p.1454"}
+  - {from: multiple-pregnancy, to: uteroplacental-insufficiency, source: "K&C 10e p.1454"}
+  - {from: hypertension, to: uteroplacental-insufficiency, note: "Pre-existing", source: "K&C 10e p.1454"}
+  - {from: chronic-kidney-disease, to: uteroplacental-insufficiency, note: "Even without renal impairment", source: "K&C 10e p.1454"}
+  - {from: diabetes-mellitus, to: uteroplacental-insufficiency, note: "Pre-existing or gestational", source: "K&C 10e p.1454"}
+  - {from: antiphospholipid-syndrome, to: uteroplacental-insufficiency, source: "K&C 10e p.1454; Mehlman HY Repro-OBGYN"}
+  - {from: systemic-lupus-erythematosus, to: uteroplacental-insufficiency, source: "K&C 10e p.1454; Mehlman HY Repro-OBGYN"}
+  - {from: hydatidiform-mole, to: uteroplacental-insufficiency, note: "Can bring it on before 20 weeks", source: "K&C 10e p.1454; Mehlman HY Repro-OBGYN"}
+  - {from: uteroplacental-insufficiency, to: endothelial-dysfunction, note: "A multisystem endothelial disorder; any time after 20 weeks, during labour or postpartum", source: "K&C 10e p.1454; Mehlman HY Repro-OBGYN"}
+  - {from: endothelial-dysfunction, to: pregnancy-hypertension, note: "Over 140/90; labetalol first, then nifedipine or methyldopa. Delivery is the only cure", source: "K&C 10e p.1454-1455; Mehlman HY Repro-OBGYN"}
+  - {from: endothelial-dysfunction, to: proteinuria, note: "Over 0.3 g/24 h or PCR over 30 mg/mmol", source: "K&C 10e p.1454"}
+  - {from: endothelial-dysfunction, to: peripheral-oedema, note: "Rapidly worsening oedema of hands, feet and face", source: "K&C 10e p.1454"}
+  - {from: endothelial-dysfunction, to: headache, note: "Severe", source: "K&C 10e p.1454"}
+  - {from: endothelial-dysfunction, to: blurred-vision, note: "Blurring or flashing lights", source: "K&C 10e p.1454"}
+  - {from: endothelial-dysfunction, to: epigastric-pain, note: "Severe epigastric or right upper quadrant pain", source: "K&C 10e p.1454"}
+  - {from: endothelial-dysfunction, to: vomiting, source: "K&C 10e p.1454"}
+  - {from: endothelial-dysfunction, to: thrombocytopenia, source: "K&C 10e p.1455"}
+  - {from: endothelial-dysfunction, to: raised-liver-enzymes, source: "K&C 10e p.1455"}
+  - {from: endothelial-dysfunction, to: eclampsia, note: "Convulsions or coma; magnesium sulphate treats and, in severe disease, prevents them", source: "K&C 10e p.1455; Mehlman HY Repro-OBGYN"}
+  - [eclampsia, seizures]
+  - {from: endothelial-dysfunction, to: hellp-syndrome, note: "Severe form; platelets under 100; BP and proteinuria may be mild or absent; deliver if beyond 34 weeks", source: "K&C 10e p.1455; Mehlman HY Repro-OBGYN"}
+  - {from: hellp-syndrome, to: microangiopathic-haemolysis, source: "K&C 10e p.1455; Mehlman HY Repro-OBGYN"}
+  - {from: microangiopathic-haemolysis, to: schistocytes, source: "Mehlman HY Repro-OBGYN"}
+  - {from: endothelial-dysfunction, to: acute-kidney-injury, source: "K&C 10e p.1455"}
+  - {from: endothelial-dysfunction, to: pulmonary-oedema, source: "K&C 10e p.1455"}
+  - {from: endothelial-dysfunction, to: intracerebral-haemorrhage, source: "K&C 10e p.1455"}
+  - {from: endothelial-dysfunction, to: disseminated-intravascular-coagulation, source: "K&C 10e p.377, 1455"}
+  - {from: uteroplacental-insufficiency, to: placental-abruption, source: "K&C 10e p.1455"}
+  - {from: uteroplacental-insufficiency, to: fetal-growth-restriction, note: "Close fetal monitoring; steroids for fetal lungs if delivery is near", source: "K&C 10e p.1455; Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: pregnancy-hypertension, freq: classic, source: "K&C 10e p.1454"}
+  - {id: proteinuria, freq: classic, source: "K&C 10e p.1454"}
+  - {id: peripheral-oedema, freq: common, source: "K&C 10e p.1454"}
+  - {id: headache, freq: common, source: "K&C 10e p.1454"}
+  - {id: blurred-vision, freq: occasional, source: "K&C 10e p.1454"}
+  - {id: epigastric-pain, freq: occasional, source: "K&C 10e p.1454"}
+  - {id: vomiting, freq: occasional, source: "K&C 10e p.1454"}
+  - {id: thrombocytopenia, freq: occasional, source: "K&C 10e p.1455"}
+  - {id: raised-liver-enzymes, freq: occasional, source: "K&C 10e p.1455"}
+  - {id: seizures, freq: rare, source: "K&C 10e p.1455"}
+  - {id: schistocytes, freq: rare, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: eclampsia, freq: rare, source: "K&C 10e p.1455"}
+  - {id: hellp-syndrome, freq: occasional, source: "K&C 10e p.1455"}
+  - {id: fetal-growth-restriction, freq: common, source: "K&C 10e p.1455"}
+  - {id: placental-abruption, freq: occasional, source: "K&C 10e p.1455"}
+  - {id: acute-kidney-injury, freq: occasional, source: "K&C 10e p.1455"}
+  - {id: pulmonary-oedema, freq: rare, source: "K&C 10e p.1455"}
+  - {id: intracerebral-haemorrhage, freq: rare, source: "K&C 10e p.1455"}
+  - {id: disseminated-intravascular-coagulation, freq: rare, source: "K&C 10e p.1455"}
+  - {id: hypertension, note: "Later in life, with IHD, stroke and CKD", source: "K&C 10e p.1455"}
+  - {id: stroke, note: "Later in life", source: "K&C 10e p.1455"}
+  - {id: chronic-kidney-disease, note: "Later in life", source: "K&C 10e p.1455"}

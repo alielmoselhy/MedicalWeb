@@ -1,0 +1,32 @@
+id: invasive-breast-carcinoma
+name: Invasive breast carcinoma
+parent: breast-cancer
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.121-123", "K&C 10e p.485", "K&C 10e p.874", "K&C 10e p.980-981", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: breast-epithelial-transformation, to: invasive-breast-tumour, note: "Infiltrating ductal is commonest; lobular is 20–30% bilateral", source: "K&C 10e p.121; Mehlman HY Repro-OBGYN"}
+  - {from: ductal-carcinoma-in-situ, to: invasive-breast-tumour, source: "K&C 10e p.121"}
+  - {from: invasive-breast-tumour, to: hard-irregular-breast-lump, note: "Triple assessment: examination, imaging, needle sampling, then core biopsy. Benign lumps are 15 times commoner", source: "K&C 10e p.121-122"}
+  - {from: invasive-breast-tumour, to: nipple-discharge, source: "K&C 10e p.121"}
+  - {from: invasive-breast-tumour, to: peau-d-orange, note: "Inflammatory cancer: red, hot, swollen breast as tumour blocks the lymphatics", source: "K&C 10e p.121-122; Mehlman HY Repro-OBGYN"}
+  - {from: invasive-breast-tumour, to: er-pr-positive, note: "ER-positive: tamoxifen, or an aromatase inhibitor after the menopause, for up to 10 years; better prognosis", source: "K&C 10e p.122-123; Mehlman HY Repro-OBGYN"}
+  - {from: invasive-breast-tumour, to: her2-amplified, note: "20%; aggressive but responds to trastuzumab. Triple-negative cancers do worst", source: "K&C 10e p.122-123; Mehlman HY Repro-OBGYN"}
+  - {from: invasive-breast-tumour, to: lymphatic-spread, note: "Only 20% have no nodal micrometastases; sentinel node biopsy guides axillary surgery", source: "K&C 10e p.122"}
+  - [lymphatic-spread, axillary-lymphadenopathy]
+  - {from: invasive-breast-tumour, to: metastatic-spread, note: "Advanced disease: chemotherapy, then endocrine or HER2 therapy; rarely curable unless oligometastatic", source: "K&C 10e p.123"}
+  - {from: metastatic-spread, to: bone-metastases, note: "Breast is among the commonest sources, with bronchus and prostate", source: "K&C 10e p.485"}
+  - {from: metastatic-spread, to: brain-metastases, source: "K&C 10e p.874"}
+  - {from: metastatic-spread, to: lung-metastases, source: "K&C 10e p.980-981"}
+findings:
+  - {id: hard-irregular-breast-lump, freq: classic, source: "K&C 10e p.121"}
+  - {id: er-pr-positive, freq: common, source: "K&C 10e p.122"}
+  - {id: axillary-lymphadenopathy, freq: common, source: "K&C 10e p.122"}
+  - {id: her2-amplified, freq: occasional, source: "K&C 10e p.122"}
+  - {id: nipple-discharge, freq: occasional, source: "K&C 10e p.121"}
+  - {id: peau-d-orange, freq: occasional, source: "K&C 10e p.122"}
+outcomes:
+  - {id: bone-metastases, source: "K&C 10e p.485"}
+  - {id: brain-metastases, source: "K&C 10e p.874"}
+  - {id: lung-metastases, source: "K&C 10e p.980-981"}

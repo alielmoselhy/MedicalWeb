@@ -3,7 +3,7 @@ name: Chronic obstructive pulmonary disease
 group: airways
 status: draft
 systems: [respiratory]
-sources: ["K&C 10e p.955-957", "K&C 10e p.959", "Mehlman HY Pulmonary"]
+sources: ["K&C 10e p.198", "K&C 10e p.955-957", "K&C 10e p.959", "Mehlman HY Pulmonary"]
 chain:
   - {from: smoking, to: neutrophilic-airway-inflammation, note: "Smoking causes > 90% of cases in developed countries, yet only 10–20% of smokers get COPD", source: "K&C 10e p.955"}
   - {from: biomass-smoke, to: neutrophilic-airway-inflammation, note: "Indoor cooking and heating smoke matters in developing countries", source: "K&C 10e p.955"}
@@ -37,6 +37,7 @@ chain:
   - [cor-pulmonale, peripheral-oedema]
   - [alveolar-hypoventilation, type-2-respiratory-failure]
   - [ventilation-perfusion-mismatch, type-1-respiratory-failure]
+  - [type-2-respiratory-failure, respiratory-acidosis]
 findings:
   - {id: productive-cough, freq: classic, note: "White or clear sputum", source: "K&C 10e p.956"}
   - {id: exertional-dyspnoea, freq: classic}
@@ -52,6 +53,7 @@ findings:
   - {id: secondary-polycythaemia, freq: occasional}
   - {id: peripheral-oedema, freq: occasional}
   - {id: weight-loss, freq: occasional, note: "Systemic effects: weight and muscle loss", source: "K&C 10e p.956"}
+  - {id: respiratory-acidosis, freq: occasional, source: "K&C 10e p.198"}
 outcomes:
   - {id: copd-exacerbation, note: "Infection-triggered; can bring type 1 or type 2 respiratory failure", source: "K&C 10e p.959"}
   - {id: type-2-respiratory-failure, note: "Extra oxygen can push CO2 up further; give controlled oxygen, NIV if pH < 7.35", source: "K&C 10e p.959"}

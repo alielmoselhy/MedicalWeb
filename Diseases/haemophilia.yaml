@@ -1,0 +1,26 @@
+id: haemophilia
+name: Haemophilia A and B
+group: bleeding-disorders
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.375-376", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: f8-mutation, to: coagulation-factor-deficiency, note: "Haemophilia A: 1 in 5000 males, a third with no family history. A carrier's sons have a 50% risk", source: "K&C 10e p.375; Mehlman HY Heme-Onc"}
+  - {from: f9-mutation, to: coagulation-factor-deficiency, note: "Haemophilia B (Christmas disease): 1 in 30 000 males, clinically identical; desmopressin doesn't work", source: "K&C 10e p.376; Mehlman HY Heme-Onc"}
+  - {from: coagulation-factor-deficiency, to: isolated-prolonged-aptt, note: "PT, bleeding time and VWF normal", source: "K&C 10e p.375; Mehlman HY Heme-Onc"}
+  - {from: coagulation-factor-deficiency, to: low-factor-viii, note: "Severe below 1 IU/dL (spontaneous bleeds), moderate 1–5, mild above 5 (after injury only)", source: "K&C 10e p.375", only: f8-mutation}
+  - {from: coagulation-factor-deficiency, to: low-factor-ix, only: f9-mutation}
+  - {from: coagulation-factor-deficiency, to: haemarthrosis-muscle-bleeding, note: "Severe disease, from early life; prophylactic factor concentrate from about age 2", source: "K&C 10e p.375-376; Mehlman HY Heme-Onc"}
+  - {from: coagulation-factor-deficiency, to: bleeding-after-injury, note: "Mild disease may be found late, after surgery or extraction; desmopressin raises factor VIII 3–5-fold", source: "K&C 10e p.375-376"}
+  - {from: haemarthrosis-muscle-bleeding, to: haemophilic-arthropathy, note: "Crippling joint deformity without adequate treatment", source: "K&C 10e p.375"}
+  - {from: coagulation-factor-deficiency, to: intracerebral-haemorrhage, note: "Much commoner than in the general population", source: "K&C 10e p.375"}
+findings:
+  - {id: isolated-prolonged-aptt, freq: classic}
+  - {id: low-factor-viii, freq: classic, only: f8-mutation}
+  - {id: low-factor-ix, freq: classic, only: f9-mutation}
+  - {id: haemarthrosis-muscle-bleeding, freq: classic}
+  - {id: bleeding-after-injury, freq: common}
+outcomes:
+  - {id: haemophilic-arthropathy, source: "K&C 10e p.375"}
+  - {id: intracerebral-haemorrhage, freq: occasional, source: "K&C 10e p.375"}
+  - {id: factor-viii-inhibitor, note: "Up to 30% of severe haemophilia A, after early doses; treat bleeds with bypassing agents, then immune tolerance", source: "K&C 10e p.376; Mehlman HY Heme-Onc", only: f8-mutation}

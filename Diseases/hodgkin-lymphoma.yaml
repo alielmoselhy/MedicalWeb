@@ -1,0 +1,30 @@
+id: hodgkin-lymphoma
+name: Hodgkin lymphoma
+group: high-grade-lymphoma
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.381, 398-401", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: ebv-infection, to: viral-oncogenesis, note: "Up to 40% have raised EBV titres, and EBV DNA is found in the tumour", source: "K&C 10e p.381, 399"}
+  - [viral-oncogenesis, lymphoid-clonal-expansion]
+  - {from: lymphoid-clonal-expansion, to: reed-sternberg-cells, note: "Classic HL (90–95%); Mehlman: CD15 and CD30. Needs an excision biopsy, not FNA", source: "K&C 10e p.399; Mehlman HY Heme-Onc"}
+  - {from: lymphoid-clonal-expansion, to: cervical-lymphadenopathy, note: "Commonest presentation: painless rubbery neck nodes; peak in the 20s. Early disease: ABVD plus radiotherapy, over 90% remission", source: "K&C 10e p.399-401"}
+  - {from: lymphoid-clonal-expansion, to: mediastinal-widening, note: "Often young women, with cough", source: "K&C 10e p.399-400"}
+  - [lymphoid-clonal-expansion, splenomegaly]
+  - [lymphoid-clonal-expansion, hepatomegaly]
+  - {from: lymphoid-clonal-expansion, to: fever, note: "B symptoms: fever over 38 °C, drenching night sweats, losing over 10% of weight in 6 months", source: "K&C 10e p.400"}
+  - [lymphoid-clonal-expansion, night-sweats]
+  - [lymphoid-clonal-expansion, weight-loss]
+  - {from: lymphoid-clonal-expansion, to: pruritus, source: "K&C 10e p.399"}
+  - {from: lymphoid-clonal-expansion, to: alcohol-induced-node-pain, source: "K&C 10e p.399"}
+findings:
+  - {id: reed-sternberg-cells, freq: classic}
+  - {id: cervical-lymphadenopathy, freq: classic}
+  - {id: mediastinal-widening, freq: common}
+  - {id: fever, freq: occasional}
+  - {id: night-sweats, freq: occasional}
+  - {id: weight-loss, freq: occasional}
+  - {id: splenomegaly, freq: occasional}
+  - {id: hepatomegaly, freq: occasional}
+  - {id: pruritus, freq: occasional}
+  - {id: alcohol-induced-node-pain, freq: rare}

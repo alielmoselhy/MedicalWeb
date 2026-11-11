@@ -1,0 +1,44 @@
+id: primary-hyperparathyroidism
+name: Primary hyperparathyroidism
+group: calcium
+status: draft
+systems: [bone-joint, endocrine]
+sources: ["K&C 10e p.454", "K&C 10e p.475-476", "K&C 10e p.642-646", "K&C 10e p.1326", "Mehlman HY Endocrine", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: older-age, to: hormone-secreting-adenoma, note: "Cause unknown; single adenoma in over 80%, four-gland hyperplasia 15–20%, carcinoma under 1%. Mostly older women, often found incidentally", source: "K&C 10e p.644"}
+  - {from: multiple-endocrine-neoplasia, to: hormone-secreting-adenoma, note: "Several glands in MEN 1 and 2a", source: "K&C 10e p.644; Mehlman HY Endocrine"}
+  - [hormone-secreting-adenoma, pth-excess]
+  - {from: lithium, to: pth-excess, note: "Chronic lithium raises PTH and calcium", source: "K&C 10e p.476, 644"}
+  - {from: pth-excess, to: hypercalcaemia, note: "With primary hyperPTH, malignancy causes over 90% of hypercalcaemia; malignancy suppresses PTH", source: "K&C 10e p.644"}
+  - {from: pth-excess, to: raised-pth-with-high-calcium, note: "The hallmark, with low phosphate. Low urinary calcium instead suggests familial hypocalciuric hypercalcaemia", source: "K&C 10e p.645-646; Mehlman HY Endocrine"}
+  - {from: pth-excess, to: hypophosphataemia, note: "PTH makes the kidney excrete phosphate", source: "K&C 10e p.644"}
+  - {from: pth-excess, to: osteoclast-activation, note: "Mainly cortical bone", source: "K&C 10e p.475, 645"}
+  - [osteoclast-activation, bone-pain]
+  - {from: osteoclast-activation, to: subperiosteal-erosions-brown-tumours, note: "Only in advanced disease; definite bone lesions in 5–10%", source: "K&C 10e p.645"}
+  - {from: osteoclast-activation, to: osteoporosis, note: "Fragility fractures or osteoporosis are reasons for surgery; DXA if watching", source: "K&C 10e p.645-646"}
+  - {from: hypercalcaemia, to: polyuria-nocturia, note: "Tubules can't concentrate urine: a mild nephrogenic diabetes insipidus", source: "K&C 10e p.645; Mehlman HY Endocrine"}
+  - {from: hypercalcaemia, to: avp-resistance, source: "K&C 10e p.642-643; Mehlman HY Endocrine"}
+  - {from: hypercalcaemia, to: renal-calculi-nephrocalcinosis, note: "About 5% of people presenting with stones have it", source: "K&C 10e p.645"}
+  - [hypercalcaemia, fatigue]
+  - [hypercalcaemia, abdominal-pain]
+  - [hypercalcaemia, constipation]
+  - {from: hypercalcaemia, to: confusion, note: "Severe (> 3 mmol/L): drowsiness, vomiting, dehydration. Rehydrate with saline, then IV bisphosphonate", source: "K&C 10e p.645-646"}
+  - {from: hypercalcaemia, to: chondrocalcinosis, note: "Occasional, with ectopic calcification", source: "K&C 10e p.454, 645; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: hypercalcaemia, to: acute-pancreatitis, source: "K&C 10e p.1326"}
+findings:
+  - {id: hypercalcaemia, freq: classic, note: "Mild (< 3 mmol/L) is often silent. Surgery if symptomatic, end-organ damage or calcium ≥ 2.85; risk is post-op hypocalcaemia", source: "K&C 10e p.645-646"}
+  - {id: raised-pth-with-high-calcium, freq: classic}
+  - {id: hypophosphataemia, freq: common}
+  - {id: polyuria-nocturia, freq: common}
+  - {id: fatigue, freq: common, source: "K&C 10e p.645"}
+  - {id: bone-pain, freq: occasional, source: "K&C 10e p.645"}
+  - {id: abdominal-pain, freq: occasional, source: "K&C 10e p.645"}
+  - {id: constipation, freq: occasional, source: "K&C 10e p.645"}
+  - {id: confusion, freq: rare}
+  - {id: subperiosteal-erosions-brown-tumours, freq: rare}
+outcomes:
+  - {id: renal-calculi-nephrocalcinosis, freq: occasional}
+  - {id: osteoporosis, freq: occasional}
+  - {id: chondrocalcinosis, freq: occasional}
+  - {id: acute-pancreatitis, freq: rare}
+  - {id: avp-resistance, freq: occasional}

@@ -1,0 +1,39 @@
+id: siadh
+name: Syndrome of inappropriate ADH secretion (SIADH)
+parent: paraneoplastic-syndrome
+group: sodium-water
+status: draft
+systems: [biochemistry, endocrine]
+sources: ["K&C 10e p.184-185", "K&C 10e p.643-644", "Mehlman HY Endocrine", "Mehlman HY Renal"]
+chain:
+  - {from: small-cell-lung-carcinoma, to: adh-secretion, note: "The classic ectopic source; also prostate, thymus, pancreas, lymphoma", source: "K&C 10e p.643 (Box 21.54); Mehlman HY Endocrine"}
+  - from: cns-insult
+    to: adh-excess
+    note: "Central SIADH; pain after surgery too"
+    source: "K&C 10e p.643 (Box 21.54); Mehlman HY Endocrine"
+    members:
+      - bacterial-meningitis
+      - traumatic-brain-injury
+      - subdural-haematoma
+      - brain-abscess
+  - from: pulmonary-lesion
+    to: adh-excess
+    source: "K&C 10e p.643 (Box 21.54)"
+    members:
+      - pneumonia
+      - tuberculosis
+  - {from: siadh-drug, to: adh-excess, note: "Also alcohol withdrawal and porphyria", source: "K&C 10e p.643 (Box 21.54); Mehlman HY Endocrine"}
+  - [adh-secretion, free-water-excess]
+  - {from: adh-excess, to: free-water-excess, note: "Water retained without oedema: euvolaemic", source: "K&C 10e p.643"}
+  - [free-water-excess, low-serum-sodium]
+  - {from: free-water-excess, to: inappropriately-concentrated-urine, note: "Needs normal renal, adrenal and thyroid function and no hypokalaemia; ACTH deficiency looks identical. Doesn't respond to a saline trial", source: "K&C 10e p.643; Mehlman HY Endocrine"}
+  - {from: low-serum-sodium, to: confusion, note: "Vague: confusion, nausea, irritability, then fits and coma. Mild below 125, serious below 115", source: "K&C 10e p.643"}
+  - [low-serum-sodium, seizures]
+  - [free-water-excess, hyponatraemia]
+findings:
+  - {id: low-serum-sodium, freq: classic, note: "Restrict fluid to 500–1000 mL; then demeclocycline or tolvaptan. Hypertonic saline only if acute and symptomatic", source: "K&C 10e p.643-644; Mehlman HY Endocrine"}
+  - {id: inappropriately-concentrated-urine, freq: classic}
+  - {id: confusion, freq: common}
+  - {id: seizures, freq: rare}
+outcomes:
+  - hyponatraemia

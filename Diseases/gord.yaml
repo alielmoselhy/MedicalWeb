@@ -23,8 +23,8 @@ findings:
   - {id: regurgitation, freq: common}
   - {id: cough, freq: occasional}
   - {id: reflux-oesophagitis-endoscopy, freq: common, note: "Under 45 without alarm features, treat without investigation; a 2-week PPI trial is the usual first test", source: "K&C 10e p.1163; Mehlman HY Gastro"}
-  - {id: iron-deficiency-anaemia, freq: occasional, note: "Severe oesophagitis can be painless and bleed slowly", source: "K&C 10e p.1163"}
 outcomes:
   - {id: barretts-oesophagus, source: "K&C 10e p.1165"}
   - {id: oesophageal-stricture, freq: occasional, note: "Usually over 60: slowly worsening intermittent dysphagia for solids", source: "K&C 10e p.1165"}
   - {id: oesophageal-adenocarcinoma, note: "Long-standing reflux raises the risk up to eightfold", source: "K&C 10e p.1171"}
+  - {id: iron-deficiency-anaemia, freq: occasional, note: "Severe oesophagitis can be painless and bleed slowly", source: "K&C 10e p.1163"}

@@ -1,0 +1,54 @@
+id: sickle-cell-disease
+name: Sickle cell disease
+parent: chronic-haemolysis
+group: globin-disorders
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.344-348", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: hbb-sickle-mutation, to: haemoglobin-s-polymerisation, note: "Autosomal recessive; HbSS is worst. Trait (HbAS) is symptomless with a normal count and protects against falciparum malaria. Shows from about 6 months as HbF falls", source: "K&C 10e p.344-345, 348; Mehlman HY Heme-Onc"}
+  - {from: sickling-trigger, to: haemoglobin-s-polymerisation, note: "Often no cause is found. Hydroxycarbamide raises HbF and cuts crises", source: "K&C 10e p.345, 347"}
+  - {from: haemoglobin-s-polymerisation, to: sickle-cells, note: "Repeated sickling leaves cells irreversibly rigid", source: "K&C 10e p.344"}
+  - [haemoglobin-s-polymerisation, hbs-on-electrophoresis]
+  - [haemoglobin-s-polymerisation, vaso-occlusion]
+  - [haemoglobin-s-polymerisation, extravascular-haemolysis]
+  - {from: vaso-occlusion, to: vaso-occlusive-crisis, note: "Dactylitis in infants; bone pain in adults; IV fluids and strong opioids", source: "K&C 10e p.345-346"}
+  - {from: vaso-occlusion, to: acute-chest-syndrome, note: "Up to 30%: breathlessness, chest pain, fever, hypoxia and new infiltrates; oxygen, antibiotics, exchange transfusion", source: "K&C 10e p.345"}
+  - {from: vaso-occlusion, to: splenic-sequestration-crisis, note: "Children: painful spleen, pooled red cells, hypovolaemic collapse", source: "K&C 10e p.346"}
+  - {from: vaso-occlusion, to: ischaemic-stroke, note: "11% under 20 without screening; transcranial Doppler and transfusion prevent about 90%", source: "K&C 10e p.346"}
+  - [vaso-occlusion, avascular-necrosis]
+  - [vaso-occlusion, priapism]
+  - [vaso-occlusion, leg-ulcers]
+  - {from: vaso-occlusion, to: loss-of-splenic-function, note: "Repeated infarcts leave a fibrotic, non-functioning spleen: penicillin and pneumococcal, meningococcal and Hib vaccines", source: "K&C 10e p.346-347"}
+  - [loss-of-splenic-function, howell-jolly-bodies]
+  - [loss-of-splenic-function, overwhelming-post-splenectomy-infection]
+  - {from: extravascular-haemolysis, to: haemolytic-anaemia, note: "Steady Hb 60–80 g/L with 10–20% reticulocytes; well tolerated", source: "K&C 10e p.345-346"}
+  - [extravascular-haemolysis, erythroid-hyperplasia]
+  - [erythroid-hyperplasia, reticulocytosis]
+  - [extravascular-haemolysis, jaundice]
+  - {from: extravascular-haemolysis, to: pigment-stone-formation, source: "K&C 10e p.346"}
+  - [pigment-stone-formation, gallstone-disease]
+  - {from: extravascular-haemolysis, to: pulmonary-hypertension, note: "About 10%; free haemoglobin scavenges nitric oxide, with vasculopathy and chest crises", source: "K&C 10e p.338, 345"}
+  - {from: parvovirus-b19, to: aplastic-crisis, source: "K&C 10e p.346"}
+  - [extravascular-haemolysis, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+findings:
+  - {id: sickle-cells, freq: classic}
+  - {id: hbs-on-electrophoresis, freq: classic, note: "80–95% HbS, no HbA; the solubility test screens", source: "K&C 10e p.346"}
+  - {id: haemolytic-anaemia, freq: classic}
+  - {id: reticulocytosis, freq: common}
+  - {id: jaundice, freq: common}
+  - {id: howell-jolly-bodies, freq: common}
+  - {id: fatigue, freq: occasional}
+  - {id: leg-ulcers, freq: occasional}
+outcomes:
+  - {id: vaso-occlusive-crisis, source: "K&C 10e p.345"}
+  - {id: acute-chest-syndrome, source: "K&C 10e p.345"}
+  - {id: splenic-sequestration-crisis, source: "K&C 10e p.346"}
+  - {id: aplastic-crisis, source: "K&C 10e p.346"}
+  - {id: ischaemic-stroke, source: "K&C 10e p.346"}
+  - {id: pulmonary-hypertension, source: "K&C 10e p.345"}
+  - {id: gallstone-disease, source: "K&C 10e p.346"}
+  - {id: overwhelming-post-splenectomy-infection, source: "K&C 10e p.346-347"}
+  - {id: avascular-necrosis, source: "K&C 10e p.346"}
+  - {id: priapism, source: "K&C 10e p.346"}

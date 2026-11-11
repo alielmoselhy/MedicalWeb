@@ -1,0 +1,23 @@
+id: primary-hyperaldosteronism
+name: "Primary hyperaldosteronism (Conn's syndrome)"
+group: endocrine-biochemistry
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.606-607", "Mehlman HY Endocrine"]
+chain:
+  - {from: adrenal-glomerulosa-hyperplasia, to: mineralocorticoid-excess, note: "Bilateral hyperplasia is now the commoner cause; rare before 40, more in men; treat with spironolactone", source: "K&C 10e p.607"}
+  - {from: adrenocortical-tumour, to: mineralocorticoid-excess, note: "Conn's adenoma, often tiny, more in young women; laparoscopic removal lowers BP in 70%", source: "K&C 10e p.607"}
+  - {from: mineralocorticoid-excess, to: salt-water-retention, source: "K&C 10e p.606"}
+  - {from: salt-water-retention, to: raised-arterial-pressure, note: "5–10% of all hypertension; screen if young, resistant, malignant or hypokalaemic", source: "K&C 10e p.606"}
+  - [raised-arterial-pressure, raised-blood-pressure]
+  - {from: raised-arterial-pressure, to: secondary-hypertension, source: "K&C 10e p.606"}
+  - {from: raised-arterial-pressure, to: hypertensive-end-organ-damage, note: "Can be severe, with renal, cardiac and retinal damage", source: "K&C 10e p.607"}
+  - {from: mineralocorticoid-excess, to: hypokalaemic-alkalosis, note: "K+ is often normal; rarely weakness, nocturia, tetany; sodium often normal too", source: "K&C 10e p.607; Mehlman HY Endocrine"}
+  - {from: mineralocorticoid-excess, to: raised-aldosterone-renin-ratio, note: "Screening test; stop interfering drugs; confirm by failure to suppress with saline; then CT and venous sampling", source: "K&C 10e p.607"}
+findings:
+  - {id: raised-blood-pressure, freq: classic, note: "Usually the only presentation", source: "K&C 10e p.607"}
+  - {id: raised-aldosterone-renin-ratio, freq: classic}
+  - {id: hypokalaemic-alkalosis, freq: occasional}
+outcomes:
+  - {id: secondary-hypertension, freq: classic}
+  - {id: hypertensive-end-organ-damage}

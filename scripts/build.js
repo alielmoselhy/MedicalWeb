@@ -6,7 +6,7 @@ import { parse } from 'yaml';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NODE_TYPES = ['cause', 'finding', 'mechanism', 'outcome'];
-const CATEGORIES = { finding: ['symptom', 'sign', 'lab', 'ECG', 'imaging', 'endoscopy'], cause: ['organism', 'genetic', 'risk-factor', 'drug', 'condition'] };
+const CATEGORIES = { finding: ['symptom', 'sign', 'lab', 'ECG', 'imaging', 'endoscopy', 'histology'], cause: ['organism', 'genetic', 'risk-factor', 'drug', 'condition'] };
 const FREQS = ['classic', 'common', 'occasional', 'rare'];
 const STATUSES = ['draft', 'reviewed'];
 // Disease-file keys, in the order every file writes them (see README, "Standards").
@@ -65,8 +65,8 @@ export function buildGraph(vocab, diseaseFiles, syllabus) {
     const where = n.file ?? `nodes.yaml (${n.id})`;
     const parent = nodes.get(n.parent);
     if (n.parent && !parent) errors.push(`${where}: parent "${n.parent}" does not exist`);
-    // Same type only, except an outcome may be a kind of disease (acute MR is a kind of mitral regurgitation).
-    else if (parent && parent.type !== n.type && !(n.type === 'outcome' && parent.type === 'disease'))
+    // Same type only, except outcomes and diseases may be kinds of each other (acute MR is a kind of mitral regurgitation; bone metastases is a kind of distant metastases).
+    else if (parent && parent.type !== n.type && !([n.type, parent.type].every(t => t === 'outcome' || t === 'disease')))
       errors.push(`${where}: parent "${n.parent}" is a ${parent.type}, but this is a ${n.type}`);
     const seen = new Set([n.id]);
     for (let p = n.parent; p && nodes.has(p); p = nodes.get(p).parent) {
@@ -105,10 +105,33 @@ export function buildGraph(vocab, diseaseFiles, syllabus) {
       // A disease is the set of its nodes, not a step in its own chain.
       if (from === doc.id || to === doc.id) { errors.push(`${where}: a disease can't appear in its own chain; start at the root cause`); continue; }
       if (check(from, where) & check(to, where)) { // single & so both ids get reported
-        edges.push({ from, to, kind: 'causal', disease: doc.id, ...(Array.isArray(c) ? {} : detail(c, where, doc.sources ?? [])) });
+        edges.push({ from, to, kind: 'causal', disease: doc.id, ...(Array.isArray(c) ? {} : detail(c, where, doc.sources ?? [])),
+          ...(Array.isArray(c.members) && { members: c.members.map(x => x?.id ?? x) }) });
         t.add(from).add(to);
+        // A declared bundle: `from` is the class whose shared nature causes `to`; each member is a kind of it here.
+        // Only the author can judge that the class is the reason, so bundles are declared, never inferred.
+        // A member is an id, or {id, note, source} to keep what is specific to that member.
+        if (c.members !== undefined) {
+          const m = Array.isArray(c.members) ? c.members : [];
+          const ids = m.map(x => typeof x === 'string' ? x : x?.id);
+          if (m.length < 2 || ids.some(id => !id) || new Set(ids).size !== ids.length) errors.push(`${where}: members must be a list of 2 or more distinct ids`);
+          else for (const [j, x] of m.entries()) {
+            const id = ids[j];
+            if (id === from || id === to) { errors.push(`${where}: member "${id}" can't be the link's own from or to`); continue; }
+            if (!check(id, where)) continue;
+            // A disease used as a cause (colorectal cancer in "chronic GI blood loss") counts as a cause here.
+            const kind = n => (n.type === 'disease' ? 'cause' : n.type);
+            if (kind(nodes.get(id)) !== kind(nodes.get(from))) errors.push(`${where}: member "${id}" is a ${nodes.get(id).type}, but "${from}" is a ${nodes.get(from).type}`);
+            edges.push({ from: id, to: from, kind: 'bundled', disease: doc.id, ...(typeof x === 'string' ? {} : detail(x, `${where} members[${j}]`, doc.sources ?? [])) });
+            t.add(id);
+          }
+        }
       }
     }
+    // A member that also links straight to its bundle's target says the same thing twice.
+    for (const b of edges.filter(e => e.disease === doc.id && e.members))
+      for (const id of b.members) if (edges.some(e => e.disease === doc.id && e.kind === 'causal' && e.from === id && e.to === b.to))
+        errors.push(`${file}: "${id}" is a member of the ${b.from} bundle, so drop its own link to ${b.to}`);
     // `only` names the cause in this chain that a link applies to (one organism of several).
     const roots = new Set(t);
     // Membership links from the disease to its chain's root causes, so it attaches to its chain in the network.

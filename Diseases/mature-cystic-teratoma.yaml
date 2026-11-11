@@ -1,0 +1,13 @@
+id: mature-cystic-teratoma
+name: Mature cystic teratoma (dermoid cyst)
+parent: ovarian-tumour
+group: ovaries-tubes
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.129", "Mehlman HY Repro-OBGYN", "Mehlman HY Endocrine"]
+chain:
+  - {from: ovarian-teratoma-growth, to: dermoid-contents, note: "Hair, skin, teeth; can calcify. Struma ovarii is a variant that makes thyroid hormone", source: "Mehlman HY Repro-OBGYN; Mehlman HY Endocrine"}
+  - {from: ovarian-teratoma-growth, to: adnexal-mass, note: "Vague pelvic symptoms, younger than epithelial cancer; low malignant potential. Ultrasound or MRI", source: "K&C 10e p.129"}
+findings:
+  - {id: dermoid-contents, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: adnexal-mass, freq: common, source: "K&C 10e p.129"}

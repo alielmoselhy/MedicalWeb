@@ -1,0 +1,32 @@
+id: myelodysplastic-syndrome
+name: Myelodysplastic syndrome (MDS)
+group: aml-mds
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.381, 384, 397-398"]
+chain:
+  - {from: older-age, to: myeloid-clonal-expansion, note: "Mainly the elderly. Age-related clonal haemopoiesis (CHIP) is common without disease", source: "K&C 10e p.381, 397"}
+  - {from: cytotoxic-chemotherapy, to: myeloid-clonal-expansion, note: "Therapy-related MDS and AML", source: "K&C 10e p.381"}
+  - {from: ionising-radiation, to: myeloid-clonal-expansion, source: "K&C 10e p.381"}
+  - {from: myeloid-clonal-expansion, to: dysplastic-haemopoiesis, note: "The clone is dysplastic rather than proliferative: cells are made but fail", source: "K&C 10e p.384, 397"}
+  - {from: dysplastic-haemopoiesis, to: marrow-dysplasia, note: "Marrow may be hyper-, normo- or hypocellular. Blasts over 20% make it AML", source: "K&C 10e p.397"}
+  - {from: dysplastic-haemopoiesis, to: pancytopenia, note: "Suspect MDS in unexplained cytopenias or macrocytosis", source: "K&C 10e p.397"}
+  - [dysplastic-haemopoiesis, macrocytic-anaemia]
+  - {from: dysplastic-haemopoiesis, to: ring-sideroblasts, note: "In MDS with ring sideroblasts", source: "K&C 10e p.397"}
+  - [dysplastic-haemopoiesis, anaemic-hypoxia]
+  - [dysplastic-haemopoiesis, neutrophil-deficit]
+  - [dysplastic-haemopoiesis, reduced-platelet-production]
+  - [anaemic-hypoxia, fatigue]
+  - [reduced-platelet-production, mucocutaneous-bleeding]
+  - {from: neutrophil-deficit, to: neutropenic-sepsis, note: "Supportive care (transfusion, infection and bleeding care) for all; transplant only for fit high-risk patients", source: "K&C 10e p.397-398"}
+  - {from: myeloid-clonal-expansion, to: acute-myeloid-leukaemia, note: "About 30%", source: "K&C 10e p.397"}
+findings:
+  - {id: pancytopenia, freq: classic}
+  - {id: marrow-dysplasia, freq: classic}
+  - {id: macrocytic-anaemia, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: mucocutaneous-bleeding, freq: occasional}
+  - {id: ring-sideroblasts, freq: occasional}
+outcomes:
+  - {id: acute-myeloid-leukaemia, freq: common, source: "K&C 10e p.397"}
+  - {id: neutropenic-sepsis, source: "K&C 10e p.397"}

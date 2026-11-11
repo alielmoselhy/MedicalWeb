@@ -1,0 +1,22 @@
+id: thalassaemia
+name: Thalassaemia
+parent: chronic-haemolysis
+group: globin-disorders
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.341-344", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: red-cell-gene-defect, to: globin-chain-imbalance, note: "Too few α or β chains; the greater the imbalance, the worse the disease. Now graded transfusion-dependent (TDT) or not (NTDT)", source: "K&C 10e p.341-342"}
+  - {from: globin-chain-imbalance, to: microcytic-hypochromic-anaemia, note: "Microcytosis with normal ferritin and iron; doesn't respond to iron", source: "K&C 10e p.331, 342; Mehlman HY Heme-Onc"}
+  - {from: globin-chain-imbalance, to: target-cells, source: "Mehlman HY Heme-Onc"}
+  - [globin-chain-imbalance, extravascular-haemolysis]
+  - [extravascular-haemolysis, haemolytic-anaemia]
+  - [extravascular-haemolysis, splenomegaly]
+  - [globin-chain-imbalance, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+findings:
+  - {id: microcytic-hypochromic-anaemia, freq: classic}
+  - {id: target-cells, freq: classic}
+  - {id: haemolytic-anaemia, freq: common}
+  - {id: splenomegaly, freq: common}
+  - {id: fatigue, freq: common}

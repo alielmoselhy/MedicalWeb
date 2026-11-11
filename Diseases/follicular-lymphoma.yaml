@@ -1,0 +1,24 @@
+id: follicular-lymphoma
+name: Follicular lymphoma
+group: low-grade-lymphoproliferative
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.381, 402-403", "Mehlman HY Heme-Onc", "Mehlman HY Pathology"]
+chain:
+  - {from: bcl2-translocation, to: lymphoid-clonal-expansion, note: "BCL2 switched on: cells escape apoptosis. The translocation is also in half of healthy people's lymphocytes", source: "K&C 10e p.381, 402; Mehlman HY Heme-Onc"}
+  - [lymphoid-clonal-expansion, bcl2-translocation-detected]
+  - {from: lymphoid-clonal-expansion, to: cervical-lymphadenopathy, note: "Exam picture: a painless lateral neck lump waxing and waning over 1–2 years in an adult", source: "Mehlman HY Pathology"}
+  - {from: lymphoid-clonal-expansion, to: generalised-lymphadenopathy, note: "Middle to late life; waxing and waning. Watch if well; anti-CD20 chemo-immunotherapy if not. Median survival over 10 years", source: "K&C 10e p.402-403; Mehlman HY Heme-Onc"}
+  - {from: lymphoid-clonal-expansion, to: fever, note: "B symptoms in a minority", source: "K&C 10e p.402"}
+  - [lymphoid-clonal-expansion, night-sweats]
+  - [lymphoid-clonal-expansion, weight-loss]
+  - {from: lymphoid-clonal-expansion, to: diffuse-large-b-cell-lymphoma, note: "Up to 25% over 15 years", source: "K&C 10e p.402"}
+findings:
+  - {id: generalised-lymphadenopathy, freq: classic}
+  - {id: bcl2-translocation-detected, freq: classic}
+  - {id: cervical-lymphadenopathy, freq: common, source: "Mehlman HY Pathology"}
+  - {id: fever, freq: occasional}
+  - {id: night-sweats, freq: occasional}
+  - {id: weight-loss, freq: occasional}
+outcomes:
+  - {id: diffuse-large-b-cell-lymphoma, freq: occasional, source: "K&C 10e p.402"}

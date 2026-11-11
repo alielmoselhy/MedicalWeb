@@ -1,0 +1,19 @@
+id: follicular-adenoma
+name: Thyroid follicular adenoma
+group: thyroid
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.614", "K&C 10e p.620-621", "Mehlman HY Endocrine"]
+chain:
+  - {from: benign-thyroid-neoplasm, to: thyroid-nodule, note: "Most solitary nodules are benign or cystic; FNA picks the few malignant ones", source: "K&C 10e p.620-621"}
+  - {from: benign-thyroid-neoplasm, to: hormone-secreting-adenoma, note: "Toxic adenoma: about 5% of hyperthyroidism; does not remit on drugs; excision cures", source: "K&C 10e p.614, 617"}
+  - [hormone-secreting-adenoma, thyroid-hormone-excess]
+  - {from: hormone-secreting-adenoma, to: hot-nodule-uptake, note: "A hot nodule is rarely malignant", source: "K&C 10e p.621; Mehlman HY Endocrine"}
+  - {from: thyroid-hormone-excess, to: suppressed-tsh-raised-t4, note: "Sometimes T3 toxicosis", source: "K&C 10e p.621"}
+  - [thyroid-hormone-excess, hyperthyroidism]
+findings:
+  - {id: thyroid-nodule, freq: classic}
+  - {id: hot-nodule-uptake, freq: occasional, note: "Toxic adenoma"}
+  - {id: suppressed-tsh-raised-t4, freq: occasional, note: "Toxic adenoma"}
+outcomes:
+  - {id: hyperthyroidism, freq: occasional, source: "K&C 10e p.614"}

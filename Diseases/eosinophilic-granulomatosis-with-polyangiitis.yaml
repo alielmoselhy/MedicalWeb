@@ -1,0 +1,25 @@
+id: eosinophilic-granulomatosis-with-polyangiitis
+name: Eosinophilic granulomatosis with polyangiitis (EGPA)
+parent: vasculitis
+group: vasculitis
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.466", "K&C 10e p.991-992", "Mehlman HY Cardio"]
+chain:
+  - {from: type-2-eosinophilic-inflammation, to: raised-eosinophils-ige, note: "Early adulthood; blood eosinophils over 10%", source: "K&C 10e p.991"}
+  - {from: type-2-eosinophilic-inflammation, to: asthma, note: "Often hard to control; EGPA may surface as asthma steroids are withdrawn", source: "K&C 10e p.991-992; Mehlman HY Cardio"}
+  - [type-2-eosinophilic-inflammation, allergic-rhinitis]
+  - {from: type-2-eosinophilic-inflammation, to: anca-small-vessel-vasculitis, note: "Systemic vasculitis follows, sometimes years later. Mepolizumab (anti-IL-5) helps", source: "K&C 10e p.466, 991-992"}
+  - {from: anca-small-vessel-vasculitis, to: p-anca, note: "ANCA in up to 60%, usually pANCA", source: "K&C 10e p.991"}
+  - {from: anca-small-vessel-vasculitis, to: mononeuritis-multiplex, source: "K&C 10e p.992; Mehlman HY Cardio"}
+  - {from: anca-small-vessel-vasculitis, to: palpable-purpura, note: "Also tender subcutaneous nodules", source: "K&C 10e p.992"}
+  - {from: anca-small-vessel-vasculitis, to: exudative-effusion, note: "Migratory patchy opacities on chest X-ray", source: "K&C 10e p.992"}
+findings:
+  - {id: raised-eosinophils-ige, freq: classic}
+  - {id: p-anca, freq: common}
+  - {id: mononeuritis-multiplex, freq: common}
+  - {id: palpable-purpura, freq: occasional}
+  - {id: exudative-effusion, freq: occasional}
+outcomes:
+  - {id: asthma, freq: classic, source: "K&C 10e p.991"}
+  - {id: allergic-rhinitis, freq: common, source: "K&C 10e p.991"}

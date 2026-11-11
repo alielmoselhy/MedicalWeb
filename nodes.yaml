@@ -36,14 +36,13 @@
 -   {id: titin-truncation, name: Titin (TTN) truncating variant, type: cause, category: genetic, parent: cardiomyopathy-gene-variant}
 - {id: ion-channel-mutation, name: "Cardiac ion-channel mutation (long QT, Brugada)", type: cause, category: genetic}
 - {id: bmpr2-mutation, name: BMPR2 mutation, type: cause, category: genetic}
-- {id: heritable-thrombophilia, name: "Heritable thrombophilia (factor V Leiden, protein C/S, antithrombin)", type: cause, category: genetic}
+- {id: heritable-thrombophilia, name: "Heritable thrombophilia (factor V Leiden, protein C/S, antithrombin)", type: cause, category: genetic, parent: coagulation-gene-defect}
 - {id: polygenic-bp-predisposition, name: Polygenic blood-pressure predisposition, type: cause, category: genetic}
 - {id: marfan-syndrome, name: "Marfan's syndrome (FBN1)", type: cause, category: genetic}
 # --- Risk factors ---
-# diabetes-mellitus is a cause here until the endocrine system gets its own disease file.
+# diabetes-mellitus was a cause here; since endocrine batch 1 it is a disease file (Diseases/diabetes-mellitus.yaml).
 - {id: modifiable-risk-factor, name: Modifiable cardiovascular risk factor, type: cause, category: risk-factor}
 -   {id: smoking, name: Smoking, type: cause, category: risk-factor, parent: modifiable-risk-factor}
--   {id: diabetes-mellitus, name: Diabetes mellitus, type: cause, category: risk-factor, parent: modifiable-risk-factor}
 -   {id: obesity, name: Obesity, type: cause, category: risk-factor, parent: modifiable-risk-factor}
 -   {id: physical-inactivity, name: Physical inactivity, type: cause, category: risk-factor, parent: modifiable-risk-factor}
 -   {id: excess-alcohol, name: Excess alcohol intake, type: cause, category: risk-factor, parent: modifiable-risk-factor}
@@ -73,12 +72,7 @@
 -   {id: aortic-coarctation, name: Coarctation of the aorta, type: cause, category: condition, parent: congenital-heart-defect}
 - {id: fibromuscular-dysplasia, name: Fibromuscular dysplasia, type: cause, category: condition}
 - {id: amyloidosis, name: Amyloidosis, type: cause, category: condition}
-- {id: hypothyroidism, name: Hypothyroidism, type: cause, category: condition}
-- {id: nephrotic-syndrome, name: Nephrotic syndrome, type: cause, category: condition}
 - {id: obstructive-sleep-apnoea, name: Obstructive sleep apnoea, type: cause, category: condition}
-- {id: endocrine-hypertension-cause, name: Endocrine cause of hypertension, type: cause, category: condition}
--   {id: primary-hyperaldosteronism, name: Primary hyperaldosteronism, type: cause, category: condition, parent: endocrine-hypertension-cause}
--   {id: phaeochromocytoma, name: Phaeochromocytoma, type: cause, category: condition, parent: endocrine-hypertension-cause}
 
 # ================= MECHANISMS =================
 # --- Vascular / ischaemic ---
@@ -262,7 +256,7 @@
 - {id: low-abpi, name: Low ankle–brachial pressure index, type: finding, category: sign}
 - {id: unilateral-leg-swelling, name: Unilateral leg pain and swelling, type: finding, category: sign}
 - {id: line-site-inflammation, name: Inflammation at the line site, type: finding, category: sign}
-- {id: migratory-polyarthritis, name: Migratory polyarthritis, type: finding, category: sign}
+- {id: migratory-polyarthritis, name: Migratory polyarthritis, type: finding, category: sign, parent: inflammatory-arthritis}
 - {id: sydenham-chorea, name: Sydenham's chorea, type: finding, category: sign}
 - {id: erythema-marginatum, name: Erythema marginatum, type: finding, category: sign}
 - {id: subcutaneous-nodules, name: Subcutaneous nodules, type: finding, category: sign}
@@ -355,9 +349,9 @@
 - {id: raised-aso-titre, name: Raised ASO / anti-DNase B titre, type: finding, category: lab}
 - {id: raised-inflammatory-markers, name: Raised CRP / ESR, type: finding, category: lab}
 - {id: hypoxaemia, name: Hypoxaemia, type: finding, category: lab}
-- {id: hypokalaemia, name: Hypokalaemia, type: finding, category: lab}
-- {id: proteinuria, name: Proteinuria, type: finding, category: lab}
-- {id: haematuria, name: Haematuria, type: finding, category: lab}
+- {id: low-serum-potassium, name: Low serum potassium, type: finding, category: lab}
+- {id: proteinuria, name: Proteinuria, type: finding, parent: urine-abnormality, category: lab}
+- {id: haematuria, name: Haematuria, type: finding, parent: urine-abnormality, category: lab}
 - {id: creatinine-rise-on-ace-inhibitor, name: Creatinine rise on ACE inhibitor / ARB, type: finding, category: lab}
 
 # --- Imaging ---
@@ -393,10 +387,6 @@
 -   {id: septic-emboli-abscess, name: "Abscess from septic emboli (spleen, brain, kidney)", type: outcome, parent: metastatic-infection}
 -   {id: vertebral-osteomyelitis, name: Vertebral osteomyelitis / discitis, type: outcome, parent: metastatic-infection}
 -   {id: mycotic-aneurysm, name: Mycotic aneurysm, type: outcome, parent: metastatic-infection}
-- {id: kidney-injury, name: Kidney injury, type: outcome}
--   {id: acute-kidney-injury, name: Acute kidney injury, type: outcome, parent: kidney-injury}
--   {id: chronic-kidney-disease, name: Chronic kidney disease, type: outcome, parent: kidney-injury}
--   {id: glomerulonephritis, name: Immune-complex glomerulonephritis, type: outcome, parent: kidney-injury}
 - {id: respiratory-failure, name: Respiratory failure, type: outcome}
 -   {id: type-1-respiratory-failure, name: Type 1 respiratory failure (low O2), type: outcome, parent: respiratory-failure}
 -   {id: type-2-respiratory-failure, name: Type 2 respiratory failure (high CO2), type: outcome, parent: respiratory-failure}
@@ -418,6 +408,7 @@
 # Agreed in docs/concepts-resp.md; added batch by batch (airways first).
 
 # --- Causes ---
+- {id: inhaled-respiratory-pathogen, name: Inhaled respiratory pathogens, type: cause, category: organism}
 - {id: streptococcus-pneumoniae, name: Streptococcus pneumoniae, type: cause, category: organism, parent: streptococci}
 - {id: haemophilus-influenzae, name: Haemophilus influenzae, type: cause, category: organism, parent: gram-negative-bacilli}
 - {id: pseudomonas-aeruginosa, name: Pseudomonas aeruginosa, type: cause, category: organism, parent: gram-negative-bacilli}
@@ -455,7 +446,6 @@
 -   {id: organic-antigen, name: "Inhaled organic antigen (mouldy hay, bird proteins)", type: cause, category: risk-factor, parent: inhaled-exposure}
 -   {id: radon, name: Radon gas (homes built on granite), type: cause, category: risk-factor, parent: inhaled-exposure}
 -   {id: occupational-carcinogen, name: "Occupational carcinogen (arsenic, chromium, nickel, hydrocarbons)", type: cause, category: risk-factor, parent: inhaled-exposure}
-- {id: autoimmune-rheumatic-disease, name: "Autoimmune rheumatic disease (RA, SLE, systemic sclerosis)", type: cause, category: condition}
 - {id: immunosuppression, name: Immune deficiency or suppression, type: cause, category: risk-factor}
 - {id: previous-severe-lung-infection, name: "Previous severe lung infection (measles, pertussis)", type: cause, category: condition}
 - {id: allergic-bronchopulmonary-aspergillosis, name: Allergic bronchopulmonary aspergillosis, type: cause, category: condition}
@@ -524,7 +514,9 @@
 - {id: endobronchial-obstruction, name: Tumour obstructing a bronchus, type: mechanism}
 - {id: local-tumour-invasion, name: "Invasion of pleura, chest wall or mediastinum", type: mechanism}
 - {id: metastatic-spread, name: Metastatic spread, type: mechanism}
-- {id: ectopic-hormone-secretion, name: Ectopic hormone secretion, type: mechanism}
+- {id: tumour-hormone-secretion, name: Hormone secretion by a tumour, type: mechanism}
+-   {id: hormone-secreting-adenoma, name: Benign hormone-secreting endocrine tumour, type: mechanism, parent: tumour-hormone-secretion}
+-   {id: ectopic-hormone-secretion, name: Ectopic hormone secretion, type: mechanism, parent: tumour-hormone-secretion}
 -   {id: adh-secretion, name: Ectopic ADH secretion, type: mechanism, parent: ectopic-hormone-secretion}
 -   {id: pthrp-secretion, name: PTHrP secretion (PTH suppressed), type: mechanism, parent: ectopic-hormone-secretion}
 -   {id: acth-secretion, name: Ectopic ACTH secretion, type: mechanism, parent: ectopic-hormone-secretion}
@@ -554,7 +546,7 @@
 - {id: hyperinflated-chest, name: "Hyperinflated chest (prolonged expiration, pursed lips, accessory muscles)", type: finding, category: sign}
 - {id: central-cyanosis, name: Central cyanosis, type: finding, category: sign}
 - {id: finger-clubbing, name: Finger clubbing, type: finding, category: sign}
-- {id: cervical-lymphadenopathy, name: Painless cervical lymphadenopathy, type: finding, category: sign}
+- {id: cervical-lymphadenopathy, name: Painless cervical lymphadenopathy, type: finding, category: sign, parent: neck-lump}
 - {id: erythema-nodosum, name: Erythema nodosum, type: finding, category: sign}
 - {id: lupus-pernio, name: Lupus pernio, type: finding, category: sign}
 - {id: anterior-uveitis, name: "Uveitis (red, painful eye; blurred vision)", type: finding, category: sign}
@@ -567,11 +559,11 @@
 -   {id: bronchodilator-reversibility, name: Reversibility (FEV1 or PEFR up > 15% after bronchodilator), type: finding, category: lab, parent: abnormal-lung-function}
 -   {id: variable-peak-flow, name: Diurnal peak-flow variation, type: finding, category: lab, parent: abnormal-lung-function}
 -   {id: reduced-tlco, name: Reduced gas transfer (TLCO), type: finding, category: lab, parent: abnormal-lung-function}
-- {id: hypercapnia, name: Hypercapnia (raised PaCO2), type: finding, category: lab}
+-   {id: hypercapnia, name: Hypercapnia (raised PaCO2), type: finding, category: lab, parent: blood-gas-abnormality}
 - {id: raised-eosinophils-ige, name: Raised blood or sputum eosinophils / IgE, type: finding, category: lab}
-- {id: secondary-polycythaemia, name: Secondary polycythaemia, type: finding, category: lab}
+- {id: secondary-polycythaemia, name: Secondary polycythaemia, type: finding, category: lab, parent: raised-cell-count}
 - {id: low-a1at-level, name: Low serum alpha-1 antitrypsin, type: finding, category: lab}
-- {id: hyponatraemia, name: Hyponatraemia, type: finding, category: lab}
+- {id: low-serum-sodium, name: Low serum sodium, type: finding, category: lab}
 - {id: raised-liver-enzymes, name: Raised liver enzymes, type: finding, category: lab}
 - {id: anaemia, name: Anaemia, type: finding, category: lab}
 -   {id: haemolytic-anaemia, name: Haemolytic anaemia, type: finding, category: lab, parent: anaemia}
@@ -615,7 +607,6 @@
 - {id: cf-related-diabetes, name: CF-related diabetes, type: outcome, parent: pancreatogenic-diabetes}
 - {id: meconium-ileus, name: Meconium ileus / distal intestinal obstruction, type: outcome, parent: intestinal-obstruction}
 - {id: male-infertility, name: Male infertility, type: outcome}
-- {id: osteoporosis, name: Osteoporosis, type: outcome}
 - {id: pleural-infection, name: Pleural infection, type: outcome}
 -   {id: parapneumonic-effusion, name: Parapneumonic effusion, type: outcome, parent: pleural-infection}
 -   {id: empyema, name: Empyema, type: outcome, parent: pleural-infection}
@@ -623,13 +614,11 @@
 -   {id: lung-abscess, name: Lung abscess, type: outcome, parent: abscess}
 - {id: multi-organ-dysfunction, name: Multiple organ dysfunction, type: outcome}
 - {id: lung-fibrosis, name: Lung fibrosis after injury, type: outcome}
-- {id: renal-calculi-nephrocalcinosis, name: Renal stones and nephrocalcinosis, type: outcome}
 - {id: extrapulmonary-tb, name: Extrapulmonary TB, type: outcome}
 -   {id: lymph-node-tb, name: Lymph node TB (cold abscess), type: outcome, parent: extrapulmonary-tb}
 -   {id: miliary-tb, name: Miliary TB, type: outcome, parent: extrapulmonary-tb}
 -   {id: tb-meningitis, name: TB meningitis, type: outcome, parent: extrapulmonary-tb}
 -   {id: spinal-tb, name: Spinal TB (Pott's disease), type: outcome, parent: extrapulmonary-tb}
-- {id: adrenal-insufficiency, name: Adrenal insufficiency, type: outcome}
 - {id: post-obstructive-pneumonia, name: Post-obstructive pneumonia, type: outcome, parent: pneumonia}
 - {id: local-tumour-spread, name: Local tumour spread, type: outcome}
 -   {id: malignant-pleural-effusion, name: Malignant pleural effusion, type: outcome, parent: local-tumour-spread}
@@ -638,11 +627,9 @@
 -   {id: pancoast-syndrome, name: "Pancoast syndrome (Horner's, C8/T1 palsy, arm pain)", type: outcome, parent: local-tumour-spread}
 -   {id: phrenic-nerve-palsy, name: Phrenic nerve palsy (raised hemidiaphragm), type: outcome, parent: local-tumour-spread}
 - {id: distant-metastases, name: Distant metastases, type: outcome}
--   {id: bone-metastases, name: Bone metastases, type: outcome, parent: distant-metastases}
 -   {id: liver-metastases, name: Liver metastases, type: outcome, parent: distant-metastases}
 -   {id: adrenal-metastases, name: Adrenal metastases, type: outcome, parent: distant-metastases}
 - {id: paraneoplastic-syndrome, name: Paraneoplastic syndrome, type: outcome}
--   {id: siadh, name: SIADH, type: outcome, parent: paraneoplastic-syndrome}
 -   {id: hypercalcaemia-of-malignancy, name: Hypercalcaemia of malignancy, type: outcome, parent: paraneoplastic-syndrome}
 -   {id: ectopic-cushing, name: Ectopic ACTH (Cushing's) syndrome, type: outcome, parent: paraneoplastic-syndrome}
 -   {id: lambert-eaton-syndrome, name: Lambert–Eaton myasthenic syndrome, type: outcome, parent: paraneoplastic-syndrome}
@@ -676,7 +663,6 @@
 - {id: ugt1a1-variant, name: UGT1A1 promoter variant, type: cause, category: genetic}
 - {id: prss1-mutation, name: Cationic trypsinogen (PRSS1) mutation, type: cause, category: genetic}
 # Conditions from systems without files yet (removed once their disease file exists).
-- {id: chronic-haemolysis, name: "Chronic haemolysis (spherocytosis, sickle cell, thalassaemia)", type: cause, category: condition}
 - {id: budd-chiari-syndrome, name: Budd–Chiari syndrome (hepatic vein thrombosis), type: cause, category: condition}
 - {id: portal-vein-thrombosis, name: Portal vein thrombosis, type: cause, category: condition}
 
@@ -779,7 +765,6 @@
 -   {id: aih-autoantibodies, name: "ANA and anti-smooth muscle (type 1) or anti-LKM1 (type 2)", type: finding, category: lab, parent: gi-autoantibody}
 -   {id: p-anca, name: pANCA, type: finding, category: lab, parent: gi-autoantibody}
 - {id: raised-immunoglobulins, name: "Raised serum immunoglobulins (IgG in AIH, IgM in PBC)", type: finding, category: lab}
-- {id: raised-iron-indices, name: Raised ferritin and transferrin saturation, type: finding, category: lab}
 - {id: copper-studies, name: Low caeruloplasmin and raised urinary copper, type: finding, category: lab}
 - {id: raised-afp, name: Raised alpha-fetoprotein, type: finding, category: lab}
 - {id: ascitic-neutrophilia, name: Ascitic neutrophils > 250/mm³, type: finding, category: lab}
@@ -796,13 +781,13 @@
 -   {id: nodular-liver-imaging, name: Nodular liver surface with splenomegaly, type: finding, category: imaging, parent: gi-imaging-abnormality}
 -   {id: pancreatic-calcification, name: Pancreatic calcification and dilated duct, type: finding, category: imaging, parent: gi-imaging-abnormality}
 -   {id: pancreatic-mass, name: Pancreatic mass, type: finding, category: imaging, parent: gi-imaging-abnormality}
-- {id: liver-biopsy-finding, name: Liver biopsy finding, type: finding, category: endoscopy}
--   {id: interface-hepatitis, name: Interface hepatitis with plasma cells, type: finding, category: endoscopy, parent: liver-biopsy-finding}
--   {id: ground-glass-hepatocytes, name: Ground-glass hepatocytes (HBsAg), type: finding, category: endoscopy, parent: liver-biopsy-finding}
--   {id: mallory-bodies, name: Mallory bodies and neutrophils, type: finding, category: endoscopy, parent: liver-biopsy-finding}
--   {id: portal-infiltrate-duct-loss, name: "Portal lymphocytic infiltrate, granulomas and bile duct loss", type: finding, category: endoscopy, parent: liver-biopsy-finding}
--   {id: onion-skin-fibrosis, name: Onion-skin periductal fibrosis, type: finding, category: endoscopy, parent: liver-biopsy-finding}
--   {id: regenerative-nodules, name: Regenerating nodules separated by fibrous septa, type: finding, category: endoscopy, parent: liver-biopsy-finding}
+- {id: liver-biopsy-finding, name: Liver biopsy finding, type: finding, category: histology}
+-   {id: interface-hepatitis, name: Interface hepatitis with plasma cells, type: finding, category: histology, parent: liver-biopsy-finding}
+-   {id: ground-glass-hepatocytes, name: Ground-glass hepatocytes (HBsAg), type: finding, category: histology, parent: liver-biopsy-finding}
+-   {id: mallory-bodies, name: Mallory bodies and neutrophils, type: finding, category: histology, parent: liver-biopsy-finding}
+-   {id: portal-infiltrate-duct-loss, name: "Portal lymphocytic infiltrate, granulomas and bile duct loss", type: finding, category: histology, parent: liver-biopsy-finding}
+-   {id: onion-skin-fibrosis, name: Onion-skin periductal fibrosis, type: finding, category: histology, parent: liver-biopsy-finding}
+-   {id: regenerative-nodules, name: Regenerating nodules separated by fibrous septa, type: finding, category: histology, parent: liver-biopsy-finding}
 
 # --- Outcomes ---
 - {id: oesophageal-varices, name: Gastro-oesophageal varices, type: outcome}
@@ -816,13 +801,11 @@
 -   {id: vasogenic-oedema, name: "Vasogenic oedema (leaky vessels around a tumour, abscess or haematoma)", type: outcome, parent: cerebral-oedema}
 -   {id: cytotoxic-oedema, name: "Cytotoxic oedema (swelling of dying cells after ischaemia or hypoxia)", type: outcome, parent: cerebral-oedema}
 - {id: alcoholic-hepatitis, name: Alcoholic hepatitis, type: outcome}
-- {id: polyarteritis-nodosa, name: Polyarteritis nodosa, type: outcome}
 - {id: cryoglobulinaemia, name: Cryoglobulinaemia, type: outcome}
 - {id: porphyria-cutanea-tarda, name: Porphyria cutanea tarda, type: outcome}
 - {id: fat-soluble-vitamin-deficiency, name: "Fat-soluble vitamin deficiency (A, D, K)", type: outcome}
-- {id: pancreatogenic-diabetes, name: Pancreatogenic (type 3c) diabetes, type: outcome}
+- {id: pancreatogenic-diabetes, name: Pancreatogenic (type 3c) diabetes, type: outcome, parent: diabetes-mellitus}
 - {id: hypogonadism, name: Hypogonadism, type: outcome}
-- {id: chondrocalcinosis, name: Chondrocalcinosis arthropathy, type: outcome}
 - {id: tumour-haemorrhage, name: Bleeding into a tumour or the peritoneum, type: outcome}
 - {id: gallstone-ileus, name: Gallstone ileus (biliary–enteric fistula), type: outcome, parent: intestinal-obstruction}
 - {id: gallbladder-empyema, name: Empyema or perforation of the gall bladder, type: outcome}
@@ -832,15 +815,15 @@
 - {id: anabolic-steroids, name: Anabolic or androgenic steroids, type: cause, category: drug}
 - {id: aflatoxin, name: Aflatoxin (mouldy groundnuts), type: cause, category: risk-factor}
 - {id: raised-ca19-9, name: Raised CA19-9 / CEA, type: finding, category: lab}
--   {id: a1at-globules, name: PAS-D-positive A1AT globules in hepatocytes, type: finding, category: endoscopy, parent: liver-biopsy-finding}
+-   {id: a1at-globules, name: PAS-D-positive A1AT globules in hepatocytes, type: finding, category: histology, parent: liver-biopsy-finding}
 
 # --- Oesophagus, stomach, small intestine and IBD (batches 3–4) ---
 - {id: helicobacter-pylori, name: Helicobacter pylori, type: cause, category: organism, parent: gram-negative-bacilli}
 - {id: nsaid-use, name: NSAIDs or aspirin, type: cause, category: drug}
 - {id: gluten-exposure, name: "Dietary gluten (wheat, barley, rye)", type: cause, category: risk-factor}
-- {id: hla-dq2-dq8, name: HLA-DQ2 / DQ8, type: cause, category: genetic}
+- {id: hla-dq2-dq8, name: HLA-DQ2 / DQ8, type: cause, category: genetic, parent: hla-susceptibility}
 - {id: nitrosamines, name: Nitrosamines (smoked or preserved foods), type: cause, category: risk-factor}
-- {id: kit-mutation, name: KIT (or PDGFRA) mutation, type: cause, category: genetic}
+- {id: kit-mutation, name: KIT (or PDGFRA) mutation, type: cause, category: genetic, parent: oncogenic-driver}
 - {id: ibd-family-history, name: Family history of IBD, type: cause, category: genetic}
 
 - {id: les-incompetence, name: "Lower oesophageal sphincter incompetence (transient relaxations, hiatus hernia)", type: mechanism}
@@ -857,7 +840,7 @@
 - {id: oesophageal-tumour, name: Oesophageal tumour, type: mechanism}
 - {id: gastric-tumour, name: Gastric tumour, type: mechanism}
 - {id: stromal-tumour, name: Gastrointestinal stromal (Cajal cell) tumour, type: mechanism}
-- {id: clonal-b-cell-proliferation, name: Clonal B-cell proliferation in chronic gastritis, type: mechanism}
+- {id: clonal-b-cell-proliferation, name: Clonal B-cell proliferation in chronic gastritis, type: mechanism, parent: lymphoid-clonal-expansion}
 -   {id: oesophageal-narrowing, name: Narrowing of the oesophageal lumen, type: mechanism, parent: luminal-obstruction}
 -   {id: gastric-outlet-obstruction, name: Gastric outlet obstruction, type: mechanism, parent: luminal-obstruction}
 - {id: pyloric-muscle-hypertrophy, name: Hypertrophy of the pyloric muscle, type: mechanism}
@@ -895,13 +878,12 @@
 -   {id: rif-mass, name: Right iliac fossa mass, type: finding, category: sign, parent: abdominal-mass}
 -   {id: pyloric-olive, name: Olive-shaped pyloric mass, type: finding, category: sign, parent: abdominal-mass}
 - {id: abdominal-distension, name: Abdominal distension, type: finding, category: sign}
--   {id: iron-deficiency-anaemia, name: Iron deficiency anaemia, type: finding, category: lab, parent: anaemia}
 -   {id: b12-folate-deficiency, name: Low B12 or folate (macrocytic anaemia), type: finding, category: lab, parent: anaemia}
 - {id: h-pylori-test-positive, name: "Positive H. pylori test (stool antigen, breath test or biopsy urease)", type: finding, category: lab}
 -   {id: anti-ttg-ema, name: Anti-tTG / endomysial IgA antibodies, type: finding, category: lab, parent: gi-autoantibody}
 -   {id: anti-intrinsic-factor, name: Anti-intrinsic factor / parietal cell antibodies, type: finding, category: lab, parent: gi-autoantibody}
 - {id: raised-faecal-calprotectin, name: Raised faecal calprotectin, type: finding, category: lab}
-- {id: hypokalaemic-alkalosis, name: Hypochloraemic hypokalaemic metabolic alkalosis, type: finding, category: lab, parent: hypokalaemia}
+- {id: hypokalaemic-alkalosis, name: Hypochloraemic hypokalaemic metabolic alkalosis, type: finding, category: lab, parent: low-serum-potassium}
 - {id: positive-hydrogen-breath-test, name: Early rise on glucose hydrogen breath test, type: finding, category: lab}
 -   {id: birds-beak-oesophagus, name: "Dilated oesophagus with a 'bird's beak' on barium swallow", type: finding, category: imaging, parent: gi-imaging-abnormality}
 -   {id: thick-pylorus-ultrasound, name: Thickened elongated pylorus on ultrasound, type: finding, category: imaging, parent: gi-imaging-abnormality}
@@ -973,7 +955,9 @@
 -   {id: mucosal-invasion, name: Invasion and destruction of the mucosa, type: mechanism, parent: infective-diarrhoea}
 -   {id: cytotoxin-mucosal-damage, name: Cytotoxin damaging mucosa and blood vessels, type: mechanism, parent: infective-diarrhoea}
 -   {id: viral-enterocyte-damage, name: Virus damaging enterocytes (villi shortened), type: mechanism, parent: infective-diarrhoea}
-- {id: neuromuscular-blockade, name: Toxin blocking acetylcholine release, type: mechanism}
+- {id: neuromuscular-junction-failure, name: Failing neuromuscular junction transmission, type: mechanism}
+-   {id: neuromuscular-blockade, name: Toxin blocking acetylcholine release, type: mechanism, parent: neuromuscular-junction-failure}
+-   {id: presynaptic-calcium-channel-block, name: Antibodies to presynaptic calcium channels reducing acetylcholine release, type: mechanism, parent: neuromuscular-junction-failure}
 - {id: fluid-electrolyte-loss, name: Gut fluid and electrolyte loss, type: mechanism}
 
 -   {id: lif-pain, name: Left iliac fossa pain, type: finding, category: symptom, parent: abdominal-pain}
@@ -1003,7 +987,6 @@
 -   {id: intra-abdominal-abscess, name: "Intra-abdominal abscess (pericolic, pelvic, subphrenic)", type: outcome, parent: abscess}
 - {id: paralytic-ileus, name: Paralytic ileus, type: outcome}
 -   {id: hypovolaemic-shock, name: Hypovolaemic shock, type: outcome, parent: shock}
--   {id: haemolytic-uraemic-syndrome, name: Haemolytic uraemic syndrome, type: outcome, parent: acute-kidney-injury}
 -   {id: amoebic-liver-abscess, name: Amoebic liver abscess, type: outcome, parent: abscess}
 -   {id: tb-peritonitis, name: Tuberculous peritonitis, type: outcome, parent: extrapulmonary-tb}
 # --- Nutrition (batch 7) ---
@@ -1023,7 +1006,6 @@
 - {id: cerebral-amyloid-angiopathy, name: Cerebral amyloid angiopathy, type: cause, category: condition}
 - {id: cervical-artery-dissection, name: Carotid or vertebral artery dissection, type: cause, category: condition}
 - {id: patent-foramen-ovale, name: Patent foramen ovale (paradoxical embolism), type: cause, category: condition}
-- {id: adpkd, name: Autosomal dominant polycystic kidney disease, type: cause, category: condition}
 - {id: ehlers-danlos-syndrome, name: Ehlers–Danlos syndrome, type: cause, category: genetic}
 - {id: head-injury, name: "Head injury (road traffic collisions, falls, alcohol)", type: cause, category: risk-factor}
 - {id: brain-atrophy-in-elderly, name: Brain atrophy in older age (stretched bridging veins), type: cause, category: risk-factor}
@@ -1132,7 +1114,6 @@
 -   {id: varicella-zoster-virus, name: Varicella-zoster virus, type: cause, category: organism, parent: neurotropic-virus}
 -   {id: mumps-virus, name: Mumps virus, type: cause, category: organism, parent: neurotropic-virus}
 - {id: cryptococcus-neoformans, name: Cryptococcus neoformans, type: cause, category: organism}
-- {id: hiv, name: HIV infection, type: cause, category: condition}
 - {id: ebv-infection, name: Previous Epstein–Barr virus infection, type: cause, category: risk-factor}
 - {id: low-vitamin-d-latitude, name: Low vitamin D / higher latitude, type: cause, category: risk-factor}
 - {id: parameningeal-infection, name: "Parameningeal infection (sinus, ear, mastoid or dental)", type: cause, category: condition}
@@ -1175,7 +1156,7 @@
 
 # Outcomes
 - {id: autonomic-dysfunction, name: Autonomic dysfunction, type: outcome}
-- {id: purpura-fulminans-dic, name: Purpura fulminans with disseminated intravascular coagulation, type: outcome}
+- {id: purpura-fulminans-dic, name: Purpura fulminans with disseminated intravascular coagulation, type: outcome, parent: disseminated-intravascular-coagulation}
 - {id: waterhouse-friderichsen-syndrome, name: Waterhouse–Friderichsen syndrome (adrenal haemorrhage), type: outcome}
 - {id: sensorineural-hearing-loss, name: Sensorineural hearing loss after meningitis, type: outcome}
 
@@ -1225,3 +1206,1392 @@
 -   {id: hippocampal-atrophy, name: Mesial temporal and hippocampal atrophy on MRI, type: finding, category: imaging, parent: brain-imaging-abnormality}
 -   {id: caudate-atrophy, name: Caudate atrophy on brain imaging, type: finding, category: imaging, parent: brain-imaging-abnormality}
 -   {id: reduced-dat-scan, name: Reduced nigrostriatal uptake on dopamine transporter imaging, type: finding, category: imaging, parent: brain-imaging-abnormality}
+
+# ================= HAEMATOLOGY =================
+# Agreed in docs/concepts-haem.md; added batch by batch.
+# --- Anaemia (batch 1) ---
+# Causes
+- {id: chronic-gi-blood-loss, name: Chronic gastrointestinal blood loss, type: cause, category: condition}
+- {id: hookworm, name: Hookworm, type: cause, category: organism}
+- {id: heavy-menstrual-loss, name: Heavy menstrual blood loss, type: cause, category: risk-factor}
+- {id: pregnancy, name: Pregnancy, type: cause, category: risk-factor}
+- {id: childhood-growth, name: "Rapid growth in infancy (prematurity, late weaning)", type: cause, category: risk-factor}
+- {id: gastrectomy, name: Gastrectomy, type: cause, category: risk-factor}
+- {id: poor-diet, name: "Poor diet (old age, poverty, starvation)", type: cause, category: risk-factor}
+- {id: antifolate-drug, name: "Antifolate drug (phenytoin, methotrexate, trimethoprim)", type: cause, category: drug}
+- {id: chronic-inflammatory-disease, name: "Chronic inflammatory disease, infection or cancer", type: cause, category: condition}
+- {id: red-cell-gene-defect, name: Inherited red-cell gene defect, type: cause, category: genetic}
+-   {id: alas2-mutation, name: "X-linked δ-ALA synthase (ALAS2) mutation", type: cause, category: genetic, parent: red-cell-gene-defect}
+-   {id: spectrin-ankyrin-mutation, name: "Red-cell membrane protein mutation (ankyrin, band 3, spectrin)", type: cause, category: genetic, parent: red-cell-gene-defect}
+-   {id: pk-gene-mutation, name: Pyruvate kinase gene mutation (autosomal recessive), type: cause, category: genetic, parent: red-cell-gene-defect}
+-   {id: g6pd-gene-mutation, name: G6PD gene mutation (X-linked), type: cause, category: genetic, parent: red-cell-gene-defect}
+-   {id: hbb-sickle-mutation, name: "Sickle β-globin mutation (HbS, glutamic acid to valine)", type: cause, category: genetic, parent: red-cell-gene-defect}
+-   {id: beta-globin-mutation, name: β-globin gene mutation, type: cause, category: genetic, parent: red-cell-gene-defect}
+-   {id: alpha-globin-deletion, name: α-globin gene deletion, type: cause, category: genetic, parent: red-cell-gene-defect}
+- {id: lead-exposure, name: Lead exposure, type: cause, category: risk-factor}
+- {id: isoniazid, name: Isoniazid, type: cause, category: drug}
+- {id: cytotoxic-chemotherapy, name: Cytotoxic chemotherapy, type: cause, category: drug}
+- {id: ionising-radiation, name: Ionising radiation, type: cause, category: risk-factor}
+- {id: idiosyncratic-marrow-drug, name: "Idiosyncratic drug reaction (chloramphenicol, carbimazole, gold, phenytoin)", type: cause, category: drug}
+- {id: fanconi-anaemia-gene, name: Fanconi anaemia gene mutation (autosomal recessive), type: cause, category: genetic}
+# Mechanisms
+- {id: chronic-blood-loss, name: Chronic blood loss, type: mechanism}
+- {id: reduced-iron-absorption, name: Reduced iron absorption, type: mechanism}
+- {id: iron-deficit, name: Depleted body iron, type: mechanism}
+- {id: b12-deficit, name: Vitamin B12 deficiency, type: mechanism}
+- {id: folate-deficit, name: Folate deficiency, type: mechanism}
+- {id: reduced-red-cell-production, name: Reduced red cell production, type: mechanism}
+-   {id: iron-restricted-erythropoiesis, name: Too little iron reaching the marrow for haemoglobin, type: mechanism, parent: reduced-red-cell-production}
+-   {id: hepcidin-iron-sequestration, name: "Hepcidin-driven iron sequestration (iron locked in stores)", type: mechanism, parent: reduced-red-cell-production}
+-   {id: erythropoietin-deficiency, name: Inadequate erythropoietin, type: mechanism, parent: reduced-red-cell-production}
+-   {id: defective-haem-synthesis, name: "Defective haem synthesis (iron trapped in erythroblast mitochondria)", type: mechanism, parent: reduced-red-cell-production}
+-   {id: impaired-dna-synthesis, name: "Impaired DNA synthesis in dividing cells (megaloblastic)", type: mechanism, parent: reduced-red-cell-production}
+-   {id: haematopoietic-stem-cell-failure, name: "Haematopoietic stem cell failure (aplastic marrow)", type: mechanism, parent: reduced-red-cell-production}
+- {id: anaemic-hypoxia, name: "Low haemoglobin: reduced oxygen delivery to tissues", type: mechanism}
+# (parents in the nervous and cardiovascular sections)
+- {id: b12-neural-damage, name: "B12-related demyelination of peripheral nerves and the spinal cord's dorsal and lateral columns", type: mechanism, parent: demyelination}
+- {id: t-cell-attack-on-stem-cells, name: Cytotoxic T-cell attack on haematopoietic stem cells, type: mechanism, parent: immune-mediated-injury}
+- {id: impaired-host-defence, name: Impaired host defence, type: mechanism}
+-   {id: neutrophil-deficit, name: Too few neutrophils (neutropenia), type: mechanism, parent: impaired-host-defence}
+- {id: impaired-haemostasis, name: Impaired haemostasis, type: mechanism}
+-   {id: reduced-platelet-production, name: Reduced platelet production, type: mechanism, parent: impaired-haemostasis}
+# Findings
+- {id: pallor, name: Pallor, type: finding, category: sign}
+- {id: koilonychia, name: Koilonychia (spoon-shaped nails), type: finding, category: sign}
+- {id: glossitis-angular-stomatitis, name: Glossitis and angular stomatitis, type: finding, category: sign}
+- {id: subacute-combined-degeneration, name: "Subacute combined degeneration (paraesthesiae, lost vibration and position sense, ataxia)", type: finding, category: sign}
+- {id: bleeding-tendency, name: Bleeding tendency, type: finding, category: sign}
+-   {id: mucocutaneous-bleeding, name: "Mucocutaneous bleeding (bruising, bleeding gums, epistaxis)", type: finding, category: sign, parent: bleeding-tendency}
+-   {id: microcytic-hypochromic-anaemia, name: Microcytic hypochromic anaemia (MCV < 80 fL), type: finding, category: lab, parent: anaemia}
+-   {id: normocytic-anaemia, name: Normocytic normochromic anaemia, type: finding, category: lab, parent: anaemia}
+-   {id: macrocytic-anaemia, name: Macrocytic anaemia (MCV > 96 fL), type: finding, category: lab, parent: anaemia}
+- {id: iron-studies-abnormality, name: Abnormal iron studies, type: finding, category: lab}
+-   {id: low-ferritin, name: "Low ferritin and transferrin saturation, raised TIBC", type: finding, category: lab, parent: iron-studies-abnormality}
+-   {id: acd-iron-pattern, name: "Low serum iron and TIBC, normal or raised ferritin", type: finding, category: lab, parent: iron-studies-abnormality}
+-   {id: raised-iron-indices, name: Raised ferritin and transferrin saturation, type: finding, category: lab, parent: iron-studies-abnormality}
+- {id: blood-film-abnormality, name: Abnormal blood film, type: finding, category: lab}
+-   {id: hypersegmented-neutrophils, name: Oval macrocytes and hypersegmented neutrophils, type: finding, category: lab, parent: blood-film-abnormality}
+- {id: raised-ldh, name: Raised lactate dehydrogenase, type: finding, category: lab}
+- {id: cytopenia, name: Low blood counts, type: finding, category: lab}
+-   {id: pancytopenia, name: Pancytopenia, type: finding, category: lab, parent: cytopenia}
+- {id: bone-marrow-finding, name: Bone marrow finding, type: finding, category: histology}
+-   {id: ring-sideroblasts, name: Ring sideroblasts on Perls' stain, type: finding, category: histology, parent: bone-marrow-finding}
+-   {id: megaloblastic-marrow, name: Megaloblastic erythropoiesis in the marrow, type: finding, category: histology, parent: bone-marrow-finding}
+-   {id: hypocellular-marrow, name: "Hypocellular, fatty marrow on trephine", type: finding, category: histology, parent: bone-marrow-finding}
+# Outcomes
+- {id: neural-tube-defect, name: Neural tube defect in the baby, type: outcome}
+
+# --- Haemolysis and globin disorders (batch 2) ---
+# Causes
+- {id: oxidant-trigger, name: "Oxidant trigger (drugs such as primaquine and dapsone, fava beans, infection)", type: cause, category: risk-factor}
+- {id: sickling-trigger, name: "Sickling trigger (infection, dehydration, cold, hypoxia)", type: cause, category: risk-factor}
+- {id: haemolysis-inducing-drug, name: "Drug-induced red-cell antibodies (methyldopa, penicillins, cephalosporins, quinine)", type: cause, category: drug}
+- {id: rhd-sensitisation, name: RhD-negative mother sensitised to fetal RhD, type: cause, category: risk-factor}
+- {id: abo-incompatibility, name: Group O mother with a group A or B baby, type: cause, category: risk-factor}
+# Mechanisms
+- {id: red-cell-destruction, name: Shortened red cell survival (haemolysis), type: mechanism}
+-   {id: extravascular-haemolysis, name: Extravascular haemolysis (spleen and liver macrophages), type: mechanism, parent: red-cell-destruction}
+-   {id: intravascular-haemolysis, name: Intravascular haemolysis (free haemoglobin in plasma), type: mechanism, parent: red-cell-destruction}
+- {id: red-cell-membrane-defect, name: Weak red-cell membrane skeleton, type: mechanism}
+- {id: reduced-red-cell-atp, name: Too little red-cell ATP (rigid cells), type: mechanism}
+- {id: oxidative-red-cell-damage, name: "Oxidative red-cell damage (no NADPH, Heinz bodies)", type: mechanism}
+- {id: haemoglobin-s-polymerisation, name: HbS polymerising when deoxygenated (sickling), type: mechanism}
+- {id: vaso-occlusion, name: Sickled cells blocking small vessels (infarction), type: mechanism}
+- {id: globin-chain-imbalance, name: "Globin chain imbalance (excess chains precipitate: ineffective erythropoiesis)", type: mechanism, parent: reduced-red-cell-production}
+- {id: erythroid-hyperplasia, name: "Compensatory marrow erythroid hyperplasia", type: mechanism}
+- {id: extramedullary-haemopoiesis, name: Extramedullary haemopoiesis and marrow expansion, type: mechanism}
+- {id: loss-of-splenic-function, name: Loss of splenic function (asplenia or hyposplenism), type: mechanism, parent: impaired-host-defence}
+- {id: antibody-mediated-cytotoxicity, name: "Antibodies against cells (type II hypersensitivity)", type: mechanism, parent: immune-mediated-injury}
+-   {id: warm-igg-autoantibody, name: Warm IgG red-cell autoantibodies, type: mechanism, parent: antibody-mediated-cytotoxicity}
+-   {id: cold-igm-agglutinin, name: "Cold IgM agglutinins fixing complement", type: mechanism, parent: antibody-mediated-cytotoxicity}
+-   {id: maternal-igg-alloantibody, name: Maternal IgG alloantibodies crossing the placenta, type: mechanism, parent: antibody-mediated-cytotoxicity}
+# Findings
+- {id: reticulocytosis, name: Raised reticulocytes (polychromasia), type: finding, category: lab}
+-   {id: spherocytes, name: Spherocytes on the blood film, type: finding, category: lab, parent: blood-film-abnormality}
+-   {id: bite-cells-heinz-bodies, name: Bite and blister cells with Heinz bodies, type: finding, category: lab, parent: blood-film-abnormality}
+-   {id: sickle-cells, name: Sickle cells on the blood film, type: finding, category: lab, parent: blood-film-abnormality}
+-   {id: target-cells, name: Target cells on the blood film, type: finding, category: lab, parent: blood-film-abnormality}
+-   {id: howell-jolly-bodies, name: "Howell–Jolly bodies (hyposplenic film)", type: finding, category: lab, parent: blood-film-abnormality}
+- {id: positive-direct-antiglobulin-test, name: Positive direct antiglobulin (Coombs') test, type: finding, category: lab}
+- {id: haemoglobin-electrophoresis-abnormality, name: Abnormal haemoglobin electrophoresis or HPLC, type: finding, category: lab}
+-   {id: hbs-on-electrophoresis, name: "HbS on electrophoresis, no HbA", type: finding, category: lab, parent: haemoglobin-electrophoresis-abnormality}
+-   {id: raised-hba2-hbf, name: Raised HbA2 and HbF, type: finding, category: lab, parent: haemoglobin-electrophoresis-abnormality}
+- {id: haemoglobinuria, name: Dark urine (haemoglobinuria), type: finding, category: symptom}
+- {id: acrocyanosis, name: Acrocyanosis in the cold, type: finding, category: sign}
+- {id: neonatal-jaundice, name: Neonatal jaundice, type: finding, category: sign}
+- {id: thalassaemic-facies, name: "Thalassaemic facies (skull and facial bone expansion, hair-on-end skull X-ray)", type: finding, category: sign}
+- {id: leg-ulcers, name: Leg ulcers over the malleoli, type: finding, category: sign}
+# Outcomes
+- {id: sickle-crisis, name: Sickle crisis, type: outcome}
+-   {id: vaso-occlusive-crisis, name: Vaso-occlusive (painful) crisis, type: outcome, parent: sickle-crisis}
+-   {id: acute-chest-syndrome, name: Acute chest syndrome, type: outcome, parent: sickle-crisis}
+-   {id: splenic-sequestration-crisis, name: Splenic sequestration crisis, type: outcome, parent: sickle-crisis}
+- {id: aplastic-crisis, name: Aplastic crisis (parvovirus B19), type: outcome}
+- {id: avascular-necrosis, name: Avascular necrosis of the hip or shoulder, type: outcome}
+- {id: priapism, name: Priapism, type: outcome}
+- {id: kernicterus, name: Kernicterus, type: outcome}
+- {id: hydrops-fetalis, name: Hydrops fetalis, type: outcome}
+
+# --- Platelets, thrombotic microangiopathies and bleeding disorders (batch 3) ---
+# Causes
+- {id: coagulation-gene-defect, name: Inherited haemostasis gene defect, type: cause, category: genetic}
+-   {id: f8-mutation, name: "Factor VIII gene mutation (X-linked; intron 22 inversion in half of severe cases)", type: cause, category: genetic, parent: coagulation-gene-defect}
+-   {id: f9-mutation, name: Factor IX gene mutation (X-linked), type: cause, category: genetic, parent: coagulation-gene-defect}
+-   {id: vwf-mutation, name: Von Willebrand factor gene mutation, type: cause, category: genetic, parent: coagulation-gene-defect}
+-   {id: adamts13-gene-mutation, name: ADAMTS13 gene mutation, type: cause, category: genetic, parent: coagulation-gene-defect}
+- {id: complement-regulator-defect, name: "Complement regulator defect (factor H, factor I, CD46)", type: cause, category: genetic}
+- {id: recent-viral-infection, name: "Recent viral infection (e.g. varicella, measles)", type: cause, category: organism}
+- {id: ttp-trigger, name: "TTP trigger (pregnancy, oral contraceptive, SLE, infection, clopidogrel)", type: cause, category: risk-factor}
+- {id: heparin-exposure, name: Heparin exposure, type: cause, category: drug}
+- {id: obstetric-emergency, name: "Obstetric emergency (placental abruption, amniotic fluid embolism, pre-eclampsia)", type: cause, category: risk-factor}
+- {id: newborn-without-vitamin-k, name: "Newborn not given vitamin K (most exclusively breast-fed)", type: cause, category: risk-factor}
+# Mechanisms
+-   {id: platelet-destruction, name: Increased platelet destruction, type: mechanism, parent: impaired-haemostasis}
+-   {id: platelet-consumption, name: Platelet consumption in microthrombi, type: mechanism, parent: impaired-haemostasis}
+-   {id: platelet-adhesion-defect, name: Impaired platelet adhesion to the vessel wall, type: mechanism, parent: impaired-haemostasis}
+-   {id: coagulation-factor-deficiency, name: Coagulation factor deficiency, type: mechanism, parent: impaired-haemostasis}
+-   {id: consumptive-coagulopathy, name: "Consumption of clotting factors and platelets, with secondary fibrinolysis", type: mechanism, parent: impaired-haemostasis}
+- {id: anti-platelet-autoantibody, name: "IgG autoantibodies against platelet glycoproteins (IIb/IIIa, Ib)", type: mechanism, parent: antibody-mediated-cytotoxicity}
+- {id: heparin-pf4-antibody, name: "IgG against heparin–platelet factor 4 complex (activates platelets)", type: mechanism, parent: antibody-mediated-cytotoxicity}
+- {id: anti-adamts13-antibody, name: Autoantibody against ADAMTS13, type: mechanism, parent: immune-mediated-injury}
+- {id: complement-overactivation, name: Unopposed alternative complement activation on endothelium, type: mechanism, parent: immune-mediated-injury}
+- {id: adamts13-deficiency, name: "Too little ADAMTS13 (ultra-large VWF multimers persist)", type: mechanism}
+- {id: shiga-toxin-endothelial-injury, name: Shiga toxin injury to small-vessel endothelium, type: mechanism}
+- {id: systemic-coagulation-activation, name: "Systemic activation of coagulation (tissue factor or cytokines)", type: mechanism, parent: hypercoagulability}
+- {id: microvascular-thrombosis, name: "Platelet and fibrin microthrombi in small vessels (thrombotic microangiopathy)", type: mechanism, parent: thrombosis}
+- {id: microangiopathic-haemolysis, name: Red cells sheared on microthrombi (microangiopathic haemolysis), type: mechanism, parent: red-cell-destruction}
+- {id: vitamin-k-deficit, name: "Vitamin K deficiency (factors II, VII, IX and X not carboxylated)", type: mechanism}
+# Findings
+-   {id: thrombocytopenia, name: Thrombocytopenia, type: finding, category: lab, parent: cytopenia}
+-   {id: schistocytes, name: Fragmented red cells (schistocytes), type: finding, category: lab, parent: blood-film-abnormality}
+-   {id: haemarthrosis-muscle-bleeding, name: Haemarthroses and muscle haematomas, type: finding, category: sign, parent: bleeding-tendency}
+-   {id: bleeding-after-injury, name: "Prolonged bleeding after surgery, dental extraction or injury", type: finding, category: sign, parent: bleeding-tendency}
+-   {id: puncture-site-oozing, name: Bleeding from venepuncture and catheter sites, type: finding, category: sign, parent: bleeding-tendency}
+- {id: clotting-test-abnormality, name: Abnormal clotting tests, type: finding, category: lab}
+-   {id: isolated-prolonged-aptt, name: "Prolonged APTT, normal PT", type: finding, category: lab, parent: clotting-test-abnormality}
+-   {id: prolonged-pt-aptt, name: Prolonged PT and APTT, type: finding, category: lab, parent: clotting-test-abnormality}
+-   {id: dic-clotting-pattern, name: "Prolonged PT, APTT and TT; low fibrinogen; raised D-dimer", type: finding, category: lab, parent: clotting-test-abnormality}
+-   {id: low-factor-viii, name: Low factor VIII, type: finding, category: lab, parent: clotting-test-abnormality}
+-   {id: low-factor-ix, name: Low factor IX, type: finding, category: lab, parent: clotting-test-abnormality}
+-   {id: low-vwf, name: Low VWF level or ristocetin cofactor activity, type: finding, category: lab, parent: clotting-test-abnormality}
+- {id: positive-heparin-pf4-antibody, name: Heparin–PF4 antibodies detected, type: finding, category: lab}
+- {id: low-adamts13-activity, name: Low ADAMTS13 activity, type: finding, category: lab}
+# Outcomes
+- {id: haemophilic-arthropathy, name: Haemophilic arthropathy (joint damage from repeated bleeds), type: outcome}
+- {id: factor-viii-inhibitor, name: Inhibitory antibodies to infused factor VIII, type: outcome}
+
+# --- Thrombosis and transfusion (batch 4) ---
+# Causes
+- {id: blood-transfusion, name: Blood transfusion, type: cause, category: risk-factor}
+- {id: abo-incompatible-transfusion, name: "ABO-incompatible transfusion (wrong blood to the wrong patient)", type: cause, category: risk-factor}
+- {id: prior-alloimmunisation, name: Recipient alloimmunised by earlier transfusion or pregnancy, type: cause, category: risk-factor}
+- {id: iga-deficiency, name: IgA deficiency (anti-IgA antibodies), type: cause, category: condition}
+# Mechanisms
+- {id: antiphospholipid-antibody, name: "Antiphospholipid antibodies (bind β2-glycoprotein I on endothelium, platelets and trophoblast)", type: mechanism, parent: immune-mediated-injury}
+- {id: recipient-anti-ab-antibody, name: "Recipient IgM anti-A or anti-B fixing complement on donor red cells", type: mechanism, parent: antibody-mediated-cytotoxicity}
+- {id: delayed-alloantibody-response, name: Secondary IgG alloantibody response to donor red cells, type: mechanism, parent: antibody-mediated-cytotoxicity}
+- {id: anti-leucocyte-antibody, name: Antibodies against leucocytes (recipient's or donor's), type: mechanism, parent: antibody-mediated-cytotoxicity}
+-   {id: dilutional-coagulopathy, name: Dilution of platelets and clotting factors by stored blood, type: mechanism, parent: impaired-haemostasis}
+# Findings
+-   {id: raised-d-dimer, name: Raised D-dimer, type: finding, category: lab, parent: clotting-test-abnormality}
+- {id: non-compressible-vein, name: Non-compressible deep vein on compression ultrasound, type: finding, category: imaging}
+- {id: positive-antiphospholipid-antibodies, name: "Persistent antiphospholipid antibodies (anticardiolipin, lupus anticoagulant, anti-β2GPI)", type: finding, category: lab}
+- {id: livedo-reticularis, name: Livedo reticularis, type: finding, category: sign}
+- {id: urticaria, name: Urticaria, type: finding, category: sign}
+# Outcomes
+- {id: post-thrombotic-syndrome, name: "Post-thrombotic syndrome (chronic leg pain, swelling, venous ulcers)", type: outcome}
+- {id: recurrent-pregnancy-loss, name: "Recurrent miscarriage, fetal death or early pre-eclampsia", type: outcome}
+- {id: transfusion-related-acute-lung-injury, name: Transfusion-related acute lung injury (TRALI), type: outcome}
+- {id: transfusion-associated-gvhd, name: Transfusion-associated graft-versus-host disease, type: outcome}
+- {id: post-transfusion-purpura, name: Post-transfusion purpura, type: outcome}
+
+# --- Myeloid neoplasms (batch 5) and lymphomas (batch 6) ---
+# Causes (oncogenic-driver is in the respiratory section)
+-   {id: jak2-calr-mpl-mutation, name: "JAK2, CALR or MPL mutation", type: cause, category: genetic, parent: oncogenic-driver}
+-   {id: bcr-abl-fusion, name: "BCR-ABL fusion: Philadelphia chromosome, t(9;22)", type: cause, category: genetic, parent: oncogenic-driver}
+-   {id: pml-rara-fusion, name: "PML-RARA fusion, t(15;17)", type: cause, category: genetic, parent: oncogenic-driver}
+-   {id: myc-translocation, name: "MYC translocation, t(8;14)", type: cause, category: genetic, parent: oncogenic-driver}
+-   {id: bcl2-translocation, name: "BCL2 translocation, t(14;18)", type: cause, category: genetic, parent: oncogenic-driver}
+- {id: benzene-exposure, name: Benzene exposure, type: cause, category: risk-factor}
+# Mechanisms
+-   {id: myeloid-clonal-expansion, name: Clonal expansion of a mutated myeloid stem cell, type: mechanism, parent: malignant-transformation}
+-   {id: myeloproliferative-signalling, name: "Constant growth signalling (JAK–STAT or BCR-ABL): too many mature cells", type: mechanism, parent: malignant-transformation}
+-   {id: lymphoid-clonal-expansion, name: Clonal expansion of lymphocytes, type: mechanism, parent: malignant-transformation}
+-   {id: mast-cell-expansion, name: Clonal mast cell proliferation, type: mechanism, parent: malignant-transformation}
+-   {id: marrow-infiltration, name: Marrow infiltration crowding out normal haemopoiesis, type: mechanism, parent: reduced-red-cell-production}
+-   {id: dysplastic-haemopoiesis, name: "Dysplastic, ineffective haemopoiesis", type: mechanism, parent: reduced-red-cell-production}
+- {id: marrow-fibrosis, name: Marrow fibrosis from megakaryocyte growth factors, type: mechanism}
+- {id: leukaemic-tissue-infiltration, name: "Leukaemic infiltration of tissues (gums, skin, CNS, testes, liver, spleen)", type: mechanism}
+- {id: hyperviscosity, name: Hyperviscosity of the blood, type: mechanism}
+-   {id: leucostasis, name: Leucostasis (very high white count sludging in small vessels), type: mechanism, parent: hyperviscosity}
+- {id: high-cell-turnover, name: High cell turnover releasing urate, type: mechanism}
+- {id: mast-cell-mediator-release, name: "Mast cell mediator release (histamine)", type: mechanism}
+-   {id: antibody-deficiency, name: Low functional immunoglobulin (hypogammaglobulinaemia), type: mechanism, parent: impaired-host-defence}
+# Findings
+- {id: raised-cell-count, name: Raised blood counts, type: finding, category: lab}
+-   {id: raised-haematocrit, name: Raised haemoglobin and haematocrit, type: finding, category: lab, parent: raised-cell-count}
+-   {id: thrombocytosis, name: Thrombocytosis, type: finding, category: lab, parent: raised-cell-count}
+-   {id: leucocytosis, name: Raised white cell count, type: finding, category: lab, parent: raised-cell-count}
+-   {id: lymphocytosis, name: Lymphocytosis, type: finding, category: lab, parent: raised-cell-count}
+-   {id: blasts-on-film, name: "Blast cells on the blood film (Auer rods mean AML)", type: finding, category: lab, parent: blood-film-abnormality}
+-   {id: left-shifted-myeloid-film, name: "Whole range of myeloid precursors on the film, with basophils", type: finding, category: lab, parent: blood-film-abnormality}
+-   {id: smear-cells, name: Small mature lymphocytes with smear (smudge) cells, type: finding, category: lab, parent: blood-film-abnormality}
+-   {id: teardrop-cells, name: Teardrop cells on a leucoerythroblastic film, type: finding, category: lab, parent: blood-film-abnormality}
+-   {id: marrow-blasts-over-20, name: Over 20% blasts in the marrow, type: finding, category: histology, parent: bone-marrow-finding}
+-   {id: marrow-dysplasia, name: "Dysplasia in one or more lineages, blasts under 20%", type: finding, category: histology, parent: bone-marrow-finding}
+-   {id: dry-tap-marrow-fibrosis, name: Dry tap; fibrosis on trephine, type: finding, category: histology, parent: bone-marrow-finding}
+- {id: lymph-node-biopsy-finding, name: Lymph node biopsy finding, type: finding, category: histology}
+-   {id: reed-sternberg-cells, name: Reed–Sternberg cells, type: finding, category: histology, parent: lymph-node-biopsy-finding}
+-   {id: starry-sky-histology, name: "'Starry sky' sheets of B cells with macrophages", type: finding, category: histology, parent: lymph-node-biopsy-finding}
+- {id: haematological-genetic-test, name: Haematological cytogenetic or molecular test, type: finding, category: lab}
+-   {id: jak2-calr-mpl-detected, name: "JAK2, CALR or MPL mutation detected", type: finding, category: lab, parent: haematological-genetic-test}
+-   {id: bcr-abl-detected, name: Philadelphia chromosome or BCR-ABL detected, type: finding, category: lab, parent: haematological-genetic-test}
+-   {id: pml-rara-detected, name: "t(15;17) PML-RARA detected", type: finding, category: lab, parent: haematological-genetic-test}
+-   {id: myc-translocation-detected, name: "t(8;14) MYC translocation detected", type: finding, category: lab, parent: haematological-genetic-test}
+-   {id: bcl2-translocation-detected, name: "t(14;18) BCL2 translocation detected", type: finding, category: lab, parent: haematological-genetic-test}
+- {id: cll-immunophenotype, name: "Clonal B cells: CD19, CD5 and CD23 positive", type: finding, category: lab}
+- {id: serum-paraprotein, name: Serum paraprotein, type: finding, category: lab}
+-   {id: igm-paraprotein, name: IgM paraprotein, type: finding, category: lab, parent: serum-paraprotein}
+- {id: hyperuricaemia, name: Raised serum urate, type: finding, category: lab}
+- {id: lymphadenopathy, name: Lymphadenopathy, type: finding, category: sign}
+-   {id: generalised-lymphadenopathy, name: Painless lymphadenopathy at several sites, type: finding, category: sign, parent: lymphadenopathy}
+-   {id: axillary-lymphadenopathy, name: Axillary lymphadenopathy, type: finding, category: sign, parent: lymphadenopathy}
+- {id: bone-pain, name: Bone pain, type: finding, category: symptom}
+- {id: gum-hypertrophy, name: Gum hypertrophy, type: finding, category: sign}
+- {id: plethora, name: Plethoric face with conjunctival injection, type: finding, category: sign}
+- {id: erythromelalgia, name: "Erythromelalgia (burning, red, warm feet and hands)", type: finding, category: symptom}
+-   {id: aquagenic-pruritus, name: Itching after a hot bath, type: finding, category: symptom, parent: pruritus}
+- {id: blurred-vision, name: Blurred vision or visual disturbance, type: finding, category: symptom}
+- {id: jaw-mass, name: Rapidly growing jaw tumour, type: finding, category: sign}
+- {id: alcohol-induced-node-pain, name: Pain in enlarged nodes after alcohol, type: finding, category: symptom}
+- {id: urticaria-pigmentosa, name: "Pigmented macules that urticate when rubbed (Darier's sign)", type: finding, category: sign}
+- {id: flushing, name: Flushing, type: finding, category: sign}
+# Outcomes
+- {id: tumour-lysis-syndrome, name: Tumour lysis syndrome, type: outcome}
+- {id: recurrent-infection, name: Recurrent infections, type: outcome}
+
+# --- Plasma cell disorders (batch 7) ---
+# Mechanisms
+-   {id: plasma-cell-clonal-expansion, name: Clonal expansion of plasma cells, type: mechanism, parent: malignant-transformation}
+- {id: paraprotein-production, name: "Monoclonal immunoglobulin or free light chain secretion (paraprotein)", type: mechanism}
+- {id: light-chain-cast-nephropathy, name: Free light chains forming casts in the renal tubules (cast nephropathy), type: mechanism, parent: tubular-injury}
+-   {id: amyloid-fibril-deposition, name: "Light chains misfolding into insoluble amyloid fibrils deposited in organs", type: mechanism, parent: protein-misfolding-aggregation}
+- {id: osteoclast-activation, name: Osteoclast activation (bone resorption), type: mechanism}
+# Findings
+-   {id: rouleaux, name: Rouleaux on the blood film, type: finding, category: lab, parent: blood-film-abnormality}
+- {id: bence-jones-proteinuria, name: "Free light chains in urine (Bence Jones protein) or abnormal serum free light chain ratio", type: finding, parent: urine-abnormality, category: lab}
+-   {id: marrow-clonal-plasma-cells, name: Clonal (light-chain restricted) plasma cells in the marrow, type: finding, category: histology, parent: bone-marrow-finding}
+-   {id: lytic-bone-lesions, name: "Lytic bone lesions (spine, skull, ribs, long bones)", type: finding, category: imaging, parent: bone-imaging-abnormality}
+- {id: congo-red-amyloid, name: Congo red-positive deposits with apple-green birefringence on biopsy, type: finding, category: histology}
+- {id: peripheral-neuropathy, name: Peripheral sensory neuropathy, type: finding, category: sign}
+- {id: carpal-tunnel-syndrome, name: Carpal tunnel syndrome (hand paraesthesia and weakness), type: finding, category: symptom}
+- {id: macroglossia, name: Macroglossia, type: finding, category: sign}
+-   {id: periorbital-purpura, name: Periorbital purpura and easy bruising, type: finding, category: sign, parent: bleeding-tendency}
+# Outcomes
+- {id: pathological-fracture, name: Pathological fracture or vertebral collapse, type: outcome}
+- {id: spinal-cord-compression, name: Spinal cord compression, type: outcome}
+
+# ================= IMMUNOLOGY =================
+# Agreed in docs/concepts-immuno.md; added batch by batch.
+# --- Hypersensitivity and myasthenia gravis (batch 1) ---
+# Causes
+- {id: allergen-exposure, name: "Systemically absorbed allergen (nuts, shellfish, insect venom, penicillin)", type: cause, category: risk-factor}
+-     {id: seasonal-pollen, name: "Seasonal pollen or mould spores (trees, grasses)", type: cause, category: risk-factor, parent: inhaled-allergen}
+- {id: thymoma, name: Thymoma, type: cause, category: condition}
+- {id: d-penicillamine, name: D-penicillamine, type: cause, category: drug}
+# Mechanisms
+-   {id: ige-mast-cell-degranulation, name: "Allergen cross-linking IgE on mast cells and basophils (type I hypersensitivity)", type: mechanism, parent: immune-mediated-injury}
+- {id: vasodilation-vascular-leak, name: "Widespread vasodilatation and leaky vessels (histamine, leukotrienes, PAF)", type: mechanism}
+- {id: nasal-mucosal-inflammation, name: Allergic swelling of the nasal mucosa, type: mechanism}
+-     {id: receptor-autoantibody, name: Autoantibodies against a cell-surface receptor, type: mechanism, parent: antibody-mediated-cytotoxicity}
+-   {id: achr-loss, name: Postsynaptic acetylcholine receptors destroyed, type: mechanism, parent: neuromuscular-junction-failure}
+# Findings
+- {id: angioedema, name: "Angio-oedema (deep swelling of lips, face, tongue)", type: finding, category: sign}
+- {id: raised-mast-cell-tryptase, name: Raised serum mast cell tryptase, type: finding, category: lab}
+- {id: sneezing-rhinorrhoea, name: Sneezing and watery rhinorrhoea, type: finding, category: symptom}
+- {id: nasal-blockage, name: Nasal blockage, type: finding, category: symptom}
+- {id: itchy-eyes-palate, name: Itchy eyes and palate, type: finding, category: symptom}
+- {id: positive-skin-prick-test, name: Positive skin-prick test or allergen-specific IgE, type: finding, category: lab}
+- {id: fatigable-weakness, name: "Fatigable proximal, facial and bulbar weakness, worse at the end of the day", type: finding, category: sign}
+- {id: ptosis-diplopia, name: Fluctuating ptosis and diplopia, type: finding, category: sign}
+- {id: systemic-autoantibody, name: Systemic or organ autoantibody, type: finding, category: lab}
+-   {id: anti-achr-antibody, name: Anti-acetylcholine receptor (or anti-MuSK) antibodies, type: finding, category: lab, parent: systemic-autoantibody}
+- {id: nmj-decrement, name: Decrement on repetitive nerve stimulation; jitter on single-fibre EMG, type: finding, category: lab}
+# Outcomes
+-   {id: anaphylactic-shock, name: Anaphylactic shock, type: outcome, parent: shock}
+- {id: laryngeal-oedema, name: Laryngeal oedema (airway obstruction), type: outcome}
+- {id: sinusitis, name: Sinusitis, type: outcome}
+
+# --- Systemic autoimmune disease (batch 2) ---
+# Causes
+- {id: hla-susceptibility, name: HLA susceptibility haplotype, type: cause, category: genetic}
+-   {id: hla-dr4, name: HLA-DR4 (shared epitope), type: cause, category: genetic, parent: hla-susceptibility}
+-   {id: hla-b8-dr3, name: HLA-B8 / DR3, type: cause, category: genetic, parent: hla-susceptibility}
+- {id: lupus-inducing-drug, name: "Lupus-inducing drug (hydralazine, isoniazid, procainamide, penicillamine)", type: cause, category: drug}
+-   {id: early-complement-deficiency, name: "Inherited C1q, C2 or C4 deficiency", type: cause, category: genetic, parent: complement-component-defect}
+- {id: uv-light, name: Ultraviolet light, type: cause, category: risk-factor}
+- {id: female-sex, name: Female sex, type: cause, category: risk-factor}
+# Mechanisms
+-   {id: systemic-autoimmunity, name: Loss of tolerance to self-antigens with systemic autoantibodies, type: mechanism, parent: immune-mediated-injury}
+-     {id: rheumatoid-autoimmunity, name: "Autoimmunity to citrullinated self-proteins (ACPA, rheumatoid factor)", type: mechanism, parent: systemic-autoimmunity}
+-     {id: lupus-autoimmunity, name: Poorly cleared apoptotic debris exposing nuclear antigens (anti-DNA autoimmunity), type: mechanism, parent: systemic-autoimmunity}
+- {id: rheumatoid-synovitis, name: "Persistent synovitis driven by TNF-α and IL-6", type: mechanism}
+- {id: synovial-pannus, name: Pannus of inflamed synovium eroding cartilage and bone, type: mechanism}
+- {id: obliterative-small-vessel-damage, name: "Small-vessel endothelial damage, vasospasm and obliteration (endothelin)", type: mechanism}
+- {id: fibroblast-collagen-overproduction, name: "Fibroblasts overproducing collagen: skin and organ fibrosis", type: mechanism}
+- {id: gut-smooth-muscle-atony, name: "Gut smooth muscle fibrosis and atony (oesophagus, small bowel)", type: mechanism}
+- {id: exocrine-gland-infiltration, name: Lymphocytes and plasma cells destroying salivary and lacrimal glands, type: mechanism}
+# Findings
+-   {id: ana, name: Antinuclear antibodies (ANA), type: finding, category: lab, parent: systemic-autoantibody}
+-   {id: rheumatoid-factor-acpa, name: Rheumatoid factor and anti-CCP (ACPA), type: finding, category: lab, parent: systemic-autoantibody}
+-   {id: anti-dsdna-sm, name: Anti-dsDNA and anti-Sm antibodies, type: finding, category: lab, parent: systemic-autoantibody}
+-   {id: anti-ro-la, name: Anti-Ro (SS-A) and anti-La (SS-B) antibodies, type: finding, category: lab, parent: systemic-autoantibody}
+-   {id: scleroderma-antibodies, name: "Anti-centromere (limited) or anti-Scl-70 (diffuse) antibodies", type: finding, category: lab, parent: systemic-autoantibody}
+- {id: low-complement, name: Low C3 and C4, type: finding, category: lab}
+-   {id: leucopenia-lymphopenia, name: Leucopenia or lymphopenia, type: finding, category: lab, parent: cytopenia}
+- {id: inflammatory-arthritis, name: Inflammatory arthritis, type: finding, category: sign}
+-   {id: symmetrical-small-joint-polyarthritis, name: "Symmetrical small-joint polyarthritis (MCP, PIP, MTP; DIPs spared) with morning stiffness", type: finding, category: sign, parent: inflammatory-arthritis}
+- {id: joint-deformity, name: "Ulnar deviation, swan-neck and boutonnière deformities", type: finding, category: sign}
+-   {id: juxta-articular-erosions, name: Juxta-articular erosions and osteopenia, type: finding, category: imaging, parent: joint-x-ray-abnormality}
+- {id: malar-rash, name: Malar (butterfly) rash, type: finding, category: sign}
+- {id: photosensitivity, name: Photosensitive rash, type: finding, category: sign}
+- {id: raynaud-phenomenon, name: Raynaud's phenomenon, type: finding, category: sign}
+- {id: sclerodactyly-skin-thickening, name: "Tight, thickened skin (sclerodactyly, beaked nose, small mouth)", type: finding, category: sign}
+- {id: digital-ulcers, name: Digital ulcers and pitting, type: finding, category: sign}
+- {id: telangiectasia, name: Telangiectasia and dilated nail-fold capillaries, type: finding, category: sign}
+- {id: sicca-symptoms, name: Dry eyes and dry mouth (sicca; low Schirmer test), type: finding, category: symptom}
+- {id: salivary-gland-enlargement, name: Salivary and parotid gland enlargement, type: finding, category: sign}
+- {id: scleritis-episcleritis, name: Scleritis or episcleritis (painful red eye), type: finding, category: sign}
+# Outcomes
+- {id: scleroderma-renal-crisis, name: Scleroderma renal crisis (malignant hypertension and AKI), type: outcome}
+- {id: non-hodgkin-lymphoma, name: Non-Hodgkin B-cell lymphoma, type: outcome}
+
+# --- Vasculitis (batch 3) ---
+# Mechanisms
+- {id: vessel-wall-inflammation, name: Inflammation of the vessel wall (vasculitis), type: mechanism}
+-   {id: granulomatous-large-vessel-arteritis, name: Granulomatous arteritis of the aorta and its large branches, type: mechanism, parent: vessel-wall-inflammation}
+-   {id: necrotising-medium-vessel-arteritis, name: "Necrotising arteritis of medium arteries (fibrinoid necrosis, microaneurysms)", type: mechanism, parent: vessel-wall-inflammation}
+-   {id: anca-small-vessel-vasculitis, name: ANCA-associated necrotising small-vessel vasculitis (few immune deposits), type: mechanism, parent: vessel-wall-inflammation}
+-   {id: iga-small-vessel-vasculitis, name: IgA immune-complex small-vessel vasculitis, type: mechanism, parent: vessel-wall-inflammation}
+-   {id: aortic-branch-stenosis, name: Narrowed aortic arch branches, type: mechanism, parent: arterial-stenosis}
+# Findings
+-   {id: temporal-headache-scalp-tenderness, name: "New temporal headache with scalp and temporal artery tenderness", type: finding, category: symptom, parent: headache}
+-   {id: jaw-claudication, name: Jaw claudication, type: finding, category: symptom, parent: ischaemic-limb-gut-pain}
+- {id: temporal-artery-giant-cells, name: "Granulomatous arteritis with giant cells on temporal artery biopsy", type: finding, category: histology}
+- {id: mononeuritis-multiplex, name: Mononeuritis multiplex, type: finding, category: sign}
+- {id: visceral-microaneurysms, name: "Microaneurysms in renal, hepatic or gut arteries on angiography", type: finding, category: imaging}
+-   {id: c-anca-pr3, name: cANCA (anti-PR3), type: finding, category: lab, parent: systemic-autoantibody}
+-   {id: palpable-purpura, name: "Palpable purpura (buttocks and legs)", type: finding, category: sign, parent: non-blanching-rash}
+- {id: ent-destruction, name: "Bloody nasal crusting, septal destruction and otitis media", type: finding, category: sign}
+- {id: kawasaki-mucocutaneous-signs, name: "Red eyes, red cracked lips, red palms and soles, then peeling", type: finding, category: sign}
+# Outcomes
+- {id: permanent-visual-loss, name: Sudden visual loss (ophthalmic artery occlusion), type: outcome}
+- {id: coronary-artery-aneurysm, name: Coronary artery aneurysm, type: outcome}
+-   {id: pauci-immune-crescentic-gn, name: Pauci-immune crescentic glomerulonephritis (rapidly progressive), type: outcome, parent: glomerulonephritis}
+- {id: diffuse-alveolar-haemorrhage, name: Diffuse alveolar haemorrhage, type: outcome}
+
+# --- Immunodeficiency (batch 4) ---
+# Causes
+- {id: primary-immunodeficiency-gene, name: Inherited immune defect (primary immunodeficiency), type: cause, category: genetic}
+-   {id: btk-mutation, name: "Bruton's tyrosine kinase mutation (X-linked)", type: cause, category: genetic, parent: primary-immunodeficiency-gene}
+-   {id: cd40l-mutation, name: CD40 ligand mutation (X-linked), type: cause, category: genetic, parent: primary-immunodeficiency-gene}
+-   {id: scid-gene-defect, name: "SCID gene defect (IL-2 receptor common γ chain, ADA)", type: cause, category: genetic, parent: primary-immunodeficiency-gene}
+-   {id: del-22q11, name: Chromosome 22q11 deletion, type: cause, category: genetic, parent: primary-immunodeficiency-gene}
+-   {id: nadph-oxidase-defect, name: NADPH oxidase defect (respiratory burst), type: cause, category: genetic, parent: primary-immunodeficiency-gene}
+-   {id: cd18-integrin-defect, name: CD18 integrin defect, type: cause, category: genetic, parent: primary-immunodeficiency-gene}
+-   {id: serping1-mutation, name: SERPING1 mutation (C1 inhibitor; autosomal dominant), type: cause, category: genetic, parent: primary-immunodeficiency-gene}
+-   {id: complement-component-defect, name: Inherited complement component deficiency, type: cause, category: genetic, parent: primary-immunodeficiency-gene}
+-     {id: terminal-complement-deficiency, name: Terminal complement (C5–C9) deficiency, type: cause, category: genetic, parent: complement-component-defect}
+# Mechanisms
+-   {id: t-cell-deficiency, name: Too few or poorly functioning T cells, type: mechanism, parent: impaired-host-defence}
+-   {id: phagocyte-killing-defect, name: Phagocytes unable to kill ingested microbes, type: mechanism, parent: impaired-host-defence}
+-   {id: leucocyte-migration-defect, name: Leucocytes unable to leave the blood for infected tissue, type: mechanism, parent: impaired-host-defence}
+-   {id: complement-pathway-defect, name: Missing complement activity (poor opsonisation or no membrane attack complex), type: mechanism, parent: impaired-host-defence}
+- {id: b-cell-maturation-arrest, name: B cells arrested at the pre-B stage, type: mechanism}
+- {id: failed-class-switching, name: B cells unable to switch from IgM, type: mechanism}
+- {id: pharyngeal-pouch-maldevelopment, name: Third and fourth pharyngeal pouches fail to develop, type: mechanism}
+- {id: bradykinin-excess, name: "Unchecked kinin activation: excess bradykinin", type: mechanism}
+# Findings
+- {id: immune-function-test, name: Abnormal immune function test, type: finding, category: lab}
+-   {id: low-immunoglobulins, name: Low serum immunoglobulins, type: finding, category: lab, parent: immune-function-test}
+-   {id: absent-b-cells, name: Absent B cells in the blood, type: finding, category: lab, parent: immune-function-test}
+-   {id: low-t-cells, name: Low T cells (and NK cells in SCID), type: finding, category: lab, parent: immune-function-test}
+-   {id: raised-igm-low-igg-iga, name: "Normal or raised IgM, low IgG and IgA", type: finding, category: lab, parent: immune-function-test}
+-   {id: abnormal-neutrophil-burst-test, name: Abnormal neutrophil respiratory burst test (dihydrorhodamine), type: finding, category: lab, parent: immune-function-test}
+-   {id: low-c4-c1-inhibitor, name: Low C4 and low C1 inhibitor level or function, type: finding, category: lab, parent: low-complement}
+- {id: absent-thymic-shadow, name: Absent thymic shadow, type: finding, category: imaging}
+- {id: conotruncal-heart-defect, name: "Conotruncal heart defect (tetralogy of Fallot, truncus arteriosus)", type: finding, category: sign}
+- {id: catch22-facies, name: Abnormal facies and cleft palate, type: finding, category: sign}
+- {id: failure-to-thrive, name: Failure to thrive, type: finding, category: sign}
+- {id: mucocutaneous-candidiasis, name: Oral and skin candidiasis, type: finding, category: sign}
+- {id: delayed-cord-separation, name: Delayed umbilical cord separation, type: finding, category: sign}
+- {id: severe-gingivitis, name: Severe gingivitis with retained primary teeth, type: finding, category: sign}
+# Outcomes
+-   {id: recurrent-sinopulmonary-infection, name: "Recurrent sinus and chest infections (pyogenic bacteria)", type: outcome, parent: recurrent-infection}
+-   {id: deep-pyogenic-abscesses, name: "Deep abscesses and osteomyelitis (catalase-positive bacteria and fungi)", type: outcome, parent: recurrent-infection}
+-   {id: opportunistic-infection, name: "Opportunistic infection (Pneumocystis, Candida, viruses, mycobacteria)", type: outcome, parent: recurrent-infection}
+-   {id: neisserial-infection, name: Recurrent Neisseria infection, type: outcome, parent: recurrent-infection}
+
+# --- Infection in the immunocompromised (batch 5) ---
+# Causes
+-   {id: iatrogenic-immunosuppression, name: "Immunosuppressant drugs (long-term steroids, methotrexate, biologics, transplant drugs)", type: cause, category: drug, parent: immunosuppression}
+-   {id: asplenia-hyposplenism, name: Absent or poorly functioning spleen, type: cause, category: risk-factor, parent: immunosuppression}
+- {id: splenectomy, name: "Splenectomy (trauma, ITP, haemolytic anaemia, hypersplenism)", type: cause, category: risk-factor}
+- {id: encapsulated-bacteria, name: Encapsulated bacteria, type: cause, category: organism}
+- {id: neutropenia-causing-drug, name: "Drug causing neutropenia (e.g. carbimazole, some antibiotics)", type: cause, category: drug}
+- {id: pneumocystis-jirovecii, name: Pneumocystis jirovecii, type: cause, category: organism}
+# Findings
+-   {id: neutropenia, name: "Neutropenia (below 1.5, severe below 0.5 ×10⁹/L)", type: finding, category: lab, parent: cytopenia}
+- {id: mucositis-mouth-ulcers, name: Glazed oral mucositis and ulceration, type: finding, category: sign}
+- {id: exertional-desaturation, name: Rapid oxygen desaturation on exertion, type: finding, category: sign}
+
+# ================= KIDNEY AND MALE UROGENITAL =================
+# Agreed in docs/concepts-kidney.md; added batch by batch.
+# --- Kidney failure and tubules (batch 1) ---
+# Causes
+- {id: acei-arb, name: ACE inhibitors or angiotensin receptor blockers, type: cause, category: drug}
+- {id: nephrotoxic-drug, name: Drug toxic to renal tubules, type: cause, category: drug}
+-   {id: aminoglycosides, name: Aminoglycosides (gentamicin), type: cause, category: drug, parent: nephrotoxic-drug}
+-   {id: iodinated-contrast, name: Iodinated radiological contrast, type: cause, category: drug, parent: nephrotoxic-drug}
+- {id: rhabdomyolysis, name: "Rhabdomyolysis (crush injury, extreme exertion, seizures, statins)", type: cause, category: condition}
+- {id: nephritis-causing-drug, name: Drug causing allergic interstitial nephritis, type: cause, category: drug}
+- {id: beta-lactam-antibiotic, name: "Beta-lactam antibiotics (penicillins, cephalosporins)", type: cause, category: drug}
+- {id: proton-pump-inhibitor, name: Proton pump inhibitors, type: cause, category: drug}
+- {id: distal-rta-gene, name: Inherited distal acidification defect (H+-ATPase mutation), type: cause, category: genetic}
+# Mechanisms
+- {id: excretory-failure, name: "Falling GFR: water, salt, potassium, acid and urea retained", type: mechanism}
+- {id: tubular-injury, name: Renal tubular injury, type: mechanism}
+-   {id: acute-tubular-necrosis, name: Acute tubular necrosis (ischaemic or toxic tubular cell death), type: mechanism, parent: tubular-injury}
+-   {id: tubulointerstitial-inflammation, name: Inflammatory infiltrate in the tubules and interstitium, type: mechanism, parent: tubular-injury}
+-   {id: tubular-acid-handling-defect, name: Tubules failing to excrete acid or reclaim bicarbonate, type: mechanism, parent: tubular-injury}
+-     {id: distal-h-secretion-failure, name: Distal tubule failing to secrete H+ (type 1 RTA), type: mechanism, parent: tubular-acid-handling-defect}
+-     {id: proximal-bicarbonate-wasting, name: Proximal tubule failing to reclaim bicarbonate (type 2 RTA), type: mechanism, parent: tubular-acid-handling-defect}
+-     {id: aldosterone-deficiency-resistance, name: "Low or ineffective aldosterone (hyporeninaemic hypoaldosteronism, type 4 RTA)", type: mechanism, parent: tubular-acid-handling-defect}
+-   {id: papillary-necrosis, name: Ischaemic renal papillae dying and sloughing, type: mechanism, parent: tissue-ischaemia}
+-   {id: urinary-outflow-obstruction, name: Urinary tract obstruction with back-pressure on the kidney, type: mechanism, parent: luminal-obstruction}
+- {id: nephron-loss, name: "Progressive nephron loss: remnant hyperfiltration and scarring", type: mechanism}
+- {id: phosphate-retention-low-calcitriol, name: Phosphate retention and low calcitriol (less gut calcium absorption), type: mechanism}
+- {id: secondary-hyperparathyroidism, name: Secondary hyperparathyroidism, type: mechanism}
+- {id: vascular-calcification, name: "Vascular calcification (raised calcium × phosphate, uraemia)", type: mechanism}
+# Findings
+- {id: renal-function-test, name: Abnormal renal function tests (U&E), type: finding, category: lab}
+-   {id: raised-creatinine-low-egfr, name: Raised creatinine and urea (falling eGFR), type: finding, parent: renal-function-test, category: lab}
+-   {id: high-serum-potassium, name: High serum potassium, type: finding, parent: renal-function-test, category: lab}
+-   {id: metabolic-acidosis, name: Metabolic acidosis (low bicarbonate), type: finding, parent: renal-function-test, category: lab}
+-     {id: normal-anion-gap-acidosis, name: Normal anion gap (hyperchloraemic) metabolic acidosis, type: finding, parent: metabolic-acidosis, category: lab}
+-   {id: hyperphosphataemia, name: Hyperphosphataemia, type: finding, parent: renal-function-test, category: lab}
+- {id: urine-abnormality, name: Abnormal urinalysis, type: finding, category: lab}
+-   {id: concentrated-low-sodium-urine, name: Concentrated urine with low sodium (FENa under 1%), type: finding, parent: urine-abnormality, category: lab}
+-   {id: muddy-brown-casts, name: Muddy brown granular casts (FENa over 1%), type: finding, parent: urine-abnormality, category: lab}
+-   {id: sterile-pyuria-eosinophiluria, name: White cells and eosinophils in sterile urine, type: finding, parent: urine-abnormality, category: lab}
+-   {id: high-urine-ph, name: Urine pH stays above 5.3 despite acidosis, type: finding, parent: urine-abnormality, category: lab}
+-   {id: fanconi-urine-losses, name: "Glycosuria, phosphaturia and aminoaciduria (Fanconi)", type: finding, parent: urine-abnormality, category: lab}
+-   {id: raised-pth-alp, name: Raised PTH and alkaline phosphatase, type: finding, category: lab, parent: raised-alp}
+- {id: oliguria-anuria, name: Oliguria or anuria, type: finding, category: sign}
+- {id: polyuria-nocturia, name: Polyuria and nocturia, type: finding, category: symptom}
+- {id: drug-rash, name: Maculopapular drug rash, type: finding, category: sign}
+- {id: hydronephrosis-on-imaging, name: Hydronephrosis on ultrasound, type: finding, category: imaging}
+- {id: small-echogenic-kidneys, name: "Small, scarred, echogenic kidneys on ultrasound", type: finding, category: imaging}
+# Outcomes
+-   {id: uraemic-encephalopathy, name: Uraemic encephalopathy, type: outcome, parent: encephalopathy}
+- {id: ckd-mineral-bone-disorder, name: CKD–mineral and bone disorder (renal osteodystrophy), type: outcome}
+
+# --- Glomerular disease: nephrotic and nephritic (batches 2–3) ---
+# Causes
+- {id: heroin-use, name: Heroin use, type: cause, category: drug}
+- {id: apol1-risk-variant, name: APOL1 risk variants (African ancestry), type: cause, category: genetic}
+- {id: primary-pla2r-autoimmunity, name: Primary autoimmunity against podocyte PLA2R (HLA-DQA1-linked), type: cause, category: condition}
+# Mechanisms
+- {id: glomerular-injury, name: Glomerular injury, type: mechanism}
+-   {id: podocyte-injury, name: Podocyte injury with fused foot processes (leaky filter), type: mechanism, parent: glomerular-injury}
+-   {id: glomerular-hyperfiltration, name: Glomerular hyperfiltration and raised intraglomerular pressure, type: mechanism, parent: glomerular-injury}
+-   {id: glomerular-inflammation, name: "Glomerular inflammation (endothelial and mesangial proliferation)", type: mechanism, parent: glomerular-injury}
+- {id: urinary-protein-loss, name: "Heavy urinary protein loss (albumin, antithrombin, immunoglobulin)", type: mechanism}
+-   {id: subepithelial-immune-deposits, name: Subepithelial immune deposits beneath the podocytes, type: mechanism, parent: immune-complex-deposition}
+-   {id: mesangial-iga-deposition, name: Galactose-deficient IgA1 complexes deposited in the mesangium, type: mechanism, parent: immune-complex-deposition}
+-   {id: anti-gbm-antibody, name: "Autoantibodies against type IV collagen (α3 NC1) in glomerular and alveolar basement membrane", type: mechanism, parent: antibody-mediated-cytotoxicity}
+# Findings
+-   {id: nephrotic-range-proteinuria, name: Nephrotic-range proteinuria (over 3.5 g/day), type: finding, parent: proteinuria, category: lab}
+-   {id: red-cell-casts, name: Red-cell casts and dysmorphic red cells, type: finding, parent: urine-abnormality, category: lab}
+- {id: hypoalbuminaemia, name: Hypoalbuminaemia, type: finding, category: lab}
+-   {id: periorbital-oedema, name: Periorbital (facial) oedema, type: finding, category: sign, parent: fluid-overload-sign}
+-   {id: anti-pla2r-antibody, name: Anti-PLA2R antibodies, type: finding, parent: systemic-autoantibody, category: lab}
+-   {id: serum-anti-gbm-antibody, name: Serum anti-GBM antibodies, type: finding, parent: systemic-autoantibody, category: lab}
+- {id: renal-biopsy-finding, name: Renal biopsy finding, type: finding, category: histology}
+-   {id: foot-process-effacement, name: Normal glomeruli on light microscopy; fused foot processes on EM, type: finding, parent: renal-biopsy-finding, category: histology}
+-   {id: segmental-glomerulosclerosis, name: Focal segmental sclerosis of glomeruli, type: finding, parent: renal-biopsy-finding, category: histology}
+-   {id: subepithelial-spikes, name: Thick capillary walls with subepithelial deposits and basement-membrane spikes, type: finding, parent: renal-biopsy-finding, category: histology}
+-   {id: kimmelstiel-wilson-nodules, name: Mesangial expansion with Kimmelstiel–Wilson nodules, type: finding, parent: renal-biopsy-finding, category: histology}
+-   {id: glomerular-crescents, name: Glomerular crescents with focal necrosis, type: finding, parent: renal-biopsy-finding, category: histology}
+-   {id: post-infectious-humps, name: "Diffuse proliferative GN with neutrophils and subepithelial humps", type: finding, parent: renal-biopsy-finding, category: histology}
+-   {id: mesangial-iga-deposits, name: Mesangial proliferation with IgA deposits, type: finding, parent: renal-biopsy-finding, category: histology}
+-   {id: linear-igg-gbm, name: Linear IgG along the GBM on immunofluorescence, type: finding, parent: renal-biopsy-finding, category: histology}
+# Outcomes
+- {id: renal-vein-thrombosis, name: Renal vein thrombosis, type: outcome}
+
+# --- Stones, obstruction and cysts (batch 4) ---
+# Causes
+- {id: idiopathic-hypercalciuria, name: Idiopathic hypercalciuria, type: cause, category: risk-factor}
+- {id: primary-hyperoxaluria, name: Primary hyperoxaluria (inherited glyoxylate defect), type: cause, category: genetic}
+- {id: cystinuria, name: Cystinuria (inherited dibasic amino acid leak), type: cause, category: genetic}
+-   {id: proteus-mirabilis, name: Proteus mirabilis (urease-producing), type: cause, category: organism, parent: enterobacteriaceae}
+- {id: retroperitoneal-fibrosis, name: Retroperitoneal fibrosis (peri-aortitis; IgG4-related), type: cause, category: condition}
+- {id: pelviureteric-junction-obstruction, name: Pelviureteric junction obstruction (congenital), type: cause, category: condition}
+- {id: pkd-gene-mutation, name: "PKD1 (chromosome 16, 85%) or PKD2 mutation (polycystin)", type: cause, category: genetic}
+# Mechanisms
+- {id: urinary-stone-formation, name: "Crystals precipitating from supersaturated urine (stone formation)", type: mechanism}
+- {id: parenchymal-calcium-deposition, name: Calcium deposited in the renal parenchyma, type: mechanism}
+- {id: urinary-stasis, name: Urinary stasis (incomplete drainage or emptying), type: mechanism}
+- {id: renal-cyst-formation, name: Defective ciliary polycystin signalling → expanding renal cysts, type: mechanism}
+# Findings
+-   {id: renal-colic, name: "Loin-to-groin colic, restless, sweating, vomiting", type: finding, category: symptom, parent: colicky-abdominal-pain}
+- {id: loin-pain, name: Loin pain and tenderness, type: finding, category: symptom}
+- {id: lower-urinary-tract-symptoms, name: Lower urinary tract symptoms, type: finding, category: symptom}
+-   {id: voiding-luts, name: "Hesitancy, poor stream, dribbling, incomplete emptying", type: finding, category: symptom, parent: lower-urinary-tract-symptoms}
+-   {id: dysuria-frequency-urgency, name: "Dysuria, frequency and urgency", type: finding, category: symptom, parent: lower-urinary-tract-symptoms}
+- {id: palpable-bladder, name: Palpable or percussible bladder, type: finding, category: sign}
+- {id: calculus-on-ct-kub, name: Stone on non-contrast CT-KUB, type: finding, category: imaging}
+- {id: nephrocalcinosis-on-imaging, name: Diffuse renal calcification on imaging, type: finding, category: imaging}
+- {id: enlarged-cystic-kidneys, name: "Large, irregular kidneys with multiple cysts on ultrasound", type: finding, category: imaging}
+# Outcomes
+- {id: post-obstructive-diuresis, name: Post-obstructive diuresis, type: outcome}
+- {id: polycystic-liver, name: Polycystic liver, type: outcome}
+
+# --- Urinary tract infection (batch 5) ---
+# Causes
+- {id: uropathogen, name: Uropathogens from the patient's own bowel flora, type: cause, category: organism}
+-   {id: staphylococcus-saprophyticus, name: Staphylococcus saprophyticus, type: cause, category: organism, parent: coagulase-negative-staphylococci}
+- {id: chlamydia-trachomatis, name: Chlamydia trachomatis, type: cause, category: organism}
+-   {id: neisseria-gonorrhoeae, name: Neisseria gonorrhoeae, type: cause, category: organism, parent: neisseria}
+- {id: sexual-activity, name: New sexual activity, type: cause, category: risk-factor}
+- {id: urinary-catheter, name: Indwelling urinary catheter or instrumentation, type: cause, category: risk-factor}
+- {id: vesicoureteric-reflux, name: Vesicoureteric reflux, type: cause, category: condition}
+# Mechanisms
+- {id: ascending-urinary-infection, name: Bacteria ascending the urethra into the bladder, type: mechanism}
+- {id: bladder-mucosal-inflammation, name: Bladder and urethral inflammation, type: mechanism}
+- {id: renal-parenchymal-infection, name: Infection of the renal pelvis and parenchyma (neutrophil infiltrate), type: mechanism}
+- {id: prostatic-infection, name: Bacterial infection of the prostate, type: mechanism}
+- {id: epididymal-infection, name: Infection of the epididymis and testis, type: mechanism}
+# Findings
+-   {id: pyuria-nitrites, name: Leucocyte esterase and nitrites on dipstick (pyuria), type: finding, parent: urine-abnormality, category: lab}
+-   {id: significant-bacteriuria, name: Significant bacteriuria on urine culture, type: finding, parent: urine-abnormality, category: lab}
+-   {id: white-cell-casts, name: White-cell casts, type: finding, parent: urine-abnormality, category: lab}
+- {id: suprapubic-pain, name: Suprapubic pain and tenderness, type: finding, category: symptom}
+-   {id: tender-swollen-prostate, name: Swollen tender prostate on rectal examination, type: finding, category: sign, parent: abnormal-prostate-on-dre}
+- {id: perineal-pain, name: Perineal or genital pain, type: finding, category: symptom}
+- {id: acute-scrotal-pain-swelling, name: "Painful, swollen, red hemiscrotum", type: finding, category: sign}
+- {id: urethral-discharge, name: Urethral discharge, type: finding, category: sign}
+# Outcomes
+- {id: testicular-infarction, name: Testicular infarction or abscess, type: outcome}
+# --- Sexually transmitted infections and PID (batch 6) ---
+# Causes
+- {id: unprotected-sex-multiple-partners, name: "Unprotected sex, frequent partner change", type: cause, category: risk-factor}
+# Mechanisms
+- {id: genital-mucosal-infection, name: "Infection of the urethral, endocervical and rectal mucosa", type: mechanism}
+- {id: ascending-genital-infection, name: "Infection ascending from cervix to uterus and tubes, or urethra to epididymis", type: mechanism}
+- {id: upper-genital-tract-inflammation, name: "Endometritis and salpingitis", type: mechanism}
+- {id: tubal-scarring, name: Fallopian tube damage and pelvic adhesions, type: mechanism}
+# Findings
+- {id: vaginal-discharge, name: Increased vaginal discharge, type: finding, category: symptom}
+-   {id: intermenstrual-postcoital-bleeding, name: Intermenstrual or postcoital bleeding, type: finding, category: symptom, parent: abnormal-uterine-bleeding}
+- {id: mucopurulent-cervicitis, name: Mucopurulent cervicitis with contact bleeding, type: finding, category: sign}
+- {id: positive-sti-naat, name: "Positive NAAT (first-void urine or vulvovaginal swab)", type: finding, category: lab}
+- {id: gram-negative-intracellular-diplococci, name: Gram-negative intracellular diplococci on microscopy, type: finding, category: lab}
+-   {id: lower-abdominal-pain, name: "Lower abdominal pain, usually bilateral", type: finding, category: symptom, parent: abdominal-pain}
+- {id: cervical-motion-adnexal-tenderness, name: Cervical motion and adnexal tenderness, type: finding, category: sign}
+- {id: deep-dyspareunia, name: Deep dyspareunia, type: finding, category: symptom}
+- {id: tenosynovitis-necrotic-skin-lesions, name: Tenosynovitis and pustular skin lesions with necrotic centres, type: finding, category: sign}
+# Outcomes
+- {id: neonatal-conjunctivitis, name: Neonatal conjunctivitis (ophthalmia neonatorum), type: outcome}
+- {id: chronic-pelvic-pain, name: Chronic pelvic pain, type: outcome}
+- {id: perihepatitis-fitz-hugh-curtis, name: Perihepatitis (Fitz-Hugh–Curtis syndrome), type: outcome}
+# --- Renal and urothelial tumours (batch 7) ---
+# Causes
+- {id: vhl-mutation, name: VHL tumour-suppressor mutation (von Hippel–Lindau), type: cause, category: genetic}
+- {id: wt1-mutation, name: "WT1/WT2 mutation on chromosome 11 (WAGR, Denys–Drash, Beckwith–Wiedemann)", type: cause, category: genetic}
+- {id: aromatic-amine-exposure, name: "Aromatic amines (β-naphthylamine, benzidine, aniline dyes)", type: cause, category: risk-factor}
+- {id: urothelial-carcinogenic-drug, name: "Cyclophosphamide, phenacetin or aristolochic acid", type: cause, category: drug}
+- {id: schistosoma-haematobium, name: Schistosoma haematobium, type: cause, category: organism}
+# Mechanisms
+-   {id: renal-tubular-malignancy, name: Malignant transformation of proximal tubular epithelium, type: mechanism, parent: malignant-transformation}
+-   {id: embryonal-renal-malignancy, name: Malignant embryonal renal tissue (nephroblastoma), type: mechanism, parent: malignant-transformation}
+-   {id: urothelial-malignancy, name: Malignant transformation of transitional epithelium, type: mechanism, parent: malignant-transformation}
+-   {id: epo-secretion, name: Tumour erythropoietin secretion, type: mechanism, parent: ectopic-hormone-secretion}
+- {id: renal-vein-invasion, name: Tumour growth into the renal vein and IVC, type: mechanism}
+# Findings
+-   {id: flank-mass, name: Flank (renal) mass, type: finding, category: sign, parent: abdominal-mass}
+- {id: renal-mass-on-imaging, name: Solid renal mass on ultrasound or CT, type: finding, category: imaging}
+- {id: clear-cell-histology, name: Large cells with clear cytoplasm on histology, type: finding, category: histology}
+- {id: left-varicocele, name: Left-sided varicocele, type: finding, category: sign}
+- {id: bladder-tumour-on-cystoscopy, name: Bladder tumour on cystoscopy and biopsy, type: finding, category: endoscopy}
+- {id: malignant-urine-cytology, name: Malignant cells on urine cytology, type: finding, category: lab}
+# --- Prostate, testis and penis (batch 8) ---
+# Causes
+- {id: prostate-cancer-susceptibility, name: "Family history, BRCA2 or HOXB13 variant", type: cause, category: genetic}
+- {id: cryptorchidism, name: Undescended testis (cryptorchidism), type: cause, category: condition}
+- {id: bell-clapper-deformity, name: Bell-clapper deformity (poorly anchored testis), type: cause, category: condition}
+- {id: hpv-infection, name: Human papillomavirus (HPV) infection, type: cause, category: organism}
+- {id: phimosis-balanitis, name: "Phimosis or chronic balanitis (BXO)", type: cause, category: condition}
+# Mechanisms
+- {id: androgen-driven-prostatic-growth, name: Androgen (DHT)-driven hyperplasia of the prostate, type: mechanism}
+-   {id: prostatic-adenocarcinoma, name: Malignant transformation of prostatic glands (adenocarcinoma), type: mechanism, parent: malignant-transformation}
+-   {id: germ-cell-malignancy, name: Malignant transformation of testicular germ cells, type: mechanism, parent: malignant-transformation}
+-   {id: penile-squamous-malignancy, name: Squamous carcinoma of the glans or foreskin epithelium, type: mechanism, parent: malignant-transformation}
+-   {id: spermatic-cord-torsion, name: Twisted spermatic cord strangling the testicular blood supply, type: mechanism, parent: tissue-ischaemia}
+# Findings
+- {id: abnormal-prostate-on-dre, name: Abnormal prostate on rectal examination, type: finding, category: sign}
+-   {id: smooth-enlarged-prostate, name: Smooth enlarged prostate on rectal examination, type: finding, category: sign, parent: abnormal-prostate-on-dre}
+-   {id: hard-irregular-prostate, name: Hard irregular prostate on rectal examination, type: finding, category: sign, parent: abnormal-prostate-on-dre}
+-   {id: storage-luts, name: "Frequency, nocturia and urgency", type: finding, category: symptom, parent: lower-urinary-tract-symptoms}
+-   {id: acute-urinary-retention, name: Acute painful urinary retention, type: finding, category: symptom, parent: lower-urinary-tract-symptoms}
+- {id: raised-psa, name: Raised prostate-specific antigen (PSA), type: finding, category: lab}
+- {id: prostate-biopsy-adenocarcinoma, name: "Adenocarcinoma on MRI-guided prostate biopsy (Gleason graded)", type: finding, category: histology}
+-   {id: sclerotic-bone-metastases, name: Sclerotic bone metastases (hot on bone scan), type: finding, category: imaging, parent: bone-imaging-abnormality}
+- {id: high-horizontal-testis, name: "High, horizontal testis; absent cremasteric reflex; negative Prehn's sign", type: finding, category: sign}
+- {id: painless-testicular-lump, name: Painless testicular lump, type: finding, category: sign}
+- {id: raised-beta-hcg, name: Raised beta-hCG, type: finding, category: lab}
+- {id: penile-tumour, name: Tumour of the glans or inner foreskin, type: finding, category: sign}
+# ================= ENDOCRINE =================
+# Agreed in docs/concepts-endocrine.md; added batch by batch.
+# PROVISIONAL (owner, 2026-11-10): hormone-excess and hormone-deficiency are kept on trial. "Shares a hormone
+# excess/deficiency" is not a strongly clinical connection, so they can be removed at any time: delete the two
+# parent lines and drop the `parent:` from their kinds. No chain uses the parents directly.
+- {id: hormone-excess, name: Hormone excess, type: mechanism}
+- {id: hormone-deficiency, name: Hormone deficiency, type: mechanism}
+# --- Diabetes and hypoglycaemia (batches 1–2) ---
+# Causes
+- {id: beta-cell-gene-defect, name: "Single β-cell gene mutation (HNF1A, glucokinase, HNF4A)", type: cause, category: genetic}
+- {id: t2dm-genetic-susceptibility, name: "Polygenic type 2 susceptibility (family history, TCF7L2)", type: cause, category: genetic}
+- {id: hypoglycaemic-drug, name: Glucose-lowering drug, type: cause, category: drug}
+-   {id: insulin-therapy, name: Insulin therapy, type: cause, category: drug, parent: hypoglycaemic-drug}
+-   {id: sulphonylurea, name: Sulphonylurea, type: cause, category: drug, parent: hypoglycaemic-drug}
+# Mechanisms
+-   {id: insulin-deficiency, name: Insulin deficiency (absolute or relative), type: mechanism, parent: hormone-deficiency}
+-   {id: cortisol-deficiency, name: Cortisol deficiency, type: mechanism, parent: hormone-deficiency}
+-   {id: insulin-excess, name: Insulin excess, type: mechanism, parent: hormone-excess}
+-   {id: autoimmune-gland-destruction, name: Autoimmune destruction of an endocrine gland, type: mechanism, parent: immune-mediated-injury}
+-     {id: autoimmune-beta-cell-destruction, name: Autoimmune T-cell destruction of pancreatic β cells (insulitis), type: mechanism, parent: autoimmune-gland-destruction}
+- {id: insulin-resistance, name: "Insulin resistance (liver, muscle and fat respond poorly to insulin)", type: mechanism}
+- {id: beta-cell-failure, name: β cells failing to secrete enough insulin, type: mechanism}
+- {id: hyperglycaemia, name: Hyperglycaemia, type: mechanism}
+- {id: osmotic-diuresis, name: Osmotic diuresis (glucose above the renal threshold), type: mechanism}
+- {id: ketogenesis, name: Uncontrolled lipolysis and hepatic ketogenesis, type: mechanism}
+- {id: microvascular-glycation-damage, name: "Hyperglycaemic small-vessel damage (glycation, polyol pathway, thick basement membrane)", type: mechanism}
+- {id: impaired-innate-immunity, name: Hyperglycaemia impairing innate immunity, type: mechanism}
+- {id: fetal-hyperinsulinaemia, name: Fetal islets oversecreting insulin against maternal glucose, type: mechanism}
+- {id: low-plasma-glucose, name: Glucose output falling below tissue uptake, type: mechanism}
+- {id: impaired-gluconeogenesis, name: "Depleted glycogen or blocked gluconeogenesis (alcohol, liver failure)", type: mechanism}
+- {id: neuroglycopenia, name: Brain starved of glucose (neuroglycopenia), type: mechanism}
+- {id: adrenergic-hypoglycaemia-response, name: Autonomic (adrenergic) response to low glucose, type: mechanism}
+# Findings
+- {id: diabetic-glucose-hba1c, name: "Fasting glucose ≥7.0, random ≥11.1 mmol/L or HbA1c ≥48 mmol/mol", type: finding, category: lab}
+- {id: abnormal-ogtt-pregnancy, name: Abnormal 75 g glucose tolerance test in the second or third trimester, type: finding, category: lab}
+- {id: islet-autoantibodies, name: "Islet autoantibodies (GAD, IA-2, ZnT8, insulin)", type: finding, category: lab}
+- {id: low-c-peptide, name: Low or absent C-peptide, type: finding, category: lab}
+- {id: ketonaemia-ketonuria, name: Ketonaemia (≥3 mmol/L) or heavy ketonuria, type: finding, category: lab}
+-     {id: high-anion-gap-acidosis, name: High anion gap metabolic acidosis, type: finding, parent: metabolic-acidosis, category: lab}
+- {id: low-blood-glucose, name: Blood glucose below 3.0 mmol/L, type: finding, category: lab}
+- {id: raised-insulin-c-peptide, name: Inappropriately high insulin and C-peptide during hypoglycaemia, type: finding, category: lab}
+- {id: polydipsia, name: Thirst and polydipsia, type: finding, category: symptom}
+- {id: kussmaul-breathing, name: Deep sighing (Kussmaul) breathing with ketotic breath, type: finding, category: sign}
+- {id: genital-candidiasis, name: Pruritus vulvae or balanitis (Candida), type: finding, category: sign}
+- {id: shakiness-anxiety, name: "Shakiness, anxiety and paraesthesiae", type: finding, category: symptom}
+# Outcomes
+- {id: diabetic-ketoacidosis, name: Diabetic ketoacidosis, type: outcome}
+- {id: hyperosmolar-hyperglycaemic-state, name: Hyperosmolar hyperglycaemic state, type: outcome}
+- {id: diabetic-retinopathy, name: Diabetic retinopathy, type: outcome}
+- {id: diabetic-neuropathy, name: Diabetic neuropathy, type: outcome}
+- {id: diabetic-foot-ulcer, name: Diabetic foot ulcer, type: outcome}
+- {id: fetal-macrosomia-neonatal-hypoglycaemia, name: Fetal macrosomia and neonatal hypoglycaemia, type: outcome}
+# --- Thyroid (batches 3–4) ---
+# Causes
+- {id: iodine-deficiency, name: Dietary iodine deficiency, type: cause, category: risk-factor}
+- {id: thyroid-ablation, name: "Radioiodine, thyroidectomy or neck irradiation", type: cause, category: risk-factor}
+- {id: thyroid-affecting-drug, name: Drug acting on the thyroid, type: cause, category: drug}
+-   {id: amiodarone, name: Amiodarone, type: cause, category: drug, parent: thyroid-affecting-drug}
+-   {id: lithium, name: Lithium, type: cause, category: drug, parent: thyroid-affecting-drug}
+-   {id: immune-checkpoint-inhibitor, name: "Immune checkpoint inhibitor (ipilimumab, pembrolizumab, nivolumab)", type: cause, category: drug, parent: thyroid-affecting-drug}
+- {id: de-quervains-thyroiditis, name: Subacute (de Quervain's) viral thyroiditis, type: cause, category: condition}
+- {id: postpartum-thyroiditis, name: Postpartum thyroiditis, type: cause, category: condition}
+- {id: ret-mutation, name: RET proto-oncogene mutation (MEN2 and familial medullary carcinoma), type: cause, category: genetic}
+# Mechanisms
+-   {id: thyroid-hormone-excess, name: Thyroid hormone excess, type: mechanism, parent: hormone-excess}
+-   {id: thyroid-hormone-deficiency, name: Thyroid hormone deficiency, type: mechanism, parent: hormone-deficiency}
+-     {id: autoimmune-thyroid-destruction, name: Autoimmune lymphocytic destruction of the thyroid, type: mechanism, parent: autoimmune-gland-destruction}
+- {id: thyroiditis-hormone-leak, name: Inflamed follicles leaking stored hormone (destructive thyroiditis), type: mechanism}
+- {id: retro-orbital-inflammation, name: Autoimmune retro-orbital inflammation and muscle swelling, type: mechanism}
+- {id: thyroid-follicular-hyperplasia, name: TSH-driven follicular hyperplasia forming nodules, type: mechanism}
+- {id: benign-thyroid-neoplasm, name: Benign clonal follicular-cell tumour, type: mechanism}
+- {id: thyroid-mass-compression, name: Goitre or tumour compressing the trachea and oesophagus, type: mechanism}
+- {id: thyroid-malignant-nodule, name: Malignant thyroid nodule, type: mechanism}
+-   {id: thyroid-follicular-cell-malignancy, name: "Malignant transformation of thyroid follicular cells (papillary, follicular, anaplastic)", type: mechanism, parent: malignant-transformation}
+-   {id: c-cell-malignancy, name: Malignant transformation of calcitonin-secreting C cells, type: mechanism, parent: malignant-transformation}
+# Findings
+- {id: thyroid-function-test, name: Abnormal thyroid function tests, type: finding, category: lab}
+-   {id: suppressed-tsh-raised-t4, name: Suppressed TSH with raised free T4 or T3, type: finding, category: lab, parent: thyroid-function-test}
+-   {id: raised-tsh-low-t4, name: Raised TSH with low free T4, type: finding, category: lab, parent: thyroid-function-test}
+-   {id: anti-tpo-antibodies, name: Anti-TPO (thyroid peroxidase) antibodies, type: finding, category: lab, parent: thyroid-function-test}
+-   {id: tsh-receptor-antibodies, name: TSH-receptor stimulating antibodies (TRAb), type: finding, category: lab, parent: thyroid-function-test}
+-   {id: raised-thyroglobulin, name: Detectable thyroglobulin after thyroid ablation, type: finding, category: lab, parent: thyroid-function-test}
+- {id: raised-calcitonin, name: Raised serum calcitonin, type: finding, category: lab}
+- {id: thyroid-isotope-scan, name: Thyroid isotope uptake scan pattern, type: finding, category: imaging}
+-   {id: diffuse-isotope-uptake, name: Diffusely increased isotope uptake, type: finding, category: imaging, parent: thyroid-isotope-scan}
+-   {id: hot-nodule-uptake, name: Uptake in one or more hot nodules with the rest suppressed, type: finding, category: imaging, parent: thyroid-isotope-scan}
+-   {id: low-isotope-uptake, name: Minimal isotope uptake, type: finding, category: imaging, parent: thyroid-isotope-scan}
+-   {id: cold-nodule, name: Cold (non-functioning) nodule, type: finding, category: imaging, parent: thyroid-isotope-scan}
+- {id: goitre, name: Goitre, type: finding, category: sign}
+-   {id: diffuse-goitre, name: Diffuse firm goitre, type: finding, category: sign, parent: goitre}
+-   {id: nodular-goitre, name: Multinodular goitre, type: finding, category: sign, parent: goitre}
+-   {id: thyroid-nodule, name: Solitary thyroid nodule, type: finding, category: sign, parent: goitre}
+-   {id: tender-goitre, name: Painful tender goitre, type: finding, category: sign, parent: goitre}
+- {id: thyroid-fna-cytology, name: Suspicious or malignant cells on ultrasound-guided FNA, type: finding, category: histology}
+- {id: papillary-nuclear-features, name: Branching papillae with psammoma bodies on histology, type: finding, category: histology}
+- {id: heat-intolerance, name: Heat intolerance and sweating, type: finding, category: symptom}
+- {id: lid-lag-stare, name: Lid lag and stare (lid retraction), type: finding, category: sign}
+- {id: proximal-myopathy, name: Proximal muscle weakness (myopathy), type: finding, category: sign}
+- {id: graves-orbitopathy, name: "Proptosis, periorbital swelling and limited eye movement (Graves' orbitopathy)", type: finding, category: sign}
+- {id: pretibial-myxoedema, name: Pretibial myxoedema, type: finding, category: sign}
+- {id: cold-intolerance-weight-gain, name: Cold intolerance and weight gain, type: finding, category: symptom}
+- {id: dry-skin-hair-voice, name: "Dry hair, thick skin and deep voice", type: finding, category: sign}
+- {id: bradycardia, name: Bradycardia, type: finding, category: sign}
+- {id: stridor-tracheal-compression, name: Breathlessness or stridor from tracheal compression, type: finding, category: symptom, parent: stridor}
+# Outcomes
+- {id: thyroid-storm, name: Thyroid storm (thyroid crisis), type: outcome}
+- {id: myxoedema-coma, name: Myxoedema coma, type: outcome}
+- {id: neonatal-thyrotoxicosis, name: Fetal and neonatal thyrotoxicosis, type: outcome}
+# --- Pituitary (batch 5) ---
+# Causes
+- {id: postpartum-haemorrhage, name: Severe postpartum haemorrhage, type: cause, category: risk-factor}
+# Mechanisms
+-   {id: prolactin-excess, name: Prolactin excess, type: mechanism, parent: hormone-excess}
+-   {id: gh-igf1-excess, name: Growth hormone and IGF-1 excess, type: mechanism, parent: hormone-excess}
+-   {id: anterior-pituitary-hormone-deficiency, name: Loss of anterior pituitary hormones, type: mechanism, parent: hormone-deficiency}
+- {id: optic-chiasm-compression, name: Suprasellar extension compressing the optic chiasm, type: mechanism}
+-   {id: pituitary-infarction, name: "Pituitary infarction or haemorrhage (Sheehan's, apoplexy)", type: mechanism, parent: tissue-ischaemia}
+# Findings
+-   {id: bitemporal-hemianopia, name: Bitemporal hemianopia or upper temporal quadrantanopia, type: finding, category: sign, parent: focal-neurological-deficit}
+-   {id: cavernous-sinus-palsy, name: "Diplopia from a III, IV or VI nerve palsy (cavernous sinus)", type: finding, category: sign, parent: focal-neurological-deficit}
+-     {id: pituitary-mass-on-mri, name: Pituitary (sellar) mass on MRI, type: finding, category: imaging, parent: brain-mass-lesion}
+-   {id: low-tsh-low-t4, name: Low free T4 with low or inappropriately normal TSH, type: finding, category: lab, parent: thyroid-function-test}
+- {id: raised-prolactin, name: Raised serum prolactin, type: finding, category: lab}
+- {id: raised-igf1-failed-gh-suppression, name: Raised IGF-1 with GH not suppressed by oral glucose, type: finding, category: lab}
+- {id: acral-enlargement-coarse-facies, name: "Enlarged hands and feet, coarse features and prognathism", type: finding, category: sign}
+- {id: galactorrhoea, name: Galactorrhoea, type: finding, category: sign}
+- {id: oligo-amenorrhoea, name: Oligomenorrhoea or amenorrhoea, type: finding, category: symptom}
+- {id: reduced-libido-erectile-dysfunction, name: Reduced libido and erectile dysfunction, type: finding, category: symptom}
+- {id: growth-failure, name: Growth failure and short stature in a child, type: finding, category: sign}
+# Outcomes
+- {id: pituitary-apoplexy, name: Pituitary apoplexy, type: outcome}
+# --- Adrenal and MEN (batch 6) ---
+# Causes
+- {id: exogenous-glucocorticoid, name: Long-term glucocorticoid therapy, type: cause, category: drug}
+- {id: men1-mutation, name: MEN1 (menin) tumour-suppressor mutation, type: cause, category: genetic}
+# Mechanisms
+-   {id: cortisol-excess, name: Cortisol (glucocorticoid) excess, type: mechanism, parent: hormone-excess}
+-   {id: pth-excess, name: Parathyroid hormone excess, type: mechanism, parent: hormone-excess}
+-   {id: mineralocorticoid-deficiency, name: Aldosterone (mineralocorticoid) deficiency, type: mechanism, parent: hormone-deficiency}
+-     {id: autoimmune-adrenalitis, name: Autoimmune destruction of the adrenal cortex (21-hydroxylase antibodies), type: mechanism, parent: autoimmune-gland-destruction}
+- {id: adrenal-cortex-destruction, name: Destruction of the whole adrenal cortex, type: mechanism}
+- {id: hpa-axis-suppression, name: Suppressed hypothalamic–pituitary–adrenal axis (low ACTH), type: mechanism}
+- {id: raised-acth, name: High circulating ACTH (with MSH-like activity), type: mechanism}
+- {id: adrenal-glomerulosa-hyperplasia, name: Bilateral adrenal (zona glomerulosa) hyperplasia, type: mechanism}
+-   {id: adrenocortical-malignancy, name: Malignant transformation of adrenal cortical cells, type: mechanism, parent: malignant-transformation}
+# Findings
+- {id: adrenal-function-test, name: Abnormal adrenal function test, type: finding, category: lab}
+-   {id: failed-dexamethasone-suppression, name: Cortisol not suppressed by dexamethasone (or high midnight cortisol), type: finding, category: lab, parent: adrenal-function-test}
+-   {id: low-cortisol-failed-synacthen, name: Low cortisol failing to rise after Synacthen, type: finding, category: lab, parent: adrenal-function-test}
+-   {id: raised-aldosterone-renin-ratio, name: Raised aldosterone with suppressed renin, type: finding, category: lab, parent: adrenal-function-test}
+-   {id: raised-metanephrines, name: Raised plasma or urine metanephrines, type: finding, category: lab, parent: adrenal-function-test}
+- {id: adrenal-autoantibodies, name: Adrenal (21-hydroxylase) autoantibodies, type: finding, category: lab}
+- {id: adrenal-mass-on-ct, name: Adrenal mass on CT or MRI, type: finding, category: imaging}
+- {id: cushingoid-features, name: "Central obesity, moon face, buffalo hump and purple striae", type: finding, category: sign}
+- {id: thin-skin-easy-bruising, name: Thin skin and easy bruising, type: finding, category: sign}
+- {id: mood-disturbance-psychosis, name: "Depression, euphoria or psychosis", type: finding, category: symptom}
+- {id: hirsutism-virilisation, name: Hirsutism or virilisation, type: finding, category: sign}
+- {id: acth-hyperpigmentation, name: "Dull grey–brown skin pigmentation (high ACTH)", type: finding, category: sign}
+-   {id: postural-hypotension, name: Postural (orthostatic) hypotension, type: finding, category: sign, parent: hypotension}
+- {id: paroxysmal-headache-sweating-palpitations, name: "Attacks of headache, sweating and palpitations", type: finding, category: symptom}
+- {id: marfanoid-mucosal-neuromas, name: Marfanoid habitus with lip and tongue neuromas, type: finding, category: sign}
+# Outcomes
+- {id: adrenal-crisis, name: Adrenal (Addisonian) crisis, type: outcome, parent: adrenal-insufficiency}
+
+# ================= BONE AND JOINTS =================
+# Agreed in docs/concepts-bone-joint.md; added batch by batch.
+# --- Arthritis: degenerative, crystal and spondyloarthritis (batches 1–2) ---
+# Causes
+-   {id: hla-b27, name: HLA-B27, type: cause, category: genetic, parent: hla-susceptibility}
+- {id: joint-injury-overuse, name: "Joint injury or overuse (fracture, ligament tears, occupation, sport)", type: cause, category: risk-factor}
+- {id: urate-raising-drug, name: "Urate-retaining drugs (thiazide diuretics, low-dose aspirin)", type: cause, category: drug}
+# Mechanisms
+- {id: cartilage-degeneration, name: Articular cartilage breakdown (whole-joint degeneration), type: mechanism}
+- {id: subchondral-sclerosis-osteophytes, name: "Stressed subchondral bone: sclerosis, cysts and marginal osteophytes", type: mechanism}
+- {id: impaired-urate-excretion, name: Impaired urate excretion by the kidney, type: mechanism}
+- {id: crystal-induced-inflammation, name: Crystal-induced joint inflammation, type: mechanism}
+-   {id: urate-crystal-deposition, name: Monosodium urate crystals in and around joints (NLRP3–IL-1β inflammation), type: mechanism, parent: crystal-induced-inflammation}
+-   {id: cpp-crystal-deposition, name: Calcium pyrophosphate crystals in cartilage, type: mechanism, parent: crystal-induced-inflammation}
+- {id: enthesitis, name: Inflammation where tendons and ligaments insert into bone (enthesitis), type: mechanism}
+- {id: syndesmophyte-ankylosis, name: "Healing with new bone: syndesmophytes and spinal fusion", type: mechanism}
+- {id: aortitis, name: Aortitis (aortic root inflammation), type: mechanism}
+# Findings
+-   {id: acute-monoarthritis, name: "Acute hot, swollen monoarthritis", type: finding, category: sign, parent: inflammatory-arthritis}
+-   {id: asymmetrical-oligoarthritis, name: Asymmetrical oligoarthritis of a few large (often lower-limb) joints, type: finding, category: sign, parent: inflammatory-arthritis}
+-   {id: dip-arthritis, name: Distal interphalangeal joint arthritis, type: finding, category: sign, parent: inflammatory-arthritis}
+- {id: synovial-fluid-abnormality, name: Abnormal synovial fluid, type: finding, category: lab}
+-   {id: negatively-birefringent-needle-crystals, name: "Needle-shaped, negatively birefringent crystals in joint fluid", type: finding, category: lab, parent: synovial-fluid-abnormality}
+-   {id: positively-birefringent-rhomboid-crystals, name: "Rhomboid, weakly positively birefringent crystals in joint fluid", type: finding, category: lab, parent: synovial-fluid-abnormality}
+- {id: joint-x-ray-abnormality, name: Joint or spine X-ray abnormality, type: finding, category: imaging}
+-   {id: oa-xray-changes, name: "Joint space narrowing, osteophytes, subchondral sclerosis and cysts", type: finding, category: imaging, parent: joint-x-ray-abnormality}
+-   {id: chondrocalcinosis-on-x-ray, name: Linear calcification of cartilage (chondrocalcinosis), type: finding, category: imaging, parent: joint-x-ray-abnormality}
+-   {id: punched-out-erosions, name: Punched-out periarticular erosions, type: finding, category: imaging, parent: joint-x-ray-abnormality}
+-   {id: sacroiliitis-bamboo-spine, name: "Sacroiliitis (erosions, sclerosis), later syndesmophytes and bamboo spine", type: finding, category: imaging, parent: joint-x-ray-abnormality}
+-   {id: pencil-in-cup-erosions, name: Central erosions with pencil-in-cup deformity, type: finding, category: imaging, parent: joint-x-ray-abnormality}
+- {id: mechanical-joint-pain, name: "Joint pain on use and weight-bearing, with brief morning stiffness", type: finding, category: symptom}
+- {id: heberden-bouchard-nodes, name: "Heberden's (DIP) and Bouchard's (PIP) nodes", type: finding, category: sign}
+- {id: crepitus-restricted-movement, name: "Crepitus, bony enlargement and restricted movement", type: finding, category: sign}
+- {id: tophi, name: "Tophi (chalky urate deposits on ears, fingers and tendons)", type: finding, category: sign}
+- {id: inflammatory-back-pain, name: "Inflammatory back and buttock pain (morning stiffness, eased by exercise)", type: finding, category: symptom}
+- {id: spinal-stiffness-kyphosis, name: "Reduced spinal flexion (Schober < 5 cm), later fixed kyphosis", type: finding, category: sign}
+- {id: dactylitis, name: Dactylitis (whole swollen finger or toe), type: finding, category: sign}
+- {id: enthesitis-heel-pain, name: Heel pain from plantar fasciitis or Achilles enthesitis, type: finding, category: symptom}
+- {id: nail-dystrophy, name: Nail dystrophy, type: finding, category: sign}
+- {id: conjunctivitis, name: Conjunctivitis, type: finding, category: sign}
+- {id: reactive-skin-lesions, name: Circinate balanitis or keratoderma blennorrhagica, type: finding, category: sign}
+# --- Bone and joint infection; calcium and vitamin D (batches 3–4) ---
+# Causes
+- {id: prosthetic-joint, name: Prosthetic joint, type: cause, category: risk-factor}
+- {id: open-fracture, name: Open fracture, type: cause, category: risk-factor}
+- {id: neck-surgery, name: Thyroid or parathyroid surgery, type: cause, category: risk-factor}
+- {id: low-dietary-vitamin-d, name: Low dietary vitamin D, type: cause, category: risk-factor}
+- {id: fat-malabsorbing-disease, name: "Disease causing fat malabsorption (coeliac, Crohn's, CF, PBC, gastric surgery)", type: cause, category: condition}
+# Mechanisms
+- {id: joint-space-infection, name: Bacteria multiplying in the joint space (pyogenic synovitis), type: mechanism}
+- {id: spread-from-ulcer-or-wound, name: "Infection spreading from an adjacent ulcer, wound or open fracture", type: mechanism}
+- {id: bone-infection, name: Infection of bone and marrow, type: mechanism}
+-   {id: pth-deficiency, name: Parathyroid hormone deficiency, type: mechanism, parent: hormone-deficiency}
+- {id: neuromuscular-irritability, name: Neuromuscular irritability from low ionised calcium, type: mechanism}
+- {id: vitamin-d-depletion, name: Depleted vitamin D stores (low 25-OH vitamin D), type: mechanism}
+- {id: reduced-gut-calcium-absorption, name: Less calcium and phosphate absorbed from the gut, type: mechanism}
+- {id: defective-mineralisation, name: "Defective mineralisation of new osteoid (and of the growth plate in children)", type: mechanism}
+# Findings
+-   {id: purulent-synovial-fluid, name: "Purulent joint fluid, organisms on Gram stain or culture", type: finding, category: lab, parent: synovial-fluid-abnormality}
+- {id: bone-imaging-abnormality, name: Bone imaging abnormality, type: finding, category: imaging}
+-   {id: osteomyelitis-on-mri, name: Bone marrow infection on MRI (X-ray normal early), type: finding, category: imaging, parent: bone-imaging-abnormality}
+-   {id: looser-zones, name: "Looser's pseudofractures (lucent bands across the cortex, femur and pelvis)", type: finding, category: imaging, parent: bone-imaging-abnormality}
+-   {id: subperiosteal-erosions-brown-tumours, name: "Subperiosteal phalangeal erosions, bone cysts and brown tumours", type: finding, category: imaging, parent: bone-imaging-abnormality}
+- {id: raised-pth-with-high-calcium, name: Raised or unsuppressed PTH despite high calcium, type: finding, category: lab}
+- {id: low-pth-low-calcium, name: Low or inappropriately normal PTH with low calcium, type: finding, category: lab}
+- {id: low-25-oh-vitamin-d, name: Low serum 25-hydroxyvitamin D, type: finding, category: lab}
+- {id: raised-alp, name: Raised alkaline phosphatase (bone), type: finding, category: lab}
+- {id: tetany-perioral-paraesthesia, name: "Perioral numbness, paraesthesiae, cramps and tetany (Chvostek, Trousseau)", type: finding, category: sign}
+- {id: prolonged-qt, name: Prolonged QT interval, type: finding, category: ECG}
+- {id: rickets-deformity, name: "Rickets: bowed legs, widened wrists, rachitic rosary, soft skull", type: finding, category: sign}
+- {id: foot-infection-signs, name: "Purulent discharge, redness, warmth and swelling of the foot", type: finding, category: sign}
+# Outcomes
+- {id: joint-destruction, name: Joint destruction, type: outcome}
+- {id: chronic-osteomyelitis, name: "Chronic osteomyelitis (sequestrum, sinus, Brodie's abscess)", type: outcome}
+# --- Metabolic bone disease and bone tumours (batches 5–6) ---
+# Causes
+- {id: oestrogen-deficiency, name: "Oestrogen deficiency (menopause, early menopause, amenorrhoea)", type: cause, category: risk-factor}
+- {id: sqstm1-mutation, name: SQSTM1 (p62) mutation, type: cause, category: genetic}
+- {id: rb1-mutation, name: RB1 tumour-suppressor mutation (hereditary retinoblastoma), type: cause, category: genetic}
+- {id: t11-22-translocation, name: "t(11;22) translocation", type: cause, category: genetic}
+# Mechanisms
+- {id: bone-loss, name: "Bone resorption outpacing formation (low mass, weak architecture)", type: mechanism}
+- {id: disorganised-bone-remodelling, name: "Excess resorption followed by chaotic, weak woven new bone", type: mechanism}
+- {id: primary-bone-tumour-growth, name: Primary tumour growing within bone, type: mechanism}
+-   {id: bone-forming-tumour, name: Tumour cells forming bone or osteoid, type: mechanism, parent: primary-bone-tumour-growth}
+-     {id: benign-bone-formation, name: Benign growth of bone or osteoid, type: mechanism, parent: bone-forming-tumour}
+-     {id: malignant-osteoid-formation, name: Malignant cells laying down woven bone, type: mechanism, parent: bone-forming-tumour}
+-   {id: cartilage-forming-tumour, name: Tumour cells forming cartilage, type: mechanism, parent: primary-bone-tumour-growth}
+-     {id: malignant-cartilage-formation, name: Malignant chondrocytes forming cartilage, type: mechanism, parent: cartilage-forming-tumour}
+-   {id: small-round-cell-tumour, name: Small round blue cell tumour of bone, type: mechanism, parent: primary-bone-tumour-growth}
+# Findings
+-   {id: low-bone-density-dexa, name: "Low bone density on DXA (T-score ≤ −2.5)", type: finding, category: imaging, parent: bone-imaging-abnormality}
+-   {id: pagetic-bone, name: "Expanded bone, mixed lytic and sclerotic, thick cortex and coarse trabeculae", type: finding, category: imaging, parent: bone-imaging-abnormality}
+-   {id: sunburst-codman-triangle, name: Sunburst spiculation and Codman triangle (lifted periosteum), type: finding, category: imaging, parent: bone-imaging-abnormality}
+-   {id: onion-skin-periosteal-reaction, name: Onion-skin periosteal reaction (diaphysis), type: finding, category: imaging, parent: bone-imaging-abnormality}
+- {id: kyphosis-height-loss, name: "Kyphosis, height loss and postural back pain", type: finding, category: sign}
+- {id: bowing-skull-enlargement, name: "Bowed tibia and enlarged skull", type: finding, category: sign}
+- {id: deafness, name: Deafness, type: finding, category: sign}
+- {id: hard-bony-lump, name: "Hard, painless bony lump (often skull)", type: finding, category: sign}
+-   {id: nsaid-relieved-bone-pain, name: Bone pain relieved by NSAIDs, type: finding, category: symptom, parent: bone-pain}
+- {id: chondrocytes-in-lacunae, name: Neoplastic chondrocytes in lacunae, type: finding, category: histology}
+- {id: small-round-blue-cells, name: "Sheets of small, round, uniform blue cells", type: finding, category: histology}
+# Outcomes
+-   {id: fragility-fracture, name: "Fragility fracture (vertebra, wrist, hip)", type: outcome, parent: pathological-fracture}
+
+# ================= CLINICAL BIOCHEMISTRY =================
+# Agreed in docs/concepts-biochem.md; added batch by batch.
+# --- Sodium and water; ADH (batches 1–2) ---
+# Causes
+- {id: diuretic, name: "Diuretics (thiazide, loop)", type: cause, category: drug}
+- {id: burns, name: Burns, type: cause, category: risk-factor}
+- {id: hypotonic-fluid-excess, name: "Excess hypotonic fluid (post-operative 5% glucose, marathon drinking)", type: cause, category: risk-factor}
+- {id: primary-polydipsia, name: Primary (psychogenic) polydipsia, type: cause, category: condition}
+- {id: oedematous-state, name: "Oedematous state (heart failure, cirrhosis, nephrotic syndrome, oliguric AKI)", type: cause, category: condition}
+- {id: impaired-thirst-access, name: "Impaired thirst or no access to water (elderly, reduced consciousness)", type: cause, category: risk-factor}
+- {id: sodium-load, name: "Hypertonic sodium given (saline, 8.4% bicarbonate, high-sodium drugs)", type: cause, category: drug}
+- {id: siadh-drug, name: "ADH-releasing drug (carbamazepine, chlorpropamide, cyclophosphamide, vincristine, phenothiazines)", type: cause, category: drug}
+- {id: cns-insult, name: "CNS disease (meningitis, head injury, subdural, abscess)", type: cause, category: condition}
+- {id: pulmonary-lesion, name: "Lung infection (pneumonia, TB, abscess)", type: cause, category: condition}
+- {id: pituitary-surgery, name: Hypothalamic or pituitary surgery, type: cause, category: risk-factor}
+- {id: hypothalamic-stalk-lesion, name: "Hypothalamic or pituitary stalk lesion (metastasis, sarcoid, TB, meningitis)", type: cause, category: condition}
+- {id: avpr2-aqp2-mutation, name: Vasopressin V2 receptor (X-linked) or aquaporin-2 mutation, type: cause, category: genetic}
+# Mechanisms
+- {id: ecf-volume-loss, name: Salt and water lost from the extracellular fluid, type: mechanism}
+- {id: water-imbalance, name: Imbalance of body water against sodium, type: mechanism}
+-   {id: free-water-excess, name: More water retained than sodium (dilution), type: mechanism, parent: water-imbalance}
+-   {id: free-water-deficit, name: Water lost or not replaced (water deficit), type: mechanism, parent: water-imbalance}
+-   {id: adh-excess, name: Antidiuretic hormone (vasopressin) excess, type: mechanism, parent: hormone-excess}
+-   {id: adh-deficiency, name: Antidiuretic hormone (vasopressin) deficiency, type: mechanism, parent: hormone-deficiency}
+- {id: renal-adh-resistance, name: Collecting ducts unresponsive to vasopressin, type: mechanism}
+# Findings
+- {id: low-jvp-cold-peripheries, name: "Low JVP, cold peripheries and empty veins", type: finding, category: sign}
+- {id: high-serum-sodium, name: High serum sodium, type: finding, category: lab}
+- {id: urine-osmolality-pattern, name: Diagnostic urine osmolality and sodium, type: finding, category: lab}
+-   {id: inappropriately-concentrated-urine, name: "Urine osmolality > 100 and urine sodium > 30 despite low plasma osmolality", type: finding, category: lab, parent: urine-osmolality-pattern}
+-   {id: dilute-polyuria, name: "Large volumes of dilute urine, not concentrating on water deprivation", type: finding, category: lab, parent: urine-osmolality-pattern}
+# Outcomes
+-   {id: hyponatraemic-encephalopathy, name: Hyponatraemic encephalopathy, type: outcome, parent: encephalopathy}
+- {id: osmotic-demyelination-syndrome, name: Osmotic demyelination syndrome (central pontine myelinolysis), type: outcome}
+# --- Potassium; acid–base (batches 3–4) ---
+# Causes
+- {id: potassium-shifting-drug, name: "Insulin or β2-agonists (salbutamol)", type: cause, category: drug}
+- {id: potassium-retaining-drug, name: "Potassium-retaining drug (ACE inhibitor, ARB, spironolactone, amiloride, NSAID, heparin)", type: cause, category: drug}
+- {id: metformin, name: Metformin, type: cause, category: drug}
+- {id: salicylate-overdose, name: Aspirin (salicylate) overdose, type: cause, category: drug}
+- {id: ethylene-glycol-ingestion, name: "Ethylene glycol ingestion (antifreeze, brake fluid)", type: cause, category: risk-factor}
+- {id: methanol-ingestion, name: "Methanol ingestion (solvents, antifreeze)", type: cause, category: risk-factor}
+# Mechanisms
+- {id: renal-potassium-loss, name: Potassium lost in the urine, type: mechanism}
+- {id: gut-potassium-loss, name: Potassium lost from the gut, type: mechanism}
+- {id: reduced-renal-potassium-excretion, name: Kidneys failing to excrete potassium, type: mechanism}
+- {id: transcellular-potassium-shift, name: Potassium shifting across cell membranes, type: mechanism}
+-   {id: potassium-into-cells, name: Potassium driven into cells, type: mechanism, parent: transcellular-potassium-shift}
+-   {id: potassium-out-of-cells, name: Potassium released from cells, type: mechanism, parent: transcellular-potassium-shift}
+- {id: myocardial-membrane-instability, name: Unstable myocardial membrane potential, type: mechanism}
+- {id: lactate-accumulation, name: Lactate accumulating (tissue hypoxia or blocked metabolism), type: mechanism}
+- {id: salicylate-toxicity, name: Salicylate stimulating the respiratory centre and uncoupling oxidative phosphorylation, type: mechanism}
+- {id: toxic-alcohol-metabolism, name: "Alcohol dehydrogenase turning the alcohol into toxic acids (glycolate, oxalate, formate)", type: mechanism}
+# Findings
+- {id: blood-gas-abnormality, name: Arterial blood gas abnormality, type: finding, category: lab}
+-   {id: respiratory-acidosis, name: "Respiratory acidosis (high PaCO2, low pH)", type: finding, category: lab, parent: blood-gas-abnormality}
+-   {id: respiratory-alkalosis, name: "Respiratory alkalosis (low PaCO2, high pH)", type: finding, category: lab, parent: blood-gas-abnormality}
+- {id: raised-lactate, name: Raised blood lactate, type: finding, category: lab}
+- {id: hyperkalaemia-ecg, name: "Peaked T waves, flat P waves, wide QRS, then sine wave", type: finding, category: ECG}
+- {id: hypokalaemia-ecg, name: Flat T waves and U waves, type: finding, category: ECG}
+- {id: muscle-weakness, name: Generalised muscle weakness, type: finding, category: symptom}
+- {id: tinnitus, name: Tinnitus, type: finding, category: symptom}
+
+# ================= MICROBIOLOGY AND INFECTION =================
+# Agreed in docs/concepts-infection.md; added batch by batch.
+# --- Sepsis, HIV and opportunistic infections (batches 1–2) ---
+# Causes
+- {id: infection-source, name: "Localised infection (urinary, biliary, chest; rarely endocarditis, meningitis)", type: cause, category: condition}
+- {id: antibiotic-exposure, name: Recent antibiotic treatment, type: cause, category: drug}
+- {id: toxoplasma-gondii, name: Toxoplasma gondii, type: cause, category: organism}
+- {id: hhv-8, name: Human herpesvirus 8, type: cause, category: organism}
+# Mechanisms
+- {id: vasoplegia-capillary-leak, name: Vasodilatation and capillary leak in sepsis (vasoplegia), type: mechanism}
+- {id: hiv-replication, name: HIV replicating in CD4 T cells (high viral load), type: mechanism}
+- {id: cd4-depletion, name: Progressive loss of CD4 T cells, type: mechanism}
+- {id: candida-mucosal-overgrowth, name: Commensal Candida overgrowing on mucosa, type: mechanism}
+- {id: toxoplasma-reactivation, name: Reactivation of dormant Toxoplasma cysts, type: mechanism}
+-   {id: kaposi-spindle-cell-proliferation, name: Spindle and endothelial cells forming slit-like blood-filled spaces, type: mechanism, parent: malignant-transformation}
+# Findings
+- {id: hiv-test-positive, name: "Positive HIV test (4th-generation antibody and p24 antigen)", type: finding, category: lab}
+- {id: low-cd4-count, name: Low CD4 count, type: finding, category: lab}
+- {id: seroconversion-illness, name: "Seroconversion illness (fever, sore throat, nodes, faint rash, mouth ulcers)", type: finding, category: symptom}
+- {id: oral-thrush, name: Creamy white plaques in the mouth and pharynx (oral thrush), type: finding, category: sign}
+-   {id: odynophagia, name: Painful swallowing (odynophagia), type: finding, category: symptom, parent: dysphagia}
+- {id: purple-skin-lesions, name: "Well-circumscribed purple skin or mucosal lesions", type: finding, category: sign}
+# --- Herpesviruses; healthcare-associated infection (batches 3–4) ---
+# Causes
+- {id: epstein-barr-virus, name: Epstein–Barr virus, type: cause, category: organism}
+- {id: cytomegalovirus, name: Cytomegalovirus, type: cause, category: organism}
+- {id: clostridioides-difficile, name: Clostridioides (Clostridium) difficile, type: cause, category: organism}
+-   {id: mrsa, name: Meticillin-resistant Staphylococcus aureus (MRSA), type: cause, category: organism, parent: s-aureus}
+-   {id: esbl-enterobacteriaceae, name: ESBL-producing Enterobacteriaceae, type: cause, category: organism, parent: enterobacteriaceae}
+-   {id: cpe, name: Carbapenemase-producing (carbapenem-resistant) Enterobacteriaceae, type: cause, category: organism, parent: enterobacteriaceae}
+# Mechanisms
+- {id: herpesvirus-latency, name: "Lifelong latent herpesvirus (nerve ganglia, B cells or monocytes)", type: mechanism}
+- {id: herpesvirus-reactivation, name: Latent herpesvirus reactivating, type: mechanism}
+- {id: ebv-b-cell-infection, name: EBV infecting B cells and provoking a CD8 T-cell response, type: mechanism}
+- {id: gut-flora-disruption, name: Antibiotics clearing the normal gut flora, type: mechanism}
+# Findings
+- {id: mucocutaneous-vesicles, name: "Painful vesicles that break into ulcers (lips, mouth, genitals)", type: finding, category: sign}
+- {id: chickenpox-rash, name: "Itchy vesicular rash in crops, lesions at all stages (chickenpox)", type: finding, category: sign}
+- {id: dermatomal-vesicular-rash, name: "Painful one-sided dermatomal vesicular rash (shingles)", type: finding, category: sign}
+- {id: herpesvirus-dna-pcr, name: "Herpesvirus DNA on PCR (vesicle fluid, blood, CSF)", type: finding, category: lab}
+- {id: sore-throat, name: Sore throat, type: finding, category: symptom}
+-   {id: atypical-lymphocytes, name: Atypical lymphocytes on the blood film, type: finding, category: lab, parent: lymphocytosis}
+- {id: positive-monospot, name: Positive Monospot or Paul–Bunnell (heterophile antibody), type: finding, category: lab}
+- {id: ampicillin-rash, name: Macular rash after ampicillin or amoxicillin, type: finding, category: sign}
+- {id: owls-eye-inclusions, name: "'Owl's eye' inclusions on biopsy", type: finding, category: histology}
+-   {id: c-difficile-toxin-positive, name: C. difficile toxin (ELISA) or gene (PCR) in stool, type: finding, category: lab, parent: stool-pathogen-identified}
+-   {id: pseudomembranous-colitis, name: Inflamed colon covered by adherent pseudomembranes, type: finding, category: endoscopy, parent: gut-endoscopy-finding}
+# Outcomes
+- {id: herpes-keratitis, name: Herpes keratitis (dendritic ulcer), type: outcome}
+- {id: post-herpetic-neuralgia, name: Post-herpetic neuralgia, type: outcome}
+- {id: splenic-rupture, name: Splenic rupture, type: outcome}
+- {id: cmv-retinitis, name: CMV retinitis, type: outcome}
+- {id: congenital-cmv, name: "Congenital CMV (microcephaly, deafness, periventricular calcification)", type: outcome}
+# --- Returning traveller; spirochaetes (batches 5–6) ---
+# Causes
+- {id: plasmodium, name: Plasmodium (malaria parasite), type: cause, category: organism}
+-   {id: plasmodium-falciparum, name: Plasmodium falciparum, type: cause, category: organism, parent: plasmodium}
+-   {id: plasmodium-vivax-ovale, name: Plasmodium vivax or ovale, type: cause, category: organism, parent: plasmodium}
+- {id: mosquito-exposure, name: Mosquito bites in an endemic area, type: cause, category: risk-factor}
+- {id: dengue-virus, name: Dengue virus (flavivirus), type: cause, category: organism}
+-   {id: salmonella-typhi, name: Salmonella Typhi or Paratyphi, type: cause, category: organism, parent: enterobacteriaceae}
+- {id: haemorrhagic-fever-virus, name: Viral haemorrhagic fever virus, type: cause, category: organism}
+-   {id: ebola-marburg-virus, name: Ebola or Marburg virus (filovirus), type: cause, category: organism, parent: haemorrhagic-fever-virus}
+-   {id: lassa-virus, name: Lassa virus, type: cause, category: organism, parent: haemorrhagic-fever-virus}
+-   {id: cchf-virus, name: Crimean–Congo haemorrhagic fever virus, type: cause, category: organism, parent: haemorrhagic-fever-virus}
+- {id: spirochaete, name: Spirochaete, type: cause, category: organism}
+-   {id: treponema-pallidum, name: Treponema pallidum, type: cause, category: organism, parent: spirochaete}
+-   {id: borrelia-burgdorferi, name: Borrelia burgdorferi (and other Lyme Borrelia), type: cause, category: organism, parent: spirochaete}
+-   {id: leptospira-interrogans, name: Leptospira interrogans, type: cause, category: organism, parent: spirochaete}
+- {id: tick-bite, name: "Ixodid tick bite (rural woodland, spring and summer)", type: cause, category: risk-factor}
+- {id: animal-urine-water-exposure, name: "Contact with animal urine or contaminated fresh water (farming, water sports, floods)", type: cause, category: risk-factor}
+# Mechanisms
+- {id: red-cell-parasitisation, name: Plasmodia multiplying in red cells after a liver stage, type: mechanism}
+- {id: cytoadherence, name: Parasitised red cells sticking in small vessels of brain and kidney, type: mechanism}
+- {id: dengue-viraemia, name: Dengue viraemia, type: mechanism}
+- {id: dengue-capillary-leak, name: Capillary leak with low platelets (severe dengue), type: mechanism}
+- {id: haemorrhagic-fever-viraemia, name: "Systemic viral infection with bleeding and circulatory collapse", type: mechanism}
+- {id: treponema-spread, name: Treponemes entering through mucosa and spreading in the blood, type: mechanism}
+- {id: borrelia-dissemination, name: Borrelia spreading from the tick bite, type: mechanism}
+- {id: leptospiraemia, name: Leptospires in the blood (first week of illness), type: mechanism}
+# Findings
+- {id: malaria-film-positive, name: Parasites on Giemsa thick and thin films (or rapid antigen test), type: finding, category: lab}
+- {id: retro-orbital-pain, name: "Pain behind the eyes, worse on eye movement", type: finding, category: symptom}
+- {id: maculopapular-rash, name: Maculopapular rash, type: finding, category: sign}
+-   {id: rose-spots, name: Scanty rose-pink spots on the trunk (rose spots), type: finding, category: sign, parent: maculopapular-rash}
+-   {id: palmar-plantar-rash, name: "Non-itchy, coppery maculopapular rash including palms and soles", type: finding, category: sign, parent: maculopapular-rash}
+- {id: dengue-rna-serology, name: Dengue RNA early or rising dengue antibodies, type: finding, category: lab}
+- {id: painless-genital-ulcer, name: "Painless, firm genital ulcer (chancre)", type: finding, category: sign}
+- {id: syphilis-serology-positive, name: "Positive treponemal test (EIA, TPPA) with non-treponemal RPR or VDRL", type: finding, category: lab}
+- {id: erythema-migrans, name: Erythema migrans (expanding red ring around the bite), type: finding, category: sign}
+- {id: lyme-serology-positive, name: Lyme IgM then IgG with a confirmatory immunoblot, type: finding, category: lab}
+# Outcomes
+- {id: cerebral-malaria, name: Cerebral malaria, type: outcome}
+- {id: neurosyphilis, name: "Neurosyphilis (general paralysis, tabes dorsalis)", type: outcome}
+- {id: congenital-syphilis, name: Congenital syphilis, type: outcome}
+
+# ================= HEAD AND NECK =================
+# Agreed in docs/concepts-head-neck.md; added batch by batch.
+# --- Tumours and salivary (batches 1–2) ---
+# --- Causes ---
+- {id: chronic-mucosal-irritation, name: "Chronic mucosal irritation (poor oral hygiene, sharp teeth, spices)", type: cause, category: risk-factor}
+- {id: oral-premalignant-lesion, name: Oral leukoplakia or lichen planus, type: cause, category: condition}
+# --- Mechanisms ---
+-   {id: lymphatic-spread, name: Spread to the regional lymph nodes, type: mechanism, parent: metastatic-spread}
+- {id: head-neck-primary-tumour, name: "Squamous tumour of the mouth, pharynx or larynx", type: mechanism}
+- {id: nasopharyngeal-tumour, name: Tumour of the nasopharynx, type: mechanism}
+- {id: salivary-gland-neoplasm, name: Tumour growing in a salivary gland, type: mechanism}
+-   {id: benign-salivary-neoplasm, name: Benign salivary gland tumour, type: mechanism, parent: salivary-gland-neoplasm}
+-   {id: salivary-malignant-transformation, name: Malignant salivary gland tumour, type: mechanism, parent: malignant-transformation}
+# --- Findings ---
+- {id: neck-lump, name: Neck lump, type: finding, category: sign}
+-   {id: salivary-gland-swelling, name: Salivary gland swelling, type: finding, category: sign, parent: neck-lump}
+- {id: hoarseness, name: Hoarse voice, type: finding, category: symptom}
+- {id: persistent-oral-ulcer-or-lump, name: Persistent lump or ulcer in the mouth, type: finding, category: sign}
+- {id: referred-otalgia, name: Referred ear pain, type: finding, category: symptom}
+- {id: epistaxis, name: Epistaxis, type: finding, category: sign}
+- {id: pleomorphic-cells-histology, name: Benign tumour whose cells and nuclei vary in size and shape, type: finding, category: histology}
+- {id: lymphoid-stroma-histology, name: Salivary tumour with a lymphoid stroma, type: finding, category: histology}
+# --- Outcomes ---
+-   {id: lung-metastases, name: Lung metastases, type: outcome, parent: distant-metastases}
+# --- Inflammatory, infective and congenital (batches 3–4) ---
+# --- Causes ---
+- {id: igg4-autoimmunity, name: IgG4-related autoimmunity (Th2-driven), type: cause, category: condition}
+# --- Mechanisms ---
+-   {id: igg4-plasma-cell-infiltration, name: "IgG4 plasma cells infiltrating organs, with fibrosis", type: mechanism, parent: immune-mediated-injury}
+- {id: tonsillar-infection, name: Infection of the palatine tonsils, type: mechanism}
+- {id: persistent-thyroglossal-duct, name: Persistent thyroglossal duct (remnant of thyroid descent), type: mechanism}
+- {id: branchial-cleft-remnant, name: Branchial cleft remnant, type: mechanism}
+-   {id: laryngeal-wart-growth, name: HPV warts growing on the vocal cords, type: mechanism, parent: hpv-wart-growth}
+# --- Findings ---
+-   {id: reactive-cervical-lymphadenopathy, name: Enlarged neck nodes with a sore throat, type: finding, category: sign, parent: neck-lump}
+-   {id: midline-neck-lump, name: "Painless midline neck lump that rises on swallowing or tongue protrusion", type: finding, category: sign, parent: neck-lump}
+-   {id: lateral-neck-cyst, name: "Lateral neck lump in an infant, sometimes opening onto the skin", type: finding, category: sign, parent: neck-lump}
+- {id: raised-serum-igg4, name: Raised serum IgG4, type: finding, category: lab}
+- {id: igg4-rich-infiltrate, name: Dense lymphoplasmacytic infiltrate rich in IgG4 plasma cells, type: finding, category: histology}
+- {id: trismus-uvular-deviation, name: "Trismus, with the uvula pushed to the other side", type: finding, category: sign}
+- {id: stridor, name: Stridor, type: finding, category: sign}
+- {id: papillary-laryngeal-growths, name: Small papillary growths on the larynx at laryngoscopy, type: finding, category: endoscopy}
+# --- Outcomes ---
+- {id: peritonsillar-abscess, name: Peritonsillar abscess (quinsy), type: outcome}
+- {id: igg4-sclerosing-cholangitis, name: IgG4-related sclerosing cholangitis, type: outcome}
+
+# ================= SKIN AND BREAST =================
+# Agreed in docs/concepts-skin-breast.md; added batch by batch.
+# --- Eczema, psoriasis, immunobullous (batches 1–2) ---
+# --- Causes ---
+- {id: filaggrin-mutation, name: Filaggrin loss-of-function mutation, type: cause, category: genetic}
+- {id: skin-irritant-exposure, name: "Soaps, detergents and wet work", type: cause, category: risk-factor}
+- {id: contact-allergen, name: "Contact allergen (fragrance, rubber, metals, hair dye, preservatives)", type: cause, category: risk-factor}
+- {id: psoriasis-susceptibility-genes, name: Psoriasis susceptibility genes (PSORS1 and others), type: cause, category: genetic}
+- {id: psoriasis-aggravating-drug, name: "Lithium, antimalarials or beta-blockers", type: cause, category: drug}
+- {id: desmoglein-autoimmunity, name: Autoimmunity against desmogleins, type: cause, category: condition}
+- {id: hemidesmosome-autoimmunity, name: Autoimmunity against hemidesmosome proteins (BP180 and BP230), type: cause, category: condition}
+# --- Mechanisms ---
+- {id: skin-barrier-dysfunction, name: Skin barrier dysfunction, type: mechanism}
+- {id: th2-skin-inflammation, name: "Th2 skin inflammation (IL-4, IL-13, IgE, IL-31 itch)", type: mechanism}
+- {id: contact-hypersensitivity, name: Delayed-type (T-cell) hypersensitivity to a contact allergen, type: mechanism, parent: immune-mediated-injury}
+- {id: psoriatic-skin-inflammation, name: "Th17 loop between T cells, dendritic cells and keratinocytes", type: mechanism, parent: immune-mediated-injury}
+-   {id: immunobullous-blistering, name: Autoantibodies splitting the skin (immunobullous disease), type: mechanism, parent: antibody-mediated-cytotoxicity}
+-       {id: intraepidermal-autoantibody-blistering, name: "Anti-desmoglein antibodies separating keratinocytes (intraepidermal split, acantholysis)", type: mechanism, parent: immunobullous-blistering}
+-       {id: subepidermal-autoantibody-blistering, name: Anti-hemidesmosome antibodies splitting the basement membrane zone (subepidermal), type: mechanism, parent: immunobullous-blistering}
+# --- Findings ---
+- {id: itchy-flexural-eczema, name: "Itchy, dry, red eczema in the flexures (lichenified when chronic)", type: finding, category: sign}
+- {id: contact-site-eczema, name: "Eczema where the allergen touched, 12–24 hours or more after contact", type: finding, category: sign}
+- {id: silvery-scaly-plaques, name: "Well-demarcated red plaques with silvery scale on extensor surfaces", type: finding, category: sign}
+- {id: guttate-plaques, name: Small raindrop plaques on the trunk, type: finding, category: sign}
+- {id: blisters, name: Blisters, type: finding, category: sign}
+-   {id: flaccid-blisters-erosions, name: "Flaccid blisters that rupture, leaving weeping erosions", type: finding, category: sign, parent: blisters}
+-   {id: tense-blisters, name: "Large, tense, itchy blisters on an urticated base", type: finding, category: sign, parent: blisters}
+- {id: nikolsky-sign, name: Nikolsky's sign (blister extends with lateral pressure), type: finding, category: sign}
+- {id: oral-mucosal-erosions, name: Oral mucosal erosions and ulcers, type: finding, category: sign}
+- {id: skin-immunofluorescence, name: Direct immunofluorescence of skin, type: finding, category: histology}
+-   {id: intercellular-igg-deposition, name: "Net-like intercellular IgG between keratinocytes", type: finding, category: histology, parent: skin-immunofluorescence}
+-   {id: linear-bmz-igg-c3, name: Linear IgG and C3 along the dermo-epidermal junction, type: finding, category: histology, parent: skin-immunofluorescence}
+# --- Outcomes ---
+- {id: eczema-herpeticum, name: Eczema herpeticum, type: outcome}
+- {id: erythroderma, name: "Erythroderma (skin failure)", type: outcome}
+# --- Drug reactions and bacterial SSTI (batches 3–4) ---
+# --- Causes ---
+- {id: culprit-drug, name: "Culprit drug (antibiotics, anticonvulsants, NSAIDs, allopurinol, nevirapine)", type: cause, category: drug}
+- {id: skin-barrier-breach, name: "Broken skin (fissures, wounds, toe-web tinea)", type: cause, category: risk-factor}
+- {id: lymphoedema-venous-stasis, name: Lymphoedema or venous stasis of the leg, type: cause, category: risk-factor}
+# --- Mechanisms ---
+- {id: drug-hypersensitivity, name: Hypersensitivity reaction to a drug, type: mechanism, parent: immune-mediated-injury}
+- {id: erythema-multiforme-reaction, name: "Acute skin reaction to a trigger (HSV, Mycoplasma, drug)", type: mechanism, parent: immune-mediated-injury}
+- {id: epidermal-detachment, name: Epidermal necrosis and detachment with mucosal ulceration, type: mechanism}
+- {id: skin-soft-tissue-infection, name: Skin and soft tissue infection, type: mechanism}
+-   {id: superficial-epidermal-infection, name: Superficial infection of the epidermis, type: mechanism, parent: skin-soft-tissue-infection}
+-   {id: dermal-subcutaneous-infection, name: Infection of the dermis and subcutaneous tissue, type: mechanism, parent: skin-soft-tissue-infection}
+-   {id: fascial-plane-infection, name: Infection tracking along deep fascial planes with tissue destruction, type: mechanism, parent: skin-soft-tissue-infection}
+# --- Findings ---
+- {id: fixed-drug-eruption, name: Inflamed patch recurring at the same site with each dose, type: finding, category: sign}
+- {id: target-lesions, name: "Target lesions (concentric rings with a dusky centre) on hands and feet", type: finding, category: sign}
+- {id: sheet-like-skin-detachment, name: "Tender skin with flaccid blisters peeling in sheets", type: finding, category: sign}
+- {id: golden-crusted-lesions, name: Golden-crusted plaques around the mouth and nose, type: finding, category: sign}
+- {id: spreading-erythema, name: "Tender, hot, spreading red skin", type: finding, category: sign}
+- {id: pain-out-of-proportion, name: Severe pain out of proportion to the skin signs, type: finding, category: symptom}
+- {id: soft-tissue-crepitus, name: Crepitus in the soft tissues, type: finding, category: sign}
+- {id: gas-in-soft-tissue, name: Gas in the deep soft tissues on imaging, type: finding, category: imaging}
+# --- Outcomes ---
+- {id: dress-syndrome, name: "Drug reaction with eosinophilia and systemic symptoms (DRESS)", type: outcome}
+# --- Fungal, parasitic and epidermal tumours (batches 5–6) ---
+# --- Causes ---
+- {id: dermatophyte, name: "Dermatophyte fungi (Trichophyton, Microsporum, Epidermophyton)", type: cause, category: organism}
+- {id: sarcoptes-scabiei, name: Sarcoptes scabiei (scabies mite), type: cause, category: organism}
+-   {id: animal-hookworm, name: "Animal hookworm larvae (Ancylostoma braziliense, A. caninum)", type: cause, category: organism, parent: hookworm}
+- {id: ptch1-mutation, name: PTCH1 (Hedgehog pathway) mutation, type: cause, category: genetic}
+- {id: actinic-keratosis, name: Actinic (solar) keratosis, type: cause, category: condition}
+- {id: bowens-disease, name: Bowen's disease (squamous carcinoma in situ), type: cause, category: condition}
+# --- Mechanisms ---
+- {id: keratin-dermatophyte-infection, name: "Fungus growing in dead keratin (skin, hair, nails)", type: mechanism}
+- {id: candida-skin-overgrowth, name: Candida overgrowing on moist occluded skin, type: mechanism}
+- {id: mite-infestation-hypersensitivity, name: Mites burrowing in the epidermis with hypersensitivity to mite antigens, type: mechanism}
+- {id: larval-skin-migration, name: Animal hookworm larvae wandering in the epidermis, type: mechanism}
+- {id: hpv-wart-growth, name: HPV-driven benign wart growth, type: mechanism}
+-   {id: cutaneous-wart-growth, name: HPV warts growing on the skin, type: mechanism, parent: hpv-wart-growth}
+- {id: benign-keratinocyte-proliferation, name: Benign overgrowth of basal keratinocytes, type: mechanism}
+- {id: self-regressing-epidermal-tumour, name: Rapidly growing epidermal tumour that regresses on its own, type: mechanism}
+-   {id: keratinocyte-malignant-transformation, name: Malignant transformation of keratinocytes, type: mechanism, parent: malignant-transformation}
+-     {id: basal-cell-transformation, name: Malignant basal cells (Hedgehog pathway switched on), type: mechanism, parent: keratinocyte-malignant-transformation}
+-     {id: squamous-keratinocyte-transformation, name: Malignant squamous keratinocytes from cumulative UV damage, type: mechanism, parent: keratinocyte-malignant-transformation}
+# --- Findings ---
+- {id: annular-scaly-rash, name: "Asymmetrical scaly ring with a raised edge and clearer centre", type: finding, category: sign}
+- {id: scalp-ringworm, name: Bald scaly scalp patches with broken hairs, type: finding, category: sign}
+- {id: fungal-scrapings-positive, name: "Fungus on microscopy or culture of skin scrapings, nails or hair", type: finding, category: lab}
+- {id: candidal-intertrigo, name: "Glazed red flexural rash with a peeling edge and satellite lesions", type: finding, category: sign}
+- {id: burrows, name: Short linear burrows, type: finding, category: sign}
+- {id: scabies-papules, name: "Itchy papules in finger webs, wrists, axillae, genitals and around nipples", type: finding, category: sign}
+- {id: serpiginous-track, name: "Itchy, winding red track moving about 1 cm a day", type: finding, category: sign}
+- {id: keratotic-papule-black-dots, name: Rough keratotic papule with tiny black dots (hands and feet), type: finding, category: sign}
+- {id: stuck-on-warty-lesion, name: "Greasy, stuck-on, warty brown lesion", type: finding, category: sign}
+- {id: crater-keratin-nodule, name: Rapidly growing red nodule with a central keratin-filled crater, type: finding, category: sign}
+- {id: pearly-nodule-telangiectasia, name: "Pearly nodule with a rolled edge and branching telangiectasia, slow to heal", type: finding, category: sign}
+- {id: keratotic-nodule-ulcer, name: "Enlarging keratotic or warty nodule that ulcerates and bleeds", type: finding, category: sign}
+# --- Outcomes ---
+- {id: crusted-scabies, name: Crusted (Norwegian) scabies, type: outcome}
+# --- Melanocytic and benign breast (batches 7–8) ---
+# --- Causes ---
+- {id: braf-v600-mutation, name: BRAF V600 activating mutation, type: cause, category: genetic}
+- {id: breastfeeding, name: Breastfeeding, type: cause, category: risk-factor}
+- {id: breast-trauma, name: "Breast trauma (a blow, a tight sports bra)", type: cause, category: risk-factor}
+# --- Mechanisms ---
+- {id: benign-melanocyte-proliferation, name: Benign proliferation of melanocytes, type: mechanism}
+-   {id: melanocyte-malignant-transformation, name: Malignant transformation of melanocytes, type: mechanism, parent: malignant-transformation}
+- {id: breast-tissue-infection, name: Bacterial infection of breast tissue, type: mechanism}
+- {id: breast-fat-necrosis, name: Non-enzymatic necrosis of breast fat after injury, type: mechanism}
+- {id: lactiferous-duct-dilation, name: Dilation of the lactiferous ducts, type: mechanism}
+- {id: fibrocystic-alteration, name: Benign cystic and fibrous change in breast tissue, type: mechanism}
+- {id: fibroepithelial-proliferation, name: Fibroepithelial proliferation (stroma and ducts), type: mechanism}
+- {id: intraductal-papillary-growth, name: Papillary growth inside a breast duct, type: mechanism}
+# --- Findings ---
+- {id: even-pigmented-mole, name: "Evenly pigmented brown mole with a regular border", type: finding, category: sign}
+- {id: atypical-mole, name: "Mole over 5 mm with irregular pigment and a fuzzy border", type: finding, category: sign}
+- {id: changing-pigmented-lesion, name: "Mole changing in size, shape or colour (ABCDE)", type: finding, category: sign}
+- {id: bleeding-pigmented-nodule, name: Rapidly growing pigmented nodule that bleeds or ulcerates, type: finding, category: sign}
+- {id: breast-lump, name: Breast lump, type: finding, category: sign}
+-   {id: mobile-rubbery-breast-lump, name: "Rubbery, mobile, non-tender breast lump", type: finding, category: sign, parent: breast-lump}
+-   {id: tender-red-breast-mass, name: "Red, warm, tender breast mass", type: finding, category: sign, parent: breast-lump}
+-   {id: breast-cyst, name: Breast cyst (may drain brown or green fluid), type: finding, category: sign, parent: breast-lump}
+-   {id: fast-growing-breast-mass, name: Fast-growing breast mass, type: finding, category: sign, parent: breast-lump}
+-   {id: post-traumatic-breast-lump, name: Breast lump after injury (may calcify), type: finding, category: sign, parent: breast-lump}
+-   {id: hard-irregular-breast-lump, name: "Painless, enlarging breast lump, sometimes tethered", type: finding, category: sign, parent: breast-lump}
+- {id: cyclical-breast-tenderness, name: Breast tenderness that waxes and wanes with the cycle, type: finding, category: symptom}
+- {id: cracked-nipple, name: "Red, cracked nipple", type: finding, category: sign}
+- {id: nipple-inversion, name: Inverted nipple, type: finding, category: sign}
+- {id: nipple-discharge, name: Nipple discharge, type: finding, category: symptom}
+-   {id: bloody-nipple-discharge, name: One-sided bloody or rusty nipple discharge, type: finding, category: symptom, parent: nipple-discharge}
+- {id: fibrocystic-histology, name: "Sclerosing adenosis, apocrine metaplasia or blue dome cysts", type: finding, category: histology}
+- {id: dilated-ducts-histology, name: Dilated ducts on biopsy, type: finding, category: histology}
+- {id: leaf-like-stroma, name: Leaf-like stromal pattern on histology, type: finding, category: histology}
+# --- Outcomes ---
+- {id: breast-abscess, name: Breast abscess, type: outcome}
+# --- Breast cancer (batch 9) ---
+# --- Causes ---
+- {id: brca-mutation, name: BRCA1 or BRCA2 mutation, type: cause, category: genetic}
+- {id: long-oestrogen-exposure, name: "Long oestrogen exposure (early menarche, late menopause, long-term HRT)", type: cause, category: risk-factor}
+# --- Mechanisms ---
+-   {id: breast-epithelial-transformation, name: Malignant transformation of duct or lobule epithelium, type: mechanism, parent: malignant-transformation}
+- {id: in-situ-ductal-carcinoma, name: Cancer confined within the ducts (basement membrane intact), type: mechanism}
+- {id: invasive-breast-tumour, name: Breast cancer invading through the basement membrane, type: mechanism}
+- {id: nipple-epidermal-spread, name: Ductal cancer cells spreading into the nipple epidermis, type: mechanism}
+# --- Findings ---
+- {id: microcalcifications, name: Microcalcifications on mammography, type: finding, category: imaging}
+- {id: peau-d-orange, name: "Peau d'orange, redness and oedema of the breast skin", type: finding, category: sign}
+- {id: eczematous-nipple, name: Eczema-like change of the nipple and areola, type: finding, category: sign}
+- {id: breast-receptor-status, name: Breast cancer receptor status, type: finding, category: histology}
+-   {id: er-pr-positive, name: Oestrogen and progesterone receptor positive, type: finding, category: histology, parent: breast-receptor-status}
+-   {id: her2-amplified, name: HER2 overexpressed, type: finding, category: histology, parent: breast-receptor-status}
+# ================= FEMALE GENITAL =================
+# Agreed in docs/concepts-female-genital.md; added batch by batch.
+# --- Unopposed oestrogen and uterine wall (batches 1–2) ---
+# --- Causes ---
+- {id: tamoxifen, name: Tamoxifen, type: cause, category: drug}
+- {id: unopposed-oestrogen-therapy, name: Oestrogen HRT without a progestogen, type: cause, category: drug}
+- {id: retrograde-menstruation, name: Retrograde menstruation through the Fallopian tubes, type: cause, category: risk-factor}
+# --- Mechanisms ---
+- {id: unopposed-oestrogen, name: Oestrogen driving the endometrium without progesterone, type: mechanism}
+- {id: endometrial-proliferation, name: Overgrowth of endometrial glands (hyperplasia), type: mechanism}
+-   {id: endometrial-transformation, name: Malignant transformation of the endometrium, type: mechanism, parent: malignant-transformation}
+-   {id: androgen-excess, name: Androgen excess, type: mechanism, parent: hormone-excess}
+- {id: abnormal-gnrh-pulsatility, name: "Fast GnRH pulses: high LH, low FSH", type: mechanism}
+- {id: anovulation, name: "Anovulation (follicles arrest, no corpus luteum)", type: mechanism}
+- {id: myometrial-smooth-muscle-tumour, name: Benign smooth muscle tumour of the myometrium, type: mechanism}
+- {id: ectopic-endometrial-tissue, name: Endometrial tissue outside the endometrium, type: mechanism}
+-   {id: endometrium-in-myometrium, name: Endometrial tissue within the myometrium, type: mechanism, parent: ectopic-endometrial-tissue}
+-   {id: endometrium-outside-uterus, name: "Endometrial tissue outside the uterus (ovary, pouch of Douglas)", type: mechanism, parent: ectopic-endometrial-tissue}
+- {id: uterine-prostaglandin-excess, name: Endometrium releasing excess prostaglandin (PGF2α) at menstruation, type: mechanism}
+# --- Findings ---
+- {id: abnormal-uterine-bleeding, name: Abnormal uterine bleeding, type: finding, category: symptom}
+-   {id: heavy-menstrual-bleeding, name: Heavy or prolonged periods, type: finding, category: symptom, parent: abnormal-uterine-bleeding}
+-   {id: postmenopausal-bleeding, name: Postmenopausal bleeding, type: finding, category: symptom, parent: abnormal-uterine-bleeding}
+- {id: dysmenorrhoea, name: Painful periods, type: finding, category: symptom}
+- {id: dyschezia, name: Pain on defecation, type: finding, category: symptom}
+- {id: pelvic-pressure-symptoms, name: "Pelvic pressure symptoms (bladder, bowel)", type: finding, category: symptom}
+-   {id: enlarged-uterus, name: Enlarged uterus (pelvic mass), type: finding, category: sign, parent: abdominal-mass}
+- {id: endometriosis-pelvic-signs, name: "Uterosacral nodularity, fixed retroverted uterus or pelvic tenderness", type: finding, category: sign}
+- {id: raised-testosterone, name: Raised testosterone or free androgen index, type: finding, category: lab}
+- {id: raised-lh, name: Raised LH with normal or low FSH, type: finding, category: lab}
+- {id: thickened-endometrium, name: Thickened endometrium on transvaginal ultrasound, type: finding, category: imaging}
+- {id: polycystic-ovaries-on-ultrasound, name: "Polycystic ovaries on ultrasound (many small peripheral follicles, dense stroma)", type: finding, category: imaging}
+# --- Outcomes ---
+- {id: female-infertility, name: Female infertility, type: outcome}
+- {id: endometrioma, name: "Ovarian endometrioma (chocolate cyst)", type: outcome}
+# --- Early and late pregnancy (batches 3–4) ---
+# --- Causes ---
+- {id: fetal-chromosomal-abnormality, name: Chromosomal abnormality of the embryo, type: cause, category: genetic}
+-   {id: advanced-maternal-age, name: Older maternal age (over 35–40), type: cause, category: risk-factor, parent: older-age}
+- {id: polymicrobial-genital-flora, name: Mixed (polymicrobial) genital and bowel flora, type: cause, category: organism}
+- {id: primiparity, name: First pregnancy (primiparity), type: cause, category: risk-factor}
+- {id: multiple-pregnancy, name: Multiple pregnancy, type: cause, category: risk-factor}
+- {id: previous-uterine-surgery, name: "Previous uterine surgery (Caesarean section, myomectomy)", type: cause, category: risk-factor}
+- {id: cocaine-use, name: Cocaine use, type: cause, category: drug}
+- {id: abdominal-trauma, name: "Abdominal trauma or deceleration injury (car crash, fall)", type: cause, category: risk-factor}
+# --- Mechanisms ---
+- {id: early-pregnancy-failure, name: Loss of the pregnancy before 24 weeks, type: mechanism}
+- {id: uteroplacental-insufficiency, name: Poor blood flow to the placenta (uteroplacental insufficiency), type: mechanism}
+- {id: tubal-implantation, name: "Embryo implanting outside the uterus, usually the tubal ampulla", type: mechanism}
+- {id: tubal-rupture, name: Rupture of the tube with bleeding into the peritoneum, type: mechanism}
+- {id: postpartum-uterine-infection, name: Infection of the uterine lining after delivery, type: mechanism}
+- {id: abnormal-placental-implantation, name: Abnormal placental implantation, type: mechanism}
+-   {id: low-placental-implantation, name: Placenta implanted over the internal cervical os, type: mechanism, parent: abnormal-placental-implantation}
+-   {id: invasive-placental-attachment, name: "Placenta attached onto, into or through the myometrium", type: mechanism, parent: abnormal-placental-implantation}
+- {id: placental-separation, name: Placenta separating from the uterine wall before delivery, type: mechanism}
+# --- Findings ---
+- {id: pregnancy-bleeding, name: Vaginal bleeding in pregnancy, type: finding, category: symptom}
+-   {id: first-trimester-bleeding, name: Vaginal bleeding in early pregnancy, type: finding, category: symptom, parent: pregnancy-bleeding}
+-   {id: painless-third-trimester-bleeding, name: Painless bleeding in the third trimester, type: finding, category: symptom, parent: pregnancy-bleeding}
+-   {id: painful-third-trimester-bleeding, name: Painful bleeding in the third trimester with cramping, type: finding, category: symptom, parent: pregnancy-bleeding}
+-   {id: unilateral-pelvic-pain, name: One-sided iliac fossa pain, type: finding, category: symptom, parent: abdominal-pain}
+-   {id: slow-rising-beta-hcg, name: "β-hCG positive but low for dates, slow to rise", type: finding, category: lab, parent: raised-beta-hcg}
+- {id: no-fetal-heartbeat-on-ultrasound, name: Fetal pole with no heartbeat or an empty sac on ultrasound, type: finding, category: imaging}
+- {id: uterine-tenderness, name: Uterine tenderness, type: finding, category: sign}
+- {id: foul-lochia, name: Foul-smelling lochia, type: finding, category: sign}
+-   {id: pregnancy-hypertension, name: New hypertension after 20 weeks of pregnancy, type: finding, category: sign, parent: raised-blood-pressure}
+# --- Outcomes ---
+-   {id: tubal-infertility, name: Tubal infertility, type: outcome, parent: female-infertility}
+- {id: eclampsia, name: Eclampsia (seizures in pre-eclampsia), type: outcome}
+- {id: hellp-syndrome, name: "HELLP syndrome (haemolysis, raised liver enzymes, low platelets)", type: outcome}
+- {id: fetal-growth-restriction, name: Fetal growth restriction, type: outcome}
+- {id: septic-pelvic-thrombophlebitis, name: Septic pelvic thrombophlebitis, type: outcome}
+- {id: postpartum-bleeding, name: Postpartum haemorrhage, type: outcome}
+# --- Trophoblast, vulva and vagina (batches 5–6) ---
+# --- Causes ---
+- {id: in-utero-des-exposure, name: Diethylstilbestrol (DES) taken by the mother in pregnancy, type: cause, category: drug}
+# --- Mechanisms ---
+- {id: abnormal-fertilisation, name: "Abnormal fertilisation (empty egg, or two sperm)", type: mechanism}
+- {id: trophoblastic-proliferation, name: Abnormal proliferation of placental trophoblast, type: mechanism}
+-   {id: trophoblast-malignant-transformation, name: Malignant transformation of trophoblast, type: mechanism, parent: malignant-transformation}
+-   {id: vulvovaginal-squamous-transformation, name: Malignant transformation of vulval or vaginal squamous epithelium, type: mechanism, parent: malignant-transformation}
+-   {id: vaginal-clear-cell-transformation, name: Clear cell adenocarcinoma of the vagina, type: mechanism, parent: malignant-transformation}
+- {id: vulval-intraepithelial-neoplasia, name: "Vulval intraepithelial neoplasia (genital Bowen's disease)", type: mechanism}
+- {id: genital-skin-sclerosis, name: "Chronic inflammation thinning and scarring genital skin (possibly autoimmune)", type: mechanism}
+- {id: bartholin-duct-obstruction, name: Blocked Bartholin gland duct, type: mechanism}
+# --- Findings ---
+-   {id: very-high-beta-hcg, name: β-hCG far higher than expected for dates, type: finding, category: lab, parent: raised-beta-hcg}
+- {id: snowstorm-ultrasound, name: "Snowstorm uterus on ultrasound (bunch of grapes)", type: finding, category: imaging}
+- {id: theca-lutein-cysts, name: Bilateral theca-lutein ovarian cysts, type: finding, category: imaging}
+- {id: white-vulval-plaques, name: "Shiny ivory-white, fissured vulval patches", type: finding, category: sign}
+- {id: vulval-red-patches-papules, name: Red patches or warty papules on the vulva, type: finding, category: sign}
+- {id: tender-vulval-swelling, name: Tender lump at 4 or 8 o'clock on the vulva, type: finding, category: sign}
+# --- Outcomes ---
+- {id: vulval-scarring, name: "Vulval scarring (labia fused, clitoris buried)", type: outcome}
+- {id: bartholin-abscess, name: Bartholin gland abscess, type: outcome}
+# --- Cervix and benign ovary (batches 7–8) ---
+# --- Mechanisms ---
+- {id: cervical-dysplasia, name: Dysplasia of the cervical transformation zone (basement membrane intact), type: mechanism}
+-   {id: cervical-squamous-transformation, name: Malignant transformation of cervical epithelium, type: mechanism, parent: malignant-transformation}
+- {id: functional-cyst-formation, name: Follicle or corpus luteum persisting as a fluid-filled cyst, type: mechanism}
+- {id: ovarian-neoplasm, name: Ovarian neoplasm, type: mechanism}
+-   {id: benign-ovarian-neoplasm, name: "Benign ovarian neoplasm (serous, mucinous, Brenner)", type: mechanism, parent: ovarian-neoplasm}
+-   {id: ovarian-teratoma-growth, name: "Benign germ cell tumour with tissue from all three germ layers", type: mechanism, parent: ovarian-neoplasm}
+# --- Findings ---
+- {id: abnormal-cervical-cytology, name: Abnormal cervical cytology or high-risk HPV on screening, type: finding, category: histology}
+- {id: ulcerated-cervical-mass, name: "Ulcerated, exophytic cervical mass", type: finding, category: sign}
+-   {id: adnexal-mass, name: Adnexal (ovarian) mass, type: finding, category: sign, parent: abdominal-mass}
+- {id: dermoid-contents, name: "Ovarian cyst containing hair, teeth or calcification", type: finding, category: imaging}
+# --- Outcomes ---
+- {id: ovarian-cyst-rupture, name: Ruptured ovarian cyst, type: outcome}
+- {id: ovarian-torsion, name: Ovarian (adnexal) torsion, type: outcome}
+# --- Malignant ovary (batch 9) ---
+# --- Causes ---
+- {id: many-ovulatory-cycles, name: "Many ovulatory cycles (few pregnancies, no contraceptive pill)", type: cause, category: risk-factor}
+# --- Mechanisms ---
+-   {id: ovarian-epithelial-transformation, name: Malignant transformation of ovarian surface epithelium, type: mechanism, parent: malignant-transformation}
+-   {id: transcoelomic-spread, name: Tumour cells shed across the peritoneal cavity (transcoelomic spread), type: mechanism, parent: metastatic-spread}
+-   {id: sex-cord-stromal-growth, name: "Tumour of ovarian sex cord or stromal cells (granulosa, Sertoli–Leydig, fibroma)", type: mechanism, parent: ovarian-neoplasm}
+# --- Findings ---
+- {id: early-satiety-bloating, name: "Bloating, early satiety and loss of appetite", type: finding, category: symptom}
+- {id: raised-ca125, name: Raised CA125, type: finding, category: lab}
+- {id: omental-caking, name: Omental caking and peritoneal deposits on imaging, type: finding, category: imaging}
+# --- Outcomes ---
+- {id: malignant-bowel-obstruction, name: Malignant bowel obstruction, type: outcome}

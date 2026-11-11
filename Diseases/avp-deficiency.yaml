@@ -1,0 +1,28 @@
+id: avp-deficiency
+name: Arginine vasopressin deficiency (cranial diabetes insipidus)
+group: sodium-water
+status: draft
+systems: [biochemistry, endocrine]
+sources: ["K&C 10e p.186", "K&C 10e p.641-643", "Mehlman HY Renal"]
+chain:
+  - {from: pituitary-surgery, to: adh-deficiency, note: "The commonest cause; often transient, settling in days or weeks. Pituitary disease alone rarely causes it: the hypothalamus or stalk must be hit", source: "K&C 10e p.641-642"}
+  - {from: traumatic-brain-injury, to: adh-deficiency, source: "K&C 10e p.642 (Box 21.52); Mehlman HY Renal"}
+  - from: hypothalamic-stalk-lesion
+    to: adh-deficiency
+    note: "Also craniopharyngioma, hypophysitis, Langerhans' cell histiocytosis; idiopathic (often autoimmune) and familial (DIDMOAD) forms"
+    source: "K&C 10e p.642 (Box 21.52); Mehlman HY Renal"
+    members:
+      - {id: brain-metastases, note: "Especially breast"}
+      - sarcoidosis
+      - tuberculosis
+      - meningitis
+  - {from: adh-deficiency, to: dilute-polyuria, note: "Up to 10–15 L a day. On water deprivation urine stays below 600 mOsm/kg; it rises over 50% after desmopressin", source: "K&C 10e p.642 (Box 21.53); Mehlman HY Renal"}
+  - [adh-deficiency, polyuria-nocturia]
+  - {from: adh-deficiency, to: polydipsia, note: "Thirst keeps sodium near normal; cortisol deficiency can mask DI until replaced", source: "K&C 10e p.641-642"}
+  - {from: adh-deficiency, to: hypernatraemia, note: "Once thirst, consciousness or access to water fails", source: "K&C 10e p.186, 642"}
+findings:
+  - {id: dilute-polyuria, freq: classic, note: "Desmopressin; watch for water overload and hyponatraemia", source: "K&C 10e p.642-643"}
+  - {id: polyuria-nocturia, freq: classic}
+  - {id: polydipsia, freq: classic}
+outcomes:
+  - hypernatraemia

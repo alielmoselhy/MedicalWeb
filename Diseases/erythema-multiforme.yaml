@@ -1,0 +1,17 @@
+id: erythema-multiforme
+name: Erythema multiforme
+group: inflammatory-skin
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.677-678 (Box 22.19)", "K&C 10e p.697"]
+chain:
+  - {from: herpes-simplex-virus, to: erythema-multiforme-reaction, note: "The commonest trigger; no cause is found in half", source: "K&C 10e p.678"}
+  - {from: mycoplasma-pneumoniae, to: erythema-multiforme-reaction, note: "Can cause severe mucositis with little skin rash (MPAM); needs antibiotics", source: "K&C 10e p.678"}
+  - {from: culprit-drug, to: erythema-multiforme-reaction, note: "E.g. anticonvulsants, barbiturates", source: "K&C 10e p.678, 697"}
+  - {from: erythema-multiforme-reaction, to: target-lesions, note: "Acute and self-limiting; three-ring targets on distal limbs, palms and soles; may blister", source: "K&C 10e p.677-678"}
+  - {from: erythema-multiforme-reaction, to: oral-mucosal-erosions, note: "EM major only: severe mucosal ulceration; supportive care, fluids until swallowing recovers", source: "K&C 10e p.678"}
+  - [erythema-multiforme-reaction, fever]
+findings:
+  - {id: target-lesions, freq: classic, source: "K&C 10e p.678"}
+  - {id: oral-mucosal-erosions, freq: occasional, source: "K&C 10e p.678"}
+  - {id: fever, freq: occasional, note: "With systemic upset in EM major", source: "K&C 10e p.678"}

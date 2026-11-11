@@ -1,0 +1,18 @@
+id: choriocarcinoma
+name: Choriocarcinoma
+parent: gestational-trophoblastic-disease
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.106", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: hydatidiform-mole, to: trophoblast-malignant-transformation, note: "Usually after a mole, but not always. Syncytiotrophoblast with no villi; a haemorrhagic mass. Also arises in the testis", source: "Mehlman HY Repro-OBGYN"}
+  - {from: trophoblast-malignant-transformation, to: very-high-beta-hcg, note: "hCG is the tumour marker", source: "K&C 10e p.106; Mehlman HY Repro-OBGYN"}
+  - {from: trophoblast-malignant-transformation, to: metastatic-spread, source: "Mehlman HY Repro-OBGYN"}
+  - {from: metastatic-spread, to: lung-metastases, note: "Its favourite site: nodules on chest X-ray", source: "Mehlman HY Repro-OBGYN"}
+  - {from: metastatic-spread, to: brain-metastases, note: "Can present like a stroke", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: very-high-beta-hcg, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: lung-metastases, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: brain-metastases, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

@@ -1,0 +1,12 @@
+id: osteoma
+name: Osteoma
+parent: primary-bone-tumour
+group: bone-tumours
+status: draft
+systems: [bone-joint]
+sources: ["Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: familial-adenomatous-polyposis, to: benign-bone-formation, note: "Gardner syndrome: FAP with osteomas or lipomas; ask about early colon cancer in the family", source: "Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: benign-bone-formation, to: hard-bony-lump, note: "Benign; usually grows from the skull", source: "Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: hard-bony-lump, freq: classic}

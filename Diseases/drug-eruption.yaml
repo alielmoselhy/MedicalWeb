@@ -1,0 +1,21 @@
+id: drug-eruption
+name: Cutaneous drug eruption
+group: inflammatory-skin
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.676", "K&C 10e p.696-698"]
+chain:
+  - {from: culprit-drug, to: drug-hypersensitivity, note: "Common; the same drug can cause different rashes, so take a full drug history. Skin tests help little", source: "K&C 10e p.696-697"}
+  - {from: hiv, to: drug-hypersensitivity, note: "Much commoner in HIV: co-trimoxazole, dapsone, antiretrovirals (nevirapine, efavirenz)", source: "K&C 10e p.676"}
+  - {from: drug-hypersensitivity, to: drug-rash, note: "Morbilliform: the commonest; torso first, mucosa spared; clears in 1–2 weeks", source: "K&C 10e p.697"}
+  - {from: drug-hypersensitivity, to: fixed-drug-eruption, note: "Laxatives (phenolphthalein), tetracyclines, paracetamol; may blister and leave pigmentation", source: "K&C 10e p.697"}
+  - {from: drug-hypersensitivity, to: urticaria, note: "Penicillin, aspirin, NSAIDs, iodine contrast", source: "K&C 10e p.697"}
+  - {from: drug-hypersensitivity, to: dress-syndrome, note: "2–6 weeks after starting; fever, facial oedema, nodes, eosinophilia, raised transaminases; aromatic anticonvulsants; 10% die", source: "K&C 10e p.698"}
+  - {from: drug-hypersensitivity, to: erythroderma, note: "Gold, sulphonylureas, allopurinol, nevirapine, efavirenz", source: "K&C 10e p.697"}
+findings:
+  - {id: drug-rash, freq: classic, source: "K&C 10e p.697"}
+  - {id: fixed-drug-eruption, freq: occasional, source: "K&C 10e p.697"}
+  - {id: urticaria, freq: occasional, source: "K&C 10e p.697"}
+outcomes:
+  - {id: dress-syndrome, freq: rare, source: "K&C 10e p.698"}
+  - {id: erythroderma, freq: rare, source: "K&C 10e p.697"}

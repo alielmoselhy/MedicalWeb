@@ -1,0 +1,15 @@
+id: chronic-granulomatous-disease
+name: Chronic granulomatous disease (CGD)
+group: immunodeficiency
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.60, 62", "Mehlman HY Immuno"]
+chain:
+  - {from: nadph-oxidase-defect, to: phagocyte-killing-defect, note: "1 in 250 000; X-linked and autosomal forms; onset in toddlers. Neutrophil count normal or high", source: "K&C 10e p.62; Mehlman HY Immuno"}
+  - [phagocyte-killing-defect, abnormal-neutrophil-burst-test]
+  - {from: phagocyte-killing-defect, to: deep-pyogenic-abscesses, note: "Catalase-positive organisms (S. aureus, Aspergillus, Serratia). Prophylactic antibiotics and antifungals; stem cell transplant", source: "K&C 10e p.60, 62; Mehlman HY Immuno"}
+  - {from: phagocyte-killing-defect, to: granuloma-formation, note: "Frustrated clearance; can give a Crohn's-like gut disease", source: "K&C 10e p.62"}
+findings:
+  - {id: abnormal-neutrophil-burst-test, freq: classic}
+outcomes:
+  - {id: deep-pyogenic-abscesses, freq: classic, source: "K&C 10e p.62"}

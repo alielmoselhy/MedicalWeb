@@ -1,0 +1,23 @@
+id: avp-resistance
+name: Arginine vasopressin resistance (nephrogenic diabetes insipidus)
+group: sodium-water
+status: draft
+systems: [biochemistry, endocrine]
+sources: ["K&C 10e p.186", "K&C 10e p.642-643", "Mehlman HY Renal"]
+chain:
+  - {from: lithium, to: renal-adh-resistance, note: "The classic drug; also demeclocycline, glibenclamide, amphotericin, tetracyclines", source: "K&C 10e p.186 (Box 9.16); K&C 10e p.642-643; Mehlman HY Renal"}
+  - {from: hypercalcaemia, to: renal-adh-resistance, note: "e.g. primary hyperparathyroidism", source: "K&C 10e p.642-643; Mehlman HY Renal"}
+  - {from: low-serum-potassium, to: renal-adh-resistance, source: "K&C 10e p.642-643"}
+  - {from: sickle-cell-disease, to: renal-adh-resistance, source: "K&C 10e p.642-643"}
+  - {from: renal-tubular-acidosis, to: renal-adh-resistance, source: "K&C 10e p.642 (Box 21.52)"}
+  - {from: avpr2-aqp2-mutation, to: renal-adh-resistance, note: "Rare inherited forms", source: "K&C 10e p.643"}
+  - {from: renal-adh-resistance, to: dilute-polyuria, note: "ADH is normal or high; desmopressin doesn't concentrate the urine", source: "K&C 10e p.642 (Box 21.53); K&C 10e p.643; Mehlman HY Renal"}
+  - [renal-adh-resistance, polyuria-nocturia]
+  - [renal-adh-resistance, polydipsia]
+  - {from: renal-adh-resistance, to: hypernatraemia, source: "K&C 10e p.186 (Box 9.16)"}
+findings:
+  - {id: dilute-polyuria, freq: classic, note: "Reverse the cause; a thiazide (Mehlman adds an NSAID) reduces the polyuria", source: "K&C 10e p.643; Mehlman HY Renal"}
+  - {id: polyuria-nocturia, freq: classic}
+  - {id: polydipsia, freq: classic}
+outcomes:
+  - hypernatraemia

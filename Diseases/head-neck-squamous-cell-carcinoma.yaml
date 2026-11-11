@@ -1,0 +1,35 @@
+id: head-neck-squamous-cell-carcinoma
+name: Head and neck squamous cell carcinoma
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["K&C 10e p.101", "K&C 10e p.133-134", "K&C 10e p.901", "K&C 10e p.910", "Mehlman HY Pulmonary", "Mehlman HY Gastro"]
+chain:
+  - {from: smoking, to: carcinogen-induced-transformation, note: "Tobacco both irritates the mucosa and damages DNA; spirits add to it; laryngeal SCC is the smoker's cancer", source: "K&C 10e p.133; Mehlman HY Pulmonary"}
+  - {from: excess-alcohol, to: carcinogen-induced-transformation, source: "K&C 10e p.133"}
+  - {from: chronic-mucosal-irritation, to: inflammation-driven-transformation, note: "Repeated division and repair of the squamous lining lets replication errors build up", source: "K&C 10e p.133"}
+  - {from: oral-premalignant-lesion, to: inflammation-driven-transformation, note: "Lichen planus as a chronic inflammatory cause; leukoplakia (white patch on the lateral tongue) is a precursor, mostly from tobacco", source: "K&C 10e p.133; Mehlman HY Gastro"}
+  - {from: hpv-infection, to: viral-oncogenesis, note: "HPV drives oropharyngeal cancer and the recent rise in head and neck cancer; viral status affects treatment", source: "K&C 10e p.101, 133"}
+  - [carcinogen-induced-transformation, head-neck-primary-tumour]
+  - [inflammation-driven-transformation, head-neck-primary-tumour]
+  - [viral-oncogenesis, head-neck-primary-tumour]
+  - {from: head-neck-primary-tumour, to: lymphatic-spread, note: "Spreads in order: neck nodes first, often long before distant spread, so early disease is usually curable by surgery or radiotherapy", source: "K&C 10e p.133"}
+  - {from: lymphatic-spread, to: cervical-lymphadenopathy, note: "A neck lump persisting after a URTI needs ENT review; 80% of squamous cancer in neck nodes with no obvious primary is from an occult head and neck primary", source: "K&C 10e p.133-134"}
+  - {from: head-neck-primary-tumour, to: metastatic-spread, note: "Lung and bone are the commonest distant sites; cisplatin-based chemotherapy, cetuximab or PD-1 inhibitors", source: "K&C 10e p.133"}
+  - [metastatic-spread, lung-metastases]
+  - [metastatic-spread, bone-metastases]
+  - {from: head-neck-primary-tumour, to: hoarseness, note: "Laryngeal cancer; hoarseness over 6 weeks in a smoker needs ENT review", source: "K&C 10e p.133, 910"}
+  - {from: head-neck-primary-tumour, to: persistent-oral-ulcer-or-lump, note: "Oral cancer; a red flag for dentists", source: "K&C 10e p.133"}
+  - {from: head-neck-primary-tumour, to: referred-otalgia, note: "Growing laryngeal tumour", source: "K&C 10e p.910"}
+  - {from: head-neck-primary-tumour, to: dysphagia, note: "Chronic odynophagia with weight loss in someone at risk", source: "K&C 10e p.901"}
+  - [head-neck-primary-tumour, weight-loss]
+findings:
+  - {id: hoarseness, freq: common, note: "An early symptom of laryngeal cancer", source: "K&C 10e p.133"}
+  - {id: persistent-oral-ulcer-or-lump, freq: common, source: "K&C 10e p.133"}
+  - {id: cervical-lymphadenopathy, freq: common, source: "K&C 10e p.133; Mehlman HY Pulmonary"}
+  - {id: referred-otalgia, freq: occasional, source: "K&C 10e p.910"}
+  - {id: dysphagia, freq: occasional, source: "K&C 10e p.901"}
+  - {id: weight-loss, freq: occasional, source: "K&C 10e p.901"}
+outcomes:
+  - {id: lung-metastases, source: "K&C 10e p.133"}
+  - {id: bone-metastases, source: "K&C 10e p.133"}

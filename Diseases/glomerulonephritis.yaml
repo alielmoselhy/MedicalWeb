@@ -1,0 +1,33 @@
+id: glomerulonephritis
+name: Glomerulonephritis (nephritic syndrome)
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1351-1353", "K&C 10e p.1360", "Mehlman HY Renal"]
+chain:
+  - {from: immune-complex-deposition, to: glomerular-inflammation, note: "Granular immunofluorescence: post-infectious, IgA, lupus, endocarditis, cryoglobulins", source: "K&C 10e p.1360"}
+  - {from: anti-gbm-antibody, to: glomerular-inflammation, note: "Linear immunofluorescence", source: "K&C 10e p.1360"}
+  - {from: anca-small-vessel-vasculitis, to: glomerular-inflammation, note: "No immunofluorescence (pauci-immune): GPA, MPA, renal-limited vasculitis", source: "K&C 10e p.1360"}
+  - {from: glomerular-inflammation, to: haematuria, note: "Hereditary haematuria without inflammation: Alport's (X-linked COL4A5, deafness) and thin GBM disease", source: "K&C 10e p.1360, 1362; Mehlman HY Renal"}
+  - {from: glomerular-inflammation, to: red-cell-casts, source: "K&C 10e p.1360"}
+  - {from: glomerular-inflammation, to: proteinuria, note: "Usually below nephrotic range; some present mixed nephritic–nephrotic", source: "K&C 10e p.1352, 1360"}
+  - {from: glomerular-inflammation, to: raised-blood-pressure, source: "K&C 10e p.1360; Mehlman HY Renal"}
+  - {from: glomerular-inflammation, to: oliguria-anuria, note: "Temporary oliguria and uraemia", source: "K&C 10e p.1360"}
+  - [glomerular-inflammation, salt-water-retention]
+  - {from: salt-water-retention, to: periorbital-oedema, note: "Periorbital, leg or sacral oedema", source: "K&C 10e p.1360"}
+  - [salt-water-retention, peripheral-oedema]
+  - {from: glomerular-inflammation, to: glomerular-crescents, note: "Rapidly progressive GN: necrosis and crescents, renal failure over weeks", source: "K&C 10e p.1360"}
+  - [glomerular-crescents, acute-kidney-injury]
+  - [glomerular-inflammation, chronic-kidney-disease]
+findings:
+  - {id: haematuria, freq: classic}
+  - {id: red-cell-casts, freq: classic}
+  - {id: proteinuria, freq: common}
+  - {id: raised-blood-pressure, freq: common}
+  - {id: periorbital-oedema, freq: common}
+  - {id: peripheral-oedema, freq: common}
+  - {id: oliguria-anuria, freq: common}
+  - {id: glomerular-crescents, freq: occasional}
+outcomes:
+  - {id: acute-kidney-injury, source: "K&C 10e p.1360"}
+  - {id: chronic-kidney-disease, source: "K&C 10e p.1392"}

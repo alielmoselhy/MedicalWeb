@@ -1,0 +1,15 @@
+id: basal-cell-carcinoma
+name: Basal cell carcinoma
+group: skin-tumours
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.690", "Mehlman HY Pathology"]
+chain:
+  - {from: uv-light, to: basal-cell-transformation, note: "The commonest skin cancer, rising 10% a year; fair-skinned elderly people in sunny climates", source: "K&C 10e p.690; Mehlman HY Pathology"}
+  - {from: ptch1-mutation, to: basal-cell-transformation, note: "In sporadic BCC and Gorlin's syndrome; vismodegib blocks Hedgehog in advanced disease", source: "K&C 10e p.690"}
+  - {from: basal-cell-transformation, to: pearly-nodule-telangiectasia, note: "Head and neck; bleeds easily. Wide excision; Mohs for morpheic or nasal-crease tumours", source: "K&C 10e p.690"}
+  - {from: basal-cell-transformation, to: local-tumour-spread, note: "Rarely metastasises but invades locally ('rodent ulcer')", source: "K&C 10e p.690"}
+findings:
+  - {id: pearly-nodule-telangiectasia, freq: classic, source: "K&C 10e p.690"}
+outcomes:
+  - {id: local-tumour-spread, source: "K&C 10e p.690"}

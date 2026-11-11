@@ -1,0 +1,37 @@
+id: membranous-nephropathy
+name: Membranous nephropathy
+parent: nephrotic-syndrome
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1354", "K&C 10e p.1357", "Mehlman HY Renal"]
+chain:
+  - {from: primary-pla2r-autoimmunity, to: subepithelial-immune-deposits, note: "Most cases; mainly adult men", source: "K&C 10e p.1357; Mehlman HY Renal"}
+  - {from: primary-pla2r-autoimmunity, to: anti-pla2r-antibody, note: "IgG4 anti-PLA2R in about 75% of primary cases; absent in secondary; titre guides treatment", source: "K&C 10e p.1357"}
+  - {from: hepatitis-b, to: subepithelial-immune-deposits, note: "Secondary causes: also hepatitis C, schistosomiasis, malaria", source: "K&C 10e p.1357; Mehlman HY Renal"}
+  - {from: systemic-lupus-erythematosus, to: subepithelial-immune-deposits, note: "Class V lupus nephritis", source: "K&C 10e p.1357, 1366"}
+  - {from: lung-cancer, to: subepithelial-immune-deposits, note: "Cancers: lung, colon, stomach, breast, lymphoma", source: "K&C 10e p.1357"}
+  - {from: nsaid-use, to: subepithelial-immune-deposits, note: "Drugs: penicillamine, gold, NSAIDs, captopril", source: "K&C 10e p.1357"}
+  - {from: subepithelial-immune-deposits, to: subepithelial-spikes, note: "Silver stain spikes; IgG and C3 granular on immunofluorescence", source: "K&C 10e p.1357; Mehlman HY Renal"}
+  - [subepithelial-immune-deposits, podocyte-injury]
+  - [podocyte-injury, urinary-protein-loss]
+  - [urinary-protein-loss, nephrotic-range-proteinuria]
+  - [urinary-protein-loss, hypoalbuminaemia]
+  - [urinary-protein-loss, salt-water-retention]
+  - [salt-water-retention, peripheral-oedema]
+  - {from: subepithelial-immune-deposits, to: haematuria, note: "Microscopic, with or without hypertension", source: "K&C 10e p.1357"}
+  - [urinary-protein-loss, hypercoagulability]
+  - {from: hypercoagulability, to: renal-vein-thrombosis, note: "Thromboembolism is especially common in membranous", source: "K&C 10e p.1354"}
+  - [hypercoagulability, deep-vein-thrombosis]
+  - {from: podocyte-injury, to: chronic-kidney-disease, note: "A third remit; about 40% develop CKD. Rituximab or cyclophosphamide with steroids", source: "K&C 10e p.1357"}
+findings:
+  - {id: nephrotic-range-proteinuria, freq: classic}
+  - {id: subepithelial-spikes, freq: classic}
+  - {id: anti-pla2r-antibody, freq: common, only: primary-pla2r-autoimmunity}
+  - {id: hypoalbuminaemia, freq: common}
+  - {id: peripheral-oedema, freq: common}
+  - {id: haematuria, freq: occasional}
+outcomes:
+  - {id: renal-vein-thrombosis, source: "K&C 10e p.1354"}
+  - {id: deep-vein-thrombosis, source: "K&C 10e p.1354"}
+  - {id: chronic-kidney-disease, freq: common, source: "K&C 10e p.1357"}

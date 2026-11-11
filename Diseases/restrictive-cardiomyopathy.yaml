@@ -4,9 +4,10 @@ parent: cardiomyopathy
 group: ischaemic-myocardial-pericardial
 status: draft
 systems: [cardiovascular]
-sources: ["K&C 10e p.1123-1124", "K&C 10e p.1127"]
+sources: ["K&C 10e p.1123-1124", "K&C 10e p.1127", "K&C 10e p.1358"]
 chain:
   - {from: amyloidosis, to: myocardial-infiltration, note: "Commonest association; also sarcoidosis, endomyocardial fibrosis", source: "K&C 10e p.1123"}
+  - {from: al-amyloidosis, to: myocardial-infiltration, note: "AL type; the amyloidosis stand-in still covers ATTR and AA", source: "K&C 10e p.1358"}
   - [myocardial-infiltration, diastolic-dysfunction]
   - {from: diastolic-dysfunction, to: atrial-dilatation, note: "Bi-atrial enlargement; ventricles normal size, near-normal systolic function", source: "K&C 10e p.1123"}
   - [diastolic-dysfunction, systemic-venous-congestion]

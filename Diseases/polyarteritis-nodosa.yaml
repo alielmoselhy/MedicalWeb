@@ -1,0 +1,41 @@
+id: polyarteritis-nodosa
+name: Polyarteritis nodosa (PAN)
+parent: vasculitis
+group: vasculitis
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.465-466", "Mehlman HY Cardio", "Mehlman HY Immuno"]
+chain:
+  - {from: hepatitis-b-virus, to: immune-complex-deposition, note: "Usually middle-aged men; HBV in about 30% in exam questions. Type III", source: "K&C 10e p.465-466; Mehlman HY Cardio; Mehlman HY Immuno"}
+  - {from: immune-complex-deposition, to: necrotising-medium-vessel-arteritis, note: "Fibrinoid necrosis, microaneurysms, thrombosis and infarction; ANCA rarely positive", source: "K&C 10e p.466"}
+  - [necrotising-medium-vessel-arteritis, fever]
+  - [necrotising-medium-vessel-arteritis, weight-loss]
+  - [necrotising-medium-vessel-arteritis, myalgia]
+  - [necrotising-medium-vessel-arteritis, raised-inflammatory-markers]
+  - {from: necrotising-medium-vessel-arteritis, to: visceral-microaneurysms, note: "'String of pearls' renal arteries", source: "K&C 10e p.466; Mehlman HY Cardio"}
+  - {from: necrotising-medium-vessel-arteritis, to: mononeuritis-multiplex, note: "Arteritis of the vasa nervorum", source: "K&C 10e p.466"}
+  - {from: necrotising-medium-vessel-arteritis, to: mesenteric-ischaemia, note: "Mimics cholecystitis, pancreatitis or appendicitis", source: "K&C 10e p.466"}
+  - [mesenteric-ischaemia, abdominal-pain]
+  - {from: mesenteric-ischaemia, to: gi-haemorrhage, note: "From mucosal ulceration", source: "K&C 10e p.466"}
+  - {from: necrotising-medium-vessel-arteritis, to: haematuria, note: "With proteinuria", source: "K&C 10e p.466"}
+  - [necrotising-medium-vessel-arteritis, hypertension]
+  - [necrotising-medium-vessel-arteritis, acute-kidney-injury]
+  - {from: necrotising-medium-vessel-arteritis, to: acute-coronary-syndrome, note: "Coronary arteritis; treat with steroids plus azathioprine", source: "K&C 10e p.466"}
+  - [necrotising-medium-vessel-arteritis, acute-pericarditis]
+  - {from: necrotising-medium-vessel-arteritis, to: livedo-reticularis, note: "Persistent in chronic cases; skin gangrene too", source: "K&C 10e p.466"}
+findings:
+  - {id: mononeuritis-multiplex, freq: common}
+  - {id: abdominal-pain, freq: common}
+  - {id: haematuria, freq: common}
+  - {id: fever, freq: common}
+  - {id: weight-loss, freq: common}
+  - {id: myalgia, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: visceral-microaneurysms, freq: classic}
+  - {id: livedo-reticularis, freq: occasional}
+outcomes:
+  - {id: hypertension, freq: common, source: "K&C 10e p.466"}
+  - {id: acute-kidney-injury, freq: occasional, source: "K&C 10e p.466"}
+  - {id: gi-haemorrhage, freq: occasional, source: "K&C 10e p.466"}
+  - {id: acute-coronary-syndrome, freq: occasional, source: "K&C 10e p.466"}
+  - {id: acute-pericarditis, freq: rare, source: "K&C 10e p.466"}

@@ -3,14 +3,16 @@ name: Congenital hypertrophic pyloric stenosis
 group: oesophagus-stomach
 status: draft
 systems: [gastrointestinal]
-sources: ["Mehlman HY Gastro"]
+sources: ["K&C 10e p.187", "K&C 10e p.202", "Mehlman HY Gastro"]
 chain:
   - {from: male-sex, to: pyloric-muscle-hypertrophy, note: "First-born boys; also erythromycin in the newborn. Usually a one-off defect, not part of a syndrome", source: "Mehlman HY Gastro"}
   - [pyloric-muscle-hypertrophy, gastric-outlet-obstruction]
   - {from: gastric-outlet-obstruction, to: projectile-vomiting, note: "In a neonate days to weeks old; non-bilious because the block is above the duodenum", source: "Mehlman HY Gastro"}
+  - {from: gastric-outlet-obstruction, to: hypokalaemic-alkalosis, note: "Gastric acid lost; the volume loss then wastes potassium in the urine. Correct with saline and potassium before surgery", source: "K&C 10e p.187; K&C 10e p.202"}
   - [pyloric-muscle-hypertrophy, pyloric-olive]
   - [pyloric-muscle-hypertrophy, thick-pylorus-ultrasound]
 findings:
   - {id: projectile-vomiting, freq: classic}
   - {id: pyloric-olive, freq: occasional, source: "Mehlman HY Gastro"}
   - {id: thick-pylorus-ultrasound, freq: classic, note: "Ultrasound makes the diagnosis; myotomy treats it", source: "Mehlman HY Gastro"}
+  - {id: hypokalaemic-alkalosis, freq: common}

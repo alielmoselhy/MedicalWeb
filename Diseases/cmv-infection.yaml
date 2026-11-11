@@ -1,0 +1,31 @@
+id: cmv-infection
+name: Cytomegalovirus (CMV) infection
+parent: herpesvirus-infection
+group: herpes-virus
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.524-525", "K&C 10e p.1445-1446"]
+chain:
+  - {from: cytomegalovirus, to: herpesvirus-latency, note: "Over half of adults carry it, in monocytes; spread by saliva, sex, transfusion and across the placenta", source: "K&C 10e p.524-525"}
+  - {from: vertical-transmission, to: cytomegalovirus, note: "Primary or reactivated maternal infection crosses the placenta", source: "K&C 10e p.525"}
+  - {from: cytomegalovirus, to: fever, note: "Healthy people: usually silent, sometimes a glandular-fever-like illness with a negative Monospot", source: "K&C 10e p.525"}
+  - [cytomegalovirus, atypical-lymphocytes]
+  - {from: cytomegalovirus, to: congenital-cmv, note: "The commonest congenital infection (0.3–1% of births); hearing loss; valganciclovir helps", source: "K&C 10e p.525"}
+  - [herpesvirus-latency, herpesvirus-reactivation]
+  - {from: hiv, to: herpesvirus-reactivation, note: "CD4 consistently below 100; much rarer with ART", source: "K&C 10e p.1445"}
+  - {from: immunosuppression, to: herpesvirus-reactivation, note: "Transplant recipients", source: "K&C 10e p.524"}
+  - {from: herpesvirus-reactivation, to: cmv-retinitis, note: "CD4 below 50: floaters and visual loss; 'pizza pie' haemorrhages and exudates; blindness if untreated", source: "K&C 10e p.1445"}
+  - {from: herpesvirus-reactivation, to: diarrhoea, note: "CMV colitis, may be bloody", source: "K&C 10e p.1446"}
+  - {from: herpesvirus-reactivation, to: odynophagia, note: "Lower oesophageal ulcers", source: "K&C 10e p.1446"}
+  - [herpesvirus-reactivation, herpesvirus-dna-pcr]
+  - [herpesvirus-reactivation, owls-eye-inclusions]
+findings:
+  - {id: herpesvirus-dna-pcr, freq: classic, note: "Ganciclovir or valganciclovir (myelosuppressive), foscarnet (nephrotoxic)", source: "K&C 10e p.525; K&C 10e p.1446"}
+  - {id: fever, freq: common}
+  - {id: atypical-lymphocytes, freq: occasional}
+  - {id: owls-eye-inclusions, freq: occasional, source: "K&C 10e p.525"}
+  - {id: diarrhoea, freq: occasional}
+  - {id: odynophagia, freq: occasional}
+outcomes:
+  - cmv-retinitis
+  - congenital-cmv

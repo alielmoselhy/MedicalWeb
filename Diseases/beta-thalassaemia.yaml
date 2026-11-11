@@ -1,0 +1,40 @@
+id: beta-thalassaemia
+name: Beta-thalassaemia
+parent: thalassaemia
+group: globin-disorders
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.341-344", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: beta-globin-mutation, to: globin-chain-imbalance, note: "Mostly point mutations. Two carrier parents: 1 in 4 risk of TDT, so test partners and offer prenatal diagnosis", source: "K&C 10e p.342, 344"}
+  - {from: globin-chain-imbalance, to: raised-hba2-hbf, note: "Carriers: raised HbA2 (3.6–5%). TDT: mostly HbF", source: "K&C 10e p.341-342; Mehlman HY Heme-Onc"}
+  - {from: globin-chain-imbalance, to: microcytic-hypochromic-anaemia, note: "Trait: symptomless microcytosis with normal ferritin and RDW, mistaken for iron deficiency; don't give iron", source: "K&C 10e p.342; Mehlman HY Heme-Onc"}
+  - [globin-chain-imbalance, target-cells]
+  - {from: globin-chain-imbalance, to: extravascular-haemolysis, note: "Excess α chains precipitate in erythroblasts and red cells", source: "K&C 10e p.341"}
+  - [extravascular-haemolysis, haemolytic-anaemia]
+  - {from: globin-chain-imbalance, to: extramedullary-haemopoiesis, note: "TDT presents at 3–6 months as γ switches to β: failure to thrive, infections. Transfuse to keep Hb above 100 g/L", source: "K&C 10e p.343"}
+  - [extramedullary-haemopoiesis, splenomegaly]
+  - [extramedullary-haemopoiesis, thalassaemic-facies]
+  - {from: globin-chain-imbalance, to: iron-overload, note: "Transfusions plus gut absorption (hepcidin suppressed), even in NTDT. Chelate with deferasirox or desferrioxamine; monitor by ferritin and cardiac MRI", source: "K&C 10e p.343-344; Mehlman HY Heme-Onc"}
+  - [iron-overload, raised-iron-indices]
+  - {from: iron-overload, to: cardiomyopathy, note: "With tachyarrhythmias, the leading cause of death", source: "K&C 10e p.343"}
+  - [iron-overload, arrhythmia]
+  - {from: extravascular-haemolysis, to: pigment-stone-formation, note: "Gallstones and leg ulcers in NTDT", source: "K&C 10e p.343"}
+  - [pigment-stone-formation, gallstone-disease]
+  - [extravascular-haemolysis, leg-ulcers]
+  - [globin-chain-imbalance, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+findings:
+  - {id: microcytic-hypochromic-anaemia, freq: classic}
+  - {id: raised-hba2-hbf, freq: classic}
+  - {id: target-cells, freq: common}
+  - {id: haemolytic-anaemia, freq: common}
+  - {id: splenomegaly, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: thalassaemic-facies, freq: occasional, note: "Now mainly where transfusion is scarce", source: "K&C 10e p.343"}
+  - {id: raised-iron-indices, freq: common}
+  - {id: leg-ulcers, freq: occasional}
+outcomes:
+  - {id: cardiomyopathy, source: "K&C 10e p.343"}
+  - {id: arrhythmia, source: "K&C 10e p.343"}
+  - {id: gallstone-disease, source: "K&C 10e p.343"}

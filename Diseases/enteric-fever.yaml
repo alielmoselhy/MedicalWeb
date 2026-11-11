@@ -1,0 +1,33 @@
+id: enteric-fever
+name: Enteric fever (typhoid and paratyphoid)
+group: returning-traveller
+status: draft
+systems: [infection, gastrointestinal]
+sources: ["K&C 10e p.554"]
+chain:
+  - {from: salmonella-typhi, to: mucosal-invasion, note: "Humans only; contaminated food or water, mainly India and Africa; incubation 10–14 days. Invades through Peyer's patches", source: "K&C 10e p.554"}
+  - {from: mucosal-invasion, to: bacteraemia, note: "Through the lymph nodes into the blood", source: "K&C 10e p.554"}
+  - {from: bacteraemia, to: fever, note: "Insidious, intermittent; may persist for days after starting antibiotics", source: "K&C 10e p.554"}
+  - [bacteraemia, headache]
+  - [mucosal-invasion, abdominal-pain]
+  - [bacteraemia, positive-blood-cultures]
+  - [bacteraemia, rose-spots]
+  - [bacteraemia, splenomegaly]
+  - [bacteraemia, hepatomegaly]
+  - {from: mucosal-invasion, to: gi-perforation, note: "Complications come in week 3: perforation, bleeding, meningitis, pneumonia, osteomyelitis. Up to 30% die where care is poor", source: "K&C 10e p.554"}
+  - [mucosal-invasion, gi-haemorrhage]
+  - [bacteraemia, osteomyelitis]
+  - [bacteraemia, meningitis]
+findings:
+  - {id: fever, freq: classic, note: "Quinolone where sensitive, but multidrug resistance is spreading. Up to 10% carry it for months, 1–4% for over a year (gall bladder, gallstones)", source: "K&C 10e p.554"}
+  - {id: positive-blood-cultures, freq: classic, note: "Most positive in the first 2 weeks; bone marrow culture is more sensitive; Widal test unhelpful", source: "K&C 10e p.554"}
+  - {id: headache, freq: common}
+  - {id: abdominal-pain, freq: common}
+  - {id: splenomegaly, freq: common}
+  - {id: hepatomegaly, freq: common}
+  - {id: rose-spots, freq: occasional}
+outcomes:
+  - {id: gi-perforation, freq: rare}
+  - {id: gi-haemorrhage, freq: rare}
+  - {id: osteomyelitis, freq: rare}
+  - {id: meningitis, freq: rare}

@@ -1,0 +1,28 @@
+id: myasthenia-gravis
+name: Myasthenia gravis
+group: organ-specific-autoimmune
+status: draft
+systems: [immunology, nervous]
+sources: ["K&C 10e p.198", "K&C 10e p.895", "Mehlman HY Immuno", "Mehlman HY Neuro"]
+chain:
+  - {from: autoimmune-predisposition, to: receptor-autoantibody, note: "Women twice as often, peak about 30, second peak in older men; goes with thyroid disease, RA, PA and SLE", source: "K&C 10e p.895"}
+  - {from: thymoma, to: receptor-autoantibody, note: "Thymoma in about 10% (paraneoplastic); thymic hyperplasia in 70% of those under 40. Image the mediastinum in everyone", source: "K&C 10e p.895; Mehlman HY Immuno"}
+  - {from: d-penicillamine, to: receptor-autoantibody, note: "Transient myasthenia", source: "K&C 10e p.895"}
+  - {from: receptor-autoantibody, to: achr-loss, note: "IgG and complement destroy postsynaptic nicotinic AChRs; anti-MuSK in some seronegative cases. Type II", source: "K&C 10e p.895; Mehlman HY Immuno"}
+  - {from: receptor-autoantibody, to: anti-achr-antibody, note: "Positive in 80–90% of generalised, under 30% of ocular MG; highly specific", source: "K&C 10e p.895"}
+  - {from: achr-loss, to: fatigable-weakness, note: "Worse with repeated use, unlike Lambert–Eaton which improves. Reflexes kept. Pyridostigmine for symptoms; steroids, then azathioprine", source: "K&C 10e p.895; Mehlman HY Neuro"}
+  - {from: achr-loss, to: ptosis-diplopia, note: "Often the first sign, may stay purely ocular; worse on sustained upgaze", source: "K&C 10e p.895"}
+  - {from: achr-loss, to: dysphagia, note: "With nasal regurgitation and a weak, hoarse voice", source: "K&C 10e p.895; Mehlman HY Neuro"}
+  - [achr-loss, nmj-decrement]
+  - [achr-loss, respiratory-muscle-weakness]
+  - {from: respiratory-muscle-weakness, to: type-2-respiratory-failure, note: "Myasthenic crisis: watch vital capacity; IVIG or plasma exchange. Infection and aminoglycosides provoke it", source: "K&C 10e p.895"}
+  - [type-2-respiratory-failure, respiratory-acidosis]
+findings:
+  - {id: fatigable-weakness, freq: classic}
+  - {id: ptosis-diplopia, freq: classic}
+  - {id: anti-achr-antibody, freq: classic}
+  - {id: nmj-decrement, freq: common}
+  - {id: dysphagia, freq: common}
+  - {id: respiratory-acidosis, freq: occasional, source: "K&C 10e p.198"}
+outcomes:
+  - {id: type-2-respiratory-failure, freq: occasional, source: "K&C 10e p.895"}

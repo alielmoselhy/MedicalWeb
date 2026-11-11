@@ -1,0 +1,26 @@
+id: g6pd-deficiency
+name: G6PD deficiency
+group: haemolysis
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.348-350", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: g6pd-gene-mutation, to: oxidative-red-cell-damage, note: "No NADPH, so glutathione can't protect against oxidants. X-linked: mostly males. Common in Africa, the Mediterranean, Middle East and South-east Asia", source: "K&C 10e p.349-350; Mehlman HY Heme-Onc"}
+  - {from: oxidant-trigger, to: oxidative-red-cell-damage, note: "Antimalarials, sulphonamides, nitrofurantoin, dapsone, fava beans (favism), naphthalene, infection. Stop the drug, treat infection, transfuse if severe", source: "K&C 10e p.350"}
+  - {from: oxidative-red-cell-damage, to: bite-cells-heinz-bodies, note: "During an attack; the count is normal between attacks", source: "K&C 10e p.350"}
+  - {from: oxidative-red-cell-damage, to: intravascular-haemolysis, note: "Mediterranean type can drop the Hb precipitously; African type is milder and self-limiting", source: "K&C 10e p.350"}
+  - [intravascular-haemolysis, haemoglobinuria]
+  - [intravascular-haemolysis, haemolytic-anaemia]
+  - [intravascular-haemolysis, jaundice]
+  - [intravascular-haemolysis, neonatal-jaundice]
+  - [intravascular-haemolysis, reticulocytosis]
+  - [intravascular-haemolysis, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+findings:
+  - {id: haemolytic-anaemia, freq: classic, note: "Enzyme screening can be falsely normal straight after an attack, as the oldest cells are gone", source: "K&C 10e p.350"}
+  - {id: bite-cells-heinz-bodies, freq: classic}
+  - {id: haemoglobinuria, freq: common}
+  - {id: jaundice, freq: common}
+  - {id: reticulocytosis, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: neonatal-jaundice, freq: occasional}

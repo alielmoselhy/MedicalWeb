@@ -1,0 +1,38 @@
+id: pelvic-inflammatory-disease
+name: Pelvic inflammatory disease
+group: uti
+status: draft
+systems: [kidney-urogenital, female-genital]
+sources: ["K&C 10e p.1418", "Mehlman HY Repro-OBGYN", "Mehlman HY Gastro"]
+chain:
+  - {from: chlamydia-infection, to: ascending-genital-infection, note: "Chlamydia and gonorrhoea cause about 25% of UK cases; M. genitalium 10–13%; often no organism is found", source: "K&C 10e p.1418"}
+  - {from: gonorrhoea, to: ascending-genital-infection, source: "K&C 10e p.1418"}
+  - {from: anaerobic-bacteria, to: ascending-genital-infection, source: "K&C 10e p.1418"}
+  - {from: unprotected-sex-multiple-partners, to: ascending-genital-infection, note: "Mostly sexually active women under 25", source: "K&C 10e p.1418"}
+  - {from: ascending-genital-infection, to: upper-genital-tract-inflammation, note: "Often starts early in the menstrual cycle; clinical diagnosis only 65–70% specific, so do a pregnancy test", source: "K&C 10e p.1418"}
+  - {from: upper-genital-tract-inflammation, to: lower-abdominal-pain, note: "The commonest symptom", source: "K&C 10e p.1418"}
+  - {from: upper-genital-tract-inflammation, to: cervical-motion-adnexal-tenderness, note: "Cervical motion tenderness is the buzzword", source: "K&C 10e p.1418; Mehlman HY Repro-OBGYN"}
+  - {from: upper-genital-tract-inflammation, to: vaginal-discharge, source: "K&C 10e p.1418"}
+  - {from: upper-genital-tract-inflammation, to: intermenstrual-postcoital-bleeding, note: "Irregular bleeding", source: "K&C 10e p.1418"}
+  - {from: upper-genital-tract-inflammation, to: deep-dyspareunia, source: "K&C 10e p.1418"}
+  - {from: upper-genital-tract-inflammation, to: mucopurulent-cervicitis, source: "K&C 10e p.1418"}
+  - {from: upper-genital-tract-inflammation, to: tubal-scarring, note: "Treat empirically at once (ceftriaxone, doxycycline, metronidazole 14 days) to limit it", source: "K&C 10e p.1418"}
+  - {from: tubal-scarring, to: tubal-infertility, note: "10–12% after one episode, 50–60% after three", source: "K&C 10e p.1418"}
+  - {from: tubal-scarring, to: ectopic-pregnancy, note: "Risk up 6–10-fold from scarring and lost cilia", source: "K&C 10e p.1418; Mehlman HY Repro-OBGYN"}
+  - {from: tubal-scarring, to: chronic-pelvic-pain, note: "Over 6 months in 18%", source: "K&C 10e p.1418"}
+  - {from: upper-genital-tract-inflammation, to: abscess-formation, source: "K&C 10e p.1418"}
+  - {from: abscess-formation, to: intra-abdominal-abscess, note: "Tubo-ovarian abscess: suspect if fever and adnexal pain persist on antibiotics; ultrasound", source: "K&C 10e p.1418; Mehlman HY Repro-OBGYN"}
+  - {from: upper-genital-tract-inflammation, to: perihepatitis-fitz-hugh-curtis, note: "Spread to the liver capsule, with fibrin adhesions", source: "Mehlman HY Gastro; Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: lower-abdominal-pain, freq: classic, source: "K&C 10e p.1418"}
+  - {id: cervical-motion-adnexal-tenderness, freq: classic, source: "K&C 10e p.1418"}
+  - {id: vaginal-discharge, freq: common}
+  - {id: intermenstrual-postcoital-bleeding, freq: occasional}
+  - {id: deep-dyspareunia, freq: occasional}
+  - {id: mucopurulent-cervicitis, freq: occasional}
+outcomes:
+  - {id: tubal-infertility, freq: common, source: "K&C 10e p.1418"}
+  - {id: ectopic-pregnancy, freq: occasional, source: "K&C 10e p.1418; Mehlman HY Repro-OBGYN"}
+  - {id: chronic-pelvic-pain, freq: occasional, source: "K&C 10e p.1418"}
+  - {id: intra-abdominal-abscess, freq: occasional, source: "K&C 10e p.1418"}
+  - {id: perihepatitis-fitz-hugh-curtis, freq: rare, source: "Mehlman HY Gastro"}

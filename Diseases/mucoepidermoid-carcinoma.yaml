@@ -1,0 +1,23 @@
+id: mucoepidermoid-carcinoma
+name: Mucoepidermoid carcinoma
+parent: salivary-gland-tumour
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["Mehlman HY Gastro"]
+chain:
+  - {from: salivary-malignant-transformation, to: salivary-gland-swelling, note: "Commonest malignant salivary gland tumour", source: "Mehlman HY Gastro"}
+  - {from: salivary-malignant-transformation, to: local-tumour-spread, note: "Unlike pleomorphic adenoma, it invades", source: "Mehlman HY Gastro"}
+  - [salivary-malignant-transformation, metastatic-spread]
+  - [metastatic-spread, distant-metastases]
+  - [salivary-malignant-transformation, fever]
+  - [salivary-malignant-transformation, night-sweats]
+  - [salivary-malignant-transformation, weight-loss]
+findings:
+  - {id: salivary-gland-swelling, freq: classic}
+  - {id: fever, freq: occasional, note: "B symptoms (fever, night sweats, weight loss) point to it over a benign tumour", source: "Mehlman HY Gastro"}
+  - {id: night-sweats, freq: occasional, source: "Mehlman HY Gastro"}
+  - {id: weight-loss, freq: occasional, source: "Mehlman HY Gastro"}
+outcomes:
+  - {id: local-tumour-spread, source: "Mehlman HY Gastro"}
+  - {id: distant-metastases, source: "Mehlman HY Gastro"}

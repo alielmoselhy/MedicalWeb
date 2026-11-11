@@ -1,0 +1,27 @@
+id: giant-cell-arteritis
+name: Giant cell (temporal) arteritis
+parent: vasculitis
+group: vasculitis
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.464-465", "Mehlman HY Cardio"]
+chain:
+  - {from: older-age, to: granulomatous-large-vessel-arteritis, note: "Almost never under 50; goes with polymyalgia rheumatica, current or recent", source: "K&C 10e p.464; Mehlman HY Cardio"}
+  - {from: granulomatous-large-vessel-arteritis, to: temporal-headache-scalp-tenderness, note: "Combing the hair hurts; temporal arteries tender and swollen", source: "K&C 10e p.464"}
+  - [granulomatous-large-vessel-arteritis, jaw-claudication]
+  - {from: granulomatous-large-vessel-arteritis, to: permanent-visual-loss, note: "Start prednisolone 60–100 mg at once, before biopsy, to protect the other eye", source: "K&C 10e p.464-465; Mehlman HY Cardio"}
+  - {from: granulomatous-large-vessel-arteritis, to: ischaemic-stroke, source: "K&C 10e p.465"}
+  - {from: granulomatous-large-vessel-arteritis, to: raised-inflammatory-markers, note: "ESR 50–120, CRP very high", source: "K&C 10e p.464"}
+  - {from: granulomatous-large-vessel-arteritis, to: temporal-artery-giant-cells, note: "Biopsy within 7 days of steroids; skip lesions give false negatives. Ultrasound increasingly used", source: "K&C 10e p.464"}
+  - [granulomatous-large-vessel-arteritis, normocytic-anaemia]
+  - [granulomatous-large-vessel-arteritis, fever]
+findings:
+  - {id: temporal-headache-scalp-tenderness, freq: classic}
+  - {id: raised-inflammatory-markers, freq: classic}
+  - {id: jaw-claudication, freq: common}
+  - {id: temporal-artery-giant-cells, freq: common}
+  - {id: normocytic-anaemia, freq: common}
+  - {id: fever, freq: occasional}
+outcomes:
+  - {id: permanent-visual-loss, freq: occasional, source: "K&C 10e p.464"}
+  - {id: ischaemic-stroke, freq: rare, source: "K&C 10e p.465"}

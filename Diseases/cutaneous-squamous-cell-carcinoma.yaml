@@ -1,0 +1,17 @@
+id: cutaneous-squamous-cell-carcinoma
+name: Cutaneous squamous cell carcinoma
+group: skin-tumours
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.689-690", "Mehlman HY Pathology"]
+chain:
+  - {from: uv-light, to: squamous-keratinocyte-transformation, note: "Second commonest skin cancer; clearer link to cumulative UV than BCC; exposed skin of fair older people", source: "K&C 10e p.690; Mehlman HY Pathology"}
+  - {from: actinic-keratosis, to: squamous-keratinocyte-transformation, note: "Under 1% of actinic keratoses transform", source: "K&C 10e p.689"}
+  - {from: bowens-disease, to: squamous-keratinocyte-transformation, note: "In situ SCC; rarely becomes invasive", source: "K&C 10e p.689-690"}
+  - {from: immunosuppression, to: squamous-keratinocyte-transformation, note: "Multiple aggressive tumours in transplant recipients", source: "K&C 10e p.690"}
+  - {from: squamous-keratinocyte-transformation, to: keratotic-nodule-ulcer, note: "Urgent referral; excision with a margin of at least 5 mm, or radiotherapy", source: "K&C 10e p.690"}
+  - {from: squamous-keratinocyte-transformation, to: lymphatic-spread, note: "More likely to spread than BCC, especially with high-risk features", source: "K&C 10e p.690"}
+  - [lymphatic-spread, lymphadenopathy]
+findings:
+  - {id: keratotic-nodule-ulcer, freq: classic, source: "K&C 10e p.690"}
+  - {id: lymphadenopathy, freq: occasional, source: "K&C 10e p.690"}

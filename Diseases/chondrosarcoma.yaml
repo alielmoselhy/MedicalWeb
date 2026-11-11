@@ -1,0 +1,12 @@
+id: chondrosarcoma
+name: Chondrosarcoma
+parent: primary-bone-tumour
+group: bone-tumours
+status: draft
+systems: [bone-joint]
+sources: ["Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: malignant-transformation, to: malignant-cartilage-formation, note: "Long bones or pelvis; glistening grey tumour on gross specimen", source: "Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: malignant-cartilage-formation, to: chondrocytes-in-lacunae, note: "The highest-yield bone tumour histology image", source: "Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: chondrocytes-in-lacunae, freq: classic}

@@ -3,7 +3,7 @@ import { nodes, byId, inUse, diseases, touches, syllabus, children, differential
 import { NodeLink, go } from './ui.jsx';
 
 const findings = nodes.filter(n => n.type === 'finding' && inUse.has(n.id)).sort((a, b) => a.name.localeCompare(b.name));
-const EXAMS = [['symptom', 'History'], ['sign', 'Examination'], ['lab', 'Tests'], ['ECG', 'ECG'], ['imaging', 'Imaging'], ['endoscopy', 'Endoscopy and biopsy']];
+const EXAMS = [['symptom', 'History'], ['sign', 'Examination'], ['lab', 'Tests'], ['ECG', 'ECG'], ['imaging', 'Imaging'], ['endoscopy', 'Endoscopy'], ['histology', 'Histology and marrow']];
 const family = id => [id, ...children(id).flatMap(family)];
 // A finding belongs to every system of the diseases that have it or one of its kinds.
 const systemsOf = Object.fromEntries(findings.map(f => {

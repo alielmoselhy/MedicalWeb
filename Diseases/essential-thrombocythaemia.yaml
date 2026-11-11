@@ -1,0 +1,28 @@
+id: essential-thrombocythaemia
+name: Essential thrombocythaemia
+parent: myeloproliferative-neoplasm
+group: myeloproliferative
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.374, 395-396", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: jak2-calr-mpl-mutation, to: myeloproliferative-signalling, note: "JAK2 in about half; CALR or MPL in most of the rest", source: "K&C 10e p.395-396; Mehlman HY Heme-Onc"}
+  - [myeloproliferative-signalling, jak2-calr-mpl-detected]
+  - {from: myeloproliferative-signalling, to: thrombocytosis, note: "Sustained 450 ×10⁹/L or more (often 600–2000) with no reactive cause. Aspirin for all; hydroxycarbamide if high-risk", source: "K&C 10e p.395-396; Mehlman HY Heme-Onc"}
+  - {from: myeloproliferative-signalling, to: hypercoagulability, note: "Thromboembolism is commoner than bleeding", source: "K&C 10e p.395"}
+  - {from: hypercoagulability, to: deep-vein-thrombosis, note: "Arterial or venous", source: "K&C 10e p.374"}
+  - {from: myeloproliferative-signalling, to: erythromelalgia, source: "K&C 10e p.395; Mehlman HY Heme-Onc"}
+  - {from: myeloproliferative-signalling, to: mucocutaneous-bleeding, note: "Less common; paradoxically more likely at very high counts", source: "K&C 10e p.374, 395"}
+  - {from: myeloproliferative-signalling, to: polycythaemia-vera, note: "May transform, often only after many years", source: "K&C 10e p.396"}
+  - [myeloproliferative-signalling, myelofibrosis]
+  - [myeloproliferative-signalling, acute-myeloid-leukaemia]
+findings:
+  - {id: thrombocytosis, freq: classic}
+  - {id: jak2-calr-mpl-detected, freq: common}
+  - {id: erythromelalgia, freq: occasional}
+  - {id: mucocutaneous-bleeding, freq: occasional}
+outcomes:
+  - {id: deep-vein-thrombosis, source: "K&C 10e p.395"}
+  - {id: polycythaemia-vera, freq: rare, source: "K&C 10e p.396"}
+  - {id: myelofibrosis, freq: rare, source: "K&C 10e p.396"}
+  - {id: acute-myeloid-leukaemia, freq: rare, source: "K&C 10e p.396"}

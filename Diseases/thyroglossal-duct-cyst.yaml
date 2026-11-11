@@ -1,0 +1,10 @@
+id: thyroglossal-duct-cyst
+name: Thyroglossal duct cyst
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["Mehlman HY Endocrine", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: persistent-thyroglossal-duct, to: midline-neck-lump, note: "Benign; school-age child; the thyroid descends from the foramen caecum (endoderm). Tethered to the hyoid and tongue base; may take up technetium-99", source: "Mehlman HY Endocrine; Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: midline-neck-lump, freq: classic}

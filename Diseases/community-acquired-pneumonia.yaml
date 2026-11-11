@@ -6,11 +6,15 @@ status: draft
 systems: [respiratory]
 sources: ["K&C 10e p.963-967", "K&C 10e p.948", "Mehlman HY Pulmonary"]
 chain:
-  - {from: streptococcus-pneumoniae, to: droplet-inhalation, note: "Commonest cause; no organism is found in 30–50% and ≈20% are mixed. Classic lobar pneumonia", source: "K&C 10e p.964"}
-  - [haemophilus-influenzae, droplet-inhalation]
-  - {from: mycoplasma-pneumoniae, to: droplet-inhalation, note: "Atypical: often a bilateral interstitial picture with a normal white cell count", source: "K&C 10e p.965"}
-  - {from: legionella-pneumophila, to: droplet-inhalation, note: "Inhaled from contaminated water systems such as air conditioning", source: "Mehlman HY Pulmonary"}
-  - {from: s-aureus, to: droplet-inhalation, note: "Mostly after influenza; uncommon but severe", source: "K&C 10e p.948"}
+  - from: inhaled-respiratory-pathogen
+    to: droplet-inhalation
+    note: "Each reaches the alveoli the same way: breathed in"
+    members:
+      - {id: streptococcus-pneumoniae, note: "Commonest cause; no organism is found in 30–50% and ≈20% are mixed. Classic lobar pneumonia", source: "K&C 10e p.964"}
+      - haemophilus-influenzae
+      - {id: mycoplasma-pneumoniae, note: "Atypical: often a bilateral interstitial picture with a normal white cell count", source: "K&C 10e p.965"}
+      - {id: legionella-pneumophila, note: "Inhaled from contaminated water systems such as air conditioning", source: "Mehlman HY Pulmonary"}
+      - {id: s-aureus, note: "Mostly after influenza; uncommon but severe", source: "K&C 10e p.948"}
   - {from: enterobacteriaceae, to: aspiration-of-oropharyngeal-flora, note: "Klebsiella: alcohol use and aspiration; thick 'currant jelly' sputum", source: "Mehlman HY Pulmonary"}
   - [aspiration-risk, aspiration-of-oropharyngeal-flora]
   - {from: anaerobic-bacteria, to: aspiration-of-oropharyngeal-flora, note: "Aspiration settles in the right middle and lower lobes; persisting cases are often anaerobic", source: "K&C 10e p.967"}
@@ -27,7 +31,7 @@ chain:
   - [intrapulmonary-shunt, hypoxaemia]
   - [alveolar-exudate, dysregulated-host-response]
   - {from: streptococcus-pneumoniae, to: raised-inflammatory-markers, note: "WCC usually > 15 with neutrophilia; CRP > 100", source: "K&C 10e p.965"}
-  - {from: legionella-pneumophila, to: hyponatraemia, note: "Legionella: lymphopenia, hyponatraemia, low albumin, raised transaminases", source: "K&C 10e p.965"}
+  - {from: legionella-pneumophila, to: low-serum-sodium, note: "Legionella: lymphopenia, hyponatraemia, low albumin, raised transaminases", source: "K&C 10e p.965"}
   - [legionella-pneumophila, raised-liver-enzymes]
   - {from: legionella-pneumophila, to: headache, source: "K&C 10e p.964"}
   - {from: legionella-pneumophila, to: diarrhoea, note: "With abdominal pain and vomiting", source: "K&C 10e p.964"}

@@ -1,0 +1,39 @@
+id: gonorrhoea
+name: Gonorrhoea
+group: uti
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1413", "K&C 10e p.1416-1417", "Mehlman HY Repro-OBGYN", "Mehlman HY Anatomy-MSK-Rheum", "Mehlman HY Immuno"]
+chain:
+  - {from: unprotected-sex-multiple-partners, to: genital-mucosal-infection, note: "Rising antimicrobial resistance, including to ceftriaxone", source: "K&C 10e p.1413"}
+  - {from: neisseria-gonorrhoeae, to: genital-mucosal-infection, note: "Silent in up to 50% of women and 10% of men; chlamydia co-infection in 20% of men and 40% of women", source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: urethral-discharge, note: "Purulent and often profuse; incubation 2–5 days in men", source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: dysuria-frequency-urgency, note: "Dysuria", source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: vaginal-discharge, source: "K&C 10e p.1417"}
+  - {from: genital-mucosal-infection, to: intermenstrual-postcoital-bleeding, source: "K&C 10e p.1417"}
+  - {from: genital-mucosal-infection, to: mucopurulent-cervicitis, source: "K&C 10e p.1417"}
+  - {from: genital-mucosal-infection, to: gram-negative-intracellular-diplococci, note: "90–95% sensitive on urethral smears in symptomatic men; under half on cervical smears", source: "K&C 10e p.1417"}
+  - {from: genital-mucosal-infection, to: positive-sti-naat, note: "Test of choice, but culture before treating for sensitivities; ceftriaxone 1 g IM; test of cure at 14 days", source: "K&C 10e p.1417"}
+  - {from: genital-mucosal-infection, to: ascending-genital-infection, source: "K&C 10e p.1416-1417"}
+  - {from: ascending-genital-infection, to: pelvic-inflammatory-disease, source: "K&C 10e p.1417"}
+  - {from: ascending-genital-infection, to: epididymo-orchitis, source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: neonatal-conjunctivitis, note: "Purulent; also preterm birth and Bartholin's abscess", source: "K&C 10e p.1417"}
+  - {from: genital-mucosal-infection, to: haematogenous-seeding, note: "Disseminated gonococcal infection is rare; recurrent Neisseria infection suggests terminal complement deficiency", source: "K&C 10e p.1417; Mehlman HY Immuno"}
+  - {from: haematogenous-seeding, to: fever, source: "K&C 10e p.1417"}
+  - {from: haematogenous-seeding, to: tenosynovitis-necrotic-skin-lesions, source: "K&C 10e p.1417; Mehlman HY Repro-OBGYN"}
+  - {from: haematogenous-seeding, to: septic-arthritis, note: "Knee monoarthritis, or polyarthritis with the skin lesions; think of it in a sexually active young adult", source: "K&C 10e p.1417; Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: positive-sti-naat, freq: classic, source: "K&C 10e p.1417"}
+  - {id: gram-negative-intracellular-diplococci, freq: common, source: "K&C 10e p.1417"}
+  - {id: urethral-discharge, freq: common, note: "Men", source: "K&C 10e p.1416"}
+  - {id: dysuria-frequency-urgency, freq: common}
+  - {id: vaginal-discharge, freq: common, note: "Women", source: "K&C 10e p.1417"}
+  - {id: intermenstrual-postcoital-bleeding, freq: occasional}
+  - {id: mucopurulent-cervicitis, freq: common}
+  - {id: fever, freq: rare, note: "DGI"}
+  - {id: tenosynovitis-necrotic-skin-lesions, freq: rare, note: "DGI"}
+outcomes:
+  - {id: pelvic-inflammatory-disease, freq: common, source: "K&C 10e p.1417"}
+  - {id: epididymo-orchitis, freq: occasional, source: "K&C 10e p.1416"}
+  - {id: neonatal-conjunctivitis, source: "K&C 10e p.1417"}
+  - {id: septic-arthritis, freq: rare, source: "K&C 10e p.1417"}

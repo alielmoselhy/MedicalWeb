@@ -1,0 +1,39 @@
+id: anaemia-of-chronic-disease
+name: Anaemia of chronic disease
+group: anaemia
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.327-332", "Mehlman HY Heme-Onc"]
+chain:
+  - from: chronic-inflammatory-disease
+    to: hepcidin-iron-sequestration
+    note: "Each drives IL-6, which raises hepcidin; hepcidin blocks ferroportin, so iron stays in stores and out of the gut. Erythropoietin response is also blunted"
+    source: "K&C 10e p.330, 332; Mehlman HY Heme-Onc"
+    members:
+      - crohns-disease
+      - ulcerative-colitis
+      - tuberculosis
+      - hepatitis-b
+      - hepatitis-c
+      - hiv
+      - active-cancer
+      - {id: rheumatoid-arthritis, source: "K&C 10e p.332"}
+      - {id: systemic-lupus-erythematosus, source: "K&C 10e p.332"}
+  - {from: chronic-kidney-disease, to: erythropoietin-deficiency, note: "Renal anaemia: the one form treated with recombinant erythropoietin", source: "K&C 10e p.332; Mehlman HY Heme-Onc"}
+  - {from: hepcidin-iron-sequestration, to: iron-restricted-erythropoiesis, note: "Doesn't respond to oral iron; treat the underlying disease, IV iron sometimes helps", source: "K&C 10e p.332"}
+  - {from: hepcidin-iron-sequestration, to: acd-iron-pattern, note: "Marrow has stainable iron but the erythroblasts don't; soluble transferrin receptor is normal", source: "K&C 10e p.331-332"}
+  - {from: iron-restricted-erythropoiesis, to: normocytic-anaemia, note: "MCV normal or low normal", source: "K&C 10e p.331-333"}
+  - {from: iron-restricted-erythropoiesis, to: microcytic-hypochromic-anaemia, note: "When longstanding", source: "K&C 10e p.329"}
+  - [erythropoietin-deficiency, normocytic-anaemia]
+  - [iron-restricted-erythropoiesis, anaemic-hypoxia]
+  - [erythropoietin-deficiency, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, exertional-dyspnoea]
+  - [anaemic-hypoxia, pallor]
+findings:
+  - {id: normocytic-anaemia, freq: classic, note: "One of the commonest anaemias in hospital patients", source: "K&C 10e p.332"}
+  - {id: acd-iron-pattern, freq: classic}
+  - {id: microcytic-hypochromic-anaemia, freq: occasional}
+  - {id: fatigue, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: pallor, freq: common}

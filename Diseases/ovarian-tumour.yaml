@@ -1,0 +1,13 @@
+id: ovarian-tumour
+name: Ovarian tumour
+group: ovaries-tubes
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.129-131", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: ovarian-neoplasm, to: adnexal-mass, note: "Epithelial, germ cell or sex cord-stromal. RMI = ultrasound score × menopausal status × CA125; over 250 is suspicious", source: "K&C 10e p.129-131"}
+  - {from: ovarian-neoplasm, to: ovarian-torsion, note: "Any ovarian mass raises the risk", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: adnexal-mass, freq: classic, source: "K&C 10e p.131"}
+outcomes:
+  - {id: ovarian-torsion, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

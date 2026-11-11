@@ -1,0 +1,41 @@
+id: urinary-tract-obstruction
+name: Urinary tract obstruction (hydronephrosis)
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1376-1379", "K&C 10e p.1480", "Mehlman HY Renal", "Mehlman HY Arrows"]
+chain:
+  - {from: renal-calculi-nephrocalcinosis, to: urinary-outflow-obstruction, note: "In the lumen: stone, clot, sloughed papilla, urothelial tumour", source: "K&C 10e p.1377"}
+  - {from: pelviureteric-junction-obstruction, to: urinary-outflow-obstruction, note: "Failed peristalsis, no mechanical block; pyeloplasty if pain or damage", source: "K&C 10e p.1377-1378"}
+  - {from: retroperitoneal-fibrosis, to: urinary-outflow-obstruction, note: "Encases aorta and ureters; men 3:1; 60–70% idiopathic, also drugs (ergots), cancer; steroids, stents", source: "K&C 10e p.1379"}
+  - {from: colorectal-cancer, to: urinary-outflow-obstruction, note: "Outside pressure: pelvic tumours, nodes, aortic aneurysm, prostate", source: "K&C 10e p.1377"}
+  - {from: cervical-cancer, to: urinary-outflow-obstruction, note: "Ureters compressed by cervical or ovarian cancer: postrenal failure in a woman", source: "Mehlman HY Arrows"}
+  - [epithelial-ovarian-cancer, urinary-outflow-obstruction]
+  - {from: benign-prostatic-hyperplasia, to: urinary-outflow-obstruction, note: "The commonest bladder outflow cause in older men", source: "K&C 10e p.1480"}
+  - {from: urinary-outflow-obstruction, to: hydronephrosis-on-imaging, note: "Ultrasound first; CT shows the cause", source: "K&C 10e p.1377"}
+  - {from: urinary-outflow-obstruction, to: loin-pain, note: "Worse with high fluid intake, alcohol or diuretics", source: "K&C 10e p.1377"}
+  - {from: urinary-outflow-obstruction, to: oliguria-anuria, note: "Complete anuria: bilateral or single-kidney obstruction", source: "K&C 10e p.1377"}
+  - {from: urinary-outflow-obstruction, to: polyuria-nocturia, note: "Partial obstruction impairs concentrating", source: "K&C 10e p.1377"}
+  - {from: urinary-outflow-obstruction, to: voiding-luts, note: "Bladder outflow obstruction, usually prostatic", source: "K&C 10e p.1377; Mehlman HY Renal"}
+  - {from: urinary-outflow-obstruction, to: palpable-bladder, note: "Catheterise; suprapubic catheter if urethral fails", source: "K&C 10e p.1377-1378"}
+  - [urinary-outflow-obstruction, excretory-failure]
+  - [excretory-failure, raised-creatinine-low-egfr]
+  - {from: urinary-outflow-obstruction, to: acute-kidney-injury, note: "Post-renal AKI recovers once relieved", source: "K&C 10e p.1389"}
+  - {from: urinary-outflow-obstruction, to: urinary-stasis, source: "K&C 10e p.1377"}
+  - {from: urinary-stasis, to: urinary-tract-infection, note: "Obstructed and infected kidney is an emergency: nephrostomy or stent", source: "K&C 10e p.1378"}
+  - {from: urinary-outflow-obstruction, to: nephron-loss, note: "Complete obstruction for weeks damages the kidney irreversibly; infection speeds it", source: "K&C 10e p.1379"}
+  - [nephron-loss, chronic-kidney-disease]
+  - {from: urinary-outflow-obstruction, to: post-obstructive-diuresis, note: "After relief of bilateral obstruction; replace losses", source: "K&C 10e p.1378"}
+findings:
+  - {id: hydronephrosis-on-imaging, freq: classic}
+  - {id: loin-pain, freq: common}
+  - {id: raised-creatinine-low-egfr, freq: common}
+  - {id: voiding-luts, freq: common}
+  - {id: oliguria-anuria, freq: occasional}
+  - {id: polyuria-nocturia, freq: occasional}
+  - {id: palpable-bladder, freq: occasional}
+outcomes:
+  - {id: acute-kidney-injury, source: "K&C 10e p.1389"}
+  - {id: urinary-tract-infection, source: "K&C 10e p.1377"}
+  - {id: chronic-kidney-disease, source: "K&C 10e p.1379"}
+  - {id: post-obstructive-diuresis, source: "K&C 10e p.1378"}

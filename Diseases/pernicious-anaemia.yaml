@@ -1,0 +1,45 @@
+id: pernicious-anaemia
+name: Pernicious anaemia
+group: anaemia
+status: draft
+systems: [haematology, immunology]
+sources: ["K&C 10e p.333-336", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: autoimmune-predisposition, to: chronic-gastric-inflammation, note: "Autoimmune gastritis of the fundus; about 1 in 8000 over 60, more in women; linked to thyroid disease, Addison's and vitiligo", source: "K&C 10e p.334; Mehlman HY Heme-Onc"}
+  - {from: chronic-gastric-inflammation, to: gastric-atrophy, note: "Parietal and chief cells replaced: achlorhydria and no intrinsic factor", source: "K&C 10e p.334"}
+  - {from: chronic-gastric-inflammation, to: anti-intrinsic-factor, note: "Parietal cell antibodies in 90% (and 10% of healthy people); intrinsic factor antibodies in only 50% but specific", source: "K&C 10e p.334"}
+  - {from: gastric-atrophy, to: b12-deficit, note: "Without intrinsic factor B12 isn't absorbed in the ileum; stores last 2 years or more. Treat with lifelong IM hydroxocobalamin", source: "K&C 10e p.334, 336"}
+  - {from: gastric-atrophy, to: gastric-adenocarcinoma, note: "Risk 1–3%", source: "K&C 10e p.334"}
+  - {from: b12-deficit, to: b12-folate-deficiency, note: "Serum B12 usually below 160 ng/L", source: "K&C 10e p.335"}
+  - [b12-deficit, impaired-dna-synthesis]
+  - {from: impaired-dna-synthesis, to: macrocytic-anaemia, source: "K&C 10e p.333"}
+  - {from: impaired-dna-synthesis, to: hypersegmented-neutrophils, note: "Neutrophils with six or more lobes", source: "K&C 10e p.333; Mehlman HY Heme-Onc"}
+  - [impaired-dna-synthesis, megaloblastic-marrow]
+  - {from: impaired-dna-synthesis, to: raised-ldh, note: "Ineffective erythropoiesis: red cells die in the marrow", source: "K&C 10e p.333"}
+  - {from: impaired-dna-synthesis, to: jaundice, note: "Lemon-yellow tint: pallor with mild jaundice", source: "K&C 10e p.334"}
+  - {from: impaired-dna-synthesis, to: pancytopenia, note: "Leucopenia and thrombocytopenia when severe", source: "K&C 10e p.333"}
+  - [impaired-dna-synthesis, anaemic-hypoxia]
+  - [b12-deficit, glossitis-angular-stomatitis]
+  - {from: b12-deficit, to: b12-neural-damage, note: "Only with very low B12 (< 60 ng/L), sometimes without anaemia; folate alone can worsen it", source: "K&C 10e p.334, 336"}
+  - {from: b12-neural-damage, to: subacute-combined-degeneration, note: "Irreversible if long untreated; can progress to paraplegia", source: "K&C 10e p.334"}
+  - {from: b12-neural-damage, to: dementia, note: "Also psychiatric symptoms and optic atrophy", source: "K&C 10e p.334"}
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, exertional-dyspnoea]
+  - [anaemic-hypoxia, pallor]
+findings:
+  - {id: macrocytic-anaemia, freq: classic, note: "Insidious onset", source: "K&C 10e p.334"}
+  - {id: b12-folate-deficiency, freq: classic}
+  - {id: anti-intrinsic-factor, freq: common}
+  - {id: hypersegmented-neutrophils, freq: common}
+  - {id: megaloblastic-marrow, freq: common, note: "Often not sampled when the picture is clear", source: "K&C 10e p.334"}
+  - {id: raised-ldh, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: pallor, freq: common}
+  - {id: jaundice, freq: occasional}
+  - {id: glossitis-angular-stomatitis, freq: occasional}
+  - {id: subacute-combined-degeneration, freq: occasional}
+  - {id: pancytopenia, freq: occasional}
+outcomes:
+  - {id: dementia, source: "K&C 10e p.334"}
+  - {id: gastric-adenocarcinoma, source: "K&C 10e p.334"}

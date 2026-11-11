@@ -1,0 +1,28 @@
+id: prostate-cancer
+name: Prostate cancer
+group: bladder-prostate-testis
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1480-1482", "Mehlman HY Pathology", "Mehlman HY Renal", "Mehlman HY Neuro"]
+chain:
+  - {from: older-age, to: prostatic-adenocarcinoma, note: "Commonest UK male cancer (1 in 8 men); 80% have malignant foci by 80, most dormant", source: "K&C 10e p.1480"}
+  - {from: prostate-cancer-susceptibility, to: prostatic-adenocarcinoma, note: "BRCA2 raises risk 5–7-fold; black men have a 1 in 4 risk", source: "K&C 10e p.1480"}
+  - {from: prostatic-adenocarcinoma, to: raised-psa, note: "Most early cancers are silent; over 3 ng/mL abnormal, over 10 suggests cancer", source: "K&C 10e p.1480; Mehlman HY Pathology"}
+  - {from: prostatic-adenocarcinoma, to: hard-irregular-prostate, note: "Abnormal-feeling gland", source: "K&C 10e p.1480"}
+  - {from: prostatic-adenocarcinoma, to: voiding-luts, note: "When present, symptoms mimic BPH", source: "K&C 10e p.1480"}
+  - {from: prostatic-adenocarcinoma, to: storage-luts, source: "K&C 10e p.1480"}
+  - {from: prostatic-adenocarcinoma, to: prostate-biopsy-adenocarcinoma, note: "mpMRI then biopsy; Gleason ≤6 low-risk can be on active surveillance", source: "K&C 10e p.1480-1481"}
+  - {from: prostatic-adenocarcinoma, to: metastatic-spread, note: "Advanced disease: androgen blockade plus chemotherapy", source: "K&C 10e p.1482; Mehlman HY Renal"}
+  - {from: metastatic-spread, to: bone-metastases, note: "Its usual site", source: "K&C 10e p.1480"}
+  - {from: bone-metastases, to: sclerotic-bone-metastases, note: "Osteoblastic, unlike most cancers' lytic deposits", source: "K&C 10e p.1480; Mehlman HY Pathology"}
+  - {from: bone-metastases, to: spinal-cord-compression, note: "New neurology in prostate cancer: steroids, then MRI spine", source: "Mehlman HY Neuro"}
+findings:
+  - {id: raised-psa, freq: classic, source: "K&C 10e p.1480"}
+  - {id: prostate-biopsy-adenocarcinoma, freq: classic}
+  - {id: hard-irregular-prostate, freq: common}
+  - {id: voiding-luts, freq: occasional}
+  - {id: storage-luts, freq: occasional}
+  - {id: sclerotic-bone-metastases, freq: occasional}
+outcomes:
+  - {id: bone-metastases, freq: occasional, source: "K&C 10e p.1480"}
+  - {id: spinal-cord-compression, freq: rare, source: "Mehlman HY Neuro"}

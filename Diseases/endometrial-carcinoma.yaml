@@ -1,0 +1,23 @@
+id: endometrial-carcinoma
+name: Endometrial carcinoma
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.130, 1216, 1468, 1474-1475", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: obesity, to: unopposed-oestrogen, note: "Main risk: peripheral oestrone; no smoking link", source: "K&C 10e p.130, 1474"}
+  - {from: polycystic-ovary-syndrome, to: unopposed-oestrogen, source: "Mehlman HY Repro-OBGYN"}
+  - [unopposed-oestrogen, endometrial-hyperplasia]
+  - {from: endometrial-hyperplasia, to: endometrial-transformation, note: "Atypical hyperplasia is the precursor", source: "K&C 10e p.130, 1474"}
+  - {from: long-oestrogen-exposure, to: endometrial-transformation, note: "Long menstrual life", source: "K&C 10e p.130"}
+  - {from: diabetes-mellitus, to: endometrial-transformation, source: "K&C 10e p.1474"}
+  - {from: lynch-syndrome, to: endometrial-transformation, note: "Women with Lynch syndrome also risk ovarian cancer", source: "K&C 10e p.1216; Mehlman HY Repro-OBGYN"}
+  - {from: endometrial-transformation, to: postmenopausal-bleeding, note: "Peak 75–79; type 1 endometrioid (oestrogen-driven) vs type 2 serous or clear cell. Presents early, so 79% 5-year survival", source: "K&C 10e p.130, 1474-1475"}
+  - {from: endometrial-transformation, to: intermenstrual-postcoital-bleeding, source: "K&C 10e p.1475"}
+  - {from: endometrial-transformation, to: vaginal-discharge, source: "K&C 10e p.1475"}
+  - {from: endometrial-transformation, to: thickened-endometrium, note: "Diagnosed on histology (biopsy or D&C); no screening. Hysterectomy; radiotherapy for deep invasion", source: "K&C 10e p.130, 1468"}
+findings:
+  - {id: postmenopausal-bleeding, freq: classic, source: "K&C 10e p.130"}
+  - {id: thickened-endometrium, freq: classic, source: "K&C 10e p.130"}
+  - {id: intermenstrual-postcoital-bleeding, freq: occasional, source: "K&C 10e p.1475"}
+  - {id: vaginal-discharge, freq: occasional, source: "K&C 10e p.1475"}

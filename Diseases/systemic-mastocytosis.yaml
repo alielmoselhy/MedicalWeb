@@ -1,0 +1,27 @@
+id: systemic-mastocytosis
+name: Systemic mastocytosis
+group: myeloproliferative
+status: draft
+systems: [haematology, immunology]
+sources: ["K&C 10e p.693-694"]
+chain:
+  - {from: kit-mutation, to: mast-cell-expansion, note: "Mostly acquired activating KIT mutations. Systemic when mast cells fill bone, gut, liver or spleen; small risk of mast cell leukaemia", source: "K&C 10e p.694"}
+  - {from: mast-cell-expansion, to: urticaria-pigmentosa, note: "The skin form; childhood disease usually fades, adult disease persists", source: "K&C 10e p.693-694"}
+  - {from: mast-cell-expansion, to: mast-cell-mediator-release, note: "Set off by rubbing, aspirin, opiates or allergens. Antihistamines and cromoglicate", source: "K&C 10e p.693-694"}
+  - [mast-cell-mediator-release, flushing]
+  - [mast-cell-mediator-release, wheeze]
+  - [mast-cell-mediator-release, diarrhoea]
+  - [mast-cell-mediator-release, syncope]
+  - {from: mast-cell-mediator-release, to: anaphylaxis, note: "Very rare", source: "K&C 10e p.693"}
+  - [mast-cell-expansion, splenomegaly]
+  - [mast-cell-expansion, hepatomegaly]
+findings:
+  - {id: urticaria-pigmentosa, freq: classic}
+  - {id: flushing, freq: common}
+  - {id: diarrhoea, freq: occasional}
+  - {id: wheeze, freq: occasional}
+  - {id: syncope, freq: occasional}
+  - {id: splenomegaly, freq: occasional}
+  - {id: hepatomegaly, freq: occasional}
+outcomes:
+  - {id: anaphylaxis, freq: rare, source: "K&C 10e p.693"}

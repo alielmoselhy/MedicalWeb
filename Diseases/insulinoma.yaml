@@ -1,0 +1,27 @@
+id: insulinoma
+name: Insulinoma
+group: glucose
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.647-648", "Mehlman HY Endocrine"]
+chain:
+  - {from: hormone-secreting-adenoma, to: insulin-excess, note: "Islet-cell tumour; 95% benign; mostly sporadic, some part of MEN", source: "K&C 10e p.647"}
+  - {from: insulin-excess, to: low-plasma-glucose, note: "Fasting or exercise hypoglycaemia, often for months or years before diagnosis", source: "K&C 10e p.647"}
+  - {from: insulin-excess, to: raised-insulin-c-peptide, note: "Whipple's triad, then glucose and insulin after a 16 h or 72 h fast; high C-peptide excludes injected insulin", source: "K&C 10e p.648; Mehlman HY Endocrine"}
+  - [low-plasma-glucose, low-blood-glucose]
+  - {from: low-plasma-glucose, to: neuroglycopenia, note: "Bizarre or atypical: mistaken for psychiatric illness, epilepsy, stroke or dementia", source: "K&C 10e p.647-648"}
+  - [neuroglycopenia, confusion]
+  - [neuroglycopenia, seizures]
+  - [low-plasma-glucose, adrenergic-hypoglycaemia-response]
+  - [adrenergic-hypoglycaemia-response, diaphoresis]
+  - [adrenergic-hypoglycaemia-response, palpitations]
+  - {from: low-plasma-glucose, to: hypoglycaemia, note: "Surgical removal; diazoxide or octreotide if unresectable", source: "K&C 10e p.648"}
+findings:
+  - {id: raised-insulin-c-peptide, freq: classic, source: "K&C 10e p.648"}
+  - {id: low-blood-glucose, freq: classic, note: "About 90% after an overnight fast", source: "K&C 10e p.648"}
+  - {id: confusion, freq: common, source: "K&C 10e p.647"}
+  - {id: seizures, freq: occasional, source: "K&C 10e p.647"}
+  - {id: diaphoresis, freq: common, source: "K&C 10e p.647"}
+  - {id: palpitations, freq: common, source: "K&C 10e p.647"}
+outcomes:
+  - {id: hypoglycaemia, freq: classic, source: "K&C 10e p.647"}

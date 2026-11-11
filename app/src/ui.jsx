@@ -12,6 +12,6 @@ export function NodeLink({ id, dashed, ...rest }) {
 export const Legend = () => (
   <div className="legend">
     {TYPES.map(t => <span key={t} className={`chip ${t}`}>{t}</span>)}
-    <span>→ leads to · ⇢ dashed: is a kind of · coloured cloud: one disease · double border: a disease reached as an outcome · dashed chip: related match</span>
+    <span>→ leads to · ⇢ dashed: is a kind of · ┄ dotted, no arrow: one of a cause group · coloured cloud: one disease · double border: a disease reached as an outcome · dashed chip: related match</span>
   </div>
 );

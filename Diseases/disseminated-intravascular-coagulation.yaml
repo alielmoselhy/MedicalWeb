@@ -1,0 +1,32 @@
+id: disseminated-intravascular-coagulation
+name: Disseminated intravascular coagulation (DIC)
+group: platelets-tma
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.377-378", "Mehlman HY Heme-Onc"]
+chain:
+  - [bacteraemia, dysregulated-host-response]
+  - {from: dysregulated-host-response, to: systemic-coagulation-activation, note: "Never occurs alone. Sepsis, especially Gram-negative and meningococcal; also falciparum malaria, snake bite and haemolytic transfusion reactions", source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+  - {from: active-cancer, to: systemic-coagulation-activation, note: "Including treatment of acute promyelocytic leukaemia", source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+  - {from: obstetric-emergency, to: systemic-coagulation-activation, source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+  - {from: severe-trauma-transfusion, to: systemic-coagulation-activation, note: "Also burns and surgery. Massive transfusion alone dilutes platelets and factors and can mimic DIC", source: "K&C 10e p.377-378; Mehlman HY Heme-Onc"}
+  - {from: acute-liver-failure, to: systemic-coagulation-activation, source: "K&C 10e p.377"}
+  - {from: systemic-coagulation-activation, to: microvascular-thrombosis, note: "Widespread fibrin in vessels; skin, brain and kidneys most affected", source: "K&C 10e p.377"}
+  - [microvascular-thrombosis, multi-organ-dysfunction]
+  - [microvascular-thrombosis, acute-kidney-injury]
+  - {from: microvascular-thrombosis, to: consumptive-coagulopathy, note: "Clotting first, then bleeding: factors and platelets used up, and FDPs from fibrinolysis inhibit clotting further", source: "K&C 10e p.377"}
+  - {from: consumptive-coagulopathy, to: dic-clotting-pattern, note: "Score with the ISTH system in a compatible illness", source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+  - [consumptive-coagulopathy, thrombocytopenia]
+  - {from: consumptive-coagulopathy, to: puncture-site-oozing, note: "Treat the cause; give blood products only for bleeding or procedures; no tranexamic acid", source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+  - {from: consumptive-coagulopathy, to: mucocutaneous-bleeding, note: "Mouth and nose bleeding, widespread ecchymoses", source: "K&C 10e p.377"}
+  - [microvascular-thrombosis, microangiopathic-haemolysis]
+  - {from: microangiopathic-haemolysis, to: schistocytes, source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+findings:
+  - {id: dic-clotting-pattern, freq: classic}
+  - {id: thrombocytopenia, freq: classic}
+  - {id: puncture-site-oozing, freq: common}
+  - {id: mucocutaneous-bleeding, freq: common, note: "Ranges from no bleeding to profound haemostatic failure; the patient is often shocked", source: "K&C 10e p.377"}
+  - {id: schistocytes, freq: occasional}
+outcomes:
+  - {id: multi-organ-dysfunction, source: "K&C 10e p.377"}
+  - {id: acute-kidney-injury, source: "K&C 10e p.377"}

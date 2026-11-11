@@ -1,0 +1,34 @@
+id: dengue
+name: Dengue
+group: returning-traveller
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.521-523"]
+chain:
+  - {from: mosquito-exposure, to: dengue-viraemia, note: "Day-biting Aedes aegypti, so bed nets help little; the commonest arboviral infection worldwide. Incubation 5–6 days", source: "K&C 10e p.521-522"}
+  - {from: dengue-virus, to: dengue-viraemia, note: "Four serotypes; often mild or silent", source: "K&C 10e p.522"}
+  - {from: dengue-viraemia, to: fever, note: "Abrupt; settles at 3–4 days, then returns (saddleback)", source: "K&C 10e p.522"}
+  - [dengue-viraemia, headache]
+  - [dengue-viraemia, retro-orbital-pain]
+  - {from: dengue-viraemia, to: myalgia, note: "Severe backache is prominent", source: "K&C 10e p.522"}
+  - {from: dengue-viraemia, to: maculopapular-rash, note: "Transient morbilliform rash spreading from limbs to trunk, then peeling", source: "K&C 10e p.522"}
+  - [dengue-viraemia, lymphadenopathy]
+  - {from: dengue-viraemia, to: dengue-rna-serology, source: "K&C 10e p.523"}
+  - {from: dengue-viraemia, to: dengue-capillary-leak, note: "Severe dengue: a second infection with a different serotype, mostly children in South-east Asia", source: "K&C 10e p.522"}
+  - [dengue-capillary-leak, thrombocytopenia]
+  - {from: dengue-capillary-leak, to: bleeding-tendency, note: "Skin, nose and gut bleeding", source: "K&C 10e p.523"}
+  - {from: dengue-capillary-leak, to: hypovolaemic-shock, note: "Dengue shock syndrome, mortality up to 44%", source: "K&C 10e p.523"}
+  - [dengue-capillary-leak, disseminated-intravascular-coagulation]
+findings:
+  - {id: fever, freq: classic, note: "Supportive: analgesia and fluids; steroids don't help; transfusion and ICU in severe dengue", source: "K&C 10e p.523"}
+  - {id: retro-orbital-pain, freq: classic, source: "K&C 10e p.522"}
+  - {id: myalgia, freq: classic}
+  - {id: headache, freq: common}
+  - {id: maculopapular-rash, freq: common}
+  - {id: dengue-rna-serology, freq: classic}
+  - {id: lymphadenopathy, freq: occasional}
+  - {id: thrombocytopenia, freq: occasional}
+  - {id: bleeding-tendency, freq: occasional}
+outcomes:
+  - {id: hypovolaemic-shock, freq: rare}
+  - {id: disseminated-intravascular-coagulation, freq: rare, source: "K&C 10e p.523"}

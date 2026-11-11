@@ -1,0 +1,27 @@
+id: necrotising-fasciitis
+name: Necrotising fasciitis
+group: skin-soft-tissue-infection
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.669-670"]
+chain:
+  - {from: group-a-streptococcus, to: fascial-plane-infection, note: "Spontaneous disease in healthy people; high-dose benzylpenicillin plus clindamycin", source: "K&C 10e p.669-670"}
+  - {from: anaerobic-bacteria, to: fascial-plane-infection, note: "Mixed aerobes and anaerobes after abdominal surgery or with immunosuppression; add metronidazole to broad cover", source: "K&C 10e p.669-670"}
+  - {from: fascial-plane-infection, to: pain-out-of-proportion, note: "The key clue; urgent surgical debridement or amputation must not wait for imaging", source: "K&C 10e p.669-670"}
+  - [fascial-plane-infection, spreading-erythema]
+  - [fascial-plane-infection, fever]
+  - {from: fascial-plane-infection, to: soft-tissue-crepitus, source: "K&C 10e p.670"}
+  - {from: fascial-plane-infection, to: gas-in-soft-tissue, source: "K&C 10e p.670"}
+  - {from: fascial-plane-infection, to: raised-inflammatory-markers, source: "K&C 10e p.670"}
+  - [fascial-plane-infection, leucocytosis]
+  - {from: fascial-plane-infection, to: multi-organ-dysfunction, note: "Common; mortality is high", source: "K&C 10e p.670"}
+findings:
+  - {id: pain-out-of-proportion, freq: classic, source: "K&C 10e p.669"}
+  - {id: spreading-erythema, freq: common, source: "K&C 10e p.670"}
+  - {id: fever, freq: common, note: "Severely unwell", source: "K&C 10e p.670"}
+  - {id: raised-inflammatory-markers, freq: common, source: "K&C 10e p.670"}
+  - {id: leucocytosis, freq: common, source: "K&C 10e p.670"}
+  - {id: soft-tissue-crepitus, freq: occasional, source: "K&C 10e p.670"}
+  - {id: gas-in-soft-tissue, freq: occasional, source: "K&C 10e p.670"}
+outcomes:
+  - {id: multi-organ-dysfunction, source: "K&C 10e p.670"}

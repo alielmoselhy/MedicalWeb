@@ -1,0 +1,33 @@
+id: hypokalaemia
+name: Hypokalaemia
+group: potassium
+status: draft
+systems: [biochemistry]
+sources: ["K&C 10e p.187-189", "K&C 10e p.192", "K&C 10e p.202", "K&C 10e p.642-643", "Mehlman HY Biochemistry", "Mehlman HY Cardio"]
+chain:
+  - {from: diuretic, to: renal-potassium-loss, note: "With hyperaldosteronism, the commonest chronic cause (thiazides especially). Bartter's mimics loop diuretics, Gitelman's thiazides", source: "K&C 10e p.187-188"}
+  - {from: primary-hyperaldosteronism, to: renal-potassium-loss, note: "Renin low; renin high in Bartter's and Gitelman's", source: "K&C 10e p.188 (Box 9.17)"}
+  - {from: cushings-syndrome, to: renal-potassium-loss, source: "K&C 10e p.188 (Box 9.17)"}
+  - {from: renal-tubular-acidosis, to: renal-potassium-loss, note: "Types 1 and 2", source: "K&C 10e p.188 (Box 9.17)"}
+  - {from: volume-depletion, to: renal-potassium-loss, note: "Vomit holds little potassium; the volume loss drives aldosterone, which wastes it in the urine", source: "K&C 10e p.187"}
+  - {from: hypomagnesaemia, to: renal-potassium-loss, note: "Low magnesium unblocks renal potassium channels: hypokalaemia won't correct until magnesium is given", source: "K&C 10e p.189, 192"}
+  - {from: infective-gastroenteritis, to: gut-potassium-loss, note: "Diarrhoea holds 10–30 mmol/L; also purgatives, ileostomy, fistulae (urine K < 20 mmol/day)", source: "K&C 10e p.187-188"}
+  - {from: colorectal-adenoma, to: gut-potassium-loss, note: "Villous adenoma, rarely", source: "K&C 10e p.187"}
+  - {from: potassium-shifting-drug, to: potassium-into-cells, note: "Insulin for DKA with potassium-free fluids is the classic acute fall; alkalosis shifts K in too", source: "K&C 10e p.187-188"}
+  - [renal-potassium-loss, low-serum-potassium]
+  - [gut-potassium-loss, low-serum-potassium]
+  - [potassium-into-cells, low-serum-potassium]
+  - {from: low-serum-potassium, to: muscle-weakness, note: "Usually silent; weakness when below 2.5 mmol/L", source: "K&C 10e p.188"}
+  - {from: low-serum-potassium, to: hypokalaemia-ecg, source: "Mehlman HY Biochemistry; Mehlman HY Cardio"}
+  - [low-serum-potassium, myocardial-membrane-instability]
+  - {from: myocardial-membrane-instability, to: arrhythmia, note: "Atrial and ventricular ectopics; serious arrhythmia is unlikely without heart disease. Potentiates digoxin toxicity", source: "K&C 10e p.188"}
+  - {from: low-serum-potassium, to: hypokalaemic-alkalosis, note: "Hydrogen shifts into cells and the kidney makes more ammonia", source: "K&C 10e p.202"}
+  - {from: low-serum-potassium, to: avp-resistance, source: "K&C 10e p.642-643"}
+findings:
+  - {id: low-serum-potassium, freq: classic, note: "Treat the cause; oral potassium usually. IV only for arrhythmia, weakness or severe DKA, mixed in saline not glucose. Check magnesium", source: "K&C 10e p.188-189"}
+  - {id: hypokalaemic-alkalosis, freq: common}
+  - {id: muscle-weakness, freq: occasional}
+  - {id: hypokalaemia-ecg, freq: common}
+outcomes:
+  - {id: arrhythmia, freq: occasional}
+  - {id: avp-resistance, freq: rare}

@@ -1,0 +1,18 @@
+id: follicular-thyroid-carcinoma
+name: Follicular thyroid carcinoma
+parent: thyroid-cancer
+group: thyroid
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.621-622", "Mehlman HY Endocrine"]
+chain:
+  - {from: thyroid-follicular-cell-malignancy, to: thyroid-malignant-nodule, note: "20% of thyroid cancers; commoner in women; looks like normal follicles", source: "K&C 10e p.621; Mehlman HY Endocrine"}
+  - [thyroid-malignant-nodule, thyroid-nodule]
+  - {from: thyroid-follicular-cell-malignancy, to: raised-thyroglobulin, note: "Treated like papillary: surgery, radioiodine, TSH suppression", source: "K&C 10e p.622"}
+  - {from: thyroid-follicular-cell-malignancy, to: metastatic-spread, note: "Spreads in the blood to lung and bone; good prognosis if resectable", source: "K&C 10e p.621; Mehlman HY Endocrine"}
+  - [metastatic-spread, bone-metastases]
+findings:
+  - {id: thyroid-nodule, freq: classic}
+  - {id: raised-thyroglobulin, freq: occasional, note: "Recurrence"}
+outcomes:
+  - {id: bone-metastases, freq: occasional, source: "K&C 10e p.621"}

@@ -1,0 +1,16 @@
+id: osteosarcoma
+name: Osteosarcoma
+parent: primary-bone-tumour
+group: bone-tumours
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.483, 485", "Mehlman HY Anatomy-MSK-Rheum", "Mehlman HY Pathology"]
+chain:
+  - {from: rb1-mutation, to: malignant-transformation, note: "A child treated for hereditary retinoblastoma is at risk later", source: "Mehlman HY Pathology; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: pagets-disease, to: malignant-transformation, note: "Under 1% of Paget's, in the elderly", source: "K&C 10e p.483; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: malignant-transformation, to: malignant-osteoid-formation, note: "Commonest primary bone cancer; usually males 10–30, tibia or femur", source: "Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: malignant-osteoid-formation, to: bone-pain, note: "Usually amputation; wide excision with limb salvage at distal sites", source: "K&C 10e p.483"}
+  - {from: malignant-osteoid-formation, to: sunburst-codman-triangle, source: "Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: bone-pain, freq: classic}
+  - {id: sunburst-codman-triangle, freq: classic}

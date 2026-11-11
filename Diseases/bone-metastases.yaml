@@ -1,0 +1,27 @@
+id: bone-metastases
+name: Bone metastases
+parent: distant-metastases
+group: bone-tumours
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.104-105", "K&C 10e p.118", "K&C 10e p.485", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: metastatic-spread, to: osteoclast-activation, note: "The commonest bone tumours: from bronchus, breast and prostate; less often kidney and thyroid. May be the first sign of the cancer", source: "K&C 10e p.485"}
+  - {from: osteoclast-activation, to: lytic-bone-lesions, note: "Hot on isotope scan; MRI for the spine", source: "K&C 10e p.485"}
+  - {from: metastatic-spread, to: sclerotic-bone-metastases, note: "Characteristic of prostate cancer (PSA raised)", source: "K&C 10e p.485"}
+  - {from: osteoclast-activation, to: bone-pain, note: "Unremitting, worse at night, with weight loss. Analgesia, radiotherapy, bisphosphonates", source: "K&C 10e p.485"}
+  - {from: osteoclast-activation, to: hypercalcaemia, note: "In 10–20% with metastatic cancer; a metastases Q often has primary hyperPTH as the wrong answer", source: "K&C 10e p.485; Mehlman HY Anatomy-MSK-Rheum"}
+  - [osteoclast-activation, hypercalcaemia-of-malignancy]
+  - [osteoclast-activation, raised-alp]
+  - {from: osteoclast-activation, to: pathological-fracture, note: "Radiotherapy lowers the risk; some need internal fixation", source: "K&C 10e p.104, 485"}
+  - {from: osteoclast-activation, to: spinal-cord-compression, note: "Treat within 24 hours of weakness starting", source: "K&C 10e p.104, 118"}
+findings:
+  - {id: bone-pain, freq: classic}
+  - {id: lytic-bone-lesions, freq: common}
+  - {id: sclerotic-bone-metastases, freq: occasional}
+  - {id: hypercalcaemia, freq: occasional}
+  - {id: raised-alp, freq: occasional, source: "K&C 10e p.485"}
+outcomes:
+  - pathological-fracture
+  - spinal-cord-compression
+  - hypercalcaemia-of-malignancy

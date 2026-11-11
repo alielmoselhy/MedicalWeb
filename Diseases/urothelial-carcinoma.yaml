@@ -1,0 +1,32 @@
+id: urothelial-carcinoma
+name: Urothelial (transitional cell) carcinoma
+group: bladder-prostate-testis
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1407", "Mehlman HY Renal", "Mehlman HY Pathology"]
+chain:
+  - {from: smoking, to: urothelial-malignancy, note: "Commonest risk factor; men 4:1, rare under 40; bladder 50× commoner than ureter or renal pelvis", source: "K&C 10e p.1407; Mehlman HY Renal"}
+  - {from: aromatic-amine-exposure, to: urothelial-malignancy, note: "Petroleum, chemical, cable, rubber and dye workers", source: "K&C 10e p.1407; Mehlman HY Pathology"}
+  - {from: urothelial-carcinogenic-drug, to: urothelial-malignancy, note: "Aristolochic acid is in some herbal slimming products", source: "K&C 10e p.1407"}
+  - {from: schistosoma-haematobium, to: inflammation-driven-transformation, note: "Eggs in the bladder wall; chronic inflammation gives squamous, not transitional, carcinoma", source: "K&C 10e p.1407; Mehlman HY Pathology; Mehlman HY Renal"}
+  - {from: inflammation-driven-transformation, to: haematuria, only: schistosoma-haematobium, source: "Mehlman HY Renal"}
+  - {from: urothelial-malignancy, to: haematuria, note: "Painless haematuria presents 80%; no flank mass, polycythaemia or high calcium (unlike RCC)", source: "K&C 10e p.1407; Mehlman HY Renal"}
+  - {from: urothelial-malignancy, to: dysuria-frequency-urgency, note: "UTI-like symptoms with sterile urine", source: "K&C 10e p.1407"}
+  - {from: urothelial-malignancy, to: bladder-tumour-on-cystoscopy, note: "Cystoscopy and biopsy; often papillary", source: "K&C 10e p.1407; Mehlman HY Renal"}
+  - {from: urothelial-malignancy, to: malignant-urine-cytology, source: "K&C 10e p.1407"}
+  - {from: urothelial-malignancy, to: urinary-outflow-obstruction, note: "Ureteric tumours, or clot retention in the bladder", source: "K&C 10e p.1407"}
+  - [urinary-outflow-obstruction, loin-pain]
+  - [urinary-outflow-obstruction, hydronephrosis-on-imaging]
+  - [urinary-outflow-obstruction, urinary-tract-obstruction]
+  - {from: urothelial-malignancy, to: metastatic-spread, note: "Local spread can bring the first symptoms, including pain from nerve invasion", source: "K&C 10e p.1407"}
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: haematuria, freq: classic, source: "K&C 10e p.1407"}
+  - {id: bladder-tumour-on-cystoscopy, freq: classic}
+  - {id: malignant-urine-cytology, freq: common}
+  - {id: dysuria-frequency-urgency, freq: occasional}
+  - {id: loin-pain, freq: occasional, note: "Ureteric tumours"}
+  - {id: hydronephrosis-on-imaging, freq: occasional}
+outcomes:
+  - {id: urinary-tract-obstruction, freq: occasional, source: "K&C 10e p.1407"}
+  - {id: distant-metastases, source: "K&C 10e p.1407"}

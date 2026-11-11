@@ -45,6 +45,11 @@ rejects('duplicate id across vocab and diseases', vocab, [disease({ id: 'pain' }
 rejects('wrong type in findings', vocab, [disease({ id: 'mi', findings: ['transmural'] })], /is a mechanism, expected finding/);
 rejects('disease in its own chain', vocab, [disease({ id: 'mi', chain: [['mi', 'transmural']] })], /can't appear in its own chain/);
 rejects('parent of a different type', [...vocab, { id: 'x', name: 'X', type: 'finding', parent: 'ischaemia' }], [], /is a mechanism, but this is a finding/);
+test('a disease may be a kind of an outcome', () => {
+  const { graph } = buildGraph([...vocab, { id: 'mets', name: 'Mets', type: 'outcome' }], [disease({ id: 'bone-mets', parent: 'mets' })], syllabus);
+  assert.ok(graph.edges.some(e => e.kind === 'is-a' && e.from === 'bone-mets' && e.to === 'mets'));
+});
+rejects('disease under a mechanism', vocab, [disease({ id: 'mi', parent: 'ischaemia' })], /is a mechanism, but this is a disease/);
 rejects('category not allowed for type', [{ id: 'x', name: 'X', type: 'cause', category: 'lab' }], [], /category must be one of organism/);
 rejects('unknown system', vocab, [disease({ id: 'mi', systems: ['heart'] })], /systems must be a list/);
 rejects('unknown top-level key', vocab, [disease({ id: 'mi', note: 'x' })], /unknown key\(s\) note/);
@@ -69,4 +74,21 @@ test('warns about findings and outcomes no chain link reaches', () => {
   assert.ok(warnings.some(w => w.includes('mi (1)')));
 });
 
+const bugs = [...vocab, { id: 'bug', name: 'Bug', type: 'cause' }, { id: 'germ', name: 'Germ', type: 'cause' },
+  { id: 'inhaled-bug', name: 'Inhaled bug', type: 'cause' }];
+test('a declared bundle links each member to its class', () => {
+  const { graph } = buildGraph(bugs, [disease({ id: 'mi', chain: [{ from: 'inhaled-bug', to: 'transmural', members: ['bug', 'germ'] }, ['germ', 'pain']], findings: [{ id: 'pain', only: 'germ' }] })], syllabus);
+  assert.deepEqual(graph.edges.find(e => e.kind === 'causal' && e.from === 'inhaled-bug').members, ['bug', 'germ']);
+  assert.deepEqual(graph.edges.filter(e => e.kind === 'bundled').map(e => [e.from, e.to]), [['bug', 'inhaled-bug'], ['germ', 'inhaled-bug']]);
+  assert.ok(graph.touches.mi.includes('bug'));
+});
+test('a bundle member can keep its own note', () => {
+  const { graph } = buildGraph(bugs, [disease({ id: 'mi', chain: [{ from: 'inhaled-bug', to: 'transmural', members: [{ id: 'bug', note: 'commonest' }, 'germ'] }] })], syllabus);
+  assert.equal(graph.edges.find(e => e.kind === 'bundled' && e.from === 'bug').note, 'commonest');
+});
+test('a disease can be a member of a cause group', () => assert.ok(buildGraph(bugs, [disease({ id: 'ulcer' }),
+  disease({ id: 'mi', chain: [{ from: 'inhaled-bug', to: 'transmural', members: ['bug', 'ulcer'] }] })], syllabus)));
+rejects('a bundle of one', bugs, [disease({ id: 'mi', chain: [{ from: 'inhaled-bug', to: 'transmural', members: ['bug'] }] })], /2 or more distinct/);
+rejects('a member of another type', bugs, [disease({ id: 'mi', chain: [{ from: 'inhaled-bug', to: 'transmural', members: ['bug', 'ischaemia'] }] })], /member "ischaemia" is a mechanism/);
+rejects('a member also linked straight to the target', bugs, [disease({ id: 'mi', chain: [{ from: 'inhaled-bug', to: 'transmural', members: ['bug', 'germ'] }, ['bug', 'transmural']] })], /drop its own link/);
 test('real data builds', () => assert.ok(loadAndBuild().graph.nodes.length > 0));

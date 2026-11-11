@@ -1,0 +1,44 @@
+id: tubulointerstitial-nephritis
+name: Tubulointerstitial nephritis
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1385-1387", "Mehlman HY Renal"]
+chain:
+  - from: nephritis-causing-drug
+    to: tubulointerstitial-inflammation
+    note: "Drugs cause about 70% of acute TIN, as a hypersensitivity reaction; stop the drug"
+    members:
+      - {id: beta-lactam-antibiotic, note: "Penicillins and cephalosporins; also rifampicin, ciprofloxacin, sulphonamides", source: "K&C 10e p.1385"}
+      - {id: nsaid-use, source: "K&C 10e p.1385"}
+      - {id: proton-pump-inhibitor, source: "K&C 10e p.1385"}
+  - {from: nephritis-causing-drug, to: fever, source: "K&C 10e p.1385"}
+  - {from: nephritis-causing-drug, to: drug-rash, note: "Only about half have the rash", source: "K&C 10e p.1385; Mehlman HY Renal"}
+  - {from: nephritis-causing-drug, to: arthralgia, source: "K&C 10e p.1385"}
+  - {from: nephritis-causing-drug, to: raised-eosinophils-ige, note: "Blood eosinophilia", source: "K&C 10e p.1385"}
+  - {from: legionella-pneumophila, to: tubulointerstitial-inflammation, note: "Infection is about 15%: also hantavirus, EBV, HIV, Leptospira, streptococci", source: "K&C 10e p.1385"}
+  - {from: sarcoidosis, to: tubulointerstitial-inflammation, note: "Granulomatous TIN in up to 20%; responds rapidly to steroids", source: "K&C 10e p.1386-1387"}
+  - {from: sjogrens-syndrome, to: tubulointerstitial-inflammation, source: "K&C 10e p.1386"}
+  - {from: systemic-lupus-erythematosus, to: tubulointerstitial-inflammation, note: "TIN rather than GN in some", source: "K&C 10e p.1386"}
+  - {from: tubulointerstitial-inflammation, to: sterile-pyuria-eosinophiluria, source: "K&C 10e p.1385; Mehlman HY Renal"}
+  - {from: tubulointerstitial-inflammation, to: proteinuria, note: "Usually slight, under 1 g/day", source: "K&C 10e p.1386"}
+  - {from: tubulointerstitial-inflammation, to: acute-kidney-injury, note: "Oliguric or non-oliguric; may be found only on blood tests", source: "K&C 10e p.1385"}
+  - {from: tubulointerstitial-inflammation, to: polyuria-nocturia, note: "Chronic TIN: medullary damage → poor concentration and salt wasting", source: "K&C 10e p.1386"}
+  - {from: tubulointerstitial-inflammation, to: chronic-kidney-disease, note: "Fibrosis spreading into the cortex", source: "K&C 10e p.1386"}
+  - {from: nsaid-use, to: papillary-necrosis, note: "Analgesic nephropathy: heavy long-term use, commoner in middle-aged women", source: "K&C 10e p.1386"}
+  - {from: diabetes-mellitus, to: papillary-necrosis, source: "K&C 10e p.1386"}
+  - {from: sickle-cell-disease, to: papillary-necrosis, note: "Sickle trait too; red urine in sickle cell", source: "K&C 10e p.1386; Mehlman HY Renal"}
+  - {from: papillary-necrosis, to: haematuria, source: "K&C 10e p.1386"}
+  - {from: papillary-necrosis, to: urinary-outflow-obstruction, note: "A sloughed papilla blocks the ureter: flank pain, sudden decline", source: "K&C 10e p.1386"}
+findings:
+  - {id: sterile-pyuria-eosinophiluria, freq: common, source: "K&C 10e p.1385"}
+  - {id: fever, freq: common}
+  - {id: drug-rash, freq: common}
+  - {id: arthralgia, freq: occasional}
+  - {id: raised-eosinophils-ige, freq: common, source: "K&C 10e p.1385"}
+  - {id: proteinuria, freq: common}
+  - {id: polyuria-nocturia, freq: occasional, note: "Chronic TIN"}
+  - {id: haematuria, freq: occasional}
+outcomes:
+  - {id: acute-kidney-injury, source: "K&C 10e p.1385"}
+  - {id: chronic-kidney-disease, source: "K&C 10e p.1386"}

@@ -1,0 +1,28 @@
+id: viral-haemorrhagic-fever
+name: Viral haemorrhagic fever (Ebola, Marburg, Lassa, CCHF)
+group: returning-traveller
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.156", "K&C 10e p.531-533"]
+chain:
+  - {from: ebola-marburg-virus, to: haemorrhagic-fever-viraemia, note: "Filoviruses; fruit bats are the likely host; outbreaks in sub-Saharan Africa", source: "K&C 10e p.532-533"}
+  - {from: lassa-virus, to: haemorrhagic-fever-viraemia, note: "West Africa; rat urine or saliva in food; incubation 7–18 days; spreads to staff in hospital", source: "K&C 10e p.532"}
+  - {from: cchf-virus, to: haemorrhagic-fever-viraemia, note: "Hyalomma ticks from cattle and hares; Asia and Africa; mortality 10–50%", source: "K&C 10e p.532"}
+  - [haemorrhagic-fever-viraemia, fever]
+  - [haemorrhagic-fever-viraemia, myalgia]
+  - [haemorrhagic-fever-viraemia, headache]
+  - {from: haemorrhagic-fever-viraemia, to: maculopapular-rash, note: "Ebola: from about day 5, face first", source: "K&C 10e p.532"}
+  - {from: haemorrhagic-fever-viraemia, to: bleeding-tendency, note: "Epistaxis, haematemesis, melaena (Ebola days 7–16)", source: "K&C 10e p.532"}
+  - {from: haemorrhagic-fever-viraemia, to: diarrhoea, only: ebola-marburg-virus, note: "Profuse, with cramps and vomiting", source: "K&C 10e p.532"}
+  - {from: haemorrhagic-fever-viraemia, to: sore-throat, only: lassa-virus, note: "Pharyngitis and nodes in over half", source: "K&C 10e p.532"}
+  - {from: haemorrhagic-fever-viraemia, to: hypovolaemic-shock, note: "Lassa kills 15–20% in hospital this way", source: "K&C 10e p.532"}
+findings:
+  - {id: fever, freq: classic, note: "Assess for VHF with fever within 21 days of leaving an endemic area (MERS-CoV: respiratory symptoms within 14 days of the Middle East). Strict isolation; ribavirin early for Lassa", source: "K&C 10e p.156; K&C 10e p.532"}
+  - {id: bleeding-tendency, freq: common}
+  - {id: myalgia, freq: common}
+  - {id: headache, freq: common}
+  - {id: maculopapular-rash, freq: occasional}
+  - {id: diarrhoea, freq: common, only: ebola-marburg-virus}
+  - {id: sore-throat, freq: common, only: lassa-virus}
+outcomes:
+  - hypovolaemic-shock

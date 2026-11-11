@@ -1,0 +1,15 @@
+id: impetigo
+name: Impetigo
+group: skin-soft-tissue-infection
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.661", "K&C 10e p.669"]
+chain:
+  - {from: s-aureus, to: superficial-epidermal-infection, note: "Highly contagious by direct contact, usually children; topical fusidic acid, mupirocin only for MRSA, oral flucloxacillin if widespread", source: "K&C 10e p.669"}
+  - {from: group-a-streptococcus, to: superficial-epidermal-infection, source: "K&C 10e p.669"}
+  - {from: eczema, to: superficial-epidermal-infection, note: "Secondary staph or strep infection of eczema: pustules and golden crusts", source: "K&C 10e p.661"}
+  - {from: superficial-epidermal-infection, to: golden-crusted-lesions, note: "Off school or work until dry or 48 hours on antibiotics", source: "K&C 10e p.669"}
+  - {from: superficial-epidermal-infection, to: blisters, note: "Bullous impetigo from toxin-producing staph; oral antibiotics", source: "K&C 10e p.669", only: s-aureus}
+findings:
+  - {id: golden-crusted-lesions, freq: classic, source: "K&C 10e p.669"}
+  - {id: blisters, freq: occasional, only: s-aureus, source: "K&C 10e p.669"}

@@ -4,11 +4,12 @@ parent: bacteraemia
 group: endovascular-infection
 status: draft
 systems: [cardiovascular]
-sources: ["K&C 10e p.500 (Box 20.11)", "K&C 10e p.536"]
+sources: ["K&C 10e p.156", "K&C 10e p.500 (Box 20.11)", "K&C 10e p.536"]
 chain:
   - {from: s-aureus, to: skin-soft-tissue-entry, note: "Usually through a skin breach: drug injection, cannulas, surgery, trauma", source: "K&C 10e p.536"}
   - [s-aureus, catheter-entry]
   - [s-aureus, injection-drug-use]
+  - {from: mrsa, to: injection-drug-use, note: "MSSA and MRSA cause most sepsis in people who inject drugs", source: "K&C 10e p.156"}
   - [skin-soft-tissue-entry, haematogenous-seeding]
   - [catheter-entry, haematogenous-seeding]
   - [injection-drug-use, haematogenous-seeding]

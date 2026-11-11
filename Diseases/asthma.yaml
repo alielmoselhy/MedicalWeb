@@ -2,8 +2,8 @@ id: asthma
 name: Asthma
 group: airways
 status: draft
-systems: [respiratory]
-sources: ["K&C 10e p.949-951", "K&C 10e p.954", "Mehlman HY Pulmonary"]
+systems: [respiratory, immunology]
+sources: ["K&C 10e p.198", "K&C 10e p.949-951", "K&C 10e p.954", "Mehlman HY Pulmonary"]
 chain:
   - {from: atopy, to: type-2-eosinophilic-inflammation, note: "Most persistent asthmatics (≈90% of children, 70% of adults) are skin-prick positive to inhaled allergens", source: "K&C 10e p.949"}
   - [inhaled-allergen, type-2-eosinophilic-inflammation]
@@ -29,6 +29,7 @@ chain:
   - [reversible-bronchoconstriction, alveolar-hypoventilation]
   - [alveolar-hypoventilation, type-2-respiratory-failure]
   - [air-trapping, pneumothorax]
+  - [type-2-respiratory-failure, respiratory-acidosis]
 findings:
   - {id: wheeze, freq: classic}
   - {id: episodic-dyspnoea, freq: classic, note: "Typically worse at night", source: "K&C 10e p.951"}
@@ -39,6 +40,7 @@ findings:
   - {id: raised-eosinophils-ige, freq: occasional, note: "Sputum eosinophilia is more specific than blood", source: "K&C 10e p.951"}
   - {id: nasal-polyps, freq: occasional}
   - {id: hyperinflation-imaging, freq: occasional, note: "CXR is not diagnostic; over-inflation only in attacks or severe chronic disease", source: "K&C 10e p.951"}
+  - {id: respiratory-acidosis, freq: rare, source: "K&C 10e p.198"}
 outcomes:
   - {id: acute-severe-asthma, note: "Severe: can't finish sentences, RR ≥ 25, HR ≥ 110, PEFR 33–50%. Life-threatening: silent chest, cyanosis, exhaustion, PEFR < 33%, SpO2 < 92%", source: "K&C 10e p.954"}
   - {id: type-1-respiratory-failure, note: "Early in an attack CO2 is low from fast breathing; a normal or rising CO2 means the patient is tiring", source: "Mehlman HY Pulmonary"}

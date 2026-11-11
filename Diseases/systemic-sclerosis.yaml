@@ -1,0 +1,40 @@
+id: systemic-sclerosis
+name: Systemic sclerosis (scleroderma)
+parent: autoimmune-rheumatic-disease
+group: systemic-autoimmune
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.456, 460-462", "K&C 10e p.992", "Mehlman HY Immuno"]
+chain:
+  - {from: female-sex, to: systemic-autoimmunity, note: "3:1 women, peak 30–50; highest mortality of the connective tissue diseases", source: "K&C 10e p.460"}
+  - {from: systemic-autoimmunity, to: scleroderma-antibodies, note: "Limited (70%, CREST): anti-centromere. Diffuse (30%): anti-Scl-70; anti-RNA polymerase means renal risk. ANA in 95%", source: "K&C 10e p.461; Mehlman HY Immuno"}
+  - [systemic-autoimmunity, ana]
+  - {from: systemic-autoimmunity, to: obliterative-small-vessel-damage, note: "The early lesion: endothelial damage, endothelin vasoconstriction, then obliterated arterioles", source: "K&C 10e p.460"}
+  - {from: obliterative-small-vessel-damage, to: raynaud-phenomenon, note: "Almost all; may precede skin change by up to 15 years in limited disease", source: "K&C 10e p.460"}
+  - {from: obliterative-small-vessel-damage, to: digital-ulcers, note: "Ischaemia may progress to gangrene", source: "K&C 10e p.460"}
+  - [obliterative-small-vessel-damage, telangiectasia]
+  - {from: obliterative-small-vessel-damage, to: pulmonary-hypertension, note: "17–21%; a leading late cause of death. Annual echo", source: "K&C 10e p.460-462; Mehlman HY Immuno"}
+  - {from: obliterative-small-vessel-damage, to: scleroderma-renal-crisis, note: "Early diffuse disease; ACE inhibitor first; high-dose steroids raise the risk", source: "K&C 10e p.461-462; Mehlman HY Immuno"}
+  - [scleroderma-renal-crisis, acute-kidney-injury]
+  - {from: systemic-autoimmunity, to: fibroblast-collagen-overproduction, note: "Collagen I and III in the dermis and organs; no drug reliably reverses skin fibrosis", source: "K&C 10e p.460-461"}
+  - {from: fibroblast-collagen-overproduction, to: sclerodactyly-skin-thickening, note: "Limited: hands, forearms, face, feet. Diffuse: rapid, widespread, after an oedematous phase", source: "K&C 10e p.460-461"}
+  - {from: fibroblast-collagen-overproduction, to: interstitial-lung-disease, note: "Fibrosis in 41%; lung disease causes about half of deaths", source: "K&C 10e p.461-462, 992"}
+  - {from: fibroblast-collagen-overproduction, to: gut-smooth-muscle-atony, source: "K&C 10e p.461"}
+  - {from: gut-smooth-muscle-atony, to: gord, note: "Oesophageal involvement almost invariable; PPIs help", source: "K&C 10e p.461"}
+  - [gut-smooth-muscle-atony, dysphagia]
+  - {from: gut-smooth-muscle-atony, to: bacterial-overgrowth, note: "Small bowel dilatation and atony; rotating antibiotics", source: "K&C 10e p.461"}
+  - {from: fibroblast-collagen-overproduction, to: arrhythmia, note: "Myocardial fibrosis: arrhythmias and conduction defects", source: "K&C 10e p.461"}
+findings:
+  - {id: raynaud-phenomenon, freq: classic}
+  - {id: sclerodactyly-skin-thickening, freq: classic}
+  - {id: scleroderma-antibodies, freq: classic}
+  - {id: ana, freq: classic}
+  - {id: dysphagia, freq: common}
+  - {id: digital-ulcers, freq: common}
+  - {id: telangiectasia, freq: common}
+outcomes:
+  - {id: interstitial-lung-disease, freq: common, source: "K&C 10e p.461"}
+  - {id: pulmonary-hypertension, freq: common, source: "K&C 10e p.461"}
+  - {id: gord, freq: common, source: "K&C 10e p.461"}
+  - {id: scleroderma-renal-crisis, freq: occasional, source: "K&C 10e p.461"}
+  - {id: arrhythmia, freq: occasional, source: "K&C 10e p.461"}

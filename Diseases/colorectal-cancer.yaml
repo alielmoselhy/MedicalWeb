@@ -31,7 +31,6 @@ chain:
 findings:
   - {id: altered-bowel-habit, freq: common}
   - {id: rectal-bleeding, freq: common, source: "K&C 10e p.1218"}
-  - {id: iron-deficiency-anaemia, freq: common}
   - {id: urgency-tenesmus, freq: occasional, source: "K&C 10e p.1218"}
   - {id: abdominal-mass, freq: occasional, note: "Rectal or abdominal mass", source: "K&C 10e p.1218"}
   - {id: weight-loss, freq: common}
@@ -41,3 +40,4 @@ outcomes:
   - {id: intestinal-obstruction, note: "Can be the first presentation", source: "K&C 10e p.1218"}
   - {id: liver-metastases, note: "The commonest site; resectable ones are worth treating", source: "K&C 10e p.1218-1219"}
   - {id: distant-metastases, note: "Lung", source: "K&C 10e p.1218"}
+  - {id: iron-deficiency-anaemia, freq: common}

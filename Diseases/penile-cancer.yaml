@@ -1,0 +1,14 @@
+id: penile-cancer
+name: Penile cancer
+group: bladder-prostate-testis
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1482-1483"]
+chain:
+  - {from: hpv-infection, to: penile-squamous-malignancy, note: "HPV 6, 16 and 18; commoner where HPV is prevalent; not linked to HIV", source: "K&C 10e p.1483"}
+  - {from: phimosis-balanitis, to: penile-squamous-malignancy, note: "Neonatal circumcision greatly reduces risk", source: "K&C 10e p.1483"}
+  - {from: smoking, to: penile-squamous-malignancy, source: "K&C 10e p.1483"}
+  - {from: unprotected-sex-multiple-partners, to: penile-squamous-malignancy, source: "K&C 10e p.1483"}
+  - {from: penile-squamous-malignancy, to: penile-tumour, note: "Over 95% squamous; rare in Europe and the USA, up to 2% of male cancers in South America, SE Asia, Africa; organ-preserving surgery", source: "K&C 10e p.1482-1483"}
+findings:
+  - {id: penile-tumour, freq: classic, source: "K&C 10e p.1482"}

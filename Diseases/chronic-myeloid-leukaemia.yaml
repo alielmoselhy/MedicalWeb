@@ -1,0 +1,41 @@
+id: chronic-myeloid-leukaemia
+name: Chronic myeloid leukaemia (CML)
+parent: myeloproliferative-neoplasm
+group: myeloproliferative
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.387, 392", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: bcr-abl-fusion, to: myeloproliferative-signalling, note: "Defines the disease; peak age 40–60. Imatinib blocks the kinase: complete cytogenetic response in 70%", source: "K&C 10e p.392; Mehlman HY Heme-Onc"}
+  - {from: ionising-radiation, to: myeloproliferative-signalling, source: "K&C 10e p.387"}
+  - {from: myeloproliferative-signalling, to: bcr-abl-detected, note: "By cytogenetics in 95%, molecularly in 5%; PCR then tracks the response", source: "K&C 10e p.392"}
+  - {from: myeloproliferative-signalling, to: leucocytosis, note: "Usually over 100 ×10⁹/L; often found with no symptoms", source: "K&C 10e p.392"}
+  - {from: myeloproliferative-signalling, to: left-shifted-myeloid-film, note: "More blasts mean accelerated phase or blast crisis", source: "K&C 10e p.392; Mehlman HY Heme-Onc"}
+  - {from: myeloproliferative-signalling, to: splenomegaly, note: "Abdominal discomfort", source: "K&C 10e p.392"}
+  - {from: myeloproliferative-signalling, to: normocytic-anaemia, note: "Haemoglobin low or normal", source: "K&C 10e p.392"}
+  - [normocytic-anaemia, exertional-dyspnoea]
+  - {from: myeloproliferative-signalling, to: night-sweats, note: "Fever and sweats without infection", source: "K&C 10e p.392"}
+  - [myeloproliferative-signalling, fever]
+  - {from: myeloproliferative-signalling, to: leucostasis, source: "K&C 10e p.392"}
+  - [leucostasis, headache]
+  - [leucostasis, priapism]
+  - [leucostasis, subhyaloid-haemorrhage]
+  - {from: myeloproliferative-signalling, to: acute-myeloid-leukaemia, note: "Untreated: chronic, then accelerated phase, then blast crisis (75% myeloid, 25% lymphoid) in a median 3–4 years", source: "K&C 10e p.392"}
+  - [myeloproliferative-signalling, acute-lymphoblastic-leukaemia]
+  - [myeloproliferative-signalling, myelofibrosis]
+findings:
+  - {id: leucocytosis, freq: classic}
+  - {id: bcr-abl-detected, freq: classic}
+  - {id: left-shifted-myeloid-film, freq: classic}
+  - {id: splenomegaly, freq: common}
+  - {id: normocytic-anaemia, freq: common}
+  - {id: exertional-dyspnoea, freq: occasional}
+  - {id: night-sweats, freq: occasional}
+  - {id: fever, freq: occasional}
+  - {id: headache, freq: occasional}
+  - {id: subhyaloid-haemorrhage, freq: rare}
+outcomes:
+  - {id: acute-myeloid-leukaemia, source: "K&C 10e p.392"}
+  - {id: acute-lymphoblastic-leukaemia, source: "K&C 10e p.392"}
+  - {id: myelofibrosis, freq: rare, source: "K&C 10e p.392"}
+  - {id: priapism, freq: rare, source: "K&C 10e p.392"}

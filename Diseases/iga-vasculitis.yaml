@@ -1,0 +1,24 @@
+id: iga-vasculitis
+name: IgA vasculitis (Henoch–Schönlein purpura)
+parent: vasculitis
+group: vasculitis
+status: draft
+systems: [immunology, kidney-urogenital]
+sources: ["K&C 10e p.466", "K&C 10e p.1362", "K&C 10e p.1367", "Mehlman HY Renal"]
+chain:
+  - {from: immune-complex-deposition, to: iga-small-vessel-vasculitis, note: "IgA-rich deposits, mainly in children in exam questions", source: "K&C 10e p.466, 1367; Mehlman HY Renal"}
+  - {from: iga-small-vessel-vasculitis, to: palpable-purpura, note: "Buttocks and thighs", source: "K&C 10e p.1367; Mehlman HY Renal"}
+  - {from: iga-small-vessel-vasculitis, to: colicky-abdominal-pain, source: "K&C 10e p.1367"}
+  - [iga-small-vessel-vasculitis, arthralgia]
+  - {from: immune-complex-deposition, to: mesangial-iga-deposition, source: "K&C 10e p.1362, 1367"}
+  - {from: mesangial-iga-deposition, to: glomerulonephritis, note: "Renal signs in 30–70%, usually mild; mesangial IgA like IgA nephropathy. Supportive care; steroids don't help", source: "K&C 10e p.1367"}
+  - [glomerulonephritis, haematuria]
+  - {from: glomerulonephritis, to: acute-kidney-injury, note: "Occasionally, with crescents", source: "K&C 10e p.1367"}
+findings:
+  - {id: palpable-purpura, freq: classic}
+  - {id: colicky-abdominal-pain, freq: common}
+  - {id: arthralgia, freq: common}
+  - {id: haematuria, freq: common}
+outcomes:
+  - {id: glomerulonephritis, freq: common, source: "K&C 10e p.1367"}
+  - {id: acute-kidney-injury, freq: rare, source: "K&C 10e p.1367"}

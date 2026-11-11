@@ -1,0 +1,13 @@
+id: laryngeal-papillomatosis
+name: Laryngeal papillomatosis
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["K&C 10e p.1420", "Mehlman HY Pulmonary"]
+chain:
+  - {from: hpv-infection, to: laryngeal-wart-growth, note: "HPV 6 or 11 caught from the birth canal; these types don't turn malignant", source: "K&C 10e p.1420; Mehlman HY Pulmonary"}
+  - {from: laryngeal-wart-growth, to: stridor, note: "A young child", source: "Mehlman HY Pulmonary"}
+  - {from: laryngeal-wart-growth, to: papillary-laryngeal-growths, note: "Papillary structures on biopsy", source: "Mehlman HY Pulmonary"}
+findings:
+  - {id: stridor, freq: classic}
+  - {id: papillary-laryngeal-growths, freq: classic}

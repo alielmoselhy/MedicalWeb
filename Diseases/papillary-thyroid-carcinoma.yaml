@@ -1,0 +1,23 @@
+id: papillary-thyroid-carcinoma
+name: Papillary thyroid carcinoma
+parent: thyroid-cancer
+group: thyroid
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.621-622", "Mehlman HY Endocrine"]
+chain:
+  - {from: ionising-radiation, to: thyroid-follicular-cell-malignancy, note: "Previous head and neck irradiation or radioiodine exposure (post-Chernobyl); some familial", source: "K&C 10e p.622; Mehlman HY Endocrine"}
+  - {from: thyroid-follicular-cell-malignancy, to: thyroid-malignant-nodule, note: "70% of thyroid cancers; young people", source: "K&C 10e p.621"}
+  - [thyroid-malignant-nodule, thyroid-nodule]
+  - {from: thyroid-follicular-cell-malignancy, to: papillary-nuclear-features, source: "Mehlman HY Endocrine"}
+  - {from: thyroid-follicular-cell-malignancy, to: cervical-lymphadenopathy, note: "Spreads by lymphatics", source: "K&C 10e p.621; Mehlman HY Endocrine"}
+  - {from: thyroid-follicular-cell-malignancy, to: raised-thyroglobulin, note: "Total thyroidectomy, radioiodine ablation, TSH-suppressing levothyroxine; thyroglobulin tracks recurrence", source: "K&C 10e p.622"}
+  - {from: thyroid-follicular-cell-malignancy, to: metastatic-spread, note: "Sometimes lung or bone; prognosis good, best in the young", source: "K&C 10e p.621-622"}
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: thyroid-nodule, freq: classic}
+  - {id: papillary-nuclear-features, freq: classic}
+  - {id: cervical-lymphadenopathy, freq: common}
+  - {id: raised-thyroglobulin, freq: occasional, note: "Recurrence"}
+outcomes:
+  - {id: distant-metastases, freq: rare, source: "K&C 10e p.621"}

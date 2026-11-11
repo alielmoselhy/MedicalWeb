@@ -1,0 +1,26 @@
+id: prostatitis
+name: Prostatitis
+parent: urinary-tract-infection
+group: uti
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1384", "K&C 10e p.1479"]
+chain:
+  - {from: enterobacteriaceae, to: prostatic-infection, note: "The Gram-negatives of UTI", source: "K&C 10e p.1479"}
+  - {from: chlamydia-trachomatis, to: prostatic-infection, source: "K&C 10e p.1479"}
+  - {from: neisseria-gonorrhoeae, to: prostatic-infection, source: "K&C 10e p.1479"}
+  - {from: prostatic-infection, to: fever, note: "Acute prostatitis: admit for antibiotics", source: "K&C 10e p.1479"}
+  - {from: prostatic-infection, to: dysuria-frequency-urgency, source: "K&C 10e p.1479"}
+  - {from: prostatic-infection, to: perineal-pain, note: "Chronic pelvic pain syndrome (10–15% of men, mostly non-bacterial) is pain over 3 months", source: "K&C 10e p.1384, 1479"}
+  - {from: prostatic-infection, to: tender-swollen-prostate, source: "K&C 10e p.1384, 1479"}
+  - {from: prostatic-infection, to: dysregulated-host-response, note: "Untreated: sepsis", source: "K&C 10e p.1479"}
+  - [dysregulated-host-response, septic-shock]
+  - {from: prostatic-infection, to: epididymo-orchitis, note: "Chronic bacterial prostatitis relapses; 4–6 weeks of trimethoprim or ciprofloxacin", source: "K&C 10e p.1384"}
+findings:
+  - {id: perineal-pain, freq: classic}
+  - {id: tender-swollen-prostate, freq: classic}
+  - {id: fever, freq: common}
+  - {id: dysuria-frequency-urgency, freq: common}
+outcomes:
+  - {id: septic-shock, freq: rare, source: "K&C 10e p.1479"}
+  - {id: epididymo-orchitis, freq: occasional, source: "K&C 10e p.1384"}

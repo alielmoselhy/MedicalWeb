@@ -1,0 +1,12 @@
+id: gestational-trophoblastic-disease
+name: Gestational trophoblastic disease
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.106, 1452", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: trophoblastic-proliferation, to: very-high-beta-hcg, note: "Umbrella for moles and choriocarcinoma; hCG in the hundreds of thousands, in contrast to a low hCG in ectopic", source: "K&C 10e p.106, 1452; Mehlman HY Repro-OBGYN"}
+  - {from: trophoblastic-proliferation, to: theca-lutein-cysts, note: "From the high hCG; usually regress", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: very-high-beta-hcg, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: theca-lutein-cysts, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

@@ -1,0 +1,32 @@
+id: aplastic-anaemia
+name: Aplastic anaemia
+group: anaemia
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.336-337", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: t-cell-attack-on-stem-cells, to: haematopoietic-stem-cell-failure, note: "Idiopathic acquired disease is 67% and immune-mediated; ATG plus ciclosporin works in 60–80%", source: "K&C 10e p.336-337"}
+  - {from: cytotoxic-chemotherapy, to: haematopoietic-stem-cell-failure, note: "Expected and transient", source: "K&C 10e p.336; Mehlman HY Heme-Onc"}
+  - [ionising-radiation, haematopoietic-stem-cell-failure]
+  - {from: idiosyncratic-marrow-drug, to: haematopoietic-stem-cell-failure, note: "A rare reaction to non-cytotoxic drugs; also benzene and insecticides", source: "K&C 10e p.336-337"}
+  - {from: parvovirus-b19, to: haematopoietic-stem-cell-failure, note: "Infects progenitors of all three lines", source: "K&C 10e p.336; Mehlman HY Heme-Onc"}
+  - {from: hepatitis-virus, to: haematopoietic-stem-cell-failure, source: "K&C 10e p.336; Mehlman HY Heme-Onc"}
+  - {from: hiv, to: haematopoietic-stem-cell-failure, source: "K&C 10e p.336"}
+  - {from: fanconi-anaemia-gene, to: haematopoietic-stem-cell-failure, note: "Presents at 5–10 years with skeletal (absent thumbs or radii), skin and renal anomalies; raised cancer risk", source: "K&C 10e p.337; Mehlman HY Heme-Onc"}
+  - {from: haematopoietic-stem-cell-failure, to: pancytopenia, note: "Reticulocytes virtually absent. Severe if two of: neutrophils < 0.5, platelets < 20, reticulocytes < 40 ×10⁹/L", source: "K&C 10e p.337"}
+  - {from: haematopoietic-stem-cell-failure, to: hypocellular-marrow, note: "A trephine is essential; stem cell transplant if under 40 with a matched sibling", source: "K&C 10e p.337"}
+  - [haematopoietic-stem-cell-failure, anaemic-hypoxia]
+  - [haematopoietic-stem-cell-failure, reduced-platelet-production]
+  - [haematopoietic-stem-cell-failure, neutrophil-deficit]
+  - {from: reduced-platelet-production, to: mucocutaneous-bleeding, note: "Often the first sign: bruising, mouth blood blisters, bleeding gums, epistaxis", source: "K&C 10e p.337"}
+  - {from: neutrophil-deficit, to: neutropenic-sepsis, note: "Any fever with neutrophils < 0.5: immediate IV broad-spectrum antibiotics", source: "K&C 10e p.337; Mehlman HY Heme-Onc"}
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, pallor]
+findings:
+  - {id: pancytopenia, freq: classic, note: "Lymphadenopathy and hepatosplenomegaly are rare", source: "K&C 10e p.337"}
+  - {id: hypocellular-marrow, freq: classic}
+  - {id: mucocutaneous-bleeding, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: pallor, freq: common}
+outcomes:
+  - {id: neutropenic-sepsis, note: "Infection and bleeding are the usual causes of death", source: "K&C 10e p.337"}

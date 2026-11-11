@@ -1,0 +1,28 @@
+id: multinodular-goitre
+name: Multinodular goitre
+group: thyroid
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.612", "K&C 10e p.614-615", "K&C 10e p.619-621", "Mehlman HY Endocrine"]
+chain:
+  - {from: iodine-deficiency, to: thyroid-follicular-hyperplasia, note: "Borderline hormone lack raises TSH, which enlarges the gland", source: "K&C 10e p.612"}
+  - {from: older-age, to: thyroid-follicular-hyperplasia, note: "Commonest goitre in older people; goitre in up to 9% overall", source: "K&C 10e p.619-620"}
+  - {from: thyroid-follicular-hyperplasia, to: nodular-goitre, note: "Usually euthyroid; small nodules on ultrasound in 40% of normal people", source: "K&C 10e p.620"}
+  - {from: thyroid-follicular-hyperplasia, to: thyroid-mass-compression, note: "The commonest cause of tracheal or oesophageal compression; may go retrosternal; surgery for pressure", source: "K&C 10e p.620-621"}
+  - {from: thyroid-mass-compression, to: stridor-tracheal-compression, source: "K&C 10e p.620"}
+  - [thyroid-mass-compression, dysphagia]
+  - {from: thyroid-follicular-hyperplasia, to: hormone-secreting-adenoma, note: "Autonomous hot nodules: toxic MNG, mostly older women; drugs rarely bring remission", source: "K&C 10e p.615; Mehlman HY Endocrine"}
+  - [hormone-secreting-adenoma, thyroid-hormone-excess]
+  - [hormone-secreting-adenoma, hot-nodule-uptake]
+  - [thyroid-hormone-excess, suppressed-tsh-raised-t4]
+  - [thyroid-hormone-excess, hyperthyroidism]
+  - {from: thyroid-follicular-hyperplasia, to: thyroid-cancer, note: "A dominant nodule is malignant in about 5%: ultrasound and FNA", source: "K&C 10e p.621"}
+findings:
+  - {id: nodular-goitre, freq: classic, source: "K&C 10e p.620"}
+  - {id: stridor-tracheal-compression, freq: occasional}
+  - {id: dysphagia, freq: occasional}
+  - {id: hot-nodule-uptake, freq: occasional}
+  - {id: suppressed-tsh-raised-t4, freq: occasional, note: "Often only subclinical (low TSH, normal T4)", source: "K&C 10e p.620"}
+outcomes:
+  - {id: hyperthyroidism, freq: occasional, source: "K&C 10e p.615"}
+  - {id: thyroid-cancer, freq: rare, source: "K&C 10e p.621"}

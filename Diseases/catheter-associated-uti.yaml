@@ -1,0 +1,23 @@
+id: catheter-associated-uti
+name: Catheter-associated urinary tract infection
+parent: urinary-tract-infection
+group: uti
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1381-1384", "Mehlman HY Renal"]
+chain:
+  - {from: urinary-catheter, to: catheter-biofilm, note: "Colonised within days of insertion", source: "K&C 10e p.1382, 1384"}
+  - {from: pseudomonas-aeruginosa, to: catheter-biofilm, source: "K&C 10e p.1383"}
+  - {from: enterococci, to: catheter-biofilm, source: "K&C 10e p.1381"}
+  - {from: candida, to: catheter-biofilm, note: "Prolonged catheters; treat only if invasive or immunosuppressed", source: "K&C 10e p.1384"}
+  - {from: catheter-biofilm, to: ascending-urinary-infection, note: "Treat only if symptomatic; antibiotics fail while the catheter stays, so remove or replace it", source: "K&C 10e p.1384"}
+  - {from: catheter-biofilm, to: significant-bacteriuria, note: "Bacteriuria alone is colonisation", source: "K&C 10e p.1384"}
+  - [ascending-urinary-infection, fever]
+  - {from: ascending-urinary-infection, to: dysuria-frequency-urgency, source: "Mehlman HY Renal"}
+  - {from: ascending-urinary-infection, to: bacteraemia, note: "A major source of Gram-negative septicaemia in hospital", source: "K&C 10e p.1383"}
+findings:
+  - {id: significant-bacteriuria, freq: classic}
+  - {id: fever, freq: common}
+  - {id: dysuria-frequency-urgency, freq: occasional}
+outcomes:
+  - {id: bacteraemia, freq: occasional, source: "K&C 10e p.1383"}

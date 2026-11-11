@@ -1,0 +1,17 @@
+id: spondyloarthritis
+name: Spondyloarthritis
+group: arthritis
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.447-448", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: hla-b27, to: enthesitis, note: "B27 in over 90% of white people with AS against 8% of controls; it misfolds and drives the IL-23–IL-17 axis. PAIR: psoriatic, AS, IBD, reactive", source: "K&C 10e p.448; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: enthesitis, to: asymmetrical-oligoarthritis, note: "Fewer joints than RA, different pattern; synovitis looks like RA but RF and ACPA are negative", source: "K&C 10e p.447-448"}
+  - {from: enthesitis, to: sacroiliitis-bamboo-spine, note: "Sacroiliitis is more frequent in all types; ankylosis commoner than in RA", source: "K&C 10e p.448"}
+  - [enthesitis, raised-inflammatory-markers]
+  - {from: hla-b27, to: anterior-uveitis, note: "Seen in all types, about 30%; painful red eye with photophobia is an emergency", source: "K&C 10e p.448 (Box 18.36)"}
+findings:
+  - {id: asymmetrical-oligoarthritis, freq: common}
+  - {id: sacroiliitis-bamboo-spine, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: anterior-uveitis, freq: occasional}

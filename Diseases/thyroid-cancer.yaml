@@ -1,0 +1,21 @@
+id: thyroid-cancer
+name: Thyroid cancer
+group: thyroid
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.621-622", "Mehlman HY Endocrine"]
+chain:
+  - {from: iodine-deficiency, to: thyroid-malignant-nodule, note: "Long-standing deficiency is a risk factor, with previous irradiation", source: "K&C 10e p.621"}
+  - {from: thyroid-malignant-nodule, to: thyroid-nodule, note: "90% present as a nodule; over 75% women; most painless and slow-growing", source: "K&C 10e p.621"}
+  - {from: thyroid-malignant-nodule, to: cold-nodule, note: "Patients are euthyroid; a cold nodule is malignant in 10%", source: "K&C 10e p.621; Mehlman HY Endocrine"}
+  - {from: thyroid-malignant-nodule, to: thyroid-fna-cytology, note: "TFTs, then ultrasound with FNA; FNA has a 5% false-negative rate", source: "K&C 10e p.621; Mehlman HY Endocrine"}
+  - {from: thyroid-malignant-nodule, to: cervical-lymphadenopathy, note: "The presenting feature in about 5%", source: "K&C 10e p.621"}
+  - {from: thyroid-malignant-nodule, to: metastatic-spread, note: "Occasionally presents with lung, brain, liver or bone metastases", source: "K&C 10e p.621"}
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: thyroid-nodule, freq: classic, source: "K&C 10e p.621"}
+  - {id: cold-nodule, freq: common}
+  - {id: thyroid-fna-cytology, freq: classic}
+  - {id: cervical-lymphadenopathy, freq: occasional}
+outcomes:
+  - {id: distant-metastases, freq: occasional, source: "K&C 10e p.621"}

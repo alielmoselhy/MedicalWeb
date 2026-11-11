@@ -1,0 +1,27 @@
+id: burkitt-lymphoma
+name: Burkitt lymphoma
+group: high-grade-lymphoma
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.401-405", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: ebv-infection, to: viral-oncogenesis, note: "Very strong link with endemic Burkitt, weaker with sporadic", source: "K&C 10e p.401"}
+  - [viral-oncogenesis, lymphoid-clonal-expansion]
+  - {from: hiv, to: lymphoid-clonal-expansion, note: "The HIV-associated type", source: "K&C 10e p.404"}
+  - {from: myc-translocation, to: lymphoid-clonal-expansion, note: "MYC moved beside the IGH locus: the fastest-growing lymphoma. Male to female 3:1", source: "K&C 10e p.402, 404; Mehlman HY Heme-Onc"}
+  - [lymphoid-clonal-expansion, myc-translocation-detected]
+  - {from: lymphoid-clonal-expansion, to: starry-sky-histology, source: "Mehlman HY Heme-Onc"}
+  - {from: lymphoid-clonal-expansion, to: jaw-mass, note: "Endemic type in young African children, matching the distribution of malaria", source: "K&C 10e p.404; Mehlman HY Heme-Onc"}
+  - {from: lymphoid-clonal-expansion, to: abdominal-mass, note: "Often with marrow involvement; CNS, kidney and testis also", source: "K&C 10e p.404; Mehlman HY Heme-Onc"}
+  - [lymphoid-clonal-expansion, high-cell-turnover]
+  - [high-cell-turnover, hyperuricaemia]
+  - {from: high-cell-turnover, to: tumour-lysis-syndrome, note: "Give rasburicase; check potassium and phosphate closely for 72 h. Intensive chemotherapy cures about 90% of low-risk cases", source: "K&C 10e p.404-405"}
+  - [tumour-lysis-syndrome, acute-kidney-injury]
+findings:
+  - {id: starry-sky-histology, freq: classic}
+  - {id: myc-translocation-detected, freq: classic}
+  - {id: abdominal-mass, freq: common}
+  - {id: jaw-mass, freq: common}
+  - {id: hyperuricaemia, freq: common}
+outcomes:
+  - {id: tumour-lysis-syndrome, freq: common, source: "K&C 10e p.404"}

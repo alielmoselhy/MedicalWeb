@@ -1,0 +1,31 @@
+id: focal-segmental-glomerulosclerosis
+name: Focal segmental glomerulosclerosis (FSGS)
+parent: nephrotic-syndrome
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1355-1357", "Mehlman HY Renal"]
+chain:
+  - {from: hiv, to: podocyte-injury, note: "Collapsing FSGS (HIV-associated nephropathy), young black patients; early antiretrovirals can reverse it", source: "K&C 10e p.1355-1357"}
+  - {from: heroin-use, to: podocyte-injury, note: "Also interferons, anabolic steroids, lithium, calcineurin inhibitors", source: "K&C 10e p.1356; Mehlman HY Renal"}
+  - {from: apol1-risk-variant, to: podocyte-injury, note: "Susceptibility to FSGS with hypertension, SLE or HIV", source: "K&C 10e p.1356"}
+  - {from: nephron-loss, to: glomerular-hyperfiltration, note: "Secondary FSGS: the common end lesion of reduced nephron number (nephrectomy, reflux, scarring)", source: "K&C 10e p.1356"}
+  - {from: obesity, to: glomerular-hyperfiltration, source: "K&C 10e p.1356"}
+  - {from: sickle-cell-disease, to: glomerular-hyperfiltration, note: "Sickle nephropathy; nephrotic syndrome in sickle cell suggests FSGS", source: "K&C 10e p.1356; Mehlman HY Renal"}
+  - {from: glomerular-hyperfiltration, to: podocyte-injury, note: "Hydraulic strain on the remaining glomeruli", source: "K&C 10e p.1356"}
+  - {from: podocyte-injury, to: segmental-glomerulosclerosis, note: "Deep juxtamedullary glomeruli go first, so a biopsy can miss it and suggest minimal change", source: "K&C 10e p.1355"}
+  - [podocyte-injury, urinary-protein-loss]
+  - {from: urinary-protein-loss, to: nephrotic-range-proteinuria, note: "Non-selective; hypoalbuminaemia unusual in secondary FSGS", source: "K&C 10e p.1355"}
+  - [urinary-protein-loss, hypoalbuminaemia]
+  - [urinary-protein-loss, salt-water-retention]
+  - [salt-water-retention, peripheral-oedema]
+  - {from: podocyte-injury, to: haematuria, note: "Primary FSGS: with hypertension and renal impairment", source: "K&C 10e p.1355"}
+  - {from: podocyte-injury, to: chronic-kidney-disease, note: "Often steroid-resistant; about half reach ESKD in 10 years; recurs in transplants", source: "K&C 10e p.1355-1356"}
+findings:
+  - {id: nephrotic-range-proteinuria, freq: classic}
+  - {id: segmental-glomerulosclerosis, freq: classic}
+  - {id: hypoalbuminaemia, freq: common}
+  - {id: peripheral-oedema, freq: common}
+  - {id: haematuria, freq: common}
+outcomes:
+  - {id: chronic-kidney-disease, freq: common, source: "K&C 10e p.1356"}

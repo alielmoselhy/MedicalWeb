@@ -1,0 +1,24 @@
+id: scabies
+name: Scabies
+group: skin-soft-tissue-infection
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.674-675"]
+chain:
+  - {from: sarcoptes-scabiei, to: mite-infestation-hypersensitivity, note: "Close or prolonged contact (households, care homes, sex); 300 million cases a year, worst with overcrowding", source: "K&C 10e p.674-675"}
+  - {from: mite-infestation-hypersensitivity, to: burrows, note: "The diagnostic sign, though not always seen; mites or eggs in scrapings confirm it", source: "K&C 10e p.675"}
+  - {from: mite-infestation-hypersensitivity, to: pruritus, note: "Intense, worse at night", source: "K&C 10e p.675"}
+  - {from: mite-infestation-hypersensitivity, to: scabies-papules, note: "Permethrin overnight to all skin below the neck, repeated after a week; treat all contacts at once", source: "K&C 10e p.675"}
+  - {from: mite-infestation-hypersensitivity, to: crusted-scabies, note: "Elderly or immunocompromised; huge mite load, little itch, crusted hands and feet; very contagious; oral ivermectin", source: "K&C 10e p.675"}
+  - {from: mite-infestation-hypersensitivity, to: impetigo, note: "Secondary bacterial infection", source: "K&C 10e p.675"}
+  - {from: mite-infestation-hypersensitivity, to: post-streptococcal-glomerulonephritis, note: "Listed among scabies' infectious complications, a big burden in poor countries", source: "K&C 10e p.674"}
+  - {from: mite-infestation-hypersensitivity, to: rheumatic-fever, source: "K&C 10e p.674"}
+findings:
+  - {id: pruritus, freq: classic, source: "K&C 10e p.675"}
+  - {id: scabies-papules, freq: classic, source: "K&C 10e p.675"}
+  - {id: burrows, freq: common, source: "K&C 10e p.675"}
+outcomes:
+  - {id: crusted-scabies, freq: rare, source: "K&C 10e p.675"}
+  - {id: impetigo, freq: common, source: "K&C 10e p.675"}
+  - {id: post-streptococcal-glomerulonephritis, freq: rare, source: "K&C 10e p.674"}
+  - {id: rheumatic-fever, freq: rare, source: "K&C 10e p.674"}

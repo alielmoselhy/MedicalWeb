@@ -25,7 +25,6 @@ chain:
 findings:
   - {id: anti-ttg-ema, freq: classic, note: "95% sensitive; IgA-based, so check IgA level if negative (IgA deficiency is commoner in coeliac). Must be eating gluten", source: "K&C 10e p.1190-1191; Mehlman HY Gastro"}
   - {id: villous-atrophy-biopsy, freq: classic, note: "4–6 biopsies from D2 and the bulb; Marsh 2–3 supports the diagnosis", source: "K&C 10e p.1190"}
-  - {id: iron-deficiency-anaemia, freq: common, note: "Anaemia in 50%; folate deficiency often raises the MCV", source: "K&C 10e p.1191"}
   - {id: b12-folate-deficiency, freq: common}
   - {id: fatigue, freq: common, note: "Often silent or vague: tiredness, IBS-like symptoms; peak diagnosis in the 40s, more women", source: "K&C 10e p.1190"}
   - {id: diarrhoea, freq: common}
@@ -38,3 +37,4 @@ outcomes:
   - {id: enteropathy-t-cell-lymphoma, freq: rare, note: "In refractory disease", source: "K&C 10e p.1191"}
   - {id: oesophageal-squamous-cell-carcinoma, freq: rare, note: "Small bowel adenocarcinoma too; a gluten-free diet lowers the risk", source: "K&C 10e p.1191"}
   - {id: primary-biliary-cholangitis, freq: rare, note: "Also type 1 diabetes, thyroid disease, IBD", source: "K&C 10e p.1190"}
+  - {id: iron-deficiency-anaemia, freq: common, note: "Anaemia in 50%; folate deficiency often raises the MCV", source: "K&C 10e p.1191"}

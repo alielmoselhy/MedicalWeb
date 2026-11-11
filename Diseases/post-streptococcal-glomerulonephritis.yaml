@@ -1,0 +1,33 @@
+id: post-streptococcal-glomerulonephritis
+name: Post-streptococcal glomerulonephritis
+parent: glomerulonephritis
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1353", "K&C 10e p.1360-1361", "Mehlman HY Renal"]
+chain:
+  - {from: group-a-streptococcus, to: immune-complex-deposition, note: "1–3 weeks after a nephritogenic throat, ear or skin infection (impetigo, cellulitis); mainly children; now rare in rich countries", source: "K&C 10e p.1360; Mehlman HY Renal"}
+  - {from: group-a-streptococcus, to: raised-aso-titre, source: "K&C 10e p.1353"}
+  - {from: immune-complex-deposition, to: low-complement, source: "K&C 10e p.1353; Mehlman HY Renal"}
+  - {from: immune-complex-deposition, to: post-infectious-humps, note: "Same picture after other infections (Staph, pneumococcus, hepatitis B/C, EBV, malaria)", source: "K&C 10e p.1360-1361"}
+  - [immune-complex-deposition, glomerular-inflammation]
+  - [glomerular-inflammation, haematuria]
+  - [glomerular-inflammation, red-cell-casts]
+  - [glomerular-inflammation, raised-blood-pressure]
+  - [glomerular-inflammation, oliguria-anuria]
+  - [glomerular-inflammation, salt-water-retention]
+  - [salt-water-retention, periorbital-oedema]
+  - {from: glomerular-inflammation, to: acute-kidney-injury, note: "Supportive: BP control, diuretics, dialysis if needed", source: "K&C 10e p.1361"}
+  - {from: glomerular-inflammation, to: chronic-kidney-disease, note: "Children do well; a few adults get hypertension or CKD later", source: "K&C 10e p.1361"}
+findings:
+  - {id: haematuria, freq: classic, note: "Red or cola urine; IgA nephropathy follows the infection within days instead", source: "Mehlman HY Renal"}
+  - {id: red-cell-casts, freq: common}
+  - {id: raised-aso-titre, freq: common}
+  - {id: low-complement, freq: common}
+  - {id: periorbital-oedema, freq: common}
+  - {id: raised-blood-pressure, freq: common}
+  - {id: oliguria-anuria, freq: common}
+  - {id: post-infectious-humps, freq: classic}
+outcomes:
+  - {id: acute-kidney-injury, freq: occasional, source: "K&C 10e p.1361"}
+  - {id: chronic-kidney-disease, freq: rare, source: "K&C 10e p.1361"}

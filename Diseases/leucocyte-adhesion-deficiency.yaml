@@ -1,0 +1,18 @@
+id: leucocyte-adhesion-deficiency
+name: Leucocyte adhesion deficiency (LAD)
+group: immunodeficiency
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.62", "Mehlman HY Immuno"]
+chain:
+  - {from: cd18-integrin-defect, to: leucocyte-migration-defect, note: "Autosomal recessive (LAD-1). Stem cell transplant cures", source: "K&C 10e p.62; Mehlman HY Immuno"}
+  - {from: leucocyte-migration-defect, to: delayed-cord-separation, note: "Right after birth", source: "K&C 10e p.62; Mehlman HY Immuno"}
+  - {from: leucocyte-migration-defect, to: leucocytosis, note: "Neutrophils high in blood but absent from infected sites: no pus", source: "K&C 10e p.62; Mehlman HY Immuno"}
+  - [leucocyte-migration-defect, severe-gingivitis]
+  - {from: leucocyte-migration-defect, to: recurrent-infection, note: "In the first decade", source: "K&C 10e p.62"}
+findings:
+  - {id: delayed-cord-separation, freq: classic}
+  - {id: leucocytosis, freq: classic}
+  - {id: severe-gingivitis, freq: common}
+outcomes:
+  - {id: recurrent-infection, freq: classic, source: "K&C 10e p.62"}

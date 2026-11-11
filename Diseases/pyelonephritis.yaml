@@ -1,0 +1,33 @@
+id: pyelonephritis
+name: Acute pyelonephritis
+parent: urinary-tract-infection
+group: uti
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1382-1385", "K&C 10e p.1389", "Mehlman HY Renal"]
+chain:
+  - {from: ascending-urinary-infection, to: renal-parenchymal-infection, note: "Cortical micro-abscesses, pus in the medulla", source: "K&C 10e p.1383"}
+  - {from: enterobacteriaceae, to: ascending-urinary-infection, source: "K&C 10e p.1381; Mehlman HY Renal"}
+  - {from: proteus-mirabilis, to: ascending-urinary-infection, note: "With staghorn stones: xanthogranulomatous pyelonephritis", source: "K&C 10e p.1385"}
+  - {from: vesicoureteric-reflux, to: renal-parenchymal-infection, note: "Infancy or early childhood; reflux stops around puberty", source: "K&C 10e p.1383; Mehlman HY Renal"}
+  - {from: pregnancy, to: renal-parenchymal-infection, note: "Hormonal ureteric dilation; screen and always treat bacteriuria; risk of preterm labour", source: "K&C 10e p.1384"}
+  - {from: urinary-outflow-obstruction, to: renal-parenchymal-infection, note: "Obstructed pyonephrosis: urgent ultrasound, drain by nephrostomy", source: "K&C 10e p.1384"}
+  - {from: renal-parenchymal-infection, to: fever, note: "IV antibiotics (e.g. cefuroxime, ciprofloxacin, gentamicin) then oral", source: "K&C 10e p.1382, 1384"}
+  - {from: renal-parenchymal-infection, to: loin-pain, note: "Flank (costovertebral angle) tenderness", source: "K&C 10e p.1382; Mehlman HY Renal"}
+  - [renal-parenchymal-infection, rigors]
+  - {from: renal-parenchymal-infection, to: white-cell-casts, source: "Mehlman HY Renal"}
+  - [ascending-urinary-infection, significant-bacteriuria]
+  - {from: renal-parenchymal-infection, to: dysregulated-host-response, note: "Septicaemia can be fatal", source: "K&C 10e p.1382"}
+  - [dysregulated-host-response, septic-shock]
+  - {from: renal-parenchymal-infection, to: acute-kidney-injury, note: "Bilateral, or in a single kidney", source: "K&C 10e p.1389"}
+  - {from: renal-parenchymal-infection, to: chronic-kidney-disease, note: "Reflux nephropathy: scarred kidneys and clubbed calyces; hypertension and ESKD. Rare with a normal adult tract", only: vesicoureteric-reflux, source: "K&C 10e p.1383"}
+findings:
+  - {id: fever, freq: classic}
+  - {id: loin-pain, freq: classic}
+  - {id: rigors, freq: common}
+  - {id: significant-bacteriuria, freq: common}
+  - {id: white-cell-casts, freq: occasional}
+outcomes:
+  - {id: septic-shock, freq: occasional, source: "K&C 10e p.1382"}
+  - {id: acute-kidney-injury, freq: rare, source: "K&C 10e p.1389"}
+  - {id: chronic-kidney-disease, freq: occasional, only: vesicoureteric-reflux, source: "K&C 10e p.1383"}

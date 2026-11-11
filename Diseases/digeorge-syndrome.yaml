@@ -1,0 +1,24 @@
+id: digeorge-syndrome
+name: DiGeorge syndrome (22q11 deletion)
+group: immunodeficiency
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.60", "Mehlman HY Immuno"]
+chain:
+  - {from: del-22q11, to: pharyngeal-pouch-maldevelopment, note: "1–5 per 100 000. CATCH-22: cardiac, abnormal facies, thymic, cleft, hypocalcaemia", source: "K&C 10e p.60; Mehlman HY Immuno"}
+  - {from: pharyngeal-pouch-maldevelopment, to: t-cell-deficiency, note: "No thymus, so few T cells; antibody levels usually normal. Thymic or stem cell transplant can cure", source: "K&C 10e p.60; Mehlman HY Immuno"}
+  - [pharyngeal-pouch-maldevelopment, absent-thymic-shadow]
+  - [t-cell-deficiency, low-t-cells]
+  - [t-cell-deficiency, opportunistic-infection]
+  - {from: pharyngeal-pouch-maldevelopment, to: hypoparathyroidism, note: "Parathyroids come from the same pouches", source: "K&C 10e p.60; Mehlman HY Immuno"}
+  - {from: hypoparathyroidism, to: hypocalcaemia, note: "Positive Chvostek and Trousseau signs; calcium supplements", source: "K&C 10e p.60; Mehlman HY Immuno"}
+  - {from: del-22q11, to: conotruncal-heart-defect, source: "K&C 10e p.60; Mehlman HY Immuno"}
+  - [del-22q11, catch22-facies]
+findings:
+  - {id: hypocalcaemia, freq: classic}
+  - {id: conotruncal-heart-defect, freq: common}
+  - {id: catch22-facies, freq: common}
+  - {id: low-t-cells, freq: common}
+  - {id: absent-thymic-shadow, freq: common}
+outcomes:
+  - {id: opportunistic-infection, freq: common, source: "K&C 10e p.60"}

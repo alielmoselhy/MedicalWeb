@@ -1,0 +1,32 @@
+id: adpkd
+name: Autosomal dominant polycystic kidney disease
+group: cystic-neoplastic-renal
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1405-1406", "Mehlman HY Renal"]
+chain:
+  - {from: pkd-gene-mutation, to: renal-cyst-formation, note: "Commonest inherited nephropathy (1 in 400–1000); presents in adulthood; screen children and siblings", source: "K&C 10e p.1405; Mehlman HY Renal"}
+  - {from: renal-cyst-formation, to: enlarged-cystic-kidneys, note: "Simple cysts are common with age (half over 50) and harmless", source: "K&C 10e p.1405"}
+  - {from: renal-cyst-formation, to: abdominal-mass, note: "Large irregular kidneys, often with hepatomegaly", source: "K&C 10e p.1405"}
+  - {from: renal-cyst-formation, to: loin-pain, note: "Bleeding into or infection of a cyst", source: "K&C 10e p.1405"}
+  - {from: renal-cyst-formation, to: haematuria, source: "K&C 10e p.1405"}
+  - {from: renal-cyst-formation, to: raas-activation, note: "Cysts compress intrarenal vessels", source: "K&C 10e p.1405; Mehlman HY Renal"}
+  - {from: raas-activation, to: secondary-hypertension, note: "Early and very common; ACE inhibitor first; LVH and cardiovascular death", source: "K&C 10e p.1405"}
+  - {from: renal-cyst-formation, to: nephron-loss, note: "GFR falls about 5 mL/min a year once under 50; only 30% dialysis-free at 70; vaptans slow it", source: "K&C 10e p.1405"}
+  - [nephron-loss, chronic-kidney-disease]
+  - {from: renal-cyst-formation, to: urinary-stone-formation, note: "Stones in 10–20%, often uric acid", source: "K&C 10e p.1374, 1405"}
+  - [urinary-stone-formation, renal-calculi-nephrocalcinosis]
+  - {from: pkd-gene-mutation, to: berry-aneurysm, note: "About 10%; twice as common with a family history; screen only then (BP checks instead)", source: "K&C 10e p.1405; Mehlman HY Renal"}
+  - [berry-aneurysm, subarachnoid-haemorrhage]
+  - {from: pkd-gene-mutation, to: polycystic-liver, note: "Liver cysts in about 30–50%; mitral valve prolapse in 20%", source: "K&C 10e p.1405"}
+findings:
+  - {id: enlarged-cystic-kidneys, freq: classic}
+  - {id: abdominal-mass, freq: common}
+  - {id: loin-pain, freq: common}
+  - {id: haematuria, freq: common}
+outcomes:
+  - {id: chronic-kidney-disease, freq: common, source: "K&C 10e p.1405"}
+  - {id: secondary-hypertension, freq: common, source: "K&C 10e p.1405"}
+  - {id: subarachnoid-haemorrhage, freq: occasional, source: "K&C 10e p.1405"}
+  - {id: polycystic-liver, freq: common, source: "K&C 10e p.1405"}
+  - {id: renal-calculi-nephrocalcinosis, freq: occasional, source: "K&C 10e p.1405"}

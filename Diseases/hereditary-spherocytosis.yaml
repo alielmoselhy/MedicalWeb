@@ -1,0 +1,37 @@
+id: hereditary-spherocytosis
+name: Hereditary spherocytosis
+parent: chronic-haemolysis
+group: haemolysis
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.338-340", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: spectrin-ankyrin-mutation, to: red-cell-membrane-defect, note: "Commonest inherited haemolytic anaemia in Northern Europeans (1 in 5000); usually autosomal dominant; ankyrin defects commonest", source: "K&C 10e p.338, 340; Mehlman HY Heme-Onc"}
+  - {from: red-cell-membrane-defect, to: spherocytes, note: "Cells lose membrane in the spleen and become spheres. DAT is negative, which rules out AIHA", source: "K&C 10e p.338-339"}
+  - {from: red-cell-membrane-defect, to: extravascular-haemolysis, note: "Splenectomy restores the Hb (spherocytes persist); delay until after childhood, vaccinate and give lifelong penicillin", source: "K&C 10e p.339-340"}
+  - [extravascular-haemolysis, splenomegaly]
+  - [extravascular-haemolysis, haemolytic-anaemia]
+  - [extravascular-haemolysis, unconjugated-hyperbilirubinaemia]
+  - {from: extravascular-haemolysis, to: jaundice, note: "May be present at birth or delayed for years; some are found only on family studies", source: "K&C 10e p.338"}
+  - [extravascular-haemolysis, erythroid-hyperplasia]
+  - [erythroid-hyperplasia, reticulocytosis]
+  - {from: erythroid-hyperplasia, to: folate-deficiency-anaemia, note: "Megaloblastic crisis", source: "K&C 10e p.338"}
+  - {from: extravascular-haemolysis, to: pigment-stone-formation, source: "K&C 10e p.338; Mehlman HY Heme-Onc"}
+  - [pigment-stone-formation, gallstone-disease]
+  - {from: parvovirus-b19, to: aplastic-crisis, source: "K&C 10e p.338"}
+  - [extravascular-haemolysis, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, pallor]
+findings:
+  - {id: spherocytes, freq: classic}
+  - {id: haemolytic-anaemia, freq: classic, note: "Usually mild; normocytic", source: "K&C 10e p.338; Mehlman HY Heme-Onc"}
+  - {id: reticulocytosis, freq: common}
+  - {id: splenomegaly, freq: common}
+  - {id: unconjugated-hyperbilirubinaemia, freq: common}
+  - {id: jaundice, freq: common}
+  - {id: fatigue, freq: occasional}
+  - {id: pallor, freq: occasional}
+outcomes:
+  - {id: gallstone-disease, source: "K&C 10e p.338"}
+  - {id: aplastic-crisis, source: "K&C 10e p.338"}
+  - {id: folate-deficiency-anaemia, source: "K&C 10e p.338"}

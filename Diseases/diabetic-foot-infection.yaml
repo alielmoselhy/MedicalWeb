@@ -1,0 +1,16 @@
+id: diabetic-foot-infection
+name: Diabetic foot infection
+group: bone-joint-infection
+status: draft
+systems: [bone-joint, endocrine]
+sources: ["K&C 10e p.484", "K&C 10e p.733-734"]
+chain:
+  - {from: diabetic-foot-ulcer, to: spread-from-ulcer-or-wound, note: "Neuropathy hides the injury and ischaemia stops healing; spreads fast, so treat it as an emergency (a 'foot attack')", source: "K&C 10e p.733-734"}
+  - {from: spread-from-ulcer-or-wound, to: foot-infection-signs, note: "Take deep samples: surface swabs may grow the wrong organism. Early broad-spectrum antibiotics, drain pus", source: "K&C 10e p.734"}
+  - {from: spread-from-ulcer-or-wound, to: osteomyelitis, note: "Excise infected bone if it fails antibiotics; follow with serial foot X-rays", source: "K&C 10e p.484, 734"}
+  - {from: spread-from-ulcer-or-wound, to: gangrene-amputation, note: "Diabetes is the commonest cause of non-traumatic amputation", source: "K&C 10e p.733"}
+findings:
+  - {id: foot-infection-signs, freq: classic}
+outcomes:
+  - osteomyelitis
+  - gangrene-amputation

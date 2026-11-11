@@ -1,0 +1,27 @@
+id: c-difficile-infection
+name: Clostridioides difficile infection
+group: healthcare-associated-infection
+status: draft
+systems: [infection, gastrointestinal]
+sources: ["K&C 10e p.507", "K&C 10e p.542"]
+chain:
+  - {from: antibiotic-exposure, to: gut-flora-disruption, note: "Almost any antibiotic, from 2 days to months before; quinolones notably", source: "K&C 10e p.542"}
+  - {from: clostridioides-difficile, to: cytotoxin-mucosal-damage, note: "Spore-forming anaerobe carried by 3–5% (up to 20% in hospital); toxin A enterotoxin, toxin B cytotoxic. Spread by hands and fomites", source: "K&C 10e p.507; K&C 10e p.542"}
+  - [gut-flora-disruption, cytotoxin-mucosal-damage]
+  - {from: older-age, to: cytotoxin-mucosal-damage, note: "Elderly hospitalised patients most often and most severely", source: "K&C 10e p.542"}
+  - [cytotoxin-mucosal-damage, diarrhoea]
+  - [cytotoxin-mucosal-damage, abdominal-pain]
+  - {from: cytotoxin-mucosal-damage, to: fever, note: "Severe if T > 38.5, WCC > 15, creatinine up > 50%, raised lactate or severe pain", source: "K&C 10e p.542"}
+  - [cytotoxin-mucosal-damage, leucocytosis]
+  - [cytotoxin-mucosal-damage, pseudomembranous-colitis]
+  - [cytotoxin-mucosal-damage, c-difficile-toxin-positive]
+  - [cytotoxin-mucosal-damage, toxic-megacolon]
+findings:
+  - {id: diarrhoea, freq: classic, note: "Stop other antibiotics; oral vancomycin (or metronidazole if mild), fidaxomicin for relapse, faecal transplant if refractory. Isolate; soap and water, as alcohol gel doesn't kill spores", source: "K&C 10e p.542"}
+  - {id: c-difficile-toxin-positive, freq: classic}
+  - {id: abdominal-pain, freq: common}
+  - {id: fever, freq: common}
+  - {id: leucocytosis, freq: common}
+  - {id: pseudomembranous-colitis, freq: occasional}
+outcomes:
+  - {id: toxic-megacolon, freq: rare}

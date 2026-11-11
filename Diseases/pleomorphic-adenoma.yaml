@@ -1,0 +1,13 @@
+id: pleomorphic-adenoma
+name: Pleomorphic adenoma
+parent: salivary-gland-tumour
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["Mehlman HY Gastro"]
+chain:
+  - {from: benign-salivary-neoplasm, to: salivary-gland-swelling, note: "Commonest salivary gland tumour; benign and does not invade", source: "Mehlman HY Gastro"}
+  - {from: benign-salivary-neoplasm, to: pleomorphic-cells-histology, note: "The name means the cells and nuclei vary in size and shape", source: "Mehlman HY Gastro"}
+findings:
+  - {id: salivary-gland-swelling, freq: classic}
+  - {id: pleomorphic-cells-histology, freq: classic, source: "Mehlman HY Gastro"}

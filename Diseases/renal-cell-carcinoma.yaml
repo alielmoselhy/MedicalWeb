@@ -1,0 +1,47 @@
+id: renal-cell-carcinoma
+name: Renal cell carcinoma
+group: cystic-neoplastic-renal
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1406-1407", "Mehlman HY Renal", "Mehlman HY Pathology", "Mehlman HY Endocrine"]
+chain:
+  - {from: smoking, to: renal-tubular-malignancy, note: "The biggest risk factor; classic patient is a smoker over 50", source: "Mehlman HY Renal"}
+  - {from: vhl-mutation, to: renal-tubular-malignancy, note: "Autosomal dominant: bilateral RCC, retinal and cerebellar haemangioblastomas, phaeochromocytoma; the same gene is mutated in sporadic RCC", source: "K&C 10e p.1407; Mehlman HY Pathology"}
+  - {from: renal-tubular-malignancy, to: clear-cell-histology, note: "Commonest adult renal tumour; men 2:1, usually over 50; highly vascular", source: "K&C 10e p.1406-1407; Mehlman HY Renal"}
+  - {from: renal-tubular-malignancy, to: haematuria, note: "Often found incidentally with no symptoms", source: "K&C 10e p.1407"}
+  - [renal-tubular-malignancy, loin-pain]
+  - {from: renal-tubular-malignancy, to: flank-mass, source: "K&C 10e p.1407"}
+  - {from: renal-tubular-malignancy, to: renal-mass-on-imaging, note: "CT shows renal vein and IVC spread; MRI stages best; urine cytology is useless", source: "K&C 10e p.1407"}
+  - {from: renal-tubular-malignancy, to: weight-loss, note: "With malaise and anorexia in about 30%", source: "K&C 10e p.1407"}
+  - {from: renal-tubular-malignancy, to: fever, note: "About 20%", source: "K&C 10e p.1407"}
+  - [renal-tubular-malignancy, raised-inflammatory-markers]
+  - {from: renal-tubular-malignancy, to: epo-secretion, source: "K&C 10e p.1407; Mehlman HY Renal"}
+  - {from: epo-secretion, to: secondary-polycythaemia, note: "About 5%", source: "K&C 10e p.1407"}
+  - {from: renal-tubular-malignancy, to: erythropoietin-deficiency, note: "Anaemia from suppressed EPO in about 30%, more often than polycythaemia", source: "K&C 10e p.1407"}
+  - [erythropoietin-deficiency, anaemia]
+  - {from: renal-tubular-malignancy, to: raas-activation, note: "Tumour renin secretion", source: "K&C 10e p.1407"}
+  - {from: raas-activation, to: secondary-hypertension, note: "About 30%", source: "K&C 10e p.1407"}
+  - {from: renal-tubular-malignancy, to: pthrp-secretion, note: "As in squamous lung cancer; haematuria points to the kidney", source: "Mehlman HY Renal; Mehlman HY Endocrine"}
+  - {from: pthrp-secretion, to: hypercalcaemia, note: "Calcium up, phosphate and PTH down", source: "Mehlman HY Endocrine"}
+  - [pthrp-secretion, hypercalcaemia-of-malignancy]
+  - {from: renal-tubular-malignancy, to: renal-vein-invasion, source: "K&C 10e p.1407"}
+  - {from: renal-vein-invasion, to: left-varicocele, note: "Rare: left tumour blocking the left testicular vein's drainage", source: "K&C 10e p.1407"}
+  - {from: renal-tubular-malignancy, to: metastatic-spread, note: "A third present with metastases; nephrectomy can still help", source: "K&C 10e p.1407"}
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: haematuria, freq: common}
+  - {id: loin-pain, freq: common}
+  - {id: flank-mass, freq: common, note: "The triad of haematuria, pain and mass is a late picture"}
+  - {id: renal-mass-on-imaging, freq: classic}
+  - {id: clear-cell-histology, freq: classic, source: "K&C 10e p.1407; Mehlman HY Pathology"}
+  - {id: weight-loss, freq: occasional}
+  - {id: fever, freq: occasional}
+  - {id: raised-inflammatory-markers, freq: common, note: "ESR usually raised; liver tests may be abnormal and normalise after surgery", source: "K&C 10e p.1407"}
+  - {id: anaemia, freq: occasional}
+  - {id: secondary-polycythaemia, freq: rare}
+  - {id: hypercalcaemia, freq: occasional}
+  - {id: left-varicocele, freq: rare}
+outcomes:
+  - {id: distant-metastases, freq: common, source: "K&C 10e p.1407"}
+  - {id: secondary-hypertension, freq: occasional, source: "K&C 10e p.1407"}
+  - {id: hypercalcaemia-of-malignancy, source: "Mehlman HY Renal"}

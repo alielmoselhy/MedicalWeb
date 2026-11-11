@@ -1,0 +1,22 @@
+id: endometritis
+name: Endometritis
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.1416-1418", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: polymicrobial-genital-flora, to: postpartum-uterine-infection, note: "Within days of delivery, often after a Caesarean. Endometritis from chlamydia or gonorrhoea is part of PID", source: "Mehlman HY Repro-OBGYN; K&C 10e p.1416-1418"}
+  - {from: postpartum-uterine-infection, to: fever, note: "Ampicillin and gentamicin, with or without clindamycin", source: "Mehlman HY Repro-OBGYN"}
+  - {from: postpartum-uterine-infection, to: uterine-tenderness, source: "Mehlman HY Repro-OBGYN"}
+  - {from: postpartum-uterine-infection, to: lower-abdominal-pain, source: "Mehlman HY Repro-OBGYN"}
+  - {from: postpartum-uterine-infection, to: foul-lochia, source: "Mehlman HY Repro-OBGYN"}
+  - {from: postpartum-uterine-infection, to: septic-pelvic-thrombophlebitis, note: "Infected pelvic vein clots: pain and fever that persist despite antibiotics", source: "Mehlman HY Repro-OBGYN"}
+  - {from: postpartum-uterine-infection, to: sepsis, note: "Puerperal sepsis is often from endometritis", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: fever, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: uterine-tenderness, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: lower-abdominal-pain, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: foul-lochia, freq: common, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: septic-pelvic-thrombophlebitis, freq: rare, source: "Mehlman HY Repro-OBGYN"}
+  - {id: sepsis, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

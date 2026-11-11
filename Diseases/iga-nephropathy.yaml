@@ -1,0 +1,25 @@
+id: iga-nephropathy
+name: IgA nephropathy
+parent: glomerulonephritis
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1361-1362", "Mehlman HY Renal"]
+chain:
+  - {from: respiratory-virus, to: mesangial-iga-deposition, note: "Macroscopic haematuria 1–3 days after an upper respiratory (or gut) viral infection; commonest GN worldwide", source: "K&C 10e p.1361-1362; Mehlman HY Renal"}
+  - {from: coeliac-disease, to: mesangial-iga-deposition, note: "IgA deposits also with chronic liver disease, psoriasis, bronchial carcinoma", source: "K&C 10e p.1362"}
+  - {from: mesangial-iga-deposition, to: mesangial-iga-deposits, note: "Serum IgA raised in up to half", source: "K&C 10e p.1361-1362"}
+  - [mesangial-iga-deposition, glomerular-inflammation]
+  - {from: glomerular-inflammation, to: haematuria, note: "Children and young men; microscopic or recurrent macroscopic", source: "K&C 10e p.1362"}
+  - {from: glomerular-inflammation, to: proteinuria, note: "Nephrotic in 5%", source: "K&C 10e p.1362"}
+  - [glomerular-inflammation, raised-blood-pressure]
+  - {from: glomerular-inflammation, to: glomerular-crescents, note: "Crescents often after a bout of macroscopic haematuria", source: "K&C 10e p.1361"}
+  - {from: glomerular-inflammation, to: chronic-kidney-disease, note: "About 25% reach ESKD if proteinuria over 1 g/day, raised creatinine or hypertension; ACE inhibitor/ARB for all", source: "K&C 10e p.1362"}
+findings:
+  - {id: haematuria, freq: classic}
+  - {id: mesangial-iga-deposits, freq: classic}
+  - {id: proteinuria, freq: common}
+  - {id: raised-blood-pressure, freq: occasional}
+  - {id: glomerular-crescents, freq: occasional}
+outcomes:
+  - {id: chronic-kidney-disease, freq: occasional, source: "K&C 10e p.1362"}

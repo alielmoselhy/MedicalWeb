@@ -1,0 +1,21 @@
+id: x-linked-agammaglobulinaemia
+name: X-linked (Bruton's) agammaglobulinaemia
+group: immunodeficiency
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.60-61", "Mehlman HY Immuno"]
+chain:
+  - {from: btk-mutation, to: b-cell-maturation-arrest, note: "Boys; presents about 6 months, as maternal IgG fades", source: "K&C 10e p.60-61; Mehlman HY Immuno"}
+  - [b-cell-maturation-arrest, absent-b-cells]
+  - {from: b-cell-maturation-arrest, to: antibody-deficiency, note: "All classes low; scanty nodes and tonsils. Lifelong immunoglobulin replacement, trough IgG over 6 g/L", source: "K&C 10e p.61; Mehlman HY Immuno"}
+  - [antibody-deficiency, low-immunoglobulins]
+  - {from: antibody-deficiency, to: recurrent-sinopulmonary-infection, note: "Pyogenic bacteria; bacterial only, unlike SCID", source: "K&C 10e p.60-61; Mehlman HY Immuno"}
+  - [recurrent-sinopulmonary-infection, bronchiectasis]
+  - {from: antibody-deficiency, to: diarrhoea, note: "Persistent gut pathogens such as Giardia, with malabsorption", source: "K&C 10e p.61"}
+findings:
+  - {id: absent-b-cells, freq: classic}
+  - {id: low-immunoglobulins, freq: classic}
+  - {id: diarrhoea, freq: occasional}
+outcomes:
+  - {id: recurrent-sinopulmonary-infection, freq: classic, source: "K&C 10e p.61"}
+  - {id: bronchiectasis, freq: common, source: "K&C 10e p.61"}

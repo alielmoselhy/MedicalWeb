@@ -63,7 +63,7 @@ export function crossingReducedX(ids, links, band, home, radius) {
       return [id, barycentre * 0.72 + home[id] * 0.28];
     }));
     list.sort((a, b) => desired[a] - desired[b] || home[a] - home[b]
-      || byId[a].name.localeCompare(byId[b].name));
+      || (byId[a]?.name ?? a).localeCompare(byId[b]?.name ?? b));
     list.forEach((id, i) => {
       x[id] = i ? Math.max(desired[id], x[list[i - 1]] + radius[list[i - 1]] + radius[id]) : desired[id];
     });

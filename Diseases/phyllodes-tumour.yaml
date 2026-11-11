@@ -1,0 +1,12 @@
+id: phyllodes-tumour
+name: Phyllodes tumour
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.121", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: fibroepithelial-proliferation, to: fast-growing-breast-mass, note: "Benign or malignant (a sarcoma) depending on histology", source: "K&C 10e p.121; Mehlman HY Repro-OBGYN"}
+  - {from: fibroepithelial-proliferation, to: leaf-like-stroma, source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: fast-growing-breast-mass, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: leaf-like-stroma, freq: classic, source: "Mehlman HY Repro-OBGYN"}

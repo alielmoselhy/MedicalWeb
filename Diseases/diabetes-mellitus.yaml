@@ -1,0 +1,51 @@
+id: diabetes-mellitus
+name: Diabetes mellitus
+group: glucose
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.704", "K&C 10e p.710-711", "K&C 10e p.726-735"]
+chain:
+  - {from: insulin-deficiency, to: hyperglycaemia, note: "Every form is too little insulin for the body's needs, with secretion failing over time", source: "K&C 10e p.704"}
+  - {from: hyperglycaemia, to: osmotic-diuresis, note: "Glucose above the renal threshold", source: "K&C 10e p.710"}
+  - [osmotic-diuresis, polyuria-nocturia]
+  - {from: osmotic-diuresis, to: polydipsia, note: "From the fluid and electrolyte loss", source: "K&C 10e p.710"}
+  - [osmotic-diuresis, dehydration-signs]
+  - {from: insulin-deficiency, to: weight-loss, note: "Fluid loss plus fat and muscle breakdown", source: "K&C 10e p.710"}
+  - {from: hyperglycaemia, to: diabetic-glucose-hba1c, note: "One abnormal value if symptomatic, two if not; about half of people are undiagnosed", source: "K&C 10e p.710"}
+  - {from: hyperglycaemia, to: blurred-vision, note: "Glucose changes the lens's refraction", source: "K&C 10e p.710"}
+  - {from: hyperglycaemia, to: microvascular-glycation-damage, note: "Over 80% eventually; driven by duration and degree of hyperglycaemia", source: "K&C 10e p.726"}
+  - {from: microvascular-glycation-damage, to: diabetic-retinopathy, note: "About a third; commonest cause of blindness in working age", source: "K&C 10e p.726-728"}
+  - {from: microvascular-glycation-damage, to: diabetic-neuropathy, source: "K&C 10e p.731"}
+  - {from: microvascular-glycation-damage, to: peripheral-neuropathy, note: "Symmetrical distal sensory loss, feet first", source: "K&C 10e p.731"}
+  - [microvascular-glycation-damage, diabetic-nephropathy]
+  - {from: diabetic-neuropathy, to: diabetic-foot-ulcer, note: "Unfelt injury; 10–15% get ulcers; commonest cause of non-traumatic amputation", source: "K&C 10e p.733"}
+  - {from: hyperglycaemia, to: atherosclerosis, note: "MI, stroke and PAD 2–3× commoner, earlier and more distal; with hypertension, dyslipidaemia, obesity", source: "K&C 10e p.734"}
+  - [atherosclerosis, acute-coronary-syndrome]
+  - [atherosclerosis, ischaemic-stroke]
+  - [atherosclerosis, peripheral-arterial-disease]
+  - {from: atherosclerosis, to: diabetic-foot-ulcer, note: "Ischaemia stops minor wounds healing", source: "K&C 10e p.733"}
+  - {from: diabetic-foot-ulcer, to: diabetic-foot-infection, source: "K&C 10e p.734"}
+  - {from: hyperglycaemia, to: impaired-innate-immunity, source: "K&C 10e p.735"}
+  - {from: impaired-innate-immunity, to: genital-candidiasis, source: "K&C 10e p.710, 735"}
+  - {from: impaired-innate-immunity, to: urinary-tract-infection, note: "Autonomic bladder neuropathy adds stasis", source: "K&C 10e p.735"}
+  - [impaired-innate-immunity, tuberculosis]
+findings:
+  - {id: diabetic-glucose-hba1c, freq: classic, source: "K&C 10e p.710"}
+  - {id: polyuria-nocturia, freq: classic, source: "K&C 10e p.710"}
+  - {id: polydipsia, freq: classic, source: "K&C 10e p.710"}
+  - {id: weight-loss, freq: common}
+  - {id: blurred-vision, freq: occasional}
+  - {id: dehydration-signs, freq: occasional, source: "K&C 10e p.710"}
+  - {id: peripheral-neuropathy, freq: common}
+  - {id: genital-candidiasis, freq: occasional}
+outcomes:
+  - {id: diabetic-retinopathy, freq: common, source: "K&C 10e p.726"}
+  - {id: diabetic-neuropathy, freq: common, source: "K&C 10e p.731"}
+  - {id: diabetic-nephropathy, freq: common, source: "K&C 10e p.726"}
+  - {id: diabetic-foot-ulcer, freq: occasional, source: "K&C 10e p.733"}
+  - {id: acute-coronary-syndrome, freq: common, source: "K&C 10e p.734"}
+  - {id: ischaemic-stroke, source: "K&C 10e p.734"}
+  - {id: peripheral-arterial-disease, source: "K&C 10e p.734"}
+  - {id: urinary-tract-infection, source: "K&C 10e p.735"}
+  - {id: tuberculosis, source: "K&C 10e p.735"}
+  - {id: diabetic-foot-infection, freq: occasional, source: "K&C 10e p.734"}

@@ -1,0 +1,12 @@
+id: pagets-disease-of-the-nipple
+name: Paget's disease of the nipple
+parent: breast-cancer
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.121", "K&C 10e p.685", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: ductal-carcinoma-in-situ, to: nipple-epidermal-spread, note: "A skin sign of an underlying ductal carcinoma, often DCIS", source: "K&C 10e p.685; Mehlman HY Repro-OBGYN"}
+  - {from: nipple-epidermal-spread, to: eczematous-nipple, note: "Usually over 50; a one-sided 'nipple eczema' needs investigating", source: "K&C 10e p.685; Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: eczematous-nipple, freq: classic, source: "K&C 10e p.685"}

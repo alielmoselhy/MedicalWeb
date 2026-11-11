@@ -1,0 +1,45 @@
+id: hiv
+name: HIV infection
+group: hiv
+status: draft
+systems: [infection, immunology]
+sources: ["K&C 10e p.1426-1435", "K&C 10e p.1445", "K&C 10e p.1441", "K&C 10e p.1448-1449", "Mehlman HY Neuro", "Mehlman HY Pathology", "K&C 10e p.1440"]
+chain:
+  - {from: parenteral-exposure, to: hiv-replication, note: "Mostly sexual (semen, cervical fluid, blood); risk tracks the viral load and rises with ulcerating STIs. Also needle-sharing, unscreened blood; vertical in children", source: "K&C 10e p.1426-1427"}
+  - {from: vertical-transmission, to: hiv-replication, note: "Commonest route in children: 15% untreated, mostly at birth; ART, screening and no breast-feeding cut it to about 0.1%", source: "K&C 10e p.1426, 1440"}
+  - {from: hiv-replication, to: seroconversion-illness, note: "3–6 weeks after exposure, glandular-fever-like; often missed", source: "K&C 10e p.1430"}
+  - {from: hiv-replication, to: hiv-test-positive, note: "Antibody window up to 3 months (mean 6 weeks); p24 antigen earlier; PCR in babies. Verbal consent is enough", source: "K&C 10e p.1433"}
+  - {from: hiv-replication, to: generalised-lymphadenopathy, note: "Persistent generalised lymphadenopathy during clinical latency", source: "K&C 10e p.1430"}
+  - {from: hiv-replication, to: peripheral-neuropathy, note: "Painful sensory polyneuropathy; also AIDS dementia complex. Both rarer with ART", source: "K&C 10e p.1430-1431"}
+  - {from: hiv-replication, to: cd4-depletion, note: "gp120 binds CD4 with CCR5 or CXCR4; gut CD4 cells go first. Untreated, CD4 falls over about 10 years", source: "K&C 10e p.1428-1430"}
+  - [cd4-depletion, low-cd4-count]
+  - [cd4-depletion, t-cell-deficiency]
+  - {from: t-cell-deficiency, to: opportunistic-infection, note: "Risk follows the CD4 count: TB, Candida and herpesviruses early; MAI and Cryptosporidium below 100", source: "K&C 10e p.1431"}
+  - {from: t-cell-deficiency, to: tuberculosis, note: "A high-grade pathogen, so it appears early; any site is AIDS-defining", source: "K&C 10e p.1429, 1431"}
+  - {from: t-cell-deficiency, to: pneumocystis-pneumonia, note: "Co-trimoxazole prophylaxis below CD4 200 also covers toxoplasma", source: "K&C 10e p.1429; Mehlman HY Neuro"}
+  - [t-cell-deficiency, cryptococcal-meningitis]
+  - [t-cell-deficiency, ntm-infection]
+  - [t-cell-deficiency, candidiasis]
+  - [t-cell-deficiency, cerebral-toxoplasmosis]
+  - [t-cell-deficiency, kaposi-sarcoma]
+  - {from: t-cell-deficiency, to: cmv-infection, note: "CD4 below 100; retinitis below 50", source: "K&C 10e p.1445"}
+  - {from: t-cell-deficiency, to: varicella-zoster-infection, note: "Shingles over more than one dermatome", source: "K&C 10e p.1429"}
+  - {from: t-cell-deficiency, to: diffuse-large-b-cell-lymphoma, note: "Often EBV-driven, extranodal (brain), aggressive; primary CNS lymphoma below CD4 100", source: "K&C 10e p.1448; Mehlman HY Pathology"}
+findings:
+  - {id: hiv-test-positive, freq: classic}
+  - {id: low-cd4-count, freq: classic, note: "ART for everyone, whatever the CD4, started as soon as ready and lifelong; a suppressed viral load is not infectious", source: "K&C 10e p.1435, 1441"}
+  - {id: seroconversion-illness, freq: common}
+  - {id: generalised-lymphadenopathy, freq: occasional}
+  - {id: peripheral-neuropathy, freq: occasional}
+outcomes:
+  - {id: opportunistic-infection, note: "Prevention: PEP within 72 h for 4 weeks; PrEP (tenofovir–emtricitabine) cuts acquisition by up to 90%", source: "K&C 10e p.1441, 1449"}
+  - tuberculosis
+  - pneumocystis-pneumonia
+  - cryptococcal-meningitis
+  - ntm-infection
+  - candidiasis
+  - cerebral-toxoplasmosis
+  - kaposi-sarcoma
+  - diffuse-large-b-cell-lymphoma
+  - cmv-infection
+  - varicella-zoster-infection

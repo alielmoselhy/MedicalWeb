@@ -1,0 +1,55 @@
+id: iron-deficiency-anaemia
+name: Iron deficiency anaemia
+group: anaemia
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.327-332"]
+chain:
+  - from: chronic-gi-blood-loss
+    to: chronic-blood-loss
+    note: "Each bleeds slowly into the gut, losing iron with the blood"
+    source: "K&C 10e p.331"
+    members:
+      - {id: colorectal-cancer, note: "Ask about blood in the stool; lower bowel cancer is a key cause to exclude", source: "K&C 10e p.331"}
+      - gastric-adenocarcinoma
+      - gord
+      - ulcerative-colitis
+      - {id: hookworm, note: "A common cause of gut blood loss worldwide", source: "K&C 10e p.331"}
+  - {from: heavy-menstrual-loss, to: chronic-blood-loss, note: "Most iron deficiency is blood loss, usually uterine or gut; losses above about 100 mL a month outstrip extra absorption", source: "K&C 10e p.330-331"}
+  - {from: chronic-blood-loss, to: iron-deficit, note: "Find and treat the cause; ask about NSAIDs, stool blood and periods", source: "K&C 10e p.331"}
+  - {from: pregnancy, to: iron-deficit, note: "Needs 1–2 mg of extra iron a day", source: "K&C 10e p.330"}
+  - {from: childhood-growth, to: iron-deficit, note: "Growth outstrips intake, especially after prematurity or late weaning", source: "K&C 10e p.331"}
+  - {from: poor-diet, to: iron-deficit, note: "Mostly vegetable diets in low-income countries", source: "K&C 10e p.331"}
+  - {from: gastrectomy, to: reduced-iron-absorption, source: "K&C 10e p.330"}
+  - {from: coeliac-disease, to: reduced-iron-absorption, note: "Often with folate deficiency too, giving a dimorphic blood film", source: "K&C 10e p.328"}
+  - [reduced-iron-absorption, iron-deficit]
+  - {from: iron-deficit, to: iron-restricted-erythropoiesis, note: "Oral ferrous sulphate raises Hb by about 10 g/L a week; continue about 6 months to refill stores. Failure: non-adherence, ongoing loss or wrong diagnosis", source: "K&C 10e p.332"}
+  - {from: iron-deficit, to: low-ferritin, note: "Low ferritin confirms it; ferritin is an acute-phase protein, so inflammation can mask deficiency", source: "K&C 10e p.331"}
+  - {from: iron-restricted-erythropoiesis, to: microcytic-hypochromic-anaemia, note: "MCV < 80 fL, MCH < 27 pg, with variation in size and shape", source: "K&C 10e p.331"}
+  - [iron-restricted-erythropoiesis, anaemic-hypoxia]
+  - {from: iron-deficit, to: koilonychia, note: "Only in longstanding deficiency, like the other epithelial signs", source: "K&C 10e p.331"}
+  - [iron-deficit, glossitis-angular-stomatitis]
+  - {from: iron-deficit, to: dysphagia, note: "Plummer–Vinson: dysphagia with glossitis", source: "K&C 10e p.331"}
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, exertional-dyspnoea]
+  - [anaemic-hypoxia, palpitations]
+  - [anaemic-hypoxia, headache]
+  - [anaemic-hypoxia, pallor]
+  - [anaemic-hypoxia, tachycardia]
+  - {from: anaemic-hypoxia, to: ejection-systolic-murmur, note: "A systolic flow murmur", source: "K&C 10e p.327"}
+  - {from: anaemic-hypoxia, to: heart-failure, note: "Anaemia also worsens angina and claudication, especially in the elderly", source: "K&C 10e p.327"}
+findings:
+  - {id: microcytic-hypochromic-anaemia, freq: classic}
+  - {id: low-ferritin, freq: classic}
+  - {id: fatigue, freq: common, note: "Symptoms are non-specific; slow falls are well compensated", source: "K&C 10e p.327"}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: pallor, freq: common}
+  - {id: palpitations, freq: occasional}
+  - {id: headache, freq: occasional}
+  - {id: tachycardia, freq: occasional}
+  - {id: ejection-systolic-murmur, freq: occasional}
+  - {id: glossitis-angular-stomatitis, freq: occasional}
+  - {id: koilonychia, freq: rare}
+  - {id: dysphagia, freq: rare}
+outcomes:
+  - {id: heart-failure, note: "In severe anaemia", source: "K&C 10e p.327"}

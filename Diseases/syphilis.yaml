@@ -1,0 +1,29 @@
+id: syphilis
+name: Syphilis
+group: uti
+status: draft
+systems: [kidney-urogenital, infection]
+sources: ["K&C 10e p.1422-1424", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: unprotected-sex-multiple-partners, to: treponema-spread, note: "Through breaks in the epithelium; rising sharply in MSM. Also blood and across the placenta", source: "K&C 10e p.1422-1423"}
+  - [treponema-pallidum, treponema-spread]
+  - {from: vertical-transmission, to: treponema-spread, note: "Across the placenta at any stage, up to 100% in early syphilis: miscarriage, stillbirth, congenital syphilis (Hutchinson teeth, sabre shins)", source: "K&C 10e p.1423; Mehlman HY Repro-OBGYN"}
+  - {from: treponema-spread, to: painless-genital-ulcer, note: "Primary: 9–90 days (mean 21); painless nodes; heals in 2–6 weeks, often unnoticed (cervix, rectum)", source: "K&C 10e p.1423"}
+  - {from: treponema-spread, to: palmar-plantar-rash, note: "Secondary, in 25% of untreated, 6–10 weeks later; also condylomata lata and snail-track ulcers", source: "K&C 10e p.1423"}
+  - {from: treponema-spread, to: generalised-lymphadenopathy, note: "In half of secondary syphilis", source: "K&C 10e p.1423"}
+  - [treponema-spread, fever]
+  - {from: treponema-spread, to: syphilis-serology-positive, note: "Treponemal tests stay positive for life; RPR or VDRL track activity and reinfection", source: "K&C 10e p.1423"}
+  - {from: treponema-spread, to: aortitis, note: "Tertiary, in a third of untreated latent cases, 2–30 years on; also coronary ostial stenosis and gummas", source: "K&C 10e p.1423"}
+  - [aortitis, aortic-regurgitation]
+  - {from: treponema-spread, to: neurosyphilis, note: "Meningovascular damage and endarteritis; faster and commoner with HIV", source: "K&C 10e p.1423-1424"}
+  - {from: treponema-spread, to: congenital-syphilis, note: "Up to 100% transmission in early syphilis: stillbirth, rash, later Hutchinson's teeth, sabre tibia, saddle nose", source: "K&C 10e p.1423"}
+findings:
+  - {id: painless-genital-ulcer, freq: classic, note: "Benzathine penicillin IM (one dose early, three weekly late); Jarisch–Herxheimer fever within hours in many", source: "K&C 10e p.1424"}
+  - {id: syphilis-serology-positive, freq: classic}
+  - {id: palmar-plantar-rash, freq: common}
+  - {id: generalised-lymphadenopathy, freq: common}
+  - {id: fever, freq: occasional}
+outcomes:
+  - {id: aortic-regurgitation, freq: rare}
+  - {id: neurosyphilis, freq: rare}
+  - congenital-syphilis

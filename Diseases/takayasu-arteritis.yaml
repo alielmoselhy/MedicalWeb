@@ -1,0 +1,20 @@
+id: takayasu-arteritis
+name: Takayasu arteritis
+parent: vasculitis
+group: vasculitis
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.465", "K&C 10e p.1132", "Mehlman HY Cardio"]
+chain:
+  - {from: female-sex, to: granulomatous-large-vessel-arteritis, note: "Young women, mostly in Japan and Asia; under 50, unlike GCA", source: "K&C 10e p.465, 1132; Mehlman HY Cardio"}
+  - {from: granulomatous-large-vessel-arteritis, to: aortic-branch-stenosis, note: "'Pulseless disease': aortic arch and its branches, always the subclavians", source: "K&C 10e p.1132; Mehlman HY Cardio"}
+  - [aortic-branch-stenosis, reduced-peripheral-pulses]
+  - {from: aortic-branch-stenosis, to: hypertension, source: "K&C 10e p.1132"}
+  - {from: aortic-branch-stenosis, to: ischaemic-stroke, note: "Late; most survive at least 5 years. Bypass for ischaemia", source: "K&C 10e p.1132"}
+  - [hypertension, heart-failure]
+findings:
+  - {id: reduced-peripheral-pulses, freq: classic}
+outcomes:
+  - {id: hypertension, freq: common, source: "K&C 10e p.1132"}
+  - {id: heart-failure, freq: occasional, source: "K&C 10e p.1132"}
+  - {id: ischaemic-stroke, freq: occasional, source: "K&C 10e p.1132"}

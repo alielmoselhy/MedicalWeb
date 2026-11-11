@@ -1,0 +1,9 @@
+id: breast-cancer
+name: Breast cancer
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.103", "K&C 10e p.121", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: brca-mutation, to: breast-epithelial-transformation, note: "About 5% are inherited; BRCA genes repair DNA, so PARP inhibitors kill BRCA cancers. Also ovarian, male breast and (BRCA2) prostate cancer. Earlier screening with MRI", source: "K&C 10e p.103, 121; Mehlman HY Repro-OBGYN"}
+  - {from: long-oestrogen-exposure, to: breast-epithelial-transformation, note: "Oestrogen drives duct cells to divide, so mutations build up. Commonest cancer in non-smoking women; UK screening by mammography every 3 years from 50 to 70", source: "K&C 10e p.103, 121; Mehlman HY Repro-OBGYN"}

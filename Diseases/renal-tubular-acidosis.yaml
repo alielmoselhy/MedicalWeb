@@ -1,0 +1,33 @@
+id: renal-tubular-acidosis
+name: Renal tubular acidosis
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.175", "K&C 10e p.199-200", "K&C 10e p.1386", "Mehlman HY Renal"]
+chain:
+  - {from: distal-rta-gene, to: distal-h-secretion-failure, note: "Dominant or recessive; the recessive form often has sensorineural deafness", source: "K&C 10e p.199-200"}
+  - {from: sjogrens-syndrome, to: distal-h-secretion-failure, note: "Tubulointerstitial involvement can present as RTA", source: "K&C 10e p.1386"}
+  - {from: multiple-myeloma, to: proximal-bicarbonate-wasting, note: "Paraprotein tubular damage: Fanconi syndrome", source: "K&C 10e p.175, 199"}
+  - {from: wilsons-disease, to: proximal-bicarbonate-wasting, note: "A cause of Fanconi syndrome, with drugs (e.g. expired tetracycline)", source: "K&C 10e p.175; Mehlman HY Renal"}
+  - {from: diabetes-mellitus, to: aldosterone-deficiency-resistance, note: "Type 4 is the commonest RTA: mild CKD from diabetes or tubulointerstitial disease", source: "K&C 10e p.199"}
+  - {from: tubulointerstitial-nephritis, to: aldosterone-deficiency-resistance, note: "E.g. reflux nephropathy", source: "K&C 10e p.199"}
+  - {from: nsaid-use, to: aldosterone-deficiency-resistance, note: "Chronic use suppresses renin and aldosterone", source: "K&C 10e p.199"}
+  - {from: distal-h-secretion-failure, to: normal-anion-gap-acidosis, note: "Type 1: may need an acid load test; low urinary ammonium", source: "K&C 10e p.199"}
+  - {from: distal-h-secretion-failure, to: high-urine-ph, note: "Cannot acidify urine below 5.3", source: "K&C 10e p.199"}
+  - [distal-h-secretion-failure, low-serum-potassium]
+  - {from: distal-h-secretion-failure, to: renal-calculi-nephrocalcinosis, note: "Hypercalciuria, low citrate and alkaline urine precipitate calcium phosphate; stones bring recurrent UTI", source: "K&C 10e p.199"}
+  - {from: distal-h-secretion-failure, to: osteomalacia, note: "Bone calcium used as buffer", source: "K&C 10e p.199"}
+  - {from: proximal-bicarbonate-wasting, to: normal-anion-gap-acidosis, note: "Type 2: very rare in adults; may need huge bicarbonate doses", source: "K&C 10e p.199"}
+  - {from: proximal-bicarbonate-wasting, to: low-serum-potassium, source: "K&C 10e p.199"}
+  - {from: proximal-bicarbonate-wasting, to: fanconi-urine-losses, note: "Usually part of a general proximal defect", source: "K&C 10e p.175, 199"}
+  - {from: aldosterone-deficiency-resistance, to: high-serum-potassium, note: "Type 4 is the only one with high K+; treat with fludrocortisone, bicarbonate, K+ binders", source: "K&C 10e p.199; Mehlman HY Renal"}
+  - {from: aldosterone-deficiency-resistance, to: normal-anion-gap-acidosis, note: "High K+ cuts ammonia production, sustaining the acidosis", source: "K&C 10e p.199"}
+findings:
+  - {id: normal-anion-gap-acidosis, freq: classic, note: "Hyperchloraemic; not one of the high-gap causes", source: "K&C 10e p.199; Mehlman HY Renal"}
+  - {id: low-serum-potassium, freq: common, note: "Types 1 and 2", source: "K&C 10e p.199"}
+  - {id: high-serum-potassium, freq: common, note: "Type 4", source: "K&C 10e p.199"}
+  - {id: high-urine-ph, freq: common, note: "Type 1 (above 5.3); type 2 also stays above 5.5 with bicarbonate in the urine", source: "K&C 10e p.199"}
+  - {id: fanconi-urine-losses, freq: occasional}
+outcomes:
+  - {id: renal-calculi-nephrocalcinosis, source: "K&C 10e p.199"}
+  - {id: osteomalacia, source: "K&C 10e p.199"}

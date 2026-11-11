@@ -1,0 +1,26 @@
+id: anti-gbm-disease
+name: Anti-GBM disease (Goodpasture's syndrome)
+parent: glomerulonephritis
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.992", "K&C 10e p.1360", "K&C 10e p.1362-1363", "Mehlman HY Renal"]
+chain:
+  - {from: smoking, to: anti-gbm-antibody, note: "Tobacco smoke or hydrocarbons may expose the hidden α3(IV) collagen epitope", source: "K&C 10e p.1363"}
+  - {from: anti-gbm-antibody, to: serum-anti-gbm-antibody, source: "K&C 10e p.1362"}
+  - {from: anti-gbm-antibody, to: linear-igg-gbm, source: "K&C 10e p.1362; Mehlman HY Renal"}
+  - {from: anti-gbm-antibody, to: glomerular-inflammation, note: "15–20% of rapidly progressive GN; never in Alport's own kidneys", source: "K&C 10e p.1362"}
+  - [glomerular-inflammation, haematuria]
+  - {from: glomerular-inflammation, to: glomerular-crescents, note: "Extensive crescents", source: "K&C 10e p.1362"}
+  - {from: glomerular-crescents, to: acute-kidney-injury, note: "Plasma exchange, steroids, cyclophosphamide; irreversible once oliguric or creatinine over 600–700", source: "K&C 10e p.1363"}
+  - {from: anti-gbm-antibody, to: diffuse-alveolar-haemorrhage, note: "Lung haemorrhage in two-thirds (Goodpasture's); may precede the GN; KCO raised", source: "K&C 10e p.992, 1362"}
+  - [diffuse-alveolar-haemorrhage, haemoptysis]
+findings:
+  - {id: serum-anti-gbm-antibody, freq: classic}
+  - {id: linear-igg-gbm, freq: classic}
+  - {id: haematuria, freq: classic}
+  - {id: glomerular-crescents, freq: common}
+  - {id: haemoptysis, freq: common, note: "Young men in exam questions; renal-limited disease is older, both sexes", source: "K&C 10e p.1362; Mehlman HY Renal"}
+outcomes:
+  - {id: acute-kidney-injury, freq: common, source: "K&C 10e p.1363"}
+  - {id: diffuse-alveolar-haemorrhage, freq: common, source: "K&C 10e p.1362"}

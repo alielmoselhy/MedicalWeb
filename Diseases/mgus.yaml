@@ -1,0 +1,18 @@
+id: mgus
+name: Monoclonal gammopathy of undetermined significance (MGUS)
+group: plasma-cell
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.405, 407, 410", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: plasma-cell-clonal-expansion, to: paraprotein-production, note: "A small clone; also seen transiently with poorly controlled HIV and autoimmune disease", source: "K&C 10e p.407, 410"}
+  - {from: paraprotein-production, to: serum-paraprotein, note: "Isolated paraprotein with no end-organ damage: no CRAB features", source: "K&C 10e p.410; Mehlman HY Heme-Onc"}
+  - {from: plasma-cell-clonal-expansion, to: marrow-clonal-plasma-cells, note: "Under 10% clonal plasma cells", source: "K&C 10e p.410"}
+  - {from: plasma-cell-clonal-expansion, to: multiple-myeloma, note: "About 1% a year; higher with an abnormal free light chain ratio, paraprotein over 15 g/L or non-IgG type", source: "K&C 10e p.410"}
+  - {from: plasma-cell-clonal-expansion, to: waldenstrom-macroglobulinaemia, note: "IgM MGUS", source: "K&C 10e p.405"}
+findings:
+  - {id: serum-paraprotein, freq: classic}
+  - {id: marrow-clonal-plasma-cells, freq: classic}
+outcomes:
+  - {id: multiple-myeloma, freq: occasional, source: "K&C 10e p.410"}
+  - {id: waldenstrom-macroglobulinaemia, freq: rare, source: "K&C 10e p.405"}

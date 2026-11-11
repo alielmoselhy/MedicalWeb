@@ -1,0 +1,46 @@
+id: hypothyroidism
+name: Hypothyroidism
+group: endocrine-biochemistry
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.611-614", "Mehlman HY Endocrine"]
+chain:
+  - {from: iodine-deficiency, to: thyroid-hormone-deficiency, note: "Commonest cause worldwide (endemic goitre); salt iodisation", source: "K&C 10e p.609, 612"}
+  - {from: thyroid-ablation, to: thyroid-hormone-deficiency, note: "Check thyroid function regularly after radioiodine or surgery", source: "K&C 10e p.611, 614"}
+  - from: thyroid-affecting-drug
+    to: thyroid-hormone-deficiency
+    note: "Monitor TFTs on these drugs"
+    members:
+      - {id: lithium, note: "Painless hypothyroidism in bipolar disorder", source: "K&C 10e p.611; Mehlman HY Endocrine"}
+      - {id: amiodarone, source: "K&C 10e p.611"}
+  - {from: postpartum-thyroiditis, to: thyroid-hormone-deficiency, note: "Often transient; permanent if antibodies are present", source: "K&C 10e p.612"}
+  - {from: thyroid-hormone-deficiency, to: raised-tsh-low-t4, note: "TSH is the test (low or normal with pituitary disease); over 2% of women, mean age 60; lifelong levothyroxine, low start in IHD", source: "K&C 10e p.611, 613"}
+  - {from: thyroid-hormone-deficiency, to: cold-intolerance-weight-gain, note: "Classic picture; milder cases far commoner", source: "K&C 10e p.613; Mehlman HY Endocrine"}
+  - {from: thyroid-hormone-deficiency, to: dry-skin-hair-voice, note: "Myxoedema: mucopolysaccharide in the skin", source: "K&C 10e p.612-613"}
+  - {from: thyroid-hormone-deficiency, to: bradycardia, source: "K&C 10e p.613; Mehlman HY Endocrine"}
+  - {from: thyroid-hormone-deficiency, to: constipation, source: "K&C 10e p.613"}
+  - {from: thyroid-hormone-deficiency, to: fatigue, note: "Exclude it in menstrual disorders, infertility and cognitive decline in the elderly", source: "K&C 10e p.613"}
+  - {from: thyroid-hormone-deficiency, to: proximal-myopathy, note: "With raised CK and AST", source: "K&C 10e p.613; Mehlman HY Endocrine"}
+  - {from: thyroid-hormone-deficiency, to: carpal-tunnel-syndrome, source: "Mehlman HY Endocrine"}
+  - {from: thyroid-hormone-deficiency, to: raised-ldl, note: "With raised triglycerides", source: "K&C 10e p.613"}
+  - [thyroid-hormone-deficiency, raised-triglycerides]
+  - [thyroid-hormone-deficiency, secondary-hyperlipidaemia]
+  - {from: thyroid-hormone-deficiency, to: low-serum-sodium, note: "More ADH, poorer free-water clearance", source: "K&C 10e p.613"}
+  - {from: thyroid-hormone-deficiency, to: normocytic-anaemia, note: "Macrocytic suggests pernicious anaemia; microcytic suggests menorrhagia or coeliac", source: "K&C 10e p.613"}
+  - {from: thyroid-hormone-deficiency, to: myxoedema-coma, note: "Elderly: hypothermia, heart failure, effusions, low glucose and sodium; mortality at least 50%", source: "K&C 10e p.613"}
+findings:
+  - {id: raised-tsh-low-t4, freq: classic, source: "K&C 10e p.613"}
+  - {id: cold-intolerance-weight-gain, freq: common}
+  - {id: dry-skin-hair-voice, freq: common}
+  - {id: bradycardia, freq: common}
+  - {id: constipation, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: proximal-myopathy, freq: occasional}
+  - {id: carpal-tunnel-syndrome, freq: occasional}
+  - {id: raised-ldl, freq: common}
+  - {id: raised-triglycerides, freq: occasional}
+  - {id: low-serum-sodium, freq: occasional}
+  - {id: normocytic-anaemia, freq: occasional}
+outcomes:
+  - {id: secondary-hyperlipidaemia, freq: common, source: "K&C 10e p.613"}
+  - {id: myxoedema-coma, freq: rare, source: "K&C 10e p.613"}

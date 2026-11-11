@@ -1,0 +1,34 @@
+id: infectious-mononucleosis
+name: Infectious mononucleosis (EBV glandular fever)
+parent: herpesvirus-infection
+group: herpes-virus
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.524", "K&C 10e p.530"]
+chain:
+  - {from: epstein-barr-virus, to: ebv-b-cell-infection, note: "Spread in saliva; most catch it silently before 5, glandular fever if caught as a teenager or young adult", source: "K&C 10e p.524"}
+  - {from: ebv-b-cell-infection, to: herpesvirus-latency, note: "Latent in memory B cells", source: "K&C 10e p.524"}
+  - [ebv-b-cell-infection, fever]
+  - [ebv-b-cell-infection, sore-throat]
+  - {from: ebv-b-cell-infection, to: reactive-cervical-lymphadenopathy, note: "Especially posterior cervical nodes", source: "K&C 10e p.524"}
+  - [ebv-b-cell-infection, splenomegaly]
+  - {from: ebv-b-cell-infection, to: atypical-lymphocytes, note: "Activated CD8 T cells", source: "K&C 10e p.524"}
+  - {from: ebv-b-cell-infection, to: positive-monospot, note: "Heterophile antibody in about 90% by week 2; EBV IgM confirms", source: "K&C 10e p.524"}
+  - {from: ebv-b-cell-infection, to: jaundice, note: "Mild hepatitis is common; jaundice in 10% of young adults", source: "K&C 10e p.524"}
+  - {from: ebv-b-cell-infection, to: ampicillin-rash, note: "In 90% wrongly given ampicillin for the sore throat", source: "K&C 10e p.524"}
+  - {from: splenomegaly, to: splenic-rupture, note: "In the first 3 weeks", source: "K&C 10e p.524"}
+  - {from: herpesvirus-latency, to: burkitt-lymphoma, note: "EBV is also linked to nasopharyngeal carcinoma, post-transplant and AIDS lymphomas and some gastric cancers", source: "K&C 10e p.530"}
+  - {from: herpesvirus-latency, to: hodgkin-lymphoma, note: "Some forms", source: "K&C 10e p.530"}
+findings:
+  - {id: fever, freq: classic, note: "Supportive; steroids only for airway obstruction, neurological involvement or severe cytopenias", source: "K&C 10e p.524"}
+  - {id: sore-throat, freq: classic}
+  - {id: reactive-cervical-lymphadenopathy, freq: classic}
+  - {id: atypical-lymphocytes, freq: classic}
+  - {id: positive-monospot, freq: classic}
+  - {id: splenomegaly, freq: common}
+  - {id: jaundice, freq: occasional}
+  - {id: ampicillin-rash, freq: occasional}
+outcomes:
+  - {id: splenic-rupture, freq: rare}
+  - {id: burkitt-lymphoma, freq: rare}
+  - {id: hodgkin-lymphoma, freq: rare}

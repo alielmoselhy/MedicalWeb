@@ -1,0 +1,26 @@
+id: epididymo-orchitis
+name: Epididymo-orchitis
+parent: urinary-tract-infection
+group: uti
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1418-1419", "K&C 10e p.1484"]
+chain:
+  - {from: chlamydia-trachomatis, to: epididymal-infection, note: "Under 35: STIs (also M. genitalium); ceftriaxone plus doxycycline; trace contacts", source: "K&C 10e p.1418, 1484"}
+  - {from: neisseria-gonorrhoeae, to: epididymal-infection, source: "K&C 10e p.1418, 1484"}
+  - {from: enterobacteriaceae, to: epididymal-infection, note: "Over 35 and children: urinary organisms (E. coli); ofloxacin", source: "K&C 10e p.1418, 1484"}
+  - {from: mumps-virus, to: epididymal-infection, note: "Non-immune men; look for parotid swelling", source: "K&C 10e p.1418, 1484"}
+  - {from: epididymal-infection, to: acute-scrotal-pain-swelling, note: "Gradual onset, unlike torsion, which must be excluded", source: "K&C 10e p.1418, 1484"}
+  - [epididymal-infection, fever]
+  - {from: epididymal-infection, to: urethral-discharge, note: "Often absent", source: "K&C 10e p.1418"}
+  - {from: epididymal-infection, to: dysuria-frequency-urgency, source: "K&C 10e p.1418, 1484"}
+  - {from: epididymal-infection, to: testicular-infarction, note: "Also abscess and chronic pain", source: "K&C 10e p.1484"}
+  - {from: epididymal-infection, to: male-infertility, source: "K&C 10e p.1484"}
+findings:
+  - {id: acute-scrotal-pain-swelling, freq: classic}
+  - {id: fever, freq: common}
+  - {id: urethral-discharge, freq: occasional}
+  - {id: dysuria-frequency-urgency, freq: occasional}
+outcomes:
+  - {id: testicular-infarction, freq: rare, source: "K&C 10e p.1484"}
+  - {id: male-infertility, freq: occasional, source: "K&C 10e p.1484"}

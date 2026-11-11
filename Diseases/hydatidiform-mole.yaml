@@ -1,0 +1,23 @@
+id: hydatidiform-mole
+name: Hydatidiform mole
+parent: gestational-trophoblastic-disease
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.1454", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: abnormal-fertilisation, to: trophoblastic-proliferation, note: "Complete: empty egg, one sperm that duplicates (46XX, all paternal, no fetal parts). Partial: normal egg, two sperm (69 chromosomes, fetal parts)", source: "Mehlman HY Repro-OBGYN"}
+  - {from: trophoblastic-proliferation, to: very-high-beta-hcg, note: "Check hCG weekly after evacuation until negative", source: "Mehlman HY Repro-OBGYN"}
+  - {from: trophoblastic-proliferation, to: enlarged-uterus, note: "Large for dates, e.g. fundus at the umbilicus at 16 weeks", source: "Mehlman HY Repro-OBGYN"}
+  - {from: trophoblastic-proliferation, to: snowstorm-ultrasound, note: "Complete mole. Suction curettage or D&C", source: "Mehlman HY Repro-OBGYN"}
+  - {from: trophoblastic-proliferation, to: theca-lutein-cysts, source: "Mehlman HY Repro-OBGYN"}
+  - {from: trophoblastic-proliferation, to: pre-eclampsia, note: "Pre-eclampsia before 20 weeks suggests a mole", source: "K&C 10e p.1454; Mehlman HY Repro-OBGYN"}
+  - {from: trophoblastic-proliferation, to: choriocarcinoma, note: "Complete moles carry the higher risk. An invasive mole grows into the myometrium (villi present) and can spread", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: very-high-beta-hcg, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: enlarged-uterus, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: snowstorm-ultrasound, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: theca-lutein-cysts, freq: occasional, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: pre-eclampsia, freq: occasional, source: "K&C 10e p.1454"}
+  - {id: choriocarcinoma, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

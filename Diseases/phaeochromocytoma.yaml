@@ -1,0 +1,38 @@
+id: phaeochromocytoma
+name: Phaeochromocytoma and paraganglioma
+group: adrenal-pituitary
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.606", "K&C 10e p.608-609", "K&C 10e p.649", "Mehlman HY Endocrine"]
+chain:
+  - {from: ret-mutation, to: hormone-secreting-adenoma, note: "MEN 2: often bilateral; inherited causes also SDH mutations (paragangliomas); test genes in every case", source: "K&C 10e p.608, 649"}
+  - {from: vhl-mutation, to: hormone-secreting-adenoma, source: "K&C 10e p.608"}
+  - {from: nf1-mutation, to: hormone-secreting-adenoma, source: "K&C 10e p.608; Mehlman HY Endocrine"}
+  - {from: hormone-secreting-adenoma, to: catecholamine-excess, note: "Neural-crest chromaffin tumour: 90% adrenal, 10% paraganglioma; 25% multiple, 10% malignant", source: "K&C 10e p.608; Mehlman HY Endocrine"}
+  - {from: hormone-secreting-adenoma, to: adrenal-mass-on-ct, note: "Often large; MIBG scan for extra-adrenal tumours", source: "K&C 10e p.608"}
+  - {from: catecholamine-excess, to: paroxysmal-headache-sweating-palpitations, note: "Often episodic, triggered by stress or position", source: "K&C 10e p.608; Mehlman HY Endocrine"}
+  - {from: catecholamine-excess, to: raised-metanephrines, note: "Urine or plasma metanephrines; three normal 24 h urines virtually exclude it", source: "K&C 10e p.608"}
+  - {from: catecholamine-excess, to: raised-arterial-pressure, note: "Under 1 in 1000 hypertensives; office BP may be normal between attacks", source: "K&C 10e p.608; Mehlman HY Endocrine"}
+  - [raised-arterial-pressure, raised-blood-pressure]
+  - {from: raised-arterial-pressure, to: secondary-hypertension, source: "K&C 10e p.606"}
+  - {from: catecholamine-excess, to: tachycardia, source: "K&C 10e p.608"}
+  - {from: catecholamine-excess, to: shakiness-anxiety, note: "Anxiety or panic attacks, tremor", source: "K&C 10e p.608"}
+  - {from: catecholamine-excess, to: postural-hypotension, note: "Contracted plasma volume; re-expand before surgery", source: "K&C 10e p.608"}
+  - [catecholamine-excess, pallor]
+  - [catecholamine-excess, weight-loss]
+  - {from: catecholamine-excess, to: arrhythmia, source: "K&C 10e p.608"}
+  - {from: catecholamine-excess, to: sudden-cardiac-death, note: "If missed, crises during procedures; alpha-block (phenoxybenzamine) before any beta-blocker", source: "K&C 10e p.608; Mehlman HY Endocrine"}
+findings:
+  - {id: paroxysmal-headache-sweating-palpitations, freq: classic}
+  - {id: raised-metanephrines, freq: classic}
+  - {id: raised-blood-pressure, freq: classic}
+  - {id: adrenal-mass-on-ct, freq: common}
+  - {id: tachycardia, freq: common}
+  - {id: shakiness-anxiety, freq: common}
+  - {id: pallor, freq: occasional, note: "Pallor or flushing", source: "K&C 10e p.608"}
+  - {id: weight-loss, freq: occasional, source: "K&C 10e p.608"}
+  - {id: postural-hypotension, freq: occasional}
+outcomes:
+  - {id: secondary-hypertension, freq: classic}
+  - arrhythmia
+  - {id: sudden-cardiac-death, freq: rare, note: "Over 10% recur or develop another tumour; yearly follow-up", source: "K&C 10e p.609"}

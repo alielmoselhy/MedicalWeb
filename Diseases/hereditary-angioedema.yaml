@@ -1,0 +1,16 @@
+id: hereditary-angioedema
+name: Hereditary angio-oedema (C1 inhibitor deficiency)
+group: immunodeficiency
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.62", "K&C 10e p.668"]
+chain:
+  - {from: serping1-mutation, to: bradykinin-excess, note: "Half the normal C1 inhibitor fails under stress; attacks start in childhood, spontaneous or after minor trauma", source: "K&C 10e p.62, 668"}
+  - {from: serping1-mutation, to: low-c4-c1-inhibitor, note: "C4 is the screening test; C1 inhibitor is normal in type III", source: "K&C 10e p.668"}
+  - {from: bradykinin-excess, to: angioedema, note: "Not itchy, no weals, lasts days. C1 inhibitor concentrate or icatibant; steroids and antihistamines don't work", source: "K&C 10e p.62, 668"}
+  - {from: bradykinin-excess, to: laryngeal-oedema, note: "Can be life-threatening", source: "K&C 10e p.668"}
+findings:
+  - {id: angioedema, freq: classic}
+  - {id: low-c4-c1-inhibitor, freq: classic}
+outcomes:
+  - {id: laryngeal-oedema, freq: occasional, source: "K&C 10e p.668"}

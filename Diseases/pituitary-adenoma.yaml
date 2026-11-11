@@ -1,0 +1,31 @@
+id: pituitary-adenoma
+name: Pituitary adenoma
+group: adrenal-pituitary
+status: draft
+systems: [endocrine, nervous]
+sources: ["K&C 10e p.592-597", "Mehlman HY Endocrine"]
+chain:
+  - {from: intracranial-tumour-growth, to: optic-chiasm-compression, note: "90% of sellar masses; benign, monoclonal. Harm comes from mass effect, hormone excess and loss of the remaining gland", source: "K&C 10e p.593, 595"}
+  - {from: optic-chiasm-compression, to: bitemporal-hemianopia, note: "Visual field loss is the commonest local effect; plot fields formally", source: "K&C 10e p.593"}
+  - {from: intracranial-tumour-growth, to: headache, note: "Stretching of the bony fossa and meninges", source: "K&C 10e p.593"}
+  - {from: intracranial-tumour-growth, to: cavernous-sinus-palsy, note: "Lateral extension into the cavernous sinus", source: "K&C 10e p.593"}
+  - {from: intracranial-tumour-growth, to: pituitary-mass-on-mri, note: "MRI beats CT; small lesions are incidental in up to 10% of normal people", source: "K&C 10e p.593"}
+  - {from: intracranial-tumour-growth, to: prolactin-excess, note: "Stalk compression cuts dopamine inhibition, so prolactin rises while other hormones fall", source: "K&C 10e p.592, 640; Mehlman HY Endocrine"}
+  - [prolactin-excess, raised-prolactin]
+  - {from: intracranial-tumour-growth, to: anterior-pituitary-hormone-deficiency, note: "Non-functioning tumours are usually large and present with fields and hypopituitarism", source: "K&C 10e p.593"}
+  - {from: anterior-pituitary-hormone-deficiency, to: hypopituitarism, source: "K&C 10e p.595"}
+  - [intracranial-tumour-growth, obstructed-csf-pathway]
+  - {from: obstructed-csf-pathway, to: hydrocephalus, note: "Upward growth into the ventricles", source: "K&C 10e p.593"}
+  - {from: intracranial-tumour-growth, to: csf-leak, note: "Downward erosion into the sphenoid sinus; also a risk of trans-sphenoidal surgery", source: "K&C 10e p.593-594"}
+  - {from: intracranial-tumour-growth, to: pituitary-apoplexy, note: "Sudden infarction or bleeding into the tumour: severe headache, diplopia, sudden visual loss", source: "K&C 10e p.596"}
+findings:
+  - {id: pituitary-mass-on-mri, freq: classic}
+  - {id: bitemporal-hemianopia, freq: common, note: "Upper temporal quadrantanopia first", source: "K&C 10e p.593"}
+  - {id: headache, freq: common}
+  - {id: raised-prolactin, freq: occasional, note: "Stalk effect: usually below 5000 mU/L; higher means a prolactinoma", source: "K&C 10e p.640"}
+  - {id: cavernous-sinus-palsy, freq: occasional}
+outcomes:
+  - {id: hypopituitarism, freq: common}
+  - {id: pituitary-apoplexy, freq: rare, note: "Usually conservative; urgent decompression if vision worsens", source: "K&C 10e p.596"}
+  - {id: hydrocephalus, freq: rare}
+  - {id: csf-leak, freq: rare}

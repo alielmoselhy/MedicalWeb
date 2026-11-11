@@ -1,0 +1,27 @@
+id: sjs-ten
+name: Stevens–Johnson syndrome and toxic epidermal necrolysis
+group: inflammatory-skin
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.676", "K&C 10e p.678 (Box 22.19)", "K&C 10e p.697-698"]
+chain:
+  - {from: culprit-drug, to: drug-hypersensitivity, note: "1–2 weeks after starting: penicillin, co-trimoxazole, carbamazepine, NSAIDs, allopurinol, nevirapine; HLA types raise the risk", source: "K&C 10e p.697"}
+  - {from: drug-hypersensitivity, to: epidermal-detachment, note: "One spectrum: SJS under 10% of skin, overlap 10–30%, TEN over 30%; stop every possible culprit", source: "K&C 10e p.697"}
+  - {from: drug-hypersensitivity, to: fever, note: "Prodrome of malaise, myalgia, fever and cough", source: "K&C 10e p.697"}
+  - {from: epidermal-detachment, to: sheet-like-skin-detachment, source: "K&C 10e p.697"}
+  - {from: epidermal-detachment, to: nikolsky-sign, note: "Skin wrinkles like wet wallpaper in TEN", source: "K&C 10e p.697"}
+  - {from: epidermal-detachment, to: oral-mucosal-erosions, note: "Always: one or two sites in SJS (mouth, genitals, eyes), nearly all in TEN", source: "K&C 10e p.697"}
+  - {from: epidermal-detachment, to: target-lesions, note: "Atypical two-ring targets on hands and feet in SJS", source: "K&C 10e p.678, 697"}
+  - {from: epidermal-detachment, to: erythroderma, note: "Skin failure; care as for extensive burns", source: "K&C 10e p.697"}
+  - {from: epidermal-detachment, to: sepsis, source: "K&C 10e p.697"}
+  - {from: epidermal-detachment, to: multi-organ-dysfunction, note: "TEN mortality 30–50%; SCORTEN predicts it", source: "K&C 10e p.697-698"}
+findings:
+  - {id: sheet-like-skin-detachment, freq: classic, source: "K&C 10e p.697"}
+  - {id: oral-mucosal-erosions, freq: classic, source: "K&C 10e p.697"}
+  - {id: fever, freq: common, source: "K&C 10e p.697"}
+  - {id: nikolsky-sign, freq: common, source: "K&C 10e p.697"}
+  - {id: target-lesions, freq: occasional, source: "K&C 10e p.697"}
+outcomes:
+  - {id: erythroderma, source: "K&C 10e p.697"}
+  - {id: sepsis, source: "K&C 10e p.697"}
+  - {id: multi-organ-dysfunction, source: "K&C 10e p.697"}

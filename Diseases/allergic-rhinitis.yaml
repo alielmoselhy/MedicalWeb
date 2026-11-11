@@ -1,0 +1,29 @@
+id: allergic-rhinitis
+name: Allergic rhinitis
+group: hypersensitivity
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.62, 64", "K&C 10e p.945-946"]
+chain:
+  - {from: atopy, to: ige-mast-cell-degranulation, note: "20–30% of the UK is atopic; strongly inherited (75% risk with two atopic parents)", source: "K&C 10e p.62"}
+  - {from: seasonal-pollen, to: ige-mast-cell-degranulation, note: "Seasonal (hay fever): the commonest allergic disorder; up to 30% of UK teenagers each June–July", source: "K&C 10e p.945"}
+  - {from: inhaled-allergen, to: ige-mast-cell-degranulation, note: "Perennial: house-dust mite faeces most often, then cats and other pets", source: "K&C 10e p.946"}
+  - {from: ige-mast-cell-degranulation, to: positive-skin-prick-test, note: "Weal ≥3 mm; supports the history but isn't proof alone. Stop antihistamines 48 h before", source: "K&C 10e p.945-946"}
+  - [ige-mast-cell-degranulation, mast-cell-mediator-release]
+  - {from: mast-cell-mediator-release, to: sneezing-rhinorrhoea, note: "Second-generation antihistamines help sneezing and itch most, blockage least", source: "K&C 10e p.945-946"}
+  - [mast-cell-mediator-release, itchy-eyes-palate]
+  - [mast-cell-mediator-release, nasal-mucosal-inflammation]
+  - {from: nasal-mucosal-inflammation, to: nasal-blockage, note: "The main complaint in half of perennial cases", source: "K&C 10e p.945-946"}
+  - [nasal-mucosal-inflammation, anosmia]
+  - {from: nasal-mucosal-inflammation, to: sinusitis, note: "Swollen mucosa blocks sinus drainage", source: "K&C 10e p.946"}
+  - {from: mast-cell-mediator-release, to: reversible-bronchoconstriction, note: "About 20% wheeze in the pollen season", source: "K&C 10e p.945"}
+  - [reversible-bronchoconstriction, wheeze]
+findings:
+  - {id: sneezing-rhinorrhoea, freq: classic}
+  - {id: itchy-eyes-palate, freq: common, note: "Mainly seasonal; ears may itch too", source: "K&C 10e p.945"}
+  - {id: nasal-blockage, freq: common}
+  - {id: positive-skin-prick-test, freq: common}
+  - {id: anosmia, freq: occasional}
+  - {id: wheeze, freq: occasional}
+outcomes:
+  - {id: sinusitis, freq: common, note: "About half of perennial rhinitis", source: "K&C 10e p.946"}

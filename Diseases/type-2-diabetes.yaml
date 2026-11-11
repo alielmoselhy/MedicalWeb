@@ -1,0 +1,40 @@
+id: type-2-diabetes
+name: Type 2 diabetes mellitus
+parent: diabetes-mellitus
+group: glucose
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.708-710", "K&C 10e p.725", "K&C 10e p.734-735", "Mehlman HY Endocrine"]
+chain:
+  - {from: obesity, to: insulin-resistance, note: "80–85% of the risk, central fat most; also poor diet and inactivity; adipokines blunt insulin signalling", source: "K&C 10e p.708; Mehlman HY Endocrine"}
+  - {from: t2dm-genetic-susceptibility, to: beta-cell-failure, note: "Identical twin over 50%; most risk loci affect β cells, none shared with type 1", source: "K&C 10e p.708"}
+  - {from: older-age, to: beta-cell-failure, note: "Most diagnosed after 40, but rising in the young", source: "K&C 10e p.708"}
+  - {from: insulin-resistance, to: beta-cell-failure, note: "Early hypersecretion, then glucotoxic decline; half the β-cell mass is gone at diagnosis", source: "K&C 10e p.708-709; Mehlman HY Endocrine"}
+  - {from: beta-cell-failure, to: insulin-deficiency, note: "Relative at first; many eventually need insulin", source: "K&C 10e p.709"}
+  - {from: insulin-resistance, to: hyperglycaemia, note: "Liver keeps releasing glucose; muscle and fat take up less", source: "K&C 10e p.708"}
+  - [insulin-deficiency, hyperglycaemia]
+  - {from: hyperglycaemia, to: diabetic-glucose-hba1c, note: "About 90% of diabetes; often found by screening; 20–50% already have microvascular disease", source: "K&C 10e p.708, 726"}
+  - [hyperglycaemia, osmotic-diuresis]
+  - {from: osmotic-diuresis, to: polyuria-nocturia, note: "Milder, over months or years", source: "K&C 10e p.710"}
+  - [osmotic-diuresis, polydipsia]
+  - {from: insulin-resistance, to: acanthosis-nigricans, note: "Dark velvety skin at the neck and axillae", source: "K&C 10e p.710; Mehlman HY Endocrine"}
+  - {from: insulin-resistance, to: raised-triglycerides, note: "With low HDL; part of the macrovascular risk", source: "K&C 10e p.734"}
+  - [insulin-resistance, low-hdl]
+  - {from: insulin-resistance, to: masld, note: "Over a third with fatty liver have diabetes", source: "K&C 10e p.735"}
+  - {from: hyperglycaemia, to: hyperosmolar-hyperglycaemic-state, note: "Insulin stops ketogenesis but not glucose output; triggers: sugary drinks, thiazides, steroids, infection; mortality 15–20%", source: "K&C 10e p.725; Mehlman HY Endocrine"}
+  - {from: hyperosmolar-hyperglycaemic-state, to: dehydration-signs, source: "K&C 10e p.725"}
+  - {from: hyperosmolar-hyperglycaemic-state, to: coma, note: "Stupor or coma tracks the osmolality; lower sodium no faster than 10 mmol/L a day", source: "K&C 10e p.725"}
+  - {from: hyperosmolar-hyperglycaemic-state, to: ischaemic-stroke, note: "Also MI and limb ischaemia; give LMWH", source: "K&C 10e p.725"}
+findings:
+  - {id: diabetic-glucose-hba1c, freq: classic}
+  - {id: polyuria-nocturia, freq: common}
+  - {id: polydipsia, freq: common}
+  - {id: raised-triglycerides, freq: common}
+  - {id: low-hdl, freq: common}
+  - {id: dehydration-signs, freq: occasional, note: "In HHS"}
+  - {id: coma, freq: rare, note: "In HHS"}
+outcomes:
+  - {id: hyperosmolar-hyperglycaemic-state, freq: occasional, source: "K&C 10e p.725"}
+  - {id: masld, freq: common, source: "K&C 10e p.735"}
+  - {id: ischaemic-stroke, source: "K&C 10e p.725"}
+  - {id: acanthosis-nigricans, source: "K&C 10e p.710"}

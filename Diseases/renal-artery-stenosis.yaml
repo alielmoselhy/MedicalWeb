@@ -2,7 +2,7 @@ id: renal-artery-stenosis
 name: Renal artery stenosis
 group: ischaemic-myocardial-pericardial
 status: draft
-systems: [cardiovascular]
+systems: [cardiovascular, kidney-urogenital]
 sources: ["K&C 10e p.1371-1372", "K&C 10e p.1139 (Box 31.2)"]
 chain:
   - [smoking, endothelial-dysfunction]

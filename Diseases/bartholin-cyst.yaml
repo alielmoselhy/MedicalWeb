@@ -1,0 +1,17 @@
+id: bartholin-cyst
+name: Bartholin gland cyst and abscess
+group: vulva-vagina-cervix
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.1417", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: bartholin-duct-obstruction, to: tender-vulval-swelling, note: "Sitz baths and warm compresses for a cyst", source: "Mehlman HY Repro-OBGYN"}
+  - {from: bartholin-duct-obstruction, to: bartholin-abscess, note: "Warm and red when infected; drain it", source: "Mehlman HY Repro-OBGYN"}
+  - {from: polymicrobial-genital-flora, to: bartholin-abscess, note: "Usually polymicrobial", source: "Mehlman HY Repro-OBGYN"}
+  - {from: gonorrhoea, to: bartholin-abscess, source: "K&C 10e p.1417"}
+  - {from: bartholin-abscess, to: necrotising-fasciitis, note: "The most serious complication", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: tender-vulval-swelling, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: bartholin-abscess, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: necrotising-fasciitis, freq: rare, source: "Mehlman HY Repro-OBGYN"}

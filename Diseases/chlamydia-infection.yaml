@@ -1,0 +1,32 @@
+id: chlamydia-infection
+name: Chlamydia trachomatis infection
+group: uti
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1413", "K&C 10e p.1416-1417", "Mehlman HY Repro-OBGYN", "Mehlman HY Renal", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: unprotected-sex-multiple-partners, to: genital-mucosal-infection, note: "Highest in under-25s and MSM; STIs often coexist and each raises HIV risk", source: "K&C 10e p.1413"}
+  - {from: chlamydia-trachomatis, to: genital-mucosal-infection, note: "Commonest UK STI (up to 10% of sexually active under-25s); silent in up to 80% of women and 50% of men", source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: urethral-discharge, note: "Mucopurulent, worse on waking; culture grows nothing (obligate intracellular)", source: "K&C 10e p.1416; Mehlman HY Renal"}
+  - {from: genital-mucosal-infection, to: dysuria-frequency-urgency, note: "Dysuria; a young woman with UTI symptoms but a normal dipstick needs STI testing", source: "K&C 10e p.1416; Mehlman HY Renal"}
+  - {from: genital-mucosal-infection, to: vaginal-discharge, source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: intermenstrual-postcoital-bleeding, source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: mucopurulent-cervicitis, source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: positive-sti-naat, note: "Test of choice (90–99% sensitive); doxycycline 7 days; treat partners; retest only after 6 weeks", source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: ascending-genital-infection, source: "K&C 10e p.1416"}
+  - {from: ascending-genital-infection, to: pelvic-inflammatory-disease, note: "The main complication of chlamydia", source: "K&C 10e p.1416"}
+  - {from: ascending-genital-infection, to: epididymo-orchitis, note: "Spread along the vas deferens", source: "K&C 10e p.1416"}
+  - {from: genital-mucosal-infection, to: reactive-arthritis, note: "Especially HLA-B27; the classic reactive arthritis organism (gonorrhoea does not cause it)", source: "K&C 10e p.1416; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: genital-mucosal-infection, to: neonatal-conjunctivitis, note: "Vertical spread at delivery; also neonatal pneumonia and preterm birth", source: "K&C 10e p.1416; Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: positive-sti-naat, freq: classic, source: "K&C 10e p.1416"}
+  - {id: urethral-discharge, freq: common, note: "Men", source: "K&C 10e p.1416"}
+  - {id: dysuria-frequency-urgency, freq: common}
+  - {id: vaginal-discharge, freq: common, note: "Women", source: "K&C 10e p.1416"}
+  - {id: intermenstrual-postcoital-bleeding, freq: occasional}
+  - {id: mucopurulent-cervicitis, freq: common}
+outcomes:
+  - {id: pelvic-inflammatory-disease, freq: common, source: "K&C 10e p.1416"}
+  - {id: epididymo-orchitis, freq: occasional, source: "K&C 10e p.1416"}
+  - {id: reactive-arthritis, freq: rare, source: "K&C 10e p.1416"}
+  - {id: neonatal-conjunctivitis, source: "K&C 10e p.1416"}

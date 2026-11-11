@@ -1,0 +1,34 @@
+id: prolactinoma
+name: Prolactinoma
+parent: pituitary-adenoma
+group: adrenal-pituitary
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.593", "K&C 10e p.639-641", "Mehlman HY Endocrine"]
+chain:
+  - {from: hormone-secreting-adenoma, to: prolactin-excess, note: "Lactotroph adenoma, most under 10 mm (micro); a dopamine agonist (cabergoline) is first-line and usually shrinks it", source: "K&C 10e p.593, 640"}
+  - {from: prolactin-excess, to: raised-prolactin, note: "Over 5000 mU/L always means a prolactinoma; rule out pregnancy, drugs (dopamine antagonists, oestrogens), hypothyroidism and macroprolactin", source: "K&C 10e p.639-640"}
+  - {from: prolactin-excess, to: galactorrhoea, note: "In about 60%", source: "K&C 10e p.639"}
+  - {from: prolactin-excess, to: hypogonadism, note: "Prolactin dampens GnRH pulses and blocks LH at the gonad", source: "K&C 10e p.639"}
+  - {from: hypogonadism, to: oligo-amenorrhoea, source: "K&C 10e p.639; Mehlman HY Endocrine"}
+  - {from: hypogonadism, to: reduced-libido-erectile-dysfunction, source: "K&C 10e p.639; Mehlman HY Endocrine"}
+  - {from: hypogonadism, to: osteoporosis, note: "Long-term sex-steroid deficiency, especially in women", source: "K&C 10e p.639"}
+  - {from: hormone-secreting-adenoma, to: intracranial-tumour-growth, note: "Macroprolactinoma (over 10 mm), commoner in men, presents with headache and field loss", source: "K&C 10e p.593, 639"}
+  - [intracranial-tumour-growth, optic-chiasm-compression]
+  - [optic-chiasm-compression, bitemporal-hemianopia]
+  - [intracranial-tumour-growth, headache]
+  - [intracranial-tumour-growth, pituitary-mass-on-mri]
+  - {from: intracranial-tumour-growth, to: anterior-pituitary-hormone-deficiency, source: "K&C 10e p.593"}
+  - [anterior-pituitary-hormone-deficiency, hypopituitarism]
+findings:
+  - {id: raised-prolactin, freq: classic}
+  - {id: galactorrhoea, freq: common}
+  - {id: oligo-amenorrhoea, freq: common}
+  - {id: reduced-libido-erectile-dysfunction, freq: common, note: "Both sexes lose libido; men become impotent", source: "K&C 10e p.639"}
+  - {id: pituitary-mass-on-mri, freq: classic, note: "MRI if prolactin is over 1000 mU/L", source: "K&C 10e p.640"}
+  - {id: headache, freq: occasional}
+  - {id: bitemporal-hemianopia, freq: occasional}
+outcomes:
+  - {id: hypogonadism, freq: common}
+  - {id: osteoporosis, freq: occasional}
+  - {id: hypopituitarism, freq: occasional, note: "Macroadenomas", source: "K&C 10e p.593"}

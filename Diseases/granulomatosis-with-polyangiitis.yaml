@@ -1,0 +1,36 @@
+id: granulomatosis-with-polyangiitis
+name: Granulomatosis with polyangiitis (GPA)
+parent: vasculitis
+group: vasculitis
+status: draft
+systems: [immunology, kidney-urogenital]
+sources: ["K&C 10e p.466", "K&C 10e p.991", "K&C 10e p.1363", "Mehlman HY Cardio", "Mehlman HY Renal"]
+chain:
+  - {from: older-age, to: anca-small-vessel-vasculitis, note: "Older adults, commoner in white people", source: "K&C 10e p.991"}
+  - {from: anca-small-vessel-vasculitis, to: c-anca-pr3, source: "K&C 10e p.991; Mehlman HY Cardio"}
+  - {from: anca-small-vessel-vasculitis, to: granuloma-formation, note: "Granulomas set it apart from MPA", source: "K&C 10e p.991"}
+  - {from: granuloma-formation, to: ent-destruction, note: "'Head-itis': nose, sinuses, ears", source: "K&C 10e p.991; Mehlman HY Cardio"}
+  - [granuloma-formation, sinusitis]
+  - {from: granuloma-formation, to: cavitation, note: "Multiple nodules that often cavitate", source: "K&C 10e p.991"}
+  - {from: anca-small-vessel-vasculitis, to: diffuse-alveolar-haemorrhage, note: "Capillaritis; up to 45%", source: "K&C 10e p.991, 1363"}
+  - [diffuse-alveolar-haemorrhage, haemoptysis]
+  - {from: anca-small-vessel-vasculitis, to: pauci-immune-crescentic-gn, note: "Check the urine; renal biopsy is the gold standard", source: "K&C 10e p.991, 1363; Mehlman HY Renal"}
+  - [pauci-immune-crescentic-gn, haematuria]
+  - [pauci-immune-crescentic-gn, acute-kidney-injury]
+  - {from: anca-small-vessel-vasculitis, to: palpable-purpura, source: "K&C 10e p.1363"}
+  - {from: anca-small-vessel-vasculitis, to: mononeuritis-multiplex, source: "Mehlman HY Cardio"}
+  - {from: anca-small-vessel-vasculitis, to: raised-inflammatory-markers, note: "ESR often over 100. Steroids plus cyclophosphamide or rituximab", source: "K&C 10e p.466, 991"}
+findings:
+  - {id: c-anca-pr3, freq: classic}
+  - {id: ent-destruction, freq: classic}
+  - {id: haematuria, freq: common}
+  - {id: haemoptysis, freq: common}
+  - {id: cavitation, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: palpable-purpura, freq: occasional}
+  - {id: mononeuritis-multiplex, freq: occasional}
+outcomes:
+  - {id: pauci-immune-crescentic-gn, freq: common, source: "K&C 10e p.1363"}
+  - {id: diffuse-alveolar-haemorrhage, freq: common, source: "K&C 10e p.991"}
+  - {id: acute-kidney-injury, freq: common, source: "K&C 10e p.1363"}
+  - {id: sinusitis, freq: common, source: "K&C 10e p.991"}

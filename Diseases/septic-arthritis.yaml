@@ -1,0 +1,31 @@
+id: septic-arthritis
+name: Septic arthritis
+group: bone-joint-infection
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.435, 454-455", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: s-aureus, to: haematogenous-seeding, note: "Commonest organism; blood-borne from a skin lesion or other focus. Also streptococci, H. influenzae in children, Gram-negatives in the elderly", source: "K&C 10e p.454-455; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: neisseria-gonorrhoeae, to: haematogenous-seeding, note: "A common cause in fit young adults; disseminated in 0.5–3% of gonorrhoea; joint fluid may be sterile", source: "K&C 10e p.455; Mehlman HY Anatomy-MSK-Rheum"}
+  - [haematogenous-seeding, joint-space-infection]
+  - {from: joint-injury-overuse, to: joint-space-infection, note: "Direct injury, recent joint surgery or a joint steroid injection", source: "K&C 10e p.454-455; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: prosthetic-joint, to: joint-space-infection, note: "Needs two-stage revision: remove, 4–6 weeks of IV antibiotics, then a new prosthesis", source: "K&C 10e p.454-455"}
+  - {from: diabetes-mellitus, to: joint-space-infection, note: "Other risks: age over 80, RA, skin infection, injecting drugs, alcohol", source: "K&C 10e p.454-455"}
+  - {from: joint-space-infection, to: acute-monoarthritis, note: "Hot, red, swollen, agonising, held still; can be insidious in the elderly, immunosuppressed or RA. Over one joint in 20%", source: "K&C 10e p.455; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: joint-space-infection, to: purulent-synovial-fluid, note: "Aspirate first and treat on suspicion; a negative Gram stain doesn't exclude it", source: "K&C 10e p.455; Mehlman HY Anatomy-MSK-Rheum"}
+  - [joint-space-infection, positive-blood-cultures]
+  - [joint-space-infection, leucocytosis]
+  - [joint-space-infection, fever]
+  - {from: neisseria-gonorrhoeae, to: tenosynovitis-necrotic-skin-lesions, only: neisseria-gonorrhoeae, note: "Fever, distal pustules, polyarthralgia; large-joint arthritis may follow", source: "K&C 10e p.455"}
+  - {from: joint-space-infection, to: joint-destruction, note: "Within weeks if untreated; mortality up to 11%, 50% when several joints are infected", source: "K&C 10e p.454-455"}
+  - {from: joint-destruction, to: osteoarthritis, source: "K&C 10e p.435 (Box 18.22)"}
+findings:
+  - {id: acute-monoarthritis, freq: classic, note: "Emergency: IV antibiotics for 2 weeks then oral for 4, with joint drainage or washout", source: "K&C 10e p.455"}
+  - {id: purulent-synovial-fluid, freq: classic}
+  - {id: fever, freq: common, source: "Mehlman HY Anatomy-MSK-Rheum"}
+  - {id: leucocytosis, freq: common, source: "K&C 10e p.455"}
+  - {id: positive-blood-cultures, freq: common, source: "K&C 10e p.455"}
+  - {id: tenosynovitis-necrotic-skin-lesions, freq: occasional, only: neisseria-gonorrhoeae}
+outcomes:
+  - joint-destruction
+  - osteoarthritis

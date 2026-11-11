@@ -1,0 +1,34 @@
+id: gout
+name: Gout
+group: arthritis
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.435, 451-454", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: chronic-kidney-disease, to: impaired-urate-excretion, note: "About 90% of gout is under-excretion; in CKD itself clinical gout is unusual", source: "K&C 10e p.452 (Box 18.37)"}
+  - {from: urate-raising-drug, to: impaired-urate-excretion, note: "Long-term diuretics go with tophaceous gout; switch to a less urate-retaining one (bumetanide)", source: "K&C 10e p.452 (Box 18.37); K&C 10e p.454; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: excess-alcohol, to: impaired-urate-excretion, note: "Lactate blocks urate excretion; beer is also rich in purines and fructose", source: "K&C 10e p.452 (Box 18.37); K&C 10e p.453"}
+  - {from: hypothyroidism, to: impaired-urate-excretion, source: "K&C 10e p.452 (Box 18.37)"}
+  - {from: primary-hyperparathyroidism, to: impaired-urate-excretion, source: "K&C 10e p.452 (Box 18.37)"}
+  - {from: lead-exposure, to: impaired-urate-excretion, source: "K&C 10e p.452 (Box 18.37)"}
+  - {from: obesity, to: hyperuricaemia, note: "Urate rises with age, obesity, a Western diet and the metabolic syndrome; men 5:1, rare before the menopause", source: "K&C 10e p.452"}
+  - {from: myeloproliferative-neoplasm, to: high-cell-turnover, note: "Overproduction in about 10% (myeloproliferative and lymphoproliferative disease, severe psoriasis); inborn errors (Lesch–Nyhan) under 1%", source: "K&C 10e p.452 (Box 18.37)"}
+  - {from: tumour-lysis-syndrome, to: hyperuricaemia, note: "Pegloticase prevents it during chemotherapy", source: "K&C 10e p.454"}
+  - [impaired-urate-excretion, hyperuricaemia]
+  - [high-cell-turnover, hyperuricaemia]
+  - {from: hyperuricaemia, to: urate-crystal-deposition, note: "Crystals form above about 408 µmol/L, and lower in cooler peripheral joints; most hyperuricaemia never causes gout", source: "K&C 10e p.452; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: urate-crystal-deposition, to: acute-monoarthritis, note: "Sudden agonising red, swollen first MTP in a middle-aged man; triggers: alcohol, big meals, dehydration, diuretics. Lasts about 7 days untreated", source: "K&C 10e p.452-453; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: urate-crystal-deposition, to: negatively-birefringent-needle-crystals, note: "Joint fluid microscopy is the most specific test; culture too if sepsis is possible", source: "K&C 10e p.453; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: urate-crystal-deposition, to: tophi, note: "With persistently high urate; may ulcerate", source: "K&C 10e p.453"}
+  - {from: urate-crystal-deposition, to: punched-out-erosions, note: "Periarticular tophi give punched-out cysts with a halo of opacity", source: "K&C 10e p.454"}
+  - {from: urate-crystal-deposition, to: osteoarthritis, note: "Secondary OA from joint damage; OA joints are also more prone to attacks", source: "K&C 10e p.435 (Box 18.22); K&C 10e p.452"}
+  - {from: hyperuricaemia, to: renal-calculi-nephrocalcinosis, note: "Uric acid stones (radiolucent); acute or chronic urate nephropathy with tophaceous gout", source: "K&C 10e p.453-454; Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: acute-monoarthritis, freq: classic, note: "Acute: high-dose NSAID, or colchicine or a steroid if NSAIDs are unsafe", source: "K&C 10e p.453"}
+  - {id: negatively-birefringent-needle-crystals, freq: classic}
+  - {id: hyperuricaemia, freq: classic, note: "Usually > 600 µmol/L but falls during an attack, so recheck weeks later. Allopurinol (first choice) to < 360; never start it mid-attack", source: "K&C 10e p.453"}
+  - {id: tophi, freq: occasional}
+  - {id: punched-out-erosions, freq: occasional}
+outcomes:
+  - {id: renal-calculi-nephrocalcinosis, freq: occasional}
+  - osteoarthritis

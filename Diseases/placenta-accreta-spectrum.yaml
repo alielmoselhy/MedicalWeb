@@ -1,0 +1,10 @@
+id: placenta-accreta-spectrum
+name: Placenta accreta spectrum
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: invasive-placental-attachment, to: postpartum-bleeding, note: "Mehlman only. Accreta onto, increta into, percreta through the myometrium (may reach the bladder)", source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: postpartum-bleeding, freq: classic, source: "Mehlman HY Repro-OBGYN"}

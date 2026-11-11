@@ -1,0 +1,38 @@
+id: folate-deficiency-anaemia
+name: Folate deficiency anaemia
+group: anaemia
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.333-336", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: poor-diet, to: folate-deficit, note: "The main cause; stores last about 4 months, faster with high demand", source: "K&C 10e p.335"}
+  - {from: excess-alcohol, to: folate-deficit, note: "Poor intake plus impaired use", source: "K&C 10e p.335"}
+  - {from: antifolate-drug, to: folate-deficit, note: "Anticonvulsants, methotrexate, trimethoprim, pyrimethamine", source: "K&C 10e p.335; Mehlman HY Heme-Onc"}
+  - {from: pregnancy, to: folate-deficit, note: "Excess use: also lactation, prematurity, haemolysis, cancer and dialysis", source: "K&C 10e p.335"}
+  - {from: chronic-haemolysis, to: folate-deficit, note: "A marrow driven hard by haemolysis uses up folate; give folic acid", source: "K&C 10e p.335-336"}
+  - {from: coeliac-disease, to: folate-deficit, note: "Gut disease mostly acts through poor appetite; malabsorption itself is minor", source: "K&C 10e p.335"}
+  - [crohns-disease, folate-deficit]
+  - {from: folate-deficit, to: b12-folate-deficiency, note: "Serum folate below 3 µg/L", source: "K&C 10e p.335"}
+  - {from: folate-deficit, to: impaired-dna-synthesis, note: "Folic acid 5 mg daily for about 4 months; check B12 first, as folate alone can worsen B12 neuropathy", source: "K&C 10e p.336"}
+  - [folate-deficit, glossitis-angular-stomatitis]
+  - {from: folate-deficit, to: neural-tube-defect, note: "400 µg before conception and for the first 12 weeks; 5 mg after a previous affected pregnancy", source: "K&C 10e p.335-336"}
+  - [impaired-dna-synthesis, macrocytic-anaemia]
+  - [impaired-dna-synthesis, hypersegmented-neutrophils]
+  - [impaired-dna-synthesis, megaloblastic-marrow]
+  - [impaired-dna-synthesis, raised-ldh]
+  - [impaired-dna-synthesis, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, exertional-dyspnoea]
+  - [anaemic-hypoxia, pallor]
+findings:
+  - {id: macrocytic-anaemia, freq: classic, note: "No neuropathy, unlike B12 deficiency", source: "K&C 10e p.335"}
+  - {id: b12-folate-deficiency, freq: classic}
+  - {id: hypersegmented-neutrophils, freq: common}
+  - {id: megaloblastic-marrow, freq: common}
+  - {id: raised-ldh, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: pallor, freq: common}
+  - {id: glossitis-angular-stomatitis, freq: occasional}
+outcomes:
+  - {id: neural-tube-defect, source: "K&C 10e p.335"}

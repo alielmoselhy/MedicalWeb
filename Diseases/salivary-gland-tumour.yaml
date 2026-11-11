@@ -1,0 +1,10 @@
+id: salivary-gland-tumour
+name: Salivary gland tumour
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["Mehlman HY Gastro"]
+chain:
+  - {from: salivary-gland-neoplasm, to: salivary-gland-swelling, note: "Most are benign (pleomorphic adenoma commonest); invasion, spread or B symptoms point to a malignant one", source: "Mehlman HY Gastro"}
+findings:
+  - {id: salivary-gland-swelling, freq: classic}

@@ -1,0 +1,40 @@
+id: hyponatraemia
+name: Hyponatraemia
+group: sodium-water
+status: draft
+systems: [biochemistry]
+sources: ["K&C 10e p.183-186", "K&C 10e p.642", "Mehlman HY Endocrine", "Mehlman HY Renal"]
+chain:
+  - {from: volume-depletion, to: adh-excess, note: "Hypovolaemic: volume receptors override osmoreceptors. Urine Na < 20 with gut losses, > 20 with renal or adrenal loss", source: "K&C 10e p.183"}
+  - {from: adrenal-insufficiency, to: adh-excess, source: "K&C 10e p.184 (Box 9.13)"}
+  - {from: hypothyroidism, to: adh-excess, source: "K&C 10e p.184 (Box 9.13); K&C 10e p.642"}
+  - [adh-excess, free-water-excess]
+  - {from: siadh, to: free-water-excess, note: "Euvolaemic; often over-diagnosed. Exclude Addison's, hypothyroidism and drugs first", source: "K&C 10e p.184-185"}
+  - {from: diuretic, to: free-water-excess, note: "Especially thiazides; low K and Mg add to ADH release", source: "K&C 10e p.185-186"}
+  - {from: hypotonic-fluid-excess, to: free-water-excess, note: "The commonest acute cause: post-operative 5% glucose (about 1% of operations); also marathons and Ecstasy", source: "K&C 10e p.184-185"}
+  - {from: primary-polydipsia, to: free-water-excess, note: "Urine and serum both dilute", source: "K&C 10e p.184 (Box 9.13); Mehlman HY Renal"}
+  - from: oedematous-state
+    to: free-water-excess
+    note: "Hypervolaemic: low GFR and avid proximal reabsorption leave the kidney unable to make dilute urine; diuretics add to it"
+    source: "K&C 10e p.186 (Box 9.15)"
+    members:
+      - heart-failure
+      - cirrhosis
+      - nephrotic-syndrome
+      - acute-kidney-injury
+  - {from: free-water-excess, to: low-serum-sodium, note: "Below 135; the commonest inpatient lab abnormality (up to 35%). Assess volume status first; exclude pseudohyponatraemia (lipids, protein)", source: "K&C 10e p.183"}
+  - {from: low-serum-sodium, to: hyponatraemic-encephalopathy, note: "Water moves into brain cells; rare above 125, usual around 115, or when acute (< 48 h). Children, premenopausal women and hypoxaemia at most risk", source: "K&C 10e p.184"}
+  - [hyponatraemic-encephalopathy, headache]
+  - [hyponatraemic-encephalopathy, confusion]
+  - [hyponatraemic-encephalopathy, seizures]
+  - [hyponatraemic-encephalopathy, coma]
+  - {from: low-serum-sodium, to: osmotic-demyelination-syndrome, note: "From correcting chronic hyponatraemia too fast: under 8 mmol/L a day; more risk with alcohol, cirrhosis, malnutrition, low K. MRI changes take 2 weeks", source: "K&C 10e p.185; Mehlman HY Endocrine"}
+findings:
+  - {id: low-serum-sodium, freq: classic, note: "Treat the cause by volume: saline if hypovolaemic, fluid restriction if euvolaemic, salt and fluid restriction if hypervolaemic. 3% saline only for fits or coma", source: "K&C 10e p.185 (Box 9.14); Mehlman HY Endocrine"}
+  - {id: confusion, freq: common}
+  - {id: headache, freq: occasional}
+  - {id: seizures, freq: occasional}
+  - {id: coma, freq: rare}
+outcomes:
+  - hyponatraemic-encephalopathy
+  - {id: osmotic-demyelination-syndrome, freq: rare}

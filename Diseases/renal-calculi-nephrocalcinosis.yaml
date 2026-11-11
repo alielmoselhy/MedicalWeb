@@ -1,0 +1,37 @@
+id: renal-calculi-nephrocalcinosis
+name: Renal stones and nephrocalcinosis
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1373-1376", "K&C 10e p.645", "Mehlman HY Renal"]
+chain:
+  - {from: volume-depletion, to: urinary-stone-formation, note: "Concentrated urine: hot climates, gut fluid loss, ileostomy. Lifetime risk 10%; men 2:1; over half recur within 10 years", source: "K&C 10e p.1373-1374"}
+  - {from: idiopathic-hypercalciuria, to: urinary-stone-formation, note: "Commonest metabolic finding; normal serum calcium. Don't restrict dietary calcium; thiazides cut urinary calcium", source: "K&C 10e p.1373, 1376; Mehlman HY Renal"}
+  - {from: primary-hyperoxaluria, to: urinary-stone-formation, note: "Calcium oxalate stones; CKD by the early twenties", source: "K&C 10e p.1373"}
+  - {from: primary-hyperparathyroidism, to: urinary-stone-formation, note: "Hypercalcaemia; about 5% of people presenting with stones", source: "K&C 10e p.645"}
+  - {from: gout, to: urinary-stone-formation, note: "Uric acid stones (3–5%): radiolucent on X-ray, seen on CT; allopurinol prevents", source: "K&C 10e p.1374-1376; Mehlman HY Renal"}
+  - {from: proteus-mirabilis, to: urinary-stone-formation, note: "Urease alkalinises urine: struvite staghorn stones (10–15%)", source: "K&C 10e p.1374; Mehlman HY Renal"}
+  - {from: cystinuria, to: urinary-stone-formation, note: "Cystine stones (1–2%); nitroprusside screen", source: "K&C 10e p.1374-1375"}
+  - {from: urinary-stone-formation, to: renal-colic, note: "Stone entering the ureter; NSAID analgesia. Under 5 mm usually pass; over 1 cm need lithotripsy or ureteroscopy", source: "K&C 10e p.1374-1375"}
+  - {from: urinary-stone-formation, to: haematuria, source: "K&C 10e p.1374"}
+  - {from: urinary-stone-formation, to: calculus-on-ct-kub, note: "Over 95% sensitive; ultrasound can miss ureteric stones", source: "K&C 10e p.1375"}
+  - {from: urinary-stone-formation, to: urinary-outflow-obstruction, note: "Obstruction plus infection damages the kidney", source: "K&C 10e p.1373"}
+  - [urinary-outflow-obstruction, hydronephrosis-on-imaging]
+  - {from: urinary-outflow-obstruction, to: urinary-tract-obstruction, source: "K&C 10e p.1374"}
+  - {from: urinary-stone-formation, to: urinary-stasis, note: "Stones are a UTI risk factor", source: "K&C 10e p.1374, 1382"}
+  - {from: urinary-stasis, to: urinary-tract-infection, source: "K&C 10e p.1382"}
+  - {from: primary-hyperoxaluria, to: parenchymal-calcium-deposition, source: "K&C 10e p.1376"}
+  - {from: sarcoidosis, to: parenchymal-calcium-deposition, note: "Hypercalcaemia: also primary hyperparathyroidism, vitamin D excess", source: "K&C 10e p.1376"}
+  - {from: renal-tubular-acidosis, to: parenchymal-calcium-deposition, note: "Alkaline urine and low citrate", source: "K&C 10e p.1376"}
+  - {from: parenchymal-calcium-deposition, to: nephrocalcinosis-on-imaging, note: "Nephrocalcinosis is painless", source: "K&C 10e p.1376"}
+  - {from: parenchymal-calcium-deposition, to: chronic-kidney-disease, note: "Hypertension and CKD common", source: "K&C 10e p.1376"}
+findings:
+  - {id: renal-colic, freq: classic, note: "Flank to iliac fossa, testis or labia; many stones are silent", source: "K&C 10e p.1374"}
+  - {id: haematuria, freq: common}
+  - {id: calculus-on-ct-kub, freq: classic}
+  - {id: hydronephrosis-on-imaging, freq: common}
+  - {id: nephrocalcinosis-on-imaging, freq: occasional}
+outcomes:
+  - {id: urinary-tract-obstruction, source: "K&C 10e p.1374"}
+  - {id: urinary-tract-infection, source: "K&C 10e p.1374"}
+  - {id: chronic-kidney-disease, source: "K&C 10e p.1376"}

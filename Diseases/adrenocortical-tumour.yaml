@@ -1,0 +1,26 @@
+id: adrenocortical-tumour
+name: Adrenocortical adenoma and carcinoma
+group: adrenal-pituitary
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.600-602", "K&C 10e p.606-607", "Mehlman HY Endocrine"]
+chain:
+  - {from: hormone-secreting-adenoma, to: adrenal-mass-on-ct, note: "Incidental in 3–10% of scans; most benign and silent, but test for secretion and exclude phaeo; remove if over 4–5 cm", source: "K&C 10e p.606"}
+  - {from: hormone-secreting-adenoma, to: cortisol-excess, note: "Even low-level 'autonomous' cortisol adds cardiovascular risk; the other adrenal stays suppressed for a year after removal", source: "K&C 10e p.602, 606"}
+  - {from: hormone-secreting-adenoma, to: mineralocorticoid-excess, note: "Conn's adenoma", source: "K&C 10e p.607"}
+  - {from: malignant-transformation, to: adrenocortical-malignancy, source: "K&C 10e p.600"}
+  - {from: adrenocortical-malignancy, to: adrenal-mass-on-ct, note: "Large and irregular, with infiltration", source: "K&C 10e p.601-602"}
+  - {from: adrenocortical-malignancy, to: cortisol-excess, source: "K&C 10e p.600"}
+  - {from: adrenocortical-malignancy, to: hirsutism-virilisation, note: "Severe virilisation suggests an adrenal tumour", source: "K&C 10e p.601"}
+  - {from: adrenocortical-malignancy, to: distant-metastases, note: "Highly aggressive, poor prognosis; debulk and give mitotane", source: "K&C 10e p.602"}
+  - {from: cortisol-excess, to: failed-dexamethasone-suppression, note: "ACTH suppressed; no suppression on high-dose dexamethasone", source: "K&C 10e p.602; Mehlman HY Endocrine"}
+  - [cortisol-excess, cushings-syndrome]
+  - [mineralocorticoid-excess, primary-hyperaldosteronism]
+findings:
+  - {id: adrenal-mass-on-ct, freq: classic}
+  - {id: failed-dexamethasone-suppression, freq: occasional}
+  - {id: hirsutism-virilisation, freq: occasional}
+outcomes:
+  - {id: cushings-syndrome, freq: occasional}
+  - {id: primary-hyperaldosteronism, freq: occasional}
+  - {id: distant-metastases, freq: rare}

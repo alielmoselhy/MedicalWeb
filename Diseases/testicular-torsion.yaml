@@ -1,0 +1,19 @@
+id: testicular-torsion
+name: Testicular torsion
+group: bladder-prostate-testis
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1483-1484", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: bell-clapper-deformity, to: spermatic-cord-torsion, note: "Abnormal gubernaculum leaves the testis free to rotate", source: "Mehlman HY Repro-OBGYN"}
+  - {from: cryptorchidism, to: spermatic-cord-torsion, source: "K&C 10e p.1484"}
+  - {from: spermatic-cord-torsion, to: acute-scrotal-pain-swelling, note: "Sudden severe pain under 12 h, may wake from sleep; neonates and puberty (peak 13–15)", source: "K&C 10e p.1483"}
+  - {from: spermatic-cord-torsion, to: high-horizontal-testis, note: "Exquisitely tender; cremasteric reflex unreliable in adults", source: "K&C 10e p.1483; Mehlman HY Repro-OBGYN"}
+  - {from: spermatic-cord-torsion, to: vomiting, source: "K&C 10e p.1483"}
+  - {from: spermatic-cord-torsion, to: testicular-infarction, note: "Explore within 24 h; K&C: Doppler can't exclude it and only delays surgery; bilateral orchidopexy", source: "K&C 10e p.1484"}
+findings:
+  - {id: acute-scrotal-pain-swelling, freq: classic, note: "Can radiate to groin, loin or epigastrium", source: "K&C 10e p.1483"}
+  - {id: high-horizontal-testis, freq: common}
+  - {id: vomiting, freq: common}
+outcomes:
+  - {id: testicular-infarction, freq: common, source: "K&C 10e p.1484"}

@@ -1,0 +1,21 @@
+id: pyruvate-kinase-deficiency
+name: Pyruvate kinase deficiency
+parent: chronic-haemolysis
+group: haemolysis
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.348-350", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: pk-gene-mutation, to: reduced-red-cell-atp, note: "The commonest red-cell enzyme defect after G6PD; only homozygotes are affected", source: "K&C 10e p.350; Mehlman HY Heme-Onc"}
+  - {from: reduced-red-cell-atp, to: extravascular-haemolysis, note: "Low ATP leaves the cells rigid; splenectomy helps those needing frequent transfusion", source: "K&C 10e p.348, 350"}
+  - [extravascular-haemolysis, splenomegaly]
+  - {from: extravascular-haemolysis, to: haemolytic-anaemia, note: "Hb 50–100 g/L but well tolerated: raised 2,3-BPG shifts the oxygen curve right", source: "K&C 10e p.350"}
+  - [extravascular-haemolysis, erythroid-hyperplasia]
+  - [erythroid-hyperplasia, reticulocytosis]
+  - [extravascular-haemolysis, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+findings:
+  - {id: haemolytic-anaemia, freq: classic}
+  - {id: splenomegaly, freq: common}
+  - {id: reticulocytosis, freq: common}
+  - {id: fatigue, freq: occasional}

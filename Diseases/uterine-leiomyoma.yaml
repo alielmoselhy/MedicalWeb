@@ -1,0 +1,20 @@
+id: uterine-leiomyoma
+name: Uterine leiomyoma (fibroid)
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.1471-1472", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: older-age, to: myometrial-smooth-muscle-tumour, note: "Commonest benign tumour in women; more with age through reproductive life and in Afro-Caribbean women. Often incidental", source: "K&C 10e p.1472; Mehlman HY Repro-OBGYN"}
+  - {from: myometrial-smooth-muscle-tumour, to: heavy-menstrual-bleeding, note: "Mainly submucosal fibroids; subserosal ones rarely bleed", source: "K&C 10e p.1472; Mehlman HY Repro-OBGYN"}
+  - {from: heavy-menstrual-bleeding, to: iron-deficiency-anaemia, note: "Heavy periods are the commonest cause of iron deficiency anaemia", source: "K&C 10e p.1471"}
+  - {from: myometrial-smooth-muscle-tumour, to: enlarged-uterus, note: "Pelvic mass; a pedunculated fibroid may protrude through the cervix", source: "K&C 10e p.1472; Mehlman HY Repro-OBGYN"}
+  - {from: myometrial-smooth-muscle-tumour, to: pelvic-pressure-symptoms, source: "K&C 10e p.1472"}
+  - {from: myometrial-smooth-muscle-tumour, to: female-infertility, note: "Submucosal fibroids most often. Sarcoma found in 0.05–0.29% of removed fibroids; not thought to arise from them", source: "K&C 10e p.1472; Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: heavy-menstrual-bleeding, freq: classic, source: "K&C 10e p.1472"}
+  - {id: enlarged-uterus, freq: common, source: "K&C 10e p.1472"}
+  - {id: pelvic-pressure-symptoms, freq: occasional, source: "K&C 10e p.1472"}
+outcomes:
+  - {id: iron-deficiency-anaemia, freq: common, source: "K&C 10e p.1471"}
+  - {id: female-infertility, freq: occasional, source: "K&C 10e p.1472"}

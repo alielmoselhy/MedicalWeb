@@ -1,0 +1,28 @@
+id: osteomyelitis
+name: Osteomyelitis
+group: bone-joint-infection
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.484-485", "K&C 10e p.506", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: s-aureus, to: haematogenous-seeding, note: "90% of acute cases; mostly children, to the vascular metaphysis, boys 2:1. Also H. influenzae", source: "K&C 10e p.484; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: salmonella, to: haematogenous-seeding, note: "The classic organism in sickle cell disease", source: "K&C 10e p.484; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: mycobacterium-tuberculosis, to: haematogenous-seeding, note: "From a reactivated lung or gut focus; starts in intra-articular bone", source: "K&C 10e p.484"}
+  - {from: diabetic-foot-ulcer, to: spread-from-ulcer-or-wound, note: "In adults, usually from type 2 diabetes or chronic skin ulcers", source: "K&C 10e p.484"}
+  - {from: open-fracture, to: spread-from-ulcer-or-wound, note: "Bone contaminated directly from the environment", source: "K&C 10e p.506"}
+  - [haematogenous-seeding, bone-infection]
+  - [spread-from-ulcer-or-wound, bone-infection]
+  - {from: bone-infection, to: bone-pain, note: "Localised, with tenderness and redness over it", source: "K&C 10e p.484"}
+  - [bone-infection, fever]
+  - {from: bone-infection, to: osteomyelitis-on-mri, note: "MRI is sensitive early; X-ray shows only later damage. Bone biopsy and culture for the organism", source: "K&C 10e p.484"}
+  - [bone-infection, positive-blood-cultures]
+  - {from: bone-infection, to: chronic-osteomyelitis, note: "From delayed treatment; sinuses common; subacute form is a Brodie's abscess. Surgery removes the sequestrum, but recurrence is common", source: "K&C 10e p.484"}
+  - {from: bone-infection, to: spinal-tb, only: mycobacterium-tuberculosis, note: "Two neighbouring vertebrae collapse into a gibbus, with a cold abscess; treat for 9 months", source: "K&C 10e p.484-485; Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: bone-pain, freq: classic, note: "IV antibiotics; consider oral after 2 weeks, for 4 more", source: "K&C 10e p.484"}
+  - {id: fever, freq: classic}
+  - {id: osteomyelitis-on-mri, freq: common}
+  - {id: positive-blood-cultures, freq: occasional, source: "K&C 10e p.484"}
+outcomes:
+  - chronic-osteomyelitis
+  - {id: spinal-tb, only: mycobacterium-tuberculosis}

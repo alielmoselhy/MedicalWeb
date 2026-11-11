@@ -1,0 +1,14 @@
+id: vulval-carcinoma
+name: Vulval carcinoma
+group: vulva-vagina-cervix
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.530, 667, 689", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: hpv-infection, to: vulval-intraepithelial-neoplasia, note: "Strongly linked to HPV 16 and 18; almost all vulval cancer is HPV-driven SCC", source: "K&C 10e p.530, 689; Mehlman HY Repro-OBGYN"}
+  - {from: immunosuppression, to: vulval-intraepithelial-neoplasia, note: "Commoner with HIV", source: "K&C 10e p.689"}
+  - {from: vulval-intraepithelial-neoplasia, to: vulval-red-patches-papules, source: "K&C 10e p.689"}
+  - {from: vulval-intraepithelial-neoplasia, to: vulvovaginal-squamous-transformation, note: "In situ disease seldom invades", source: "K&C 10e p.689"}
+  - {from: lichen-sclerosus, to: vulvovaginal-squamous-transformation, note: "Rare route; not HPV-related. Excise SCC", source: "K&C 10e p.667; Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: vulval-red-patches-papules, freq: common, source: "K&C 10e p.689"}

@@ -1,0 +1,27 @@
+id: lyme-disease
+name: Lyme disease
+group: returning-traveller
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.549"]
+chain:
+  - {from: tick-bite, to: borrelia-dissemination, note: "About 1000 lab-confirmed cases a year in England and Wales; infection unlikely unless the tick was attached over 48 h", source: "K&C 10e p.549"}
+  - [borrelia-burgdorferi, borrelia-dissemination]
+  - {from: borrelia-dissemination, to: erythema-migrans, note: "About a week after the bite; treat on sight without testing", source: "K&C 10e p.549"}
+  - [borrelia-dissemination, fever]
+  - [borrelia-dissemination, headache]
+  - [borrelia-dissemination, lymphadenopathy]
+  - {from: borrelia-dissemination, to: lyme-serology-positive, note: "Often negative early; a positive IgG may only mean past exposure", source: "K&C 10e p.549"}
+  - {from: borrelia-dissemination, to: meningitis, note: "Early disseminated: meningitis, cranial (facial) or peripheral neuritis, radiculopathy", source: "K&C 10e p.549"}
+  - {from: borrelia-dissemination, to: asymmetrical-oligoarthritis, note: "Early disseminated or late; late damage is probably immune-mediated", source: "K&C 10e p.549"}
+  - {from: borrelia-dissemination, to: av-block, note: "Cardiac involvement, mostly in the USA", source: "K&C 10e p.549"}
+findings:
+  - {id: erythema-migrans, freq: classic, note: "Doxycycline or amoxicillin early; IV ceftriaxone 2–4 weeks if disseminated. Remove ticks promptly", source: "K&C 10e p.549"}
+  - {id: fever, freq: common}
+  - {id: headache, freq: common}
+  - {id: lymphadenopathy, freq: common}
+  - {id: lyme-serology-positive, freq: common}
+  - {id: asymmetrical-oligoarthritis, freq: occasional}
+outcomes:
+  - {id: meningitis, freq: rare}
+  - {id: av-block, freq: rare}

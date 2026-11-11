@@ -4,9 +4,10 @@ parent: interstitial-lung-disease
 group: interstitial
 status: draft
 systems: [respiratory]
-sources: ["K&C 10e p.990"]
+sources: ["K&C 10e p.990-992"]
 chain:
   - {from: autoimmune-rheumatic-disease, to: alveolar-epithelial-injury, note: "May be linked to connective tissue disease", source: "K&C 10e p.990"}
+  - {from: rheumatoid-arthritis, to: alveolar-epithelial-injury, note: "RA fibrosis resembles IPF but runs a more chronic course", source: "K&C 10e p.992"}
   - {from: alveolar-epithelial-injury, to: interstitial-fibrosis, note: "Uniform inflammatory infiltrate with or without fibrosis; the cellular form does better", source: "K&C 10e p.990"}
   - [interstitial-fibrosis, restrictive-spirometry]
   - [interstitial-fibrosis, ground-glass-opacity]

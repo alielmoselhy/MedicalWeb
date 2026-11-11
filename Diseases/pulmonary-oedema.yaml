@@ -9,7 +9,8 @@ chain:
   - [mitral-stenosis, pulmonary-venous-congestion]
   - [acute-mitral-regurgitation, pulmonary-venous-congestion]
   - {from: hypertension, to: pulmonary-venous-congestion, note: "'Flash' oedema despite preserved LV systolic function", source: "K&C 10e p.1076"}
-  - {from: kidney-injury, to: salt-water-retention, note: "AKI/CKD: fluid overload and poor excretion", source: "K&C 10e p.1076"}
+  - {from: acute-kidney-injury, to: salt-water-retention, note: "AKI/CKD: fluid overload and poor excretion", source: "K&C 10e p.1076"}
+  - {from: chronic-kidney-disease, to: salt-water-retention, source: "K&C 10e p.1076"}
   - [salt-water-retention, pulmonary-venous-congestion]
   - [atrial-fibrillation, pulmonary-venous-congestion]
   - {from: pulmonary-venous-congestion, to: alveolar-flooding, note: "High filling pressures push fluid into the interstitium, then the alveoli", source: "K&C 10e p.1076"}

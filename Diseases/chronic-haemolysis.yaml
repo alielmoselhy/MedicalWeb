@@ -1,0 +1,31 @@
+id: chronic-haemolysis
+name: Chronic inherited haemolytic anaemia
+group: haemolysis
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.335, 338-339, 346"]
+chain:
+  - {from: red-cell-gene-defect, to: red-cell-destruction, note: "Red cells survive far less than 120 days. Spherocytosis, pyruvate kinase deficiency, sickle cell disease and the thalassaemias", source: "K&C 10e p.338"}
+  - {from: red-cell-destruction, to: erythroid-hyperplasia, note: "The marrow can raise output 6–8 times, so haemolysis may be compensated without anaemia", source: "K&C 10e p.338"}
+  - [erythroid-hyperplasia, reticulocytosis]
+  - {from: erythroid-hyperplasia, to: folate-deficiency-anaemia, note: "The busy marrow uses up folate (megaloblastic crisis); give folic acid", source: "K&C 10e p.335, 338"}
+  - [red-cell-destruction, haemolytic-anaemia]
+  - [red-cell-destruction, unconjugated-hyperbilirubinaemia]
+  - [red-cell-destruction, jaundice]
+  - {from: red-cell-destruction, to: pigment-stone-formation, note: "Pigment gallstones from the bilirubin load", source: "K&C 10e p.338, 346"}
+  - [pigment-stone-formation, gallstone-disease]
+  - {from: parvovirus-b19, to: aplastic-crisis, note: "Parvovirus halts red-cell production for a while; Hb falls fast with no reticulocytes", source: "K&C 10e p.338, 346"}
+  - [red-cell-destruction, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, pallor]
+findings:
+  - {id: haemolytic-anaemia, freq: classic}
+  - {id: reticulocytosis, freq: classic}
+  - {id: unconjugated-hyperbilirubinaemia, freq: common}
+  - {id: jaundice, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: pallor, freq: common}
+outcomes:
+  - {id: gallstone-disease, source: "K&C 10e p.338"}
+  - {id: folate-deficiency-anaemia, source: "K&C 10e p.338"}
+  - {id: aplastic-crisis, source: "K&C 10e p.338"}

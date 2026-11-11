@@ -22,13 +22,13 @@ chain:
   - [raised-arterial-pressure, lv-pressure-overload]
   - [raised-arterial-pressure, endothelial-dysfunction]
   - [raised-arterial-pressure, raised-blood-pressure]
-  - [mineralocorticoid-excess, hypokalaemia]
+  - [mineralocorticoid-excess, low-serum-potassium]
   - [renal-artery-stenosis, abdominal-bruit]
   - [lv-pressure-overload, heart-failure]
   - [endothelial-dysfunction, ischaemic-stroke]
 findings:
   - {id: raised-blood-pressure, freq: classic, note: "Suspect if <30 years, sudden or severe onset, or resistant to three drugs", source: "K&C 10e p.1137"}
-  - {id: hypokalaemia, freq: occasional, note: "Primary hyperaldosteronism", source: "K&C 10e p.1139"}
+  - {id: low-serum-potassium, freq: occasional, note: "Primary hyperaldosteronism", source: "K&C 10e p.1139"}
   - {id: abdominal-bruit, freq: occasional}
 outcomes:
   - heart-failure

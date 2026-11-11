@@ -1,0 +1,22 @@
+id: cerebral-toxoplasmosis
+name: Cerebral toxoplasmosis
+group: hiv
+status: draft
+systems: [infection, nervous]
+sources: ["K&C 10e p.570-571", "K&C 10e p.1444", "Mehlman HY Neuro"]
+chain:
+  - {from: toxoplasma-gondii, to: toxoplasma-reactivation, note: "Caught from cat faeces or undercooked meat (pork); dormant cysts stay for years. About 25% of UK adults are seropositive", source: "K&C 10e p.570-571; Mehlman HY Neuro"}
+  - {from: hiv, to: toxoplasma-reactivation, note: "Usually reactivation, at CD4 below 100; co-trimoxazole prophylaxis prevents it", source: "K&C 10e p.1444; Mehlman HY Neuro"}
+  - {from: toxoplasma-reactivation, to: ring-enhancing-lesion, note: "Usually multiple; a single lesion on MRI suggests lymphoma instead. Improvement on treatment within 3 weeks confirms it", source: "K&C 10e p.1444; Mehlman HY Neuro"}
+  - {from: toxoplasma-reactivation, to: focal-neurological-deficit, note: "In over half", source: "K&C 10e p.1444"}
+  - [toxoplasma-reactivation, seizures]
+  - [toxoplasma-reactivation, headache]
+  - [toxoplasma-reactivation, fever]
+  - [toxoplasma-reactivation, confusion]
+findings:
+  - {id: ring-enhancing-lesion, freq: classic, note: "Pyrimethamine, sulfadiazine and folinic acid for at least 6 weeks; start ART about 2 weeks in to limit IRIS", source: "K&C 10e p.1444"}
+  - {id: focal-neurological-deficit, freq: common}
+  - {id: seizures, freq: common}
+  - {id: headache, freq: common}
+  - {id: fever, freq: common}
+  - {id: confusion, freq: occasional}

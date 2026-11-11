@@ -1,0 +1,27 @@
+id: cervical-cancer
+name: Cervical cancer
+group: vulva-vagina-cervix
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.130, 1475", "Mehlman HY Repro-OBGYN", "Mehlman HY Arrows"]
+chain:
+  - {from: cervical-intraepithelial-neoplasia, to: cervical-squamous-transformation, note: "Long pre-invasive phase makes screening work. Peak 25–29; 65% 5-year survival. Mostly SCC at the transformation zone; also adenocarcinoma", source: "K&C 10e p.130, 1475; Mehlman HY Repro-OBGYN"}
+  - {from: cervical-squamous-transformation, to: intermenstrual-postcoital-bleeding, source: "K&C 10e p.1475; Mehlman HY Repro-OBGYN"}
+  - {from: cervical-squamous-transformation, to: vaginal-discharge, source: "K&C 10e p.1475"}
+  - {from: cervical-squamous-transformation, to: deep-dyspareunia, source: "K&C 10e p.1475"}
+  - {from: cervical-squamous-transformation, to: lower-abdominal-pain, note: "Pelvic pain", source: "K&C 10e p.1475"}
+  - {from: cervical-squamous-transformation, to: ulcerated-cervical-mass, note: "Diagnosed on biopsy. Early: limited surgery or radical hysterectomy; advanced: chemoradiotherapy", source: "K&C 10e p.130, 1475; Mehlman HY Repro-OBGYN"}
+  - {from: cervical-squamous-transformation, to: lymphatic-spread, note: "Pelvic nodes are the first site", source: "K&C 10e p.130"}
+  - {from: cervical-squamous-transformation, to: urinary-tract-obstruction, note: "Tumour presses on the ureters", source: "Mehlman HY Repro-OBGYN; Mehlman HY Arrows"}
+  - [urinary-tract-obstruction, hydronephrosis-on-imaging]
+  - {from: urinary-tract-obstruction, to: acute-kidney-injury, note: "Postrenal", source: "Mehlman HY Arrows"}
+findings:
+  - {id: intermenstrual-postcoital-bleeding, freq: classic, source: "K&C 10e p.1475"}
+  - {id: vaginal-discharge, freq: common, source: "K&C 10e p.1475"}
+  - {id: deep-dyspareunia, freq: occasional, source: "K&C 10e p.1475"}
+  - {id: lower-abdominal-pain, freq: occasional, source: "K&C 10e p.1475"}
+  - {id: ulcerated-cervical-mass, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: hydronephrosis-on-imaging, freq: occasional, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: urinary-tract-obstruction, freq: occasional, source: "Mehlman HY Repro-OBGYN"}
+  - {id: acute-kidney-injury, freq: rare, source: "Mehlman HY Arrows"}

@@ -1,0 +1,21 @@
+id: endometrial-hyperplasia
+name: Endometrial hyperplasia
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.130, 1468, 1474", "Mehlman HY Repro-OBGYN", "Mehlman HY Pathology"]
+chain:
+  - {from: polycystic-ovary-syndrome, to: unopposed-oestrogen, note: "Anovulation means no progesterone", source: "Mehlman HY Repro-OBGYN"}
+  - {from: obesity, to: unopposed-oestrogen, note: "Fat converts androgen to oestrone", source: "K&C 10e p.130, 1474"}
+  - {from: unopposed-oestrogen-therapy, to: unopposed-oestrogen, note: "Oestrogen HRT continued after the progestogen is stopped", source: "Mehlman HY Repro-OBGYN"}
+  - {from: sex-cord-stromal-tumour, to: unopposed-oestrogen, note: "Granulosa cell tumour makes oestrogen", source: "Mehlman HY Repro-OBGYN"}
+  - {from: unopposed-oestrogen, to: endometrial-proliferation, source: "Mehlman HY Repro-OBGYN; Mehlman HY Pathology"}
+  - {from: tamoxifen, to: endometrial-proliferation, note: "Can thicken the endometrium and make it cystic", source: "K&C 10e p.130, 1468"}
+  - {from: endometrial-proliferation, to: postmenopausal-bleeding, note: "About 10% of postmenopausal bleeding is atypical hyperplasia or cancer; any perimenopausal or postmenopausal bleed needs a biopsy", source: "K&C 10e p.1468; Mehlman HY Repro-OBGYN"}
+  - {from: endometrial-proliferation, to: thickened-endometrium, note: "Biopsy if over 3–5 mm after the menopause", source: "K&C 10e p.1468"}
+  - {from: endometrial-proliferation, to: endometrial-carcinoma, source: "K&C 10e p.130, 1474; Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: postmenopausal-bleeding, freq: classic, source: "K&C 10e p.1468"}
+  - {id: thickened-endometrium, freq: classic, source: "K&C 10e p.1468"}
+outcomes:
+  - {id: endometrial-carcinoma, source: "K&C 10e p.1474"}

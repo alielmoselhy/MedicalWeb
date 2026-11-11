@@ -1,0 +1,46 @@
+id: type-1-diabetes
+name: Type 1 diabetes mellitus
+parent: diabetes-mellitus
+group: glucose
+status: draft
+systems: [endocrine, immunology]
+sources: ["K&C 10e p.705-707", "K&C 10e p.710-711", "K&C 10e p.716", "K&C 10e p.722-724", "Mehlman HY Endocrine"]
+chain:
+  - {from: hla-dq2-dq8, to: autoimmune-beta-cell-destruction, note: "Over 90% carry DR3-DQ2 and/or DR4-DQ8 (35–40% of others); identical twin risk 30–50%", source: "K&C 10e p.706-707"}
+  - {from: coxsackie-b-virus, to: autoimmune-beta-cell-destruction, note: "One of many proposed triggers (also diet, toxins); none necessary or sufficient", source: "K&C 10e p.707; Mehlman HY Endocrine"}
+  - {from: autoimmune-beta-cell-destruction, to: islet-autoantibodies, note: "Appear years before onset; T-cell insulitis follows", source: "K&C 10e p.706"}
+  - {from: autoimmune-beta-cell-destruction, to: insulin-deficiency, note: "5–10% of diabetes; peaks at puberty; slow adult form is LADA; brief 'honeymoon' recovery", source: "K&C 10e p.705-706"}
+  - {from: insulin-deficiency, to: low-c-peptide, note: "Disappears with time; most useful after 5 years", source: "K&C 10e p.707, 711; Mehlman HY Endocrine"}
+  - {from: insulin-deficiency, to: weight-loss, note: "2–6 week history in the young", source: "K&C 10e p.707, 710"}
+  - [insulin-deficiency, hyperglycaemia]
+  - [hyperglycaemia, osmotic-diuresis]
+  - [osmotic-diuresis, polyuria-nocturia]
+  - [osmotic-diuresis, polydipsia]
+  - {from: insulin-deficiency, to: ketogenesis, note: "Little insulin is needed to stop ketogenesis, so it needs marked deficiency", source: "K&C 10e p.722"}
+  - {from: ketogenesis, to: ketonaemia-ketonuria, source: "K&C 10e p.707, 723"}
+  - {from: ketogenesis, to: diabetic-ketoacidosis, note: "Triggers: new diagnosis 10–20%, missed insulin 15–30%, illness 30–40%; never stop basal insulin", source: "K&C 10e p.722"}
+  - {from: diabetic-ketoacidosis, to: high-anion-gap-acidosis, note: "pH under 7.3 or HCO3 under 15, ketones ≥3 mmol/L", source: "K&C 10e p.723; Mehlman HY Endocrine"}
+  - {from: diabetic-ketoacidosis, to: kussmaul-breathing, source: "K&C 10e p.723; Mehlman HY Endocrine"}
+  - {from: diabetic-ketoacidosis, to: vomiting, source: "K&C 10e p.722"}
+  - {from: diabetic-ketoacidosis, to: abdominal-pain, note: "Can mimic a surgical abdomen", source: "K&C 10e p.722"}
+  - {from: diabetic-ketoacidosis, to: high-serum-potassium, note: "High serum K+ but total body K+ is depleted; it falls once insulin starts, so replace it", source: "K&C 10e p.723-724; Mehlman HY Endocrine"}
+  - {from: diabetic-ketoacidosis, to: dehydration-signs, note: "About 100 mL/kg deficit: 0.9% saline first, then fixed-rate insulin 0.1 U/kg/h", source: "K&C 10e p.723-724"}
+  - {from: diabetic-ketoacidosis, to: cerebral-oedema, note: "Rare; children and young adults; linked to over-rapid fluids", source: "K&C 10e p.723-724"}
+  - {from: insulin-therapy, to: hypoglycaemia, note: "The commonest side-effect of insulin; several mild episodes a week", source: "K&C 10e p.716"}
+findings:
+  - {id: islet-autoantibodies, freq: common, source: "K&C 10e p.706"}
+  - {id: low-c-peptide, freq: classic}
+  - {id: polyuria-nocturia, freq: classic}
+  - {id: polydipsia, freq: classic}
+  - {id: weight-loss, freq: classic, source: "K&C 10e p.707"}
+  - {id: ketonaemia-ketonuria, freq: common, source: "K&C 10e p.707"}
+  - {id: high-anion-gap-acidosis, freq: occasional, note: "In DKA"}
+  - {id: kussmaul-breathing, freq: occasional, note: "In DKA"}
+  - {id: vomiting, freq: occasional, note: "In DKA"}
+  - {id: abdominal-pain, freq: occasional, note: "In DKA"}
+  - {id: high-serum-potassium, freq: occasional, note: "In DKA"}
+  - {id: dehydration-signs, freq: occasional}
+outcomes:
+  - {id: diabetic-ketoacidosis, freq: common, note: "Mortality about 1%", source: "K&C 10e p.722"}
+  - {id: cerebral-oedema, freq: rare, source: "K&C 10e p.724"}
+  - {id: hypoglycaemia, freq: common, source: "K&C 10e p.716"}

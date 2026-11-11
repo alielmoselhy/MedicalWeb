@@ -1,0 +1,51 @@
+id: acute-lymphoblastic-leukaemia
+name: Acute lymphoblastic leukaemia (ALL)
+group: high-grade-lymphoma
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.382, 387-392", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: trisomy-21, to: lymphoid-clonal-expansion, source: "K&C 10e p.382, 387; Mehlman HY Heme-Onc"}
+  - {from: ionising-radiation, to: lymphoid-clonal-expansion, source: "K&C 10e p.387"}
+  - {from: bcr-abl-fusion, to: lymphoid-clonal-expansion, note: "Philadelphia-positive ALL, commoner with age; TKIs have improved the outlook", source: "K&C 10e p.391"}
+  - {from: lymphoid-clonal-expansion, to: marrow-infiltration, note: "Commonest childhood cancer: up to 80% of children cured, about 25–30% of adults", source: "K&C 10e p.388, 391; Mehlman HY Heme-Onc"}
+  - {from: marrow-infiltration, to: marrow-blasts-over-20, note: "B lineage CD10 and CD19, T lineage CD3; Mehlman adds TdT", source: "K&C 10e p.388; Mehlman HY Heme-Onc"}
+  - [lymphoid-clonal-expansion, blasts-on-film]
+  - [lymphoid-clonal-expansion, leucocytosis]
+  - [marrow-infiltration, anaemic-hypoxia]
+  - [marrow-infiltration, neutrophil-deficit]
+  - [marrow-infiltration, reduced-platelet-production]
+  - [marrow-infiltration, bone-pain]
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, pallor]
+  - [neutrophil-deficit, neutropenic-sepsis]
+  - [reduced-platelet-production, mucocutaneous-bleeding]
+  - [lymphoid-clonal-expansion, leukaemic-tissue-infiltration]
+  - [leukaemic-tissue-infiltration, generalised-lymphadenopathy]
+  - [leukaemic-tissue-infiltration, hepatomegaly]
+  - [leukaemic-tissue-infiltration, splenomegaly]
+  - {from: leukaemic-tissue-infiltration, to: headache, note: "CNS spread is common: CSF examined in all, with intrathecal prophylaxis", source: "K&C 10e p.388, 391"}
+  - {from: lymphoid-clonal-expansion, to: mediastinal-widening, note: "A mediastinal mass; lymphoblastic lymphoma is the same disease presenting as bulky nodes", source: "K&C 10e p.388, 391"}
+  - {from: mediastinal-widening, to: superior-vena-cava-obstruction, source: "K&C 10e p.388"}
+  - [lymphoid-clonal-expansion, high-cell-turnover]
+  - [high-cell-turnover, hyperuricaemia]
+  - {from: high-cell-turnover, to: tumour-lysis-syndrome, source: "K&C 10e p.388"}
+  - [tumour-lysis-syndrome, acute-kidney-injury]
+findings:
+  - {id: marrow-blasts-over-20, freq: classic}
+  - {id: blasts-on-film, freq: classic}
+  - {id: fatigue, freq: common}
+  - {id: pallor, freq: common}
+  - {id: mucocutaneous-bleeding, freq: common}
+  - {id: bone-pain, freq: common}
+  - {id: leucocytosis, freq: common}
+  - {id: generalised-lymphadenopathy, freq: common}
+  - {id: hepatomegaly, freq: common}
+  - {id: splenomegaly, freq: common}
+  - {id: mediastinal-widening, freq: occasional}
+  - {id: headache, freq: occasional}
+  - {id: hyperuricaemia, freq: occasional}
+outcomes:
+  - {id: neutropenic-sepsis, source: "K&C 10e p.388"}
+  - {id: tumour-lysis-syndrome, source: "K&C 10e p.388"}
+  - {id: superior-vena-cava-obstruction, freq: occasional, source: "K&C 10e p.388"}

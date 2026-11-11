@@ -1,0 +1,34 @@
+id: multiple-endocrine-neoplasia
+name: Multiple endocrine neoplasia (MEN)
+group: adrenal-pituitary
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.644", "K&C 10e p.647", "K&C 10e p.649-650", "Mehlman HY Endocrine"]
+chain:
+  - {from: men1-mutation, to: hormone-secreting-adenoma, note: "MEN 1, chromosome 11; autosomal dominant, tumours appear after a second somatic hit. Parathyroid, pituitary, pancreas", source: "K&C 10e p.649; Mehlman HY Endocrine"}
+  - {from: ret-mutation, to: hormone-secreting-adenoma, note: "MEN 2a and 2b, chromosome 10: phaeochromocytoma and medullary carcinoma; parathyroid in 2a only", source: "K&C 10e p.649; Mehlman HY Endocrine"}
+  - {from: ret-mutation, to: c-cell-malignancy, note: "Medullary carcinoma in most; thyroidectomy in early childhood once the gene is found", source: "K&C 10e p.649-650"}
+  - {from: c-cell-malignancy, to: medullary-thyroid-carcinoma, only: ret-mutation}
+  - {from: c-cell-malignancy, to: raised-calcitonin, only: ret-mutation, note: "Screening marker", source: "K&C 10e p.650"}
+  - {from: hormone-secreting-adenoma, to: pth-excess, note: "Parathyroid adenoma or hyperplasia: 95% in MEN 1 (usually first), 60% in MEN 2a; four-gland surgery", source: "K&C 10e p.649"}
+  - {from: pth-excess, to: hypercalcaemia, note: "Serum calcium is the simplest screen", source: "K&C 10e p.649-650"}
+  - {from: pth-excess, to: primary-hyperparathyroidism, source: "K&C 10e p.644"}
+  - {from: hormone-secreting-adenoma, to: pituitary-adenoma, only: men1-mutation, note: "70%: prolactinoma commonest, or GH or ACTH", source: "K&C 10e p.649; Mehlman HY Endocrine"}
+  - {from: hormone-secreting-adenoma, to: insulinoma, only: men1-mutation, note: "Pancreatic islet tumours in 50%", source: "K&C 10e p.647, 649"}
+  - {from: hormone-secreting-adenoma, to: hypergastrinaemia, only: men1-mutation, note: "Gastrinoma (Zollinger–Ellison): recurrent peptic ulcers", source: "K&C 10e p.649; Mehlman HY Endocrine"}
+  - [hypergastrinaemia, peptic-ulcer-disease]
+  - {from: hormone-secreting-adenoma, to: liver-metastases, only: men1-mutation, note: "Silent non-functioning pancreatic tumours; hence regular imaging", source: "K&C 10e p.649-650"}
+  - {from: hormone-secreting-adenoma, to: phaeochromocytoma, only: ret-mutation, note: "70% bilateral; check metanephrines before thyroid surgery", source: "K&C 10e p.649-650; Mehlman HY Endocrine"}
+  - {from: ret-mutation, to: marfanoid-mucosal-neuromas, note: "MEN 2b (intracellular RET domain): also gut ganglioneuromas", source: "K&C 10e p.649; Mehlman HY Endocrine"}
+findings:
+  - {id: hypercalcaemia, freq: classic}
+  - {id: raised-calcitonin, freq: common, only: ret-mutation}
+  - {id: marfanoid-mucosal-neuromas, freq: occasional, only: ret-mutation, note: "MEN 2b only", source: "K&C 10e p.649"}
+outcomes:
+  - {id: pituitary-adenoma, only: men1-mutation}
+  - {id: insulinoma, only: men1-mutation}
+  - {id: peptic-ulcer-disease, only: men1-mutation}
+  - {id: liver-metastases, only: men1-mutation}
+  - {id: phaeochromocytoma, only: ret-mutation}
+  - {id: medullary-thyroid-carcinoma, only: ret-mutation}
+  - {id: primary-hyperparathyroidism, freq: common, source: "K&C 10e p.644"}

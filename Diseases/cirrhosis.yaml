@@ -39,7 +39,7 @@ chain:
   - [impaired-hepatic-synthesis, fatigue]
   - [intrahepatic-portal-resistance, splenomegaly]
   - [impaired-hepatic-synthesis, jaundice]
-  - [salt-water-retention, hyponatraemia]
+  - [salt-water-retention, low-serum-sodium]
   - [impaired-hepatic-synthesis, weight-loss]
   - [intrahepatic-portal-resistance, portal-hypertension]
   - [impaired-hepatic-synthesis, hyperammonaemia]
@@ -59,7 +59,7 @@ findings:
   - {id: jaundice, freq: common, note: "Usually means decompensation", source: "K&C 10e p.1273"}
   - {id: low-albumin, freq: classic, note: "Albumin and PT best reflect liver function; albumin < 28 g/L is a poor sign", source: "K&C 10e p.1289"}
   - {id: prolonged-inr, freq: classic}
-  - {id: hyponatraemia, freq: occasional, note: "Means severe disease (poor free water clearance) or too much diuretic", source: "K&C 10e p.1289"}
+  - {id: low-serum-sodium, freq: occasional, note: "Means severe disease (poor free water clearance) or too much diuretic", source: "K&C 10e p.1289"}
   - {id: nodular-liver-imaging, freq: common, source: "K&C 10e p.1289-1290"}
   - {id: regenerative-nodules, freq: classic}
   - {id: finger-clubbing, freq: occasional, source: "Mehlman HY Gastro"}

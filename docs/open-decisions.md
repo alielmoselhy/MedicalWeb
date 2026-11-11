@@ -8,7 +8,7 @@ Things to decide together. Nothing here is built yet. Strike an item out, or mov
 - Live bubble physics (`d3-force`).
 - One coloured cloud per disease, with a clickable title, replacing the disease node.
 - Rough causal order from top to bottom.
-- Findings and outcomes that no chain link reaches sit on labelled "Findings" and "Outcomes" shelves under their disease. A data pass is linking them into chains (see `drafting-protocol.md` §12). CAP is done; 801 items remain.
+- Findings and outcomes that no chain link reaches are not drawn on Explore (decided 2026-11-08). The chain-linking pass is done; the 44 left are documented exceptions (see `drafting-protocol.md` §12).
 - Still open: outlines can snake across the canvas to reach a shared bubble; a single disease comes out tall and narrow.
 - Items 1, 2 and 5 below predate the redesign. Recheck them against the new page.
 
@@ -17,6 +17,13 @@ Things to decide together. Nothing here is built yet. Strike an item out, or mov
 3. **Not saved in the link.** Removed nodes and the highlight reset on reload; only the diseases on the web are in the address. Fine, or save them too?
 4. **Not checked yet:** phone width and dark mode for the new Explore.
 5. **Dropped from the old Explore:** type filters, syllabus-group filter, "collapse to parent concepts", clouds, cluster layout. Bring any back?
+
+## Cause bundles (decided 2026-11-08)
+
+- Bundles are **declared**, never inferred: a chain link from a class node with `members:` (`drafting-protocol.md` §6.5a). The owner's rule: only group causes whose shared nature is the reason they cause the step.
+- On Explore a group starts closed as one bubble marked "(+N)"; clicking opens it. While closed, its members' own arrows are hidden, and so is anything only they lead to (Legionella's hyponatraemia in CAP). A member another disease on the web also uses stays visible.
+- The disease page always shows everything.
+- Done so far: CAP's five inhaled organisms. Agreed: a pass over every existing file to declare its groups, each judged on the rule above (to-do in `drafting-protocol.md` §11).
 
 ## Spacing
 

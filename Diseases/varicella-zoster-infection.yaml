@@ -1,0 +1,25 @@
+id: varicella-zoster-infection
+name: Varicella zoster infection (chickenpox and shingles)
+parent: herpesvirus-infection
+group: herpes-virus
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.515-516", "K&C 10e p.1429"]
+chain:
+  - {from: varicella-zoster-virus, to: chickenpox-rash, note: "Primary infection, usually in childhood; 14–21 days after exposure, after a short fever; macules to vesicles to pustules within hours, face and trunk", source: "K&C 10e p.515-516"}
+  - [varicella-zoster-virus, fever]
+  - {from: varicella-zoster-virus, to: pneumonia, note: "1–6 days after the rash; adults and smokers; worse on X-ray than on examination", source: "K&C 10e p.516"}
+  - {from: varicella-zoster-virus, to: herpesvirus-latency, note: "In dorsal root or cranial nerve ganglia", source: "K&C 10e p.516"}
+  - [herpesvirus-latency, herpesvirus-reactivation]
+  - {from: older-age, to: herpesvirus-reactivation, note: "Shingles is commonest in the elderly; vaccine over 70 in the UK", source: "K&C 10e p.516"}
+  - {from: herpesvirus-reactivation, to: dermatomal-vesicular-rash, note: "Severe dermatomal pain comes first; vesicles can give contacts chickenpox. Ophthalmic shingles threatens the eye", source: "K&C 10e p.516"}
+  - {from: herpesvirus-reactivation, to: post-herpetic-neuralgia, note: "The commonest complication; more with age and a severe rash", source: "K&C 10e p.516"}
+  - [herpesvirus-reactivation, herpesvirus-dna-pcr]
+findings:
+  - {id: chickenpox-rash, freq: classic, note: "Aciclovir for over-16s within 72 h; zoster immune globulin for exposed immunocompromised or pregnant people", source: "K&C 10e p.516"}
+  - {id: dermatomal-vesicular-rash, freq: classic, note: "Aciclovir in the acute phase (over-65s, facial or ophthalmic, immunocompromised) cuts PHN; in HIV, shingles over several dermatomes", source: "K&C 10e p.516; K&C 10e p.1429"}
+  - {id: fever, freq: common}
+  - {id: herpesvirus-dna-pcr, freq: occasional, note: "Usually a clinical diagnosis", source: "K&C 10e p.516"}
+outcomes:
+  - post-herpetic-neuralgia
+  - {id: pneumonia, freq: occasional}

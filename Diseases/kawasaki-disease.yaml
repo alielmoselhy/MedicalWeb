@@ -1,0 +1,18 @@
+id: kawasaki-disease
+name: Kawasaki disease
+parent: vasculitis
+group: vasculitis
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.465-466", "Mehlman HY Gastro"]
+chain:
+  - {from: necrotising-medium-vessel-arteritis, to: fever, note: "Children under 5, commonest in Japan; infective trigger suspected. Fever over 4–5 days", source: "K&C 10e p.465-466; Mehlman HY Gastro"}
+  - {from: necrotising-medium-vessel-arteritis, to: kawasaki-mucocutaneous-signs, note: "Conjunctival injection, dry red lips, red palms and soles, hand swelling, then peeling", source: "K&C 10e p.466; Mehlman HY Gastro"}
+  - [necrotising-medium-vessel-arteritis, cervical-lymphadenopathy]
+  - {from: necrotising-medium-vessel-arteritis, to: coronary-artery-aneurysm, note: "Coronary arteritis; one dose of IV immunoglobulin prevents it, then aspirin. Steroids don't help", source: "K&C 10e p.466"}
+findings:
+  - {id: fever, freq: classic}
+  - {id: kawasaki-mucocutaneous-signs, freq: classic}
+  - {id: cervical-lymphadenopathy, freq: common}
+outcomes:
+  - {id: coronary-artery-aneurysm, freq: occasional, source: "K&C 10e p.466"}

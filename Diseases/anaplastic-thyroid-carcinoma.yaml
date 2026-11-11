@@ -1,0 +1,18 @@
+id: anaplastic-thyroid-carcinoma
+name: Anaplastic thyroid carcinoma
+parent: thyroid-cancer
+group: thyroid
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.621-622", "Mehlman HY Endocrine"]
+chain:
+  - {from: older-age, to: thyroid-follicular-cell-malignancy, note: "Elderly; under 5% of thyroid cancers; undifferentiated", source: "K&C 10e p.621; Mehlman HY Endocrine"}
+  - {from: thyroid-follicular-cell-malignancy, to: thyroid-malignant-nodule, source: "K&C 10e p.621"}
+  - [thyroid-malignant-nodule, thyroid-nodule]
+  - {from: thyroid-follicular-cell-malignancy, to: thyroid-mass-compression, note: "Aggressive local invasion of trachea and oesophagus; very poor prognosis; no radioiodine response", source: "K&C 10e p.621-622; Mehlman HY Endocrine"}
+  - [thyroid-mass-compression, stridor-tracheal-compression]
+  - [thyroid-mass-compression, dysphagia]
+findings:
+  - {id: thyroid-nodule, freq: common}
+  - {id: stridor-tracheal-compression, freq: common}
+  - {id: dysphagia, freq: common}

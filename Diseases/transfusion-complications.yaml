@@ -1,0 +1,73 @@
+id: transfusion-complications
+name: Complications of blood transfusion
+group: transfusion
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.359-362, 373, 378", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: abo-incompatible-transfusion, to: recipient-anti-ab-antibody, note: "The most dangerous reaction; mostly from bedside or sampling errors, not the lab", source: "K&C 10e p.359-361; Mehlman HY Heme-Onc"}
+  - {from: recipient-anti-ab-antibody, to: intravascular-haemolysis, note: "Within minutes: rigors, loin pain, breathlessness, hypotension. Stop the transfusion and treat shock", source: "K&C 10e p.360-361; Mehlman HY Heme-Onc"}
+  - [intravascular-haemolysis, haemoglobinuria]
+  - [recipient-anti-ab-antibody, rigors]
+  - [recipient-anti-ab-antibody, hypotension]
+  - [recipient-anti-ab-antibody, positive-direct-antiglobulin-test]
+  - [recipient-anti-ab-antibody, acute-kidney-injury]
+  - {from: recipient-anti-ab-antibody, to: disseminated-intravascular-coagulation, note: "Bleeding from DIC is a bad sign", source: "K&C 10e p.360"}
+  - {from: prior-alloimmunisation, to: delayed-alloantibody-response, note: "Antibody too weak to detect before transfusion; often minor antigens such as Kell, Duffy, Kidd", source: "K&C 10e p.361; Mehlman HY Heme-Onc"}
+  - {from: delayed-alloantibody-response, to: extravascular-haemolysis, note: "About a week later; mostly silent", source: "K&C 10e p.361"}
+  - [extravascular-haemolysis, haemolytic-anaemia]
+  - [extravascular-haemolysis, jaundice]
+  - [extravascular-haemolysis, spherocytes]
+  - [delayed-alloantibody-response, positive-direct-antiglobulin-test]
+  - {from: prior-alloimmunisation, to: anti-leucocyte-antibody, note: "Febrile non-haemolytic reaction; DAT negative. Leucocyte-reduced blood has made it rarer", source: "K&C 10e p.361; Mehlman HY Heme-Onc"}
+  - {from: anti-leucocyte-antibody, to: fever, note: "Pyrogens released; with chills, flushing and tachycardia; unpleasant, not dangerous", source: "K&C 10e p.361"}
+  - [anti-leucocyte-antibody, rigors]
+  - {from: blood-transfusion, to: anti-leucocyte-antibody, note: "Donor antibodies, usually from multiparous women, cause TRALI", source: "K&C 10e p.361"}
+  - {from: anti-leucocyte-antibody, to: transfusion-related-acute-lung-injury, note: "Within 6 hours; often needs ventilation; resolves in 48–96 h; 13% mortality", source: "K&C 10e p.361; Mehlman HY Heme-Onc"}
+  - [transfusion-related-acute-lung-injury, bilateral-diffuse-infiltrates]
+  - [transfusion-related-acute-lung-injury, dyspnoea]
+  - {from: prior-alloimmunisation, to: post-transfusion-purpura, note: "7–10 days later; anti-HPA-1a destroys the patient's own platelets too; IVIg", source: "K&C 10e p.373"}
+  - [post-transfusion-purpura, thrombocytopenia]
+  - {from: immunosuppression, to: transfusion-associated-gvhd, note: "Unrejected donor lymphocytes attack the host; usually fatal. Give irradiated blood (e.g. Hodgkin, purine analogues, stem cell transplant)", source: "K&C 10e p.361"}
+  - [transfusion-associated-gvhd, pancytopenia]
+  - {from: iga-deficiency, to: anaphylaxis, note: "Anti-IgA reacts with donor IgA. Stop; IM adrenaline 0.5 mg; later washed cells or IgA-deficient donors", source: "K&C 10e p.361"}
+  - {from: blood-transfusion, to: urticaria, note: "Common, mild and usually unexplained; slow or stop and give chlorphenamine", source: "K&C 10e p.361"}
+  - {from: blood-transfusion, to: volume-overload, note: "TACO: the leading cause of transfusion deaths in UK reports; after 6 hours or with heart disease", source: "K&C 10e p.359; Mehlman HY Heme-Onc"}
+  - [volume-overload, pulmonary-oedema]
+  - {from: blood-transfusion, to: iron-overload, note: "Repeated transfusions", source: "K&C 10e p.359"}
+  - [iron-overload, raised-iron-indices]
+  - {from: severe-trauma-transfusion, to: dilutional-coagulopathy, note: "Massive transfusion (a blood volume within 24 h); can look like DIC", source: "K&C 10e p.378; Mehlman HY Heme-Onc"}
+  - [dilutional-coagulopathy, thrombocytopenia]
+  - [dilutional-coagulopathy, puncture-site-oozing]
+  - {from: blood-transfusion, to: bacteraemia, note: "Rare but a leading infective cause of death; platelets stored at 22 °C most often", source: "K&C 10e p.362"}
+  - {from: blood-transfusion, to: hepatitis-b, note: "UK risk under 1 in 2 million units", source: "K&C 10e p.362"}
+  - {from: blood-transfusion, to: hepatitis-c, note: "No UK cases since 2010", source: "K&C 10e p.362"}
+  - {from: blood-transfusion, to: prion-disease, note: "Four UK vCJD transmissions, the last in 2004; hence leucocyte reduction", source: "K&C 10e p.362"}
+findings:
+  - {id: fever, freq: common}
+  - {id: rigors, freq: common}
+  - {id: urticaria, freq: common}
+  - {id: positive-direct-antiglobulin-test, freq: common}
+  - {id: haemoglobinuria, freq: occasional}
+  - {id: hypotension, freq: occasional}
+  - {id: haemolytic-anaemia, freq: occasional}
+  - {id: jaundice, freq: occasional}
+  - {id: spherocytes, freq: occasional}
+  - {id: dyspnoea, freq: occasional}
+  - {id: bilateral-diffuse-infiltrates, freq: occasional}
+  - {id: thrombocytopenia, freq: occasional}
+  - {id: puncture-site-oozing, freq: occasional}
+  - {id: raised-iron-indices, freq: occasional}
+  - {id: pancytopenia, freq: rare}
+outcomes:
+  - {id: disseminated-intravascular-coagulation, only: abo-incompatible-transfusion}
+  - {id: acute-kidney-injury, only: abo-incompatible-transfusion}
+  - {id: transfusion-related-acute-lung-injury, source: "K&C 10e p.361"}
+  - {id: pulmonary-oedema, source: "K&C 10e p.359; Mehlman HY Heme-Onc"}
+  - {id: post-transfusion-purpura, only: prior-alloimmunisation}
+  - {id: transfusion-associated-gvhd, freq: rare}
+  - {id: anaphylaxis, freq: rare, only: iga-deficiency}
+  - {id: bacteraemia, freq: rare}
+  - {id: hepatitis-b, freq: rare}
+  - {id: hepatitis-c, freq: rare}
+  - {id: prion-disease, freq: rare}

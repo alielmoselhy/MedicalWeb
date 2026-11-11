@@ -44,7 +44,6 @@ findings:
   - {id: fever, freq: occasional, note: "Low-grade, with malaise and anorexia", source: "K&C 10e p.1202"}
   - {id: skip-lesions-cobblestone, freq: classic, note: "Colonoscopy with ileal biopsies; small bowel imaging is mandatory", source: "K&C 10e p.1202"}
   - {id: granulomas-on-biopsy, freq: common}
-  - {id: iron-deficiency-anaemia, freq: common, note: "Also anaemia of chronic disease, folate; B12 deficiency is unusual", source: "K&C 10e p.1202"}
   - {id: erythema-nodosum, freq: occasional, note: "More with Crohn's (pyoderma with UC)", source: "Mehlman HY Gastro"}
 outcomes:
   - {id: intestinal-stricture, note: "Untreated disease goes from inflammatory to stricturing to penetrating; half need resection within 5 years", source: "K&C 10e p.1202, 1205"}
@@ -53,3 +52,4 @@ outcomes:
   - {id: small-intestinal-bacterial-overgrowth, source: "K&C 10e p.1192"}
   - {id: gallstone-disease, freq: occasional, note: "Ileal disease", source: "K&C 10e p.1202"}
   - {id: renal-calculi-nephrocalcinosis, freq: occasional, note: "Oxalate stones from fat malabsorption", source: "Mehlman HY Gastro"}
+  - {id: iron-deficiency-anaemia, freq: common, note: "Also anaemia of chronic disease, folate; B12 deficiency is unusual", source: "K&C 10e p.1202"}

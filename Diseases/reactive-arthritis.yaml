@@ -1,0 +1,29 @@
+id: reactive-arthritis
+name: Reactive arthritis
+parent: spondyloarthritis
+group: arthritis
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.450-451", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: chlamydia-infection, to: molecular-mimicry, note: "Sexually acquired: Chlamydia (classic) or Ureaplasma urethritis. Gonococcus causes septic, not reactive, arthritis", source: "K&C 10e p.450; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: bacterial-gastroenteritis, to: molecular-mimicry, note: "Post-dysenteric: Salmonella, Shigella, Yersinia; 1–2% after dysentery", source: "K&C 10e p.450"}
+  - {from: hla-b27, to: molecular-mimicry, note: "Raises the risk 30–50-fold in men, though not all are positive; women less often affected", source: "K&C 10e p.450"}
+  - {from: molecular-mimicry, to: asymmetrical-oligoarthritis, note: "Sterile, acute, lower-limb, days to weeks after the infection; bacterial antigen persists in the synovium. 70% recover within 6 months", source: "K&C 10e p.450-451"}
+  - [molecular-mimicry, enthesitis]
+  - {from: enthesitis, to: enthesitis-heel-pain, source: "K&C 10e p.451"}
+  - [enthesitis, dactylitis]
+  - {from: enthesitis, to: sacroiliitis-bamboo-spine, note: "Sacroiliitis and spondylitis in susceptible people", source: "K&C 10e p.451"}
+  - {from: molecular-mimicry, to: conjunctivitis, note: "Sterile, in 30%; with urethritis and arthritis, the classic triad", source: "K&C 10e p.451; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: molecular-mimicry, to: reactive-skin-lesions, note: "Painless; keratoderma looks like pustular psoriasis", source: "K&C 10e p.451"}
+  - {from: molecular-mimicry, to: nail-dystrophy, source: "K&C 10e p.451"}
+  - {from: hla-b27, to: anterior-uveitis, note: "In severe or relapsing disease, not in step with the arthritis", source: "K&C 10e p.451"}
+findings:
+  - {id: asymmetrical-oligoarthritis, freq: classic, note: "Culture and treat any infection, screen partners; NSAIDs or steroid injections", source: "K&C 10e p.451"}
+  - {id: enthesitis-heel-pain, freq: common}
+  - {id: conjunctivitis, freq: common}
+  - {id: dactylitis, freq: occasional}
+  - {id: reactive-skin-lesions, freq: occasional}
+  - {id: nail-dystrophy, freq: occasional}
+  - {id: sacroiliitis-bamboo-spine, freq: occasional}
+  - {id: anterior-uveitis, freq: occasional}

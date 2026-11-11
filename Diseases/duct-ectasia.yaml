@@ -1,0 +1,12 @@
+id: duct-ectasia
+name: Duct ectasia
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: lactiferous-duct-dilation, to: nipple-inversion, note: "The usual presentation; a diagnosis of exclusion", source: "Mehlman HY Repro-OBGYN"}
+  - {from: lactiferous-duct-dilation, to: dilated-ducts-histology, source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: nipple-inversion, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: dilated-ducts-histology, freq: common, source: "Mehlman HY Repro-OBGYN"}

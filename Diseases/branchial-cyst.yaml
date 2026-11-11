@@ -1,0 +1,10 @@
+id: branchial-cyst
+name: Branchial cleft cyst
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: branchial-cleft-remnant, to: lateral-neck-cyst, note: "A lateral neck mass in an infant, with or without an opening to the skin", source: "Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: lateral-neck-cyst, freq: classic}

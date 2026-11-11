@@ -1,0 +1,38 @@
+id: chronic-lymphocytic-leukaemia
+name: Chronic lymphocytic leukaemia (CLL)
+group: low-grade-lymphoproliferative
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.373, 392-394", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: older-age, to: lymphoid-clonal-expansion, note: "Commonest leukaemia; median age about 70. Nearly always preceded by monoclonal B lymphocytosis", source: "K&C 10e p.392-393"}
+  - {from: lymphoid-clonal-expansion, to: lymphocytosis, note: "Over 5 ×10⁹/L, often found by chance; 30% never need treatment", source: "K&C 10e p.393"}
+  - {from: lymphoid-clonal-expansion, to: smear-cells, source: "K&C 10e p.393; Mehlman HY Heme-Onc"}
+  - {from: lymphoid-clonal-expansion, to: cll-immunophenotype, note: "Check for 17p deletion or TP53 before treating: ibrutinib if present; FCR for the fit", source: "K&C 10e p.393-394; Mehlman HY Heme-Onc"}
+  - {from: lymphoid-clonal-expansion, to: generalised-lymphadenopathy, note: "One area or generalised", source: "K&C 10e p.393"}
+  - {from: lymphoid-clonal-expansion, to: splenomegaly, note: "Sometimes massive", source: "K&C 10e p.393"}
+  - [lymphoid-clonal-expansion, hepatomegaly]
+  - [lymphoid-clonal-expansion, marrow-infiltration]
+  - [marrow-infiltration, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+  - [marrow-infiltration, reduced-platelet-production]
+  - [reduced-platelet-production, thrombocytopenia]
+  - [lymphoid-clonal-expansion, antibody-deficiency]
+  - {from: antibody-deficiency, to: recurrent-infection, note: "Vaccinate (no live vaccines); immunoglobulin replacement can help", source: "K&C 10e p.393-394"}
+  - {from: lymphoid-clonal-expansion, to: autoimmune-haemolytic-anaemia, note: "Warm AIHA; DAT positive; steroids", source: "K&C 10e p.393-394; Mehlman HY Heme-Onc"}
+  - {from: lymphoid-clonal-expansion, to: immune-thrombocytopenia, source: "K&C 10e p.373, 394"}
+  - {from: lymphoid-clonal-expansion, to: diffuse-large-b-cell-lymphoma, note: "Richter transformation in 5–10%", source: "K&C 10e p.394"}
+findings:
+  - {id: lymphocytosis, freq: classic}
+  - {id: smear-cells, freq: classic}
+  - {id: cll-immunophenotype, freq: classic}
+  - {id: generalised-lymphadenopathy, freq: common}
+  - {id: splenomegaly, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: hepatomegaly, freq: occasional}
+  - {id: thrombocytopenia, freq: occasional}
+outcomes:
+  - {id: recurrent-infection, freq: common, source: "K&C 10e p.393"}
+  - {id: autoimmune-haemolytic-anaemia, freq: occasional, source: "K&C 10e p.393"}
+  - {id: immune-thrombocytopenia, freq: occasional, source: "K&C 10e p.373"}
+  - {id: diffuse-large-b-cell-lymphoma, freq: occasional, source: "K&C 10e p.394"}

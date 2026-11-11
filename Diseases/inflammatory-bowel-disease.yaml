@@ -3,7 +3,7 @@ name: Inflammatory bowel disease
 group: ibd
 status: draft
 systems: [gastrointestinal]
-sources: ["K&C 10e p.1198-1202, 1208", "Mehlman HY Gastro"]
+sources: ["K&C 10e p.1198-1202, 1208", "K&C 10e p.451", "Mehlman HY Gastro"]
 chain:
   - {from: ibd-family-history, to: gut-mucosal-immune-dysregulation, note: "Polygenic; family history is the biggest single risk factor (1 in 5 with Crohn's). Highest in northern Europe and North America", source: "K&C 10e p.1198"}
   - {from: nsaid-use, to: gut-mucosal-immune-dysregulation, note: "Linked to onset and flares", source: "K&C 10e p.1199"}
@@ -17,6 +17,7 @@ chain:
   - [gut-mucosal-immune-dysregulation, arthralgia]
   - [gut-mucosal-immune-dysregulation, primary-sclerosing-cholangitis]
   - [intestinal-inflammation, colorectal-cancer]
+  - {from: gut-mucosal-immune-dysregulation, to: spondyloarthritis, note: "Enteropathic arthritis in 10–15%: asymmetric, lower-limb, or B27 sacroiliitis; may come before the bowel symptoms", source: "K&C 10e p.451"}
 findings:
   - {id: diarrhoea, freq: classic}
   - {id: raised-faecal-calprotectin, freq: classic, note: "Raised in active intestinal inflammation; used to monitor", source: "K&C 10e p.1202"}
@@ -29,3 +30,4 @@ outcomes:
   - {id: primary-sclerosing-cholangitis, source: "K&C 10e p.1202"}
   - {id: colorectal-cancer, note: "UC and extensive Crohn's colitis; risk rises with extent, duration, inflammation and PSC", source: "K&C 10e p.1208"}
   - {id: renal-calculi-nephrocalcinosis, freq: occasional, source: "K&C 10e p.1202"}
+  - {id: spondyloarthritis, freq: occasional, note: "UC remission or colectomy settles the joints; arthritis may persist in Crohn's", source: "K&C 10e p.451"}

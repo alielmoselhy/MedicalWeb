@@ -1,0 +1,29 @@
+id: cellulitis
+name: Cellulitis and erysipelas
+group: skin-soft-tissue-infection
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.536", "K&C 10e p.669", "K&C 10e p.1360"]
+chain:
+  - {from: group-a-streptococcus, to: dermal-subcutaneous-infection, note: "Beta-haemolytic strep and S. aureus are commonest; Gram-negatives or anaerobes in some settings", source: "K&C 10e p.669"}
+  - {from: s-aureus, to: dermal-subcutaneous-infection, source: "K&C 10e p.669"}
+  - {from: skin-barrier-breach, to: dermal-subcutaneous-infection, note: "Look for fissures or erosions letting bacteria in, including toe-web tinea", source: "K&C 10e p.669"}
+  - {from: lymphoedema-venous-stasis, to: dermal-subcutaneous-infection, source: "K&C 10e p.669"}
+  - {from: obesity, to: dermal-subcutaneous-infection, source: "K&C 10e p.669"}
+  - {from: dermal-subcutaneous-infection, to: spreading-erythema, note: "Usually lower leg or arm, spreading up; erysipelas is facial and sharply edged. Flucloxacillin (or a macrolide), oral or IV", source: "K&C 10e p.669"}
+  - [dermal-subcutaneous-infection, fever]
+  - {from: dermal-subcutaneous-infection, to: blisters, note: "Also necrosis, abscess, lymphangitis", source: "K&C 10e p.669"}
+  - {from: dermal-subcutaneous-infection, to: lymphadenopathy, source: "K&C 10e p.669"}
+  - {from: dermal-subcutaneous-infection, to: raised-aso-titre, note: "Swabs are usually negative unless the skin is broken", source: "K&C 10e p.669", only: group-a-streptococcus}
+  - {from: dermal-subcutaneous-infection, to: skin-soft-tissue-entry, only: s-aureus}
+  - {from: skin-soft-tissue-entry, to: s-aureus-bacteraemia, note: "Staph can spread from skin to cause serious invasive infection", source: "K&C 10e p.536", only: s-aureus}
+  - {from: dermal-subcutaneous-infection, to: post-streptococcal-glomerulonephritis, note: "Throat, ear or skin (cellulitis) infection with a nephritogenic strain", source: "K&C 10e p.1360", only: group-a-streptococcus}
+findings:
+  - {id: spreading-erythema, freq: classic, note: "Up to half get repeat episodes; prophylaxis helps only while taken", source: "K&C 10e p.669"}
+  - {id: fever, freq: common, source: "K&C 10e p.669"}
+  - {id: blisters, freq: occasional, source: "K&C 10e p.669"}
+  - {id: lymphadenopathy, freq: occasional, source: "K&C 10e p.669"}
+  - {id: raised-aso-titre, freq: occasional, only: group-a-streptococcus, source: "K&C 10e p.669"}
+outcomes:
+  - {id: s-aureus-bacteraemia, freq: rare, only: s-aureus, source: "K&C 10e p.536"}
+  - {id: post-streptococcal-glomerulonephritis, freq: rare, only: group-a-streptococcus, source: "K&C 10e p.1360"}

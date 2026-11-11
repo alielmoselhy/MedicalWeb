@@ -1,0 +1,31 @@
+id: sjogrens-syndrome
+name: Sjögren's syndrome
+parent: autoimmune-rheumatic-disease
+group: systemic-autoimmune
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.457, 463", "Mehlman HY Immuno"]
+chain:
+  - {from: hla-b8-dr3, to: systemic-autoimmunity, note: "Primary Sjögren's has no other autoimmune disease; secondary follows RA or SLE", source: "K&C 10e p.463"}
+  - {from: systemic-autoimmunity, to: anti-ro-la, note: "Anti-Ro in 60–90%, anti-La in 35–85%; RF usually positive", source: "K&C 10e p.457, 463; Mehlman HY Immuno"}
+  - {from: systemic-autoimmunity, to: ana, note: "80%", source: "K&C 10e p.463"}
+  - {from: systemic-autoimmunity, to: exocrine-gland-infiltration, note: "Focal lymphocyte and plasma cell infiltrate on lip or salivary gland biopsy", source: "K&C 10e p.463"}
+  - {from: exocrine-gland-infiltration, to: sicca-symptoms, note: "Schirmer test under 10 mm in 5 minutes; artificial tears and saliva", source: "K&C 10e p.463; Mehlman HY Immuno"}
+  - [exocrine-gland-infiltration, salivary-gland-enlargement]
+  - [systemic-autoimmunity, fatigue]
+  - {from: systemic-autoimmunity, to: arthralgia, note: "Non-progressive, like SLE but less common", source: "K&C 10e p.463"}
+  - [systemic-autoimmunity, raynaud-phenomenon]
+  - {from: systemic-autoimmunity, to: interstitial-lung-disease, source: "K&C 10e p.463"}
+  - {from: systemic-autoimmunity, to: peripheral-neuropathy, source: "K&C 10e p.463"}
+findings:
+  - {id: sicca-symptoms, freq: classic}
+  - {id: anti-ro-la, freq: classic}
+  - {id: ana, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: salivary-gland-enlargement, freq: common}
+  - {id: arthralgia, freq: occasional}
+  - {id: raynaud-phenomenon, freq: occasional}
+  - {id: peripheral-neuropathy, freq: rare}
+outcomes:
+  - {id: non-hodgkin-lymphoma, freq: rare, note: "Higher risk of B-cell NHL", source: "K&C 10e p.463"}
+  - {id: interstitial-lung-disease, freq: rare, source: "K&C 10e p.463"}

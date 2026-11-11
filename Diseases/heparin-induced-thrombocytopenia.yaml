@@ -1,0 +1,17 @@
+id: heparin-induced-thrombocytopenia
+name: Heparin-induced thrombocytopenia (HIT)
+group: platelets-tma
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.1014-1015", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: heparin-exposure, to: heparin-pf4-antibody, note: "5–14 days after starting; less often with LMWH than unfractionated heparin", source: "K&C 10e p.1014-1015"}
+  - {from: heparin-pf4-antibody, to: thrombocytopenia, note: "Falls over 30% in 1–2 days; usually mild to moderate, rarely below 20 ×10⁹/L", source: "K&C 10e p.1015"}
+  - {from: heparin-pf4-antibody, to: positive-heparin-pf4-antibody, note: "Confirms a clinical diagnosis", source: "K&C 10e p.1015"}
+  - {from: heparin-pf4-antibody, to: hypercoagulability, note: "Activates platelets and coagulation, so it clots rather than bleeds. Stop all heparin; use argatroban, danaparoid or fondaparinux; never re-expose", source: "K&C 10e p.1015; Mehlman HY Heme-Onc"}
+  - {from: hypercoagulability, to: deep-vein-thrombosis, note: "Venous or arterial thrombosis: 50% over the next few days untreated", source: "K&C 10e p.1015"}
+findings:
+  - {id: thrombocytopenia, freq: classic}
+  - {id: positive-heparin-pf4-antibody, freq: classic}
+outcomes:
+  - {id: deep-vein-thrombosis, freq: common, source: "K&C 10e p.1015"}

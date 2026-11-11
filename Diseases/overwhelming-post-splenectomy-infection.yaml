@@ -1,0 +1,28 @@
+id: overwhelming-post-splenectomy-infection
+name: Overwhelming post-splenectomy infection (OPSI)
+group: immunocompromised-infection
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.60", "K&C 10e p.357"]
+chain:
+  - from: asplenia-hyposplenism
+    to: loss-of-splenic-function
+    note: "Each leaves the spleen absent or not working"
+    source: "K&C 10e p.357"
+    members:
+      - {id: splenectomy, note: "Mainly for trauma, ITP, haemolytic anaemia and hypersplenism", source: "K&C 10e p.357"}
+      - {id: sickle-cell-disease, note: "Splenic infarction (autosplenectomy)", source: "K&C 10e p.357"}
+      - {id: coeliac-disease, source: "K&C 10e p.357"}
+      - {id: ulcerative-colitis, note: "Occasionally", source: "K&C 10e p.357"}
+  - {from: loss-of-splenic-function, to: howell-jolly-bodies, note: "With target cells and irregular contracted red cells", source: "K&C 10e p.357"}
+  - {from: loss-of-splenic-function, to: thrombocytosis, note: "600–1000 for 2–3 weeks after splenectomy, persisting in 30%", only: splenectomy, source: "K&C 10e p.357"}
+  - {from: encapsulated-bacteria, to: dysregulated-host-response, note: "Pneumococcus above all, also meningococcus and Haemophilus. Vaccinate 2–3 weeks before elective splenectomy; lifelong penicillin V; carry a card", source: "K&C 10e p.60, 357"}
+  - {from: loss-of-splenic-function, to: dysregulated-host-response, note: "No splenic filtering or opsonisation of capsulated bacteria", source: "K&C 10e p.60, 357"}
+  - [dysregulated-host-response, fever]
+  - [dysregulated-host-response, septic-shock]
+findings:
+  - {id: fever, freq: classic}
+  - {id: howell-jolly-bodies, freq: classic}
+  - {id: thrombocytosis, freq: common, only: splenectomy}
+outcomes:
+  - {id: septic-shock, freq: common, source: "K&C 10e p.357"}

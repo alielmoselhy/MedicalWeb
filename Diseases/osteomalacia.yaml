@@ -1,0 +1,24 @@
+id: osteomalacia
+name: Osteomalacia and rickets
+group: metabolic-bone
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.483-484", "Mehlman HY Anatomy-MSK-Rheum", "Mehlman HY Endocrine"]
+chain:
+  - {from: vitamin-d-deficiency, to: defective-mineralisation, note: "Commonest cause, via low phosphate from secondary hyperparathyroidism. Fluoride, aluminium and bisphosphonates also block mineralisation", source: "K&C 10e p.483"}
+  - {from: chronic-kidney-disease, to: defective-mineralisation, note: "No renal 1α-hydroxylation (renal osteodystrophy); phosphate is high, not low", source: "K&C 10e p.483; Mehlman HY Endocrine"}
+  - {from: renal-tubular-acidosis, to: defective-mineralisation, note: "Renal phosphate wasting plus acid at the osteoid surface (proximal RTA)", source: "K&C 10e p.484"}
+  - {from: defective-mineralisation, to: bone-pain, note: "Dull, widespread, worse walking; sternal or tibial pressure reproduces it. May be silent until a fracture", source: "K&C 10e p.484"}
+  - {from: vitamin-d-deficiency, to: proximal-myopathy, note: "Waddling gait, trouble with stairs and chairs; low vitamin D, low phosphate and high PTH all add", source: "K&C 10e p.484"}
+  - {from: defective-mineralisation, to: raised-alp, note: "In 90%; low calcium, low phosphate and high PTH each in about half", source: "K&C 10e p.484"}
+  - {from: defective-mineralisation, to: looser-zones, note: "The characteristic X-ray sign, with low bone density", source: "K&C 10e p.484; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: defective-mineralisation, to: rickets-deformity, note: "Children, before the growth plates fuse", source: "K&C 10e p.483-484; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: defective-mineralisation, to: pathological-fracture, note: "Insufficiency fractures under normal weight-bearing", source: "K&C 10e p.484"}
+findings:
+  - {id: bone-pain, freq: classic, note: "Vitamin D replacement with calcium; remove the tumour in tumour-induced osteomalacia", source: "K&C 10e p.484"}
+  - {id: raised-alp, freq: classic}
+  - {id: looser-zones, freq: classic}
+  - {id: proximal-myopathy, freq: common}
+  - {id: rickets-deformity, freq: occasional}
+outcomes:
+  - pathological-fracture

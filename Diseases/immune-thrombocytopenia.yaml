@@ -1,0 +1,21 @@
+id: immune-thrombocytopenia
+name: Immune thrombocytopenia (ITP)
+group: platelets-tma
+status: draft
+systems: [haematology, immunology]
+sources: ["K&C 10e p.371-373", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: recent-viral-infection, to: anti-platelet-autoantibody, note: "Children aged 2–6: acute, after varicella or measles; short-lived, so most need no treatment", source: "K&C 10e p.373; Mehlman HY Heme-Onc"}
+  - {from: autoimmune-rheumatic-disease, to: anti-platelet-autoantibody, note: "Adults, mostly women, with a slower onset; SLE, thyroid disease, or AIHA too (Evans syndrome)", source: "K&C 10e p.373"}
+  - {from: hiv, to: anti-platelet-autoantibody, source: "K&C 10e p.373"}
+  - {from: anti-platelet-autoantibody, to: platelet-destruction, note: "Coated platelets are cleared by macrophage Fc receptors; antibodies are detectable in 60–70%", source: "K&C 10e p.373; Mehlman HY Heme-Onc"}
+  - {from: platelet-destruction, to: thrombocytopenia, note: "Adults: treat below 30 ×10⁹/L or if bleeding; prednisolone, IVIg for a quick rise, then splenectomy, rituximab or a TPO agonist", source: "K&C 10e p.373"}
+  - {from: platelet-destruction, to: mucocutaneous-bleeding, note: "Bruising, epistaxis and menorrhagia; uncommon above 50 ×10⁹/L", source: "K&C 10e p.372-373"}
+  - {from: platelet-destruction, to: non-blanching-rash, note: "Petechiae and purpura", source: "K&C 10e p.371, 373"}
+  - {from: platelet-destruction, to: intracerebral-haemorrhage, note: "Rare, with counts below 20 ×10⁹/L; platelet transfusion is kept for this", source: "K&C 10e p.372-373"}
+findings:
+  - {id: thrombocytopenia, freq: classic, note: "The only abnormality on the count: a diagnosis of exclusion; marrow megakaryocytes normal or raised", source: "K&C 10e p.373"}
+  - {id: mucocutaneous-bleeding, freq: common}
+  - {id: non-blanching-rash, freq: common, note: "Examination otherwise normal; splenomegaly is rare", source: "K&C 10e p.373"}
+outcomes:
+  - {id: intracerebral-haemorrhage, freq: rare, source: "K&C 10e p.372-373"}

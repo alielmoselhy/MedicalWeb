@@ -1,0 +1,25 @@
+id: testicular-germ-cell-tumour
+name: Testicular germ cell tumour
+group: bladder-prostate-testis
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1484", "Mehlman HY Pathology", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: cryptorchidism, to: germ-cell-malignancy, note: "8-fold risk; 4% lifetime in an intra-abdominal testis", source: "K&C 10e p.1484; Mehlman HY Repro-OBGYN"}
+  - {from: germ-cell-malignancy, to: painless-testicular-lump, note: "Commonest solid cancer of young men; pain or dragging first in 27%; 10% mimic epididymo-orchitis", source: "K&C 10e p.1484"}
+  - {from: germ-cell-malignancy, to: raised-afp, note: "Yolk sac (child) or mixed tumours; also HCC", source: "Mehlman HY Pathology"}
+  - {from: germ-cell-malignancy, to: raised-beta-hcg, note: "Choriocarcinoma or mixed tumours", source: "Mehlman HY Pathology"}
+  - {from: germ-cell-malignancy, to: gynaecomastia, note: "7%, from hCG-secreting tumours", source: "K&C 10e p.1484"}
+  - {from: germ-cell-malignancy, to: metastatic-spread, note: "11% present with back or flank pain from metastases", source: "K&C 10e p.1484"}
+  - {from: metastatic-spread, to: lymphadenopathy, note: "Look for supraclavicular nodes", source: "K&C 10e p.1484"}
+  - {from: metastatic-spread, to: abdominal-mass, source: "K&C 10e p.1484"}
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: painless-testicular-lump, freq: classic, source: "K&C 10e p.1484"}
+  - {id: raised-afp, freq: common}
+  - {id: raised-beta-hcg, freq: common}
+  - {id: gynaecomastia, freq: occasional}
+  - {id: lymphadenopathy, freq: occasional}
+  - {id: abdominal-mass, freq: occasional}
+outcomes:
+  - {id: distant-metastases, freq: occasional, source: "K&C 10e p.1484"}

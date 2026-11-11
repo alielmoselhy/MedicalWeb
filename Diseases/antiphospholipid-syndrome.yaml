@@ -1,0 +1,27 @@
+id: antiphospholipid-syndrome
+name: Antiphospholipid syndrome
+group: thrombosis
+status: draft
+systems: [haematology, immunology]
+sources: ["K&C 10e p.459-460, 1012", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: autoimmune-rheumatic-disease, to: antiphospholipid-antibody, note: "Secondary APS, mostly with SLE; primary APS occurs on its own", source: "K&C 10e p.459; Mehlman HY Heme-Onc"}
+  - {from: antiphospholipid-antibody, to: positive-antiphospholipid-antibodies, note: "Positive twice at least 12 weeks apart; not every positive test causes disease", source: "K&C 10e p.459"}
+  - {from: antiphospholipid-antibody, to: isolated-prolonged-aptt, note: "Lupus anticoagulant slows clotting in the tube but promotes it in the body", source: "K&C 10e p.459, 1012; Mehlman HY Heme-Onc"}
+  - {from: antiphospholipid-antibody, to: hypercoagulability, note: "Arterial or venous, rarely both in one patient. Long-term warfarin after a clot; DOACs may be less effective", source: "K&C 10e p.460, 1012"}
+  - {from: hypercoagulability, to: deep-vein-thrombosis, note: "About 40%; think of APS in VTE under 50, unprovoked or recurrent", source: "K&C 10e p.460, 1012"}
+  - {from: hypercoagulability, to: ischaemic-stroke, note: "About 20%; arterial thrombosis under 50", source: "K&C 10e p.460, 1012"}
+  - {from: hypercoagulability, to: multi-organ-dysfunction, note: "Catastrophic APS (about 1%): infarcts in many organs at once, high mortality", source: "K&C 10e p.460"}
+  - {from: antiphospholipid-antibody, to: recurrent-pregnancy-loss, note: "APS in 27% of women with two or more miscarriages. Aspirin plus LMWH through pregnancy", source: "K&C 10e p.460, 1012"}
+  - {from: antiphospholipid-antibody, to: thrombocytopenia, source: "K&C 10e p.460"}
+  - {from: antiphospholipid-antibody, to: livedo-reticularis, source: "K&C 10e p.460"}
+findings:
+  - {id: positive-antiphospholipid-antibodies, freq: classic}
+  - {id: isolated-prolonged-aptt, freq: common}
+  - {id: thrombocytopenia, freq: occasional}
+  - {id: livedo-reticularis, freq: occasional}
+outcomes:
+  - {id: deep-vein-thrombosis, freq: common, source: "K&C 10e p.460"}
+  - {id: ischaemic-stroke, freq: common, source: "K&C 10e p.460"}
+  - {id: recurrent-pregnancy-loss, source: "K&C 10e p.460"}
+  - {id: multi-organ-dysfunction, freq: rare, source: "K&C 10e p.460"}

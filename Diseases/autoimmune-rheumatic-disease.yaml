@@ -1,0 +1,14 @@
+id: autoimmune-rheumatic-disease
+name: Autoimmune rheumatic disease (connective tissue disease)
+group: systemic-autoimmune
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.456-457, 463", "K&C 10e p.332"]
+chain:
+  - {from: autoimmune-predisposition, to: systemic-autoimmunity, note: "Self-antigens present in many organs, so the disease is multisystem; each has its own pattern and antibodies", source: "K&C 10e p.456"}
+  - {from: systemic-autoimmunity, to: ana, note: "Supports but isn't needed for the diagnosis; overlap and undifferentiated forms exist", source: "K&C 10e p.456, 463"}
+  - {from: systemic-autoimmunity, to: anaemia-of-chronic-disease, source: "K&C 10e p.332"}
+findings:
+  - {id: ana, freq: classic}
+outcomes:
+  - {id: anaemia-of-chronic-disease, freq: common, source: "K&C 10e p.332"}

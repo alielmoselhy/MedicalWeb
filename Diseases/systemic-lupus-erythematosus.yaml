@@ -1,0 +1,56 @@
+id: systemic-lupus-erythematosus
+name: Systemic lupus erythematosus (SLE)
+parent: autoimmune-rheumatic-disease
+group: systemic-autoimmune
+status: draft
+systems: [immunology, kidney-urogenital]
+sources: ["K&C 10e p.456-460", "K&C 10e p.992", "K&C 10e p.1366", "Mehlman HY Immuno", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: female-sex, to: lupus-autoimmunity, note: "9:1 women, onset 20–40; commonest in African/Caribbean women (1 in 250)", source: "K&C 10e p.457"}
+  - {from: autoimmune-predisposition, to: lupus-autoimmunity, note: "Monozygotic twin concordance up to 25%", source: "K&C 10e p.457"}
+  - {from: early-complement-deficiency, to: lupus-autoimmunity, note: "Rare, but a very high risk: debris isn't cleared", source: "K&C 10e p.457; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: lupus-inducing-drug, to: lupus-autoimmunity, note: "Drug-induced lupus is mild, spares kidney and brain; anti-histone antibodies", source: "K&C 10e p.457; Mehlman HY Immuno"}
+  - {from: uv-light, to: lupus-autoimmunity, note: "Triggers flares, especially of the skin", source: "K&C 10e p.457"}
+  - [lupus-autoimmunity, ana]
+  - {from: lupus-autoimmunity, to: anti-dsdna-sm, note: "Anti-dsDNA in 70%, rises in flares and tracks renal disease; anti-Sm most specific", source: "K&C 10e p.457, 459; Mehlman HY Immuno"}
+  - {from: lupus-autoimmunity, to: immune-complex-deposition, note: "Type III: complexes and complement in skin, kidney and joints", source: "K&C 10e p.457; Mehlman HY Immuno"}
+  - {from: immune-complex-deposition, to: low-complement, note: "High ESR, high anti-dsDNA and low C3 herald a flare", source: "K&C 10e p.459; Mehlman HY Immuno"}
+  - {from: immune-complex-deposition, to: arthralgia, note: "Over 90%; joints look normal and rarely erode (Jaccoud's if deformed)", source: "K&C 10e p.457"}
+  - {from: immune-complex-deposition, to: malar-rash, note: "Skin involved in 85%", source: "K&C 10e p.458"}
+  - {from: lupus-autoimmunity, to: photosensitivity, note: "40–50%, especially with anti-Ro", source: "K&C 10e p.458"}
+  - [lupus-autoimmunity, mouth-ulcers]
+  - {from: lupus-autoimmunity, to: fever, note: "In flares; fatigue doesn't track activity", source: "K&C 10e p.457"}
+  - [lupus-autoimmunity, fatigue]
+  - {from: immune-complex-deposition, to: raised-inflammatory-markers, note: "ESR tracks activity; CRP usually normal unless serositis or infection", source: "K&C 10e p.459"}
+  - {from: immune-complex-deposition, to: glomerulonephritis, note: "Lupus nephritis in a third, a quarter of them ESKD in 10 years; class IV diffuse proliferative is commonest and worst, class V membranous; mycophenolate", source: "K&C 10e p.458-459, 1366; Mehlman HY Immuno"}
+  - {from: immune-complex-deposition, to: pleuritic-chest-pain, note: "Pleurisy in up to two-thirds, effusions small and bilateral", source: "K&C 10e p.458, 992"}
+  - [immune-complex-deposition, exudative-effusion]
+  - {from: immune-complex-deposition, to: acute-pericarditis, note: "Heart involved in 25%; Libman–Sacks endocarditis is very rare", source: "K&C 10e p.458"}
+  - {from: immune-complex-deposition, to: seizures, note: "Nervous system in up to 60%: depression, psychosis, fits, stroke", source: "K&C 10e p.458"}
+  - {from: lupus-autoimmunity, to: leucopenia-lymphopenia, source: "K&C 10e p.459"}
+  - {from: lupus-autoimmunity, to: autoimmune-haemolytic-anaemia, source: "K&C 10e p.459"}
+  - {from: lupus-autoimmunity, to: immune-thrombocytopenia, source: "K&C 10e p.459; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: lupus-autoimmunity, to: antiphospholipid-syndrome, note: "aPL in 25–40%, not all develop APS; recurrent miscarriage", source: "K&C 10e p.459"}
+  - {from: lupus-autoimmunity, to: raynaud-phenomenon, source: "K&C 10e p.458"}
+findings:
+  - {id: ana, freq: classic}
+  - {id: anti-dsdna-sm, freq: classic}
+  - {id: arthralgia, freq: classic}
+  - {id: malar-rash, freq: classic}
+  - {id: fatigue, freq: common}
+  - {id: photosensitivity, freq: common}
+  - {id: mouth-ulcers, freq: common}
+  - {id: low-complement, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: leucopenia-lymphopenia, freq: common}
+  - {id: fever, freq: common}
+  - {id: pleuritic-chest-pain, freq: common}
+  - {id: exudative-effusion, freq: occasional}
+  - {id: raynaud-phenomenon, freq: occasional}
+  - {id: seizures, freq: occasional}
+outcomes:
+  - {id: glomerulonephritis, freq: common, source: "K&C 10e p.458"}
+  - {id: acute-pericarditis, freq: occasional, source: "K&C 10e p.458"}
+  - {id: antiphospholipid-syndrome, freq: occasional, source: "K&C 10e p.459"}
+  - {id: autoimmune-haemolytic-anaemia, freq: occasional, source: "K&C 10e p.459"}
+  - {id: immune-thrombocytopenia, freq: occasional, source: "K&C 10e p.459"}

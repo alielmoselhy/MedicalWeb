@@ -1,0 +1,25 @@
+id: deep-vein-thrombosis
+name: Deep vein thrombosis
+group: thrombosis
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.1002-1011", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: immobility-or-surgery, to: venous-stasis, note: "Strong factors (10–50×): major surgery, trauma, bed rest. Long-haul travel and obesity are weak (under 3×)", source: "K&C 10e p.1002"}
+  - {from: pregnancy-or-oestrogen, to: hypercoagulability, note: "Moderate (3–10×): pregnancy, combined contraception, HRT", source: "K&C 10e p.1002"}
+  - {from: active-cancer, to: hypercoagulability, note: "10–20% of VTE is in people with cancer; up to 5% of unprovoked VTE reveal cancer within a year", source: "K&C 10e p.1010"}
+  - {from: heritable-thrombophilia, to: hypercoagulability, note: "Found in about 20% of VTE. Factor V Leiden: 5× risk, about 30× with the combined pill", source: "K&C 10e p.1011; Mehlman HY Heme-Onc"}
+  - {from: venous-stasis, to: venous-thrombosis, note: "Begins in a valve pocket, where turbulence and local hypoxia damage the endothelium", source: "K&C 10e p.1002"}
+  - [hypercoagulability, venous-thrombosis]
+  - {from: venous-thrombosis, to: unilateral-leg-swelling, note: "Painful, red and warm, tender along the deep veins, with distended superficial veins", source: "K&C 10e p.1002-1003"}
+  - {from: venous-thrombosis, to: raised-d-dimer, note: "Wells score first. If DVT is unlikely, a normal D-dimer excludes it; raised also by age, infection, cancer and pregnancy", source: "K&C 10e p.1004"}
+  - {from: venous-thrombosis, to: non-compressible-vein, note: "Over 95% sensitive above the knee, about 70% in the calf", source: "K&C 10e p.1004"}
+  - {from: venous-thrombosis, to: pulmonary-embolism, note: "Proximal (popliteal and above) clots embolise more; a third of DVTs carry a silent PE. Anticoagulate at least 3 months", source: "K&C 10e p.1002-1003, 1008"}
+  - {from: venous-thrombosis, to: post-thrombotic-syndrome, note: "About 40% after proximal DVT; 5–10% develop hard-to-heal venous ulcers", source: "K&C 10e p.1010"}
+findings:
+  - {id: unilateral-leg-swelling, freq: classic}
+  - {id: non-compressible-vein, freq: classic}
+  - {id: raised-d-dimer, freq: common}
+outcomes:
+  - {id: pulmonary-embolism, note: "60% of VTE presents as DVT, 40% as PE", source: "K&C 10e p.1002"}
+  - {id: post-thrombotic-syndrome, freq: common, source: "K&C 10e p.1010"}

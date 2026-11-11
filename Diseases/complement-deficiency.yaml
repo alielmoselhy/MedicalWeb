@@ -1,0 +1,18 @@
+id: complement-deficiency
+name: Complement deficiency
+group: immunodeficiency
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.60, 62", "Mehlman HY Immuno"]
+chain:
+  - {from: early-complement-deficiency, to: complement-pathway-defect, note: "Classical pathway (C1, C4, C2)", source: "K&C 10e p.62"}
+  - {from: terminal-complement-deficiency, to: complement-pathway-defect, note: "No membrane attack complex", source: "K&C 10e p.62; Mehlman HY Immuno"}
+  - {from: complement-pathway-defect, to: recurrent-sinopulmonary-infection, note: "Poor opsonisation of capsulated bacteria: pneumococcus, Haemophilus", source: "K&C 10e p.60, 62"}
+  - {from: early-complement-deficiency, to: systemic-lupus-erythematosus, note: "Immune complexes not cleared: lupus, vasculitis, glomerulonephritis", only: early-complement-deficiency, source: "K&C 10e p.62"}
+  - {from: complement-pathway-defect, to: neisserial-infection, note: "Meningococcal and disseminated gonococcal infection", only: terminal-complement-deficiency, source: "K&C 10e p.60, 62; Mehlman HY Immuno"}
+  - {from: neisserial-infection, to: bacterial-meningitis, only: terminal-complement-deficiency, source: "K&C 10e p.62"}
+outcomes:
+  - {id: recurrent-sinopulmonary-infection, freq: common, source: "K&C 10e p.62"}
+  - {id: neisserial-infection, freq: common, only: terminal-complement-deficiency, source: "K&C 10e p.62"}
+  - {id: bacterial-meningitis, freq: occasional, only: terminal-complement-deficiency, source: "K&C 10e p.62"}
+  - {id: systemic-lupus-erythematosus, freq: common, only: early-complement-deficiency, source: "K&C 10e p.62"}

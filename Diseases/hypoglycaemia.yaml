@@ -1,0 +1,40 @@
+id: hypoglycaemia
+name: Hypoglycaemia
+group: glucose
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.716-717", "K&C 10e p.647-648", "Mehlman HY Endocrine"]
+chain:
+  - from: hypoglycaemic-drug
+    to: insulin-excess
+    note: "Each lowers glucose by raising insulin action; also quinine, salicylates, pentamidine, propranolol"
+    members:
+      - {id: insulin-therapy, note: "Commonest cause: dose exceeds need, missed meals, exercise, alcohol", source: "K&C 10e p.716"}
+      - {id: sulphonylurea, note: "Also overdose and factitious use (detected by drug screen)", source: "K&C 10e p.648; Mehlman HY Endocrine"}
+  - {from: insulinoma, to: insulin-excess, source: "K&C 10e p.647"}
+  - {from: insulin-excess, to: low-plasma-glucose, note: "Liver output is suppressed, so glucagon still works", source: "K&C 10e p.647"}
+  - {from: excess-alcohol, to: impaired-gluconeogenesis, note: "Malnourished or binge drinkers and children; coma with hypothermia", source: "K&C 10e p.648"}
+  - {from: acute-liver-failure, to: impaired-gluconeogenesis, note: "Also end-stage kidney failure", source: "K&C 10e p.648"}
+  - {from: impaired-gluconeogenesis, to: low-plasma-glucose, note: "Insulin is low and glucagon won't work", source: "K&C 10e p.647"}
+  - {from: adrenal-insufficiency, to: cortisol-deficiency, note: "Also hypopituitarism and isolated ACTH deficiency", source: "K&C 10e p.648"}
+  - {from: cortisol-deficiency, to: low-plasma-glucose, note: "Loss of a counter-regulatory hormone", source: "K&C 10e p.648"}
+  - {from: low-plasma-glucose, to: low-blood-glucose, note: "Below 3.0 is clinically significant; treat any value below 3.9 with 15–20 g fast glucose, or IM glucagon or IV glucose if severe", source: "K&C 10e p.716-717"}
+  - {from: low-plasma-glucose, to: adrenergic-hypoglycaemia-response, note: "Usually comes first; lost with long-standing diabetes or repeated episodes (impaired awareness)", source: "K&C 10e p.716"}
+  - [adrenergic-hypoglycaemia-response, diaphoresis]
+  - [adrenergic-hypoglycaemia-response, palpitations]
+  - {from: adrenergic-hypoglycaemia-response, to: shakiness-anxiety, source: "K&C 10e p.716"}
+  - {from: low-plasma-glucose, to: neuroglycopenia, note: "The brain uses about half the glucose the liver makes", source: "K&C 10e p.647"}
+  - {from: neuroglycopenia, to: confusion, note: "Slurred speech and altered behaviour", source: "K&C 10e p.716"}
+  - {from: neuroglycopenia, to: seizures, source: "K&C 10e p.716"}
+  - {from: neuroglycopenia, to: coma, source: "K&C 10e p.716"}
+  - {from: low-plasma-glucose, to: acute-coronary-syndrome, note: "Also arrhythmia, falls and sudden death", source: "K&C 10e p.716"}
+findings:
+  - {id: low-blood-glucose, freq: classic, source: "K&C 10e p.716"}
+  - {id: diaphoresis, freq: common, source: "K&C 10e p.716"}
+  - {id: palpitations, freq: common, source: "K&C 10e p.716"}
+  - {id: shakiness-anxiety, freq: common}
+  - {id: confusion, freq: common}
+  - {id: seizures, freq: occasional}
+  - {id: coma, freq: occasional}
+outcomes:
+  - {id: acute-coronary-syndrome, freq: rare, source: "K&C 10e p.716"}

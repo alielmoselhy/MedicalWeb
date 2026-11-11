@@ -1,0 +1,19 @@
+id: ewing-sarcoma
+name: Ewing sarcoma
+parent: primary-bone-tumour
+group: bone-tumours
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.485", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: t11-22-translocation, to: malignant-transformation, note: "Don't confuse with DiGeorge's 22q11 deletion", source: "Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: malignant-transformation, to: small-round-cell-tumour, note: "A primary bone tumour of children", source: "K&C 10e p.485; Mehlman HY Anatomy-MSK-Rheum"}
+  - [small-round-cell-tumour, bone-pain]
+  - {from: small-round-cell-tumour, to: fever, note: "Mimics osteomyelitis; bone scan uptake is in the diaphysis, not the metaphysis", source: "Mehlman HY Anatomy-MSK-Rheum"}
+  - [small-round-cell-tumour, onion-skin-periosteal-reaction]
+  - [small-round-cell-tumour, small-round-blue-cells]
+findings:
+  - {id: bone-pain, freq: classic}
+  - {id: small-round-blue-cells, freq: classic}
+  - {id: onion-skin-periosteal-reaction, freq: classic}
+  - {id: fever, freq: common}

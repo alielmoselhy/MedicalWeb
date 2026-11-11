@@ -1,0 +1,16 @@
+id: vasculitis
+name: Systemic vasculitis
+group: vasculitis
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.464-466"]
+chain:
+  - {from: vessel-wall-inflammation, to: raised-inflammatory-markers, note: "Classified by vessel size and by ANCA; most need steroids and often immunosuppression", source: "K&C 10e p.464"}
+  - {from: vessel-wall-inflammation, to: arthralgia, note: "Joint pain with fatigue, malaise and weight loss is common to all", source: "K&C 10e p.465"}
+  - [vessel-wall-inflammation, fatigue]
+  - [vessel-wall-inflammation, weight-loss]
+findings:
+  - {id: raised-inflammatory-markers, freq: classic}
+  - {id: arthralgia, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: weight-loss, freq: common}

@@ -1,0 +1,23 @@
+id: ectopic-pregnancy
+name: Ectopic pregnancy
+group: ovaries-tubes
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.1222, 1418, 1470-1471", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: pelvic-inflammatory-disease, to: tubal-scarring, note: "Previous PID is the main risk", source: "K&C 10e p.1418; Mehlman HY Repro-OBGYN"}
+  - {from: tubal-scarring, to: tubal-implantation, source: "Mehlman HY Repro-OBGYN"}
+  - {from: advanced-maternal-age, to: tubal-implantation, note: "Delayed childbearing has raised ectopic rates", source: "K&C 10e p.1470"}
+  - {from: tubal-implantation, to: unilateral-pelvic-pain, note: "Tube is the commonest site (ampulla 70–80%); often recurrent pain after a missed period", source: "K&C 10e p.1222; Mehlman HY Repro-OBGYN"}
+  - {from: tubal-implantation, to: first-trimester-bleeding, source: "K&C 10e p.1222"}
+  - {from: tubal-implantation, to: slow-rising-beta-hcg, note: "Normal hCG doubles every 2–3 days; much higher in a mole. Transvaginal ultrasound finds the site", source: "K&C 10e p.1222, 1471; Mehlman HY Repro-OBGYN"}
+  - {from: tubal-implantation, to: tubal-rupture, note: "Many resolve on their own. Small and stable: methotrexate; otherwise laparoscopic salpingostomy or salpingectomy", source: "K&C 10e p.1222, 1471; Mehlman HY Repro-OBGYN"}
+  - {from: tubal-rupture, to: peritonism, note: "Urgent laparoscopy", source: "K&C 10e p.1471"}
+  - {from: tubal-rupture, to: hypovolaemic-shock, note: "Unstable patient: laparotomy, not laparoscopy", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: unilateral-pelvic-pain, freq: classic, source: "K&C 10e p.1471"}
+  - {id: first-trimester-bleeding, freq: common, source: "K&C 10e p.1222"}
+  - {id: slow-rising-beta-hcg, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: peritonism, freq: occasional, source: "K&C 10e p.1471"}
+outcomes:
+  - {id: hypovolaemic-shock, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

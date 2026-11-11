@@ -34,7 +34,6 @@ findings:
   - {id: epigastric-pain, freq: common}
   - {id: anorexia, freq: common, source: "K&C 10e p.1179"}
   - {id: epigastric-mass, freq: common, note: "Nearly 50%", source: "K&C 10e p.1179"}
-  - {id: iron-deficiency-anaemia, freq: common, note: "Occult bleeding; frank haematemesis is unusual", source: "K&C 10e p.1179"}
   - {id: virchows-node, freq: occasional, source: "K&C 10e p.1179"}
   - {id: upper-gi-tumour-endoscopy, freq: classic, note: "Ulcer with rolled edges; take 8–10 biopsies. Diffuse type infiltrates the wall (linitis plastica) and can be missed", source: "K&C 10e p.1179; Mehlman HY Gastro"}
   - {id: low-saag-ascites, freq: occasional, note: "Malignant ascites, a late feature", source: "K&C 10e p.1179"}
@@ -44,3 +43,4 @@ outcomes:
   - {id: ovarian-metastases, freq: rare, note: "Krukenberg tumours (signet-ring cells)", source: "Mehlman HY Gastro"}
   - {id: acanthosis-nigricans, freq: rare, source: "K&C 10e p.1179"}
   - {id: paraneoplastic-dermatomyositis, freq: rare, note: "The cancer most associated with dermatomyositis", source: "K&C 10e p.1179"}
+  - {id: iron-deficiency-anaemia, freq: common, note: "Occult bleeding; frank haematemesis is unusual", source: "K&C 10e p.1179"}

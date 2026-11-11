@@ -1,0 +1,22 @@
+id: osteoporosis
+name: Osteoporosis
+group: metabolic-bone
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.477-481", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: older-age, to: bone-loss, note: "Peak bone mass at 20–30, set mainly by genes; lost with age. 1 in 2 women and 1 in 5 men over 50 will have a fragility fracture", source: "K&C 10e p.477"}
+  - {from: oestrogen-deficiency, to: bone-loss, note: "Fast loss for 5–10 years after the menopause; also early menopause, anorexia and athletes' amenorrhoea", source: "K&C 10e p.477-478"}
+  - {from: hypogonadism, to: bone-loss, source: "K&C 10e p.478 (Box 19.4)"}
+  - {from: exogenous-glucocorticoid, to: bone-loss, note: "Fracture risk rises within 3 months; assess anyone on oral steroids for 3 months or more", source: "K&C 10e p.478, 481; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: vitamin-d-deficiency, to: bone-loss, note: "In the elderly, via secondary hyperparathyroidism", source: "K&C 10e p.478"}
+  - {from: smoking, to: fragility-fracture, note: "Raises fracture risk at any bone density, as do alcohol, age, previous fracture and falls", source: "K&C 10e p.478"}
+  - {from: excess-alcohol, to: fragility-fracture, source: "K&C 10e p.478 (Box 19.4)"}
+  - {from: bone-loss, to: low-bone-density-dexa, note: "T −1 to −2.5 is osteopenia; most fragility fractures happen above −2.5, so use FRAX. Calcium, phosphate, PTH and ALP are normal", source: "K&C 10e p.477-478; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: bone-loss, to: fragility-fracture, note: "The only cause of symptoms; two in three vertebral fractures are silent. Colles' after a fall on the outstretched hand; hip after a sideways fall", source: "K&C 10e p.478"}
+  - {from: fragility-fracture, to: kyphosis-height-loss, source: "K&C 10e p.478"}
+findings:
+  - {id: low-bone-density-dexa, freq: classic, note: "Bisphosphonates or denosumab first-line, with calcium, vitamin D and weight-bearing exercise", source: "K&C 10e p.479-480; Mehlman HY Anatomy-MSK-Rheum"}
+  - {id: kyphosis-height-loss, freq: common}
+outcomes:
+  - {id: fragility-fracture, freq: common}

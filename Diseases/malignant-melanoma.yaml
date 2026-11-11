@@ -1,0 +1,23 @@
+id: malignant-melanoma
+name: Malignant melanoma
+group: skin-tumours
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.688", "K&C 10e p.691", "Mehlman HY Pathology"]
+chain:
+  - {from: uv-light, to: melanocyte-malignant-transformation, note: "Intermittent intense sun (sunbathing) and childhood sunburn; fair skin, family history. 4% of skin cancers but 80% of skin cancer deaths", source: "K&C 10e p.691"}
+  - {from: melanocytic-naevus, to: melanocyte-malignant-transformation, note: "About a quarter arise in an existing mole, the rest from normal skin; many or atypical moles raise the risk", source: "K&C 10e p.688, 691"}
+  - {from: immunosuppression, to: melanocyte-malignant-transformation, source: "K&C 10e p.691"}
+  - {from: braf-v600-mutation, to: melanocyte-malignant-transformation, note: "In about 60%; targeted by vemurafenib or dabrafenib with trametinib", source: "K&C 10e p.691; Mehlman HY Pathology"}
+  - {from: melanocyte-malignant-transformation, to: changing-pigmented-lesion, note: "ABCDE or Glasgow 7-point checklist; dermoscopy; 2-week-wait referral and excision with a 2 mm margin. Superficial spreading, lentigo maligna and acral types", source: "K&C 10e p.691"}
+  - {from: melanocyte-malignant-transformation, to: bleeding-pigmented-nodule, note: "Nodular melanoma, the most aggressive; rarely amelanotic", source: "K&C 10e p.691"}
+  - {from: melanocyte-malignant-transformation, to: lymphatic-spread, note: "Breslow thickness and ulceration stage it; sentinel node biopsy if over 1 mm", source: "K&C 10e p.691"}
+  - [lymphatic-spread, lymphadenopathy]
+  - {from: melanocyte-malignant-transformation, to: metastatic-spread, note: "PET-CT if nodes are involved; BRAF/MEK inhibitors and checkpoint immunotherapy (ipilimumab, PD-1) have transformed survival", source: "K&C 10e p.691"}
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: changing-pigmented-lesion, freq: classic, source: "K&C 10e p.691"}
+  - {id: bleeding-pigmented-nodule, freq: occasional, source: "K&C 10e p.691"}
+  - {id: lymphadenopathy, freq: occasional, source: "K&C 10e p.691"}
+outcomes:
+  - {id: distant-metastases, source: "K&C 10e p.691"}

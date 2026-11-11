@@ -1,0 +1,20 @@
+id: lactic-acidosis
+name: Lactic acidosis
+group: acid-base
+status: draft
+systems: [biochemistry]
+sources: ["K&C 10e p.198", "K&C 10e p.200-201"]
+chain:
+  - {from: septic-shock, to: lactate-accumulation, note: "Type A (tissue hypoxia) is the commonest: septic or cardiogenic shock; can occur with a normal blood pressure", source: "K&C 10e p.200"}
+  - [cardiogenic-shock, lactate-accumulation]
+  - {from: sudden-cardiac-death, to: lactate-accumulation, note: "Cardiac arrest", source: "K&C 10e p.198"}
+  - {from: metformin, to: lactate-accumulation, note: "Type B: a metabolic block, not hypoxia", source: "K&C 10e p.200"}
+  - [lactate-accumulation, raised-lactate]
+  - {from: lactate-accumulation, to: high-anion-gap-acidosis, note: "The L in GOLD MARK; acidosis depresses the heart and constricts vessels, a downward spiral", source: "K&C 10e p.200-201"}
+  - {from: high-anion-gap-acidosis, to: tachypnoea, note: "Kussmaul air hunger, often without breathlessness", source: "K&C 10e p.201"}
+  - {from: high-anion-gap-acidosis, to: confusion, note: "Confusion and fits when severe", source: "K&C 10e p.201"}
+findings:
+  - {id: raised-lactate, freq: classic, note: "Restore oxygen delivery (airway, breathing, circulation); bicarbonate is controversial, given only if pH < 6.9", source: "K&C 10e p.201"}
+  - {id: high-anion-gap-acidosis, freq: classic}
+  - {id: tachypnoea, freq: common}
+  - {id: confusion, freq: occasional}

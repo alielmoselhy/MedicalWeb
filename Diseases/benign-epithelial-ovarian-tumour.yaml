@@ -1,0 +1,11 @@
+id: benign-epithelial-ovarian-tumour
+name: Benign epithelial ovarian tumour (cystadenoma)
+parent: ovarian-tumour
+group: ovaries-tubes
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.1475", "Mehlman HY Repro-OBGYN", "Mehlman HY Renal"]
+chain:
+  - {from: benign-ovarian-neoplasm, to: adnexal-mass, note: "Serous cystadenoma (tube-like lining, may be bilateral); mucinous (gut-like lining, multiloculated); Brenner (transitional). Borderline tumours lie between benign and malignant", source: "Mehlman HY Repro-OBGYN; Mehlman HY Renal; K&C 10e p.1475"}
+findings:
+  - {id: adnexal-mass, freq: classic, source: "Mehlman HY Repro-OBGYN"}

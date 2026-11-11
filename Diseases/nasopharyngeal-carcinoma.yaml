@@ -1,0 +1,15 @@
+id: nasopharyngeal-carcinoma
+name: Nasopharyngeal carcinoma
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["K&C 10e p.101", "K&C 10e p.133", "K&C 10e p.908 (Box 27.4)", "Mehlman HY Pulmonary", "Mehlman HY Pathology"]
+chain:
+  - {from: ebv-infection, to: viral-oncogenesis, note: "EBV is the cause, as in Burkitt and Hodgkin lymphoma", source: "K&C 10e p.101, 133; Mehlman HY Pathology"}
+  - {from: viral-oncogenesis, to: nasopharyngeal-tumour, note: "A squamous carcinoma of the airway", source: "Mehlman HY Pulmonary"}
+  - {from: nasopharyngeal-tumour, to: lymphatic-spread, note: "Spreads to the neck nodes first, like other squamous head and neck cancers", source: "K&C 10e p.133"}
+  - [lymphatic-spread, cervical-lymphadenopathy]
+  - {from: nasopharyngeal-tumour, to: epistaxis, source: "K&C 10e p.908 (Box 27.4)"}
+findings:
+  - {id: cervical-lymphadenopathy, freq: common, source: "K&C 10e p.133"}
+  - {id: epistaxis, freq: occasional, source: "K&C 10e p.908 (Box 27.4)"}

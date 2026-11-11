@@ -1,0 +1,42 @@
+id: cushings-syndrome
+name: "Cushing's syndrome"
+group: endocrine-biochemistry
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.599-602", "K&C 10e p.605", "Mehlman HY Endocrine"]
+chain:
+  - {from: exogenous-glucocorticoid, to: cortisol-excess, note: "Commonest cause overall; less hirsutism, hypertension and salt retention, as synthetic steroids have little androgen or mineralocorticoid effect", source: "K&C 10e p.600, 605"}
+  - {from: pituitary-adenoma, to: raised-acth, note: "Cushing's disease: 65% of spontaneous cases; corticotroph microadenoma, often invisible on MRI; suppresses on high-dose dexamethasone", source: "K&C 10e p.600, 602; Mehlman HY Endocrine"}
+  - {from: acth-secretion, to: raised-acth, note: "Ectopic ACTH, 10% (SCLC, carcinoid): short history, weight loss, pigmentation, low K+, ACTH over 200 ng/L", source: "K&C 10e p.600-601"}
+  - {from: raised-acth, to: cortisol-excess, note: "Drives both adrenals (bilateral hyperplasia)", source: "K&C 10e p.600, 602"}
+  - {from: raised-acth, to: acth-hyperpigmentation, note: "Only in ACTH-dependent disease, mostly ectopic", source: "K&C 10e p.600"}
+  - {from: adrenocortical-tumour, to: cortisol-excess, note: "25%: adenoma or carcinoma, ACTH undetectable; severe virilisation points to an adrenal tumour", source: "K&C 10e p.600-601"}
+  - {from: cortisol-excess, to: cushingoid-features, note: "Striae, osteoporosis and avascular necrosis are the high-yield trio; alcohol causes pseudo-Cushing's", source: "Mehlman HY Endocrine; K&C 10e p.600"}
+  - {from: cortisol-excess, to: failed-dexamethasone-suppression, note: "48 h low-dose test over 97% sensitive; overnight test, 24 h urine cortisol and late-night salivary cortisol screen", source: "K&C 10e p.601"}
+  - {from: cortisol-excess, to: proximal-myopathy, note: "Protein catabolism and muscle wasting", source: "K&C 10e p.605"}
+  - {from: cortisol-excess, to: thin-skin-easy-bruising, source: "K&C 10e p.605"}
+  - {from: cortisol-excess, to: mood-disturbance-psychosis, source: "K&C 10e p.605; Mehlman HY Endocrine"}
+  - {from: cortisol-excess, to: insulin-resistance, source: "Mehlman HY Endocrine"}
+  - {from: insulin-resistance, to: diabetes-mellitus, note: "Impaired glucose tolerance or diabetes is common, especially with ectopic ACTH", source: "K&C 10e p.601"}
+  - {from: cortisol-excess, to: mineralocorticoid-excess, note: "Cortisol's weak mineralocorticoid action at very high levels", source: "K&C 10e p.601, 606; Mehlman HY Endocrine"}
+  - {from: mineralocorticoid-excess, to: low-serum-potassium, note: "Common with ectopic ACTH", source: "K&C 10e p.601"}
+  - {from: cortisol-excess, to: secondary-hypertension, note: "Common in all causes", source: "K&C 10e p.601"}
+  - {from: cortisol-excess, to: osteoporosis, source: "K&C 10e p.605; Mehlman HY Endocrine"}
+  - {from: cortisol-excess, to: avascular-necrosis, source: "K&C 10e p.605; Mehlman HY Endocrine"}
+  - {from: cortisol-excess, to: opportunistic-infection, note: "Fungal infection, TB reactivation, sepsis; signs and fever are masked", source: "K&C 10e p.605"}
+  - {from: cortisol-excess, to: deep-vein-thrombosis, note: "Untreated, death from VTE, hypertension, MI, infection and heart failure", source: "K&C 10e p.602"}
+findings:
+  - {id: cushingoid-features, freq: classic}
+  - {id: failed-dexamethasone-suppression, freq: classic, note: "Then ACTH: undetectable means adrenal (image the adrenals), normal or high means pituitary or ectopic", source: "K&C 10e p.601-602"}
+  - {id: proximal-myopathy, freq: common}
+  - {id: thin-skin-easy-bruising, freq: common}
+  - {id: mood-disturbance-psychosis, freq: common}
+  - {id: low-serum-potassium, freq: occasional}
+  - {id: acth-hyperpigmentation, freq: occasional}
+outcomes:
+  - {id: diabetes-mellitus, freq: common}
+  - {id: secondary-hypertension, freq: common}
+  - {id: osteoporosis, freq: common}
+  - avascular-necrosis
+  - opportunistic-infection
+  - deep-vein-thrombosis

@@ -1,0 +1,60 @@
+id: chronic-kidney-disease
+name: Chronic kidney disease
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1390", "K&C 10e p.1392-1398", "Mehlman HY Renal"]
+chain:
+  - {from: diabetes-mellitus, to: nephron-loss, note: "The commonest cause of CKD", source: "K&C 10e p.1396"}
+  - {from: hypertension, to: nephron-loss, note: "Hypertensive nephrosclerosis; much commoner in people of black African descent", source: "K&C 10e p.1392-1393"}
+  - {from: glomerulonephritis, to: nephron-loss, note: "Glomerular disease progresses faster than tubulointerstitial disease", source: "K&C 10e p.1392-1393"}
+  - {from: adpkd, to: nephron-loss, source: "K&C 10e p.1392"}
+  - {from: tubulointerstitial-nephritis, to: nephron-loss, source: "K&C 10e p.1392"}
+  - {from: light-chain-cast-nephropathy, to: nephron-loss, note: "Myeloma kidney", source: "K&C 10e p.1392"}
+  - {from: urinary-outflow-obstruction, to: nephron-loss, note: "Stones, prostate, pelvic tumours, retroperitoneal fibrosis; relieving it can reverse CKD", source: "K&C 10e p.1392"}
+  - {from: nephron-loss, to: excretory-failure, note: "Remnant nephrons hyperfilter, so proteinuria and scarring speed further loss; ACE inhibitors/ARBs slow it", source: "K&C 10e p.1393-1394"}
+  - {from: excretory-failure, to: raised-creatinine-low-egfr, note: "Over 3 months; staged by eGFR (G1–5) and albumin:creatinine ratio (A1–3)", source: "K&C 10e p.1392-1393"}
+  - {from: nephron-loss, to: proteinuria, note: "Proteinuria and blood pressure predict progression", source: "K&C 10e p.1393-1394"}
+  - [nephron-loss, small-echogenic-kidneys]
+  - {from: excretory-failure, to: high-serum-potassium, source: "K&C 10e p.1398"}
+  - {from: excretory-failure, to: metabolic-acidosis, note: "Bicarbonate slows GFR decline", source: "K&C 10e p.1398"}
+  - [excretory-failure, salt-water-retention]
+  - [salt-water-retention, peripheral-oedema]
+  - {from: salt-water-retention, to: secondary-hypertension, note: "Very common in CKD; also drives progression", source: "K&C 10e p.1394, 1396"}
+  - {from: nephron-loss, to: erythropoietin-deficiency, note: "Main cause of renal anaemia; also blood loss, haematinic lack, short red-cell life", source: "K&C 10e p.1394"}
+  - [erythropoietin-deficiency, normocytic-anaemia]
+  - {from: nephron-loss, to: phosphate-retention-low-calcitriol, note: "Phosphate retained early (FGF23 rises); 1α-hydroxylase falls", source: "K&C 10e p.1394-1395"}
+  - [phosphate-retention-low-calcitriol, hyperphosphataemia]
+  - [phosphate-retention-low-calcitriol, hypocalcaemia]
+  - {from: phosphate-retention-low-calcitriol, to: secondary-hyperparathyroidism, source: "K&C 10e p.1395"}
+  - [secondary-hyperparathyroidism, raised-pth-alp]
+  - {from: secondary-hyperparathyroidism, to: ckd-mineral-bone-disorder, note: "Osteitis fibrosa, osteomalacia, adynamic bone; near universal by late stage 3", source: "K&C 10e p.1394-1395"}
+  - {from: phosphate-retention-low-calcitriol, to: vascular-calcification, note: "Raised calcium × phosphate product; uraemia turns vessel smooth muscle osteoblast-like", source: "K&C 10e p.1396"}
+  - {from: vascular-calcification, to: acute-coronary-syndrome, note: "Cardiovascular disease is 16-fold commoner and the main cause of death", source: "K&C 10e p.1396"}
+  - {from: excretory-failure, to: pruritus, note: "Retained nitrogenous waste; also high phosphate and PTH", source: "K&C 10e p.1397"}
+  - {from: excretory-failure, to: hyperuricaemia, source: "K&C 10e p.1397"}
+  - [hyperuricaemia, gout]
+  - {from: excretory-failure, to: acute-pericarditis, note: "Uraemic pericarditis: haemorrhagic effusion, tamponade risk", source: "K&C 10e p.1397"}
+  - {from: excretory-failure, to: uraemic-encephalopathy, note: "Depressed cerebral function, seizures, asterixis, myoclonus", source: "K&C 10e p.1397"}
+  - {from: excretory-failure, to: peripheral-neuropathy, note: "Symmetrical polyneuropathy in advanced uraemia", source: "K&C 10e p.1398"}
+findings:
+  - {id: raised-creatinine-low-egfr, freq: classic, source: "K&C 10e p.1392"}
+  - {id: proteinuria, freq: common, source: "K&C 10e p.1393"}
+  - {id: normocytic-anaemia, freq: common, note: "Target Hb 100–120 g/L with an ESA and IV iron", source: "K&C 10e p.1394"}
+  - {id: small-echogenic-kidneys, freq: common, note: "Suggest chronic over acute; kidneys stay normal-sized in diabetes and amyloid", source: "K&C 10e p.1390"}
+  - {id: hyperphosphataemia, freq: common}
+  - {id: hypocalcaemia, freq: common}
+  - {id: raised-pth-alp, freq: common, source: "K&C 10e p.1395"}
+  - {id: high-serum-potassium, freq: common}
+  - {id: metabolic-acidosis, freq: common}
+  - {id: peripheral-oedema, freq: occasional}
+  - {id: pruritus, freq: common, source: "K&C 10e p.1397"}
+  - {id: hyperuricaemia, freq: occasional}
+  - {id: peripheral-neuropathy, freq: rare}
+outcomes:
+  - {id: ckd-mineral-bone-disorder, source: "K&C 10e p.1394"}
+  - {id: acute-coronary-syndrome, source: "K&C 10e p.1396"}
+  - {id: secondary-hypertension, source: "K&C 10e p.1396"}
+  - {id: acute-pericarditis, source: "K&C 10e p.1397"}
+  - {id: uraemic-encephalopathy, source: "K&C 10e p.1397"}
+  - {id: gout, source: "K&C 10e p.1397"}

@@ -1,0 +1,25 @@
+id: alpha-thalassaemia
+name: Alpha-thalassaemia
+parent: thalassaemia
+group: globin-disorders
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.344-345", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: alpha-globin-deletion, to: globin-chain-imbalance, note: "Usually gene deletions; severity follows how many of the four α genes are lost", source: "K&C 10e p.344"}
+  - {from: globin-chain-imbalance, to: microcytic-hypochromic-anaemia, note: "One gene: often normal. Two (trait): microcytosis, mild or no anaemia, normal iron", source: "K&C 10e p.344; Mehlman HY Heme-Onc"}
+  - [globin-chain-imbalance, target-cells]
+  - {from: globin-chain-imbalance, to: extravascular-haemolysis, note: "Three genes: HbH disease (β4 tetramers precipitate), Hb 70–100 g/L with splenomegaly; common in parts of Asia", source: "K&C 10e p.344"}
+  - [extravascular-haemolysis, haemolytic-anaemia]
+  - [extravascular-haemolysis, splenomegaly]
+  - {from: globin-chain-imbalance, to: hydrops-fetalis, note: "Four genes: only Hb Barts (γ4), which can't carry oxygen; stillbirth or death soon after", source: "K&C 10e p.344; Mehlman HY Heme-Onc"}
+  - [globin-chain-imbalance, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+findings:
+  - {id: microcytic-hypochromic-anaemia, freq: classic}
+  - {id: target-cells, freq: common}
+  - {id: haemolytic-anaemia, freq: occasional}
+  - {id: splenomegaly, freq: occasional}
+  - {id: fatigue, freq: occasional}
+outcomes:
+  - {id: hydrops-fetalis, source: "K&C 10e p.344"}

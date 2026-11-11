@@ -1,0 +1,22 @@
+id: von-willebrand-disease
+name: Von Willebrand disease
+group: bleeding-disorders
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.375-376", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: vwf-mutation, to: platelet-adhesion-defect, note: "Type 1 partial lack and type 2 faulty VWF (both usually dominant); type 3 near-absent (recessive)", source: "K&C 10e p.376; Mehlman HY Heme-Onc"}
+  - {from: vwf-mutation, to: coagulation-factor-deficiency, note: "VWF protects factor VIII from early breakdown, so the defect is double", source: "K&C 10e p.376; Mehlman HY Heme-Onc"}
+  - {from: vwf-mutation, to: low-vwf, note: "VWF activity measured with ristocetin; bleeding time prolonged, platelet count normal", source: "K&C 10e p.375-376; Mehlman HY Heme-Onc"}
+  - {from: platelet-adhesion-defect, to: mucocutaneous-bleeding, note: "Epistaxis and menorrhagia; the exam classic is a teenage girl with nosebleeds and heavy periods", source: "K&C 10e p.376; Mehlman HY Heme-Onc"}
+  - {from: platelet-adhesion-defect, to: bleeding-after-injury, note: "Types 1 and 2 are mild. Desmopressin first; VWF-containing factor VIII concentrate if needed", source: "K&C 10e p.376"}
+  - [coagulation-factor-deficiency, low-factor-viii]
+  - {from: coagulation-factor-deficiency, to: isolated-prolonged-aptt, note: "Only about half the time", source: "Mehlman HY Heme-Onc"}
+  - {from: coagulation-factor-deficiency, to: haemarthrosis-muscle-bleeding, note: "Rare, even in type 3", source: "K&C 10e p.376"}
+findings:
+  - {id: low-vwf, freq: classic}
+  - {id: mucocutaneous-bleeding, freq: classic}
+  - {id: bleeding-after-injury, freq: common}
+  - {id: low-factor-viii, freq: common}
+  - {id: isolated-prolonged-aptt, freq: occasional}
+  - {id: haemarthrosis-muscle-bleeding, freq: rare}

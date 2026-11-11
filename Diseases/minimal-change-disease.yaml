@@ -1,0 +1,23 @@
+id: minimal-change-disease
+name: Minimal change disease
+parent: nephrotic-syndrome
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1354-1355", "Mehlman HY Renal"]
+chain:
+  - {from: atopy, to: podocyte-injury, note: "Atopy in 30%; allergic reactions can trigger it. Most cases have no cause found", source: "K&C 10e p.1354"}
+  - {from: nsaid-use, to: podocyte-injury, note: "Drugs: NSAIDs, lithium, some antibiotics, bisphosphonates", source: "K&C 10e p.1354"}
+  - {from: podocyte-injury, to: foot-process-effacement, note: "No immune deposits on immunofluorescence", source: "K&C 10e p.1354; Mehlman HY Renal"}
+  - [podocyte-injury, urinary-protein-loss]
+  - {from: urinary-protein-loss, to: nephrotic-range-proteinuria, note: "Highly selective: albumin lost, not immunoglobulin", source: "K&C 10e p.1354"}
+  - [urinary-protein-loss, hypoalbuminaemia]
+  - [urinary-protein-loss, salt-water-retention]
+  - {from: salt-water-retention, to: periorbital-oedema, note: "Facial oedema in children", source: "K&C 10e p.1354"}
+  - [salt-water-retention, peripheral-oedema]
+findings:
+  - {id: nephrotic-range-proteinuria, freq: classic, note: "Most childhood nephrotic syndrome (boys); 20–25% in adults. Steroids work in over 95% of children; two-thirds relapse", source: "K&C 10e p.1354"}
+  - {id: foot-process-effacement, freq: classic}
+  - {id: hypoalbuminaemia, freq: classic}
+  - {id: periorbital-oedema, freq: common}
+  - {id: peripheral-oedema, freq: common}

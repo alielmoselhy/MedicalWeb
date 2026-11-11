@@ -17,7 +17,7 @@ findings:
   - {id: colonic-polyp-endoscopy, freq: classic, note: "Almost always removable at colonoscopy; removal and surveillance cut cancer risk by about 80%", source: "K&C 10e p.1214"}
   - {id: rectal-bleeding, freq: occasional}
   - {id: watery-diarrhoea, freq: rare, note: "Large villous adenomas: profuse mucous diarrhoea", source: "K&C 10e p.1215"}
-  - {id: hypokalaemia, freq: rare, note: "With villous adenomas", source: "K&C 10e p.1215"}
+  - {id: low-serum-potassium, freq: rare, note: "With villous adenomas", source: "K&C 10e p.1215"}
   - {id: positive-fit, freq: occasional, note: "40% of screen-positive patients have adenomas", source: "K&C 10e p.1219"}
 outcomes:
   - {id: colorectal-cancer, note: "Adenomas are the precursor of most colon cancers", source: "K&C 10e p.1214"}

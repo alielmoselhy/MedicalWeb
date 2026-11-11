@@ -1,0 +1,27 @@
+id: cystitis
+name: Cystitis (lower UTI)
+parent: urinary-tract-infection
+group: uti
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1381-1384", "Mehlman HY Renal"]
+chain:
+  - {from: enterobacteriaceae, to: ascending-urinary-infection, note: "E. coli most often", source: "K&C 10e p.1381; Mehlman HY Renal"}
+  - {from: staphylococcus-saprophyticus, to: ascending-urinary-infection, source: "K&C 10e p.1381"}
+  - [female-sex, ascending-urinary-infection]
+  - [sexual-activity, ascending-urinary-infection]
+  - {from: ascending-urinary-infection, to: bladder-mucosal-inflammation, note: "Trimethoprim or nitrofurantoin 3–7 days; prophylaxis for recurrent re-infection", source: "K&C 10e p.1384; Mehlman HY Renal"}
+  - {from: bladder-mucosal-inflammation, to: dysuria-frequency-urgency, note: "Persisting with sterile pyuria: think Chlamydia or TB; interstitial cystitis has sterile cultures", source: "K&C 10e p.1382"}
+  - {from: bladder-mucosal-inflammation, to: suprapubic-pain, source: "K&C 10e p.1382; Mehlman HY Renal"}
+  - {from: bladder-mucosal-inflammation, to: haematuria, source: "K&C 10e p.1382"}
+  - [ascending-urinary-infection, pyuria-nitrites]
+  - [ascending-urinary-infection, significant-bacteriuria]
+  - {from: ascending-urinary-infection, to: pyelonephritis, note: "Symptoms can't reliably say whether the kidney is involved", source: "K&C 10e p.1382"}
+findings:
+  - {id: dysuria-frequency-urgency, freq: classic, note: "Smelly urine; usually no fever", source: "K&C 10e p.1382; Mehlman HY Renal"}
+  - {id: suprapubic-pain, freq: common}
+  - {id: haematuria, freq: common}
+  - {id: pyuria-nitrites, freq: common}
+  - {id: significant-bacteriuria, freq: common}
+outcomes:
+  - {id: pyelonephritis, freq: occasional, source: "K&C 10e p.1382"}

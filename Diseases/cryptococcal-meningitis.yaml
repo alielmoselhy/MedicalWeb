@@ -3,7 +3,7 @@ name: Cryptococcal meningitis
 parent: meningitis
 group: cns-infection
 status: draft
-systems: [nervous, immunology]
+systems: [nervous, immunology, infection]
 sources: ["K&C 10e p.871-872", "Mehlman HY Neuro"]
 chain:
   - [hiv, immunosuppression]

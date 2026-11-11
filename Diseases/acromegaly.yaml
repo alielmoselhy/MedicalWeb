@@ -1,0 +1,45 @@
+id: acromegaly
+name: Acromegaly
+parent: pituitary-adenoma
+group: endocrine-biochemistry
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.593", "K&C 10e p.606", "K&C 10e p.637-638", "K&C 10e p.435", "Mehlman HY Endocrine"]
+chain:
+  - {from: hormone-secreting-adenoma, to: gh-igf1-excess, note: "Somatotroph adenoma in almost all; gigantism if before epiphyseal fusion. Trans-sphenoidal surgery first-line, then somatostatin analogues", source: "K&C 10e p.637-638"}
+  - {from: gh-igf1-excess, to: acral-enlargement-coarse-facies, note: "A third present with a change in appearance; IGF-1 from the liver drives the growth", source: "K&C 10e p.637; Mehlman HY Endocrine"}
+  - {from: gh-igf1-excess, to: raised-igf1-failed-gh-suppression, note: "GH stays above 0.3 µg/L on a glucose tolerance test; IGF-1 is almost always raised", source: "K&C 10e p.637-638; Mehlman HY Endocrine"}
+  - {from: gh-igf1-excess, to: diaphoresis, note: "Sweating, headache and soft-tissue swelling mark active disease", source: "K&C 10e p.637"}
+  - {from: gh-igf1-excess, to: headache, note: "Very common and can be severe even with small tumours", source: "K&C 10e p.637"}
+  - {from: gh-igf1-excess, to: carpal-tunnel-syndrome, source: "Mehlman HY Endocrine"}
+  - {from: gh-igf1-excess, to: arthralgia, note: "Joint and tendon overgrowth", source: "Mehlman HY Endocrine"}
+  - {from: gh-igf1-excess, to: osteoarthritis, note: "A metabolic cause of secondary OA", source: "K&C 10e p.435 (Box 18.22)"}
+  - {from: gh-igf1-excess, to: insulin-resistance, source: "Mehlman HY Endocrine"}
+  - {from: insulin-resistance, to: diabetes-mellitus, note: "About 25% have a diabetic glucose tolerance test", source: "K&C 10e p.638"}
+  - {from: gh-igf1-excess, to: secondary-hypertension, source: "K&C 10e p.606, 638"}
+  - {from: gh-igf1-excess, to: heart-failure, note: "Cardiomyopathy; most deaths are from heart failure, coronary disease and hypertension", source: "K&C 10e p.638; Mehlman HY Endocrine"}
+  - {from: hormone-secreting-adenoma, to: prolactin-excess, note: "Mild hyperprolactinaemia in 30%; some tumours co-secrete", source: "K&C 10e p.638"}
+  - [prolactin-excess, raised-prolactin]
+  - {from: hormone-secreting-adenoma, to: intracranial-tumour-growth, note: "A quarter present with field defects or headache", source: "K&C 10e p.637"}
+  - [intracranial-tumour-growth, optic-chiasm-compression]
+  - {from: optic-chiasm-compression, to: bitemporal-hemianopia, source: "K&C 10e p.638"}
+  - {from: intracranial-tumour-growth, to: pituitary-mass-on-mri, note: "Almost always seen on MRI", source: "K&C 10e p.638"}
+  - {from: intracranial-tumour-growth, to: anterior-pituitary-hormone-deficiency, note: "Partial or complete hypopituitarism is common", source: "K&C 10e p.638"}
+  - [anterior-pituitary-hormone-deficiency, hypopituitarism]
+findings:
+  - {id: acral-enlargement-coarse-facies, freq: classic}
+  - {id: raised-igf1-failed-gh-suppression, freq: classic}
+  - {id: pituitary-mass-on-mri, freq: classic}
+  - {id: headache, freq: common}
+  - {id: diaphoresis, freq: common}
+  - {id: bitemporal-hemianopia, freq: common, source: "K&C 10e p.638"}
+  - {id: carpal-tunnel-syndrome, freq: common}
+  - {id: arthralgia, freq: common}
+  - {id: raised-prolactin, freq: occasional}
+outcomes:
+  - {id: diabetes-mellitus, freq: common}
+  - {id: secondary-hypertension, freq: common}
+  - {id: heart-failure}
+  - {id: hypopituitarism, freq: common}
+  - {id: colorectal-cancer, note: "More deaths from neoplasia, especially large bowel; colonoscopy surveillance is advised. Association only: no mechanism given", source: "K&C 10e p.638"}
+  - {id: osteoarthritis, source: "K&C 10e p.435 (Box 18.22)"}

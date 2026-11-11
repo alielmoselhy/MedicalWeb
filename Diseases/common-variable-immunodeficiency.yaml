@@ -1,0 +1,20 @@
+id: common-variable-immunodeficiency
+name: Common variable immunodeficiency (CVID)
+group: immunodeficiency
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.61", "Mehlman HY Immuno"]
+chain:
+  - {from: antibody-deficiency, to: low-immunoglobulins, note: "Late childhood or adulthood; very low IgG. Commonest severe primary immunodeficiency (1 in 50 000); gene usually unknown. B cells present but don't mature", source: "K&C 10e p.61; Mehlman HY Immuno"}
+  - {from: antibody-deficiency, to: recurrent-sinopulmonary-infection, note: "Immunoglobulin replacement and prompt antibiotics", source: "K&C 10e p.61"}
+  - [recurrent-sinopulmonary-infection, bronchiectasis]
+  - {from: antibody-deficiency, to: diarrhoea, note: "Giardia and other persistent gut pathogens", source: "K&C 10e p.61"}
+  - {from: antibody-deficiency, to: granuloma-formation, note: "Autoimmunity and granulomatous disease in up to 15%", source: "K&C 10e p.61"}
+  - {from: antibody-deficiency, to: non-hodgkin-lymphoma, note: "Lymphoma and chronic lung disease are the main threats to life", source: "K&C 10e p.61"}
+findings:
+  - {id: low-immunoglobulins, freq: classic}
+  - {id: diarrhoea, freq: occasional}
+outcomes:
+  - {id: recurrent-sinopulmonary-infection, freq: classic, source: "K&C 10e p.61"}
+  - {id: bronchiectasis, freq: common, source: "K&C 10e p.61"}
+  - {id: non-hodgkin-lymphoma, freq: occasional, source: "K&C 10e p.61"}

@@ -1,0 +1,11 @@
+id: fat-necrosis-breast
+name: Fat necrosis of the breast
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: breast-trauma, to: breast-fat-necrosis, note: "Non-enzymatic, unlike the enzymatic fat necrosis of acute pancreatitis", source: "Mehlman HY Repro-OBGYN"}
+  - {from: breast-fat-necrosis, to: post-traumatic-breast-lump, note: "Can calcify", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: post-traumatic-breast-lump, freq: classic, source: "Mehlman HY Repro-OBGYN"}

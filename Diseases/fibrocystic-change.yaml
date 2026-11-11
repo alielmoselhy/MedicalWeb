@@ -1,0 +1,14 @@
+id: fibrocystic-change
+name: Fibrocystic change
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: fibrocystic-alteration, to: cyclical-breast-tenderness, note: "Women 20s–50s; classically bilateral, but can be one-sided; clinical diagnosis, symptomatic treatment", source: "Mehlman HY Repro-OBGYN"}
+  - {from: fibrocystic-alteration, to: breast-cyst, note: "Simple cysts are watched; complex cysts or sudden growth need sampling", source: "Mehlman HY Repro-OBGYN"}
+  - {from: fibrocystic-alteration, to: fibrocystic-histology, source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: cyclical-breast-tenderness, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: breast-cyst, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: fibrocystic-histology, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

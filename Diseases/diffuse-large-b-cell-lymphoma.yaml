@@ -1,0 +1,24 @@
+id: diffuse-large-b-cell-lymphoma
+name: Diffuse large B-cell lymphoma (DLBCL)
+group: high-grade-lymphoma
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.381-382, 394, 401-404", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: hiv, to: lymphoid-clonal-expansion, note: "Through immunosuppression and co-infection (EBV, HHV8)", source: "K&C 10e p.381, 401"}
+  - {from: immunosuppression, to: lymphoid-clonal-expansion, note: "Post-transplant lymphoproliferative disorder, mostly EBV-driven", source: "K&C 10e p.382"}
+  - {from: chronic-lymphocytic-leukaemia, to: lymphoid-clonal-expansion, note: "Richter transformation", source: "K&C 10e p.394"}
+  - {from: follicular-lymphoma, to: lymphoid-clonal-expansion, note: "High-grade transformation", source: "K&C 10e p.402"}
+  - {from: lymphoid-clonal-expansion, to: generalised-lymphadenopathy, note: "Commonest adult lymphoma (about 30%). Rapid without treatment; six cycles of R-CHOP cure many", source: "K&C 10e p.403-404; Mehlman HY Heme-Onc"}
+  - {from: lymphoid-clonal-expansion, to: mediastinal-widening, note: "Primary mediastinal form, like HL", source: "K&C 10e p.403"}
+  - {from: lymphoid-clonal-expansion, to: fever, note: "B symptoms", source: "K&C 10e p.403"}
+  - [lymphoid-clonal-expansion, night-sweats]
+  - [lymphoid-clonal-expansion, weight-loss]
+  - {from: lymphoid-clonal-expansion, to: raised-ldh, note: "A high LDH is adverse (R-IPI) and flags CNS risk", source: "K&C 10e p.404"}
+findings:
+  - {id: generalised-lymphadenopathy, freq: classic}
+  - {id: raised-ldh, freq: common}
+  - {id: fever, freq: occasional}
+  - {id: night-sweats, freq: occasional}
+  - {id: weight-loss, freq: occasional}
+  - {id: mediastinal-widening, freq: occasional}

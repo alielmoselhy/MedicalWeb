@@ -1,0 +1,24 @@
+id: sideroblastic-anaemia
+name: Sideroblastic anaemia
+group: anaemia
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.330-332", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: alas2-mutation, to: defective-haem-synthesis, note: "Faulty pyridoxine-dependent enzyme for haem's first step; some respond to pyridoxine", source: "K&C 10e p.332; Mehlman HY Heme-Onc"}
+  - {from: excess-alcohol, to: defective-haem-synthesis, note: "Withdrawing alcohol or the drug can reverse it; MCV is often raised in acquired forms", source: "K&C 10e p.331-332; Mehlman HY Heme-Onc"}
+  - {from: isoniazid, to: defective-haem-synthesis, source: "K&C 10e p.332"}
+  - {from: lead-exposure, to: defective-haem-synthesis, note: "Lead blocks δ-ALA dehydratase and ferrochelatase; basophilic stippling", source: "K&C 10e p.332; Mehlman HY Heme-Onc"}
+  - {from: defective-haem-synthesis, to: ring-sideroblasts, note: "Diagnostic: a ring of iron granules round the erythroblast nucleus", source: "K&C 10e p.332"}
+  - {from: defective-haem-synthesis, to: microcytic-hypochromic-anaemia, note: "Refractory to haematinics; the film is often dimorphic", source: "K&C 10e p.332"}
+  - {from: defective-haem-synthesis, to: iron-overload, note: "Ineffective erythropoiesis lowers hepcidin, so the gut keeps absorbing iron", source: "K&C 10e p.330"}
+  - {from: iron-overload, to: raised-iron-indices, note: "Raised serum iron and ferritin, normal TIBC", source: "K&C 10e p.331; Mehlman HY Heme-Onc"}
+  - [defective-haem-synthesis, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, pallor]
+findings:
+  - {id: ring-sideroblasts, freq: classic}
+  - {id: microcytic-hypochromic-anaemia, freq: common}
+  - {id: raised-iron-indices, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: pallor, freq: common}

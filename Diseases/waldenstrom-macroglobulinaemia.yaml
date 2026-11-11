@@ -1,0 +1,24 @@
+id: waldenstrom-macroglobulinaemia
+name: Waldenström macroglobulinaemia
+group: low-grade-lymphoproliferative
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.405-406"]
+chain:
+  - {from: older-age, to: lymphoid-clonal-expansion, note: "Later life, men and women equally; may follow IgM MGUS", source: "K&C 10e p.405"}
+  - {from: lymphoid-clonal-expansion, to: igm-paraprotein, note: "IgM paraprotein with marrow infiltration; MYD88 mutated in 90%", source: "K&C 10e p.405"}
+  - {from: lymphoid-clonal-expansion, to: hyperviscosity, note: "The IgM thickens the blood; plasmapheresis in an emergency, then rituximab-based treatment", source: "K&C 10e p.405"}
+  - [hyperviscosity, headache]
+  - [hyperviscosity, blurred-vision]
+  - [lymphoid-clonal-expansion, marrow-infiltration]
+  - [marrow-infiltration, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+  - {from: lymphoid-clonal-expansion, to: splenomegaly, note: "Common; nodes are usually minimal", source: "K&C 10e p.405"}
+  - [lymphoid-clonal-expansion, generalised-lymphadenopathy]
+findings:
+  - {id: igm-paraprotein, freq: classic}
+  - {id: headache, freq: common}
+  - {id: blurred-vision, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: splenomegaly, freq: common}
+  - {id: generalised-lymphadenopathy, freq: occasional}

@@ -1,0 +1,29 @@
+id: leptospirosis
+name: Leptospirosis
+group: returning-traveller
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.547-548"]
+chain:
+  - {from: animal-urine-water-exposure, to: leptospiraemia, note: "Rodent, dog, pig or cattle urine; through skin abrasions or mucosa. Occupational (farmers, vets) or recreational; 50–100 cases a year in England and Wales", source: "K&C 10e p.547"}
+  - {from: leptospira-interrogans, to: leptospiraemia, note: "90–95% subclinical or mild; incubation 7–14 days", source: "K&C 10e p.547-548"}
+  - [leptospiraemia, fever]
+  - {from: leptospiraemia, to: headache, note: "Severe", source: "K&C 10e p.548"}
+  - [leptospiraemia, myalgia]
+  - {from: leptospiraemia, to: conjunctivitis, note: "Conjunctival suffusion in most", source: "K&C 10e p.548"}
+  - {from: leptospiraemia, to: meningism, note: "Second (immune) phase; CSF lymphocytes", source: "K&C 10e p.548"}
+  - {from: leptospiraemia, to: jaundice, note: "Weil's disease (icterohaemorrhagiae from rats): jaundice, bleeding and renal failure", source: "K&C 10e p.547-548"}
+  - [leptospiraemia, acute-kidney-injury]
+  - [leptospiraemia, haemolytic-anaemia]
+  - {from: leptospiraemia, to: shock, note: "Also cardiac failure and pulmonary haemorrhage; mortality about 10%, 15–20% in the elderly", source: "K&C 10e p.548"}
+findings:
+  - {id: fever, freq: classic}
+  - {id: headache, freq: classic}
+  - {id: myalgia, freq: classic}
+  - {id: conjunctivitis, freq: common}
+  - {id: meningism, freq: common}
+  - {id: jaundice, freq: occasional}
+  - {id: haemolytic-anaemia, freq: rare}
+outcomes:
+  - {id: acute-kidney-injury, freq: occasional}
+  - {id: shock, freq: rare}

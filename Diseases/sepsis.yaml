@@ -1,0 +1,49 @@
+id: sepsis
+name: Sepsis
+group: sepsis
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.154-157"]
+chain:
+  - from: infection-source
+    to: dysregulated-host-response
+    note: "The commonest sources are urinary, biliary and chest. Community organisms (S. aureus, pneumococcus, E. coli, Klebsiella, meningococcus) are virulent but sensitive; hospital ones are weaker but resistant"
+    source: "K&C 10e p.155"
+    members:
+      - urinary-tract-infection
+      - acute-cholangitis
+      - pneumonia
+      - infective-endocarditis
+      - meningitis
+  - {from: immunosuppression, to: dysregulated-host-response, note: "Also age over 65 or neonates, previous sepsis, indwelling devices, pregnancy, alcohol or injecting drugs", source: "K&C 10e p.155"}
+  - {from: dysregulated-host-response, to: fever, note: "Life-threatening organ dysfunction from a dysregulated response to infection (Sepsis-3); rigors, myalgia, feeling extremely unwell", source: "K&C 10e p.154, 156"}
+  - {from: dysregulated-host-response, to: vasoplegia-capillary-leak, note: "Innate immune activation overshoots: mitochondrial failure and immunothrombosis", source: "K&C 10e p.154"}
+  - [vasoplegia-capillary-leak, hypotension]
+  - [vasoplegia-capillary-leak, tachycardia]
+  - {from: dysregulated-host-response, to: tachypnoea, note: "qSOFA: RR ≥ 22, systolic ≤ 100, GCS < 15; NEWS2 ≥ 5 flags risk. Neither makes the diagnosis", source: "K&C 10e p.154"}
+  - [dysregulated-host-response, confusion]
+  - [dysregulated-host-response, raised-inflammatory-markers]
+  - [dysregulated-host-response, leucocytosis]
+  - {from: vasoplegia-capillary-leak, to: raised-lactate, note: "Prognostic; never ignore a raised lactate", source: "K&C 10e p.155"}
+  - [dysregulated-host-response, thrombocytopenia]
+  - {from: vasoplegia-capillary-leak, to: septic-shock, note: "Needs vasopressors for MAP ≥ 65 and lactate > 2 mmol/L despite fluids", source: "K&C 10e p.154"}
+  - [septic-shock, lactic-acidosis]
+  - {from: dysregulated-host-response, to: disseminated-intravascular-coagulation, note: "Complement-driven immunothrombosis", source: "K&C 10e p.154"}
+  - {from: dysregulated-host-response, to: ards, note: "Acute lung injury from leaky lung capillaries", source: "K&C 10e p.154"}
+  - [dysregulated-host-response, acute-kidney-injury]
+findings:
+  - {id: fever, freq: classic, note: "Sepsis Six within the hour: oxygen, blood cultures, IV antibiotics, fluid challenge, lactate, hourly urine output. Each hour's antibiotic delay raises mortality", source: "K&C 10e p.157"}
+  - {id: tachycardia, freq: common}
+  - {id: tachypnoea, freq: common}
+  - {id: hypotension, freq: common}
+  - {id: confusion, freq: common}
+  - {id: raised-lactate, freq: common}
+  - {id: raised-inflammatory-markers, freq: common, source: "K&C 10e p.156"}
+  - {id: leucocytosis, freq: common, source: "K&C 10e p.156"}
+  - {id: thrombocytopenia, freq: occasional, source: "K&C 10e p.156"}
+outcomes:
+  - septic-shock
+  - lactic-acidosis
+  - disseminated-intravascular-coagulation
+  - ards
+  - {id: acute-kidney-injury, source: "K&C 10e p.155-156"}

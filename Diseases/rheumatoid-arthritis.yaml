@@ -1,0 +1,46 @@
+id: rheumatoid-arthritis
+name: Rheumatoid arthritis
+group: systemic-autoimmune
+status: draft
+systems: [immunology, bone-joint]
+sources: ["K&C 10e p.437-443", "K&C 10e p.332", "K&C 10e p.990-992", "Mehlman HY Immuno", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: hla-dr4, to: rheumatoid-autoimmunity, note: "HLA-DR4 in 50–75%, with a worse outlook; women 3:1, onset usually 30–50", source: "K&C 10e p.437"}
+  - {from: smoking, to: rheumatoid-autoimmunity, note: "Acts with the shared epitope to drive citrullination and ACPA", source: "K&C 10e p.437, 439"}
+  - {from: rheumatoid-autoimmunity, to: rheumatoid-factor-acpa, note: "RF in 75–80%; anti-CCP is more specific and can predate disease by years", source: "K&C 10e p.438, 443; Mehlman HY Immuno"}
+  - {from: rheumatoid-autoimmunity, to: rheumatoid-synovitis, note: "Macrophages, T and B cells overproduce TNF-α, then IL-6: the targets of biologics", source: "K&C 10e p.438; Mehlman HY Immuno"}
+  - {from: rheumatoid-synovitis, to: symmetrical-small-joint-polyarthritis, note: "Hands and feet, worse in the morning; start DMARDs within 3 months to prevent erosions", source: "K&C 10e p.439-440"}
+  - [rheumatoid-synovitis, raised-inflammatory-markers]
+  - [rheumatoid-synovitis, fatigue]
+  - {from: rheumatoid-synovitis, to: synovial-pannus, source: "K&C 10e p.439"}
+  - {from: synovial-pannus, to: juxta-articular-erosions, note: "Seen on MRI in the first 3–6 months, later on X-ray", source: "K&C 10e p.439-440"}
+  - [synovial-pannus, joint-deformity]
+  - {from: synovial-pannus, to: spinal-cord-compression, note: "Atlantoaxial subluxation: image the neck before intubation", source: "K&C 10e p.442; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: rheumatoid-synovitis, to: carpal-tunnel-syndrome, note: "Flexor tenosynovitis compresses the nerve", source: "K&C 10e p.441, 443"}
+  - {from: rheumatoid-autoimmunity, to: subcutaneous-nodules, note: "Over pressure points; seropositive, erosive disease", source: "K&C 10e p.442"}
+  - {from: rheumatoid-autoimmunity, to: scleritis-episcleritis, note: "Severe seropositive disease", source: "K&C 10e p.443"}
+  - {from: rheumatoid-autoimmunity, to: sjogrens-syndrome, note: "Secondary Sjögren's: dry eyes and mouth", source: "K&C 10e p.443"}
+  - {from: rheumatoid-autoimmunity, to: interstitial-lung-disease, note: "Like IPF but more chronic; methotrexate can also cause fibrosis", source: "K&C 10e p.443, 992"}
+  - {from: rheumatoid-autoimmunity, to: exudative-effusion, note: "Often one-sided and chronic; low glucose", source: "K&C 10e p.443, 992"}
+  - {from: rheumatoid-autoimmunity, to: anaemia-of-chronic-disease, note: "Almost universal, normocytic", source: "K&C 10e p.332, 443"}
+  - {from: rheumatoid-autoimmunity, to: splenomegaly, note: "Felty's syndrome: splenomegaly with neutropenia; HLA-DR4 in 95%", source: "K&C 10e p.443"}
+  - [splenomegaly, neutrophil-deficit]
+  - {from: neutrophil-deficit, to: septic-arthritis, note: "Damaged joints and immunosuppression; may not look inflamed. Usually S. aureus", source: "K&C 10e p.441; Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: symmetrical-small-joint-polyarthritis, freq: classic}
+  - {id: rheumatoid-factor-acpa, freq: classic}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: juxta-articular-erosions, freq: common}
+  - {id: joint-deformity, freq: common}
+  - {id: subcutaneous-nodules, freq: occasional}
+  - {id: carpal-tunnel-syndrome, freq: occasional}
+  - {id: splenomegaly, freq: rare}
+  - {id: exudative-effusion, freq: occasional}
+  - {id: scleritis-episcleritis, freq: rare}
+outcomes:
+  - {id: anaemia-of-chronic-disease, freq: common, source: "K&C 10e p.443"}
+  - {id: interstitial-lung-disease, freq: occasional, source: "K&C 10e p.443"}
+  - {id: sjogrens-syndrome, freq: occasional, source: "K&C 10e p.443"}
+  - {id: spinal-cord-compression, freq: rare, source: "K&C 10e p.442"}
+  - {id: septic-arthritis, freq: occasional, source: "K&C 10e p.441"}

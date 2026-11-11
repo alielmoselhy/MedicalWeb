@@ -1,0 +1,27 @@
+id: chondrocalcinosis
+name: Calcium pyrophosphate deposition (pseudogout)
+group: arthritis
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.436, 454", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: older-age, to: cpp-crystal-deposition, note: "Cartilage calcification on over 40% of knee X-rays after 80, mostly silent; attacks favour elderly women", source: "K&C 10e p.436, 454"}
+  - {from: haemochromatosis, to: cpp-crystal-deposition, note: "With primary hyperparathyroidism, the highest-yield metabolic cause", source: "K&C 10e p.454; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: primary-hyperparathyroidism, to: cpp-crystal-deposition, source: "K&C 10e p.454; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: hypothyroidism, to: cpp-crystal-deposition, source: "Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: hypomagnesaemia, to: cpp-crystal-deposition, source: "K&C 10e p.454"}
+  - {from: joint-injury-overuse, to: cpp-crystal-deposition, note: "Joint trauma; also commoner with existing OA, and familial forms exist", source: "K&C 10e p.454"}
+  - {from: cpp-crystal-deposition, to: chondrocalcinosis-on-x-ray, note: "Knee hyaline cartilage and menisci, wrist triangular fibrocartilage", source: "K&C 10e p.436, 454"}
+  - {from: cpp-crystal-deposition, to: acute-monoarthritis, note: "Crystals shed into the joint: a gout-like attack, usually knee or wrist; the third commonest inflammatory arthritis", source: "K&C 10e p.454; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: cpp-crystal-deposition, to: positively-birefringent-rhomboid-crystals, note: "Fluid can look purulent, so always culture to exclude sepsis", source: "K&C 10e p.454; Mehlman HY Anatomy-MSK-Rheum"}
+  - [cpp-crystal-deposition, fever]
+  - [cpp-crystal-deposition, leucocytosis]
+  - {from: cpp-crystal-deposition, to: osteoarthritis, note: "Pseudo-OA: florid, with big osteophytes and cysts in knees, wrists, shoulders", source: "K&C 10e p.436"}
+findings:
+  - {id: acute-monoarthritis, freq: classic, note: "Aspirate; then NSAID or colchicine as for gout, or a joint steroid once infection is excluded", source: "K&C 10e p.454"}
+  - {id: positively-birefringent-rhomboid-crystals, freq: classic}
+  - {id: chondrocalcinosis-on-x-ray, freq: common}
+  - {id: fever, freq: occasional, source: "K&C 10e p.454"}
+  - {id: leucocytosis, freq: occasional, source: "K&C 10e p.454"}
+outcomes:
+  - osteoarthritis

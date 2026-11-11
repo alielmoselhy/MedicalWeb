@@ -1,0 +1,31 @@
+id: pneumocystis-pneumonia
+name: Pneumocystis pneumonia (PCP)
+parent: pneumonia
+group: respiratory-infection
+status: draft
+systems: [respiratory, immunology, infection]
+sources: ["K&C 10e p.967", "Mehlman HY Pulmonary"]
+chain:
+  - {from: hiv, to: t-cell-deficiency, note: "Highest risk with CD4 under 200", source: "K&C 10e p.967"}
+  - {from: iatrogenic-immunosuppression, to: t-cell-deficiency, note: "Long-term steroids, methotrexate or biologics; anti-rejection drugs after organ or stem cell transplant", source: "K&C 10e p.967"}
+  - {from: pneumocystis-jirovecii, to: droplet-inhalation, note: "From the air: new infection, not reactivation", source: "K&C 10e p.967"}
+  - [droplet-inhalation, alveolar-exudate]
+  - {from: t-cell-deficiency, to: alveolar-exudate, note: "Without T cells the fungus establishes in the alveoli", source: "K&C 10e p.967"}
+  - {from: alveolar-exudate, to: bilateral-diffuse-infiltrates, note: "Perihilar 'butterfly' alveolar and interstitial shadowing; confirm by immunofluorescence on induced sputum or BAL", source: "K&C 10e p.967"}
+  - {from: alveolar-exudate, to: dry-cough, note: "Dry, not productive", source: "K&C 10e p.967"}
+  - [alveolar-exudate, intrapulmonary-shunt]
+  - [intrapulmonary-shunt, hypoxaemia]
+  - {from: intrapulmonary-shunt, to: exertional-desaturation, note: "The characteristic sign", source: "K&C 10e p.967"}
+  - [intrapulmonary-shunt, dyspnoea]
+  - {from: alveolar-exudate, to: dysregulated-host-response, note: "High-dose co-trimoxazole; add steroids in HIV", source: "K&C 10e p.967"}
+  - [dysregulated-host-response, fever]
+  - {from: alveolar-exudate, to: pneumothorax, source: "K&C 10e p.967"}
+findings:
+  - {id: fever, freq: classic}
+  - {id: dry-cough, freq: classic}
+  - {id: dyspnoea, freq: classic}
+  - {id: exertional-desaturation, freq: classic}
+  - {id: bilateral-diffuse-infiltrates, freq: classic}
+  - {id: hypoxaemia, freq: common}
+outcomes:
+  - {id: pneumothorax, freq: occasional, source: "K&C 10e p.967"}

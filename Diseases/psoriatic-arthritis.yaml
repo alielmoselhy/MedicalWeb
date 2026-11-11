@@ -1,0 +1,25 @@
+id: psoriatic-arthritis
+name: Psoriatic arthritis
+parent: spondyloarthritis
+group: arthritis
+status: draft
+systems: [bone-joint, skin-breast]
+sources: ["K&C 10e p.448, 450", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: psoriasis, to: enthesitis, note: "Arthritis in about 10% of people with psoriasis; it precedes the skin in about 15%, so ask about family history", source: "K&C 10e p.450; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: hla-b27, to: enthesitis, note: "Only about half of the spondylitis pattern are B27-positive", source: "K&C 10e p.450"}
+  - {from: enthesitis, to: dip-arthritis, note: "The most typical pattern", source: "K&C 10e p.450"}
+  - {from: enthesitis, to: nail-dystrophy, note: "Enthesitis reaching the nail root beside an affected DIP", source: "K&C 10e p.450"}
+  - {from: enthesitis, to: dactylitis, note: "Joint and tendon sheath together: characteristic", source: "K&C 10e p.450"}
+  - {from: enthesitis, to: asymmetrical-oligoarthritis, note: "Mono- or oligoarthritis; a polyarthritis may become RA-like", source: "K&C 10e p.450"}
+  - {from: enthesitis, to: pencil-in-cup-erosions, note: "Erosions are central, not juxta-articular; arthritis mutilans (5%) gives telescoped fingers", source: "K&C 10e p.450; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: enthesitis, to: sacroiliitis-bamboo-spine, note: "Spondylitis pattern: one- or two-sided sacroiliitis, early neck involvement", source: "K&C 10e p.450"}
+  - {from: hla-b27, to: anterior-uveitis, source: "K&C 10e p.448 (Box 18.36)"}
+findings:
+  - {id: dip-arthritis, freq: classic, note: "Methotrexate first; avoid hydroxychloroquine and oral steroids, which can flare the skin", source: "K&C 10e p.450; Mehlman HY Anatomy-MSK-Rheum"}
+  - {id: nail-dystrophy, freq: common}
+  - {id: dactylitis, freq: common}
+  - {id: asymmetrical-oligoarthritis, freq: common}
+  - {id: pencil-in-cup-erosions, freq: common}
+  - {id: sacroiliitis-bamboo-spine, freq: occasional}
+  - {id: anterior-uveitis, freq: occasional}

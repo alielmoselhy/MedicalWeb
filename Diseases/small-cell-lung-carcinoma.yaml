@@ -4,7 +4,7 @@ parent: lung-cancer
 group: lung-pleural-tumours
 status: draft
 systems: [respiratory]
-sources: ["K&C 10e p.976-980", "Mehlman HY Pulmonary", "Mehlman HY Pathology"]
+sources: ["K&C 10e p.976-980", "K&C 10e p.895", "Mehlman HY Pulmonary", "Mehlman HY Pathology"]
 chain:
   - {from: smoking, to: carcinogen-induced-transformation, note: "Smoking is the biggest risk factor", source: "Mehlman HY Pulmonary"}
   - {from: carcinogen-induced-transformation, to: primary-lung-tumour, note: "From neuroendocrine (APUD, Kulchitsky) cells; about 20% of UK cases. Small basophilic cells about twice the size of lymphocytes", source: "K&C 10e p.976; Mehlman HY Pulmonary"}
@@ -16,15 +16,16 @@ chain:
   - {from: primary-lung-tumour, to: ectopic-hormone-secretion, note: "About 10% secrete hormones", source: "K&C 10e p.977"}
   - [ectopic-hormone-secretion, adh-secretion]
   - [ectopic-hormone-secretion, acth-secretion]
-  - {from: adh-secretion, to: hyponatraemia, note: "Low serum sodium with inappropriately concentrated urine", source: "Mehlman HY Pulmonary"}
+  - {from: adh-secretion, to: low-serum-sodium, note: "Low serum sodium with inappropriately concentrated urine", source: "Mehlman HY Pulmonary"}
   - {from: acth-secretion, to: mineralocorticoid-excess, note: "Chronically high cortisol wastes potassium at the distal nephron", source: "Mehlman HY Pulmonary"}
-  - [mineralocorticoid-excess, hypokalaemia]
+  - [mineralocorticoid-excess, low-serum-potassium]
   - {from: primary-lung-tumour, to: paraneoplastic-autoimmunity, note: "Antibodies against presynaptic calcium channels and neurones", source: "Mehlman HY Pathology"}
   - [primary-lung-tumour, cough]
   - [primary-lung-tumour, weight-loss]
   - [adh-secretion, siadh]
   - [acth-secretion, ectopic-cushing]
-  - [paraneoplastic-autoimmunity, lambert-eaton-syndrome]
+  - {from: paraneoplastic-autoimmunity, to: presynaptic-calcium-channel-block, note: "Less acetylcholine released; weakness eases with repeated effort, unlike myasthenia", source: "K&C 10e p.895"}
+  - [presynaptic-calcium-channel-block, lambert-eaton-syndrome]
   - [paraneoplastic-autoimmunity, paraneoplastic-cerebellar-degeneration]
   - [local-tumour-invasion, superior-vena-cava-obstruction]
   - [metastatic-spread, brain-metastases]
@@ -33,8 +34,8 @@ chain:
 findings:
   - {id: central-lung-mass, freq: classic}
   - {id: mediastinal-widening, freq: common}
-  - {id: hyponatraemia, freq: common}
-  - {id: hypokalaemia, note: "With Cushingoid features", source: "Mehlman HY Pulmonary"}
+  - {id: low-serum-sodium, freq: common}
+  - {id: low-serum-potassium, note: "With Cushingoid features", source: "Mehlman HY Pulmonary"}
   - {id: cough, freq: common}
   - {id: weight-loss, freq: common}
 outcomes:

@@ -1,0 +1,18 @@
+id: mody
+name: Maturity-onset diabetes of the young (monogenic diabetes)
+parent: diabetes-mellitus
+group: glucose
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.707", "K&C 10e p.709"]
+chain:
+  - {from: beta-cell-gene-defect, to: beta-cell-failure, note: "Autosomal dominant; 1–3% of diabetes under 30; HNF1A about 70%, glucokinase 15%; no autoimmunity", source: "K&C 10e p.709"}
+  - {from: beta-cell-failure, to: insulin-deficiency, note: "C-peptide persists and ketones are minimal, unlike type 1", source: "K&C 10e p.707"}
+  - [insulin-deficiency, hyperglycaemia]
+  - {from: hyperglycaemia, to: diabetic-glucose-hba1c, note: "Often misdiagnosed as type 1 or 2; suspect with early-onset diabetes in a parent and half of relatives", source: "K&C 10e p.709"}
+  - {from: hyperglycaemia, to: microvascular-glycation-damage, note: "Glucokinase: mild, barely progressive; HNF1A and HNF4A progress with complications", source: "K&C 10e p.709"}
+  - [microvascular-glycation-damage, diabetic-retinopathy]
+findings:
+  - {id: diabetic-glucose-hba1c, freq: classic}
+outcomes:
+  - {id: diabetic-retinopathy, freq: occasional, note: "Not with glucokinase MODY", source: "K&C 10e p.709"}

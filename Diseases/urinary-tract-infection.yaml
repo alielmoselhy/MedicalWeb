@@ -1,0 +1,30 @@
+id: urinary-tract-infection
+name: Urinary tract infection
+group: uti
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.159", "K&C 10e p.167-168", "K&C 10e p.1381-1384", "Mehlman HY Renal"]
+chain:
+  - from: uropathogen
+    to: ascending-urinary-infection
+    note: "Bowel flora colonise the perineum and climb the urethra"
+    members:
+      - {id: enterobacteriaceae, note: "E. coli about 70%; fimbriae stick to urothelium; Klebsiella 4%", source: "K&C 10e p.1381; Mehlman HY Renal"}
+      - {id: proteus-mirabilis, note: "About 12%; stones", source: "K&C 10e p.1381"}
+      - {id: staphylococcus-saprophyticus, note: "Young women", source: "K&C 10e p.1381"}
+      - {id: enterococci, source: "K&C 10e p.1381"}
+      - {id: pseudomonas-aeruginosa, note: "Hospital and catheters", source: "K&C 10e p.1381, 1383"}
+      - {id: esbl-enterobacteriaceae, note: "ESBLs break down penicillins, cephalosporins and aztreonam; about 15% of E. coli bacteraemias; often needs a carbapenem", source: "K&C 10e p.159; K&C 10e p.167"}
+      - {id: cpe, note: "Carbapenemases (KPC, OXA-48, NDM) break down nearly all β-lactams; NDM strains may leave only colistin, fosfomycin or tigecycline", source: "K&C 10e p.167-168"}
+  - {from: female-sex, to: ascending-urinary-infection, note: "Short urethra; half of women have a UTI in their lifetime; postmenopausal risk too", source: "K&C 10e p.1381-1382"}
+  - {from: sexual-activity, to: ascending-urinary-infection, note: "Void after intercourse", source: "K&C 10e p.1382, 1384; Mehlman HY Renal"}
+  - {from: urinary-stasis, to: ascending-urinary-infection, note: "Good urine flow washes bacteria out; UTI in men or children suggests an abnormal tract", source: "K&C 10e p.1381-1382"}
+  - {from: diabetes-mellitus, to: ascending-urinary-infection, source: "K&C 10e p.1382"}
+  - {from: immunosuppression, to: ascending-urinary-infection, source: "K&C 10e p.1382"}
+  - {from: ascending-urinary-infection, to: pyuria-nitrites, note: "Nitrites from Gram-negatives; false negatives common", source: "K&C 10e p.1382"}
+  - {from: ascending-urinary-infection, to: significant-bacteriuria, note: "Over 10⁵/mL, lower with symptoms; not needed in young women with two classic symptoms", source: "K&C 10e p.1382"}
+  - {from: ascending-urinary-infection, to: confusion, note: "May be the only sign in the elderly", source: "K&C 10e p.1382"}
+findings:
+  - {id: pyuria-nitrites, freq: classic}
+  - {id: significant-bacteriuria, freq: classic}
+  - {id: confusion, freq: occasional}

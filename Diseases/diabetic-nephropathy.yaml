@@ -1,0 +1,27 @@
+id: diabetic-nephropathy
+name: Diabetic nephropathy
+parent: nephrotic-syndrome
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1359", "Mehlman HY Renal"]
+chain:
+  - {from: diabetes-mellitus, to: glomerular-hyperfiltration, note: "In 20–30% of type 1 and type 2; worse with poor control, hypertension, male sex. GFR over 150 at first", source: "K&C 10e p.1359; Mehlman HY Renal"}
+  - {from: diabetes-mellitus, to: podocyte-injury, note: "GBM thickening, mesangial expansion, podocyte loss", source: "K&C 10e p.1359"}
+  - [glomerular-hyperfiltration, podocyte-injury]
+  - {from: podocyte-injury, to: kimmelstiel-wilson-nodules, note: "Later nodular glomerulosclerosis, with hyaline arteriolosclerosis", source: "K&C 10e p.1359; Mehlman HY Renal"}
+  - {from: podocyte-injury, to: proteinuria, note: "Albuminuria first: start an ACE inhibitor or ARB even if BP is normal; SGLT2 inhibitors protect the kidney", source: "K&C 10e p.1359"}
+  - [podocyte-injury, urinary-protein-loss]
+  - [urinary-protein-loss, nephrotic-range-proteinuria]
+  - [urinary-protein-loss, hypoalbuminaemia]
+  - [urinary-protein-loss, salt-water-retention]
+  - [salt-water-retention, peripheral-oedema]
+  - {from: podocyte-injury, to: chronic-kidney-disease, note: "Leading cause of ESKD in the West, mainly from type 2; the course is clinically silent", source: "K&C 10e p.1359"}
+findings:
+  - {id: proteinuria, freq: classic}
+  - {id: kimmelstiel-wilson-nodules, freq: classic}
+  - {id: nephrotic-range-proteinuria, freq: occasional}
+  - {id: hypoalbuminaemia, freq: occasional}
+  - {id: peripheral-oedema, freq: occasional}
+outcomes:
+  - {id: chronic-kidney-disease, freq: common, source: "K&C 10e p.1359"}

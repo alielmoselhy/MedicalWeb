@@ -1,0 +1,33 @@
+id: benign-prostatic-hyperplasia
+name: Benign prostatic hyperplasia
+group: bladder-prostate-testis
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1480", "Mehlman HY Renal", "Mehlman HY Pathology"]
+chain:
+  - {from: older-age, to: androgen-driven-prostatic-growth, note: "Mostly over 60; never seen with hypogonadism, so androgen-dependent; finasteride blocks DHT", source: "K&C 10e p.1480; Mehlman HY Pathology"}
+  - {from: androgen-driven-prostatic-growth, to: smooth-enlarged-prostate, note: "Benign gland feels smooth", source: "K&C 10e p.1480"}
+  - {from: androgen-driven-prostatic-growth, to: raised-psa, note: "3–10 ng/mL can be benign, prostatitis or cancer", source: "K&C 10e p.1480"}
+  - {from: androgen-driven-prostatic-growth, to: haematuria, note: "Occasionally severe, from ruptured prostatic veins", source: "K&C 10e p.1480"}
+  - {from: androgen-driven-prostatic-growth, to: urinary-outflow-obstruction, note: "The enlarged gland stretches and distorts the urethra", source: "K&C 10e p.1480"}
+  - {from: urinary-outflow-obstruction, to: storage-luts, note: "Nocturia is often first", source: "K&C 10e p.1480"}
+  - {from: urinary-outflow-obstruction, to: voiding-luts, note: "Alpha-blocker and/or 5α-reductase inhibitor; TURP if severe", source: "K&C 10e p.1480; Mehlman HY Renal"}
+  - {from: urinary-outflow-obstruction, to: acute-urinary-retention, note: "Relieve pain and catheterise; suprapubic if urethral fails", source: "K&C 10e p.1480"}
+  - {from: urinary-outflow-obstruction, to: urinary-incontinence, note: "Overflow incontinence: large post-void residual", source: "K&C 10e p.1480; Mehlman HY Renal"}
+  - [urinary-outflow-obstruction, palpable-bladder]
+  - {from: urinary-outflow-obstruction, to: hydronephrosis-on-imaging, note: "Upper-tract dilatation or falling renal function needs surgery", source: "K&C 10e p.1480"}
+  - [urinary-outflow-obstruction, urinary-tract-obstruction]
+  - {from: urinary-outflow-obstruction, to: acute-kidney-injury, note: "Older man with a raised creatinine: BPH until proven otherwise; catheterise first", source: "Mehlman HY Renal"}
+findings:
+  - {id: storage-luts, freq: classic}
+  - {id: voiding-luts, freq: classic, source: "K&C 10e p.1480"}
+  - {id: smooth-enlarged-prostate, freq: classic}
+  - {id: raised-psa, freq: occasional}
+  - {id: acute-urinary-retention, freq: occasional, source: "K&C 10e p.1480"}
+  - {id: urinary-incontinence, freq: occasional}
+  - {id: palpable-bladder, freq: occasional, source: "K&C 10e p.1480"}
+  - {id: haematuria, freq: occasional}
+  - {id: hydronephrosis-on-imaging, freq: occasional}
+outcomes:
+  - {id: urinary-tract-obstruction, source: "K&C 10e p.1480"}
+  - {id: acute-kidney-injury, source: "Mehlman HY Renal"}

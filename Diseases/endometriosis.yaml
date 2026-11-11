@@ -1,0 +1,20 @@
+id: endometriosis
+name: Endometriosis
+group: ovaries-tubes
+status: draft
+systems: [female-genital]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: retrograde-menstruation, to: endometrium-outside-uterus, note: "Thought to seed the ovary (commonest) and peritoneum, e.g. pouch of Douglas", source: "Mehlman HY Repro-OBGYN"}
+  - {from: endometrium-outside-uterus, to: dysmenorrhoea, note: "Severe period pain over 20 with an abnormal examination; normal examination suggests primary dysmenorrhoea", source: "Mehlman HY Repro-OBGYN"}
+  - {from: endometrium-outside-uterus, to: endometriosis-pelvic-signs, note: "Adhesions fix the uterus. Diagnosis by laparoscopy; pill and NSAIDs short term; laparoscopic excision is definitive", source: "Mehlman HY Repro-OBGYN"}
+  - {from: endometrium-outside-uterus, to: deep-dyspareunia, source: "Mehlman HY Repro-OBGYN"}
+  - {from: endometrium-outside-uterus, to: dyschezia, note: "Pouch of Douglas deposits", source: "Mehlman HY Repro-OBGYN"}
+  - {from: endometrium-outside-uterus, to: endometrioma, note: "Haemorrhagic cyst on the ovary", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: dysmenorrhoea, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: endometriosis-pelvic-signs, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: deep-dyspareunia, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: dyschezia, freq: common, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: endometrioma, freq: common, source: "Mehlman HY Repro-OBGYN"}

@@ -1,0 +1,22 @@
+id: neutropenic-sepsis
+name: Neutropenic sepsis
+group: immunocompromised-infection
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.157", "K&C 10e p.366", "K&C 10e p.389"]
+chain:
+  - {from: cytotoxic-chemotherapy, to: neutrophil-deficit, note: "Commonest setting: haematological cancer after chemotherapy; radiotherapy too. G-CSF shortens the nadir", source: "K&C 10e p.157, 366"}
+  - {from: neutropenia-causing-drug, to: neutrophil-deficit, note: "Idiosyncratic; stop all suspect drugs, recovery in about 10 days", source: "K&C 10e p.366"}
+  - [neutrophil-deficit, neutropenia]
+  - {from: neutrophil-deficit, to: mucositis-mouth-ulcers, source: "K&C 10e p.366, 389"}
+  - {from: neutrophil-deficit, to: dysregulated-host-response, note: "Risk rises as the count falls; Pseudomonas is the feared organism, so piperacillin–tazobactam ± aminoglycoside at once", source: "K&C 10e p.157, 366"}
+  - [dysregulated-host-response, fever]
+  - [dysregulated-host-response, septic-shock]
+  - {from: neutrophil-deficit, to: pneumonia, source: "K&C 10e p.366"}
+findings:
+  - {id: fever, freq: classic, note: "Often the only sign; follow the local protocol", source: "K&C 10e p.389"}
+  - {id: neutropenia, freq: classic}
+  - {id: mucositis-mouth-ulcers, freq: common}
+outcomes:
+  - {id: septic-shock, freq: occasional, source: "K&C 10e p.366"}
+  - {id: pneumonia, freq: occasional, source: "K&C 10e p.366"}

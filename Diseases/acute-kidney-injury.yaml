@@ -1,0 +1,57 @@
+id: acute-kidney-injury
+name: Acute kidney injury
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1387-1392", "Mehlman HY Renal"]
+chain:
+  - {from: volume-depletion, to: renal-hypoperfusion, note: "Pre-renal: most AKI has some hypovolaemia; fluid-resuscitate early and it fully reverses", source: "K&C 10e p.1388-1389"}
+  - {from: septic-shock, to: renal-hypoperfusion, note: "AKI in a quarter of sepsis and half of septic shock; worse prognosis", source: "K&C 10e p.1388"}
+  - {from: heart-failure, to: renal-hypoperfusion, note: "Low cardiac output", source: "K&C 10e p.1388"}
+  - {from: nsaid-use, to: renal-hypoperfusion, note: "Block prostaglandin dilation of the afferent arteriole", source: "K&C 10e p.1388"}
+  - {from: acei-arb, to: renal-hypoperfusion, note: "Remove angiotensin II tone on the efferent arteriole; worst with volume loss", source: "K&C 10e p.1388"}
+  - {from: renal-hypoperfusion, to: excretory-failure, note: "Autoregulation fails, so GFR falls", source: "K&C 10e p.1388"}
+  - {from: renal-hypoperfusion, to: concentrated-low-sodium-urine, note: "Kidney holding salt and water; no single test is reliable alone", source: "K&C 10e p.1389"}
+  - {from: renal-hypoperfusion, to: acute-tubular-necrosis, note: "Prolonged hypoperfusion; ATN is 80–90% of intrinsic AKI", source: "K&C 10e p.1389"}
+  - from: nephrotoxic-drug
+    to: acute-tubular-necrosis
+    note: "Each kills tubular cells directly"
+    members:
+      - {id: aminoglycosides, note: "Monitor levels; avoid in CKD", source: "K&C 10e p.1389, 1398"}
+      - {id: iodinated-contrast, note: "Dose-dependent; risk with CKD, hypovolaemia, heart failure; prevent by pre-hydration", source: "K&C 10e p.1391-1392"}
+  - {from: rhabdomyolysis, to: acute-tubular-necrosis, note: "Myoglobin is a tubular toxin; high K+, phosphate, CK; dipstick blood with few red cells", source: "K&C 10e p.1391; Mehlman HY Renal"}
+  - {from: intravascular-haemolysis, to: acute-tubular-necrosis, note: "Free haemoglobin is the toxin, e.g. falciparum malaria", source: "K&C 10e p.1389, 1391"}
+  - {from: acute-tubular-necrosis, to: excretory-failure, note: "Tubular obstruction by casts and back-leak of filtrate", source: "K&C 10e p.1389"}
+  - {from: acute-tubular-necrosis, to: muddy-brown-casts, source: "Mehlman HY Renal"}
+  - {from: renal-calculi-nephrocalcinosis, to: urinary-outflow-obstruction, note: "Post-renal: bilateral ureteric stones or tumours, or bladder outflow (prostate)", source: "K&C 10e p.1389"}
+  - {from: urinary-outflow-obstruction, to: excretory-failure, note: "Ultrasound almost every unexplained AKI; relief restores function", source: "K&C 10e p.1389"}
+  - [urinary-outflow-obstruction, hydronephrosis-on-imaging]
+  - {from: excretory-failure, to: raised-creatinine-low-egfr, note: "KDIGO: creatinine 1.5× baseline or a 26.5 µmol/L rise in 48 h; creatinine lags the injury by 48–72 h", source: "K&C 10e p.1388, 1390"}
+  - {from: excretory-failure, to: oliguria-anuria, note: "Urine output under 0.5 mL/kg/h for 6 h", source: "K&C 10e p.1388"}
+  - {from: excretory-failure, to: high-serum-potassium, note: "Life-threatening: VF", source: "K&C 10e p.1390"}
+  - [excretory-failure, metabolic-acidosis]
+  - {from: excretory-failure, to: salt-water-retention, source: "K&C 10e p.1390-1391"}
+  - [salt-water-retention, peripheral-oedema]
+  - {from: salt-water-retention, to: alveolar-flooding, note: "Pulmonary oedema not responding to diuretics needs dialysis", source: "K&C 10e p.1390-1391"}
+  - [alveolar-flooding, dyspnoea]
+  - {from: alveolar-flooding, to: pulmonary-oedema, source: "K&C 10e p.1390"}
+  - {from: high-serum-potassium, to: ventricular-arrhythmia, source: "K&C 10e p.1390"}
+  - {from: excretory-failure, to: acute-pericarditis, note: "Symptomatic uraemia, including pericarditis, is a dialysis indication", source: "K&C 10e p.1391"}
+  - {from: excretory-failure, to: uraemic-encephalopathy, source: "Mehlman HY Renal"}
+  - {from: acute-tubular-necrosis, to: chronic-kidney-disease, note: "ATN usually recovers in 1–3 weeks with a diuretic phase; prolonged cortical ischaemia → irreversible cortical necrosis", source: "K&C 10e p.1391"}
+findings:
+  - {id: raised-creatinine-low-egfr, freq: classic, source: "K&C 10e p.1388"}
+  - {id: oliguria-anuria, freq: common, note: "Non-oliguric AKI is milder", source: "K&C 10e p.1389"}
+  - {id: high-serum-potassium, freq: common}
+  - {id: metabolic-acidosis, freq: common, note: "Severe acidosis is a dialysis indication", source: "K&C 10e p.1391"}
+  - {id: concentrated-low-sodium-urine, freq: common, note: "Pre-renal: specific gravity over 1.020, urine Na under 10", source: "K&C 10e p.1389"}
+  - {id: muddy-brown-casts, freq: common, note: "ATN: urine Na over 20, specific gravity under 1.010", source: "K&C 10e p.1389; Mehlman HY Renal"}
+  - {id: hydronephrosis-on-imaging, freq: occasional}
+  - {id: peripheral-oedema, freq: occasional}
+  - {id: dyspnoea, freq: occasional}
+outcomes:
+  - {id: ventricular-arrhythmia, source: "K&C 10e p.1390"}
+  - {id: pulmonary-oedema, source: "K&C 10e p.1390"}
+  - {id: acute-pericarditis, source: "K&C 10e p.1391"}
+  - {id: uraemic-encephalopathy, source: "Mehlman HY Renal"}
+  - {id: chronic-kidney-disease, note: "Half of community AKI is on top of CKD; ICU AKI mortality 50–70%", source: "K&C 10e p.1388"}

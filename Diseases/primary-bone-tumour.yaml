@@ -1,0 +1,10 @@
+id: primary-bone-tumour
+name: Primary bone tumour
+group: bone-tumours
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.485", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: primary-bone-tumour-growth, to: bone-pain, note: "Rare, mostly children and young adults; metastases are far commoner in bone. Classed by what the cells make: bone, cartilage or neither", source: "K&C 10e p.485; Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: bone-pain, freq: classic}

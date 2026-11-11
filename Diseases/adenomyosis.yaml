@@ -1,0 +1,14 @@
+id: adenomyosis
+name: Adenomyosis
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: endometrium-in-myometrium, to: enlarged-uterus, note: "Women in their 30s–50s; diffusely enlarged, smooth uterus with no discrete mass on ultrasound (unlike fibroids)", source: "Mehlman HY Repro-OBGYN"}
+  - {from: endometrium-in-myometrium, to: heavy-menstrual-bleeding, note: "NSAIDs and the pill; hysterectomy is definitive", source: "Mehlman HY Repro-OBGYN"}
+  - {from: endometrium-in-myometrium, to: dysmenorrhoea, note: "May or may not be painful", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: enlarged-uterus, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: heavy-menstrual-bleeding, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: dysmenorrhoea, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

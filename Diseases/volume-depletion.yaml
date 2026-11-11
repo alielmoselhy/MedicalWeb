@@ -1,0 +1,30 @@
+id: volume-depletion
+name: Dehydration and volume depletion
+group: sodium-water
+status: draft
+systems: [biochemistry]
+sources: ["K&C 10e p.181-183"]
+chain:
+  - {from: infective-gastroenteritis, to: ecf-volume-loss, note: "Gut losses: vomiting, diarrhoea, ileostomy, ileus", source: "K&C 10e p.181 (Box 9.8)"}
+  - {from: gi-haemorrhage, to: ecf-volume-loss, note: "External or concealed (e.g. leaking aneurysm); replace with red cells and plasma substitute", source: "K&C 10e p.181-182"}
+  - {from: burns, to: ecf-volume-loss, note: "Plasma lost; replace with plasma or a substitute", source: "K&C 10e p.181-182"}
+  - {from: diuretic, to: ecf-volume-loss, note: "Renal salt loss; also salt-wasting kidney disease", source: "K&C 10e p.181 (Box 9.8)"}
+  - {from: adrenal-insufficiency, to: ecf-volume-loss, note: "Renal salt loss without aldosterone", source: "K&C 10e p.183 (Box 9.11)"}
+  - {from: ecf-volume-loss, to: postural-hypotension, note: "One of the earliest, most reliable signs; up to 1 L may be lost with no signs", source: "K&C 10e p.181"}
+  - {from: ecf-volume-loss, to: tachycardia, note: "Unreliable: β-blockers mask it", source: "K&C 10e p.181"}
+  - {from: ecf-volume-loss, to: dehydration-signs, note: "Thirst, cramps, poor skin turgor (test on the neck or forehead in the elderly)", source: "K&C 10e p.181"}
+  - [ecf-volume-loss, low-jvp-cold-peripheries]
+  - {from: ecf-volume-loss, to: concentrated-low-sodium-urine, note: "With normal kidneys; misleading if diuretics or renal disease are the cause. Bloods help little", source: "K&C 10e p.182-183"}
+  - {from: ecf-volume-loss, to: acute-kidney-injury, note: "Urea rises first, then creatinine (pre-renal)", source: "K&C 10e p.182"}
+  - {from: ecf-volume-loss, to: hypovolaemic-shock, note: "Severe: hypotension and poor brain perfusion; fast 0.9% saline or a balanced crystalloid, reassessing often", source: "K&C 10e p.181-183"}
+  - {from: hypovolaemic-shock, to: confusion, source: "K&C 10e p.181"}
+findings:
+  - {id: postural-hypotension, freq: classic}
+  - {id: dehydration-signs, freq: classic, note: "Replace what is missing: oral salt and water if mild, IV if not", source: "K&C 10e p.182"}
+  - {id: tachycardia, freq: common}
+  - {id: low-jvp-cold-peripheries, freq: common, source: "K&C 10e p.181"}
+  - {id: concentrated-low-sodium-urine, freq: common}
+  - {id: confusion, freq: occasional}
+outcomes:
+  - acute-kidney-injury
+  - hypovolaemic-shock

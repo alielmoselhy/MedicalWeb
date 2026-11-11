@@ -1,0 +1,28 @@
+id: haemolytic-uraemic-syndrome
+name: Haemolytic uraemic syndrome (HUS)
+group: platelets-tma
+status: draft
+systems: [haematology, kidney-urogenital]
+sources: ["K&C 10e p.1368-1369", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: ehec, to: shiga-toxin-endothelial-injury, note: "Typical (diarrhoea-associated) HUS, mostly children; antibiotics and antimotility drugs raise the risk", source: "K&C 10e p.1368-1369; Mehlman HY Heme-Onc"}
+  - {from: complement-regulator-defect, to: complement-overactivation, note: "Atypical HUS; also autoantibodies, e.g. in SLE. Eculizumab (anti-C5) has transformed outcomes", source: "K&C 10e p.1369"}
+  - {from: streptococcus-pneumoniae, to: microvascular-thrombosis, note: "Neuraminidase exposes a hidden antigen on red cells, platelets and glomeruli; antibodies follow. Avoid plasma", source: "K&C 10e p.1369"}
+  - {from: shiga-toxin-endothelial-injury, to: microvascular-thrombosis, note: "Toxin enters endothelium through the Gb3 receptor and stops protein synthesis", source: "K&C 10e p.1368-1369"}
+  - [complement-overactivation, microvascular-thrombosis]
+  - [microvascular-thrombosis, platelet-consumption]
+  - [platelet-consumption, thrombocytopenia]
+  - [microvascular-thrombosis, microangiopathic-haemolysis]
+  - [microangiopathic-haemolysis, schistocytes]
+  - [microangiopathic-haemolysis, haemolytic-anaemia]
+  - {from: microvascular-thrombosis, to: acute-kidney-injury, note: "Clots in small renal arteries and arterioles; clotting tests normal, unlike DIC. Supportive care and dialysis", source: "K&C 10e p.1368-1369"}
+  - {from: microvascular-thrombosis, to: haematuria, source: "Mehlman HY Heme-Onc"}
+  - {from: acute-kidney-injury, to: chronic-kidney-disease, note: "Typical HUS: 5% die, 5% reach end-stage disease, 30% keep proteinuria", source: "K&C 10e p.1369"}
+findings:
+  - {id: thrombocytopenia, freq: classic}
+  - {id: schistocytes, freq: classic}
+  - {id: haemolytic-anaemia, freq: classic}
+  - {id: haematuria, freq: occasional}
+outcomes:
+  - {id: acute-kidney-injury, freq: classic}
+  - {id: chronic-kidney-disease, freq: occasional, source: "K&C 10e p.1369"}

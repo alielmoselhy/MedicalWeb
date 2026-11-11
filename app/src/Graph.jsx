@@ -41,6 +41,8 @@ export function stylesheet(flow) {
       'target-arrow-shape': 'triangle', 'arrow-scale': 0.8, 'curve-style': 'bezier',
     } },
     { selector: 'edge[kind="is-a"]', style: { 'line-style': 'dashed', 'target-arrow-shape': 'triangle-backcurve' } },
+    // "Is one of" a declared cause group (inhaled respiratory pathogens): the group, not each member, causes the next step.
+    { selector: 'edge[kind="bundled"]', style: { 'line-style': 'dashed', 'line-dash-pattern': [3, 3], 'target-arrow-shape': 'none' } },
     // Membership, not causation: a disease "has" these nodes.
     { selector: 'edge[kind="member"], edge[kind="finding"], edge[kind="outcome"]', style: { 'target-arrow-shape': 'none', width: 0.8 } },
     { selector: 'edge[kind="involves"]', style: { 'line-style': 'dotted', 'target-arrow-shape': 'none' } },
@@ -50,6 +52,17 @@ export function stylesheet(flow) {
     { selector: '.hl', style: { opacity: 1, label: 'data(label)' } },
     { selector: 'edge.hl', style: { 'line-color': v('--strong'), 'target-arrow-color': v('--strong'), width: 1.8, label: '' } },
   ];
+}
+
+// Cytoscape measures each label once. Measured before the web font arrives, labels come out too narrow and are
+// clipped at both ends, so graphs wait for the font (or its failure, e.g. offline) before drawing.
+export function useFontsReady() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const sans = v('--sans');
+    Promise.all([`9px ${sans}`, `bold 11px ${sans}`].map(f => document.fonts.load(f))).catch(() => {}).then(() => setReady(true));
+  }, []);
+  return ready;
 }
 
 const NONE = [];
@@ -63,8 +76,10 @@ export default function Graph({ elements, flow = false, selected, onTap, label, 
   const props = useRef();
   props.current = { onTap, tip };
   const [hover, setHover] = useState(null);
+  const fontsReady = useFontsReady();
 
   useEffect(() => {
+    if (!fontsReady) return;
     const cy = cytoscape({
       container: ref.current, elements, style: stylesheet(flow), minZoom: 0.15, maxZoom: 3,
       layout: layout ?? (positions ? { name: 'preset', positions: n => positions[n.id()], padding: 30 }
@@ -134,15 +149,15 @@ export default function Graph({ elements, flow = false, selected, onTap, label, 
     });
     cy.on('mouseout', 'node', () => { cy.elements().removeClass('dim hl'); setHover(null); });
     return () => { cy.destroy(); setHover(null); };
-  }, [elements, flow, selected, clouds, positions, drop, layout]);
+  }, [elements, flow, selected, clouds, positions, drop, layout, fontsReady]);
 
   useEffect(() => {
     const cy = cyRef.current;
-    if (!highlight.length) return;
+    if (!cy || !highlight.length) return;
     cy.elements().not('.cloud-label').addClass('dim');
     cy.nodes().filter(n => highlight.includes(n.id())).removeClass('dim').addClass('hl');
     return () => cy.elements().removeClass('dim hl');
-  }, [highlight, elements]);
+  }, [highlight, elements, fontsReady]);
 
   return (
     <div className="graph-wrap">

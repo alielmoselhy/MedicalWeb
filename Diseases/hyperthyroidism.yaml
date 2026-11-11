@@ -1,0 +1,48 @@
+id: hyperthyroidism
+name: Hyperthyroidism (thyrotoxicosis)
+group: endocrine-biochemistry
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.614-618", "Mehlman HY Endocrine"]
+chain:
+  - from: thyroid-affecting-drug
+    to: thyroiditis-hormone-leak
+    note: "Drug-induced thyroiditis; TSH stays the reliable test"
+    members:
+      - {id: amiodarone, note: "Type I: iodine load on Graves' or MNG; type II: destructive thyroiditis, later hypothyroid", source: "K&C 10e p.615"}
+      - {id: immune-checkpoint-inhibitor, note: "Thyroiditis in 15%, 3–12 weeks after starting", source: "K&C 10e p.615"}
+  - {from: de-quervains-thyroiditis, to: thyroiditis-hormone-leak, note: "Probably viral; aspirin, steroids if severe", source: "K&C 10e p.615"}
+  - {from: postpartum-thyroiditis, to: thyroiditis-hormone-leak, note: "Lymphocytic; hyper, hypo or both in turn; mistaken for postnatal depression", source: "K&C 10e p.612"}
+  - {from: thyroiditis-hormone-leak, to: thyroid-hormone-excess, note: "Transient; beta-blockers alone are enough", source: "K&C 10e p.615-616"}
+  - {from: thyroiditis-hormone-leak, to: low-isotope-uptake, source: "K&C 10e p.615; Mehlman HY Endocrine"}
+  - {from: thyroiditis-hormone-leak, to: tender-goitre, only: de-quervains-thyroiditis, note: "With fever, malaise and raised ESR", source: "K&C 10e p.615"}
+  - {from: thyroiditis-hormone-leak, to: raised-inflammatory-markers, only: de-quervains-thyroiditis, source: "K&C 10e p.615"}
+  - {from: thyroiditis-hormone-leak, to: hypothyroidism, note: "Usually transient, a few weeks later", source: "K&C 10e p.615"}
+  - {from: thyroid-hormone-excess, to: suppressed-tsh-raised-t4, note: "Over 99% are thyroid disease; T3 is the more sensitive; never treat without biochemistry", source: "K&C 10e p.614, 616"}
+  - {from: thyroid-hormone-excess, to: weight-loss, note: "Despite a normal or increased appetite", source: "K&C 10e p.616"}
+  - {from: thyroid-hormone-excess, to: heat-intolerance, source: "Mehlman HY Endocrine"}
+  - {from: thyroid-hormone-excess, to: tachycardia, note: "Warm peripheries, unlike the clammy hands of anxiety; beta-blockers for quick relief", source: "K&C 10e p.616; Mehlman HY Endocrine"}
+  - [thyroid-hormone-excess, palpitations]
+  - {from: thyroid-hormone-excess, to: lid-lag-stare, note: "Any cause; other eye signs are Graves' only", source: "K&C 10e p.615"}
+  - {from: thyroid-hormone-excess, to: proximal-myopathy, source: "K&C 10e p.616"}
+  - {from: thyroid-hormone-excess, to: atrial-fibrillation, note: "Common presentation in the elderly; check TFTs in all AF; risk persists with suppressed TSH", source: "K&C 10e p.616, 618"}
+  - {from: thyroid-hormone-excess, to: heart-failure, note: "Elderly, often with few other signs ('apathetic' thyrotoxicosis)", source: "K&C 10e p.616"}
+  - {from: thyroid-hormone-excess, to: osteoporosis, note: "The main long-term risk once treated", source: "K&C 10e p.618"}
+  - {from: thyroid-hormone-excess, to: thyroid-storm, note: "Hyperpyrexia, tachycardia, agitation, heart failure; triggered by infection, surgery or radioiodine; mortality 10%", source: "K&C 10e p.617; Mehlman HY Endocrine"}
+findings:
+  - {id: suppressed-tsh-raised-t4, freq: classic, source: "K&C 10e p.616"}
+  - {id: weight-loss, freq: common}
+  - {id: heat-intolerance, freq: common}
+  - {id: tachycardia, freq: common}
+  - {id: palpitations, freq: common}
+  - {id: lid-lag-stare, freq: common}
+  - {id: proximal-myopathy, freq: occasional}
+  - {id: low-isotope-uptake, freq: occasional, note: "Thyroiditis; Graves' and nodules take up tracer", source: "K&C 10e p.615"}
+  - {id: tender-goitre, freq: occasional, only: de-quervains-thyroiditis}
+  - {id: raised-inflammatory-markers, freq: occasional, only: de-quervains-thyroiditis}
+outcomes:
+  - {id: atrial-fibrillation, freq: common, source: "K&C 10e p.616"}
+  - {id: heart-failure, freq: occasional, source: "K&C 10e p.616"}
+  - {id: osteoporosis, freq: occasional, source: "K&C 10e p.618"}
+  - {id: thyroid-storm, freq: rare, source: "K&C 10e p.617"}
+  - {id: hypothyroidism, freq: occasional, source: "K&C 10e p.615"}

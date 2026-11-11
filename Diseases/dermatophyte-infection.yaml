@@ -1,0 +1,22 @@
+id: dermatophyte-infection
+name: Dermatophyte infection (tinea)
+group: skin-soft-tissue-infection
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.669", "K&C 10e p.673-674"]
+chain:
+  - {from: dermatophyte, to: keratin-dermatophyte-infection, note: "Caught from people, animals or soil; named by site (corporis, cruris, pedis, capitis, unguium)", source: "K&C 10e p.673"}
+  - {from: keratin-dermatophyte-infection, to: annular-scaly-rash, note: "Grows outwards, hence 'ringworm'. Topical steroids mask it and let it spread (tinea incognito)", source: "K&C 10e p.673"}
+  - {from: keratin-dermatophyte-infection, to: pruritus, note: "Tinea cruris: intensely itchy groin rash, mostly men", source: "K&C 10e p.673"}
+  - {from: keratin-dermatophyte-infection, to: nail-dystrophy, note: "Tinea unguium: thick, crumbling, yellow-white nails, often in the elderly; mimics nail psoriasis", source: "K&C 10e p.673"}
+  - {from: keratin-dermatophyte-infection, to: scalp-ringworm, note: "Tinea capitis: commonest tinea in young children, especially of black African origin; spread in schools; may form a kerion", source: "K&C 10e p.673"}
+  - {from: keratin-dermatophyte-infection, to: fungal-scrapings-positive, note: "Scrape the active edge; topical azole or terbinafine for 1–2 weeks; oral terbinafine or itraconazole for scalp, nails, feet, hands", source: "K&C 10e p.673-674"}
+  - {from: keratin-dermatophyte-infection, to: cellulitis, note: "Macerated, fissured toe webs (tinea pedis) let bacteria in", source: "K&C 10e p.669, 673"}
+findings:
+  - {id: annular-scaly-rash, freq: classic, source: "K&C 10e p.673"}
+  - {id: fungal-scrapings-positive, freq: classic, source: "K&C 10e p.673-674"}
+  - {id: pruritus, freq: common, source: "K&C 10e p.673"}
+  - {id: nail-dystrophy, freq: common, source: "K&C 10e p.673"}
+  - {id: scalp-ringworm, freq: occasional, source: "K&C 10e p.673"}
+outcomes:
+  - {id: cellulitis, source: "K&C 10e p.669"}

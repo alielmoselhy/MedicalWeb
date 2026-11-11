@@ -1,0 +1,16 @@
+id: cervical-intraepithelial-neoplasia
+name: Cervical intraepithelial neoplasia (CIN)
+group: vulva-vagina-cervix
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.130, 530, 1475", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: hpv-infection, to: cervical-dysplasia, note: "High-risk HPV is the main risk; types 16 and 18 cause 70% of UK cases. Linked to many partners and deprivation; HPV vaccine prevents it", source: "K&C 10e p.130, 530; Mehlman HY Repro-OBGYN"}
+  - {from: smoking, to: cervical-dysplasia, source: "K&C 10e p.130"}
+  - {from: immunosuppression, to: cervical-dysplasia, note: "Women with HIV need yearly smears", source: "K&C 10e p.130; Mehlman HY Repro-OBGYN"}
+  - {from: cervical-dysplasia, to: abnormal-cervical-cytology, note: "Silent; found by screening (UK: 25–49 every 3 years, then 5-yearly to 64). High-grade: colposcopy and biopsy", source: "K&C 10e p.130, 1475; Mehlman HY Repro-OBGYN"}
+  - {from: cervical-dysplasia, to: cervical-cancer, note: "Graded CIN1–3 by depth. CIN1 often regresses; treat most CIN2 and all CIN3 with LLETZ", source: "K&C 10e p.130; Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: abnormal-cervical-cytology, freq: classic, source: "K&C 10e p.130"}
+outcomes:
+  - {id: cervical-cancer, freq: occasional, source: "K&C 10e p.130"}

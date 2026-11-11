@@ -1,0 +1,33 @@
+id: anaphylaxis
+name: Anaphylaxis
+group: hypersensitivity
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.62-64", "Mehlman HY Immuno", "Mehlman HY Pathology"]
+chain:
+  - {from: allergen-exposure, to: ige-mast-cell-degranulation, note: "Needs earlier sensitisation, then systemic absorption on re-exposure (eaten or injected). Venom: severe reactions in 1 in 125–250", source: "K&C 10e p.64"}
+  - {from: ige-mast-cell-degranulation, to: mast-cell-mediator-release, note: "Histamine and tryptase released; leukotrienes and PAF made. PAF level tracks severity", source: "K&C 10e p.63-64; Mehlman HY Immuno"}
+  - {from: mast-cell-mediator-release, to: raised-mast-cell-tryptase, note: "Peaks 1–2 h after the event, stays up for 24 h", source: "K&C 10e p.62"}
+  - {from: mast-cell-mediator-release, to: pruritus, note: "Early tingling, warmth and itch can look harmless", source: "K&C 10e p.64"}
+  - [mast-cell-mediator-release, vasodilation-vascular-leak]
+  - [vasodilation-vascular-leak, flushing]
+  - [vasodilation-vascular-leak, urticaria]
+  - [vasodilation-vascular-leak, angioedema]
+  - [vasodilation-vascular-leak, hypotension]
+  - {from: vasodilation-vascular-leak, to: anaphylactic-shock, note: "Distributive shock; death can come within minutes. IM adrenaline; patients carry auto-injectors", source: "K&C 10e p.64; Mehlman HY Pathology"}
+  - [vasodilation-vascular-leak, laryngeal-oedema]
+  - {from: mast-cell-mediator-release, to: reversible-bronchoconstriction, note: "Histamine and leukotrienes constrict the airways", source: "K&C 10e p.63-64"}
+  - [reversible-bronchoconstriction, wheeze]
+  - {from: mast-cell-mediator-release, to: arrhythmia, note: "Arrhythmia or even infarction in severe reactions", source: "K&C 10e p.64"}
+findings:
+  - {id: urticaria, freq: classic}
+  - {id: angioedema, freq: common}
+  - {id: flushing, freq: common}
+  - {id: hypotension, freq: common}
+  - {id: wheeze, freq: common}
+  - {id: pruritus, freq: common}
+  - {id: raised-mast-cell-tryptase, freq: classic}
+outcomes:
+  - {id: anaphylactic-shock, freq: common, note: "Prevention: avoid the trigger; desensitise for venom; early peanut introduction protects at-risk children", source: "K&C 10e p.64"}
+  - {id: laryngeal-oedema, freq: occasional}
+  - {id: arrhythmia, freq: rare}

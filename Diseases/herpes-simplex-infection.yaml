@@ -1,0 +1,24 @@
+id: herpes-simplex-infection
+name: Herpes simplex infection (HSV-1 and HSV-2)
+parent: herpesvirus-infection
+group: herpes-virus
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.514-515", "K&C 10e p.1422", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: herpes-simplex-virus, to: mucocutaneous-vesicles, note: "Primary infection may be silent or give painful gingivostomatitis; HSV-1 mainly mouth (70% infected), HSV-2 mainly genital", source: "K&C 10e p.514"}
+  - {from: vertical-transmission, to: herpes-simplex-virus, note: "Highest risk with a first episode late in pregnancy (Caesarean); neonatal herpes has high mortality", source: "K&C 10e p.1422; Mehlman HY Repro-OBGYN"}
+  - {from: herpes-simplex-virus, to: herpesvirus-latency, note: "In the trigeminal (HSV-1) or sacral (HSV-2) ganglia", source: "K&C 10e p.514"}
+  - {from: herpesvirus-latency, to: herpesvirus-reactivation, note: "Stress, trauma, fever, UV light; a third of carriers get recurrences, heralded by lip tingling", source: "K&C 10e p.514"}
+  - {from: herpesvirus-reactivation, to: mucocutaneous-vesicles, note: "Cold sores (herpes labialis); recurrent genital herpes", source: "K&C 10e p.514"}
+  - [herpesvirus-reactivation, herpesvirus-dna-pcr]
+  - {from: herpes-simplex-virus, to: herpes-keratitis, note: "Also herpetic whitlow, erythema multiforme, eczema herpeticum", source: "K&C 10e p.514-515"}
+  - {from: herpes-simplex-virus, to: encephalitis, note: "HSV-1; acute and severe", source: "K&C 10e p.514"}
+  - {from: herpesvirus-reactivation, to: opportunistic-infection, note: "Disseminated, sometimes fatal, after chemotherapy or in AIDS; neonatal herpes from active maternal lesions (Caesarean if active at delivery)", source: "K&C 10e p.515"}
+findings:
+  - {id: mucocutaneous-vesicles, freq: classic, note: "Aciclovir and derivatives", source: "K&C 10e p.515"}
+  - {id: herpesvirus-dna-pcr, freq: common, source: "K&C 10e p.515"}
+outcomes:
+  - herpes-keratitis
+  - {id: encephalitis, freq: rare}
+  - opportunistic-infection

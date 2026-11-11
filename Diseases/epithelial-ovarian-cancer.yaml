@@ -1,0 +1,37 @@
+id: epithelial-ovarian-cancer
+name: Epithelial ovarian cancer
+parent: ovarian-tumour
+group: ovaries-tubes
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.130-132, 1216, 1475", "Mehlman HY Repro-OBGYN", "Mehlman HY Pathology", "Mehlman HY Arrows", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: brca-mutation, to: ovarian-epithelial-transformation, note: "Commonest familial cause (10% overall); lifetime risk 24–40% (BRCA1), 11–18% (BRCA2). Oophorectomy once the family is complete", source: "K&C 10e p.130-131"}
+  - {from: lynch-syndrome, to: ovarian-epithelial-transformation, source: "K&C 10e p.1216"}
+  - {from: many-ovulatory-cycles, to: ovarian-epithelial-transformation, note: "Risk tracks how often and how long a woman ovulates; pregnancy and the pill protect", source: "K&C 10e p.131"}
+  - {from: obesity, to: ovarian-epithelial-transformation, source: "K&C 10e p.1475"}
+  - {from: long-oestrogen-exposure, to: ovarian-epithelial-transformation, note: "HRT", source: "K&C 10e p.1475"}
+  - {from: ovarian-epithelial-transformation, to: adnexal-mass, note: "Half are over 63; 46% 5-year survival. Serous (psammoma bodies, often bilateral), mucinous, endometrioid, clear cell. Transvaginal US, CA125, RMI; no proven screening", source: "K&C 10e p.130-131, 1475; Mehlman HY Repro-OBGYN"}
+  - {from: ovarian-epithelial-transformation, to: raised-ca125, note: "Rising CA125 also signals relapse", source: "K&C 10e p.131-132"}
+  - {from: ovarian-epithelial-transformation, to: transcoelomic-spread, note: "Early and silent, so most present at stage III–IV. Surgery (TAH, BSO, omentectomy) plus platinum and taxane; PARP inhibitors if BRCA", source: "K&C 10e p.131-132"}
+  - {from: transcoelomic-spread, to: ascites, source: "K&C 10e p.131"}
+  - {from: transcoelomic-spread, to: omental-caking, source: "K&C 10e p.131; Mehlman HY Pathology"}
+  - {from: ascites, to: abdominal-distension, note: "Women call it bloating; also indigestion, reflux and breathlessness from the pressure", source: "K&C 10e p.131"}
+  - {from: ascites, to: early-satiety-bloating, note: "New IBS-like symptoms over 50 need investigation", source: "K&C 10e p.131"}
+  - {from: ascites, to: storage-luts, note: "Urinary urgency or frequency", source: "K&C 10e p.131"}
+  - {from: transcoelomic-spread, to: malignant-bowel-obstruction, note: "Bulky peritoneal disease; often terminal. Mucinous tumours can cause pseudomyxoma peritonei", source: "K&C 10e p.132; Mehlman HY Repro-OBGYN"}
+  - {from: ovarian-epithelial-transformation, to: lymphatic-spread, note: "Para-aortic nodes", source: "Mehlman HY Pathology"}
+  - {from: ovarian-epithelial-transformation, to: urinary-tract-obstruction, note: "Ureteric compression", source: "Mehlman HY Arrows"}
+  - {from: ovarian-epithelial-transformation, to: paraneoplastic-dermatomyositis, note: "10–20% of women with dermatomyositis have ovarian cancer", source: "Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: adnexal-mass, freq: classic, source: "K&C 10e p.131"}
+  - {id: abdominal-distension, freq: classic, source: "K&C 10e p.131"}
+  - {id: early-satiety-bloating, freq: common, source: "K&C 10e p.131"}
+  - {id: ascites, freq: common, source: "K&C 10e p.131"}
+  - {id: raised-ca125, freq: common, source: "K&C 10e p.131"}
+  - {id: omental-caking, freq: common, source: "K&C 10e p.131"}
+  - {id: storage-luts, freq: occasional, source: "K&C 10e p.131"}
+outcomes:
+  - {id: malignant-bowel-obstruction, freq: common, source: "K&C 10e p.132"}
+  - {id: urinary-tract-obstruction, freq: occasional, source: "Mehlman HY Arrows"}
+  - {id: paraneoplastic-dermatomyositis, freq: rare, source: "Mehlman HY Anatomy-MSK-Rheum"}

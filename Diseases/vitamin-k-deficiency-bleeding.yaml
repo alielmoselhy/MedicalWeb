@@ -1,0 +1,24 @@
+id: vitamin-k-deficiency-bleeding
+name: Vitamin K deficiency bleeding
+group: bleeding-disorders
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.375, 377", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: newborn-without-vitamin-k, to: vitamin-k-deficit, note: "Classical: minor bleeding in week 1. Late: 2–26 weeks, severe. 1 mg IM vitamin K at birth prevents both", source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+  - {from: cholestasis, to: vitamin-k-deficit, note: "A fat-soluble vitamin: absorption needs bile salts in the gut", source: "K&C 10e p.377"}
+  - {from: poor-diet, to: vitamin-k-deficit, note: "Severe malnutrition, worse with antibiotics that clear gut flora", source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+  - {from: anticoagulant-therapy, to: vitamin-k-deficit, note: "Warfarin blocks vitamin K recycling", source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+  - [vitamin-k-deficit, coagulation-factor-deficiency]
+  - {from: coagulation-factor-deficiency, to: prolonged-pt-aptt, note: "Bleeding time and platelets normal. IV phytomenadione 10 mg partly corrects the PT within 6 hours", source: "K&C 10e p.375, 377; Mehlman HY Heme-Onc"}
+  - {from: coagulation-factor-deficiency, to: mucocutaneous-bleeding, note: "Bruising; in newborns, bleeding from the umbilical stump", source: "K&C 10e p.377; Mehlman HY Heme-Onc"}
+  - [coagulation-factor-deficiency, haematuria]
+  - [coagulation-factor-deficiency, gi-bleeding]
+  - {from: coagulation-factor-deficiency, to: intracerebral-haemorrhage, note: "Especially the late newborn form", source: "K&C 10e p.377"}
+findings:
+  - {id: prolonged-pt-aptt, freq: classic}
+  - {id: mucocutaneous-bleeding, freq: common}
+  - {id: haematuria, freq: occasional}
+  - {id: gi-bleeding, freq: occasional}
+outcomes:
+  - {id: intracerebral-haemorrhage, freq: occasional, source: "K&C 10e p.377"}

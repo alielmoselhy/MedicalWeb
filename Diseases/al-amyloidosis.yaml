@@ -1,0 +1,38 @@
+id: al-amyloidosis
+name: AL amyloidosis
+group: plasma-cell
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.410", "K&C 10e p.1357-1358", "Mehlman HY Heme-Onc", "Mehlman HY Renal"]
+chain:
+  - {from: older-age, to: plasma-cell-clonal-expansion, note: "Rare before 40; the clone is usually small (a gammopathy of clinical significance)", source: "K&C 10e p.410, 1358"}
+  - {from: plasma-cell-clonal-expansion, to: paraprotein-production, note: "Usually lambda light chains; also with myeloma, Waldenström and NHL", source: "K&C 10e p.410, 1358"}
+  - [paraprotein-production, serum-paraprotein]
+  - [paraprotein-production, bence-jones-proteinuria]
+  - [plasma-cell-clonal-expansion, marrow-clonal-plasma-cells]
+  - {from: paraprotein-production, to: amyloid-fibril-deposition, note: "Unstable light chains form β-pleated fibrils that resist breakdown; AA and ATTR amyloid are different diseases", source: "K&C 10e p.1357-1358"}
+  - {from: amyloid-fibril-deposition, to: congo-red-amyloid, note: "Biopsy kidney, or fat, rectum or gums; immunohistochemistry confirms AL in only 40%", source: "K&C 10e p.1358"}
+  - {from: amyloid-fibril-deposition, to: proteinuria, note: "Kidneys often large on imaging", source: "K&C 10e p.1358; Mehlman HY Renal"}
+  - {from: amyloid-fibril-deposition, to: nephrotic-syndrome, note: "Myeloma is the classic cause of renal amyloid in exam questions", source: "K&C 10e p.1358; Mehlman HY Renal"}
+  - {from: amyloid-fibril-deposition, to: myocardial-infiltration, source: "K&C 10e p.1358; Mehlman HY Heme-Onc"}
+  - {from: myocardial-infiltration, to: restrictive-cardiomyopathy, note: "Stiff, non-dilated ventricles; presents as heart failure", source: "K&C 10e p.1358; Mehlman HY Heme-Onc"}
+  - {from: amyloid-fibril-deposition, to: peripheral-neuropathy, source: "K&C 10e p.1358"}
+  - [amyloid-fibril-deposition, autonomic-dysfunction]
+  - {from: amyloid-fibril-deposition, to: carpal-tunnel-syndrome, note: "Can be an early feature", source: "K&C 10e p.1358"}
+  - {from: amyloid-fibril-deposition, to: macroglossia, note: "About 10%; not seen in AA or ATTR", source: "K&C 10e p.1358"}
+  - {from: amyloid-fibril-deposition, to: periorbital-purpura, note: "About 15%", source: "K&C 10e p.1358"}
+  - [amyloid-fibril-deposition, hepatomegaly]
+findings:
+  - {id: congo-red-amyloid, freq: classic}
+  - {id: proteinuria, freq: common}
+  - {id: serum-paraprotein, freq: common}
+  - {id: bence-jones-proteinuria, freq: common}
+  - {id: marrow-clonal-plasma-cells, freq: common}
+  - {id: peripheral-neuropathy, freq: common}
+  - {id: carpal-tunnel-syndrome, freq: common}
+  - {id: hepatomegaly, freq: occasional}
+  - {id: periorbital-purpura, freq: occasional}
+  - {id: macroglossia, freq: occasional}
+outcomes:
+  - {id: restrictive-cardiomyopathy, freq: common, source: "K&C 10e p.1358"}
+  - {id: autonomic-dysfunction, freq: common, source: "K&C 10e p.1358"}

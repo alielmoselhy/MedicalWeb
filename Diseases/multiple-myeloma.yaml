@@ -1,0 +1,57 @@
+id: multiple-myeloma
+name: Multiple myeloma
+group: plasma-cell
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.407-410", "K&C 10e p.1369-1370", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: older-age, to: plasma-cell-clonal-expansion, note: "Median age over 60, rare under 40; commoner in men and black Africans. Smouldering myeloma progresses about 10% a year", source: "K&C 10e p.407, 410"}
+  - {from: plasma-cell-clonal-expansion, to: paraprotein-production, note: "IgG 55%, IgA 20%; 15% light chain only, 5% non-secretory", source: "K&C 10e p.407"}
+  - {from: paraprotein-production, to: serum-paraprotein, note: "M band on electrophoresis with immunofixation; a paraprotein alone isn't myeloma", source: "K&C 10e p.407-409"}
+  - [paraprotein-production, bence-jones-proteinuria]
+  - {from: paraprotein-production, to: rouleaux, note: "Paraprotein stacks the red cells: high ESR", source: "K&C 10e p.408; Mehlman HY Heme-Onc"}
+  - [paraprotein-production, raised-inflammatory-markers]
+  - {from: plasma-cell-clonal-expansion, to: marrow-clonal-plasma-cells, note: "Over 10% clonal plasma cells plus a CRAB feature or biomarker defines active myeloma", source: "K&C 10e p.408, 410"}
+  - {from: plasma-cell-clonal-expansion, to: marrow-infiltration, source: "K&C 10e p.407"}
+  - [marrow-infiltration, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, normocytic-anaemia]
+  - [marrow-infiltration, neutrophil-deficit]
+  - [marrow-infiltration, reduced-platelet-production]
+  - [reduced-platelet-production, thrombocytopenia]
+  - [reduced-platelet-production, mucocutaneous-bleeding]
+  - {from: paraprotein-production, to: antibody-deficiency, note: "Normal immunoglobulins are suppressed (immune paresis)", source: "K&C 10e p.407"}
+  - [antibody-deficiency, recurrent-infection]
+  - [neutrophil-deficit, recurrent-infection]
+  - {from: paraprotein-production, to: hyperviscosity, note: "Rare; plasmapheresis; transfuse slowly", source: "K&C 10e p.407-409"}
+  - {from: plasma-cell-clonal-expansion, to: osteoclast-activation, note: "Bone remodelling uncoupled; bisphosphonates block osteoclasts and cut skeletal events", source: "K&C 10e p.407, 409"}
+  - {from: osteoclast-activation, to: lytic-bone-lesions, note: "CT, PET-CT or whole-body MRI; skeletal surveys are outdated. 'Pepper-pot skull'", source: "K&C 10e p.409; Mehlman HY Heme-Onc"}
+  - {from: osteoclast-activation, to: bone-pain, note: "Backache from vertebral disease in 60%", source: "K&C 10e p.407"}
+  - [osteoclast-activation, pathological-fracture]
+  - {from: osteoclast-activation, to: hypercalcaemia, note: "Alkaline phosphatase usually normal (no osteoblast response)", source: "K&C 10e p.407, 409"}
+  - [osteoclast-activation, hypercalcaemia-of-malignancy]
+  - {from: plasma-cell-clonal-expansion, to: spinal-cord-compression, note: "Usually from a soft-tissue plasmacytoma; dexamethasone then radiotherapy", source: "K&C 10e p.407-408"}
+  - {from: paraprotein-production, to: light-chain-cast-nephropathy, note: "Mainly kappa chains; fractured casts with giant cells on biopsy", source: "K&C 10e p.407, 1369"}
+  - {from: light-chain-cast-nephropathy, to: acute-kidney-injury, note: "AKI in 20–30% at diagnosis, often irreversible; avoid NSAIDs and contrast", source: "K&C 10e p.1369-1370"}
+  - {from: hypercalcaemia-of-malignancy, to: acute-kidney-injury, note: "Rehydrate, bisphosphonate, steroids", source: "K&C 10e p.408-409"}
+  - {from: paraprotein-production, to: al-amyloidosis, source: "K&C 10e p.407, 1369; Mehlman HY Heme-Onc"}
+findings:
+  - {id: serum-paraprotein, freq: classic}
+  - {id: bence-jones-proteinuria, freq: classic}
+  - {id: marrow-clonal-plasma-cells, freq: classic}
+  - {id: lytic-bone-lesions, freq: classic}
+  - {id: bone-pain, freq: common}
+  - {id: normocytic-anaemia, freq: common, note: "Mehlman notes MCV is sometimes raised", source: "Mehlman HY Heme-Onc"}
+  - {id: fatigue, freq: common}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: rouleaux, freq: common}
+  - {id: hypercalcaemia, freq: common}
+  - {id: thrombocytopenia, freq: occasional}
+  - {id: mucocutaneous-bleeding, freq: rare}
+outcomes:
+  - {id: acute-kidney-injury, freq: common, source: "K&C 10e p.1369"}
+  - {id: recurrent-infection, freq: common, source: "K&C 10e p.407"}
+  - {id: hypercalcaemia-of-malignancy, freq: common}
+  - {id: pathological-fracture, freq: common, source: "K&C 10e p.407"}
+  - {id: spinal-cord-compression, freq: occasional, source: "K&C 10e p.408"}
+  - {id: al-amyloidosis, freq: occasional}

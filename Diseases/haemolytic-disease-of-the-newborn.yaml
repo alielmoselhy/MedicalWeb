@@ -1,0 +1,26 @@
+id: haemolytic-disease-of-the-newborn
+name: Haemolytic disease of the fetus and newborn
+group: haemolysis
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.353-354", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: rhd-sensitisation, to: maternal-igg-alloantibody, note: "Sensitised by fetal cells, mostly at delivery, so first pregnancies are rarely hit. Anti-D within 72 h of delivery and routinely at 28 weeks prevents it", source: "K&C 10e p.354"}
+  - {from: abo-incompatibility, to: maternal-igg-alloantibody, note: "The commonest type, but usually mild", source: "K&C 10e p.353-354; Mehlman HY Heme-Onc"}
+  - {from: maternal-igg-alloantibody, to: extravascular-haemolysis, note: "Only IgG crosses the placenta", source: "K&C 10e p.353"}
+  - [maternal-igg-alloantibody, positive-direct-antiglobulin-test]
+  - [extravascular-haemolysis, haemolytic-anaemia]
+  - [extravascular-haemolysis, reticulocytosis]
+  - [extravascular-haemolysis, unconjugated-hyperbilirubinaemia]
+  - {from: unconjugated-hyperbilirubinaemia, to: neonatal-jaundice, note: "Phototherapy; exchange transfusion for severe anaemia or fast-rising bilirubin", source: "K&C 10e p.354"}
+  - {from: unconjugated-hyperbilirubinaemia, to: kernicterus, note: "Bilirubin above about 250 µmol/L deposits in the basal ganglia: choreoathetosis, spasticity, deafness", source: "K&C 10e p.354"}
+  - {from: extravascular-haemolysis, to: hydrops-fetalis, note: "Fetal death from 18 weeks with oedema, hepatosplenomegaly and heart failure; intrauterine transfusion", source: "K&C 10e p.354"}
+findings:
+  - {id: positive-direct-antiglobulin-test, freq: classic}
+  - {id: haemolytic-anaemia, freq: classic}
+  - {id: neonatal-jaundice, freq: classic}
+  - {id: unconjugated-hyperbilirubinaemia, freq: classic}
+  - {id: reticulocytosis, freq: common}
+outcomes:
+  - {id: kernicterus, source: "K&C 10e p.354"}
+  - {id: hydrops-fetalis, source: "K&C 10e p.354"}

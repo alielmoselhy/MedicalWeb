@@ -1,0 +1,29 @@
+id: nephrotic-syndrome
+name: Nephrotic syndrome
+group: kidney
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1352-1354", "Mehlman HY Renal"]
+chain:
+  - {from: podocyte-injury, to: urinary-protein-loss, note: "Damaged filtration barrier; ACE inhibitors/ARBs cut the leak in every type", source: "K&C 10e p.1352-1354"}
+  - {from: urinary-protein-loss, to: nephrotic-range-proteinuria, note: "Over 3.5 g/day (uPCR over 350 mg/mmol); no blood in the urine, unlike nephritic", source: "K&C 10e p.1340, 1353; Mehlman HY Renal"}
+  - {from: urinary-protein-loss, to: hypoalbuminaemia, note: "Tubular catabolism of filtered albumin outpaces raised liver synthesis", source: "K&C 10e p.1353"}
+  - {from: urinary-protein-loss, to: salt-water-retention, note: "Low oncotic pressure; salt restriction and loop diuretic", source: "K&C 10e p.1353; Mehlman HY Renal"}
+  - [salt-water-retention, peripheral-oedema]
+  - [salt-water-retention, periorbital-oedema]
+  - {from: urinary-protein-loss, to: secondary-hyperlipidaemia, note: "Liver overproduces lipoproteins; LDL rises via PCSK9; treat with a statin", source: "K&C 10e p.1353-1354"}
+  - {from: urinary-protein-loss, to: hypercoagulability, note: "Antithrombin lost in urine; fibrinogen rises", source: "K&C 10e p.1354; Mehlman HY Renal"}
+  - {from: hypercoagulability, to: deep-vein-thrombosis, note: "Avoid bed rest; anticoagulate if high risk", source: "K&C 10e p.1354"}
+  - {from: hypercoagulability, to: renal-vein-thrombosis, note: "Needs permanent anticoagulation", source: "K&C 10e p.1354"}
+  - {from: urinary-protein-loss, to: antibody-deficiency, note: "Immunoglobulin lost in urine; sepsis is a major cause of death", source: "K&C 10e p.1354"}
+  - {from: antibody-deficiency, to: community-acquired-pneumonia, note: "Pneumococcal infection especially; vaccinate", source: "K&C 10e p.1354"}
+findings:
+  - {id: nephrotic-range-proteinuria, freq: classic}
+  - {id: hypoalbuminaemia, freq: classic}
+  - {id: peripheral-oedema, freq: classic, note: "Legs, sacrum; ascites if severe", source: "Mehlman HY Renal"}
+  - {id: periorbital-oedema, freq: common}
+outcomes:
+  - {id: secondary-hyperlipidaemia, source: "K&C 10e p.1353"}
+  - {id: deep-vein-thrombosis, source: "K&C 10e p.1354"}
+  - {id: renal-vein-thrombosis, source: "K&C 10e p.1354"}
+  - {id: community-acquired-pneumonia, source: "K&C 10e p.1354"}

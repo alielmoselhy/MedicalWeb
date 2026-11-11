@@ -1,0 +1,9 @@
+id: vaginal-carcinoma
+name: Vaginal carcinoma
+group: vulva-vagina-cervix
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.530", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: hpv-infection, to: vulvovaginal-squamous-transformation, note: "Squamous cell carcinoma, HPV 16 and 18; the usual type", only: hpv-infection, source: "K&C 10e p.530; Mehlman HY Repro-OBGYN"}
+  - {from: in-utero-des-exposure, to: vaginal-clear-cell-transformation, note: "Clear cell adenocarcinoma in women in their 30s–50s whose mothers took DES. Sarcoma botryoides is a rare childhood vaginal rhabdomyosarcoma", only: in-utero-des-exposure, source: "Mehlman HY Repro-OBGYN"}

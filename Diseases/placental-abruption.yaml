@@ -1,0 +1,16 @@
+id: placental-abruption
+name: Placental abruption
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.377, 1455", "Mehlman HY Repro-OBGYN", "Mehlman HY Psych"]
+chain:
+  - {from: cocaine-use, to: placental-separation, note: "Mehlman: the classic causes are cocaine and deceleration injury", source: "Mehlman HY Repro-OBGYN; Mehlman HY Psych"}
+  - {from: abdominal-trauma, to: placental-separation, source: "Mehlman HY Repro-OBGYN"}
+  - {from: pre-eclampsia, to: placental-separation, source: "K&C 10e p.1455"}
+  - {from: placental-separation, to: painful-third-trimester-bleeding, note: "May be intense cramping; anti-D if the mother is Rh-negative", source: "Mehlman HY Repro-OBGYN"}
+  - {from: placental-separation, to: disseminated-intravascular-coagulation, source: "K&C 10e p.377"}
+findings:
+  - {id: painful-third-trimester-bleeding, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: disseminated-intravascular-coagulation, freq: occasional, source: "K&C 10e p.377"}

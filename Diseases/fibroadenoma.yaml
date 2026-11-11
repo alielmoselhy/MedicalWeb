@@ -1,0 +1,10 @@
+id: fibroadenoma
+name: Fibroadenoma
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: fibroepithelial-proliferation, to: mobile-rubbery-breast-lump, note: "Commonest breast tumour; benign; women 20s–40s. Solid without calcification on ultrasound; no need to excise once confirmed", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: mobile-rubbery-breast-lump, freq: classic, source: "Mehlman HY Repro-OBGYN"}

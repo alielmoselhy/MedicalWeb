@@ -1,0 +1,10 @@
+id: intraductal-papilloma
+name: Intraductal papilloma
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: intraductal-papillary-growth, to: bloody-nipple-discharge, note: "One-sided bloody or rusty discharge is a papilloma until proven otherwise", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: bloody-nipple-discharge, freq: classic, source: "Mehlman HY Repro-OBGYN"}

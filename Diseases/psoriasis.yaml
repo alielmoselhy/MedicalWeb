@@ -1,0 +1,22 @@
+id: psoriasis
+name: Psoriasis
+group: inflammatory-skin
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.657", "K&C 10e p.664-666", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: psoriasis-susceptibility-genes, to: psoriatic-skin-inflammation, note: "2% of people; polygenic (73% twin concordance); peaks at 16–22 and 55–60", source: "K&C 10e p.664"}
+  - {from: group-a-streptococcus, to: psoriatic-skin-inflammation, note: "A strep throat triggers guttate psoriasis in children and young adults", source: "K&C 10e p.665"}
+  - {from: psoriasis-aggravating-drug, to: psoriatic-skin-inflammation, source: "K&C 10e p.664"}
+  - {from: psoriatic-skin-inflammation, to: silvery-scaly-plaques, note: "Knees, elbows, scalp, lower back; new plaques at injury sites (Köbner); scales bleed when lifted (Auspitz)", source: "K&C 10e p.665; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: psoriatic-skin-inflammation, to: guttate-plaques, source: "K&C 10e p.665", only: group-a-streptococcus}
+  - {from: psoriatic-skin-inflammation, to: nail-dystrophy, note: "Pitting, onycholysis, oil-drop discoloration, subungual hyperkeratosis", source: "K&C 10e p.665"}
+  - {from: psoriatic-skin-inflammation, to: psoriatic-arthritis, note: "Up to 40% with moderate to severe psoriasis; ask about joints", source: "K&C 10e p.665"}
+  - {from: psoriatic-skin-inflammation, to: erythroderma, note: "Erythrodermic and pustular forms with fever and circulatory upset; pustular flares after stopping potent steroids", source: "K&C 10e p.657, 665"}
+findings:
+  - {id: silvery-scaly-plaques, freq: classic, note: "Topical vitamin D analogue and steroid first; then phototherapy, methotrexate, ciclosporin, acitretin, biologics", source: "K&C 10e p.665-666"}
+  - {id: guttate-plaques, freq: occasional, only: group-a-streptococcus, source: "K&C 10e p.665"}
+  - {id: nail-dystrophy, freq: common, source: "K&C 10e p.665"}
+outcomes:
+  - {id: psoriatic-arthritis, freq: common, source: "K&C 10e p.665"}
+  - {id: erythroderma, freq: rare, source: "K&C 10e p.665"}

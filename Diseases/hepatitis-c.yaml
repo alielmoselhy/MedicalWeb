@@ -7,6 +7,7 @@ systems: [gastrointestinal]
 sources: ["K&C 10e p.1282-1283"]
 chain:
   - {from: parenteral-exposure, to: hepatitis-c-virus, note: "Blood and blood products; 40–60% of people who inject drugs. Sexual spread is uncommon", source: "K&C 10e p.1282"}
+  - {from: vertical-transmission, to: hepatitis-c-virus, note: "Possible but rare, about 5%", source: "K&C 10e p.1282"}
   - {from: hepatitis-c-virus, to: viral-hepatocyte-injury, note: "Acute infection is mostly silent; about 10% have a mild flu-like illness with jaundice", source: "K&C 10e p.1282"}
   - {from: hepatitis-c-virus, to: persistent-viral-replication, note: "85–90% of asymptomatic infections become chronic", source: "K&C 10e p.1282"}
   - [persistent-viral-replication, viral-hepatocyte-injury]

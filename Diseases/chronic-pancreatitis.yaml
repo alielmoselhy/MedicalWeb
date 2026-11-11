@@ -9,6 +9,7 @@ chain:
   - {from: prss1-mutation, to: premature-trypsin-activation, note: "Hereditary pancreatitis (autosomal dominant); SPINK1 and CTRC variants act similarly", source: "K&C 10e p.1330"}
   - {from: cftr-mutation, to: premature-trypsin-activation, note: "Less bicarbonate-rich flow to flush trypsin out", source: "K&C 10e p.1330"}
   - {from: acute-pancreatitis, to: pancreatic-fibrosis, note: "Recurrent or severe acute attacks", source: "K&C 10e p.1329"}
+  - {from: igg4-related-disease, to: pancreatic-fibrosis, note: "Type 1 autoimmune pancreatitis: middle-aged men, raised IgG4, steroid-responsive; outside the trypsin pathway", source: "K&C 10e p.1330"}
   - {from: smoking, to: pancreatic-fibrosis, note: "An independent risk factor", source: "K&C 10e p.1331"}
   - {from: premature-trypsin-activation, to: pancreatic-fibrosis, note: "Protein plugs calcify, block ducts and raise duct pressure", source: "K&C 10e p.1329-1330"}
   - {from: pancreatic-fibrosis, to: pain-radiating-to-back, note: "Epigastric, often into the back; episodic or unremitting; worse after alcohol or fatty meals", source: "K&C 10e p.1330"}

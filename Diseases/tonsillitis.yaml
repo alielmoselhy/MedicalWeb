@@ -1,0 +1,28 @@
+id: tonsillitis
+name: Tonsillitis
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["K&C 10e p.495", "K&C 10e p.544", "K&C 10e p.911", "K&C 10e p.1360", "Mehlman HY Pulmonary"]
+chain:
+  - {from: group-a-streptococcus, to: tonsillar-infection, note: "Beta-haemolytic strep is the commonest bacterial cause; penicillin V. Tonsillectomy for five attacks a year for two years", source: "K&C 10e p.911"}
+  - {from: epstein-barr-virus, to: tonsillar-infection, note: "Glandular fever: confluent white exudate, often palatal petechiae", source: "K&C 10e p.911"}
+  - [tonsillar-infection, sore-throat]
+  - [tonsillar-infection, fever]
+  - {from: tonsillar-infection, to: dysphagia, source: "K&C 10e p.911"}
+  - {from: tonsillar-infection, to: reactive-cervical-lymphadenopathy, note: "Neck nodes with large tonsils: tonsillitis or a glandular fever syndrome (EBV, HIV)", source: "K&C 10e p.495, 911"}
+  - {from: tonsillar-infection, to: abscess-formation, source: "K&C 10e p.911; Mehlman HY Pulmonary"}
+  - {from: abscess-formation, to: peritonsillar-abscess, note: "Pus outside the tonsil capsule near its upper pole; urgent ENT referral", source: "K&C 10e p.911"}
+  - {from: peritonsillar-abscess, to: trismus-uvular-deviation, note: "Trismus distinguishes it from bacterial tracheitis", source: "K&C 10e p.911; Mehlman HY Pulmonary"}
+  - {from: tonsillar-infection, to: rheumatic-fever, note: "In a small proportion after GAS pharyngitis", source: "K&C 10e p.544", only: group-a-streptococcus}
+  - {from: tonsillar-infection, to: post-streptococcal-glomerulonephritis, note: "1–3 weeks after a strep throat infection", source: "K&C 10e p.1360", only: group-a-streptococcus}
+findings:
+  - {id: sore-throat, freq: classic}
+  - {id: fever, freq: common, note: "Fever, dysphagia, neck nodes and marked malaise suggest a bacterial cause", source: "K&C 10e p.911"}
+  - {id: dysphagia, freq: common, source: "K&C 10e p.911"}
+  - {id: reactive-cervical-lymphadenopathy, freq: common, source: "K&C 10e p.911"}
+  - {id: trismus-uvular-deviation, freq: occasional, source: "K&C 10e p.911"}
+outcomes:
+  - {id: peritonsillar-abscess, source: "K&C 10e p.911; Mehlman HY Pulmonary"}
+  - {id: rheumatic-fever, freq: rare, only: group-a-streptococcus, source: "K&C 10e p.544"}
+  - {id: post-streptococcal-glomerulonephritis, freq: rare, only: group-a-streptococcus, source: "K&C 10e p.1360"}

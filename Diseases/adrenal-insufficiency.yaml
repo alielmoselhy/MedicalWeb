@@ -1,0 +1,45 @@
+id: adrenal-insufficiency
+name: "Adrenal insufficiency (Addison's disease)"
+group: endocrine-biochemistry
+status: draft
+systems: [endocrine, immunology]
+sources: ["K&C 10e p.599", "K&C 10e p.602-605", "Mehlman HY Endocrine"]
+chain:
+  - {from: autoimmune-predisposition, to: autoimmune-adrenalitis, note: "Over 90% of primary cases in the UK; women more often; with T1DM, thyroiditis and pernicious anaemia (polyglandular syndromes)", source: "K&C 10e p.603; Mehlman HY Endocrine"}
+  - {from: autoimmune-adrenalitis, to: adrenal-autoantibodies, note: "Present in about 90%", source: "K&C 10e p.603"}
+  - [autoimmune-adrenalitis, adrenal-cortex-destruction]
+  - {from: mycobacterium-tuberculosis, to: adrenal-cortex-destruction, note: "Under 10% in the UK, rising where HIV is common; calcified adrenals on imaging", source: "K&C 10e p.603"}
+  - {from: waterhouse-friderichsen-syndrome, to: adrenal-cortex-destruction, note: "Haemorrhagic necrosis in meningococcal sepsis", source: "K&C 10e p.603; Mehlman HY Endocrine"}
+  - {from: adrenal-metastases, to: adrenal-cortex-destruction, note: "Malignant infiltration; also amyloid, surgical removal", source: "K&C 10e p.603"}
+  - {from: adrenal-cortex-destruction, to: cortisol-deficiency, note: "Primary: glucocorticoid, mineralocorticoid and sex steroids all fall", source: "K&C 10e p.602"}
+  - [adrenal-cortex-destruction, mineralocorticoid-deficiency]
+  - {from: adrenal-cortex-destruction, to: raised-acth, note: "Loss of cortisol feedback raises CRH, POMC and ACTH", source: "K&C 10e p.599, 602; Mehlman HY Endocrine"}
+  - {from: raised-acth, to: acth-hyperpigmentation, note: "Over 90% of primary cases; absent in secondary", source: "K&C 10e p.603"}
+  - {from: exogenous-glucocorticoid, to: hpa-axis-suppression, note: "Commonest secondary cause; risk after 3 weeks or over 5 mg prednisolone daily; never stop suddenly", source: "K&C 10e p.604-605"}
+  - [hpa-axis-suppression, cortisol-deficiency]
+  - {from: hypopituitarism, to: cortisol-deficiency, note: "ACTH deficiency; aldosterone spared, so no hyperkalaemia or pigmentation", source: "K&C 10e p.602, 604"}
+  - {from: cortisol-deficiency, to: low-cortisol-failed-synacthen, note: "Random cortisol under 100 is suggestive; 9 am ACTH over 80 with low cortisol means primary", source: "K&C 10e p.603"}
+  - {from: cortisol-deficiency, to: fatigue, source: "Mehlman HY Endocrine"}
+  - [cortisol-deficiency, low-serum-sodium]
+  - {from: cortisol-deficiency, to: raised-eosinophils-ige, note: "Eosinophilia", source: "Mehlman HY Endocrine"}
+  - {from: cortisol-deficiency, to: low-blood-glucose, source: "K&C 10e p.603"}
+  - {from: cortisol-deficiency, to: hypoglycaemia, source: "K&C 10e p.603"}
+  - {from: cortisol-deficiency, to: adrenal-crisis, note: "Triggered by illness, injury or surgery; steroid patients can't mount a stress response", source: "K&C 10e p.603; Mehlman HY Endocrine"}
+  - {from: mineralocorticoid-deficiency, to: postural-hypotension, note: "80–90%, from salt loss and hypovolaemia, even with normal supine BP", source: "K&C 10e p.603"}
+  - {from: mineralocorticoid-deficiency, to: low-serum-sodium, source: "K&C 10e p.603"}
+  - {from: mineralocorticoid-deficiency, to: high-serum-potassium, note: "Primary only; high renin", source: "K&C 10e p.603"}
+  - {from: mineralocorticoid-deficiency, to: normal-anion-gap-acidosis, source: "Mehlman HY Endocrine"}
+findings:
+  - {id: acth-hyperpigmentation, freq: classic}
+  - {id: low-cortisol-failed-synacthen, freq: classic, note: "Confirms hypoadrenalism but not whether adrenal, pituitary or steroid suppression", source: "K&C 10e p.603"}
+  - {id: postural-hypotension, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: low-serum-sodium, freq: common, note: "Electrolytes can be normal", source: "K&C 10e p.603"}
+  - {id: high-serum-potassium, freq: common}
+  - {id: adrenal-autoantibodies, freq: common}
+  - {id: low-blood-glucose, freq: occasional}
+  - {id: normal-anion-gap-acidosis, freq: occasional}
+  - {id: raised-eosinophils-ige, freq: occasional}
+outcomes:
+  - {id: adrenal-crisis, note: "Hypotension, dehydration, low Na+, high K+, low glucose: IV hydrocortisone 100 mg and saline at once", source: "K&C 10e p.603-604"}
+  - {id: hypoglycaemia, freq: occasional}

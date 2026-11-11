@@ -1,0 +1,12 @@
+id: herpesvirus-infection
+name: Herpesvirus infection
+group: herpes-virus
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.513-515", "K&C 10e p.524"]
+chain:
+  - {from: herpesvirus-latency, to: herpesvirus-reactivation, note: "The hallmark of every herpesvirus: lifelong latency (HSV and VZV in nerve ganglia, EBV in memory B cells, CMV in monocytes)", source: "K&C 10e p.513-514; K&C 10e p.524"}
+  - {from: immunosuppression, to: herpesvirus-reactivation, note: "Chemotherapy, transplant drugs, AIDS: reactivation can disseminate", source: "K&C 10e p.515; K&C 10e p.524"}
+  - [herpesvirus-reactivation, opportunistic-infection]
+outcomes:
+  - opportunistic-infection

@@ -1,0 +1,19 @@
+id: wilms-tumour
+name: Wilms' tumour (nephroblastoma)
+group: cystic-neoplastic-renal
+status: draft
+systems: [kidney-urogenital]
+sources: ["K&C 10e p.1407", "Mehlman HY Renal", "Mehlman HY Pathology", "Mehlman HY USMLE-Genetics"]
+chain:
+  - {from: wt1-mutation, to: embryonal-renal-malignancy, note: "Often isolated; WAGR (aniridia), Denys–Drash (ambiguous genitalia), Beckwith–Wiedemann (macrosomia, hemihypertrophy, hypoglycaemia)", source: "Mehlman HY Renal; Mehlman HY USMLE-Genetics"}
+  - {from: embryonal-renal-malignancy, to: flank-mass, note: "Under 3 years; painless, does not cross the midline (a midline mass is neuroblastoma); sometimes bilateral", source: "K&C 10e p.1407; Mehlman HY Renal"}
+  - {from: embryonal-renal-malignancy, to: renal-mass-on-imaging, note: "Ultrasound first, then CT and MRI", source: "K&C 10e p.1407"}
+  - {from: embryonal-renal-malignancy, to: haematuria, note: "Rare", source: "K&C 10e p.1407"}
+  - {from: embryonal-renal-malignancy, to: metastatic-spread, note: "Nephrectomy, radiotherapy and chemotherapy: 90% 5-year survival, even with metastases", source: "K&C 10e p.1407"}
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: flank-mass, freq: classic, source: "K&C 10e p.1407"}
+  - {id: renal-mass-on-imaging, freq: classic}
+  - {id: haematuria, freq: rare}
+outcomes:
+  - {id: distant-metastases, freq: occasional, source: "K&C 10e p.1407"}

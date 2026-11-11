@@ -1,0 +1,24 @@
+id: hypernatraemia
+name: Hypernatraemia
+group: sodium-water
+status: draft
+systems: [biochemistry]
+sources: ["K&C 10e p.186-187", "K&C 10e p.642", "Mehlman HY Renal"]
+chain:
+  - {from: impaired-thirst-access, to: free-water-deficit, note: "Needed in almost every case: thirst normally prevents it. Thirst fails with age", source: "K&C 10e p.186"}
+  - {from: avp-deficiency, to: free-water-deficit, source: "K&C 10e p.186 (Box 9.16)"}
+  - {from: avp-resistance, to: free-water-deficit, source: "K&C 10e p.186 (Box 9.16)"}
+  - {from: hyperosmolar-hyperglycaemic-state, to: free-water-deficit, note: "Osmotic diuresis; also parenteral feeding, sweat and lung losses", source: "K&C 10e p.186 (Box 9.16)"}
+  - {from: free-water-deficit, to: high-serum-sodium, note: "Much rarer than hyponatraemia; plasma osmolality always high", source: "K&C 10e p.186"}
+  - {from: sodium-load, to: high-serum-sodium, note: "Iatrogenic, e.g. 8.4% bicarbonate after cardiac arrest", source: "K&C 10e p.186 (Box 9.16)"}
+  - [high-serum-sodium, polydipsia]
+  - {from: high-serum-sodium, to: confusion, note: "Non-specific: nausea, vomiting, fever, confusion; fits if severe", source: "K&C 10e p.186"}
+  - [high-serum-sodium, seizures]
+  - {from: high-serum-sodium, to: cerebral-oedema, note: "If corrected too fast: aim over 48 h. 0.9% saline first if > 170; otherwise 5% glucose or 0.45% saline", source: "K&C 10e p.187"}
+findings:
+  - {id: high-serum-sodium, freq: classic, note: "Measure urine and plasma osmolality together: urine more dilute than plasma means AVP deficiency or resistance", source: "K&C 10e p.186; Mehlman HY Renal"}
+  - {id: polydipsia, freq: common}
+  - {id: confusion, freq: common}
+  - {id: seizures, freq: rare}
+outcomes:
+  - {id: cerebral-oedema, freq: rare}

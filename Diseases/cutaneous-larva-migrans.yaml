@@ -1,0 +1,13 @@
+id: cutaneous-larva-migrans
+name: Cutaneous larva migrans
+group: skin-soft-tissue-infection
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.676", "K&C 10e p.577-578"]
+chain:
+  - {from: animal-hookworm, to: larval-skin-migration, note: "Larvae from animal faeces in warm sand or soil (beaches) enter the skin but can't complete their cycle in humans", source: "K&C 10e p.578, 676"}
+  - {from: larval-skin-migration, to: serpiginous-track, note: "No systemic upset; clinical diagnosis; topical tiabendazole or a single dose of albendazole", source: "K&C 10e p.578"}
+  - [larval-skin-migration, pruritus]
+findings:
+  - {id: serpiginous-track, freq: classic, source: "K&C 10e p.578"}
+  - {id: pruritus, freq: classic, source: "K&C 10e p.676"}

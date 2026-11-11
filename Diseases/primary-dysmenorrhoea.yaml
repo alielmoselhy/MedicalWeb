@@ -1,0 +1,14 @@
+id: primary-dysmenorrhoea
+name: Primary dysmenorrhoea
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: uterine-prostaglandin-excess, to: dysmenorrhoea, note: "Prostaglandins make the uterus contract; under 20 with a normal examination; NSAIDs first", source: "Mehlman HY Repro-OBGYN"}
+  - {from: uterine-prostaglandin-excess, to: headache, note: "Prostaglandins reaching the circulation", source: "Mehlman HY Repro-OBGYN"}
+  - {from: uterine-prostaglandin-excess, to: vomiting, source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: dysmenorrhoea, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: headache, freq: occasional, source: "Mehlman HY Repro-OBGYN"}
+  - {id: vomiting, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

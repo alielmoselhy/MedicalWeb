@@ -1,0 +1,27 @@
+id: sex-cord-stromal-tumour
+name: Sex cord-stromal tumour of the ovary
+parent: ovarian-tumour
+group: ovaries-tubes
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.131, 1475", "Mehlman HY Repro-OBGYN", "Mehlman HY Pulmonary"]
+chain:
+  - {from: sex-cord-stromal-growth, to: adnexal-mass, note: "Granulosa cell, Sertoli–Leydig cell, fibroma and other stromal tumours", source: "K&C 10e p.131, 1475; Mehlman HY Repro-OBGYN"}
+  - {from: sex-cord-stromal-growth, to: unopposed-oestrogen, note: "Granulosa cell tumour makes oestrogen", source: "Mehlman HY Repro-OBGYN"}
+  - [unopposed-oestrogen, endometrial-proliferation]
+  - {from: endometrial-proliferation, to: thickened-endometrium, source: "Mehlman HY Repro-OBGYN"}
+  - {from: endometrial-proliferation, to: abnormal-uterine-bleeding, note: "Ovarian mass plus vaginal bleeding and a thick endometrial stripe: granulosa cell tumour", source: "Mehlman HY Repro-OBGYN"}
+  - {from: endometrial-proliferation, to: endometrial-carcinoma, source: "Mehlman HY Repro-OBGYN"}
+  - {from: sex-cord-stromal-growth, to: androgen-excess, note: "Sertoli–Leydig cell tumour makes androgen", source: "Mehlman HY Repro-OBGYN"}
+  - [androgen-excess, hirsutism-virilisation]
+  - {from: sex-cord-stromal-growth, to: ascites, note: "Meigs syndrome: fibroma, ascites and right pleural effusion", source: "Mehlman HY Pulmonary"}
+  - {from: sex-cord-stromal-growth, to: pleural-effusion, source: "Mehlman HY Pulmonary"}
+findings:
+  - {id: adnexal-mass, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: abnormal-uterine-bleeding, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: thickened-endometrium, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: hirsutism-virilisation, freq: occasional, source: "Mehlman HY Repro-OBGYN"}
+  - {id: ascites, freq: rare, source: "Mehlman HY Pulmonary"}
+  - {id: pleural-effusion, freq: rare, source: "Mehlman HY Pulmonary"}
+outcomes:
+  - {id: endometrial-carcinoma, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

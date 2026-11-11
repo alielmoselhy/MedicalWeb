@@ -1,0 +1,29 @@
+id: hyperkalaemia
+name: Hyperkalaemia
+group: potassium
+status: draft
+systems: [biochemistry]
+sources: ["K&C 10e p.189-190", "K&C 10e p.201", "Mehlman HY Biochemistry", "Mehlman HY Cardio"]
+chain:
+  - {from: acute-kidney-injury, to: reduced-renal-potassium-excretion, note: "Renal impairment and drugs are the commonest causes", source: "K&C 10e p.189"}
+  - {from: chronic-kidney-disease, to: reduced-renal-potassium-excretion, source: "K&C 10e p.189 (Box 9.19)"}
+  - {from: potassium-retaining-drug, to: reduced-renal-potassium-excretion, note: "An ACE inhibitor with a potassium-sparing diuretic or NSAID is especially dangerous", source: "K&C 10e p.189"}
+  - {from: adrenal-insufficiency, to: reduced-renal-potassium-excretion, note: "No aldosterone", source: "K&C 10e p.189 (Box 9.19)"}
+  - {from: renal-tubular-acidosis, to: reduced-renal-potassium-excretion, note: "Type 4: hyporeninaemic hypoaldosteronism", source: "K&C 10e p.189"}
+  - {from: metabolic-acidosis, to: potassium-out-of-cells, note: "Potassium exchanged for hydrogen; total body K may be low (e.g. DKA)", source: "K&C 10e p.189 (Box 9.19); K&C 10e p.201"}
+  - {from: rhabdomyolysis, to: potassium-out-of-cells, note: "Also tumour lysis, digoxin poisoning, suxamethonium", source: "K&C 10e p.189 (Box 9.19)"}
+  - {from: tumour-lysis-syndrome, to: potassium-out-of-cells, source: "K&C 10e p.189 (Box 9.19)"}
+  - [reduced-renal-potassium-excretion, high-serum-potassium]
+  - [potassium-out-of-cells, high-serum-potassium]
+  - {from: high-serum-potassium, to: myocardial-membrane-instability, note: "Depolarised membranes, less excitable heart", source: "K&C 10e p.190"}
+  - {from: myocardial-membrane-instability, to: hyperkalaemia-ecg, note: "Above 7.0 mmol/L, or any ECG change, is an emergency", source: "K&C 10e p.190; Mehlman HY Cardio"}
+  - [myocardial-membrane-instability, bradycardia]
+  - {from: myocardial-membrane-instability, to: sudden-cardiac-death, note: "Asystolic arrest, often without warning", source: "K&C 10e p.190"}
+  - {from: high-serum-potassium, to: muscle-weakness, note: "Often the only symptom", source: "K&C 10e p.190"}
+findings:
+  - {id: high-serum-potassium, freq: classic, note: "Exclude a haemolysed sample. IV calcium gluconate protects the heart; insulin with glucose drives K in; then binders or dialysis", source: "K&C 10e p.189-190; Mehlman HY Cardio"}
+  - {id: hyperkalaemia-ecg, freq: common}
+  - {id: muscle-weakness, freq: common}
+  - {id: bradycardia, freq: occasional}
+outcomes:
+  - {id: sudden-cardiac-death, freq: rare}

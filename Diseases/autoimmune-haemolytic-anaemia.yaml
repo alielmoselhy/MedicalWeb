@@ -1,0 +1,31 @@
+id: autoimmune-haemolytic-anaemia
+name: Autoimmune haemolytic anaemia
+group: haemolysis
+status: draft
+systems: [haematology, immunology]
+sources: ["K&C 10e p.351-353", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: autoimmune-rheumatic-disease, to: warm-igg-autoantibody, note: "Half of AIHA is idiopathic; the rest is secondary, most often to lymphoproliferative disease, also SLE and carcinomas", source: "K&C 10e p.351-353; Mehlman HY Heme-Onc"}
+  - {from: haemolysis-inducing-drug, to: warm-igg-autoantibody, note: "Diagnose by timing, a positive DAT and recovery on stopping", source: "K&C 10e p.352-353"}
+  - {from: mycoplasma-pneumoniae, to: cold-igm-agglutinin, note: "Also EBV and CMV: transient; chronic cold disease in the elderly is a monoclonal IgM", source: "K&C 10e p.352-353"}
+  - {from: warm-igg-autoantibody, to: extravascular-haemolysis, note: "Prednisolone 1 mg/kg remits about 80%; then splenectomy or rituximab", source: "K&C 10e p.352-353"}
+  - {from: warm-igg-autoantibody, to: spherocytes, note: "From partial phagocytosis in the spleen", source: "K&C 10e p.352-353"}
+  - {from: warm-igg-autoantibody, to: positive-direct-antiglobulin-test, note: "IgG, IgG with complement, or complement alone", source: "K&C 10e p.353"}
+  - {from: cold-igm-agglutinin, to: positive-direct-antiglobulin-test, note: "Complement (C3d) only", source: "K&C 10e p.353"}
+  - {from: cold-igm-agglutinin, to: intravascular-haemolysis, note: "Agglutinate in the cold periphery, lyse by complement when rewarmed; keep warm", source: "K&C 10e p.353"}
+  - [cold-igm-agglutinin, acrocyanosis]
+  - [extravascular-haemolysis, splenomegaly]
+  - [extravascular-haemolysis, haemolytic-anaemia]
+  - [intravascular-haemolysis, haemolytic-anaemia]
+  - [extravascular-haemolysis, jaundice]
+  - [extravascular-haemolysis, anaemic-hypoxia]
+  - [intravascular-haemolysis, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+findings:
+  - {id: positive-direct-antiglobulin-test, freq: classic}
+  - {id: haemolytic-anaemia, freq: classic, note: "Often relapsing and remitting; middle-aged women most", source: "K&C 10e p.352"}
+  - {id: spherocytes, freq: common}
+  - {id: jaundice, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: splenomegaly, freq: occasional}
+  - {id: acrocyanosis, freq: occasional}

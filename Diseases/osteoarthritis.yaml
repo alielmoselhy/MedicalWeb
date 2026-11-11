@@ -1,0 +1,21 @@
+id: osteoarthritis
+name: Osteoarthritis
+group: arthritis
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.433-436", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: older-age, to: cartilage-degeneration, note: "Commonest arthritis: symptomatic in 1 in 5 women and 1 in 10 men over 60; nodal OA is familial, women after 55", source: "K&C 10e p.433"}
+  - {from: obesity, to: cartilage-degeneration, note: "Knee and hand; adipokines drive joint inflammation. Weight loss is the key measure: 5 kg halves knee OA risk", source: "K&C 10e p.433, 436; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: joint-injury-overuse, to: cartilage-degeneration, note: "Fracture into a joint, meniscal or cruciate tears; miners, farmers, repetitive sport", source: "K&C 10e p.434 (Box 18.21)"}
+  - {from: avascular-necrosis, to: cartilage-degeneration, note: "Osteonecrosis (e.g. steroids) gives early, secondary OA", source: "K&C 10e p.434-435"}
+  - {from: cartilage-degeneration, to: mechanical-joint-pain, note: "Gradual; worse with use, morning stiffness short-lived. ESR usually normal, RF and ANA negative", source: "K&C 10e p.434-436; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: cartilage-degeneration, to: subchondral-sclerosis-osteophytes, note: "Fibrillated, thinned cartilage exposes bone to stress: microfractures, cysts, sclerosis and marginal osteophytes", source: "K&C 10e p.433"}
+  - {from: subchondral-sclerosis-osteophytes, to: oa-xray-changes, note: "X-ray abnormal only when advanced; knee medial compartment commonest (varus)", source: "K&C 10e p.435-436"}
+  - {from: subchondral-sclerosis-osteophytes, to: heberden-bouchard-nodes, note: "Nodal OA: marginal osteophytes at DIPs (Heberden) and PIPs (Bouchard), often from the menopause; RA spares DIPs", source: "K&C 10e p.435; Mehlman HY Anatomy-MSK-Rheum"}
+  - [subchondral-sclerosis-osteophytes, crepitus-restricted-movement]
+findings:
+  - {id: mechanical-joint-pain, freq: classic}
+  - {id: oa-xray-changes, freq: classic}
+  - {id: crepitus-restricted-movement, freq: common, source: "K&C 10e p.435"}
+  - {id: heberden-bouchard-nodes, freq: common}

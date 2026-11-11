@@ -4,10 +4,11 @@ parent: brain-tumour
 group: nervous-tumours-icp
 status: draft
 systems: [nervous]
-sources: ["K&C 10e p.874-876", "Mehlman HY Neuro"]
+sources: ["K&C 10e p.874-876", "Mehlman HY Neuro", "Mehlman HY Repro-OBGYN"]
 chain:
   - {from: lung-cancer, to: brain-metastatic-seeding, note: "About half of all brain tumours. Bronchus first, then breast, stomach, prostate, thyroid, kidney", source: "K&C 10e p.874; Mehlman HY Neuro"}
   - [gastric-adenocarcinoma, brain-metastatic-seeding]
+  - {from: choriocarcinoma, to: brain-metastatic-seeding, note: "Can present like a stroke with a very high hCG", source: "Mehlman HY Repro-OBGYN"}
   - [extracranial-primary-cancer, brain-metastatic-seeding]
   - [brain-metastatic-seeding, intracranial-tumour-growth]
   - [intracranial-tumour-growth, multiple-grey-white-lesions]

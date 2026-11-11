@@ -1,0 +1,15 @@
+id: bullous-pemphigoid
+name: Bullous pemphigoid
+group: inflammatory-skin
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.686-687", "Mehlman HY Immuno", "Mehlman HY Pathology"]
+chain:
+  - {from: hemidesmosome-autoimmunity, to: subepidermal-autoantibody-blistering, note: "Commoner than pemphigus in Western Europe; usually over 60; a pregnancy variant exists", source: "K&C 10e p.686"}
+  - {from: subepidermal-autoantibody-blistering, to: tense-blisters, note: "Torso and limbs, especially lower abdomen and thighs; oral steroids then azathioprine or MMF; tetracyclines are safer", source: "K&C 10e p.687"}
+  - [subepidermal-autoantibody-blistering, pruritus]
+  - {from: subepidermal-autoantibody-blistering, to: linear-bmz-igg-c3, source: "K&C 10e p.687; Mehlman HY Pathology"}
+findings:
+  - {id: tense-blisters, freq: classic, note: "Mucosa usually spared, unlike pemphigus", source: "K&C 10e p.687"}
+  - {id: pruritus, freq: common, source: "K&C 10e p.687"}
+  - {id: linear-bmz-igg-c3, freq: classic, source: "K&C 10e p.687; Mehlman HY Immuno"}

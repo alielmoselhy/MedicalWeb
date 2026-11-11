@@ -4,13 +4,14 @@ parent: bacteraemia
 group: endovascular-infection
 status: draft
 systems: [cardiovascular]
-sources: ["K&C 10e p.495", "K&C 10e p.500 (Box 20.11)", "K&C 10e p.507", "K&C 10e p.511", "K&C 10e p.1255-1256"]
+sources: ["K&C 10e p.167", "K&C 10e p.495", "K&C 10e p.500 (Box 20.11)", "K&C 10e p.507", "K&C 10e p.511", "K&C 10e p.1255-1256"]
 chain:
   - {from: parenteral-nutrition, to: central-venous-catheter, note: "Parenteral nutrition: staphylococci track along the line, one of its commonest problems. Its other complications are central vein thrombosis, pneumothorax, hyperglycaemia and electrolyte upset, abnormal liver tests and metabolic bone disease", source: "K&C 10e p.1255-1256"}
   - {from: central-venous-catheter, to: catheter-entry, note: "Insert only when needed, check daily, remove early; chlorhexidine–alcohol skin prep", source: "K&C 10e p.507"}
   - {from: catheter-entry, to: catheter-biofilm, note: "Skin flora such as S. epidermidis lay down slime and form a biofilm that resists clearance", source: "K&C 10e p.511"}
   - [coagulase-negative-staphylococci, catheter-biofilm]
   - [s-aureus, catheter-biofilm]
+  - {from: mrsa, to: catheter-biofilm, note: "UK MRSA is mostly healthcare-associated and line-related (altered PBP2a); remove the line, IV vancomycin (nephrotoxic) or linezolid; about 5% disseminate", source: "K&C 10e p.167"}
   - {from: candida, to: catheter-biofilm, note: "Common in healthcare-associated line infection, with enterococci and Pseudomonas", source: "K&C 10e p.500"}
   - [enterococci, catheter-biofilm]
   - [gram-negative-bacilli, catheter-biofilm]

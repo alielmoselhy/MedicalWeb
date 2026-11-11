@@ -1,0 +1,14 @@
+id: placenta-praevia
+name: Placenta praevia
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: previous-uterine-surgery, to: low-placental-implantation, note: "Mehlman only. A disturbed lining makes abnormal implantation likelier", source: "Mehlman HY Repro-OBGYN"}
+  - {from: low-placental-implantation, to: painless-third-trimester-bleeding, note: "May move off the os before 36 weeks; otherwise Caesarean from 37 weeks", source: "Mehlman HY Repro-OBGYN"}
+  - {from: low-placental-implantation, to: hypovolaemic-shock, note: "Haemorrhage if labour goes ahead", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: painless-third-trimester-bleeding, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: hypovolaemic-shock, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

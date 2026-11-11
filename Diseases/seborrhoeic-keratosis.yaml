@@ -1,0 +1,11 @@
+id: seborrhoeic-keratosis
+name: Seborrhoeic keratosis (basal cell papilloma)
+group: skin-tumours
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.688"]
+chain:
+  - {from: older-age, to: benign-keratinocyte-proliferation, note: "Extremely common and harmless", source: "K&C 10e p.688"}
+  - {from: benign-keratinocyte-proliferation, to: stuck-on-warty-lesion, note: "Flesh-coloured to dark brown, rough, may contain keratin cysts; curettage or cryotherapy if wanted", source: "K&C 10e p.688"}
+findings:
+  - {id: stuck-on-warty-lesion, freq: classic, source: "K&C 10e p.688"}

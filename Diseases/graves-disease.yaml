@@ -1,0 +1,41 @@
+id: graves-disease
+name: Graves' disease
+parent: hyperthyroidism
+group: thyroid
+status: draft
+systems: [endocrine, immunology]
+sources: ["K&C 10e p.614-620", "Mehlman HY Endocrine"]
+chain:
+  - {from: hla-b8-dr3, to: receptor-autoantibody, note: "Commonest cause of hyperthyroidism; women 5:1, age 20–40; identical-twin concordance 50%", source: "K&C 10e p.614"}
+  - {from: molecular-mimicry, to: receptor-autoantibody, note: "Yersinia and E. coli carry TSH-binding sites; unproven", source: "K&C 10e p.614"}
+  - {from: receptor-autoantibody, to: tsh-receptor-antibodies, note: "Stimulating IgG that acts like TSH; 97–99% specific; high levels predict relapse", source: "K&C 10e p.614, 616"}
+  - {from: receptor-autoantibody, to: thyroid-hormone-excess, note: "Carbimazole 18 months (agranulocytosis 1 in 1000: check WCC with sore throat); about 50% relapse; then radioiodine or surgery", source: "K&C 10e p.616-617; Mehlman HY Endocrine"}
+  - [thyroid-hormone-excess, suppressed-tsh-raised-t4]
+  - [thyroid-hormone-excess, weight-loss]
+  - [thyroid-hormone-excess, tachycardia]
+  - [thyroid-hormone-excess, heat-intolerance]
+  - {from: receptor-autoantibody, to: diffuse-goitre, note: "Most have one; often with a bruit", source: "K&C 10e p.617, 620"}
+  - {from: receptor-autoantibody, to: diffuse-isotope-uptake, source: "K&C 10e p.615; Mehlman HY Endocrine"}
+  - {from: receptor-autoantibody, to: anti-tpo-antibodies, note: "80%, but also common in healthy people", source: "K&C 10e p.616"}
+  - {from: receptor-autoantibody, to: retro-orbital-inflammation, note: "Can occur when euthyroid or hypothyroid; within 2 years of the thyroid disease", source: "K&C 10e p.618"}
+  - {from: smoking, to: retro-orbital-inflammation, note: "More common and more severe in smokers; stop smoking", source: "K&C 10e p.618"}
+  - {from: retro-orbital-inflammation, to: graves-orbitopathy, note: "Worse after radioiodine (15% vs 3%); sight threatened in 5–10% by optic nerve compression; steroids, decompression", source: "K&C 10e p.618-619"}
+  - {from: receptor-autoantibody, to: pretibial-myxoedema, note: "Rare; Graves' only", source: "K&C 10e p.616; Mehlman HY Endocrine"}
+  - {from: receptor-autoantibody, to: neonatal-thyrotoxicosis, note: "The antibody crosses the placenta, even after the mother's gland is ablated; fetal heart rate over 160", source: "K&C 10e p.618"}
+  - {from: thyroid-hormone-excess, to: atrial-fibrillation, note: "Even in younger patients", source: "Mehlman HY Endocrine"}
+  - {from: receptor-autoantibody, to: hypothyroidism, note: "Many burn out; most become hypothyroid within 20 years of radioiodine", source: "K&C 10e p.614, 617"}
+findings:
+  - {id: tsh-receptor-antibodies, freq: classic, source: "K&C 10e p.616"}
+  - {id: suppressed-tsh-raised-t4, freq: classic}
+  - {id: diffuse-goitre, freq: common, source: "K&C 10e p.617"}
+  - {id: diffuse-isotope-uptake, freq: common}
+  - {id: anti-tpo-antibodies, freq: common}
+  - {id: graves-orbitopathy, freq: common, note: "Some eye symptoms in a high proportion; severe proptosis in a minority", source: "K&C 10e p.618"}
+  - {id: pretibial-myxoedema, freq: rare}
+  - {id: weight-loss, freq: common}
+  - {id: tachycardia, freq: common}
+  - {id: heat-intolerance, freq: common}
+outcomes:
+  - {id: atrial-fibrillation, freq: occasional}
+  - {id: neonatal-thyrotoxicosis, freq: rare, source: "K&C 10e p.618"}
+  - {id: hypothyroidism, freq: common, source: "K&C 10e p.614"}

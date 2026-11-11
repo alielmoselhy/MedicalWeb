@@ -4,7 +4,7 @@ parent: infective-gastroenteritis
 group: gastroenteritis
 status: draft
 systems: [gastrointestinal]
-sources: ["K&C 10e p.539-543, 546, 553, 889", "Mehlman HY Gastro"]
+sources: ["K&C 10e p.539-543, 546, 553, 889", "K&C 10e p.450", "Mehlman HY Gastro"]
 chain:
   - {from: contaminated-food, to: preformed-toxin-ingestion, note: "Toxin already made in the food, so symptoms start within hours", source: "K&C 10e p.539"}
   - {from: s-aureus, to: preformed-toxin-ingestion, note: "Heat-stable enterotoxin B (meat left out, creams, custards): violent vomiting 2–4 h after eating, then watery diarrhoea; over in 24 h", source: "K&C 10e p.542; Mehlman HY Gastro"}
@@ -28,6 +28,7 @@ chain:
   - [fluid-electrolyte-loss, dehydration-signs]
   - {from: vibrio-cholerae, to: rice-water-stool, only: vibrio-cholerae}
   - [mucosal-invasion, stool-pathogen-identified]
+  - {from: mucosal-invasion, to: reactive-arthritis, note: "1–2% after dysentery (Salmonella, Shigella, Yersinia), more with HLA-B27", source: "K&C 10e p.450"}
   - {from: ehec, to: haemolytic-uraemic-syndrome, only: ehec}
   - {from: campylobacter-jejuni, to: guillain-barre-syndrome, only: campylobacter-jejuni}
   - [fluid-electrolyte-loss, hypovolaemic-shock]
@@ -49,3 +50,4 @@ outcomes:
   - {id: hypovolaemic-shock, note: "With rehydration, mortality is under 1%", source: "K&C 10e p.553", only: vibrio-cholerae}
   - {id: type-2-respiratory-failure, note: "Respiratory muscle paralysis; mortality is high, but survivors can fully recover", source: "K&C 10e p.546", only: clostridium-botulinum}
   - {id: bacteraemia, freq: rare, note: "1–4%, more in the elderly and immunosuppressed", source: "K&C 10e p.540", only: salmonella}
+  - {id: reactive-arthritis, freq: rare, source: "K&C 10e p.450"}

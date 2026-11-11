@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import cytoscape from 'cytoscape';
-import { forceSimulation, forceManyBody, forceLink, forceCollide, forceX, forceY } from 'd3-force';
-import { stylesheet } from './Graph.jsx'; // also registers the bubblesets plugin
+import { forceSimulation, forceManyBody, forceLink, forceX, forceY } from 'd3-force';
+import { stylesheet, useFontsReady } from './Graph.jsx'; // also registers the bubblesets plugin
 import { crossingReducedX } from './layout.js';
 
 const v = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -25,6 +25,62 @@ const CLOUD_OUTLINE = {
   virtualEdges: true,
 };
 
+// Cytoscape hangs a wrapped label (max 110px wide, ~12px a line) under a 14px glyph. This is that whole footprint,
+// as a box around the glyph centre: half-width, and the top/bottom offsets.
+export function footprint(label) {
+  const w = Math.min(110, label.length * 5.2);
+  const lines = Math.max(1, Math.ceil(label.length * 5.2 / 110));
+  return { hw: w / 2 + 8, top: -11, bottom: 14 + lines * 12 };
+}
+
+// Box collision: circles let a wide label slide under its neighbour's. Overlapping boxes are pushed apart along
+// the axis that needs the smaller move, through velocity like d3's own forceCollide.
+export function forceBoxCollide(box, strength = 0.7) {
+  let nodes = [];
+  const force = () => {
+    for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+      const a = nodes[i], b = nodes[j], A = box(a.id), B = box(b.id);
+      const dx = b.x + b.vx - a.x - a.vx;
+      const dy = (b.y + b.vy + (B.top + B.bottom) / 2) - (a.y + a.vy + (A.top + A.bottom) / 2);
+      const ox = A.hw + B.hw - Math.abs(dx);
+      const oy = (A.bottom - A.top + B.bottom - B.top) / 2 - Math.abs(dy);
+      if (ox <= 0 || oy <= 0) continue;
+      if (ox < oy) { const m = ox / 2 * strength * (dx < 0 ? -1 : 1); a.vx -= m; b.vx += m; }
+      else { const m = oy / 2 * strength * (dy < 0 ? -1 : 1); a.vy -= m; b.vy += m; }
+    }
+  };
+  force.initialize = n => { nodes = n; };
+  return force;
+}
+
+// Edge clearance: a line passing through a bubble it doesn't belong to pushes that bubble off it sideways (and the
+// line's ends the other way), so arrows stop running through unrelated nodes and labels. Line ends are ignored.
+export function forceEdgeClearance(links, box, strength = 0.5) {
+  let nodes = [];
+  const force = alpha => {
+    for (const l of links) {
+      const s = l.source, t = l.target;
+      if (typeof s !== 'object' || typeof t !== 'object') continue;
+      const ex = t.x - s.x, ey = t.y - s.y, len2 = ex * ex + ey * ey;
+      if (len2 < 1) continue;
+      for (const n of nodes) {
+        if (n === s || n === t) continue;
+        const B = box(n.id), cy = n.y + (B.top + B.bottom) / 2;
+        const u = ((n.x - s.x) * ex + (cy - s.y) * ey) / len2;
+        if (u < 0.08 || u > 0.92) continue;
+        const px = s.x + u * ex - n.x, py = s.y + u * ey - cy, d = Math.hypot(px, py) || 0.01;
+        const need = Math.min(B.hw, (B.bottom - B.top) / 2) + 6;
+        if (d >= need) continue;
+        const k = (need - d) / d * strength * alpha;
+        n.vx -= px * k; n.vy -= py * k;
+        s.vx += px * k / 2; s.vy += py * k / 2; t.vx += px * k / 2; t.vy += py * k / 2;
+      }
+    }
+  };
+  force.initialize = n => { nodes = n; };
+  return force;
+}
+
 // A live bubble network: nodes are bodies in a physics simulation that collide, push apart and spring back.
 // clouds: [{ id, label, ids, colour }], one outline per disease, its title tappable (onTap(id)).
 // band: id → causal band (0 = root cause, then mechanisms, then one loose-node area), pulling bubbles into rough story order.
@@ -33,6 +89,7 @@ export default function Web({ elements, clouds, band, highlight, selected, onTap
   const st = useRef({}); // cy, sim, bb, bodies (id → simulation node), titles
   const props = useRef();
   props.current = { onTap, highlight };
+  const fontsReady = useFontsReady();
 
   // Light up the hovered node's neighbours, or else the highlight list. Titles never dim.
   const paint = hovered => {
@@ -48,8 +105,12 @@ export default function Web({ elements, clouds, band, highlight, selected, onTap
   };
 
   useEffect(() => {
+    if (!fontsReady) return;
     const cy = cytoscape({ container: ref.current, style: [...stylesheet(false),
       { selector: 'node.cloud-title', style: { events: 'yes', 'font-size': 15, 'text-valign': 'center' } },
+      // A bundle of causes: a cause, drawn bigger with a double border, meaning "click to open".
+      { selector: 'node.bundle', style: { width: 20, height: 20, 'border-width': 4, 'border-style': 'double', 'border-color': v('--glyph'),
+        'font-weight': 'bold' } },
       { selector: 'edge.flowing', style: { 'line-style': 'dashed', 'line-dash-pattern': [10, 8], width: 1.6 } }], minZoom: 0.15, maxZoom: 3 });
     const bb = cy.bubbleSets();
     const bodies = new Map();
@@ -98,9 +159,10 @@ export default function Web({ elements, clouds, band, highlight, selected, onTap
     cy.on('mouseover', 'edge[kind="causal"]', e => startFlow(e.target));
     cy.on('mouseout', 'edge[kind="causal"]', () => stopFlow());
     return () => { stopFlow(); sim.stop(); cy.destroy(); };
-  }, []);
+  }, [fontsReady]);
 
   useEffect(() => {
+    if (!fontsReady) return;
     const { cy, sim, bb, bodies } = st.current;
     st.current.stopFlow();
     st.current.clouds = clouds;
@@ -116,7 +178,11 @@ export default function Web({ elements, clouds, band, highlight, selected, onTap
     const want = new Set(all.map(el => el.data.id));
     cy.remove(cy.elements().filter(el => !want.has(el.id())));
     cy.add(all.filter(el => cy.getElementById(el.data.id).empty()));
-    elements.forEach(el => cy.getElementById(el.data.id).classes(el.classes ?? ''));
+    elements.forEach(el => {
+      const e = cy.getElementById(el.data.id);
+      e.classes(el.classes ?? '');
+      if (!el.data.source) e.data('label', el.data.label); // a cause group's "(+N)" changes as it opens and closes
+    });
     clouds.forEach(c => cy.$id(`title:${c.id}`).classes('cloud-label cloud-title').style('color', v(c.colour)));
 
     // Each disease has a home column; a bubble shared by several sits between their homes.
@@ -130,6 +196,8 @@ export default function Web({ elements, clouds, band, highlight, selected, onTap
     // Cytoscape draws labels outside the 14px glyph. Give long/wrapped labels a larger physical footprint so
     // the simulation does not consider two visually overlapping nodes to be clear of one another.
     const radius = Object.fromEntries(nodes.map(id => [id, 46 + Math.min(20, labels[id].length * 0.55)]));
+    const boxes = Object.fromEntries(nodes.map(id => [id, footprint(labels[id])]));
+    const box = id => boxes[id] ?? footprint('');
     const targetX = crossingReducedX(nodes, links, band, home, radius);
     const gone = [...bodies.keys()].filter(id => !want.has(id));
     gone.forEach(id => bodies.delete(id));
@@ -143,11 +211,13 @@ export default function Web({ elements, clouds, band, highlight, selected, onTap
       .force('charge', forceManyBody()
         .strength(b => -105 - Math.min(degree[b.id] ?? 0, 10) * 13)
         .distanceMin(28).distanceMax(360))
-      .force('collide', forceCollide(b => radius[b.id]).strength(0.9).iterations(3))
       // Springs pull each parent towards its children only to a comfortable radius; repulsion still wins at close range.
+      // Set before the clearance force: forceLink swaps each link's ids for the simulation nodes it reads.
       .force('link', forceLink(links).id(b => b.id)
         .distance(l => (SPRING[l.kind] ?? SPRING.causal).distance)
         .strength(l => (SPRING[l.kind] ?? SPRING.causal).strength))
+      .force('collide', forceBoxCollide(box))
+      .force('clearance', forceEdgeClearance(links, box))
       // Crossing-reduced row positions blend neighbour proximity with disease homes. They are soft anchors, so
       // shared hubs and dragged nodes can still find a locally comfortable arrangement.
       .force('x', forceX(b => targetX[b.id]).strength(0.1))
@@ -175,7 +245,7 @@ export default function Web({ elements, clouds, band, highlight, selected, onTap
     cy.nodes().removeClass('selected');
     if (selected) cy.$id(selected).addClass('selected');
     paint();
-  }, [elements, clouds, highlight, selected]);
+  }, [elements, clouds, highlight, selected, fontsReady]);
 
   return (
     <div className="graph-wrap">

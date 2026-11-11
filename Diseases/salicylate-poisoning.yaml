@@ -1,0 +1,29 @@
+id: salicylate-poisoning
+name: Salicylate (aspirin) poisoning
+group: acid-base
+status: draft
+systems: [biochemistry]
+sources: ["K&C 10e p.201", "K&C 10e p.271", "Mehlman HY Psych", "Mehlman HY Neuro"]
+chain:
+  - {from: salicylate-overdose, to: salicylate-toxicity, note: "Severity is dose-related; metabolic pathways saturate", source: "K&C 10e p.271"}
+  - {from: salicylate-toxicity, to: respiratory-alkalosis, note: "First: the respiratory centre is stimulated", source: "K&C 10e p.271; Mehlman HY Psych"}
+  - {from: salicylate-toxicity, to: high-anion-gap-acidosis, note: "Then lactate, pyruvate and ketones build up: a mixed picture is typical (the A in GOLD MARK)", source: "K&C 10e p.201; K&C 10e p.271"}
+  - [salicylate-toxicity, tachypnoea]
+  - {from: salicylate-toxicity, to: tinnitus, note: "The commonest symptom", source: "K&C 10e p.271; Mehlman HY Neuro"}
+  - [salicylate-toxicity, deafness]
+  - [salicylate-toxicity, vomiting]
+  - [salicylate-toxicity, epigastric-pain]
+  - {from: salicylate-toxicity, to: low-serum-potassium, note: "Renal bicarbonate and potassium loss; correct it with the fluids", source: "K&C 10e p.271"}
+  - {from: salicylate-toxicity, to: coma, note: "Severe: also fits and non-cardiogenic pulmonary oedema", source: "K&C 10e p.271"}
+  - [salicylate-toxicity, seizures]
+findings:
+  - {id: tinnitus, freq: classic}
+  - {id: respiratory-alkalosis, freq: classic}
+  - {id: high-anion-gap-acidosis, freq: classic, note: "Fluids and potassium; alkalinise the urine above 500 mg/L; haemodialysis above 700 mg/L or with coma and acidosis", source: "K&C 10e p.271; Mehlman HY Psych"}
+  - {id: tachypnoea, freq: common}
+  - {id: vomiting, freq: common}
+  - {id: deafness, freq: common}
+  - {id: epigastric-pain, freq: common}
+  - {id: low-serum-potassium, freq: common}
+  - {id: coma, freq: rare}
+  - {id: seizures, freq: rare}

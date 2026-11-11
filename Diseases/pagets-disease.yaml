@@ -1,0 +1,32 @@
+id: pagets-disease
+name: Paget's disease of bone
+group: metabolic-bone
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.482-483", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: sqstm1-mutation, to: osteoclast-activation, note: "Family history in 15%, SQSTM1 in up to 10%; a paramyxovirus cause is unproven. Osteoclasts are huge, up to 100 nuclei", source: "K&C 10e p.482"}
+  - {from: older-age, to: osteoclast-activation, note: "Over 40, doubling each decade; up to 10% on X-ray by 90. Commonest in northern England", source: "K&C 10e p.482"}
+  - {from: osteoclast-activation, to: disorganised-bone-remodelling, note: "Focal: pelvis, femur, lumbar spine, skull, tibia. Formation overtakes resorption, but woven bone is weak", source: "K&C 10e p.482"}
+  - {from: disorganised-bone-remodelling, to: raised-alp, note: "Isolated: calcium, phosphate and PTH normal. 60–80% have no symptoms; often found this way", source: "K&C 10e p.482-483; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: disorganised-bone-remodelling, to: pagetic-bone, note: "Lytic early (osteoporosis circumscripta in the skull), then sclerotic; bone scan can't tell it from sclerotic metastases", source: "K&C 10e p.483"}
+  - [disorganised-bone-remodelling, bone-pain]
+  - {from: disorganised-bone-remodelling, to: bowing-skull-enlargement, note: "Hat no longer fits", source: "K&C 10e p.483; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: disorganised-bone-remodelling, to: deafness, note: "Compression of cranial nerve VIII; II, V and VII can be hit too", source: "K&C 10e p.483; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: disorganised-bone-remodelling, to: osteoarthritis, note: "Affected bone beside a joint damages its cartilage", source: "K&C 10e p.483"}
+  - [disorganised-bone-remodelling, pathological-fracture]
+  - {from: disorganised-bone-remodelling, to: heart-failure, note: "High-output, from bone blood flow; rare now", source: "K&C 10e p.483; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: disorganised-bone-remodelling, to: hydrocephalus, note: "Aqueduct blocked; spinal stenosis also", source: "K&C 10e p.483"}
+  - {from: disorganised-bone-remodelling, to: osteosarcoma, note: "Under 1%; new pain or swelling in pagetic bone", source: "K&C 10e p.483"}
+findings:
+  - {id: raised-alp, freq: classic, note: "IV zoledronate is the mainstay; correct vitamin D first to avoid hypocalcaemia", source: "K&C 10e p.483"}
+  - {id: pagetic-bone, freq: classic}
+  - {id: bone-pain, freq: common}
+  - {id: bowing-skull-enlargement, freq: common}
+  - {id: deafness, freq: occasional}
+outcomes:
+  - osteoarthritis
+  - pathological-fracture
+  - {id: heart-failure, freq: rare}
+  - {id: hydrocephalus, freq: rare}
+  - {id: osteosarcoma, freq: rare}

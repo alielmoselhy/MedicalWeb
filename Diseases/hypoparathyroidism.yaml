@@ -1,0 +1,24 @@
+id: hypoparathyroidism
+name: Hypoparathyroidism
+group: calcium
+status: draft
+systems: [bone-joint, endocrine]
+sources: ["K&C 10e p.475-476", "K&C 10e p.646-647", "Mehlman HY Endocrine"]
+chain:
+  - {from: neck-surgery, to: pth-deficiency, note: "The common cause; usually transient, permanent after under 1% of thyroidectomies. Idiopathic (autoimmune) form is rare, with vitiligo and candidiasis", source: "K&C 10e p.646-647; Mehlman HY Endocrine"}
+  - {from: digeorge-syndrome, to: pth-deficiency, note: "With learning disability, cataracts and calcified basal ganglia", source: "K&C 10e p.647; Mehlman HY Endocrine"}
+  - {from: hypomagnesaemia, to: pth-deficiency, note: "Severe low magnesium blocks PTH release; corrected by giving magnesium (alcohol misuse)", source: "K&C 10e p.475, 647; Mehlman HY Endocrine"}
+  - [pth-deficiency, hypocalcaemia]
+  - {from: pth-deficiency, to: low-pth-low-calcium, note: "PTH is high in other causes of low calcium. In pseudohypoparathyroidism PTH is high but ignored (short 4th metacarpals)", source: "K&C 10e p.647; Mehlman HY Endocrine"}
+  - {from: pth-deficiency, to: hyperphosphataemia, note: "Without PTH the kidney keeps phosphate", source: "K&C 10e p.476; Mehlman HY Endocrine"}
+  - [hypocalcaemia, neuromuscular-irritability]
+  - {from: neuromuscular-irritability, to: tetany-perioral-paraesthesia, note: "Chvostek: tap the facial nerve, the face twitches. Trousseau: cuff above systolic for 3 min, the wrist spasms", source: "K&C 10e p.647; Mehlman HY Endocrine"}
+  - {from: neuromuscular-irritability, to: seizures, note: "Also laryngeal stridor, dystonia, psychosis", source: "K&C 10e p.647"}
+  - {from: hypocalcaemia, to: prolonged-qt, source: "K&C 10e p.647"}
+findings:
+  - {id: hypocalcaemia, freq: classic, note: "Alfacalcidol and calcium by mouth, monitoring for hypercalcaemia; IV calcium gluconate if severe", source: "K&C 10e p.647"}
+  - {id: low-pth-low-calcium, freq: classic}
+  - {id: tetany-perioral-paraesthesia, freq: classic}
+  - {id: hyperphosphataemia, freq: common}
+  - {id: prolonged-qt, freq: common}
+  - {id: seizures, freq: occasional}

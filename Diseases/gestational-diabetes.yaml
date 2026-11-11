@@ -1,0 +1,24 @@
+id: gestational-diabetes
+name: Gestational diabetes
+parent: diabetes-mellitus
+group: glucose
+status: draft
+systems: [endocrine, female-genital]
+sources: ["K&C 10e p.739-740"]
+chain:
+  - {from: pregnancy, to: insulin-resistance, note: "Second and third trimesters; insulin needs rise 50–100%", source: "K&C 10e p.739"}
+  - {from: obesity, to: insulin-resistance, note: "Same risk factors as type 2", source: "K&C 10e p.740"}
+  - {from: insulin-resistance, to: beta-cell-failure, note: "β cells can't meet the extra demand", source: "K&C 10e p.740"}
+  - [beta-cell-failure, insulin-deficiency]
+  - [insulin-deficiency, hyperglycaemia]
+  - {from: hyperglycaemia, to: abnormal-ogtt-pregnancy, note: "About 85% of diabetes in pregnancy; UK screens women with risk factors; lifestyle, then metformin or insulin", source: "K&C 10e p.739-740"}
+  - {from: hyperglycaemia, to: fetal-hyperinsulinaemia, note: "Glucose crosses the placenta, insulin does not", source: "K&C 10e p.739"}
+  - {from: fetal-hyperinsulinaemia, to: fetal-macrosomia-neonatal-hypoglycaemia, note: "Shoulder dystocia and birth injury; rebound neonatal hypoglycaemia when the cord is cut", source: "K&C 10e p.739"}
+  - {from: hyperglycaemia, to: pre-eclampsia, note: "Also preterm labour and hypertension; the harm is mostly driven by hyperglycaemia", source: "K&C 10e p.739"}
+  - {from: beta-cell-failure, to: type-2-diabetes, note: "50% within 10 years; annual HbA1c afterwards", source: "K&C 10e p.740"}
+findings:
+  - {id: abnormal-ogtt-pregnancy, freq: classic, source: "K&C 10e p.740"}
+outcomes:
+  - {id: fetal-macrosomia-neonatal-hypoglycaemia, freq: common, source: "K&C 10e p.739"}
+  - {id: pre-eclampsia, freq: occasional, source: "K&C 10e p.739"}
+  - {id: type-2-diabetes, freq: common, source: "K&C 10e p.740"}

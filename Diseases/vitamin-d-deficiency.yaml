@@ -1,0 +1,32 @@
+id: vitamin-d-deficiency
+name: Vitamin D deficiency
+group: metabolic-bone
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.474-476", "K&C 10e p.483-484", "K&C 10e p.644, 646", "Mehlman HY Endocrine", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: low-dietary-vitamin-d, to: vitamin-d-depletion, note: "The commonest cause worldwide; fortified bread, milk and cereals made it rare in rich countries", source: "K&C 10e p.483"}
+  - {from: low-vitamin-d-latitude, to: vitamin-d-depletion, note: "Skin needs sunlight to make it: temperate regions, skin kept covered", source: "K&C 10e p.474-475, 483; Mehlman HY Endocrine"}
+  - from: fat-malabsorbing-disease
+    to: vitamin-d-depletion
+    note: "Vitamin D is fat-soluble, so each loses it with fat; also gastrectomy and bariatric surgery"
+    source: "K&C 10e p.484; Mehlman HY Anatomy-MSK-Rheum"
+    members:
+      - coeliac-disease
+      - crohns-disease
+      - cystic-fibrosis
+      - primary-biliary-cholangitis
+  - {from: vitamin-d-depletion, to: low-25-oh-vitamin-d, note: "Deficient below 25 nmol/L, insufficient below 75; measure 25-OH D, not the short-lived 1,25 form", source: "K&C 10e p.476"}
+  - {from: vitamin-d-depletion, to: reduced-gut-calcium-absorption, source: "K&C 10e p.474; Mehlman HY Endocrine"}
+  - {from: reduced-gut-calcium-absorption, to: hypocalcaemia, note: "Usually mild, occasionally severe", source: "K&C 10e p.646"}
+  - {from: hypocalcaemia, to: secondary-hyperparathyroidism, note: "All four glands enlarge to compensate; PTH falls once corrected", source: "K&C 10e p.644; Mehlman HY Endocrine"}
+  - [secondary-hyperparathyroidism, raised-pth-alp]
+  - {from: secondary-hyperparathyroidism, to: hypophosphataemia, note: "PTH drives phosphate out in the urine", source: "K&C 10e p.483; Mehlman HY Endocrine"}
+  - {from: hypophosphataemia, to: osteomalacia, note: "The commonest route to osteomalacia", source: "K&C 10e p.483"}
+findings:
+  - {id: low-25-oh-vitamin-d, freq: classic, note: "Load with colecalciferol (50 000 units weekly for 6–8 weeks), then 800–1000 units daily, with calcium", source: "K&C 10e p.484"}
+  - {id: raised-pth-alp, freq: common}
+  - {id: hypophosphataemia, freq: common}
+  - {id: hypocalcaemia, freq: occasional}
+outcomes:
+  - osteomalacia

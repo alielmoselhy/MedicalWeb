@@ -1,0 +1,23 @@
+id: toxic-alcohol-poisoning
+name: Toxic alcohol poisoning (methanol and ethylene glycol)
+group: acid-base
+status: draft
+systems: [biochemistry]
+sources: ["K&C 10e p.201", "K&C 10e p.273-274"]
+chain:
+  - {from: ethylene-glycol-ingestion, to: toxic-alcohol-metabolism, note: "Looks like drunkenness without alcohol on the breath; metabolites, not the glycol, do the harm", source: "K&C 10e p.273"}
+  - {from: methanol-ingestion, to: toxic-alcohol-metabolism, note: "Inebriation, then coma after a latent period", source: "K&C 10e p.274"}
+  - {from: toxic-alcohol-metabolism, to: high-anion-gap-acidosis, note: "Glycolate or formate: the G and M in GOLD MARK. Mortality tracks the acidosis", source: "K&C 10e p.201; K&C 10e p.273-274"}
+  - [toxic-alcohol-metabolism, coma]
+  - [toxic-alcohol-metabolism, seizures]
+  - {from: toxic-alcohol-metabolism, to: acute-kidney-injury, only: ethylene-glycol-ingestion, note: "Calcium oxalate crystals in the kidney", source: "K&C 10e p.273"}
+  - {from: toxic-alcohol-metabolism, to: hypocalcaemia, only: ethylene-glycol-ingestion, note: "Calcium bound by oxalate", source: "K&C 10e p.273"}
+  - {from: toxic-alcohol-metabolism, to: blurred-vision, only: methanol-ingestion, note: "Formate damages the eye; fixed dilated pupils predict blindness. Add folinic acid", source: "K&C 10e p.274"}
+findings:
+  - {id: high-anion-gap-acidosis, freq: classic, note: "Fomepizole (or ethanol) blocks alcohol dehydrogenase; haemodialysis after a large ingestion", source: "K&C 10e p.273-274"}
+  - {id: coma, freq: common}
+  - {id: seizures, freq: occasional}
+  - {id: blurred-vision, freq: common, only: methanol-ingestion}
+  - {id: hypocalcaemia, freq: common, only: ethylene-glycol-ingestion}
+outcomes:
+  - {id: acute-kidney-injury, only: ethylene-glycol-ingestion}

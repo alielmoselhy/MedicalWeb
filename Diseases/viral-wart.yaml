@@ -1,0 +1,12 @@
+id: viral-wart
+name: Viral wart
+group: skin-tumours
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.672"]
+chain:
+  - {from: hpv-infection, to: cutaneous-wart-growth, note: "Children and adolescents; spread by direct contact, helped by trauma (and shaving)", source: "K&C 10e p.672"}
+  - {from: immunosuppression, to: cutaneous-wart-growth, note: "Stubborn in transplant recipients", source: "K&C 10e p.672"}
+  - {from: cutaneous-wart-growth, to: keratotic-papule-black-dots, note: "Black dots are thrombosed vessels; plantar verrucae are flattened; plane warts on face and hands. Most clear in months to years; salicylic acid or cryotherapy", source: "K&C 10e p.672"}
+findings:
+  - {id: keratotic-papule-black-dots, freq: classic, source: "K&C 10e p.672"}

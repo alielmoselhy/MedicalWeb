@@ -1,0 +1,18 @@
+id: hyper-igm-syndrome
+name: Hyper-IgM syndrome
+group: immunodeficiency
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.61", "Mehlman HY Immuno"]
+chain:
+  - {from: cd40l-mutation, to: failed-class-switching, note: "Usually X-linked CD40L on T cells; autosomal forms too. May be diagnosed late", source: "K&C 10e p.61; Mehlman HY Immuno"}
+  - [failed-class-switching, raised-igm-low-igg-iga]
+  - [failed-class-switching, antibody-deficiency]
+  - [cd40l-mutation, t-cell-deficiency]
+  - [antibody-deficiency, recurrent-sinopulmonary-infection]
+  - {from: t-cell-deficiency, to: opportunistic-infection, note: "Pneumocystis, Cryptosporidium (boil water), Candida, Cryptococcus, herpes. Immunoglobulin replacement; sometimes stem cell transplant", source: "K&C 10e p.61"}
+findings:
+  - {id: raised-igm-low-igg-iga, freq: classic}
+outcomes:
+  - {id: opportunistic-infection, freq: classic, source: "K&C 10e p.61"}
+  - {id: recurrent-sinopulmonary-infection, freq: common}

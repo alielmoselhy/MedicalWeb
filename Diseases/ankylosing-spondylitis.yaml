@@ -1,0 +1,33 @@
+id: ankylosing-spondylitis
+name: Ankylosing spondylitis
+parent: spondyloarthritis
+group: arthritis
+status: draft
+systems: [bone-joint]
+sources: ["K&C 10e p.448-450", "Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: hla-b27, to: enthesitis, note: "95% of white patients are B27-positive; men 3:1, onset late teens to early 30s. Axial SpA with X-ray sacroiliitis", source: "K&C 10e p.448"}
+  - {from: enthesitis, to: inflammatory-back-pain, note: "Onset under 45, insidious, eased by exercise not rest, night pain; often missed at first", source: "K&C 10e p.448 (Box 18.35); Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: enthesitis, to: sacroiliitis-bamboo-spine, note: "SI joints erode then sclerose; MRI shows it before X-ray. HLA-B27 testing supports but doesn't prove", source: "K&C 10e p.449"}
+  - [enthesitis, raised-inflammatory-markers]
+  - {from: enthesitis, to: asymmetrical-oligoarthritis, note: "A few large joints; hip disease causes fixed flexion", source: "K&C 10e p.448"}
+  - {from: enthesitis, to: syndesmophyte-ankylosis, note: "Erosions at ligament insertions heal with new bone; daily exercise and NSAIDs before syndesmophytes form, then anti-TNF", source: "K&C 10e p.448-450"}
+  - {from: syndesmophyte-ankylosis, to: sacroiliitis-bamboo-spine, note: "Bamboo spine: syndesmophytes, calcified ligaments and fused facet joints", source: "K&C 10e p.449; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: syndesmophyte-ankylosis, to: spinal-stiffness-kyphosis, note: "Lumbar lordosis kept on flexion is an early sign; untreated, fixed dorsal kyphosis", source: "K&C 10e p.448-449"}
+  - {from: syndesmophyte-ankylosis, to: restrictive-spirometry, note: "Fused costovertebral joints reduce chest expansion", source: "K&C 10e p.448-449; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: hla-b27, to: anterior-uveitis, note: "About 30%, sometimes the first feature; check with a slit lamp", source: "K&C 10e p.448; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: hla-b27, to: aortitis, note: "Occasional; conduction defects in about 5%", source: "K&C 10e p.448 (Box 18.36)"}
+  - {from: aortitis, to: aortic-regurgitation, note: "Up to 1% of established AS (Mehlman says up to 20%)", source: "K&C 10e p.448; Mehlman HY Anatomy-MSK-Rheum"}
+  - {from: enthesitis, to: anaemia-of-chronic-disease, source: "Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: inflammatory-back-pain, freq: classic}
+  - {id: sacroiliitis-bamboo-spine, freq: classic}
+  - {id: spinal-stiffness-kyphosis, freq: common}
+  - {id: raised-inflammatory-markers, freq: common, source: "K&C 10e p.449"}
+  - {id: anterior-uveitis, freq: common}
+  - {id: asymmetrical-oligoarthritis, freq: occasional}
+  - {id: restrictive-spirometry, freq: occasional}
+outcomes:
+  - {id: osteoporosis, freq: common, note: "Axial osteoporosis in about 25%, vertebral fracture in 10%", source: "K&C 10e p.449"}
+  - {id: anaemia-of-chronic-disease, freq: common}
+  - {id: aortic-regurgitation, freq: rare}

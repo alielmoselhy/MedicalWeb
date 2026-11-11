@@ -1,0 +1,13 @@
+id: warthin-tumour
+name: Warthin's tumour
+parent: salivary-gland-tumour
+group: head-neck-disease
+status: draft
+systems: [head-neck]
+sources: ["Mehlman HY Gastro"]
+chain:
+  - {from: benign-salivary-neoplasm, to: salivary-gland-swelling, note: "Benign", source: "Mehlman HY Gastro"}
+  - {from: benign-salivary-neoplasm, to: lymphoid-stroma-histology, note: "Exam clue: anything about the tumour resembling lymphatic tissue", source: "Mehlman HY Gastro"}
+findings:
+  - {id: salivary-gland-swelling, freq: classic}
+  - {id: lymphoid-stroma-histology, freq: classic, source: "Mehlman HY Gastro"}

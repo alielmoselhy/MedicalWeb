@@ -53,7 +53,7 @@ const Detail = ({ e }) => (e.freq || e.note || e.source || e.only) && (
 export default function Disease({ id }) {
   const d = byId[id];
   const mine = edges.filter(e => e.disease === id);
-  const chain = mine.filter(e => e.kind === 'causal');
+  const chain = mine.filter(e => e.kind === 'causal' || e.kind === 'bundled'); // bundled: a member of a declared cause group
   const elements = useMemo(() => toElements(new Set(chain.flatMap(e => [e.from, e.to])), chain), [id]);
   const shares = diseases.filter(o => o.id !== id)
     .map(o => ({ o, ...compare([id, o.id]) }))

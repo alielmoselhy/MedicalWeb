@@ -1,0 +1,17 @@
+id: pemphigus-vulgaris
+name: Pemphigus vulgaris
+group: inflammatory-skin
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.686", "Mehlman HY Immuno", "Mehlman HY Pathology"]
+chain:
+  - {from: desmoglein-autoimmunity, to: intraepidermal-autoantibody-blistering, note: "IgG4 against desmogleins 1 and 3; rare; adults; commoner in Ashkenazi Jews and South Asians", source: "K&C 10e p.686; Mehlman HY Immuno"}
+  - {from: intraepidermal-autoantibody-blistering, to: flaccid-blisters-erosions, note: "Potentially life-threatening; high-dose steroids, then azathioprine, methotrexate or rituximab", source: "K&C 10e p.686"}
+  - [intraepidermal-autoantibody-blistering, nikolsky-sign]
+  - {from: intraepidermal-autoantibody-blistering, to: oral-mucosal-erosions, note: "The presenting sign in up to half", source: "K&C 10e p.686"}
+  - {from: intraepidermal-autoantibody-blistering, to: intercellular-igg-deposition, note: "Antibody titre tracks disease activity; biopsy shows acantholysis above the basal layer", source: "K&C 10e p.686; Mehlman HY Pathology"}
+findings:
+  - {id: flaccid-blisters-erosions, freq: classic, source: "K&C 10e p.686"}
+  - {id: nikolsky-sign, freq: classic, source: "K&C 10e p.686"}
+  - {id: oral-mucosal-erosions, freq: common, source: "K&C 10e p.686"}
+  - {id: intercellular-igg-deposition, freq: classic, source: "K&C 10e p.686; Mehlman HY Immuno"}

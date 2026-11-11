@@ -1,0 +1,44 @@
+id: polycythaemia-vera
+name: Polycythaemia vera
+parent: myeloproliferative-neoplasm
+group: myeloproliferative
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.374, 394-395", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: jak2-calr-mpl-mutation, to: myeloproliferative-signalling, note: "JAK2 (mostly V617F) in over 95%; usually over 60", source: "K&C 10e p.394-395; Mehlman HY Heme-Onc"}
+  - {from: myeloproliferative-signalling, to: jak2-calr-mpl-detected, note: "Separates PV from secondary polycythaemia; marrow biopsy not always needed", source: "K&C 10e p.395"}
+  - {from: myeloproliferative-signalling, to: raised-haematocrit, note: "Over 0.52 (men) or 0.48 (women). Venesection to keep it below 0.45, aspirin, and hydroxycarbamide if needed", source: "K&C 10e p.395"}
+  - {from: myeloproliferative-signalling, to: thrombocytosis, note: "At least two lines are usually raised, red cells always", source: "Mehlman HY Heme-Onc"}
+  - [myeloproliferative-signalling, leucocytosis]
+  - {from: myeloproliferative-signalling, to: splenomegaly, note: "Palpable in 70%, which helps separate it from secondary polycythaemia; liver in 50%", source: "K&C 10e p.395"}
+  - [myeloproliferative-signalling, hepatomegaly]
+  - {from: myeloproliferative-signalling, to: aquagenic-pruritus, note: "Mehlman puts it down to basophils", source: "K&C 10e p.395; Mehlman HY Heme-Onc"}
+  - [myeloproliferative-signalling, plethora]
+  - {from: myeloproliferative-signalling, to: hyperviscosity, note: "The raised haemoglobin thickens the blood", source: "Mehlman HY Heme-Onc"}
+  - {from: hyperviscosity, to: headache, note: "With vertigo and visual disturbance; easily put down to age", source: "K&C 10e p.395; Mehlman HY Heme-Onc"}
+  - [hyperviscosity, blurred-vision]
+  - {from: myeloproliferative-signalling, to: hypercoagulability, note: "Thrombosis and haemorrhage are the major complications", source: "K&C 10e p.395"}
+  - {from: hypercoagulability, to: deep-vein-thrombosis, note: "Arterial or venous", source: "K&C 10e p.374, 395"}
+  - {from: myeloproliferative-signalling, to: high-cell-turnover, source: "K&C 10e p.395"}
+  - [high-cell-turnover, hyperuricaemia]
+  - [hyperuricaemia, gout]
+  - {from: myeloproliferative-signalling, to: myelofibrosis, note: "12–21%", source: "K&C 10e p.395"}
+  - {from: myeloproliferative-signalling, to: acute-myeloid-leukaemia, note: "About 5%", source: "K&C 10e p.395"}
+findings:
+  - {id: raised-haematocrit, freq: classic}
+  - {id: jak2-calr-mpl-detected, freq: classic}
+  - {id: splenomegaly, freq: common}
+  - {id: hepatomegaly, freq: common}
+  - {id: plethora, freq: common}
+  - {id: aquagenic-pruritus, freq: common}
+  - {id: headache, freq: common}
+  - {id: thrombocytosis, freq: common}
+  - {id: blurred-vision, freq: occasional}
+  - {id: leucocytosis, freq: occasional}
+  - {id: hyperuricaemia, freq: occasional}
+outcomes:
+  - {id: deep-vein-thrombosis, source: "K&C 10e p.395"}
+  - {id: myelofibrosis, freq: occasional, source: "K&C 10e p.395"}
+  - {id: acute-myeloid-leukaemia, freq: rare, source: "K&C 10e p.395"}
+  - {id: gout, freq: occasional, source: "K&C 10e p.395"}

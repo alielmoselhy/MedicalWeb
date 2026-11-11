@@ -1,0 +1,21 @@
+id: medullary-thyroid-carcinoma
+name: Medullary thyroid carcinoma
+parent: thyroid-cancer
+group: thyroid
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.621-622", "Mehlman HY Endocrine"]
+chain:
+  - {from: ret-mutation, to: c-cell-malignancy, note: "About 25% carry RET, often MEN2; family screening; prophylactic thyroidectomy by age 5 in carriers", source: "K&C 10e p.622; Mehlman HY Endocrine"}
+  - {from: c-cell-malignancy, to: thyroid-malignant-nodule, note: "About 5% of thyroid cancers; neuroendocrine", source: "K&C 10e p.621-622"}
+  - [thyroid-malignant-nodule, thyroid-nodule]
+  - {from: c-cell-malignancy, to: raised-calcitonin, source: "Mehlman HY Endocrine"}
+  - {from: c-cell-malignancy, to: congo-red-amyloid, note: "Amyloid stroma", source: "Mehlman HY Endocrine"}
+  - {from: c-cell-malignancy, to: metastatic-spread, note: "Local invasion and metastasis common but slow; total thyroidectomy and node clearance; no radioiodine uptake", source: "K&C 10e p.621-622"}
+  - [metastatic-spread, distant-metastases]
+findings:
+  - {id: thyroid-nodule, freq: classic}
+  - {id: raised-calcitonin, freq: classic}
+  - {id: congo-red-amyloid, freq: common}
+outcomes:
+  - {id: distant-metastases, freq: common, source: "K&C 10e p.622"}

@@ -1,0 +1,25 @@
+id: hashimotos-thyroiditis
+name: Hashimoto's thyroiditis (autoimmune hypothyroidism)
+parent: hypothyroidism
+group: thyroid
+status: draft
+systems: [endocrine, immunology]
+sources: ["K&C 10e p.611-612", "K&C 10e p.620", "Mehlman HY Endocrine"]
+chain:
+  - {from: female-sex, to: autoimmune-thyroid-destruction, note: "Autoimmune thyroiditis is the commonest cause of hypothyroidism; women 6:1, rising with age", source: "K&C 10e p.612"}
+  - {from: autoimmune-predisposition, to: autoimmune-thyroid-destruction, note: "Goes with pernicious anaemia, vitiligo, type 1 diabetes and other endocrine failure", source: "K&C 10e p.612; Mehlman HY Endocrine"}
+  - {from: autoimmune-thyroid-destruction, to: anti-tpo-antibodies, note: "Often very high titre (over 1000 IU/L); also anti-thyroglobulin", source: "K&C 10e p.612; Mehlman HY Endocrine"}
+  - {from: autoimmune-thyroid-destruction, to: diffuse-goitre, note: "Firm and rubbery: atrophy with regeneration. The atrophic form has no goitre", source: "K&C 10e p.612, 620"}
+  - {from: autoimmune-thyroid-destruction, to: thyroid-hormone-deficiency, note: "May be euthyroid at first, or briefly toxic ('Hashitoxicosis')", source: "K&C 10e p.612"}
+  - [thyroid-hormone-deficiency, raised-tsh-low-t4]
+  - [thyroid-hormone-deficiency, cold-intolerance-weight-gain]
+  - [thyroid-hormone-deficiency, fatigue]
+  - {from: autoimmune-thyroid-destruction, to: non-hodgkin-lymphoma, note: "Raised lymphoma risk", source: "Mehlman HY Endocrine"}
+findings:
+  - {id: anti-tpo-antibodies, freq: classic, source: "K&C 10e p.612"}
+  - {id: raised-tsh-low-t4, freq: common}
+  - {id: diffuse-goitre, freq: common}
+  - {id: cold-intolerance-weight-gain, freq: common}
+  - {id: fatigue, freq: common}
+outcomes:
+  - {id: non-hodgkin-lymphoma, freq: rare, source: "Mehlman HY Endocrine"}

@@ -1,0 +1,11 @@
+id: osteoid-osteoma
+name: Osteoid osteoma
+parent: primary-bone-tumour
+group: bone-tumours
+status: draft
+systems: [bone-joint]
+sources: ["Mehlman HY Anatomy-MSK-Rheum"]
+chain:
+  - {from: benign-bone-formation, to: nsaid-relieved-bone-pain, note: "The exam clue: a young adult's bone pain (e.g. proximal tibia) eased by ibuprofen", source: "Mehlman HY Anatomy-MSK-Rheum"}
+findings:
+  - {id: nsaid-relieved-bone-pain, freq: classic}

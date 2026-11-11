@@ -1,0 +1,15 @@
+id: melanocytic-naevus
+name: Melanocytic naevus (acquired, congenital and atypical)
+group: skin-tumours
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.688"]
+chain:
+  - {from: benign-melanocyte-proliferation, to: even-pigmented-mole, note: "The commonest benign tumour. Acquired moles appear from childhood to early adulthood: flat (junctional), then raised (compound), then pale (intradermal); congenital in 1–2% of newborns", source: "K&C 10e p.688"}
+  - {from: benign-melanocyte-proliferation, to: atypical-mole, note: "Atypical naevi may be dysplastic; many in familial atypical mole syndrome, which needs photographic follow-up", source: "K&C 10e p.688"}
+  - {from: benign-melanocyte-proliferation, to: malignant-melanoma, note: "A single mole very rarely transforms, but over 100 moles carry 7 times the risk; atypical and large congenital naevi (over 20 cm) also raise it", source: "K&C 10e p.688"}
+findings:
+  - {id: even-pigmented-mole, freq: classic, source: "K&C 10e p.688"}
+  - {id: atypical-mole, freq: occasional, source: "K&C 10e p.688"}
+outcomes:
+  - {id: malignant-melanoma, freq: rare, source: "K&C 10e p.688"}

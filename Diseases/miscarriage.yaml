@@ -1,0 +1,18 @@
+id: miscarriage
+name: Miscarriage
+group: uterus-pregnancy
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.1470-1471", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: fetal-chromosomal-abnormality, to: early-pregnancy-failure, note: "Most sporadic miscarriages; 15–20% of recognised pregnancies, about half of all conceptions", source: "K&C 10e p.1470; Mehlman HY Repro-OBGYN"}
+  - {from: advanced-maternal-age, to: fetal-chromosomal-abnormality, note: "Poorer oocytes; loss rises steeply after 35, about 75% by 45", source: "K&C 10e p.1470"}
+  - {from: antiphospholipid-syndrome, to: uteroplacental-insufficiency, note: "Microthrombi in the placental vessels; the most treatable cause of recurrent miscarriage (15–20%); aspirin plus heparin gives over 75% live births", source: "K&C 10e p.1471; Mehlman HY Repro-OBGYN"}
+  - {from: uteroplacental-insufficiency, to: early-pregnancy-failure, source: "Mehlman HY Repro-OBGYN"}
+  - {from: early-pregnancy-failure, to: first-trimester-bleeding, note: "Os closed: threatened (viable) or complete; os open: inevitable or incomplete. Speculum and transvaginal ultrasound", source: "K&C 10e p.1470-1471; Mehlman HY Repro-OBGYN"}
+  - {from: early-pregnancy-failure, to: lower-abdominal-pain, note: "Cramping; products distending the cervix cause severe pain", source: "K&C 10e p.1470-1471"}
+  - {from: early-pregnancy-failure, to: no-fetal-heartbeat-on-ultrasound, note: "Missed miscarriage: fetal pole over 7 mm with no heartbeat, or sac over 25 mm with no pole. Expectant 7–14 days, misoprostol, or surgical evacuation", source: "K&C 10e p.1470-1471"}
+findings:
+  - {id: first-trimester-bleeding, freq: classic, source: "K&C 10e p.1470"}
+  - {id: lower-abdominal-pain, freq: common, source: "K&C 10e p.1470"}
+  - {id: no-fetal-heartbeat-on-ultrasound, freq: occasional, source: "K&C 10e p.1470"}

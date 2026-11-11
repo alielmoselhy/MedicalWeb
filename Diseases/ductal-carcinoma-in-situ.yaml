@@ -1,0 +1,17 @@
+id: ductal-carcinoma-in-situ
+name: Ductal carcinoma in situ (DCIS)
+parent: breast-cancer
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.121", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: breast-epithelial-transformation, to: in-situ-ductal-carcinoma, note: "Has not breached the basement membrane, so no lymphatic spread yet; highly curable, usually by breast-conserving surgery", source: "K&C 10e p.121; Mehlman HY Repro-OBGYN"}
+  - {from: in-situ-ductal-carcinoma, to: microcalcifications, note: "Picked up on screening; microcalcifications mean DCIS until proven otherwise, so biopsy", source: "K&C 10e p.121; Mehlman HY Repro-OBGYN"}
+  - {from: in-situ-ductal-carcinoma, to: invasive-breast-carcinoma, note: "There may be a long gap before it invades", source: "K&C 10e p.121"}
+  - {from: in-situ-ductal-carcinoma, to: pagets-disease-of-the-nipple, note: "Paget's is often the skin extension of an underlying DCIS", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: microcalcifications, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: invasive-breast-carcinoma, source: "K&C 10e p.121"}
+  - {id: pagets-disease-of-the-nipple, source: "Mehlman HY Repro-OBGYN"}

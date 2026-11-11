@@ -1,0 +1,26 @@
+id: eczema
+name: Eczema (dermatitis)
+group: inflammatory-skin
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.660-664"]
+chain:
+  - {from: atopy, to: skin-barrier-dysfunction, note: "Atopic eczema: up to 20% of children, usually before 2; part of the atopic march; most clear before their teens", source: "K&C 10e p.660"}
+  - {from: filaggrin-mutation, to: skin-barrier-dysfunction, note: "Dry, leaky skin lets antigens and microbes in; also linked to other atopic disease and food allergy", source: "K&C 10e p.660"}
+  - {from: skin-irritant-exposure, to: skin-barrier-dysfunction, note: "Irritant contact eczema of the hands (catering, healthcare, hairdressing); worse in atopics", source: "K&C 10e p.661, 664"}
+  - {from: contact-allergen, to: contact-hypersensitivity, note: "Allergic contact eczema; patch testing finds the allergen", source: "K&C 10e p.663-664"}
+  - {from: skin-barrier-dysfunction, to: th2-skin-inflammation, note: "Th2 cells raise IL-4, IL-13, IgE and IL-31 (itch); dupilumab blocks IL-4/IL-13", source: "K&C 10e p.660, 662"}
+  - {from: th2-skin-inflammation, to: itchy-flexural-eczema, note: "Elbow and knee flexures, wrists, neck; cheeks in infants; emollients and topical steroids are the mainstay", source: "K&C 10e p.661"}
+  - [th2-skin-inflammation, pruritus]
+  - {from: th2-skin-inflammation, to: raised-eosinophils-ige, note: "About 80% have raised IgE and mild eosinophilia; diagnosis is clinical", source: "K&C 10e p.661"}
+  - {from: contact-hypersensitivity, to: contact-site-eczema, source: "K&C 10e p.664"}
+  - {from: skin-barrier-dysfunction, to: eczema-herpeticum, note: "Widespread HSV: punched-out crusted papules, fever; urgent systemic antivirals", source: "K&C 10e p.661"}
+  - {from: skin-barrier-dysfunction, to: impetigo, note: "Secondary staph or strep infection: pustules and golden-crusted papules, often in the flexures", source: "K&C 10e p.661"}
+findings:
+  - {id: itchy-flexural-eczema, freq: classic, source: "K&C 10e p.661"}
+  - {id: pruritus, freq: classic, note: "Usually severe; scratching causes excoriation and lichenification", source: "K&C 10e p.661"}
+  - {id: raised-eosinophils-ige, freq: common, source: "K&C 10e p.661"}
+  - {id: contact-site-eczema, freq: classic, only: contact-allergen, source: "K&C 10e p.664"}
+outcomes:
+  - {id: impetigo, freq: common, source: "K&C 10e p.661"}
+  - {id: eczema-herpeticum, freq: rare, source: "K&C 10e p.661"}

@@ -1,0 +1,14 @@
+id: kaposi-sarcoma
+name: Kaposi's sarcoma
+group: hiv
+status: draft
+systems: [infection, skin-breast]
+sources: ["K&C 10e p.531", "K&C 10e p.1448"]
+chain:
+  - {from: hhv-8, to: kaposi-spindle-cell-proliferation, note: "Behind every form of Kaposi's; spread by sex, needle-sharing and probably saliva (Africa)", source: "K&C 10e p.531"}
+  - {from: hiv, to: kaposi-spindle-cell-proliferation, note: "Epidemic (HIV) Kaposi's is more aggressive than endemic; much rarer since ART", source: "K&C 10e p.1448"}
+  - {from: kaposi-spindle-cell-proliferation, to: purple-skin-lesions, note: "Red cells trapped in the slit-like spaces give the purple colour; usually multiple", source: "K&C 10e p.1448"}
+  - {from: kaposi-spindle-cell-proliferation, to: lymphadenopathy, note: "Also lung and gut; visceral disease carries a worse outlook", source: "K&C 10e p.1448"}
+findings:
+  - {id: purple-skin-lesions, freq: classic, note: "ART makes lesions regress; radiotherapy for skin and nodes, chemotherapy if aggressive", source: "K&C 10e p.1448"}
+  - {id: lymphadenopathy, freq: occasional}

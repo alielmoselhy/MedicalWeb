@@ -1,0 +1,31 @@
+id: polycystic-ovary-syndrome
+name: Polycystic ovary syndrome (PCOS)
+group: ovaries-tubes
+status: draft
+systems: [female-genital, endocrine]
+sources: ["K&C 10e p.628, 630-632", "Mehlman HY Repro-OBGYN", "Mehlman HY Endocrine"]
+chain:
+  - {from: obesity, to: insulin-resistance, note: "Weight gain worsens PCOS; often a family history", source: "K&C 10e p.630; Mehlman HY Repro-OBGYN"}
+  - {from: insulin-resistance, to: androgen-excess, note: "Hyperinsulinaemia lowers SHBG, so free androgen rises", source: "K&C 10e p.630"}
+  - {from: insulin-resistance, to: abnormal-gnrh-pulsatility, source: "Mehlman HY Repro-OBGYN"}
+  - {from: abnormal-gnrh-pulsatility, to: androgen-excess, note: "LH drives theca cells to make androgen", source: "K&C 10e p.630; Mehlman HY Repro-OBGYN"}
+  - {from: abnormal-gnrh-pulsatility, to: raised-lh, source: "K&C 10e p.631; Mehlman HY Repro-OBGYN"}
+  - {from: abnormal-gnrh-pulsatility, to: anovulation, note: "Too little FSH to bring a follicle to ovulation", source: "Mehlman HY Repro-OBGYN"}
+  - {from: androgen-excess, to: hirsutism-virilisation, note: "Hirsutism from around menarche; male-pattern hair thinning too. Rotterdam: any 2 of hyperandrogenism, anovulation, polycystic ovaries", source: "K&C 10e p.631"}
+  - {from: androgen-excess, to: raised-testosterone, source: "K&C 10e p.631"}
+  - {from: anovulation, to: oligo-amenorrhoea, note: "Commonest cause of oligo- or amenorrhoea; bleeding may be erratic; COCP first line", source: "K&C 10e p.628, 631"}
+  - {from: anovulation, to: polycystic-ovaries-on-ultrasound, note: "Arrested follicles: many 3–5 mm cysts under a thick capsule", source: "K&C 10e p.630-631; Mehlman HY Repro-OBGYN"}
+  - {from: anovulation, to: female-infertility, note: "Clomifene or letrozole restores ovulation in about 75%; risk of ovarian hyperstimulation", source: "K&C 10e p.632; Mehlman HY Repro-OBGYN"}
+  - {from: anovulation, to: unopposed-oestrogen, note: "No corpus luteum, so no progesterone", source: "Mehlman HY Repro-OBGYN"}
+  - [unopposed-oestrogen, endometrial-hyperplasia]
+  - {from: insulin-resistance, to: type-2-diabetes, note: "Type 2 diabetes about 10 times commoner; acanthosis nigricans marks severe insulin resistance", source: "K&C 10e p.630-631"}
+findings:
+  - {id: oligo-amenorrhoea, freq: classic, source: "K&C 10e p.631"}
+  - {id: hirsutism-virilisation, freq: classic, source: "K&C 10e p.631"}
+  - {id: polycystic-ovaries-on-ultrasound, freq: classic, source: "K&C 10e p.631"}
+  - {id: raised-testosterone, freq: common, source: "K&C 10e p.631"}
+  - {id: raised-lh, freq: common, source: "K&C 10e p.631"}
+outcomes:
+  - {id: female-infertility, freq: common, source: "K&C 10e p.632"}
+  - {id: type-2-diabetes, freq: common, source: "K&C 10e p.630"}
+  - {id: endometrial-hyperplasia, freq: occasional, source: "Mehlman HY Repro-OBGYN"}

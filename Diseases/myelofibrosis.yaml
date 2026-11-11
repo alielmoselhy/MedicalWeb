@@ -1,0 +1,38 @@
+id: myelofibrosis
+name: Myelofibrosis
+parent: myeloproliferative-neoplasm
+group: myeloproliferative
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.396-397", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: jak2-calr-mpl-mutation, to: myeloproliferative-signalling, note: "JAK2 in about 60%, CALR in 25%; no BCR-ABL, unlike CML", source: "K&C 10e p.396; Mehlman HY Heme-Onc"}
+  - {from: polycythaemia-vera, to: marrow-fibrosis, note: "Myelofibrosis may be primary or come late in PV or ET", source: "K&C 10e p.396"}
+  - [essential-thrombocythaemia, marrow-fibrosis]
+  - [myeloproliferative-signalling, jak2-calr-mpl-detected]
+  - {from: myeloproliferative-signalling, to: marrow-fibrosis, note: "Abnormal megakaryocytes release fibroblast growth factors such as PDGF", source: "K&C 10e p.396; Mehlman HY Heme-Onc"}
+  - {from: marrow-fibrosis, to: dry-tap-marrow-fibrosis, note: "Aspiration often fails; a trephine shows the fibrosis", source: "K&C 10e p.396; Mehlman HY Heme-Onc"}
+  - {from: marrow-fibrosis, to: teardrop-cells, note: "Leucoerythroblastic film; white count can be over 100 like CML", source: "K&C 10e p.396; Mehlman HY Heme-Onc"}
+  - {from: marrow-fibrosis, to: extramedullary-haemopoiesis, note: "Mostly in the spleen, also other organs", source: "K&C 10e p.396"}
+  - {from: extramedullary-haemopoiesis, to: splenomegaly, note: "Often massive: upper abdominal fullness; pain on breathing suggests a splenic infarct. Ruxolitinib shrinks it", source: "K&C 10e p.396-397; Mehlman HY Heme-Onc"}
+  - [marrow-fibrosis, anaemic-hypoxia]
+  - [anaemic-hypoxia, fatigue]
+  - {from: marrow-fibrosis, to: reduced-platelet-production, note: "Platelets may be very high early, low later", source: "K&C 10e p.396"}
+  - [reduced-platelet-production, mucocutaneous-bleeding]
+  - [marrow-fibrosis, bone-pain]
+  - {from: myeloproliferative-signalling, to: weight-loss, note: "Insidious lethargy, weakness and weight loss", source: "K&C 10e p.396"}
+  - [myeloproliferative-signalling, high-cell-turnover]
+  - {from: high-cell-turnover, to: gout, source: "K&C 10e p.396"}
+  - {from: myeloproliferative-signalling, to: acute-myeloid-leukaemia, note: "10–20% die of transformation; otherwise marrow failure or infection. Median survival 4–5 years with risk factors", source: "K&C 10e p.397"}
+findings:
+  - {id: dry-tap-marrow-fibrosis, freq: classic}
+  - {id: teardrop-cells, freq: classic}
+  - {id: splenomegaly, freq: classic}
+  - {id: fatigue, freq: common}
+  - {id: weight-loss, freq: common}
+  - {id: jak2-calr-mpl-detected, freq: common}
+  - {id: bone-pain, freq: occasional}
+  - {id: mucocutaneous-bleeding, freq: occasional}
+outcomes:
+  - {id: acute-myeloid-leukaemia, freq: occasional, source: "K&C 10e p.397"}
+  - {id: gout, freq: occasional, source: "K&C 10e p.396"}

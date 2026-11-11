@@ -3,7 +3,7 @@ name: Guillain–Barré syndrome
 group: demyelination
 status: draft
 systems: [nervous, immunology]
-sources: ["K&C 10e p.889-890", "Mehlman HY Neuro"]
+sources: ["K&C 10e p.198", "K&C 10e p.889-890", "Mehlman HY Neuro"]
 chain:
   - {from: campylobacter-jejuni, to: molecular-mimicry, note: "Paralysis follows infection by 1–3 weeks; microbial epitopes trigger antibodies against peripheral nerve gangliosides", source: "K&C 10e p.889"}
   - [molecular-mimicry, peripheral-demyelination]
@@ -15,12 +15,14 @@ chain:
   - [peripheral-demyelination, respiratory-muscle-weakness]
   - [respiratory-muscle-weakness, type-2-respiratory-failure]
   - [peripheral-demyelination, autonomic-dysfunction]
+  - [type-2-respiratory-failure, respiratory-acidosis]
 findings:
   - {id: ascending-flaccid-weakness, freq: classic, note: "Weakness and sensory loss progress proximally over days to weeks", source: "K&C 10e p.889"}
   - {id: areflexia, freq: classic, note: "Loss of tendon reflexes is almost invariable", source: "K&C 10e p.889"}
   - {id: lmn-signs, freq: common}
   - {id: demyelinating-nerve-conduction, freq: classic, note: "Nerve studies show slowed conduction, prolonged distal latency or conduction block", source: "K&C 10e p.889"}
   - {id: albuminocytological-dissociation, freq: common, note: "CSF protein is raised while cell count and glucose remain normal", source: "K&C 10e p.889"}
+  - {id: respiratory-acidosis, freq: occasional, source: "K&C 10e p.198"}
 outcomes:
   - {id: type-2-respiratory-failure, freq: occasional, note: "Respiratory and facial weakness develops in about 20%; serial vital-capacity monitoring is essential", source: "K&C 10e p.889"}
   - autonomic-dysfunction

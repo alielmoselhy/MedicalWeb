@@ -1,0 +1,34 @@
+id: malaria
+name: Malaria
+group: returning-traveller
+status: draft
+systems: [infection, haematology]
+sources: ["K&C 10e p.563-566"]
+chain:
+  - {from: mosquito-exposure, to: red-cell-parasitisation, note: "Female Anopheles; also transfusion and shared needles. Incubation 10–21 days; falciparum rarely presents over 3 months after exposure, vivax up to a year", source: "K&C 10e p.563-565"}
+  - {from: plasmodium-falciparum, to: red-cell-parasitisation, note: "Causes almost all deaths; can kill within hours, especially children", source: "K&C 10e p.565"}
+  - {from: plasmodium-vivax-ovale, to: red-cell-parasitisation, note: "Milder; liver hypnozoites relapse for years, so add primaquine (check G6PD first)", source: "K&C 10e p.565-566"}
+  - {from: red-cell-parasitisation, to: fever, note: "Rigors and drenching sweats; regular tertian or quartan cycles only after some days", source: "K&C 10e p.564"}
+  - [red-cell-parasitisation, headache]
+  - {from: red-cell-parasitisation, to: vomiting, note: "May present as vomiting or diarrhoea", source: "K&C 10e p.564"}
+  - {from: red-cell-parasitisation, to: malaria-film-positive, note: "At least three films before excluding it; parasitaemia over 1% means severe disease", source: "K&C 10e p.565"}
+  - {from: red-cell-parasitisation, to: intravascular-haemolysis, note: "Infected and uninfected cells (blackwater fever); also poor red cell production, splenic pooling and folate loss", source: "K&C 10e p.564 (Box 20.56)"}
+  - [intravascular-haemolysis, haemolytic-anaemia]
+  - {from: red-cell-parasitisation, to: splenomegaly, note: "Tender hepatosplenomegaly with vivax; massive with repeated infection", source: "K&C 10e p.565"}
+  - {from: plasmodium-falciparum, to: cytoadherence, only: plasmodium-falciparum, note: "Schizont-laden cells block capillaries in brain, kidney, gut and liver", source: "K&C 10e p.564"}
+  - [cytoadherence, cerebral-malaria]
+  - {from: cytoadherence, to: acute-kidney-injury, only: plasmodium-falciparum, note: "Pre-renal failure and pulmonary oedema are common: watch fluids", source: "K&C 10e p.566"}
+  - {from: cytoadherence, to: pulmonary-oedema, only: plasmodium-falciparum, source: "K&C 10e p.566"}
+  - {from: plasmodium-falciparum, to: hypoglycaemia, only: plasmodium-falciparum, note: "From the infection and from quinine", source: "K&C 10e p.566"}
+findings:
+  - {id: fever, freq: classic, note: "Artemisinin combination therapy; IV artesunate for severe falciparum. Chloroquine still works for many non-falciparum cases", source: "K&C 10e p.565-566"}
+  - {id: malaria-film-positive, freq: classic}
+  - {id: headache, freq: common}
+  - {id: haemolytic-anaemia, freq: common}
+  - {id: splenomegaly, freq: common}
+  - {id: vomiting, freq: occasional}
+outcomes:
+  - {id: cerebral-malaria, only: plasmodium-falciparum, note: "Sickle trait and lack of the Duffy antigen protect; splenectomy and pregnancy raise risk", source: "K&C 10e p.564"}
+  - {id: acute-kidney-injury, only: plasmodium-falciparum}
+  - {id: pulmonary-oedema, only: plasmodium-falciparum}
+  - {id: hypoglycaemia, only: plasmodium-falciparum}

@@ -1,0 +1,28 @@
+id: microscopic-polyangiitis
+name: Microscopic polyangiitis (MPA)
+parent: vasculitis
+group: vasculitis
+status: draft
+systems: [immunology, kidney-urogenital]
+sources: ["K&C 10e p.466", "K&C 10e p.991", "K&C 10e p.1363", "Mehlman HY Cardio"]
+chain:
+  - {from: anca-small-vessel-vasculitis, to: p-anca, note: "Anti-MPO; like GPA but no granulomas on biopsy", source: "K&C 10e p.991; Mehlman HY Cardio"}
+  - {from: anca-small-vessel-vasculitis, to: pauci-immune-crescentic-gn, note: "Often presents as haematuria alone with pANCA", source: "K&C 10e p.1363; Mehlman HY Cardio"}
+  - [pauci-immune-crescentic-gn, haematuria]
+  - [pauci-immune-crescentic-gn, acute-kidney-injury]
+  - {from: anca-small-vessel-vasculitis, to: diffuse-alveolar-haemorrhage, source: "K&C 10e p.1363"}
+  - [diffuse-alveolar-haemorrhage, haemoptysis]
+  - {from: anca-small-vessel-vasculitis, to: palpable-purpura, source: "K&C 10e p.1363"}
+  - {from: anca-small-vessel-vasculitis, to: mononeuritis-multiplex, source: "Mehlman HY Cardio"}
+  - [anca-small-vessel-vasculitis, raised-inflammatory-markers]
+findings:
+  - {id: p-anca, freq: classic}
+  - {id: haematuria, freq: classic}
+  - {id: raised-inflammatory-markers, freq: common}
+  - {id: haemoptysis, freq: occasional}
+  - {id: palpable-purpura, freq: occasional}
+  - {id: mononeuritis-multiplex, freq: occasional}
+outcomes:
+  - {id: pauci-immune-crescentic-gn, freq: common, source: "K&C 10e p.1363"}
+  - {id: acute-kidney-injury, freq: common, source: "K&C 10e p.1363"}
+  - {id: diffuse-alveolar-haemorrhage, freq: occasional, source: "K&C 10e p.1363"}

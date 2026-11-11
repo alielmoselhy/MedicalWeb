@@ -1,0 +1,63 @@
+id: acute-myeloid-leukaemia
+name: Acute myeloid leukaemia (AML)
+group: aml-mds
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.381-391", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: myelodysplastic-syndrome, to: myeloid-clonal-expansion, note: "AML with myelodysplasia-related changes", source: "K&C 10e p.388"}
+  - {from: older-age, to: myeloid-clonal-expansion, note: "Median age 65; adverse cytogenetics commoner with age", source: "K&C 10e p.388, 390"}
+  - {from: cytotoxic-chemotherapy, to: myeloid-clonal-expansion, note: "Therapy-related: alkylating agents and topoisomerase II inhibitors", source: "K&C 10e p.387"}
+  - {from: ionising-radiation, to: myeloid-clonal-expansion, source: "K&C 10e p.387"}
+  - [benzene-exposure, myeloid-clonal-expansion]
+  - {from: trisomy-21, to: myeloid-clonal-expansion, note: "Leukaemia risk about 30× in Down syndrome", source: "K&C 10e p.387"}
+  - [fanconi-anaemia-gene, myeloid-clonal-expansion]
+  - {from: pml-rara-fusion, to: myeloid-clonal-expansion, note: "Acute promyelocytic leukaemia, 10–15% of AML. ATRA makes the cells mature; at least 70% cured", source: "K&C 10e p.391; Mehlman HY Heme-Onc"}
+  - {from: myeloid-clonal-expansion, to: marrow-infiltration, note: "Blasts multiply but don't mature. Under 60: about 80% remit and 40% are cured with daunorubicin and cytarabine", source: "K&C 10e p.382, 390"}
+  - {from: marrow-infiltration, to: marrow-blasts-over-20, note: "Lineage by immunophenotype (CD13, CD33); cytogenetics set the risk and the need for transplant", source: "K&C 10e p.388, 390"}
+  - {from: myeloid-clonal-expansion, to: blasts-on-film, note: "Auer rods are pathognomonic", source: "K&C 10e p.388; Mehlman HY Heme-Onc"}
+  - {from: myeloid-clonal-expansion, to: leucocytosis, note: "Usually raised; low if the blasts stay in the marrow", source: "K&C 10e p.388"}
+  - [marrow-infiltration, anaemic-hypoxia]
+  - [marrow-infiltration, neutrophil-deficit]
+  - [marrow-infiltration, reduced-platelet-production]
+  - [marrow-infiltration, bone-pain]
+  - [anaemic-hypoxia, fatigue]
+  - [anaemic-hypoxia, pallor]
+  - [anaemic-hypoxia, exertional-dyspnoea]
+  - [neutrophil-deficit, neutropenic-sepsis]
+  - [reduced-platelet-production, mucocutaneous-bleeding]
+  - [myeloid-clonal-expansion, leukaemic-tissue-infiltration]
+  - {from: leukaemic-tissue-infiltration, to: gum-hypertrophy, note: "Gum and violaceous skin deposits point to AML rather than ALL", source: "K&C 10e p.388"}
+  - [leukaemic-tissue-infiltration, hepatomegaly]
+  - [leukaemic-tissue-infiltration, splenomegaly]
+  - {from: myeloid-clonal-expansion, to: leucostasis, note: "Very high white counts", source: "K&C 10e p.388"}
+  - [leucostasis, confusion]
+  - [leucostasis, subhyaloid-haemorrhage]
+  - {from: pml-rara-fusion, to: pml-rara-detected, only: pml-rara-fusion}
+  - {from: pml-rara-fusion, to: disseminated-intravascular-coagulation, note: "Almost always a coagulopathy, a main cause of early death; ATRA reverses the bleeding quickly", source: "K&C 10e p.388, 391; Mehlman HY Heme-Onc"}
+  - [myeloid-clonal-expansion, high-cell-turnover]
+  - [high-cell-turnover, hyperuricaemia]
+  - [hyperuricaemia, gout]
+  - {from: high-cell-turnover, to: tumour-lysis-syndrome, source: "K&C 10e p.388"}
+  - [tumour-lysis-syndrome, acute-kidney-injury]
+findings:
+  - {id: marrow-blasts-over-20, freq: classic}
+  - {id: blasts-on-film, freq: classic}
+  - {id: fatigue, freq: common}
+  - {id: pallor, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: mucocutaneous-bleeding, freq: common}
+  - {id: leucocytosis, freq: common}
+  - {id: bone-pain, freq: occasional}
+  - {id: gum-hypertrophy, freq: occasional}
+  - {id: hepatomegaly, freq: occasional}
+  - {id: splenomegaly, freq: occasional}
+  - {id: confusion, freq: occasional}
+  - {id: subhyaloid-haemorrhage, freq: occasional}
+  - {id: hyperuricaemia, freq: occasional}
+  - {id: pml-rara-detected, freq: occasional, only: pml-rara-fusion}
+outcomes:
+  - {id: neutropenic-sepsis, note: "Untreated acute leukaemia is fatal within weeks to months", source: "K&C 10e p.389"}
+  - {id: disseminated-intravascular-coagulation, only: pml-rara-fusion}
+  - {id: tumour-lysis-syndrome, source: "K&C 10e p.388"}
+  - {id: gout, freq: rare, source: "K&C 10e p.388"}

@@ -1,0 +1,18 @@
+id: functional-ovarian-cyst
+name: Functional ovarian cyst
+group: ovaries-tubes
+status: draft
+systems: [female-genital]
+sources: ["K&C 10e p.1222", "Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: functional-cyst-formation, to: adnexal-mass, note: "Follicular cyst (follicle fails to rupture) or corpus luteum cyst, which may bleed; mobile and slightly tender", source: "Mehlman HY Repro-OBGYN"}
+  - {from: functional-cyst-formation, to: ovarian-cyst-rupture, note: "Often mid-cycle. Fluid in the pouch of Douglas, no mass; NSAIDs, no laparoscopy", source: "K&C 10e p.1222; Mehlman HY Repro-OBGYN"}
+  - {from: ovarian-cyst-rupture, to: unilateral-pelvic-pain, note: "Sudden, sharp", source: "Mehlman HY Repro-OBGYN"}
+  - {from: functional-cyst-formation, to: ovarian-torsion, note: "A cyst is the main risk. Pain intermittent, then constant; large tender mass; laparoscopic detorsion", source: "K&C 10e p.1222; Mehlman HY Repro-OBGYN"}
+  - [ovarian-torsion, unilateral-pelvic-pain]
+findings:
+  - {id: adnexal-mass, freq: common, source: "Mehlman HY Repro-OBGYN"}
+  - {id: unilateral-pelvic-pain, freq: common, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: ovarian-cyst-rupture, freq: occasional, source: "K&C 10e p.1222"}
+  - {id: ovarian-torsion, freq: occasional, source: "K&C 10e p.1222"}

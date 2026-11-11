@@ -1,0 +1,25 @@
+id: severe-combined-immunodeficiency
+name: Severe combined immunodeficiency (SCID)
+group: immunodeficiency
+status: draft
+systems: [immunology]
+sources: ["K&C 10e p.60-61", "Mehlman HY Immuno"]
+chain:
+  - {from: scid-gene-defect, to: t-cell-deficiency, note: "1–2 per 100 000 births; commonest is X-linked γ chain, shared by the IL-2, 4, 7, 9 and 15 receptors", source: "K&C 10e p.60-61"}
+  - [scid-gene-defect, antibody-deficiency]
+  - {from: t-cell-deficiency, to: low-t-cells, note: "T and NK cells missing; B cells may be normal in number", source: "K&C 10e p.61"}
+  - {from: t-cell-deficiency, to: opportunistic-infection, note: "Bacterial, viral, fungal and protozoal infections from early infancy. Stem cell transplant; gene therapy for ADA and γ chain", source: "K&C 10e p.60-61; Mehlman HY Immuno"}
+  - [antibody-deficiency, recurrent-sinopulmonary-infection]
+  - {from: t-cell-deficiency, to: mucocutaneous-candidiasis, note: "From about 3 months, with protracted diarrhoea, fever and failure to thrive", source: "K&C 10e p.60-61"}
+  - [t-cell-deficiency, diarrhoea]
+  - [t-cell-deficiency, failure-to-thrive]
+  - {from: t-cell-deficiency, to: transfusion-associated-gvhd, note: "Donor or maternal T cells engraft; irradiate blood products", source: "K&C 10e p.60"}
+findings:
+  - {id: low-t-cells, freq: classic}
+  - {id: mucocutaneous-candidiasis, freq: common}
+  - {id: diarrhoea, freq: common}
+  - {id: failure-to-thrive, freq: common}
+outcomes:
+  - {id: opportunistic-infection, freq: classic, source: "K&C 10e p.60"}
+  - {id: recurrent-sinopulmonary-infection, freq: common}
+  - {id: transfusion-associated-gvhd, freq: rare, source: "K&C 10e p.60"}

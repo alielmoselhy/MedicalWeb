@@ -1,0 +1,18 @@
+id: mastitis
+name: Mastitis
+group: breast
+status: draft
+systems: [skin-breast]
+sources: ["Mehlman HY Repro-OBGYN"]
+chain:
+  - {from: s-aureus, to: breast-tissue-infection, note: "The usual organism; oral anti-staphylococcal penicillin and keep breastfeeding from that side", source: "Mehlman HY Repro-OBGYN"}
+  - {from: breastfeeding, to: breast-tissue-infection, source: "Mehlman HY Repro-OBGYN"}
+  - {from: breast-tissue-infection, to: cracked-nipple, source: "Mehlman HY Repro-OBGYN"}
+  - {from: breast-tissue-infection, to: tender-red-breast-mass, note: "Non-fluctuant means mastitis; fluctuant means abscess", source: "Mehlman HY Repro-OBGYN"}
+  - [breast-tissue-infection, abscess-formation]
+  - {from: abscess-formation, to: breast-abscess, note: "Warm, red, tender fluctuant mass; drain it", source: "Mehlman HY Repro-OBGYN"}
+findings:
+  - {id: cracked-nipple, freq: classic, source: "Mehlman HY Repro-OBGYN"}
+  - {id: tender-red-breast-mass, freq: common, source: "Mehlman HY Repro-OBGYN"}
+outcomes:
+  - {id: breast-abscess, source: "Mehlman HY Repro-OBGYN"}

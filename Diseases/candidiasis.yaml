@@ -1,0 +1,21 @@
+id: candidiasis
+name: Candidiasis (oral, oesophageal and skin)
+group: hiv
+status: draft
+systems: [infection]
+sources: ["K&C 10e p.559", "K&C 10e p.674", "K&C 10e p.679", "K&C 10e p.1429", "K&C 10e p.1444"]
+chain:
+  - {from: candida, to: candida-mucosal-overgrowth, note: "Usually C. albicans, a normal mouth and gut commensal; the commonest human fungal infection", source: "K&C 10e p.559; K&C 10e p.1444"}
+  - {from: hiv, to: candida-mucosal-overgrowth, note: "Common as immunity falls; oesophageal candidiasis is AIDS-defining", source: "K&C 10e p.1429; K&C 10e p.1444"}
+  - {from: antibiotic-exposure, to: candida-mucosal-overgrowth, note: "Also the very young and elderly", source: "K&C 10e p.559"}
+  - [immunosuppression, candida-mucosal-overgrowth]
+  - {from: candida-mucosal-overgrowth, to: oral-thrush, note: "Creamy plaques; an erythematous form also occurs, with angular cheilitis", source: "K&C 10e p.1444"}
+  - {from: candida-mucosal-overgrowth, to: odynophagia, note: "Candidal oesophagitis", source: "K&C 10e p.559; K&C 10e p.1444"}
+  - {from: candida, to: candida-skin-overgrowth, note: "On occluded moist skin: nappy rash, flexural intertrigo, toe webs, nail folds in wet work", source: "K&C 10e p.674"}
+  - {from: obesity, to: candida-skin-overgrowth, note: "Intertrigo of the large flexures", source: "K&C 10e p.674"}
+  - {from: diabetes-mellitus, to: candida-skin-overgrowth, note: "Exclude diabetes", source: "K&C 10e p.674, 679"}
+  - {from: candida-skin-overgrowth, to: candidal-intertrigo, note: "Sore and irritated; topical azole or nystatin. Flexural psoriasis has a sharp edge and no satellites", source: "K&C 10e p.665, 674"}
+findings:
+  - {id: oral-thrush, freq: classic, note: "Fluconazole or itraconazole; C. krusei is azole-resistant. Effective ART is the best long-term treatment", source: "K&C 10e p.1444"}
+  - {id: odynophagia, freq: common}
+  - {id: candidal-intertrigo, freq: common, source: "K&C 10e p.674"}

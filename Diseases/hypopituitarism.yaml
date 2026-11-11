@@ -1,0 +1,49 @@
+id: hypopituitarism
+name: Hypopituitarism
+group: endocrine-biochemistry
+status: draft
+systems: [endocrine]
+sources: ["K&C 10e p.592-597", "K&C 10e p.604", "K&C 10e p.648", "Mehlman HY Endocrine"]
+chain:
+  - {from: pituitary-adenoma, to: anterior-pituitary-hormone-deficiency, note: "Tumours and their surgery or radiotherapy are the commonest causes; craniopharyngioma too", source: "K&C 10e p.595-596"}
+  - {from: ionising-radiation, to: anterior-pituitary-hormone-deficiency, note: "Pituitary or cranial radiotherapy: progressive loss over years", source: "K&C 10e p.594, 596"}
+  - {from: postpartum-haemorrhage, to: pituitary-infarction, note: "Sheehan's: the gland enlarges in pregnancy, so blood loss infarcts it; rare where obstetric care is good", source: "K&C 10e p.596; Mehlman HY Endocrine"}
+  - {from: pituitary-apoplexy, to: pituitary-infarction, note: "Can cause sudden life-threatening hypopituitarism", source: "K&C 10e p.596"}
+  - [pituitary-infarction, anterior-pituitary-hormone-deficiency]
+  - {from: sarcoidosis, to: anterior-pituitary-hormone-deficiency, note: "Infiltration, often with diabetes insipidus", source: "K&C 10e p.595-596"}
+  - {from: haemochromatosis, to: anterior-pituitary-hormone-deficiency, note: "Iron infiltration", source: "K&C 10e p.596"}
+  - {from: immune-checkpoint-inhibitor, to: anterior-pituitary-hormone-deficiency, note: "Hypophysitis; autoimmune (lymphocytic) hypophysitis is another inflammatory cause", source: "K&C 10e p.595-596"}
+  - {from: anterior-pituitary-hormone-deficiency, to: hypogonadism, note: "GH and gonadotrophins are lost first, TSH and ACTH last", source: "K&C 10e p.595"}
+  - {from: hypogonadism, to: oligo-amenorrhoea, source: "K&C 10e p.596"}
+  - {from: hypogonadism, to: reduced-libido-erectile-dysfunction, note: "Also loss of secondary sexual hair", source: "K&C 10e p.596"}
+  - {from: hypogonadism, to: osteoporosis, source: "K&C 10e p.596"}
+  - {from: anterior-pituitary-hormone-deficiency, to: growth-failure, note: "GH deficiency in children; GH is replaced to reach adult height", source: "K&C 10e p.596-597"}
+  - {from: anterior-pituitary-hormone-deficiency, to: thyroid-hormone-deficiency, note: "Secondary hypothyroidism, clinically like primary", source: "K&C 10e p.596"}
+  - {from: thyroid-hormone-deficiency, to: low-tsh-low-t4, source: "Mehlman HY Endocrine"}
+  - [thyroid-hormone-deficiency, cold-intolerance-weight-gain]
+  - {from: thyroid-hormone-deficiency, to: hypothyroidism, note: "Give hydrocortisone before levothyroxine or an adrenal crisis may follow", source: "K&C 10e p.597"}
+  - {from: anterior-pituitary-hormone-deficiency, to: cortisol-deficiency, note: "Secondary hypoadrenalism: aldosterone is spared because it runs on angiotensin", source: "K&C 10e p.596, 602"}
+  - {from: cortisol-deficiency, to: low-cortisol-failed-synacthen, note: "9 am cortisol under 100 predicts a poor stress response; Synacthen only 6 weeks after the insult; insulin tolerance test is the gold standard", source: "K&C 10e p.597"}
+  - {from: cortisol-deficiency, to: hypotension, note: "Mild", source: "K&C 10e p.596"}
+  - {from: cortisol-deficiency, to: low-serum-sodium, source: "K&C 10e p.596"}
+  - {from: cortisol-deficiency, to: adrenal-crisis, note: "Collapse during severe intercurrent illness", source: "K&C 10e p.596"}
+  - {from: cortisol-deficiency, to: hypoglycaemia, source: "K&C 10e p.648"}
+  - {from: anterior-pituitary-hormone-deficiency, to: fatigue, note: "Tiredness and poor quality of life from any lost axis", source: "K&C 10e p.596"}
+  - {from: anterior-pituitary-hormone-deficiency, to: pallor, note: "Long-standing panhypopituitarism: pale, hairless 'alabaster' skin", source: "K&C 10e p.596"}
+findings:
+  - {id: fatigue, freq: common}
+  - {id: low-cortisol-failed-synacthen, freq: common}
+  - {id: low-tsh-low-t4, freq: common}
+  - {id: oligo-amenorrhoea, freq: common, note: "A normal menstrual cycle means the gonadal axis is intact", source: "K&C 10e p.597"}
+  - {id: reduced-libido-erectile-dysfunction, freq: common}
+  - {id: cold-intolerance-weight-gain, freq: common}
+  - {id: low-serum-sodium, freq: occasional}
+  - {id: hypotension, freq: occasional}
+  - {id: growth-failure, freq: occasional}
+  - {id: pallor, freq: occasional}
+outcomes:
+  - {id: hypogonadism, freq: common}
+  - {id: hypothyroidism, freq: common}
+  - {id: adrenal-crisis}
+  - {id: hypoglycaemia, freq: occasional}
+  - {id: osteoporosis}

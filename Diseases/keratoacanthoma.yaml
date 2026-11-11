@@ -1,0 +1,11 @@
+id: keratoacanthoma
+name: Keratoacanthoma
+group: skin-tumours
+status: draft
+systems: [skin-breast]
+sources: ["K&C 10e p.689"]
+chain:
+  - {from: uv-light, to: self-regressing-epidermal-tumour, note: "Sun-exposed skin in later life", source: "K&C 10e p.689"}
+  - {from: self-regressing-epidermal-tumour, to: crater-keratin-nodule, note: "Reaches 2–3 cm, regresses in about 3 months leaving a pitted scar; usually excised as it is hard to tell from SCC", source: "K&C 10e p.689"}
+findings:
+  - {id: crater-keratin-nodule, freq: classic, source: "K&C 10e p.689"}

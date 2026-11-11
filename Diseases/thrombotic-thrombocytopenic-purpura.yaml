@@ -1,0 +1,34 @@
+id: thrombotic-thrombocytopenic-purpura
+name: Thrombotic thrombocytopenic purpura (TTP)
+group: platelets-tma
+status: draft
+systems: [haematology]
+sources: ["K&C 10e p.374, 1369", "Mehlman HY Heme-Onc"]
+chain:
+  - {from: anti-adamts13-antibody, to: adamts13-deficiency, note: "Most sporadic cases. Plasma exchange replaces the enzyme and removes the antibody; add steroids and rituximab", source: "K&C 10e p.374; Mehlman HY Heme-Onc"}
+  - {from: adamts13-gene-mutation, to: adamts13-deficiency, note: "Congenital TTP", source: "K&C 10e p.374; Mehlman HY Heme-Onc"}
+  - {from: ttp-trigger, to: adamts13-deficiency, note: "Secondary TTP: ADAMTS13 activity and antibodies vary; stop any culprit drug", source: "K&C 10e p.374"}
+  - {from: adamts13-deficiency, to: microvascular-thrombosis, note: "Platelets stick to ultra-large VWF multimers: microthrombi in many organs", source: "K&C 10e p.374; Mehlman HY Heme-Onc"}
+  - {from: adamts13-deficiency, to: low-adamts13-activity, note: "Normal in HUS and other microangiopathies; measure it whenever TTP or HUS is suspected", source: "K&C 10e p.1369"}
+  - [microvascular-thrombosis, platelet-consumption]
+  - {from: platelet-consumption, to: thrombocytopenia, note: "Profound; platelet transfusion is contraindicated", source: "K&C 10e p.374"}
+  - {from: platelet-consumption, to: non-blanching-rash, note: "Florid purpura", source: "K&C 10e p.374"}
+  - [microvascular-thrombosis, microangiopathic-haemolysis]
+  - [microangiopathic-haemolysis, schistocytes]
+  - [microangiopathic-haemolysis, haemolytic-anaemia]
+  - {from: microangiopathic-haemolysis, to: raised-ldh, note: "Markedly raised; tracked with the platelet count. Clotting screen usually normal, unlike DIC", source: "K&C 10e p.374"}
+  - {from: microvascular-thrombosis, to: fluctuating-consciousness, note: "Fluctuating cerebral dysfunction; mostly young adults", source: "K&C 10e p.374, 1369"}
+  - {from: microvascular-thrombosis, to: focal-neurological-deficit, note: "Can look like a stroke", source: "Mehlman HY Heme-Onc"}
+  - {from: microvascular-thrombosis, to: acute-kidney-injury, note: "Untreated mortality up to 90%, now about 10%", source: "K&C 10e p.374"}
+findings:
+  - {id: thrombocytopenia, freq: classic}
+  - {id: schistocytes, freq: classic}
+  - {id: haemolytic-anaemia, freq: classic}
+  - {id: low-adamts13-activity, freq: classic}
+  - {id: raised-ldh, freq: common}
+  - {id: non-blanching-rash, freq: common}
+  - {id: fluctuating-consciousness, freq: common}
+  - {id: fever, freq: common, note: "Part of the classic pentad with low platelets, MAHA, kidney injury and neurological signs", source: "K&C 10e p.374; Mehlman HY Heme-Onc"}
+  - {id: focal-neurological-deficit, freq: occasional}
+outcomes:
+  - {id: acute-kidney-injury, freq: common, source: "K&C 10e p.374"}
