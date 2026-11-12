@@ -1,0 +1,32 @@
+id: atrial-flutter
+name: Atrial flutter
+parent: arrhythmia
+group: arrhythmia-conduction
+status: draft
+systems: [cardiovascular]
+syllabi: [usmle]
+sources: ["FA 2026 p.310", "StatPearls NBK540985"]
+chain:
+  - {from: older-age, to: cavotricuspid-macro-re-entry, note: "Fibrosis with age and atrial dilatation slows conduction in the cavotricuspid isthmus, the slow limb of the circuit", source: "StatPearls NBK540985"}
+  - [heart-failure, atrial-dilatation]
+  - [atrial-dilatation, cavotricuspid-macro-re-entry]
+  - {from: cavotricuspid-macro-re-entry, to: sawtooth-flutter-waves, note: "Atria ~300/min, often 2:1 block so ventricles ~150", source: "FA 2026 p.310; StatPearls NBK540985"}
+  - [cavotricuspid-macro-re-entry, rapid-ventricular-rate]
+  - [rapid-ventricular-rate, palpitations]
+  - [rapid-ventricular-rate, reduced-cardiac-output]
+  - [reduced-cardiac-output, lightheadedness]
+  - [reduced-cardiac-output, exertional-dyspnoea]
+  - {from: reduced-cardiac-output, to: hypotension, note: "With fast ventricular rates", source: "StatPearls NBK540985"}
+  - {from: cavotricuspid-macro-re-entry, to: intracardiac-thrombus, note: "Managed like AF, including anticoagulation; ablation of the isthmus is curative", source: "FA 2026 p.310"}
+  - [intracardiac-thrombus, thromboembolism]
+  - {from: thromboembolism, to: ischaemic-stroke, note: "Commonest complication", source: "StatPearls NBK540985"}
+  - {from: rapid-ventricular-rate, to: tachycardia-induced-cardiomyopathy, source: "StatPearls NBK540985"}
+findings:
+  - {id: sawtooth-flutter-waves, freq: classic}
+  - {id: palpitations, freq: common}
+  - {id: lightheadedness, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: hypotension, freq: occasional}
+outcomes:
+  - {id: ischaemic-stroke, source: "StatPearls NBK540985"}
+  - {id: tachycardia-induced-cardiomyopathy, source: "StatPearls NBK540985"}

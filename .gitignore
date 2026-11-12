@@ -1,5 +1,5 @@
 node_modules/
 dist/
-Resources/
+Resources
 app/src/graph.json
 .DS_Store

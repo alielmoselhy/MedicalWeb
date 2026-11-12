@@ -34,7 +34,6 @@
 - {id: cardiomyopathy-gene-variant, name: Cardiomyopathy gene variant, type: cause, category: genetic}
 -   {id: sarcomere-gene-mutation, name: Sarcomere protein gene mutation, type: cause, category: genetic, parent: cardiomyopathy-gene-variant}
 -   {id: titin-truncation, name: Titin (TTN) truncating variant, type: cause, category: genetic, parent: cardiomyopathy-gene-variant}
-- {id: ion-channel-mutation, name: "Cardiac ion-channel mutation (long QT, Brugada)", type: cause, category: genetic}
 - {id: bmpr2-mutation, name: BMPR2 mutation, type: cause, category: genetic}
 - {id: heritable-thrombophilia, name: "Heritable thrombophilia (factor V Leiden, protein C/S, antithrombin)", type: cause, category: genetic, parent: coagulation-gene-defect}
 - {id: polygenic-bp-predisposition, name: Polygenic blood-pressure predisposition, type: cause, category: genetic}
@@ -370,8 +369,6 @@
 -   {id: obstructive-shock, name: Obstructive shock, type: outcome, parent: shock}
 - {id: arrhythmia, name: Arrhythmia, type: outcome}
 -   {id: ventricular-arrhythmia, name: Ventricular tachycardia / fibrillation, type: outcome, parent: arrhythmia}
--   {id: atrial-fibrillation, name: Atrial fibrillation, type: outcome, parent: arrhythmia}
--   {id: av-block, name: Atrioventricular block, type: outcome, parent: arrhythmia}
 -   {id: bradyarrhythmia, name: Bradyarrhythmia, type: outcome, parent: arrhythmia}
 - {id: mechanical-complication-of-mi, name: Mechanical complication of MI, type: outcome}
 -   {id: free-wall-rupture, name: LV free-wall rupture, type: outcome, parent: mechanical-complication-of-mi}
@@ -2595,3 +2592,52 @@
 - {id: omental-caking, name: Omental caking and peritoneal deposits on imaging, type: finding, category: imaging}
 # --- Outcomes ---
 - {id: malignant-bowel-obstruction, name: Malignant bowel obstruction, type: outcome}
+
+
+# ================= CARDIOVASCULAR, USMLE LAYER =================
+# Agreed in docs/concepts-cardio-usmle.md; added batch by batch.
+# --- Arrhythmias and conduction (batches 1–2) ---
+# --- Causes ---
+- {id: accessory-av-pathway, name: Congenital accessory AV pathway (bundle of Kent), type: cause, category: genetic}
+- {id: dual-av-nodal-pathways, name: Dual (fast and slow) AV nodal pathways, type: cause, category: genetic}
+- {id: svt-trigger, name: "Stimulants, caffeine, alcohol, beta-agonists or stress", type: cause, category: risk-factor}
+- {id: long-qt-gene-mutation, name: "Long QT gene mutation (potassium channel, KCNQ1 commonest)", type: cause, category: genetic}
+- {id: scn5a-mutation, name: Cardiac sodium-channel (SCN5A) loss-of-function mutation, type: cause, category: genetic}
+- {id: qt-prolonging-drug, name: "QT-prolonging drug (class IA/III antiarrhythmics, macrolides, fluoroquinolones, antipsychotics, TCAs, ondansetron, azoles, methadone)", type: cause, category: drug}
+- {id: av-nodal-blocking-drug, name: "AV nodal blocking drug (beta-blocker, non-dihydropyridine CCB, digoxin)", type: cause, category: drug}
+# --- Mechanisms ---
+-   {id: atrial-remodelling, name: "Atrial stretch, fibrosis and electrical remodelling", type: mechanism, parent: arrhythmogenic-substrate}
+- {id: abnormal-cardiac-conduction, name: Abnormal cardiac impulse formation or conduction, type: mechanism}
+-   {id: re-entry-circuit, name: Re-entry circuit, type: mechanism, parent: abnormal-cardiac-conduction}
+-     {id: av-nodal-re-entry, name: Re-entry through dual AV nodal pathways, type: mechanism, parent: re-entry-circuit}
+-     {id: accessory-pathway-conduction, name: Conduction down an accessory pathway that bypasses the AV node, type: mechanism, parent: re-entry-circuit}
+-     {id: cavotricuspid-macro-re-entry, name: Macro-re-entry around the tricuspid annulus (cavotricuspid isthmus), type: mechanism, parent: re-entry-circuit}
+-     {id: scar-re-entry, name: Re-entry through surviving fibres in ventricular scar, type: mechanism, parent: re-entry-circuit}
+-   {id: multifocal-atrial-ectopy, name: Several competing atrial ectopic foci, type: mechanism, parent: abnormal-cardiac-conduction}
+-   {id: disorganised-atrial-activation, name: "Chaotic atrial activation, no effective atrial contraction", type: mechanism, parent: abnormal-cardiac-conduction}
+-   {id: disorganised-ventricular-activation, name: "Chaotic ventricular activation, no effective contraction", type: mechanism, parent: abnormal-cardiac-conduction}
+-   {id: delayed-repolarisation, name: Delayed ventricular repolarisation (reduced outward potassium current), type: mechanism, parent: abnormal-cardiac-conduction}
+-   {id: early-afterdepolarisation, name: Early afterdepolarisations firing during prolonged repolarisation (R on T), type: mechanism, parent: abnormal-cardiac-conduction}
+-   {id: sodium-current-loss, name: Reduced sodium current in right ventricular outflow epicardium, type: mechanism, parent: abnormal-cardiac-conduction}
+-   {id: conduction-system-degeneration, name: Fibrosis and degeneration of the conduction system, type: mechanism, parent: abnormal-cardiac-conduction}
+-   {id: sa-node-dysfunction, name: Failure of SA node impulse formation or exit, type: mechanism, parent: abnormal-cardiac-conduction}
+-   {id: av-conduction-failure, name: Delayed or failed AV conduction, type: mechanism, parent: abnormal-cardiac-conduction}
+- {id: rapid-ventricular-rate, name: Rapid ventricular rate, type: mechanism}
+# --- Findings ---
+- {id: fibrillation-no-p-waves, name: "No discrete P waves, irregularly irregular RR", type: finding, category: ECG}
+- {id: sawtooth-flutter-waves, name: Sawtooth flutter waves, type: finding, category: ECG}
+- {id: multiple-p-wave-morphologies, name: "Three or more P-wave shapes, irregular rhythm", type: finding, category: ECG}
+- {id: regular-narrow-complex-tachycardia, name: Regular narrow-complex tachycardia, type: finding, category: ECG}
+- {id: delta-wave-short-pr, name: "Delta wave, short PR and wide QRS", type: finding, category: ECG}
+- {id: wide-complex-tachycardia, name: Regular wide-complex tachycardia, type: finding, category: ECG}
+- {id: polymorphic-twisting-qrs, name: Polymorphic QRS twisting around the baseline, type: finding, category: ECG}
+- {id: chaotic-ecg-no-waves, name: "Chaotic trace, no identifiable waves", type: finding, category: ECG}
+- {id: brugada-pattern, name: Pseudo-RBBB with coved ST elevation in V1–V3, type: finding, category: ECG}
+- {id: dropped-qrs-beats, name: P waves not followed by QRS (dropped beats), type: finding, category: ECG}
+- {id: av-dissociation, name: P waves and QRS complexes dissociated, type: finding, category: ECG}
+- {id: sinus-pauses, name: "Sinus bradycardia, pauses or arrest with escape beats", type: finding, category: ECG}
+- {id: lightheadedness, name: Lightheadedness or near-syncope, type: finding, category: symptom}
+-   {id: abrupt-palpitations, name: Palpitations that start and stop abruptly, type: finding, category: symptom, parent: palpitations}
+- {id: cannon-a-waves, name: Cannon a waves in the JVP, type: finding, category: sign}
+# --- Outcomes ---
+- {id: tachycardia-induced-cardiomyopathy, name: Tachycardia-induced cardiomyopathy, type: outcome, parent: dilated-cardiomyopathy}

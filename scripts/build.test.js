@@ -8,7 +8,7 @@ const vocab = [
   { id: 'pain', name: 'Pain', type: 'finding', category: 'symptom' },
 ];
 const syllabus = [{ id: 'cardiovascular', name: 'Cardiovascular', groups: [{ id: 'ischaemic', name: 'Ischaemic' }] }, { id: 'respiratory', name: 'Respiratory', groups: [] }];
-const KEYS = ['id', 'name', 'parent', 'group', 'status', 'systems', 'sources', 'chain', 'findings', 'outcomes'];
+const KEYS = ['id', 'name', 'parent', 'group', 'status', 'systems', 'syllabi', 'sources', 'chain', 'findings', 'outcomes'];
 // A valid disease file with its keys in the standard order; doc overrides the defaults.
 const disease = (doc) => ({ file: `Diseases/${doc.id}.yaml`, doc: Object.fromEntries(Object.entries({ name: doc.id, group: 'ischaemic', status: 'draft', systems: ['cardiovascular'], ...doc })
   .sort(([a], [b]) => KEYS.indexOf(a) - KEYS.indexOf(b))) });
@@ -92,3 +92,13 @@ rejects('a bundle of one', bugs, [disease({ id: 'mi', chain: [{ from: 'inhaled-b
 rejects('a member of another type', bugs, [disease({ id: 'mi', chain: [{ from: 'inhaled-bug', to: 'transmural', members: ['bug', 'ischaemia'] }] })], /member "ischaemia" is a mechanism/);
 rejects('a member also linked straight to the target', bugs, [disease({ id: 'mi', chain: [{ from: 'inhaled-bug', to: 'transmural', members: ['bug', 'germ'] }, ['bug', 'transmural']] })], /drop its own link/);
 test('real data builds', () => assert.ok(loadAndBuild().graph.nodes.length > 0));
+
+test('USMLE citations and syllabi', () => {
+  const { graph } = buildGraph(vocab, [disease({ id: 'mi', syllabi: ['usmle'], sources: ['FA 2026 p.306-308', 'Pathoma 2023 p.73', 'StatPearls NBK559016'],
+    chain: [{ from: 'ischaemia', to: 'pain', note: 'x', source: 'FA 2026 p.306; StatPearls NBK559016' }], findings: [{ id: 'pain', freq: 'classic' }] }), disease({ id: 'angina' })], syllabus);
+  assert.deepEqual(graph.nodes.find(n => n.id === 'mi').syllabi, ['usmle']);
+  assert.deepEqual(graph.nodes.find(n => n.id === 'angina').syllabi, ['lmc']);
+});
+rejects('unknown syllabus', vocab, [disease({ id: 'mi', syllabi: ['step2'] })], /syllabi must be/);
+rejects('StatPearls article missing from sources', vocab, [disease({ id: 'mi', sources: ['StatPearls NBK1'], chain: [{ from: 'ischaemia', to: 'pain', source: 'StatPearls NBK2' }] })], /cites StatPearls NBK2/);
+rejects('First Aid without a page', vocab, [disease({ id: 'mi', sources: ['FA 2026'] })], /must look like/);

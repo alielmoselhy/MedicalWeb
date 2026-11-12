@@ -1,0 +1,19 @@
+id: multifocal-atrial-tachycardia
+name: Multifocal atrial tachycardia
+parent: arrhythmia
+group: arrhythmia-conduction
+status: draft
+systems: [cardiovascular]
+syllabi: [usmle]
+sources: ["FA 2026 p.310", "StatPearls NBK459152"]
+chain:
+  - {from: copd, to: multifocal-atrial-ectopy, note: "Lung disease in ~60%; hypoxia, hypercapnia, acidosis and adrenergic drive raise atrial automaticity", source: "StatPearls NBK459152"}
+  - {from: hypokalaemia, to: multifocal-atrial-ectopy, note: "Low magnesium too", source: "StatPearls NBK459152"}
+  - {from: heart-failure, to: multifocal-atrial-ectopy, source: "FA 2026 p.310"}
+  - {from: multifocal-atrial-ectopy, to: multiple-p-wave-morphologies, note: "Each P shape is a different focus; PR varies", source: "FA 2026 p.310"}
+  - [multifocal-atrial-ectopy, irregularly-irregular-pulse]
+  - [multifocal-atrial-ectopy, tachycardia]
+findings:
+  - {id: multiple-p-wave-morphologies, freq: classic}
+  - {id: irregularly-irregular-pulse, freq: common, note: "Mimics AF; usually asymptomatic and found on the ECG, symptoms come from the lung disease", source: "StatPearls NBK459152"}
+  - {id: tachycardia, freq: common}

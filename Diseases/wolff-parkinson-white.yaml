@@ -1,0 +1,30 @@
+id: wolff-parkinson-white
+name: Wolff–Parkinson–White syndrome
+parent: arrhythmia
+group: arrhythmia-conduction
+status: draft
+systems: [cardiovascular]
+syllabi: [usmle]
+sources: ["FA 2026 p.310", "StatPearls NBK554437"]
+chain:
+  - {from: accessory-av-pathway, to: accessory-pathway-conduction, note: "Commonest pre-excitation syndrome; the pathway forms when atrial and ventricular myocardium fail to insulate in embryogenesis", source: "FA 2026 p.310; StatPearls NBK554437"}
+  - {from: accessory-pathway-conduction, to: delta-wave-short-pr, note: "Ventricles start depolarising early and slowly, before the AV node catches up", source: "FA 2026 p.310"}
+  - {from: accessory-pathway-conduction, to: regular-narrow-complex-tachycardia, note: "Orthodromic AV re-entry: down the node, up the pathway", source: "StatPearls NBK554437"}
+  - {from: accessory-pathway-conduction, to: wide-complex-tachycardia, note: "Antidromic AV re-entry: down the pathway", source: "StatPearls NBK554437"}
+  - [accessory-pathway-conduction, rapid-ventricular-rate]
+  - [rapid-ventricular-rate, palpitations]
+  - [rapid-ventricular-rate, reduced-cardiac-output]
+  - [reduced-cardiac-output, lightheadedness]
+  - [reduced-cardiac-output, syncope]
+  - {from: accessory-pathway-conduction, to: ventricular-fibrillation, note: "AF or flutter conducted fast down the pathway; AV nodal blockers make it worse, so use procainamide or ibutilide", source: "FA 2026 p.310; StatPearls NBK554437"}
+  - [ventricular-fibrillation, sudden-cardiac-death]
+findings:
+  - {id: delta-wave-short-pr, freq: classic, note: "The pattern alone, without arrhythmia, is asymptomatic", source: "StatPearls NBK554437"}
+  - {id: regular-narrow-complex-tachycardia, freq: common}
+  - {id: wide-complex-tachycardia, freq: occasional}
+  - {id: palpitations, freq: common}
+  - {id: lightheadedness, freq: common}
+  - {id: syncope, freq: occasional}
+outcomes:
+  - {id: ventricular-fibrillation, freq: rare}
+  - {id: sudden-cardiac-death, freq: rare, note: "The feared complication", source: "StatPearls NBK554437"}

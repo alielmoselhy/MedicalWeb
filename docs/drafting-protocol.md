@@ -123,6 +123,17 @@ Don't use it for UK-specific management. K&C wins where the two differ.
 - At the start of each system, check `Resources/` for new handouts.
 - The owner plans to convert all handouts to Markdown later and then run a pass over the existing files. Don't wait for that pass.
 
+### 2.3a USMLE layer (agreed 2026-11-12)
+
+The USMLE ("evil") version extends the v1 graph with Step 1 content. Plans are in `docs/concepts-<system>-usmle.md`.
+- Sources are in `Resources/USMLE/md/`. The `<!-- p.N -->` markers in `first-aid/` and `pathoma/` are **printed** pages, so there is no offset.
+  - `FA 2026 p.304`: First Aid Step 1 2026
+  - `Pathoma 2023 p.70`: Pathoma
+  - `StatPearls NBK430685`: one StatPearls article. Find it in `statpearls-index/<system>.md`; the NBK id is in the vault file's front matter (`nbk:`). Each article counts as its own book in `sources:`.
+- AnKing (`md/anking/`) is quiz material. Never cite it.
+- New files carry `syllabi: [usmle]` (after `systems`). v1 files have no key, which means `[lmc]`.
+- British spelling still applies.
+
 ### 2.4 Combining citations
 
 - Join several citations on one edge with `; ` (semicolon and a space): `"K&C 10e p.847; Mehlman HY Neuroanatomy"`.

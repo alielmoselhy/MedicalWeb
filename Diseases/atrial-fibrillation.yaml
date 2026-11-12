@@ -1,0 +1,41 @@
+id: atrial-fibrillation
+name: Atrial fibrillation
+parent: arrhythmia
+group: arrhythmia-conduction
+status: draft
+systems: [cardiovascular]
+syllabi: [usmle]
+sources: ["FA 2026 p.310", "StatPearls NBK526072"]
+chain:
+  - {from: hypertension, to: atrial-dilatation, note: "Common risk factors: hypertension, coronary disease, older age, atrial dilatation", source: "FA 2026 p.310"}
+  - {from: mitral-stenosis, to: atrial-dilatation, note: "Valve disease, mitral above all", source: "StatPearls NBK526072"}
+  - [heart-failure, atrial-dilatation]
+  - [atrial-dilatation, atrial-remodelling]
+  - {from: older-age, to: atrial-remodelling, note: "Anything that stretches, inflames, scars or ischaemises the atria builds the substrate", source: "StatPearls NBK526072"}
+  - {from: excess-alcohol, to: atrial-remodelling, source: "StatPearls NBK526072"}
+  - {from: obesity, to: atrial-remodelling, source: "StatPearls NBK526072"}
+  - {from: obstructive-sleep-apnoea, to: atrial-remodelling, source: "StatPearls NBK526072"}
+  - {from: hyperthyroidism, to: atrial-remodelling, source: "StatPearls NBK526072"}
+  - {from: atrial-remodelling, to: disorganised-atrial-activation, note: "Usually triggered by ectopic firing near the pulmonary vein ostia in the left atrium", source: "FA 2026 p.310"}
+  - [disorganised-atrial-activation, fibrillation-no-p-waves]
+  - [disorganised-atrial-activation, irregularly-irregular-pulse]
+  - {from: disorganised-atrial-activation, to: intracardiac-thrombus, note: "Stasis in the left atrium; the appendage is the commonest site of thrombus", source: "FA 2026 p.310"}
+  - [intracardiac-thrombus, thromboembolism]
+  - {from: thromboembolism, to: ischaemic-stroke, note: "The main reason for anticoagulation (the A of ABCD)", source: "FA 2026 p.310"}
+  - [disorganised-atrial-activation, rapid-ventricular-rate]
+  - [rapid-ventricular-rate, palpitations]
+  - [rapid-ventricular-rate, reduced-cardiac-output]
+  - [reduced-cardiac-output, fatigue]
+  - [reduced-cardiac-output, exertional-dyspnoea]
+  - [reduced-cardiac-output, lightheadedness]
+  - {from: rapid-ventricular-rate, to: tachycardia-induced-cardiomyopathy, note: "Sustained fast rates impair ventricular function; AF and heart failure worsen each other", source: "StatPearls NBK526072"}
+findings:
+  - {id: fibrillation-no-p-waves, freq: classic}
+  - {id: irregularly-irregular-pulse, freq: classic, note: "Rate can be fast, normal or slow", source: "StatPearls NBK526072"}
+  - {id: palpitations, freq: common}
+  - {id: fatigue, freq: common}
+  - {id: exertional-dyspnoea, freq: common}
+  - {id: lightheadedness, freq: occasional}
+outcomes:
+  - {id: ischaemic-stroke, note: "Most important complication; systemic emboli also occur", source: "StatPearls NBK526072"}
+  - {id: tachycardia-induced-cardiomyopathy, source: "StatPearls NBK526072"}

@@ -21,9 +21,10 @@ The validator (`npm run build:data`) enforces the rules marked ✓; the rest are
 
 **Disease files**
 - ✓ The file name is the id, written in lowercase with hyphens (`small-cell-lung-carcinoma`).
-- ✓ Keys only from this list, in this order: `id, name, parent, group, status, systems, sources, chain, findings, outcomes`. Anything else, such as a file-level `note`, is rejected, because the app would not show it. Put notes on the edge they explain.
+- ✓ Keys only from this list, in this order: `id, name, parent, group, status, systems, syllabi, sources, chain, findings, outcomes`. Anything else, such as a file-level `note`, is rejected, because the app would not show it. Put notes on the edge they explain.
 - ✓ `systems` lists every syllabus system the disease belongs to, home system first. ✓ `group` is one of the home system's subsection ids.
 - ✓ `status: draft` until you have reviewed the file.
+- ✓ `syllabi` (optional) is a list from `lmc, usmle`; no key means `[lmc]`. Files written for the USMLE layer carry `syllabi: [usmle]`.
 - ✓ `only` must name a cause in the same file's chain.
 - ✓ A chain link may carry `members:` (2+ distinct ids, or `{id, note, source}`), all the same type as its `from` (a disease used as a cause counts as a cause), none also linked straight to its `to`. Use it only when the members cause the step through the shared nature `from` names (drafting protocol §6.5a); Explore shows the group as one bubble that opens on click.
 - `name` is the full name in sentence case and British spelling. An abbreviation goes in the vocabulary name only where it is the usual name (SIADH).
@@ -36,6 +37,7 @@ The validator (`npm run build:data`) enforces the rules marked ✓; the rest are
 
 **Citations**
 - ✓ Every source has the form `K&C 10e p.975`, `K&C 10e p.975-980, 990`, `K&C 10e p.1084 (Box 30.28)`, `Mehlman HY Pulmonary`, or an LMC teaching handout as `LMC <year> <title> s.<slide>` (`LMC 2026 Cirrhosis s.28`, slide = PDF page). Several sources are joined with `; `.
+- ✓ USMLE layer: `FA 2026 p.304` (First Aid Step 1 2026, printed pages), `Pathoma 2023 p.70` (printed pages), `StatPearls NBK430685` (one article, by its NBK id). AnKing cards are quiz material and are never cited.
 - ✓ A book cited on an edge must also be listed in the file's `sources`.
 - Never cite a page you haven't read, and never cite a book for a fact it doesn't contain.
 
@@ -46,4 +48,5 @@ The validator (`npm run build:data`) enforces the rules marked ✓; the rest are
   - `LMC 2026 Non-viral liver`: non-viral liver disease
   - `LMC 2025 HPB pathology`: gallbladder, biliary and pancreas pathology
 - Where a handout and K&C disagree, the note gives both figures.
+- USMLE sources live in `Resources/USMLE/md/` (converted by `md/convert.py`): `first-aid/` and `pathoma/` carry `<!-- p.N -->` markers that are already **printed** page numbers (no offset); `statpearls-index/` maps article titles to vault files, whose front matter gives the NBK id.
 - Notes are paraphrased: no copied passages. `Resources/` is gitignored and must never be published.

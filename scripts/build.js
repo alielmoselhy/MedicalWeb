@@ -10,11 +10,15 @@ const CATEGORIES = { finding: ['symptom', 'sign', 'lab', 'ECG', 'imaging', 'endo
 const FREQS = ['classic', 'common', 'occasional', 'rare'];
 const STATUSES = ['draft', 'reviewed'];
 // Disease-file keys, in the order every file writes them (see README, "Standards").
-const KEYS = ['id', 'name', 'parent', 'group', 'status', 'systems', 'sources', 'chain', 'findings', 'outcomes'];
+const KEYS = ['id', 'name', 'parent', 'group', 'status', 'systems', 'syllabi', 'sources', 'chain', 'findings', 'outcomes'];
+// Which syllabus a file was written for; absent means the LMC v1 layer.
+const SYLLABI = ['lmc', 'usmle'];
 const ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 // One citation, several joined by "; ": printed K&C pages (optional box), a Mehlman HY book (optional detail),
-// or an LMC teaching handout by year, title and slide numbers.
-const CITE = /^(K&C 10e p\.\d+([–-]\d+)?(, \d+([–-]\d+)?)*( \(Box \d+\.\d+\))?|Mehlman HY [A-Za-z-]+( \(.+\))?|LMC 20\d\d [A-Z][A-Za-z -]*? s\.\d+([–-]\d+)?(, \d+([–-]\d+)?)*)$/;
+// an LMC teaching handout by year, title and slide numbers, printed First Aid or Pathoma pages, or a StatPearls article by NBK id.
+const PAGES = String.raw`p\.\d+([–-]\d+)?(, \d+([–-]\d+)?)*`;
+const CITE = new RegExp(String.raw`^(K&C 10e ${PAGES}( \(Box \d+\.\d+\))?|Mehlman HY [A-Za-z-]+( \(.+\))?|LMC 20\d\d [A-Z][A-Za-z -]*? s\.\d+([–-]\d+)?(, \d+([–-]\d+)?)*|FA 2026 ${PAGES}|Pathoma 2023 ${PAGES}|StatPearls NBK\d+)$`);
+const CITE_HELP = '"K&C 10e p.123", "Mehlman HY Cardio", "LMC 2026 Cirrhosis s.12", "FA 2026 p.304", "Pathoma 2023 p.70" or "StatPearls NBK430685"';
 const book = c => c.replace(/ p\..*| \(.*| s\..*/, '');
 
 // vocab: parsed nodes.yaml; diseaseFiles: [{ file, doc }]; syllabus: parsed syllabus.yaml.
@@ -56,9 +60,11 @@ export function buildGraph(vocab, diseaseFiles, syllabus) {
       errors.push(`${file}: systems must be a list of distinct ids from syllabus.yaml (${[...systems.keys()].join(', ')})`);
     else if (!systems.get(doc.systems[0]).groups.some(g => g.id === doc.group))
       errors.push(`${file}: group "${doc.group}" must be one of ${doc.systems[0]}'s groups in syllabus.yaml (${systems.get(doc.systems[0]).groups.map(g => g.id).join(', ')})`);
-    for (const c of doc.sources ?? []) if (!CITE.test(c)) errors.push(`${file}: source "${c}" must look like "K&C 10e p.123", "Mehlman HY Cardio" or "LMC 2026 Cirrhosis s.12"`);
+    if (doc.syllabi !== undefined && (!Array.isArray(doc.syllabi) || !doc.syllabi.length || doc.syllabi.some(x => !SYLLABI.includes(x))))
+      errors.push(`${file}: syllabi must be a list from ${SYLLABI.join(', ')}`);
+    for (const c of doc.sources ?? []) if (!CITE.test(c)) errors.push(`${file}: source "${c}" must look like ${CITE_HELP}`);
     if (nodes.has(doc.id)) errors.push(`${file}: id "${doc.id}" is already used in ${nodes.get(doc.id).type === 'disease' ? 'another disease file' : 'nodes.yaml'}`);
-    nodes.set(doc.id, { id: doc.id, name: doc.name, type: 'disease', parent: doc.parent, group: doc.group, systems: doc.systems, status: doc.status, sources: doc.sources ?? [], file });
+    nodes.set(doc.id, { id: doc.id, name: doc.name, type: 'disease', parent: doc.parent, group: doc.group, systems: doc.systems, syllabi: doc.syllabi ?? ['lmc'], status: doc.status, sources: doc.sources ?? [], file });
   }
 
   for (const n of nodes.values()) {
@@ -81,7 +87,7 @@ export function buildGraph(vocab, diseaseFiles, syllabus) {
   const detail = (e, where, sources) => {
     if (e.freq && !FREQS.includes(e.freq)) errors.push(`${where}: freq must be one of ${FREQS.join(', ')}`);
     for (const c of e.source?.split('; ') ?? []) {
-      if (!CITE.test(c)) errors.push(`${where}: source "${c}" must look like "K&C 10e p.123", "Mehlman HY Cardio" or "LMC 2026 Cirrhosis s.12", joined by "; "`);
+      if (!CITE.test(c)) errors.push(`${where}: source "${c}" must look like ${CITE_HELP}, joined by "; "`);
       else if (!sources.some(s => book(s) === book(c))) errors.push(`${where}: cites ${book(c)}, which is missing from the file's sources`);
     }
     return { freq: e.freq, note: e.note, source: e.source, only: e.only };

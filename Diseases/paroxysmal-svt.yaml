@@ -1,0 +1,27 @@
+id: paroxysmal-svt
+name: Paroxysmal supraventricular tachycardia (AV nodal re-entry)
+parent: arrhythmia
+group: arrhythmia-conduction
+status: draft
+systems: [cardiovascular]
+syllabi: [usmle]
+sources: ["FA 2026 p.310", "StatPearls NBK499936", "StatPearls NBK441972"]
+chain:
+  - {from: dual-av-nodal-pathways, to: av-nodal-re-entry, note: "Most often re-entry in the AV node: an early atrial beat finds the fast path refractory, goes down the slow one and back up the fast", source: "FA 2026 p.310; StatPearls NBK499936"}
+  - {from: svt-trigger, to: av-nodal-re-entry, source: "StatPearls NBK441972"}
+  - {from: av-nodal-re-entry, to: regular-narrow-complex-tachycardia, note: "Usually 140–250/min; vagal manoeuvres or adenosine end it, ablation cures it", source: "FA 2026 p.310; StatPearls NBK499936"}
+  - [av-nodal-re-entry, abrupt-palpitations]
+  - {from: av-nodal-re-entry, to: cannon-a-waves, note: "Atria contract against a closed tricuspid valve", source: "StatPearls NBK499936"}
+  - [av-nodal-re-entry, rapid-ventricular-rate]
+  - [rapid-ventricular-rate, reduced-cardiac-output]
+  - [reduced-cardiac-output, lightheadedness]
+  - {from: reduced-cardiac-output, to: syncope, note: "Uncommon; more likely above ~170/min", source: "StatPearls NBK499936"}
+  - {from: rapid-ventricular-rate, to: tachycardia-induced-cardiomyopathy, note: "With frequent or prolonged episodes", source: "StatPearls NBK499936"}
+findings:
+  - {id: regular-narrow-complex-tachycardia, freq: classic}
+  - {id: abrupt-palpitations, freq: classic, note: "Often with diaphoresis", source: "FA 2026 p.310"}
+  - {id: lightheadedness, freq: common}
+  - {id: cannon-a-waves, freq: occasional}
+  - {id: syncope, freq: rare}
+outcomes:
+  - {id: tachycardia-induced-cardiomyopathy, freq: rare, source: "StatPearls NBK499936"}

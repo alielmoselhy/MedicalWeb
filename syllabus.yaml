@@ -58,6 +58,11 @@
     - {id: valvular, name: Valvular heart disease}
     - {id: endovascular-infection, name: Endocarditis and endovascular infections}
     - {id: hypertension-heart-failure, name: Hypertension and heart failure}
+    # USMLE add-on groups (no LMC subsection covers them; agreed 2026-11-12, docs/concepts-cardio-usmle.md Q1)
+    - {id: arrhythmia-conduction, name: Arrhythmias and conduction disease}
+    - {id: congenital-heart, name: Congenital heart disease}
+    - {id: aortic-vascular, name: Aortic and peripheral vascular disease}
+    - {id: cardiac-vascular-tumours, name: Cardiac and vascular tumours}
 
 - id: respiratory
   section: 8
