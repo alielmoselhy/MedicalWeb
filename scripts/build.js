@@ -15,6 +15,13 @@ const ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 // One citation, several joined by "; ": printed K&C pages (optional box), a Mehlman HY book (optional detail),
 // or an LMC teaching handout by year, title and slide numbers.
 const CITE = /^(K&C 10e p\.\d+([–-]\d+)?(, \d+([–-]\d+)?)*( \(Box \d+\.\d+\))?|Mehlman HY [A-Za-z-]+( \(.+\))?|LMC 20\d\d [A-Z][A-Za-z -]*? s\.\d+([–-]\d+)?(, \d+([–-]\d+)?)*)$/;
+// `parent:` (and `opposite:`) is one id or a list of ids (a node may be a kind of several things).
+const idsOf = (key, p, where, errors) => {
+  const list = p == null ? [] : Array.isArray(p) ? p : [p];
+  if (list.some(x => typeof x !== 'string') || new Set(list).size !== list.length) { errors.push(`${where}: ${key} must be an id or a list of distinct ids`); return []; }
+  return list;
+};
+const parentsOf = (p, where, errors) => idsOf('parent', p, where, errors);
 const book = c => c.replace(/ p\..*| \(.*| s\..*/, '');
 
 // vocab: parsed nodes.yaml; diseaseFiles: [{ file, doc }]; syllabus: parsed syllabus.yaml.
@@ -29,18 +36,28 @@ export function buildGraph(vocab, diseaseFiles, syllabus) {
   if (new Set(syllabusIds).size !== syllabusIds.length) errors.push('syllabus.yaml: system and group ids must be unique');
   const warnings = [];
   const nodes = new Map();
+  const opposites = [], oppositeEdges = [];
 
   if (!Array.isArray(vocab)) throw new Error('nodes.yaml: must be a list of nodes');
   for (const n of vocab) {
     const where = `nodes.yaml (${n?.id ?? 'missing id'})`;
     if (!n?.id || !n.name) { errors.push(`${where}: needs id and name`); continue; }
     if (!ID.test(n.id)) errors.push(`${where}: id must be lowercase-with-hyphens`);
-    const stray = Object.keys(n).filter(k => !['id', 'name', 'type', 'parent', 'category'].includes(k));
+    const stray = Object.keys(n).filter(k => !['id', 'name', 'type', 'parent', 'category', 'opposite'].includes(k));
     if (stray.length) errors.push(`${where}: unknown key(s) ${stray.join(', ')}; quote names that contain commas`);
     if (!NODE_TYPES.includes(n.type)) errors.push(`${where}: type must be one of ${NODE_TYPES.join(', ')}`);
     if (n.category && !CATEGORIES[n.type]?.includes(n.category)) errors.push(`${where}: category must be one of ${CATEGORIES[n.type]?.join(', ') ?? '(none for this type)'}`);
     if (nodes.has(n.id)) errors.push(`${where}: duplicate id`);
-    nodes.set(n.id, { id: n.id, name: n.name, type: n.type, parent: n.parent, category: n.category });
+    nodes.set(n.id, { id: n.id, name: n.name, type: n.type, parents: parentsOf(n.parent, where, errors), category: n.category });
+    opposites.push(...idsOf('opposite', n.opposite, where, errors).map(o => [n.id, o, where]));
+  }
+  // "Works against": written once on either node, stored as one edge per pair. Same type only, never itself.
+  const pairs = new Set();
+  for (const [a, b, where] of opposites) {
+    if (a === b) errors.push(`${where}: can't be its own opposite`);
+    else if (!nodes.has(b)) errors.push(`${where}: opposite "${b}" does not exist`);
+    else if (nodes.get(b).type !== nodes.get(a).type) errors.push(`${where}: opposite "${b}" is a ${nodes.get(b).type}, but this is a ${nodes.get(a).type}`);
+    else if (!pairs.has([a, b].sort().join('|'))) { pairs.add([a, b].sort().join('|')); oppositeEdges.push({ from: a, to: b, kind: 'opposite' }); }
   }
 
   for (const { file, doc } of diseaseFiles) {
@@ -58,20 +75,26 @@ export function buildGraph(vocab, diseaseFiles, syllabus) {
       errors.push(`${file}: group "${doc.group}" must be one of ${doc.systems[0]}'s groups in syllabus.yaml (${systems.get(doc.systems[0]).groups.map(g => g.id).join(', ')})`);
     for (const c of doc.sources ?? []) if (!CITE.test(c)) errors.push(`${file}: source "${c}" must look like "K&C 10e p.123", "Mehlman HY Cardio" or "LMC 2026 Cirrhosis s.12"`);
     if (nodes.has(doc.id)) errors.push(`${file}: id "${doc.id}" is already used in ${nodes.get(doc.id).type === 'disease' ? 'another disease file' : 'nodes.yaml'}`);
-    nodes.set(doc.id, { id: doc.id, name: doc.name, type: 'disease', parent: doc.parent, group: doc.group, systems: doc.systems, status: doc.status, sources: doc.sources ?? [], file });
+    nodes.set(doc.id, { id: doc.id, name: doc.name, type: 'disease', parents: parentsOf(doc.parent, file, errors), group: doc.group, systems: doc.systems, status: doc.status, sources: doc.sources ?? [], file });
   }
 
   for (const n of nodes.values()) {
     const where = n.file ?? `nodes.yaml (${n.id})`;
-    const parent = nodes.get(n.parent);
-    if (n.parent && !parent) errors.push(`${where}: parent "${n.parent}" does not exist`);
-    // Same type only, except outcomes and diseases may be kinds of each other (acute MR is a kind of mitral regurgitation; bone metastases is a kind of distant metastases).
-    else if (parent && parent.type !== n.type && !([n.type, parent.type].every(t => t === 'outcome' || t === 'disease')))
-      errors.push(`${where}: parent "${n.parent}" is a ${parent.type}, but this is a ${n.type}`);
-    const seen = new Set([n.id]);
-    for (let p = n.parent; p && nodes.has(p); p = nodes.get(p).parent) {
-      if (seen.has(p)) { errors.push(`${where}: is-a cycle through "${p}"`); break; }
+    for (const id of n.parents) {
+      const parent = nodes.get(id);
+      if (!parent) errors.push(`${where}: parent "${id}" does not exist`);
+      // Same type only, except outcomes and diseases may be kinds of each other (acute MR is a kind of mitral regurgitation; bone metastases is a kind of distant metastases).
+      else if (parent.type !== n.type && !([n.type, parent.type].every(t => t === 'outcome' || t === 'disease')))
+        errors.push(`${where}: parent "${id}" is a ${parent.type}, but this is a ${n.type}`);
+    }
+    // Walk every ancestor path; reaching this node again is a cycle.
+    const seen = new Set();
+    for (const stack = [...n.parents]; stack.length;) {
+      const p = stack.pop();
+      if (p === n.id) { errors.push(`${where}: is-a cycle`); break; }
+      if (seen.has(p) || !nodes.has(p)) continue;
       seen.add(p);
+      stack.push(...nodes.get(p).parents);
     }
   }
 
@@ -158,11 +181,12 @@ export function buildGraph(vocab, diseaseFiles, syllabus) {
     touches[doc.id] = [...t];
   }
 
+  edges.push(...oppositeEdges);
   const unused = [];
   for (const n of nodes.values()) {
-    if (n.parent && nodes.has(n.parent)) edges.push({ from: n.id, to: n.parent, kind: 'is-a' });
+    for (const p of n.parents) if (nodes.has(p)) edges.push({ from: n.id, to: p, kind: 'is-a' });
     // Parents count as used: they exist to group children.
-    if (n.type !== 'disease' && !used.has(n.id) && ![...nodes.values()].some(c => c.parent === n.id)) unused.push(n.id);
+    if (n.type !== 'disease' && !used.has(n.id) && ![...nodes.values()].some(c => c.parents.includes(n.id))) unused.push(n.id);
     delete n.file;
   }
   if (looseBy.length) warnings.push(`${looseBy.length} disease(s) have findings or outcomes no chain link reaches: ${looseBy.join(', ')}`);

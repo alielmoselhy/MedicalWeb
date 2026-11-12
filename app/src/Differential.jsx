@@ -34,7 +34,7 @@ export default function Differential({ selected }) {
   // Browsing (no search): one exam at a time, optionally one system, each parent concept on its own row with its kinds.
   const browse = findings.filter(f => f.category === exam && (!system || systemsOf[f.id].has(system)));
   const shown = new Set(browse.map(f => f.id));
-  const rows = browse.filter(f => !shown.has(f.parent)).map(r => family(r.id).filter(id => shown.has(id)));
+  const rows = browse.filter(f => !f.parents.some(p => shown.has(p))).map(r => family(r.id).filter(id => shown.has(id)));
   const families = rows.filter(r => r.length > 1);
   const singles = rows.filter(r => r.length === 1).flat();
   const chip = id => (

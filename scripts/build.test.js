@@ -39,6 +39,19 @@ const rejects = (name, v, files, pattern) =>
 rejects('unknown node id', vocab, [disease({ id: 'mi', chain: [['transmural', 'typo']] })], /unknown node "typo"/);
 rejects('missing parent', [{ id: 'a', name: 'A', type: 'mechanism', parent: 'nope' }], [], /parent "nope" does not exist/);
 rejects('is-a cycle', [{ id: 'a', name: 'A', type: 'mechanism', parent: 'b' }, { id: 'b', name: 'B', type: 'mechanism', parent: 'a' }], [], /is-a cycle/);
+test('a node may have several parents', () => {
+  const { graph } = buildGraph([...vocab, { id: 'inflam', name: 'Inflam', type: 'mechanism' }, { id: 'both', name: 'Both', type: 'mechanism', parent: ['ischaemia', 'inflam'] }], [], syllabus);
+  assert.deepEqual(graph.edges.filter(e => e.from === 'both').map(e => e.to), ['ischaemia', 'inflam']);
+});
+rejects('is-a cycle through a second parent', [{ id: 'a', name: 'A', type: 'mechanism' }, { id: 'b', name: 'B', type: 'mechanism', parent: ['a', 'c'] }, { id: 'c', name: 'C', type: 'mechanism', parent: 'b' }], [], /is-a cycle/);
+rejects('duplicate parents', [{ id: 'a', name: 'A', type: 'mechanism' }, { id: 'b', name: 'B', type: 'mechanism', parent: ['a', 'a'] }], [], /list of distinct ids/);
+test('an opposite pair is stored once, whichever side names it', () => {
+  const v = [...vocab, { id: 'dilate', name: 'Dilate', type: 'mechanism', opposite: 'constrict' }, { id: 'constrict', name: 'Constrict', type: 'mechanism', opposite: ['dilate'] }];
+  const { graph } = buildGraph(v, [], syllabus);
+  assert.deepEqual(graph.edges.filter(e => e.kind === 'opposite').map(e => [e.from, e.to]), [['dilate', 'constrict']]);
+});
+rejects('an opposite of another type', [...vocab, { id: 'x', name: 'X', type: 'mechanism', opposite: 'pain' }], [], /opposite "pain" is a finding/);
+rejects('a missing opposite', [...vocab, { id: 'x', name: 'X', type: 'mechanism', opposite: 'nope' }], [], /opposite "nope" does not exist/);
 rejects('bad freq', vocab, [disease({ id: 'mi', findings: [{ id: 'pain', freq: 'often' }] })], /freq must be one of/);
 rejects('id/filename mismatch', vocab, [{ file: 'Diseases/x.yaml', doc: { id: 'y', name: 'Y', group: 'ischaemic', status: 'draft', systems: ['cardiovascular'] } }], /must match filename/);
 rejects('duplicate id across vocab and diseases', vocab, [disease({ id: 'pain' })], /already used in nodes.yaml/);

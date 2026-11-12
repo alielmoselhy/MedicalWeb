@@ -190,7 +190,7 @@ One node per line, in flow style. Indentation shows the parent for human readers
 -   {id: bridging-vein-tear, name: Tearing of bridging veins into the subdural space, type: mechanism, parent: intracranial-bleeding}
 ```
 
-- Keys, in this order: `id, name, type, parent, category`. No other keys.
+- Keys, in this order: `id, name, type, parent, category, opposite`. No other keys.
 - `id`: lowercase letters, digits and hyphens (`crescentic-haematoma-ct`). It must be unique across `nodes.yaml` **and** the disease file names.
 - `name`: sentence case, British spelling. **If the name contains a comma, quote the whole name**, or YAML breaks the line apart: `name: "Headache, worse lying down"`. Quoting names with colons or parentheses is also safe.
 - `type`: `cause | mechanism | finding | outcome`.
@@ -202,10 +202,18 @@ One node per line, in flow style. Indentation shows the parent for human readers
 
 ### 5.2 `parent` rules
 
-- `parent` means "is a kind of". **One parent only.**
+- `parent` means "is a kind of". Usually one parent; give a list (`parent: [vessel-wall-inflammation, granuloma-formation]`) only when the node genuinely is a kind of both, and agree a new second parent with the owner first.
+- To spot similarities the families miss, run `node scripts/audit.js <word>` (e.g. `granuloma`): it lists in-use nodes whose names share that word but sit in different families. With no word it sweeps everything, which is noisy; treat hits as prompts, not verdicts.
 - The parent must be the **same type**. The exceptions: an outcome may have a disease file as its parent, and a disease file may have an outcome as its parent (`bone-metastases` → `distant-metastases`).
 - Children of the same parent count as **related** in the app, one level only. So pick parents that make clinically meaningful siblings, e.g. the four intracranial bleeds under `intracranial-bleeding`.
 - Don't create a parent that would make everything related to everything. The concepts docs record cases deliberately kept apart, such as having no shared parent for all primary tumours.
+
+### 5.2a `opposite` rules
+
+- `opposite` means "works against": the two push the same thing in opposite directions (`vasodilation` ↔ `vasoconstriction`, `hyperkalaemia` ↔ `hypokalaemia`). It is not "differs from" or "is the absence of".
+- Same type on both sides. Write it on **one** node only; the build stores the pair once and the app shows it both ways.
+- Prefer the most general pair. Kinds inherit it: `splanchnic-vasodilation` shows vasoconstriction through `vasodilation`, so it needs no line of its own.
+- New pairs are drafted in batches like disease files (§0 rule 5) and agreed with the owner before they go in.
 
 ### 5.3 Reuse first (most important)
 
@@ -579,5 +587,5 @@ The owner may spot-check on the Explore page: put a disease on the web and confi
 
 ### When only documented exceptions remain
 
-Decided by the owner (2026-11-08): loose items are **not shown on Explore**. `app/src/Explore.jsx` builds each disease from its causal-chain edges only; the documented exceptions appear on the disease page alone.
+Decided by the owner (2026-11-08): loose items are **not shown on Visualize** (the disease web). `app/src/Visualize.jsx` builds each disease from its causal-chain edges only; the documented exceptions appear on the disease page alone.
 

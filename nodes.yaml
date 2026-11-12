@@ -116,7 +116,7 @@
 - {id: raised-arterial-pressure, name: Sustained raised systemic arterial pressure, type: mechanism}
 - {id: arterial-stiffening, name: Large-artery stiffening, type: mechanism}
 - {id: venous-stasis, name: Venous stasis, type: mechanism}
-- {id: hypercoagulability, name: Hypercoagulability, type: mechanism}
+- {id: hypercoagulability, name: Hypercoagulability, type: mechanism, opposite: impaired-haemostasis}
 - {id: ventilation-perfusion-mismatch, name: Ventilation–perfusion mismatch, type: mechanism, parent: impaired-gas-exchange}
 - {id: pulmonary-infarction, name: Pulmonary infarction, type: mechanism}
 
@@ -147,7 +147,7 @@
 - {id: neurohormonal-activation, name: Neurohormonal activation, type: mechanism}
 -   {id: raas-activation, name: Renin–angiotensin–aldosterone activation, type: mechanism, parent: neurohormonal-activation}
 -   {id: sympathetic-activation, name: Sympathetic activation, type: mechanism, parent: neurohormonal-activation}
--   {id: mineralocorticoid-excess, name: Mineralocorticoid excess, type: mechanism, parent: neurohormonal-activation}
+-   {id: mineralocorticoid-excess, name: Mineralocorticoid excess, type: mechanism, parent: neurohormonal-activation, opposite: mineralocorticoid-deficiency}
 -   {id: catecholamine-excess, name: Catecholamine excess, type: mechanism, parent: neurohormonal-activation}
 - {id: salt-water-retention, name: Salt and water retention, type: mechanism}
 - {id: venous-congestion, name: Venous congestion, type: mechanism}
@@ -210,7 +210,7 @@
 # --- Pulmonary circulation ---
 - {id: raised-pulmonary-pressure, name: Raised pulmonary vascular pressure, type: mechanism}
 -   {id: pulmonary-venous-hypertension, name: Pulmonary venous hypertension (left heart), type: mechanism, parent: raised-pulmonary-pressure}
--   {id: hypoxic-vasoconstriction, name: Hypoxic pulmonary vasoconstriction, type: mechanism, parent: raised-pulmonary-pressure}
+-   {id: hypoxic-vasoconstriction, name: Hypoxic pulmonary vasoconstriction, type: mechanism, parent: [raised-pulmonary-pressure, vasoconstriction]}
 -   {id: pulmonary-arterial-obstruction, name: Pulmonary arterial obstruction, type: mechanism, parent: raised-pulmonary-pressure}
 -   {id: pulmonary-vascular-remodelling, name: Pulmonary vascular remodelling, type: mechanism, parent: raised-pulmonary-pressure}
 
@@ -246,7 +246,7 @@
 - {id: diaphoresis, name: "Sweating, pallor, clamminess", type: finding, category: sign}
 - {id: hypotension, name: Hypotension, type: finding, category: sign}
 - {id: raised-blood-pressure, name: Raised blood pressure, type: finding, category: sign}
-- {id: tachycardia, name: Tachycardia, type: finding, category: sign}
+- {id: tachycardia, name: Tachycardia, type: finding, category: sign, opposite: bradycardia}
 - {id: tachypnoea, name: Tachypnoea, type: finding, category: sign}
 - {id: pulseless-collapse, name: Sudden pulseless collapse, type: finding, category: sign}
 - {id: hepatomegaly, name: Hepatomegaly, type: finding, category: sign}
@@ -508,7 +508,7 @@
 - {id: intrapulmonary-shunt, name: Intrapulmonary shunt, type: mechanism, parent: impaired-gas-exchange}
 - {id: exocrine-pancreatic-insufficiency, name: Exocrine pancreatic insufficiency, type: mechanism, parent: malabsorption}
 - {id: malignant-transformation, name: Malignant transformation, type: mechanism}
--   {id: carcinogen-induced-transformation, name: Carcinogen-induced transformation of bronchial epithelium, type: mechanism, parent: malignant-transformation}
+-   {id: carcinogen-induced-transformation, name: "Carcinogen-induced malignant transformation (DNA damage from tobacco, alcohol and similar)", type: mechanism, parent: malignant-transformation}
 -   {id: driver-mutation-transformation, name: Transformation driven by a single oncogene, type: mechanism, parent: malignant-transformation}
 - {id: primary-lung-tumour, name: Primary lung tumour, type: mechanism}
 - {id: endobronchial-obstruction, name: Tumour obstructing a bronchus, type: mechanism}
@@ -572,7 +572,7 @@
 -   {id: afb-smear-positive, name: Acid-fast bacilli on sputum smear, type: finding, category: lab, parent: tb-test-positive}
 -   {id: mtb-culture-or-naat-positive, name: M. tuberculosis on culture or NAAT, type: finding, category: lab, parent: tb-test-positive}
 - {id: csf-tb-pattern, name: "CSF with very high protein, low glucose and lymphocytes", type: finding, category: lab, parent: csf-tb-fungal-pattern}
-- {id: hypercalcaemia, name: Hypercalcaemia, type: finding, category: lab}
+- {id: hypercalcaemia, name: Hypercalcaemia, type: finding, category: lab, opposite: hypocalcaemia}
 - {id: raised-serum-ace, name: Raised serum ACE, type: finding, category: lab}
 - {id: serum-precipitins, name: Serum precipitating antibodies to the antigen, type: finding, category: lab}
 - {id: raised-sweat-chloride, name: Raised sweat chloride, type: finding, category: lab}
@@ -690,7 +690,7 @@
 -   {id: intrahepatic-portal-resistance, name: Intrahepatic resistance to portal flow, type: mechanism, parent: raised-portal-pressure}
 -   {id: posthepatic-venous-obstruction, name: Post-hepatic venous outflow obstruction, type: mechanism, parent: raised-portal-pressure}
 - {id: portosystemic-collaterals, name: Portosystemic collaterals and shunting, type: mechanism}
-- {id: splanchnic-vasodilation, name: Splanchnic and peripheral vasodilation, type: mechanism}
+- {id: splanchnic-vasodilation, name: Splanchnic and peripheral vasodilation, type: mechanism, parent: vasodilation}
 - {id: hyperammonaemia, name: Hyperammonaemia (gut toxins reaching the brain), type: mechanism}
 - {id: impaired-hepatic-synthesis, name: "Impaired hepatic synthesis (albumin, clotting factors)", type: mechanism}
 - {id: reduced-oestrogen-clearance, name: Reduced hepatic oestrogen clearance, type: mechanism}
@@ -711,7 +711,7 @@
 - {id: pancreatic-autodigestion, name: Pancreatic autodigestion and necrosis, type: mechanism}
 - {id: pancreatic-fibrosis, name: "Pancreatic fibrosis, duct plugs and calcification", type: mechanism}
 - {id: islet-destruction, name: Islet cell loss, type: mechanism}
-- {id: inflammation-driven-transformation, name: Chronic inflammation or cirrhosis driving cancer, type: mechanism, parent: malignant-transformation}
+- {id: inflammation-driven-transformation, name: Chronic inflammation driving malignant transformation, type: mechanism, parent: malignant-transformation}
 - {id: viral-oncogenesis, name: Viral DNA integration into the host genome, type: mechanism, parent: malignant-transformation}
 - {id: primary-liver-tumour, name: Primary liver tumour, type: mechanism}
 - {id: biliary-tract-tumour, name: Biliary tract tumour, type: mechanism}
@@ -764,7 +764,7 @@
 -   {id: anti-mitochondrial-antibody, name: Anti-mitochondrial antibody (M2), type: finding, category: lab, parent: gi-autoantibody}
 -   {id: aih-autoantibodies, name: "ANA and anti-smooth muscle (type 1) or anti-LKM1 (type 2)", type: finding, category: lab, parent: gi-autoantibody}
 -   {id: p-anca, name: pANCA, type: finding, category: lab, parent: gi-autoantibody}
-- {id: raised-immunoglobulins, name: "Raised serum immunoglobulins (IgG in AIH, IgM in PBC)", type: finding, category: lab}
+- {id: raised-immunoglobulins, name: "Raised serum immunoglobulins (IgG in AIH, IgM in PBC)", type: finding, category: lab, opposite: low-immunoglobulins}
 - {id: copper-studies, name: Low caeruloplasmin and raised urinary copper, type: finding, category: lab}
 - {id: raised-afp, name: Raised alpha-fetoprotein, type: finding, category: lab}
 - {id: ascitic-neutrophilia, name: Ascitic neutrophils > 250/mm³, type: finding, category: lab}
@@ -1268,7 +1268,7 @@
 - {id: iron-studies-abnormality, name: Abnormal iron studies, type: finding, category: lab}
 -   {id: low-ferritin, name: "Low ferritin and transferrin saturation, raised TIBC", type: finding, category: lab, parent: iron-studies-abnormality}
 -   {id: acd-iron-pattern, name: "Low serum iron and TIBC, normal or raised ferritin", type: finding, category: lab, parent: iron-studies-abnormality}
--   {id: raised-iron-indices, name: Raised ferritin and transferrin saturation, type: finding, category: lab, parent: iron-studies-abnormality}
+-   {id: raised-iron-indices, name: Raised ferritin and transferrin saturation, type: finding, category: lab, parent: iron-studies-abnormality, opposite: low-ferritin}
 - {id: blood-film-abnormality, name: Abnormal blood film, type: finding, category: lab}
 -   {id: hypersegmented-neutrophils, name: Oval macrocytes and hypersegmented neutrophils, type: finding, category: lab, parent: blood-film-abnormality}
 - {id: raised-ldh, name: Raised lactate dehydrogenase, type: finding, category: lab}
@@ -1428,7 +1428,7 @@
 - {id: mast-cell-mediator-release, name: "Mast cell mediator release (histamine)", type: mechanism}
 -   {id: antibody-deficiency, name: Low functional immunoglobulin (hypogammaglobulinaemia), type: mechanism, parent: impaired-host-defence}
 # Findings
-- {id: raised-cell-count, name: Raised blood counts, type: finding, category: lab}
+- {id: raised-cell-count, name: Raised blood counts, type: finding, category: lab, opposite: cytopenia}
 -   {id: raised-haematocrit, name: Raised haemoglobin and haematocrit, type: finding, category: lab, parent: raised-cell-count}
 -   {id: thrombocytosis, name: Thrombocytosis, type: finding, category: lab, parent: raised-cell-count}
 -   {id: leucocytosis, name: Raised white cell count, type: finding, category: lab, parent: raised-cell-count}
@@ -1501,7 +1501,7 @@
 - {id: d-penicillamine, name: D-penicillamine, type: cause, category: drug}
 # Mechanisms
 -   {id: ige-mast-cell-degranulation, name: "Allergen cross-linking IgE on mast cells and basophils (type I hypersensitivity)", type: mechanism, parent: immune-mediated-injury}
-- {id: vasodilation-vascular-leak, name: "Widespread vasodilatation and leaky vessels (histamine, leukotrienes, PAF)", type: mechanism}
+- {id: vasodilation-vascular-leak, name: "Widespread vasodilatation and leaky vessels (histamine, leukotrienes, PAF)", type: mechanism, parent: vasodilation}
 - {id: nasal-mucosal-inflammation, name: Allergic swelling of the nasal mucosa, type: mechanism}
 -     {id: receptor-autoantibody, name: Autoantibodies against a cell-surface receptor, type: mechanism, parent: antibody-mediated-cytotoxicity}
 -   {id: achr-loss, name: Postsynaptic acetylcholine receptors destroyed, type: mechanism, parent: neuromuscular-junction-failure}
@@ -1569,7 +1569,7 @@
 # --- Vasculitis (batch 3) ---
 # Mechanisms
 - {id: vessel-wall-inflammation, name: Inflammation of the vessel wall (vasculitis), type: mechanism}
--   {id: granulomatous-large-vessel-arteritis, name: Granulomatous arteritis of the aorta and its large branches, type: mechanism, parent: vessel-wall-inflammation}
+-   {id: granulomatous-large-vessel-arteritis, name: Granulomatous arteritis of the aorta and its large branches, type: mechanism, parent: [vessel-wall-inflammation, granuloma-formation]}
 -   {id: necrotising-medium-vessel-arteritis, name: "Necrotising arteritis of medium arteries (fibrinoid necrosis, microaneurysms)", type: mechanism, parent: vessel-wall-inflammation}
 -   {id: anca-small-vessel-vasculitis, name: ANCA-associated necrotising small-vessel vasculitis (few immune deposits), type: mechanism, parent: vessel-wall-inflammation}
 -   {id: iga-small-vessel-vasculitis, name: IgA immune-complex small-vessel vasculitis, type: mechanism, parent: vessel-wall-inflammation}
@@ -1676,10 +1676,10 @@
 # Findings
 - {id: renal-function-test, name: Abnormal renal function tests (U&E), type: finding, category: lab}
 -   {id: raised-creatinine-low-egfr, name: Raised creatinine and urea (falling eGFR), type: finding, parent: renal-function-test, category: lab}
--   {id: high-serum-potassium, name: High serum potassium, type: finding, parent: renal-function-test, category: lab}
+-   {id: high-serum-potassium, name: High serum potassium, type: finding, parent: renal-function-test, category: lab, opposite: low-serum-potassium}
 -   {id: metabolic-acidosis, name: Metabolic acidosis (low bicarbonate), type: finding, parent: renal-function-test, category: lab}
 -     {id: normal-anion-gap-acidosis, name: Normal anion gap (hyperchloraemic) metabolic acidosis, type: finding, parent: metabolic-acidosis, category: lab}
--   {id: hyperphosphataemia, name: Hyperphosphataemia, type: finding, parent: renal-function-test, category: lab}
+-   {id: hyperphosphataemia, name: Hyperphosphataemia, type: finding, parent: renal-function-test, category: lab, opposite: hypophosphataemia}
 - {id: urine-abnormality, name: Abnormal urinalysis, type: finding, category: lab}
 -   {id: concentrated-low-sodium-urine, name: Concentrated urine with low sodium (FENa under 1%), type: finding, parent: urine-abnormality, category: lab}
 -   {id: muddy-brown-casts, name: Muddy brown granular casts (FENa over 1%), type: finding, parent: urine-abnormality, category: lab}
@@ -1856,7 +1856,7 @@
 # PROVISIONAL (owner, 2026-11-10): hormone-excess and hormone-deficiency are kept on trial. "Shares a hormone
 # excess/deficiency" is not a strongly clinical connection, so they can be removed at any time: delete the two
 # parent lines and drop the `parent:` from their kinds. No chain uses the parents directly.
-- {id: hormone-excess, name: Hormone excess, type: mechanism}
+- {id: hormone-excess, name: Hormone excess, type: mechanism, opposite: hormone-deficiency}
 - {id: hormone-deficiency, name: Hormone deficiency, type: mechanism}
 # --- Diabetes and hypoglycaemia (batches 1–2) ---
 # Causes
@@ -1868,7 +1868,7 @@
 # Mechanisms
 -   {id: insulin-deficiency, name: Insulin deficiency (absolute or relative), type: mechanism, parent: hormone-deficiency}
 -   {id: cortisol-deficiency, name: Cortisol deficiency, type: mechanism, parent: hormone-deficiency}
--   {id: insulin-excess, name: Insulin excess, type: mechanism, parent: hormone-excess}
+-   {id: insulin-excess, name: Insulin excess, type: mechanism, parent: hormone-excess, opposite: insulin-deficiency}
 -   {id: autoimmune-gland-destruction, name: Autoimmune destruction of an endocrine gland, type: mechanism, parent: immune-mediated-injury}
 -     {id: autoimmune-beta-cell-destruction, name: Autoimmune T-cell destruction of pancreatic β cells (insulitis), type: mechanism, parent: autoimmune-gland-destruction}
 - {id: insulin-resistance, name: "Insulin resistance (liver, muscle and fat respond poorly to insulin)", type: mechanism}
@@ -1915,7 +1915,7 @@
 - {id: postpartum-thyroiditis, name: Postpartum thyroiditis, type: cause, category: condition}
 - {id: ret-mutation, name: RET proto-oncogene mutation (MEN2 and familial medullary carcinoma), type: cause, category: genetic}
 # Mechanisms
--   {id: thyroid-hormone-excess, name: Thyroid hormone excess, type: mechanism, parent: hormone-excess}
+-   {id: thyroid-hormone-excess, name: Thyroid hormone excess, type: mechanism, parent: hormone-excess, opposite: thyroid-hormone-deficiency}
 -   {id: thyroid-hormone-deficiency, name: Thyroid hormone deficiency, type: mechanism, parent: hormone-deficiency}
 -     {id: autoimmune-thyroid-destruction, name: Autoimmune lymphocytic destruction of the thyroid, type: mechanism, parent: autoimmune-gland-destruction}
 - {id: thyroiditis-hormone-leak, name: Inflamed follicles leaking stored hormone (destructive thyroiditis), type: mechanism}
@@ -1987,8 +1987,8 @@
 - {id: exogenous-glucocorticoid, name: Long-term glucocorticoid therapy, type: cause, category: drug}
 - {id: men1-mutation, name: MEN1 (menin) tumour-suppressor mutation, type: cause, category: genetic}
 # Mechanisms
--   {id: cortisol-excess, name: Cortisol (glucocorticoid) excess, type: mechanism, parent: hormone-excess}
--   {id: pth-excess, name: Parathyroid hormone excess, type: mechanism, parent: hormone-excess}
+-   {id: cortisol-excess, name: Cortisol (glucocorticoid) excess, type: mechanism, parent: hormone-excess, opposite: cortisol-deficiency}
+-   {id: pth-excess, name: Parathyroid hormone excess, type: mechanism, parent: hormone-excess, opposite: pth-deficiency}
 -   {id: mineralocorticoid-deficiency, name: Aldosterone (mineralocorticoid) deficiency, type: mechanism, parent: hormone-deficiency}
 -     {id: autoimmune-adrenalitis, name: Autoimmune destruction of the adrenal cortex (21-hydroxylase antibodies), type: mechanism, parent: autoimmune-gland-destruction}
 - {id: adrenal-cortex-destruction, name: Destruction of the whole adrenal cortex, type: mechanism}
@@ -2142,12 +2142,12 @@
 - {id: water-imbalance, name: Imbalance of body water against sodium, type: mechanism}
 -   {id: free-water-excess, name: More water retained than sodium (dilution), type: mechanism, parent: water-imbalance}
 -   {id: free-water-deficit, name: Water lost or not replaced (water deficit), type: mechanism, parent: water-imbalance}
--   {id: adh-excess, name: Antidiuretic hormone (vasopressin) excess, type: mechanism, parent: hormone-excess}
+-   {id: adh-excess, name: Antidiuretic hormone (vasopressin) excess, type: mechanism, parent: hormone-excess, opposite: adh-deficiency}
 -   {id: adh-deficiency, name: Antidiuretic hormone (vasopressin) deficiency, type: mechanism, parent: hormone-deficiency}
 - {id: renal-adh-resistance, name: Collecting ducts unresponsive to vasopressin, type: mechanism}
 # Findings
 - {id: low-jvp-cold-peripheries, name: "Low JVP, cold peripheries and empty veins", type: finding, category: sign}
-- {id: high-serum-sodium, name: High serum sodium, type: finding, category: lab}
+- {id: high-serum-sodium, name: High serum sodium, type: finding, category: lab, opposite: low-serum-sodium}
 - {id: urine-osmolality-pattern, name: Diagnostic urine osmolality and sodium, type: finding, category: lab}
 -   {id: inappropriately-concentrated-urine, name: "Urine osmolality > 100 and urine sodium > 30 despite low plasma osmolality", type: finding, category: lab, parent: urine-osmolality-pattern}
 -   {id: dilute-polyuria, name: "Large volumes of dilute urine, not concentrating on water deprivation", type: finding, category: lab, parent: urine-osmolality-pattern}
@@ -2176,7 +2176,7 @@
 # Findings
 - {id: blood-gas-abnormality, name: Arterial blood gas abnormality, type: finding, category: lab}
 -   {id: respiratory-acidosis, name: "Respiratory acidosis (high PaCO2, low pH)", type: finding, category: lab, parent: blood-gas-abnormality}
--   {id: respiratory-alkalosis, name: "Respiratory alkalosis (low PaCO2, high pH)", type: finding, category: lab, parent: blood-gas-abnormality}
+-   {id: respiratory-alkalosis, name: "Respiratory alkalosis (low PaCO2, high pH)", type: finding, category: lab, parent: blood-gas-abnormality, opposite: respiratory-acidosis}
 - {id: raised-lactate, name: Raised blood lactate, type: finding, category: lab}
 - {id: hyperkalaemia-ecg, name: "Peaked T waves, flat P waves, wide QRS, then sine wave", type: finding, category: ECG}
 - {id: hypokalaemia-ecg, name: Flat T waves and U waves, type: finding, category: ECG}
@@ -2192,7 +2192,7 @@
 - {id: toxoplasma-gondii, name: Toxoplasma gondii, type: cause, category: organism}
 - {id: hhv-8, name: Human herpesvirus 8, type: cause, category: organism}
 # Mechanisms
-- {id: vasoplegia-capillary-leak, name: Vasodilatation and capillary leak in sepsis (vasoplegia), type: mechanism}
+- {id: vasoplegia-capillary-leak, name: Vasodilatation and capillary leak in sepsis (vasoplegia), type: mechanism, parent: vasodilation}
 - {id: hiv-replication, name: HIV replicating in CD4 T cells (high viral load), type: mechanism}
 - {id: cd4-depletion, name: Progressive loss of CD4 T cells, type: mechanism}
 - {id: candida-mucosal-overgrowth, name: Commensal Candida overgrowing on mucosa, type: mechanism}
@@ -2595,3 +2595,9 @@
 - {id: omental-caking, name: Omental caking and peritoneal deposits on imaging, type: finding, category: imaging}
 # --- Outcomes ---
 - {id: malignant-bowel-obstruction, name: Malignant bowel obstruction, type: outcome}
+
+# ================= SHARED CONCEPTS =================
+# General parents that belong to no one system, added so opposites can be paired at the general level (2026-11-12).
+# --- Mechanisms ---
+- {id: vasodilation, name: Vasodilatation, type: mechanism, opposite: vasoconstriction}
+- {id: vasoconstriction, name: Vasoconstriction, type: mechanism}

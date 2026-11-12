@@ -2,10 +2,10 @@
 
 Things to decide together. Nothing here is built yet. Strike an item out, or move it to the README, once it is settled.
 
-## Explore (the build-your-own web)
+## Visualize (the build-your-own web; this section calls it Explore, its name before 2026-11-12)
 
 **Redesigned 2026-11-07:**
-- Live bubble physics (`d3-force`).
+- Live bubble layout with WebCola (`cytoscape-cola`, replaced `d3-force` on 2026-11-12): springy links, no overlaps, each cause kept above its effect.
 - One coloured cloud per disease, with a clickable title, replacing the disease node.
 - Rough causal order from top to bottom.
 - Findings and outcomes that no chain link reaches are not drawn on Explore (decided 2026-11-08). The chain-linking pass is done; the 44 left are documented exceptions (see `drafting-protocol.md` §12).

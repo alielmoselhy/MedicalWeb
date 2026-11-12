@@ -12,9 +12,9 @@
   "dependencies": {
     "cytoscape": "^3.34.4",
     "cytoscape-bubblesets": "^4.1.0",
+    "cytoscape-cola": "^2.5.1",
     "cytoscape-dagre": "^4.0.1",
     "cytoscape-layers": "^3.1.0",
-    "d3-force": "^3.0.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "yaml": "^2.9.1"

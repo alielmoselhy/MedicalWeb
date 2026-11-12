@@ -64,7 +64,7 @@ export default function Disease({ id }) {
     <>
       <h1>{d.name}{d.status === 'draft' && <span className="badge">draft</span>}</h1>
       <div className="muted">{groupName(d.group)} · Sources: {d.sources.join('; ') || 'none yet'}</div>
-      {d.parent && <p>Kind of: <NodeLink id={d.parent} /></p>}
+      {d.parents.length > 0 && <p>Kind of: {d.parents.map(p => <NodeLink key={p} id={p} />)}</p>}
       {children(id).length > 0 && <p>Kinds: {children(id).map(c => <NodeLink key={c} id={c} />)}</p>}
 
       <h2>Mechanism chain</h2>

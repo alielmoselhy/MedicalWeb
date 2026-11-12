@@ -33,54 +33,6 @@ export function bands(ids, edges) {
   return { band: id => chainy(id) ? d[id] : maxD + 1, maxD };
 }
 
-// Give every causal band a deterministic left-to-right order before the live force layout starts.
-// A force simulation can shorten edges, but it has no notion of crossings: two neighbouring branches can
-// happily settle in the opposite order. Repeated top-down/bottom-up barycentric sweeps put a node near the
-// horizontal centre of its neighbours in the already-visited bands. Packing after each sweep preserves that
-// order while leaving enough room for labels. Disease homes remain a preference, rather than a hard column.
-export function crossingReducedX(ids, links, band, home, radius) {
-  const rows = new Map();
-  const row = {};
-  for (const id of ids) {
-    row[id] = band(id);
-    if (!rows.has(row[id])) rows.set(row[id], []);
-    rows.get(row[id]).push(id);
-  }
-  const levels = [...rows.keys()].sort((a, b) => a - b);
-  const neighbours = Object.fromEntries(ids.map(id => [id, []]));
-  for (const { source, target } of links) {
-    if (!neighbours[source] || !neighbours[target]) continue;
-    neighbours[source].push(target);
-    neighbours[target].push(source);
-  }
-
-  const x = {};
-  const pack = (level, direction) => {
-    const list = rows.get(level);
-    const desired = Object.fromEntries(list.map(id => {
-      const adjacent = neighbours[id].filter(n => direction * (row[n] - level) < 0 && Number.isFinite(x[n]));
-      const barycentre = adjacent.length ? adjacent.reduce((sum, n) => sum + x[n], 0) / adjacent.length : home[id];
-      return [id, barycentre * 0.72 + home[id] * 0.28];
-    }));
-    list.sort((a, b) => desired[a] - desired[b] || home[a] - home[b]
-      || (byId[a]?.name ?? a).localeCompare(byId[b]?.name ?? b));
-    list.forEach((id, i) => {
-      x[id] = i ? Math.max(desired[id], x[list[i - 1]] + radius[list[i - 1]] + radius[id]) : desired[id];
-    });
-    // Forward packing only moves nodes right. Re-centre the row on what its homes and neighbours requested.
-    const shift = list.reduce((sum, id) => sum + desired[id] - x[id], 0) / list.length;
-    list.forEach(id => { x[id] += shift; });
-  };
-
-  // Establish stable positions even for rows whose nodes have no neighbours in another band.
-  levels.forEach(level => pack(level, 1));
-  for (let pass = 0; pass < 6; pass++) {
-    levels.forEach(level => pack(level, 1));
-    [...levels].reverse().forEach(level => pack(level, -1));
-  }
-  return x;
-}
-
 // clouds: [[ids], …]; ids: every node drawn; edges: graph edges. Nodes in no cloud go in a cell under the rest.
 export function cloudPositions(clouds, ids, edges) {
   ids = [...ids];

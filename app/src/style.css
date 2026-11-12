@@ -50,52 +50,17 @@ h2 { font-size: 1.2rem; line-height: 1.25; margin: 28px 0 8px; }
 .controls label { display: flex; gap: 4px; align-items: center; }
 
 /* Home: the one place the ECG paper shows */
-.hero { position: relative; margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0; padding: 56px var(--pad) 128px; overflow: hidden; border-bottom: 1px solid var(--grid-major);
+.paper { margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0; padding: 0 var(--pad);
   background-color: var(--bg);
   background-image: linear-gradient(var(--grid-major) 1px, transparent 1px), linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
     linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px; }
-.hero > :not(.trace) { position: relative; max-width: 40rem; }
-.hero h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 16px; }
-.hero p { font-size: 1.08rem; margin: 0 0 24px; }
-.trace { position: absolute; left: 0; right: 0; bottom: 24px; width: 100%; height: 80px; }
+  background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px; border-bottom: 1px solid var(--grid-major); }
+.trace { display: block; width: calc(100% + 2 * var(--pad)); height: 80px; margin: 28px calc(-1 * var(--pad)) 20px; }
 .trace path { fill: none; stroke: var(--trace); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; opacity: 0.8;
-  stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.4s ease-out 0.2s forwards; }
+  stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 6s linear 0.2s forwards; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @media (prefers-reduced-motion: reduce) { .trace path { animation: none; stroke-dashoffset: 0; } }
 input.big { width: 100%; max-width: 28rem; font-size: 1.1rem; padding: 10px 14px; border-radius: 8px; border-color: var(--grid-major); }
-.showcase { position: relative; display: grid; grid-template-columns: minmax(260px, 0.8fr) minmax(360px, 1.2fr); min-height: 330px; margin: 32px 0 8px;
-  border: 1px solid var(--border); border-radius: 12px; background: var(--surface); overflow: hidden; }
-.showcase-copy { padding: clamp(24px, 4vw, 48px); align-self: center; }
-.showcase-copy .eyebrow { color: var(--accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
-.showcase-copy h2 { margin: 8px 0 12px; font-size: clamp(1.5rem, 2.7vw, 2.2rem); }
-.showcase-copy p { margin: 0 0 20px; color: var(--muted); max-width: 34rem; }
-.showcase-action { font-weight: 700; text-decoration: none; }
-.showcase-action:hover { text-decoration: underline; }
-.showcase-example { display: grid; place-items: center; align-content: center; gap: 24px; padding: 48px 40px 64px; border-left: 1px solid var(--border);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--grid) 72%, transparent), transparent 62%); animation: reveal-example 320ms ease-out; }
-.showcase-path { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; max-width: 640px; }
-.showcase-step { display: inline-flex; align-items: center; gap: 8px; }
-.showcase-step .chip { margin: 0; padding: 7px 12px; font-size: 0.92rem; box-shadow: 0 3px 12px color-mix(in srgb, var(--text) 8%, transparent); }
-.showcase-join { color: var(--muted); font: 600 1.2rem var(--serif); }
-.showcase-stat { color: var(--muted); font-size: 0.9rem; }
-.showcase-metrics { display: grid; grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 12px; width: min(100%, 440px); }
-.showcase-metrics div { padding: 18px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
-.showcase-metrics strong, .showcase-metrics span { display: block; }
-.showcase-metrics strong { color: var(--accent); font: 600 1.8rem/1 var(--serif); }
-.showcase-metrics span { margin-top: 6px; color: var(--muted); font-size: 0.85rem; }
-.showcase-controls { position: absolute; left: 50%; bottom: 16px; width: 50%; display: flex; align-items: center; justify-content: center; gap: 12px; }
-.showcase-controls > button { width: 30px; height: 30px; padding: 0; border: 0; background: transparent; }
-.showcase-dots { display: flex; align-items: center; gap: 7px; }
-.showcase-dots button { width: 22px; height: 5px; padding: 0; border: 0; border-radius: 99px; background: var(--border); }
-.showcase-dots button[aria-pressed="true"] { background: var(--accent); }
-@keyframes reveal-example { from { opacity: 0; transform: translateY(5px); } }
-@media (max-width: 760px) {
-  .showcase { grid-template-columns: 1fr; }
-  .showcase-example { min-height: 230px; padding: 32px 20px 60px; border-left: 0; border-top: 1px solid var(--border); }
-  .showcase-controls { left: 0; width: 100%; }
-}
-@media (prefers-reduced-motion: reduce) { .showcase-example { animation: none; } }
 .directory { columns: 3 260px; column-gap: 40px; }
 .directory section { break-inside: avoid; padding-top: 4px; }
 .directory h2::first-letter { text-transform: uppercase; }
@@ -164,3 +129,133 @@ button[aria-pressed="true"] { background: var(--accent); color: var(--surface); 
 .finder .chip.focus { outline: 2px solid var(--finding); outline-offset: 2px; }
 .finder .chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--surface); }
 @media (max-width: 600px) { .finder .family { grid-template-columns: 1fr; gap: 2px; } }
+h3.system { margin: 14px 0 2px; color: var(--muted); font: 700 0.74rem/1.3 var(--sans); letter-spacing: 0.07em; text-transform: uppercase; }
+.explore-map .graph.flow { height: min(75vh, 760px); }
+.card.wide { margin-bottom: 16px; }
+.by-system { columns: 3 280px; column-gap: 32px; }
+.by-system > div { break-inside: avoid; }
+
+/* Home stage: one exhibit at a time, drawn straight onto the chart paper. One motion idea: fixed-size lines (the
+   balance bar) draw in like the trace, and a red sweep along the foot times the move to the next exhibit. Lines
+   stretched to fit (preserveAspectRatio none) can't use the dash trick, so those are drawn still. */
+.stage { position: relative; padding: 56px 0 64px; }
+.stage-head { max-width: 44rem; min-height: 9.5rem; animation: rise 0.45s ease-out; }
+.stage-head h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 16px; }
+.stage-head p { font-size: 1.08rem; margin: 0; max-width: 38rem; }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+.stage-search { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+.stage-search form { flex: 1 1 18rem; max-width: 28rem; }
+.shuffle { flex: none; display: inline-flex; margin-left: auto; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; border-color: var(--trace);
+  color: var(--trace); font-weight: 700; background: var(--surface); }
+.shuffle::before { content: ""; width: 14px; height: 14px; background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5'/%3E%3C/svg%3E") center / contain no-repeat; }
+.shuffle:hover { background: var(--trace); color: var(--surface); }
+.stage-body { min-height: 360px; display: flex; flex-direction: column; justify-content: center; }
+.sweep { position: absolute; left: 0; bottom: 24px; height: 2px; width: 100%; background: var(--trace); transform-origin: left; opacity: 0.7; }
+.draw path { fill: none; stroke-width: 2.5; stroke-linecap: round; vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 0.9s ease-out forwards; }
+@media (prefers-reduced-motion: reduce) { .sweep { display: none; } .draw path { animation: none; stroke-dashoffset: 0; } .stage-head { animation: none; } }
+.size { display: flex; flex-wrap: wrap; gap: 24px 56px; margin: 0; }
+.size dt { font: 600 clamp(2.4rem, 5vw, 3.6rem)/1 var(--serif); color: var(--trace); }
+.size dd { margin: 6px 0 0; max-width: 14rem; color: var(--muted); }
+
+/* Different roads: three origins, converging lines, one finding. */
+.roads { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(60px, 0.5fr) minmax(0, 1fr); align-items: stretch; height: 330px; }
+.roads-from { list-style: none; margin: 0; padding: 0; display: grid; grid-template-rows: repeat(3, 1fr); }
+.roads-from li { display: flex; flex-direction: column; justify-content: center; gap: 4px; padding-left: 12px; border-left: 4px solid var(--road); }
+.roads-system { font-size: 0.85rem; color: var(--muted); }
+.roads-system a { color: var(--text); font-weight: 700; text-decoration: none; }
+.roads-system a:hover { color: var(--accent); text-decoration: underline; }
+.roads-steps .chip:not(:last-child)::after { content: "→"; margin-left: 8px; color: var(--muted); }
+.roads-lines { width: 100%; height: 330px; }
+.roads-lines path { fill: none; stroke-width: 2.5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.roads-to { display: flex; flex-direction: column; justify-content: center; gap: 6px; padding-left: 8px; }
+.roads-finding { font: 600 clamp(1.4rem, 2.4vw, 2rem)/1.15 var(--serif); color: var(--finding); text-decoration: none; }
+.roads-finding::before { content: ""; display: inline-block; width: 0.5em; height: 0.5em; margin-right: 0.35em; background: var(--finding);
+  transform: rotate(45deg) translateY(-0.12em); }
+.roads-finding:hover { text-decoration: underline; }
+
+/* Works against: a balance bar pushed both ways. */
+.balance { display: grid; gap: 14px; width: min(100%, 760px); margin: 0 auto; }
+.balance-bar { width: 100%; height: 48px; overflow: visible; }
+.balance-bar path { stroke: var(--accent); }
+.balance-axis { stroke: var(--grid-major); stroke-width: 6; stroke-linecap: round; }
+.balance-mid { stroke: var(--muted) !important; stroke-width: 2; stroke-dasharray: none !important; stroke-dashoffset: 0 !important; animation: none !important; }
+.balance-ends { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.balance-end { display: flex; flex-direction: column; gap: 6px; }
+.balance-end:last-child { text-align: right; align-items: flex-end; }
+.balance-name { font: 600 clamp(1.3rem, 2.4vw, 1.75rem)/1.2 var(--serif); color: var(--text); text-decoration: none; }
+.balance-name:hover { color: var(--accent); text-decoration: underline; }
+
+/* Disease family: root, shared band, branches, kinds. */
+.family-tree { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.family-root { font: 600 1.35rem/1.2 var(--serif); color: var(--disease); text-decoration: none; }
+.family-root:hover { text-decoration: underline; }
+.family-shared { margin: 8px 0 0; padding: 6px 12px; border-radius: 999px; background: color-mix(in srgb, var(--disease) 8%, var(--surface)); }
+.family-branches { width: 100%; height: 56px; margin-top: -2px; }
+.family-branches path { fill: none; stroke: var(--disease); stroke-width: 2; vector-effect: non-scaling-stroke; opacity: 0.6; }
+.family-kinds { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; width: 100%; }
+.family-kinds li { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.family-kinds a:first-child { font-weight: 700; color: var(--text); text-decoration: none; }
+.family-kinds a:first-child:hover { color: var(--accent); text-decoration: underline; }
+
+/* Quiz: an index card that turns over. */
+.flashcard { position: relative; width: 100%; min-height: 360px; perspective: 1200px; }
+.flashcard-face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 18px 20px;
+  border-radius: 8px; background: var(--surface); box-shadow: 0 1px 0 var(--grid-major), 0 10px 24px -12px color-mix(in srgb, var(--trace) 35%, transparent);
+  border-top: 6px solid var(--trace); backface-visibility: hidden; transition: transform 0.6s ease; }
+.flashcard-face.back { transform: rotateY(180deg); justify-content: center; align-items: center; text-align: center; }
+.flashcard.turned .front { transform: rotateY(-180deg); }
+.flashcard.turned .back { transform: rotateY(0); }
+.flashcard-prompt { margin: 4px 0 0; color: var(--muted); font: italic 500 1rem var(--serif); }
+.flashcard-face button { margin-top: auto; }
+.flashcard-face.back button { margin-top: 16px; }
+.flashcard-answer { font: 600 1.7rem/1.15 var(--serif); color: var(--disease); text-decoration: none; }
+@media (prefers-reduced-motion: reduce) { .flashcard-face { transition: none; } }
+
+/* System atlas: tabs and bars. */
+.atlas-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.atlas-tabs button { border-radius: 999px; font-size: 0.88rem; background: var(--surface); }
+.atlas-tabs button[aria-pressed="true"] { background: var(--trace); border-color: var(--trace); color: var(--surface); }
+.atlas-title { font: 500 1.15rem var(--serif); margin-bottom: 8px; }
+.atlas-title strong { font-size: 2.4rem; color: var(--accent); margin-right: 6px; }
+.atlas-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.atlas-cols h3 { margin: 0 0 8px; font: 700 0.95rem var(--sans); }
+.atlas-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.atlas-bars li { display: grid; grid-template-columns: minmax(0, 1fr) 1fr auto; align-items: center; gap: 10px; }
+.atlas-bars a { color: var(--text); text-decoration: none; font-size: 0.92rem; }
+.atlas-bars a:hover { color: var(--accent); text-decoration: underline; }
+.atlas-bar { height: 10px; border-radius: 5px; background: var(--node); position: relative; overflow: hidden; }
+.atlas-bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--c); border-radius: 5px;
+  animation: grow 0.7s ease-out; }
+@keyframes grow { from { width: 0; } }
+@media (prefers-reduced-motion: reduce) { .atlas-bar::after { animation: none; } }
+
+@media (max-width: 900px) {
+  .stage-head { min-height: 0; }
+  .family-kinds { grid-template-columns: minmax(0, 1fr) !important; }
+  .family-branches { display: none; }
+  .roads { grid-template-columns: 1fr; height: auto; }
+  .roads-from { gap: 14px; }
+  .roads-lines { display: none; }
+  .roads-to { padding: 12px 0 0; }
+  .atlas-cols { grid-template-columns: 1fr; }
+}
+.quiz-deck { display: grid; grid-template-columns: auto minmax(0, 520px) auto; align-items: center; justify-content: center; gap: 20px; }
+.deck-step { width: 48px; height: 48px; padding: 0; border-radius: 50%; border-color: var(--trace); color: var(--trace); background: var(--surface);
+  font-size: 1.6rem; line-height: 1; }
+.deck-step:hover { background: var(--trace); color: var(--surface); }
+.pairing { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.pairing h3 { margin: 0 0 18px; font: 600 1.15rem var(--serif); color: var(--muted); }
+@media (max-width: 900px) { .pairing { grid-template-columns: minmax(0, 1fr); } .quiz-deck { gap: 8px; } .deck-step { width: 38px; height: 38px; } }
+.stage-dots { position: absolute; top: 18px; right: 0; display: flex; align-items: center; gap: 10px; }
+.stage-dots button { width: 12px; height: 12px; padding: 0; border-radius: 50%; border: 2px solid var(--trace); background: transparent; }
+.stage-dots button:hover { background: color-mix(in srgb, var(--trace) 35%, transparent); }
+.stage-dots button[aria-pressed="true"] { background: var(--trace); }
+.stage-dots button:focus-visible { outline: 2px solid var(--trace); outline-offset: 3px; }
+.stage-dots .play { width: 30px; height: 30px; margin-left: 6px; border-width: 1.5px; background: var(--surface); position: relative; }
+.stage-dots .play::before { content: ""; position: absolute; inset: 0; margin: auto; width: 0; height: 0; transform: translateX(1px);
+  border-style: solid; border-width: 6px 0 6px 10px; border-color: transparent transparent transparent var(--trace); }
+.stage-dots .play.playing::before { width: 3px; height: 11px; transform: none; border: 0; border-left: 3px solid var(--trace); border-right: 3px solid var(--trace); }
+.stage-dots .play:hover { background: color-mix(in srgb, var(--trace) 12%, var(--surface)); }
+@media (prefers-reduced-motion: reduce) { .stage-dots .play { display: none; } }

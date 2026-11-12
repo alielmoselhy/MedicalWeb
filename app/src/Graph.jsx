@@ -45,6 +45,8 @@ export function stylesheet(flow) {
     { selector: 'edge[kind="bundled"]', style: { 'line-style': 'dashed', 'line-dash-pattern': [3, 3], 'target-arrow-shape': 'none' } },
     // Membership, not causation: a disease "has" these nodes.
     { selector: 'edge[kind="member"], edge[kind="finding"], edge[kind="outcome"]', style: { 'target-arrow-shape': 'none', width: 0.8 } },
+    // Works against: no direction, a bar at both ends.
+    { selector: 'edge[kind="opposite"]', style: { 'line-style': 'dotted', width: 1.6, 'target-arrow-shape': 'tee', 'source-arrow-shape': 'tee', 'source-arrow-color': v('--edge') } },
     { selector: 'edge[kind="involves"]', style: { 'line-style': 'dotted', 'target-arrow-shape': 'none' } },
     // Outside every cloud: faded, label only on hover.
     { selector: '.outside', style: { opacity: 0.25, label: '' } },
