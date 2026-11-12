@@ -61,7 +61,7 @@ export function toElements(ids, edgeList) {
       seen.add(id);
       // An outcome that is itself a disease reads as "progresses to", so it keeps its arrow.
       const kind = e.kind === 'outcome' && byId[e.to].type === 'disease' ? 'progresses' : e.kind;
-      return [{ data: { id, source: e.from, target: e.to, kind } }];
+      return [{ data: { id, source: e.from, target: e.to, kind, ...((e.note || e.source || e.only) && { noted: 1 }) } }];
     }),
   ];
 }
@@ -108,4 +108,20 @@ export function profile(id) {
   // Diseases whose causal chain links this node and n (either way), for grouping neighbours by system.
   const diseasesOf = n => [...new Set(causalOnly.filter(e => (e.from === id && e.to === n) || (e.to === id && e.from === n)).map(e => e.disease))];
   return { diseasesOf, from, to, general, diseases: ds, throughKinds, parents, kinds: kinds.filter(k => inUse.has(k)), siblings, opposites };
+}
+
+// A disease at a glance: where its chain starts, the mechanism most of the chain runs through, its most typical
+// findings, and where it leads.
+export function glance(id) {
+  const chain = causalOnly.filter(e => e.disease === id);
+  const into = new Set(chain.map(e => e.to));
+  const roots = [...new Set(chain.map(e => e.from).filter(f => !into.has(f)))];
+  const degree = {};
+  for (const e of chain) for (const n of [e.from, e.to]) if (byId[n].type === 'mechanism') degree[n] = (degree[n] ?? 0) + 1;
+  const central = Object.entries(degree).sort((a, b) => b[1] - a[1])[0]?.[0];
+  const rank = { classic: 0, common: 1, occasional: 2, rare: 3 };
+  const findings = edges.filter(e => e.disease === id && e.kind === 'finding').sort((a, b) => (rank[a.freq] ?? 4) - (rank[b.freq] ?? 4));
+  const typical = findings.filter(e => e.freq === 'classic');
+  return { roots, central, classic: (typical.length ? typical : findings).slice(0, 4).map(e => e.to),
+    outcomes: edges.filter(e => e.disease === id && e.kind === 'outcome').slice(0, 4).map(e => e.to) };
 }

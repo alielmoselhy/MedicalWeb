@@ -2,26 +2,25 @@
 
 Things to decide together. Nothing here is built yet. Strike an item out, or move it to the README, once it is settled.
 
-## Visualize (the build-your-own web; this section calls it Explore, its name before 2026-11-12)
+## Visualize (grow-your-own web, rebuilt 2026-11-12)
 
-**Redesigned 2026-11-07:**
-- Live bubble layout with WebCola (`cytoscape-cola`, replaced `d3-force` on 2026-11-12): springy links, no overlaps, each cause kept above its effect.
-- One coloured cloud per disease, with a clickable title, replacing the disease node.
-- Rough causal order from top to bottom.
-- Findings and outcomes that no chain link reaches are not drawn on Explore (decided 2026-11-08). The chain-linking pass is done; the 44 left are documented exceptions (see `drafting-protocol.md` §12).
-- Still open: outlines can snake across the canvas to reach a shared bubble; a single disease comes out tall and narrow.
-- Items 1, 2 and 5 below predate the redesign. Recheck them against the new page.
+Agreed with the owner and built:
+- You grow the web one step at a time. Search for a starting point (a disease starts from the roots of its chain and follows that chain). Clicking a node shows faint "ghost" options around it: what leads to it, what it leads to, what it is a kind of, its kinds. Up to 6 per direction are drawn; the side panel lists the rest, with counts of diseases, "Show all" and "Add all".
+- Clicking a ghost adds it. Links to anything already on the web are drawn as soon as both ends are there.
+- Follow all diseases (optionally one body system), or one disease's chain.
+- Lens: "Light up a disease" highlights that disease's path through what is on the web. No disease clouds.
+- The map holds still: only a first web is laid out by WebCola; later nodes are slotted into free room above (causes, parents) or below (effects, kinds) their neighbour. Dragging still wakes the layout.
+- Trail of steps, undo, remove, clear. The whole web (trail, mode, system, lens) lives in the address, so Back undoes a step and a link reopens the web; named webs can also be saved in this browser.
+- Visualize is a subtab of Explore, not in the main nav.
 
-1. **Density.** With 2–3 diseases on the web it gets crowded, and once everything is zoomed to fit the labels are tiny. Should a disease bring fewer nodes when added (e.g. findings first, causes and outcomes on demand), or bring everything as now?
-2. **Clicking a disease.** At the moment it opens the disease page, so removing or highlighting a disease is only possible from the side panel. Keep it, or make a click select the disease (with "Open disease page" in the panel)?
-3. **Not saved in the link.** Removed nodes and the highlight reset on reload; only the diseases on the web are in the address. Fine, or save them too?
-4. **Not checked yet:** phone width and dark mode for the new Explore.
-5. **Dropped from the old Explore:** type filters, syllabus-group filter, "collapse to parent concepts", clouds, cluster layout. Bring any back?
+Still open:
+1. Phone width and dark mode not checked.
+2. Cause groups are no longer folded on this page: a group is one node, and its members appear under "What leads to it".
 
 ## Cause bundles (decided 2026-11-08)
 
 - Bundles are **declared**, never inferred: a chain link from a class node with `members:` (`drafting-protocol.md` §6.5a). The owner's rule: only group causes whose shared nature is the reason they cause the step.
-- On Explore a group starts closed as one bubble marked "(+N)"; clicking opens it. While closed, its members' own arrows are hidden, and so is anything only they lead to (Legionella's hyponatraemia in CAP). A member another disease on the web also uses stays visible.
+- Visualize (rebuilt 2026-11-12) no longer folds groups: the group is one node you can add, and its members are offered under "What leads to it". The old "(+N)" fold code (`bundles.js`) is gone.
 - The disease page always shows everything.
 - Done so far: CAP's five inhaled organisms. Agreed: a pass over every existing file to declare its groups, each judged on the rule above (to-do in `drafting-protocol.md` §11).
 

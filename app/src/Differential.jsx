@@ -43,7 +43,7 @@ export default function Differential({ selected }) {
   const results = differential(picked);
 
   return (
-    <>
+    <div className="differential">
       <h1>Differential</h1>
       <p className="muted">Pick findings; diseases are ranked by exact matches, then related matches, then how typical the findings are.</p>
       <div className="controls">
@@ -105,6 +105,6 @@ export default function Differential({ selected }) {
         {!picked.length && <li className="muted">No findings picked yet.</li>}
         {picked.length > 0 && !results.length && <li className="muted">No disease matches these findings.</li>}
       </ul>
-    </>
+    </div>
   );
 }

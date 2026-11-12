@@ -48,6 +48,8 @@ export function stylesheet(flow) {
     // Works against: no direction, a bar at both ends.
     { selector: 'edge[kind="opposite"]', style: { 'line-style': 'dotted', width: 1.6, 'target-arrow-shape': 'tee', 'source-arrow-shape': 'tee', 'source-arrow-color': v('--edge') } },
     { selector: 'edge[kind="involves"]', style: { 'line-style': 'dotted', 'target-arrow-shape': 'none' } },
+    // A link with a note (read on the disease page) carries an asterisk.
+    { selector: 'edge[noted]', style: { label: '*', color: v('--note'), 'font-size': 18, 'font-weight': 'bold', 'text-background-color': v('--surface'), 'text-background-opacity': 0.8 } },
     // Outside every cloud: faded, label only on hover.
     { selector: '.outside', style: { opacity: 0.25, label: '' } },
     { selector: '.dim', style: { opacity: 0.12 } },
@@ -132,7 +134,7 @@ export default function Graph({ elements, flow = false, selected, onTap, label, 
       });
       if (positions) cy.fit(undefined, 30);
     }
-    cy.on('tap', 'node', e => { setHover(null); props.current.onTap?.(e.target.id()); });
+    cy.on('tap', 'node', e => { setHover(null); props.current.onTap?.(e.target.id(), e.originalEvent); }); // the event lets a page open a menu at the pointer
     cy.on('mouseover', 'node', e => {
       const n = e.target;
       cy.elements().not('.cloud-label').addClass('dim');

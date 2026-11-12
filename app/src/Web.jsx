@@ -10,9 +10,10 @@ const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matc
 // and each cause is kept at least GAP above what it causes. That is a minimum, not a row, so the web flows freely.
 const LINK_LEN = 80;  // causal link length; is-a links are looser
 const GAP = 70;       // a cause sits at least this far above what it causes
-const SIDE_GAP = 400; // where a new disease's bubbles start, side by side; the layout keeps them roughly there
-const DEPTH_GAP = 90; // where a new bubble starts, by its causal depth
+const STEP = 110;     // how far from its neighbour a new bubble starts
+const DEPTH_GAP = 90; // where a bubble with no neighbour on the web starts, by its causal depth
 const MIN_ZOOM = 0.5; // below this labels are unreadable; pan to see the rest
+const READABLE = 0.85; // the camera never zooms out past this to show something new
 const PAD = 60;
 const COLA = { name: 'cola', nodeDimensionsIncludeLabels: true, avoidOverlap: true, nodeSpacing: () => 8, fit: false,
   centerGraph: false, handleDisconnected: true, maxSimulationTime: 3000,
@@ -31,34 +32,21 @@ export function depths(ids, links) {
   }
   return d;
 }
-// A broad node halo keeps the contour off each glyph; still broader virtual-edge influence turns the narrow
-// connecting tendrils into useful interior space without making separate disease clouds physically attract.
-const CLOUD_OUTLINE = {
-  pixelGroup: 6,
-  nodeR0: 34,
-  nodeR1: 78,
-  edgeR0: 32,
-  edgeR1: 72,
-  morphBuffer: 18,
-  memberInfluenceFactor: 0.9,
-  edgeInfluenceFactor: 1.35,
-  virtualEdges: true,
-};
 
-// A live bubble network laid out by WebCola. Dragging wakes the layout, so neighbours make room and settle; a
-// dropped bubble stays where it was dropped. Any change to the web lays it out again from where everything is.
-// clouds: [{ id, label, ids, colour }], one outline per disease, its title tappable (onTap(id)).
-export default function Web({ elements, clouds, highlight, selected, onTap, label, empty }) {
+// A live bubble network, first laid out by WebCola. Bubbles already on the web hold still while new ones are slotted in
+// beside them. Dragging wakes the layout, so neighbours make room and settle; a dropped bubble stays where it was dropped.
+// Elements with the class "ghost" are drawn faint and dashed: options the page offers, not yet part of the web.
+export default function Web({ elements, highlight, selected, onTap, label, empty }) {
   const ref = useRef();
-  const st = useRef({}); // cy, bb, run (starts a cola layout), gaps (the causal order constraints)
+  const st = useRef({}); // cy, run (starts a cola layout), gaps (the causal order constraints), placed
   const props = useRef();
   props.current = { onTap, highlight };
   const fontsReady = useFontsReady();
 
-  // Light up the hovered node's neighbours, or else the highlight list. Titles never dim.
+  // Light up the hovered node's neighbours, or else the highlight list.
   const paint = hovered => {
     const { cy } = st.current;
-    const els = cy.elements().not('.cloud-title');
+    const els = cy.elements();
     els.removeClass('dim hl');
     const ids = props.current.highlight;
     if (!hovered && !ids.length) return;
@@ -71,32 +59,17 @@ export default function Web({ elements, clouds, highlight, selected, onTap, labe
   useEffect(() => {
     if (!fontsReady) return;
     const cy = cytoscape({ container: ref.current, style: [...stylesheet(false),
-      // Bigger labels than the small graphs, still drawn when zoomed out to see a whole multi-disease web.
+      // Bigger labels than the small graphs, still drawn when zoomed out to see a whole web.
       { selector: 'node', style: { 'font-size': 12, 'text-max-width': 110, 'min-zoomed-font-size': 5 } },
-      { selector: 'node.cloud-title', style: { events: 'yes', 'font-size': 15, 'text-valign': 'center' } },
-      // A bundle of causes: a cause, drawn bigger with a double border, meaning "click to open".
-      { selector: 'node.bundle', style: { width: 20, height: 20, 'border-width': 4, 'border-style': 'double', 'border-color': v('--glyph'),
-        'font-weight': 'bold' } },
+      { selector: '.ghost', style: { opacity: 0.45 } },
+      { selector: 'node.ghost', style: { 'border-width': 2, 'border-color': v('--glyph'), 'background-opacity': 0.5 } },
+      { selector: 'edge.ghost', style: { 'line-style': 'dashed', 'line-dash-pattern': [4, 4] } },
+      { selector: '.ghost.hl', style: { opacity: 0.8 } },
       { selector: 'edge.flowing', style: { 'line-style': 'dashed', 'line-dash-pattern': [10, 8], width: 1.6 } }], minZoom: 0.15, maxZoom: 3 });
-    const bb = cy.bubbleSets();
-    // A title sits over the bubbles only its disease has; shared ones lie between clouds.
-    const placeTitles = () => (st.current.clouds ?? []).forEach(c => {
-      const own = cy.nodes().filter(n => c.ids.includes(n.id()) && !st.current.clouds.some(o => o !== c && o.ids.includes(n.id())));
-      const members = own.length ? own : cy.nodes().filter(n => c.ids.includes(n.id()));
-      if (!members.length) return;
-      const { x1, x2, y1 } = members.boundingBox({ includeLabels: false });
-      cy.$id(`title:${c.id}`).position({ x: (x1 + x2) / 2, y: y1 - 55 });
-    });
-    // Titles follow their clouds, at most once a frame.
-    let titleFrame = 0;
-    cy.on('position', 'node', e => {
-      if (e.target.hasClass('cloud-title') || titleFrame) return;
-      titleFrame = requestAnimationFrame(() => { titleFrame = 0; placeTitles(); });
-    });
     let layout = null;
     const run = (opts, done) => {
       layout?.stop();
-      layout = cy.elements().not('.cloud-title').layout({ ...COLA, gapInequalities: st.current.gaps, ...opts });
+      layout = cy.elements().layout({ ...COLA, gapInequalities: st.current.gaps, ...opts });
       if (done) layout.one('layoutstop', done);
       layout.run();
     };
@@ -110,7 +83,7 @@ export default function Web({ elements, clouds, highlight, selected, onTap, labe
     };
     const startFlow = collection => {
       stopFlow();
-      flowing = collection.filter('[kind = "causal"]');
+      flowing = collection.filter('[kind = "causal"]').not('.ghost');
       if (!flowing.length || reducedMotion.matches) return;
       flowing.addClass('flowing');
       flowTimer = setInterval(() => {
@@ -118,115 +91,93 @@ export default function Web({ elements, clouds, highlight, selected, onTap, labe
         flowing.style('line-dash-offset', flowOffset);
       }, 100);
     };
-    st.current = { cy, bb, run, stopFlow, placeTitles };
+    st.current = { cy, run, stopFlow };
 
     // Grabbing a bubble starts a never-ending cola run, so neighbours make room as it moves. Cola only learns of a
     // grab that happens while it runs, so the grab is replayed once it has started. On drop the bubble is locked
     // (cola treats locked as fixed) while the rest settle round it, then stopped and unlocked: it stays put.
     let replaying = false, settle = 0;
     cy.on('grab', 'node', e => {
-      if (replaying || e.target.hasClass('cloud-title') || reduced()) return;
+      if (replaying || reduced()) return;
       clearTimeout(settle);
-      cy.nodes(':locked').not('.cloud-title').unlock();
+      cy.nodes(':locked').unlock();
       run({ infinite: true });
       replaying = true; e.target.emit('grab'); replaying = false;
     });
     cy.on('free', 'node', e => {
-      if (e.target.hasClass('cloud-title') || reduced()) return;
+      if (reduced()) return;
       e.target.lock();
       settle = setTimeout(() => { layout?.stop(); e.target.unlock(); }, 1500);
     });
-    cy.on('tap', 'node', e => { const id = e.target.id(); props.current.onTap(id.startsWith('title:') ? id.slice(6) : id); });
-    cy.on('mouseover', 'node', e => {
-      if (e.target.hasClass('cloud-title')) return;
-      paint(e.target);
-      startFlow(e.target.connectedEdges());
-    });
+    cy.on('tap', 'node', e => props.current.onTap(e.target.id()));
+    cy.on('mouseover', 'node', e => { paint(e.target); startFlow(e.target.connectedEdges()); });
     cy.on('mouseout', 'node', () => { stopFlow(); paint(); });
     cy.on('mouseover', 'edge[kind="causal"]', e => startFlow(e.target));
     cy.on('mouseout', 'edge[kind="causal"]', () => stopFlow());
-    return () => { stopFlow(); clearTimeout(settle); cancelAnimationFrame(titleFrame); layout?.stop(); cy.destroy(); };
+    return () => { stopFlow(); clearTimeout(settle); layout?.stop(); cy.destroy(); };
   }, [fontsReady]);
 
-  // The web changed: re-plan all of it, then let every bubble glide to its new home.
+  // The web changed: a first web is laid out; after that new bubbles take free room beside a neighbour and nothing else moves.
   useEffect(() => {
     if (!fontsReady) return;
-    const { cy, bb, run, placeTitles } = st.current;
+    const { cy, run } = st.current;
     st.current.stopFlow();
-    st.current.clouds = clouds;
-    const titles = clouds.map(c => ({ data: { id: `title:${c.id}`, label: c.label }, classes: 'cloud-title', grabbable: false }));
-    const all = [...elements, ...titles];
-    const want = new Set(all.map(el => el.data.id));
+    const want = new Set(elements.map(el => el.data.id));
     cy.remove(cy.elements().filter(el => !want.has(el.id())));
-    cy.add(all.filter(el => cy.getElementById(el.data.id).empty()));
-    elements.forEach(el => {
-      const e = cy.getElementById(el.data.id);
-      e.classes(el.classes ?? '');
-      if (!el.data.source) e.data('label', el.data.label); // a cause group's "(+N)" changes as it opens and closes
-    });
-    clouds.forEach(c => cy.$id(`title:${c.id}`).classes('cloud-label cloud-title').style('color', v(c.colour)));
+    cy.add(elements.filter(el => cy.getElementById(el.data.id).empty()));
+    elements.forEach(el => cy.getElementById(el.data.id).classes(el.classes ?? ''));
 
-    // Real bubble-plus-label boxes, measured by Cytoscape, for the plan and for collisions.
-    const boxes = {};
-    const web = cy.nodes().not('.cloud-title');
-    web.forEach(n => {
-      const p = n.position(), r = n.boundingBox({ includeLabels: true });
-      boxes[n.id()] = { hw: Math.max(p.x - r.x1, r.x2 - p.x) + 6, top: r.y1 - p.y - 4, bottom: r.y2 - p.y + 4 };
-    });
-    const nodes = web.map(n => n.id());
+    const nodes = cy.nodes().map(n => n.id());
     const links = elements.filter(el => el.data.source).map(el => ({ source: el.data.source, target: el.data.target, kind: el.data.kind }));
-    // How the web sits in the canvas, title space included: the zoom that shows all of it, and its centre.
-    const frame = () => {
-      const xs = nodes.map(id => cy.$id(id).position('x')), ys = nodes.map(id => cy.$id(id).position('y'));
-      const x1 = Math.min(...xs) - 80, x2 = Math.max(...xs) + 80, y1 = Math.min(...ys) - 90, y2 = Math.max(...ys) + 50;
-      return { zoom: Math.min(1.4, (cy.width() - 2 * PAD) / (x2 - x1), (cy.height() - 2 * PAD) / (y2 - y1)), cx: (x1 + x2) / 2, cy: (y1 + y2) / 2 };
-    };
-
-    // New bubbles start next to a neighbour already on the web, else on their disease's side at their causal depth.
     const placed = st.current.placed ??= new Set();
     [...placed].filter(id => !want.has(id)).forEach(id => placed.delete(id));
     const first = !placed.size;
     const fresh = nodes.filter(id => !placed.has(id));
     const depth = depths(nodes, links);
-    for (const [i, id] of fresh.entries()) {
-      const spread = ((i * 7919) % 101) / 100 - 0.5; // a fixed scatter in -0.5..0.5, so the layout is repeatable
-      const near = links.flatMap(l => (l.source === id ? [l.target] : l.target === id ? [l.source] : [])).find(n => placed.has(n));
-      const side = Math.max(0, clouds.findIndex(c => c.ids.includes(id)));
-      cy.$id(id).position(near
-        ? { x: cy.$id(near).position('x') + 70 * Math.cos(i * 2.4), y: cy.$id(near).position('y') + 70 * Math.sin(i * 2.4) }
-        : { x: (side - (clouds.length - 1) / 2) * SIDE_GAP + spread * SIDE_GAP * 0.8, y: depth[id] * DEPTH_GAP + spread * 60 });
-      placed.add(id);
-    }
-    cy.nodes(':locked').not('.cloud-title').unlock(); // a re-layout lets go of dropped bubbles
     // Causal order as constraints: a cause at least GAP above its effect. Links that loop back are left free.
     st.current.gaps = links.filter(l => l.kind !== 'is-a' && depth[l.target] > depth[l.source])
       .map(l => ({ axis: 'y', left: cy.$id(l.source), right: cy.$id(l.target), gap: GAP }));
+    // A first web is laid out by cola. After that nothing already placed moves: each new bubble takes the first free
+    // slot in a row above its neighbour (a cause, or for is-a, child → parent, the parent) or below it (an effect),
+    // spreading outwards from the middle and on to the next row out when a row is full.
+    const boxes = first ? [] : cy.nodes().filter(n => placed.has(n.id())).map(n => n.boundingBox({ includeLabels: true }));
+    const clear = (a, b) => a.x2 + 12 < b.x1 || b.x2 + 12 < a.x1 || a.y2 + 8 < b.y1 || b.y2 + 8 < a.y1;
+    const right = boxes.length ? Math.max(...boxes.map(b => b.x2)) : 0;
+    for (const [i, id] of fresh.entries()) {
+      const n = cy.$id(id);
+      if (first) { n.position({ x: (((i * 7919) % 101) / 100 - 0.5) * 400, y: depth[id] * DEPTH_GAP }); placed.add(id); continue; }
+      const l = links.find(x => (x.source === id && placed.has(x.target)) || (x.target === id && placed.has(x.source)));
+      // With no neighbour on the web (a new starting point), start to the right of everything.
+      const p = l ? cy.$id(l.source === id ? l.target : l.source).position() : { x: right + 160, y: 0 };
+      const dir = !l ? 1 : (l.source === id) !== (l.kind === 'is-a') ? -1 : 1;
+      slots: for (let row = 1; row <= 12; row++) for (let k = 0; k <= 8; k++) {
+        n.position({ x: p.x + (k % 2 ? -1 : 1) * Math.ceil(k / 2) * 75, y: p.y + (l ? dir * row * STEP : (row - 1) * STEP) });
+        const box = n.boundingBox({ includeLabels: true });
+        if (boxes.every(b => clear(box, b))) break slots;
+      }
+      boxes.push(n.boundingBox({ includeLabels: true }));
+      placed.add(id);
+    }
+    if (!fresh.length) return;
+    // Move the camera only when something new lands out of view.
     const show = () => {
-      placeTitles();
-      if (!fresh.length || !nodes.length) return;
-      const f = frame(), zoom = Math.max(MIN_ZOOM, f.zoom);
-      const view = { zoom, pan: { x: cy.width() / 2 - zoom * f.cx, y: cy.height() / 2 - zoom * f.cy } };
+      const { x1, x2, y1, y2 } = cy.extent();
+      const out = fresh.some(id => { const p = cy.$id(id).position(); return p.x < x1 || p.x > x2 || p.y < y1 || p.y > y2; });
+      if (!first && !out) return;
+      // The first view fits the whole web; later ones frame what was just added, zooming out no further than readable.
+      const frame = first ? nodes : fresh;
+      const xs = frame.map(id => cy.$id(id).position('x')), ys = frame.map(id => cy.$id(id).position('y'));
+      const bx1 = Math.min(...xs) - 80, bx2 = Math.max(...xs) + 80, by1 = Math.min(...ys) - 60, by2 = Math.max(...ys) + 50;
+      const fit = Math.min(1.4, (cy.width() - 2 * PAD) / (bx2 - bx1), (cy.height() - 2 * PAD) / (by2 - by1));
+      const zoom = first ? Math.max(MIN_ZOOM, fit) : Math.max(READABLE, Math.min(cy.zoom(), fit));
+      const view = { zoom, pan: { x: cy.width() / 2 - zoom * (bx1 + bx2) / 2, y: cy.height() / 2 - zoom * (by1 + by2) / 2 } };
       if (first) cy.viewport(view); else cy.animate({ ...view, duration: 500 });
     };
+    if (!first) return show();
     // Always run frame by frame: cola's non-animated mode loops until it converges, which maxSimulationTime can't cut
-    // short, so a web that never settles would freeze the tab. A fresh web (or reduced motion) takes many steps
-    // per frame, so it settles almost at once; a changed one moves into place on screen.
-    if (nodes.length) run({ animate: true, refresh: first || reduced() ? 30 : 1 }, show);
-
-    // Redraw the outlines when the set of clouds or members changes; the plugin then follows node moves by itself.
-    bb.getPaths().forEach(p => bb.removePath(p));
-    clouds.forEach(c => {
-      const members = cy.nodes().filter(n => c.ids.includes(n.id()));
-      if (!members.length) return;
-      const colour = v(c.colour);
-      // No edges (removing an edged path leaves a cache that breaks later redraws) and no avoided nodes
-      // (an outline fails outright when another disease's bubbles sit inside its area).
-      bb.addPath(members, cy.collection(), cy.collection(), {
-        ...CLOUD_OUTLINE,
-        style: { fill: colour, fillOpacity: '0.12', stroke: colour, strokeWidth: '2.5' },
-      });
-    });
-  }, [elements, clouds, fontsReady]);
+    // short, so a web that never settles would freeze the tab. Many steps per frame, so it settles almost at once.
+    run({ animate: true, refresh: 30 }, show);
+  }, [elements, fontsReady]);
 
   useEffect(() => {
     if (!fontsReady) return;

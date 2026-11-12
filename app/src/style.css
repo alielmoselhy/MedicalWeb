@@ -2,7 +2,7 @@
   /* ECG paper: faint pink page, minor/major grid, navy ink, crimson trace */
   --bg: #fcf8f8; --surface: #ffffff; --text: #1b2230; --muted: #5d6472; --border: #eadfdf;
   --grid: #f8e8e8; --grid-major: #f0cfcf; --trace: #b3202e;
-  --accent: #b3202e; --edge: #a8a29e;
+  --accent: #b3202e; --edge: #a8a29e; --note: #ea580c;
   --disease: #c2410c; --cause: #15803d; --mechanism: #7c3aed; --finding: #0369a1; --outcome: #a16207;
   --node: #ece6e6; --glyph: #78716c; --strong: #2b3242;
   --cloud-1: #e11d48; --cloud-2: #0d9488; --cloud-3: #2563eb; --cloud-4: #d97706; --cloud-5: #7c3aed; --cloud-6: #16a34a;
@@ -14,7 +14,7 @@
     /* Monitor screen: dark glass with a dim grid */
     --bg: #12151b; --surface: #191d25; --text: #e8e6e3; --muted: #9aa1ad; --border: #2b303b;
     --grid: #1b2029; --grid-major: #262c38; --trace: #f2707a;
-    --accent: #f2707a; --edge: #6b6560;
+    --accent: #f2707a; --edge: #6b6560; --note: #fb923c;
     --disease: #fb923c; --cause: #4ade80; --mechanism: #a78bfa; --finding: #38bdf8; --outcome: #facc15;
     --node: #353b48; --glyph: #a8a29e; --strong: #e8e6e3;
     --cloud-1: #fb7185; --cloud-2: #2dd4bf; --cloud-3: #60a5fa; --cloud-4: #fbbf24; --cloud-5: #a78bfa; --cloud-6: #4ade80;
@@ -32,6 +32,7 @@ nav { display: flex; gap: 20px; flex-wrap: wrap; }
 nav a { text-decoration: none; color: var(--muted); padding-bottom: 4px; border-bottom: 2px solid transparent; }
 nav a:hover { color: var(--text); }
 nav a[aria-current] { color: var(--text); font-weight: 700; border-bottom-color: var(--accent); }
+nav.subtabs { gap: 16px; font-size: 0.92rem; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
 main { --pad: 24px; padding: var(--pad); max-width: 1400px; margin: 0 auto; }
 @media (max-width: 600px) { header { padding: 10px 16px; gap: 8px 12px; } main { --pad: 16px; } nav { gap: 14px; } }
 h1, h2 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01em; }
@@ -259,3 +260,173 @@ h3.system { margin: 14px 0 2px; color: var(--muted); font: 700 0.74rem/1.3 var(-
 .stage-dots .play.playing::before { width: 3px; height: 11px; transform: none; border: 0; border-left: 3px solid var(--trace); border-right: 3px solid var(--trace); }
 .stage-dots .play:hover { background: color-mix(in srgb, var(--trace) 12%, var(--surface)); }
 @media (prefers-reduced-motion: reduce) { .stage-dots .play { display: none; } }
+
+/* Disease page: a chart-paper header with the 10-second summary, a sticky section bar, the chain with its notes beside it. */
+.disease-head { padding-top: 32px; padding-bottom: 28px; margin-bottom: 0; }
+.trail { font-size: 0.92rem; color: var(--muted); margin-bottom: 10px; }
+.trail a { color: var(--accent); text-decoration: none; font-weight: 700; }
+.trail a:hover { text-decoration: underline; }
+.disease-head h1 { font-size: clamp(2rem, 4vw, 2.9rem); letter-spacing: -0.02em; margin-bottom: 10px; }
+.kin { margin: 0 0 14px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+a.button { display: inline-block; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--trace); color: var(--trace); background: var(--surface);
+  text-decoration: none; font-weight: 700; font-size: 0.92rem; }
+a.button:hover { background: var(--trace); color: var(--surface); }
+.glance { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; border-top: 2px solid var(--trace); }
+.glance > div { padding: 14px 18px 4px 0; }
+.glance > div + div { padding-left: 18px; border-left: 1px solid var(--grid-major); }
+.glance dt { font: 600 1.05rem var(--serif); margin-bottom: 8px; }
+.glance dd { margin: 0; }
+.jump { position: sticky; top: 0; z-index: 5; display: flex; gap: 24px; margin: 0 calc(-1 * var(--pad)) 8px; padding: 10px var(--pad);
+  background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
+.jump a { color: var(--muted); text-decoration: none; font-weight: 700; font-size: 0.92rem; }
+.jump a:hover { color: var(--accent); }
+.section { scroll-margin-top: 56px; }
+.chain-view { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; align-items: start; }
+.step-notes { position: sticky; top: 64px; max-height: calc(100vh - 90px); overflow: auto; }
+.step-notes h3 { margin: 4px 0 10px; }
+.step-notes details { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 10px; }
+.step-notes summary { cursor: pointer; font-weight: 700; color: var(--accent); }
+.note { display: block; font-size: 0.92rem; margin: 2px 0 0 0; }
+.freq { display: inline-flex; gap: 3px; margin-right: 8px; vertical-align: middle; }
+.freq i { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--finding); }
+.freq i.on { background: var(--finding); }
+.freq-key { margin-top: -4px; }
+.similar { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-bottom: 14px; }
+.similar .card { display: flex; flex-direction: column; gap: 8px; }
+.similar-name { font: 600 1.15rem var(--serif); color: var(--text); text-decoration: none; }
+.similar-name:hover { color: var(--accent); text-decoration: underline; }
+.overlap { height: 6px; border-radius: 3px; background: var(--node); overflow: hidden; }
+.overlap span { display: block; height: 100%; width: var(--w); background: var(--trace); }
+.more-similar { margin-top: 10px; }
+.disease-foot { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); }
+.neighbours { display: flex; justify-content: space-between; gap: 16px; margin-top: 12px; }
+.neighbours a { display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface);
+  text-decoration: none; color: var(--text); font: 600 1.05rem var(--serif); max-width: 48%; }
+.neighbours a .muted { font: 400 0.82rem var(--sans); }
+.neighbours a.next { text-align: right; margin-left: auto; }
+.neighbours a:hover { border-color: var(--accent); }
+@media (max-width: 900px) {
+  .glance { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .glance > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .chain-view { grid-template-columns: minmax(0, 1fr); }
+  .step-notes { position: static; max-height: none; }
+}
+
+/* Disease list: tools row, finding matches, hover previews. */
+.index-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 20px; }
+.index-tools input.big { margin-bottom: 0; flex: 1 1 18rem; }
+.segmented { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+.segmented button { border: 0; border-radius: 0; padding: 6px 14px; background: var(--surface); }
+.segmented button[aria-pressed="true"] { background: var(--trace); color: var(--surface); }
+.by-finding { margin-bottom: 20px; }
+.by-finding h2 { margin-top: 4px; }
+.inline-disease { display: inline-block; margin: 2px 10px 2px 0; color: var(--text); }
+.directory li { position: relative; }
+.directory.az { columns: 4 200px; }
+.preview { position: absolute; z-index: 10; left: 0; top: 100%; width: 300px; padding: 12px 14px; border-radius: 8px; background: var(--surface);
+  border: 1px solid var(--grid-major); border-top: 3px solid var(--trace); box-shadow: 0 12px 28px -14px color-mix(in srgb, var(--text) 40%, transparent);
+  pointer-events: none; font-size: 0.9rem; }
+.preview p { margin: 6px 0 0; }
+.fold { break-inside: avoid; padding: 2px 0 6px; border-bottom: 1px solid var(--border); }
+.fold summary { display: flex; align-items: baseline; gap: 8px; padding: 10px 0 6px; cursor: pointer; list-style: none; }
+.fold summary::-webkit-details-marker { display: none; }
+.fold summary::before { content: ""; flex: none; width: 7px; height: 7px; margin-right: 4px; border-right: 2px solid var(--trace); border-bottom: 2px solid var(--trace);
+  transform: rotate(-45deg) translateY(-2px); transition: transform 0.15s ease; }
+.fold[open] summary::before { transform: rotate(45deg) translateY(-2px); }
+.fold-name { font: 600 1.1rem/1.3 var(--serif); color: var(--text); }
+.fold summary:hover .fold-name { color: var(--accent); }
+.fold ul.plain { margin: 0 0 6px 19px; }
+@media (prefers-reduced-motion: reduce) { .fold summary::before { transition: none; } }
+.system-fold { border-bottom: 1px solid var(--grid-major); }
+.system-fold > summary { padding: 14px 0 10px; }
+.system-fold > summary .fold-name { font-size: 1.35rem; }
+.system-fold > .directory { padding: 0 0 12px 19px; }
+/* Explore item: the map on the left, folded details on the right. */
+.explore-layout { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 20px; align-items: start; }
+.explore-main { position: sticky; top: 12px; }
+.explore-side { display: flex; flex-direction: column; gap: 10px; }
+.side-fold { border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+.side-fold[open] { border-color: var(--grid-major); }
+.side-fold summary { display: flex; align-items: center; gap: 10px; padding: 12px 16px; cursor: pointer; list-style: none; font: 600 1.05rem var(--serif); }
+.side-fold summary::-webkit-details-marker { display: none; }
+.side-fold summary::before { content: ""; flex: none; width: 7px; height: 7px; border-right: 2px solid var(--trace); border-bottom: 2px solid var(--trace);
+  transform: rotate(-45deg); transition: transform 0.15s ease; }
+.side-fold[open] summary::before { transform: rotate(45deg); }
+.side-fold summary:hover { color: var(--accent); }
+.side-fold .count { margin-left: auto; min-width: 28px; padding: 1px 8px; border-radius: 999px; text-align: center; font: 700 0.8rem/1.6 var(--sans);
+  background: color-mix(in srgb, var(--trace) 10%, var(--surface)); color: var(--trace); }
+.side-fold-body { padding: 0 16px 14px; max-height: 60vh; overflow: auto; }
+.side-fold-body .by-system { columns: 1; }
+.side-fold-body > p:first-child { margin-top: 0; }
+@media (prefers-reduced-motion: reduce) { .side-fold summary::before { transition: none; } }
+@media (max-width: 1000px) { .explore-layout { grid-template-columns: minmax(0, 1fr); } .explore-main { position: static; } }
+.side-fold.empty summary { color: var(--muted); }
+.side-fold.empty .count { background: var(--node); color: var(--muted); }
+
+/* Explore: hover peek at an item. */
+.peek { position: fixed; z-index: 40; width: 280px; padding: 10px 12px; border-radius: 10px; pointer-events: none;
+  background: var(--surface); border: 1px solid var(--border); box-shadow: 0 6px 20px rgb(0 0 0 / 0.15);
+  font-size: 0.85rem; transform-origin: top left; animation: peek-in 0.14s ease-out; }
+.excerpt { display: grid; gap: 4px; }
+.excerpt strong { font: 600 0.98rem var(--serif); }
+.excerpt-row { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 4px; }
+.step-notes .excerpt strong { font-size: 1.15rem; }
+@keyframes peek-in { from { opacity: 0; transform: scale(0.95); } }
+@media (prefers-reduced-motion: reduce) { .peek { animation: none; } }
+
+/* Explore: the family strip, joined to the top of the map below it. */
+.explore-family { display: grid; gap: 6px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; }
+.explore-family > div { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.explore-family-label { min-width: 92px; color: var(--muted); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.explore-family:has(+ .explore-map) { margin-bottom: 0; border-bottom: 0; border-radius: 8px 8px 0 0; }
+.explore-family + .explore-map .graph { border-top-left-radius: 0; border-top-right-radius: 0; }
+
+/* Explore start: one colour-banded card per type, with share bars like the home atlas. */
+.start-card { padding: 16px 18px 18px; border-radius: 8px; background: color-mix(in srgb, var(--c) 5%, var(--surface));
+  border-top: 6px solid var(--c); box-shadow: 0 1px 0 var(--grid-major), 0 10px 24px -12px color-mix(in srgb, var(--c) 45%, transparent);
+  transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.start-card:hover { transform: translateY(-2px); box-shadow: 0 1px 0 var(--grid-major), 0 16px 30px -14px color-mix(in srgb, var(--c) 60%, transparent); }
+.start-card h3 { display: flex; align-items: center; margin: 0 0 12px; font: 600 1.3rem var(--serif); color: var(--c); }
+.start-card h3 .chip { padding: 0; margin: 0 8px 0 0; border: 0; background: none; transform: scale(1.5); }
+@media (prefers-reduced-motion: reduce) { .start-card { transition: none; } .start-card:hover { transform: none; } }
+
+/* Differential: no boxes, just lines between the sections. */
+.differential .card { background: none; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; padding: 0 0 12px; margin-bottom: 12px; }
+.differential .chip, .differential .finder button:not([aria-pressed="true"]) { border-color: transparent; background: none; }
+.differential button.chip:hover, .differential .finder button:not([aria-pressed="true"]):hover { background: color-mix(in srgb, var(--finding) 10%, transparent); }
+.differential .finder .chip[aria-pressed="true"] { border-color: transparent; background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.start-card .atlas-bars li { grid-template-columns: minmax(0, 2fr) 1fr auto; }
+
+/* Explore item and disease pages: tinted in the colour of what is being explored. */
+.explore-page h1 { margin: 22px 0 6px; padding-left: 14px; border-left: 6px solid var(--c); font-size: 2.2rem; }
+.explore-page h1 + p .chip:first-child { border-color: var(--c); background: color-mix(in srgb, var(--c) 10%, var(--surface)); font-weight: 700; }
+.explore-page .explore-map .graph { border: 0; border-top: 6px solid var(--c);
+  box-shadow: 0 1px 0 var(--grid-major), 0 12px 28px -14px color-mix(in srgb, var(--c) 50%, transparent); }
+.explore-page .explore-family { border: 0; border-top: 6px solid var(--c); background: color-mix(in srgb, var(--c) 5%, var(--surface)); }
+.explore-page .explore-family:has(+ .explore-map) { border-bottom: 1px solid color-mix(in srgb, var(--c) 20%, var(--border)); }
+.explore-page .explore-family + .explore-map .graph { border-top: 0; }
+.explore-page .explore-family-label { color: var(--c); }
+.explore-page .side-fold { border: 0; border-left: 4px solid color-mix(in srgb, var(--c) 35%, var(--surface));
+  box-shadow: 0 1px 0 var(--grid-major), 0 6px 16px -12px color-mix(in srgb, var(--c) 40%, transparent); transition: transform 0.15s ease, border-color 0.15s ease; }
+.explore-page .side-fold:not(.empty):hover { transform: translateX(2px); border-left-color: var(--c); }
+.explore-page .side-fold[open] { border-left-color: var(--c); background: color-mix(in srgb, var(--c) 4%, var(--surface)); }
+.explore-page .side-fold summary::before { border-color: var(--c); }
+.explore-page .side-fold summary:hover { color: var(--c); }
+.explore-page .side-fold:not(.empty) .count { background: color-mix(in srgb, var(--c) 14%, var(--surface)); color: var(--c); }
+@media (prefers-reduced-motion: reduce) { .explore-page .side-fold { transition: none; } .explore-page .side-fold:hover { transform: none; } }
+
+/* Explore: diseases stand out from the items around them. */
+.explore-root .chip.disease { font-weight: 700; }
+
+/* Visualize: the panel beside the web. */
+.web-panel { max-height: calc(100vh - 160px); overflow: auto; }
+.web-panel h2 { font-size: 1.05rem; margin: 18px 0 6px; padding-top: 12px; border-top: 1px solid var(--border); }
+.web-panel .excerpt + p { margin: 8px 0 4px; }
+.web-panel button.chip { cursor: pointer; }
+.web-panel .chip.on-web { opacity: 0.55; }
+.web-panel .chip[aria-pressed="true"] { border-color: var(--accent); }
+.web-trail { margin: 0; padding-left: 22px; }
+.web-trail li { padding: 2px 0; }
+.web-save { display: flex; gap: 6px; margin-bottom: 8px; }
+.web-save input { flex: 1; min-width: 0; font: inherit; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); }
